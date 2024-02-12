@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the risk factor, financial instrument or set of financial instruments that is stressed under a hypothetical stress scenario.
-/// </summary>
-[KnownType(typeof(StressItem1Choice.Product))]
-[KnownType(typeof(StressItem1Choice.Strategy))]
-[KnownType(typeof(StressItem1Choice.RiskFactor))]
-public abstract partial record StressItem1Choice_ : IIsoXmlSerilizable<StressItem1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the risk factor, financial instrument or set of financial instruments that is stressed under a hypothetical stress scenario.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static StressItem1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(StressItem1Choice.Product))]
+    [KnownType(typeof(StressItem1Choice.Strategy))]
+    [KnownType(typeof(StressItem1Choice.RiskFactor))]
+    [IsoId("_fCpTIKsvEeayv9XxdmMwKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stress Item 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record StressItem1Choice_
+    #else
+    public abstract partial class StressItem1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Pdct" => StressItem1Choice.Product.Deserialize(elementWithPayload),
-             "Strtgy" => StressItem1Choice.Strategy.Deserialize(elementWithPayload),
-             "RskFctr" => StressItem1Choice.RiskFactor.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid StressItem1Choice choice.")
-        };
     }
 }

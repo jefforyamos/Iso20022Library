@@ -7,64 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a document by a unique identification and a version together with the submitter of the document.|Also specifies an index for easy referencing.
 /// </summary>
+[IsoId("_RJNBxNp-Ed-ak6NoX_4Aeg_2003796933")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Document Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DocumentIdentification4
-     : IIsoXmlSerilizable<DocumentIdentification4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DocumentIdentification4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DocumentIdentification4( System.String reqIdentification,System.UInt64 reqVersion,BICIdentification1 reqSubmitter,System.String reqDocumentIndex )
+    {
+        Identification = reqIdentification;
+        Version = reqVersion;
+        Submitter = reqSubmitter;
+        DocumentIndex = reqDocumentIndex;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
+    [IsoId("_RJNBxdp-Ed-ak6NoX_4Aeg_2060132147")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the version of a set of data. Example: Version 1.0.
     /// </summary>
+    [IsoId("_RJNBxtp-Ed-ak6NoX_4Aeg_2060132182")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Version { get; init; } 
+    #else
+    public System.UInt64 Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Uniquely identifies the financial institution which has submitted the set of data by using a BIC.
     /// </summary>
+    [IsoId("_RJNBx9p-Ed-ak6NoX_4Aeg_-787526640")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Submitter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Submitter { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BICIdentification1 Submitter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1 Submitter { get; init; } 
+    #else
+    public BICIdentification1 Submitter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index assigned to the document, to allow easy referencing.
     /// </summary>
+    [IsoId("_RJWLsNp-Ed-ak6NoX_4Aeg_2060132164")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText DocumentIndex { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DocumentIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DocumentIndex { get; init; } 
+    #else
+    public System.String DocumentIndex { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(Version)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Submitr", xmlNamespace );
-        Submitter.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DocIndx", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(DocumentIndex)); // data type Max3NumericText System.String
-        writer.WriteEndElement();
-    }
-    public static DocumentIdentification4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

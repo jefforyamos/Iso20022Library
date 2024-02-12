@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice to provide the collateral balance for the variation margin and the segregated independent amount, or the segregated independent amount only.
-/// </summary>
-[KnownType(typeof(CollateralBalance1Choice.TotalCollateral))]
-[KnownType(typeof(CollateralBalance1Choice.CollateralDetails))]
-[KnownType(typeof(CollateralBalance1Choice.SegregatedIndependentAmount))]
-public abstract partial record CollateralBalance1Choice_ : IIsoXmlSerilizable<CollateralBalance1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice to provide the collateral balance for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CollateralBalance1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CollateralBalance1Choice.TotalCollateral))]
+    [KnownType(typeof(CollateralBalance1Choice.CollateralDetails))]
+    [KnownType(typeof(CollateralBalance1Choice.SegregatedIndependentAmount))]
+    [IsoId("_UnXxx9p-Ed-ak6NoX_4Aeg_-92530976")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Balance 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CollateralBalance1Choice_
+    #else
+    public abstract partial class CollateralBalance1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "TtlColl" => CollateralBalance1Choice.TotalCollateral.Deserialize(elementWithPayload),
-             "CollDtls" => CollateralBalance1Choice.CollateralDetails.Deserialize(elementWithPayload),
-             "SgrtdIndpdntAmt" => CollateralBalance1Choice.SegregatedIndependentAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CollateralBalance1Choice choice.")
-        };
     }
 }

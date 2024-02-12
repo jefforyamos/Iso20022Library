@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identifier of an account, as assigned by the account servicer.
-/// </summary>
-[KnownType(typeof(AccountIdentification54Choice.Card))]
-[KnownType(typeof(AccountIdentification54Choice.MSISDN))]
-[KnownType(typeof(AccountIdentification54Choice.EMail))]
-[KnownType(typeof(AccountIdentification54Choice.IBAN))]
-[KnownType(typeof(AccountIdentification54Choice.BBAN))]
-[KnownType(typeof(AccountIdentification54Choice.UPIC))]
-[KnownType(typeof(AccountIdentification54Choice.Domestic))]
-[KnownType(typeof(AccountIdentification54Choice.Other))]
-public abstract partial record AccountIdentification54Choice_ : IIsoXmlSerilizable<AccountIdentification54Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identifier of an account, as assigned by the account servicer.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountIdentification54Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountIdentification54Choice.Card))]
+    [KnownType(typeof(AccountIdentification54Choice.MSISDN))]
+    [KnownType(typeof(AccountIdentification54Choice.EMail))]
+    [KnownType(typeof(AccountIdentification54Choice.IBAN))]
+    [KnownType(typeof(AccountIdentification54Choice.BBAN))]
+    [KnownType(typeof(AccountIdentification54Choice.UPIC))]
+    [KnownType(typeof(AccountIdentification54Choice.Domestic))]
+    [KnownType(typeof(AccountIdentification54Choice.Other))]
+    [IsoId("_5jK-cVHSEey4xOoMoOPSJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification 54 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountIdentification54Choice_
+    #else
+    public abstract partial class AccountIdentification54Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Card" => AccountIdentification54Choice.Card.Deserialize(elementWithPayload),
-             "MSISDN" => AccountIdentification54Choice.MSISDN.Deserialize(elementWithPayload),
-             "EMail" => AccountIdentification54Choice.EMail.Deserialize(elementWithPayload),
-             "IBAN" => AccountIdentification54Choice.IBAN.Deserialize(elementWithPayload),
-             "BBAN" => AccountIdentification54Choice.BBAN.Deserialize(elementWithPayload),
-             "UPIC" => AccountIdentification54Choice.UPIC.Deserialize(elementWithPayload),
-             "Dmst" => AccountIdentification54Choice.Domestic.Deserialize(elementWithPayload),
-             "Othr" => AccountIdentification54Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountIdentification54Choice choice.")
-        };
     }
 }

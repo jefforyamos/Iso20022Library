@@ -7,64 +7,131 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Confirmation information for the issued undertaking.
 /// </summary>
+[IsoId("_9yV5knltEeG7BsjMvd1mEw_-1807654359")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking Confirmation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UndertakingConfirmation1
-     : IIsoXmlSerilizable<UndertakingConfirmation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UndertakingConfirmation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UndertakingConfirmation1( PartyIdentification43 reqConfirmer,System.String reqReferenceNumber,DateAndDateTimeChoice_ reqDate )
+    {
+        Confirmer = reqConfirmer;
+        ReferenceNumber = reqReferenceNumber;
+        Date = reqDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that adds its undertaking to honour the undertaking or amendment of the undertaking.
     /// </summary>
+    [IsoId("_9yV5k3ltEeG7BsjMvd1mEw_-1094766461")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Confirmer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification43 Confirmer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43 Confirmer { get; init; } 
+    #else
+    public PartyIdentification43 Confirmer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [IsoId("_9yV5lHltEeG7BsjMvd1mEw_-1612716749")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReferenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReferenceNumber { get; init; } 
+    #else
+    public System.String ReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time when the undertaking or amendment of the undertaking was confirmed.
     /// </summary>
+    [IsoId("_9yV5lXltEeG7BsjMvd1mEw_-1478675936")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ Date { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ Date { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Confirmation of the undertaking or amendment of the confirmed undertaking.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> Confirmation { get; init; } = [];
+    [IsoId("_9yV5lnltEeG7BsjMvd1mEw_-1395818404")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> Confirmation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Cnfrmr", xmlNamespace );
-        Confirmer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RefNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Dt", xmlNamespace );
-        Date.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Conf", xmlNamespace );
-        Confirmation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static UndertakingConfirmation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

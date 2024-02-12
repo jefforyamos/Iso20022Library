@@ -7,67 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the reconciliation period between an acquirer and an issuer or their respective agents.
 /// </summary>
+[IsoId("_L6ZPMEYXEeegp_DADCe7HQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reconciliation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Reconciliation3
-     : IIsoXmlSerilizable<Reconciliation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the reconciliation.
     /// </summary>
+    [IsoId("_qZEYIEYXEeegp_DADCe7HQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the reconciliation.
     /// ISO 8583:93/2003 bit 28
     /// </summary>
+    [IsoId("_xtdy0EYXEeegp_DADCe7HQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// A value used to allow a period within a reconciliation date.  Refer to ISO8583:2003 Field 29
     /// </summary>
+    [IsoId("_ccHP8d0cEeil7LQldntseg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Checkpoint Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CheckpointReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CheckpointReference { get; init; } 
+    #else
+    public System.String? CheckpointReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CheckpointReference is IsoMax35Text CheckpointReferenceValue)
-        {
-            writer.WriteStartElement(null, "ChckptRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckpointReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Reconciliation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

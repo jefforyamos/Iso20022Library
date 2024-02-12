@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies one or a range of securities accounts.
-/// </summary>
-[KnownType(typeof(SecuritiesAccount2Choice.Range))]
-[KnownType(typeof(SecuritiesAccount2Choice.Account))]
-public abstract partial record SecuritiesAccount2Choice_ : IIsoXmlSerilizable<SecuritiesAccount2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies one or a range of securities accounts.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesAccount2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesAccount2Choice.Range))]
+    [KnownType(typeof(SecuritiesAccount2Choice.Account))]
+    [IsoId("_38iun-GBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesAccount2Choice_
+    #else
+    public abstract partial class SecuritiesAccount2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rg" => SecuritiesAccount2Choice.Range.Deserialize(elementWithPayload),
-             "Acct" => SecuritiesAccount2Choice.Account.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesAccount2Choice choice.")
-        };
     }
 }

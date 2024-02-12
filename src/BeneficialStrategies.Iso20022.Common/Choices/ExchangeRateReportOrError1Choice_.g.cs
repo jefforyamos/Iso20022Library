@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// It is used to provide information on static data maintained by the transaction administrator and related to currency exchange details as maintained for system operations by the transaction administrator.
-/// </summary>
-[KnownType(typeof(ExchangeRateReportOrError1Choice.CurrencyExchangeReport))]
-[KnownType(typeof(ExchangeRateReportOrError1Choice.OperationalError))]
-public abstract partial record ExchangeRateReportOrError1Choice_ : IIsoXmlSerilizable<ExchangeRateReportOrError1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// It is used to provide information on static data maintained by the transaction administrator and related to currency exchange details as maintained for system operations by the transaction administrator.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ExchangeRateReportOrError1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ExchangeRateReportOrError1Choice.CurrencyExchangeReport))]
+    [KnownType(typeof(ExchangeRateReportOrError1Choice.OperationalError))]
+    [IsoId("_77JeQ6MgEeCJ6YNENx4h-w_1304764556")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Report Or Error 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ExchangeRateReportOrError1Choice_
+    #else
+    public abstract partial class ExchangeRateReportOrError1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CcyXchgRpt" => ExchangeRateReportOrError1Choice.CurrencyExchangeReport.Deserialize(elementWithPayload),
-             "OprlErr" => ExchangeRateReportOrError1Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ExchangeRateReportOrError1Choice choice.")
-        };
     }
 }

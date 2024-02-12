@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the transaction details or a business error when the requested data cannot be retrieved.
-/// </summary>
-[KnownType(typeof(TransactionOrError5Choice.Transaction))]
-[KnownType(typeof(TransactionOrError5Choice.BusinessError))]
-public abstract partial record TransactionOrError5Choice_ : IIsoXmlSerilizable<TransactionOrError5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the transaction details or a business error when the requested data cannot be retrieved.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionOrError5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionOrError5Choice.Transaction))]
+    [KnownType(typeof(TransactionOrError5Choice.BusinessError))]
+    [IsoId("_dmIBNdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Or Error 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionOrError5Choice_
+    #else
+    public abstract partial class TransactionOrError5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Tx" => TransactionOrError5Choice.Transaction.Deserialize(elementWithPayload),
-             "BizErr" => TransactionOrError5Choice.BusinessError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionOrError5Choice choice.")
-        };
     }
 }

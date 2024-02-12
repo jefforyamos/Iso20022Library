@@ -7,62 +7,95 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information with update description and date.
 /// </summary>
+[IsoId("_Q1O859p-Ed-ak6NoX_4Aeg_-2143304293")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Updated Additional Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UpdatedAdditionalInformation2
-     : IIsoXmlSerilizable<UpdatedAdditionalInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
+    [IsoId("_Q1O86Np-Ed-ak6NoX_4Aeg_-2143304267")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? UpdateDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UpdateDescription { get; init; } 
+    #else
+    public System.String? UpdateDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
+    [IsoId("_Q1YG0Np-Ed-ak6NoX_4Aeg_-2143304251")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? UpdateDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? UpdateDate { get; init; } 
+    #else
+    public System.DateOnly? UpdateDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional textual information.
     /// </summary>
-    public IsoMax8000Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    [IsoId("_Q1YG0dp-Ed-ak6NoX_4Aeg_-2143304016")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8000 ,MinimumLength = 1)]
+    #endif
+    public System.String? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Q1YG0dp-Ed-ak6NoX_4Aeg_-2143304016
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (UpdateDescription is IsoMax140Text UpdateDescriptionValue)
-        {
-            writer.WriteStartElement(null, "UpdDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(UpdateDescriptionValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (UpdateDate is IsoISODate UpdateDateValue)
-        {
-            writer.WriteStartElement(null, "UpdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(UpdateDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize AdditionalInformation, multiplicity Unknown
-    }
-    public static UpdatedAdditionalInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

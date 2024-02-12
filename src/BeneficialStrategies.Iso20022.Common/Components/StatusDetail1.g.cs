@@ -7,90 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the status.
 /// </summary>
+[IsoId("_VPaCAPH9Eeaz_YGUGLjP6A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Status Detail")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatusDetail1
-     : IIsoXmlSerilizable<StatusDetail1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StatusDetail1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StatusDetail1( SupervisingAuthorityIdentification1 reqCompetentAuthority,System.String reqStatusReason )
+    {
+        CompetentAuthority = reqCompetentAuthority;
+        StatusReason = reqStatusReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Country of the institution relevant for the decision.
     /// </summary>
+    [IsoId("_MvO2kD7yEee5faD4glTPKA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Country { get; init; } 
+    #else
+    public string? Country { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the institution which is relevant for the decision.
     /// </summary>
+    [IsoId("_J71NQfIDEeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Competent Authority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
+    #else
+    public SupervisingAuthorityIdentification1 CompetentAuthority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code indicating the status following the decision.
     /// </summary>
+    [IsoId("_g_8Q0fH9Eeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Status { get; init; } 
+    #else
+    public System.String? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code indicating the reason of the decision.
     /// </summary>
+    [IsoId("_YID0sfH-Eeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text StatusReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String StatusReason { get; init; } 
+    #else
+    public System.String StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period of time when the decision is effective.
     /// </summary>
+    [IsoId("_tG_sgTb5Eeer2ugaDqMdXg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Activity Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ActivityPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_? ActivityPeriod { get; init; } 
+    #else
+    public Period4Choice_? ActivityPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Any other additional information about the decision.
     /// </summary>
+    [IsoId("_uUdG8En5EeexwKvkdw4OGA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Comment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? Comment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Comment { get; init; } 
+    #else
+    public System.String? Comment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Country is CountryCode CountryValue)
-        {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(CountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
-        CompetentAuthority.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Status is IsoMax10Text StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10Text(StatusValue)); // data type Max10Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10Text(StatusReason)); // data type Max10Text System.String
-        writer.WriteEndElement();
-        if (ActivityPeriod is Period4Choice_ ActivityPeriodValue)
-        {
-            writer.WriteStartElement(null, "ActvtyPrd", xmlNamespace );
-            ActivityPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Comment is IsoMax20000Text CommentValue)
-        {
-            writer.WriteStartElement(null, "Cmnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax20000Text(CommentValue)); // data type Max20000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static StatusDetail1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

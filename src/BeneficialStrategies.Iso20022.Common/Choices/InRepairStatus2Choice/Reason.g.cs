@@ -9,43 +9,65 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InRepairStatus2Choice;
-
-/// <summary>
-/// Reason for an in repair status in the report.
-/// </summary>
-public partial record Reason : InRepairStatus2Choice_
-     , IIsoXmlSerilizable<Reason>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InRepairStatus2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reason for the in repair status in textual form.
+    /// Reason for an in repair status in the report.
     /// </summary>
-    public IsoMax350Text? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Ut7sxNp-Ed-ak6NoX_4Aeg_1844290663")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reason : InRepairStatus2Choice_
+    #else
+    public partial class Reason : InRepairStatus2Choice_
+    #endif
     {
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Reason Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reason for the in repair status in textual form.
+        /// </summary>
+        [IsoId("_UuFdwtp-Ed-ak6NoX_4Aeg_-1922423004")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalInformation { get; init; } 
+        #else
+        public System.String? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

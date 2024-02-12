@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of a tax efficient product.
 /// </summary>
+[IsoId("_PDKHIZNNEemQB_8XA98K0Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Efficient Product")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxEfficientProduct4
-     : IIsoXmlSerilizable<TaxEfficientProduct4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TaxEfficientProduct4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TaxEfficientProduct4( TaxEfficientProductType2Choice_ reqTaxEfficientProductType )
+    {
+        TaxEfficientProductType = reqTaxEfficientProductType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
+    [IsoId("_PogP4ZNNEemQB_8XA98K0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Efficient Product Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
+    #else
+    public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that all the current fiscal year’s products are to be included.
     /// </summary>
+    [IsoId("_PogP5ZNNEemQB_8XA98K0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Year")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CurrentYear { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CurrentYear { get; init; } 
+    #else
+    public System.String? CurrentYear { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
+    [IsoId("_PogP45NNEemQB_8XA98K0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreviousYear2Choice_? PreviousYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PreviousYear2Choice_? PreviousYears { get; init; } 
+    #else
+    public PreviousYear2Choice_? PreviousYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
+    [IsoId("_PogP55NNEemQB_8XA98K0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TaxEffcntPdctTp", xmlNamespace );
-        TaxEfficientProductType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CurrentYear is IsoYesNoIndicator CurrentYearValue)
-        {
-            writer.WriteStartElement(null, "CurYr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CurrentYearValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PreviousYears is PreviousYear2Choice_ PreviousYearsValue)
-        {
-            writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
-            PreviousYearsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxEfficientProduct4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

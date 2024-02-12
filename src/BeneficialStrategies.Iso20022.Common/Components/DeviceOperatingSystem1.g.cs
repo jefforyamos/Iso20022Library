@@ -7,86 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information of the device operating system.
 /// </summary>
+[IsoId("_1BW5MJfPEeuqNYk2TG3bTg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Operating System")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeviceOperatingSystem1
-     : IIsoXmlSerilizable<DeviceOperatingSystem1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the operating system.
     /// </summary>
+    [IsoId("_EPWGUJfQEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of device operating system.
     /// </summary>
+    [IsoId("_F0VcQJfSEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceOperatingSystemType1Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceOperatingSystemType1Code? Type { get; init; } 
+    #else
+    public DeviceOperatingSystemType1Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of operating system.
     /// </summary>
+    [IsoId("_SE8SQJfSEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherType { get; init; } 
+    #else
+    public System.String? OtherType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of device operating system.
     /// </summary>
+    [IsoId("_XS-dYJfSEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Version { get; init; } 
+    #else
+    public System.String? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Build of the device operating system.
     /// </summary>
+    [IsoId("_cBT0wJfSEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Build")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Build { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Build { get; init; } 
+    #else
+    public System.String? Build { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoMax70Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is DeviceOperatingSystemType1Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherType is IsoMax35Text OtherTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Version is IsoMax35Text VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(VersionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Build is IsoMax70Text BuildValue)
-        {
-            writer.WriteStartElement(null, "Bld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(BuildValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DeviceOperatingSystem1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

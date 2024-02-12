@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Digest computed on the identified data.
 /// </summary>
+[IsoId("_7USsgWmSEeSkutXKrVpkCQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Digested Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DigestedData4
-     : IIsoXmlSerilizable<DigestedData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DigestedData4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DigestedData4( AlgorithmIdentification16 reqDigestAlgorithm,EncapsulatedContent3 reqEncapsulatedContent,System.Byte[] reqDigest )
+    {
+        DigestAlgorithm = reqDigestAlgorithm;
+        EncapsulatedContent = reqEncapsulatedContent;
+        Digest = reqDigest;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [IsoId("_7iIUMWmSEeSkutXKrVpkCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [IsoId("_7iIUM2mSEeSkutXKrVpkCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification16 DigestAlgorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AlgorithmIdentification16 DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification16 DigestAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification16 DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data on which the digest is computed.
     /// </summary>
+    [IsoId("_7iIUNWmSEeSkutXKrVpkCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encapsulated Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncapsulatedContent3 EncapsulatedContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EncapsulatedContent3 EncapsulatedContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EncapsulatedContent3 EncapsulatedContent { get; init; } 
+    #else
+    public EncapsulatedContent3 EncapsulatedContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of data-digesting process.
     /// </summary>
+    [IsoId("_7iIUN2mSEeSkutXKrVpkCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Binary Digest { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] Digest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] Digest { get; init; } 
+    #else
+    public System.Byte[] Digest { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-        DigestAlgorithm.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NcpsltdCntt", xmlNamespace );
-        EncapsulatedContent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Dgst", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Binary(Digest)); // data type Max140Binary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static DigestedData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

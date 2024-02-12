@@ -9,57 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
-
-/// <summary>
-/// Identifies a duplicated case. When present, the case identified in the message must be closed. The case identified as duplicated (in this component) will be pursued.
-/// </summary>
-public partial record DuplicateOf : InvestigationStatusChoice_
-     , IIsoXmlSerilizable<DuplicateOf>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique id assigned by the case creator.
+    /// Identifies a duplicated case. When present, the case identified in the message must be closed. The case identified as duplicated (in this component) will be pursued.
     /// </summary>
-    public required IsoMax35Text Identification { get; init; } 
-    /// <summary>
-    /// Party that created the case.
-    /// </summary>
-    public required IsoAnyBICIdentifier Creator { get; init; } 
-    /// <summary>
-    /// Set to yes if the case was closed and needs to be re-opened.
-    /// </summary>
-    public IsoYesNoIndicator? ReopenCaseIndication { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UuYYttp-Ed-ak6NoX_4Aeg_-1595640510")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Duplicate Of")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DuplicateOf : InvestigationStatusChoice_
+    #else
+    public partial class DuplicateOf : InvestigationStatusChoice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cretr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Creator)); // data type AnyBICIdentifier System.String
-        writer.WriteEndElement();
-        if (ReopenCaseIndication is IsoYesNoIndicator ReopenCaseIndicationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DuplicateOf instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DuplicateOf( System.String reqIdentification,System.String reqCreator )
         {
-            writer.WriteStartElement(null, "ReopCaseIndctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReopenCaseIndicationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
+            Creator = reqCreator;
         }
-    }
-    public static new DuplicateOf Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique id assigned by the case creator.
+        /// </summary>
+        [IsoId("_SpAno9p-Ed-ak6NoX_4Aeg_136183942")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that created the case.
+        /// </summary>
+        [IsoId("_SpAnpNp-Ed-ak6NoX_4Aeg_136184310")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Creator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoAnyBICIdentifier Creator { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Creator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Creator { get; init; } 
+        #else
+        public System.String Creator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Set to yes if the case was closed and needs to be re-opened.
+        /// </summary>
+        [IsoId("_SpAnpdp-Ed-ak6NoX_4Aeg_-1913695135")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reopen Case Indication")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? ReopenCaseIndication { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ReopenCaseIndication { get; init; } 
+        #else
+        public System.String? ReopenCaseIndication { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

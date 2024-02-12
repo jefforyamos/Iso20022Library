@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[IsoId("_Pb-D4Np-Ed-ak6NoX_4Aeg_1550606090")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party And Account Identification And Contact Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyAndAccountIdentificationAndContactInformation1
-     : IIsoXmlSerilizable<PartyAndAccountIdentificationAndContactInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyAndAccountIdentificationAndContactInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyAndAccountIdentificationAndContactInformation1( PartyIdentification8 reqPartyIdentification )
+    {
+        PartyIdentification = reqPartyIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the party that legally owns the account.
     /// </summary>
+    [IsoId("_Pb-D4dp-Ed-ak6NoX_4Aeg_1550606183")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8 PartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification8 PartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification8 PartyIdentification { get; init; } 
+    #else
+    public PartyIdentification8 PartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [IsoId("_Pb-D4tp-Ed-ak6NoX_4Aeg_1550606461")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? AccountIdentification { get; init; } 
+    #else
+    public CashAccount7? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
     /// </summary>
+    [IsoId("_Pb-D49p-Ed-ak6NoX_4Aeg_-620262996")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? ContactInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactIdentification1? ContactInformation { get; init; } 
+    #else
+    public ContactIdentification1? ContactInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PtyId", xmlNamespace );
-        PartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountIdentification is CashAccount7 AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContactInformation is ContactIdentification1 ContactInformationValue)
-        {
-            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
-            ContactInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyAndAccountIdentificationAndContactInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

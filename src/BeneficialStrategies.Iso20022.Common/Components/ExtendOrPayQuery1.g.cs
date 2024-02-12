@@ -7,94 +7,182 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Undertaking extend or pay query details.
 /// </summary>
+[IsoId("_-Des53ltEeG7BsjMvd1mEw_2002292702")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Extend Or Pay Query")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExtendOrPayQuery1
-     : IIsoXmlSerilizable<ExtendOrPayQuery1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ExtendOrPayQuery1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ExtendOrPayQuery1( Undertaking9 reqUndertakingIdentification,Demand2 reqDemandDetails,System.DateOnly reqRequestedExpiryDate )
+    {
+        UndertakingIdentification = reqUndertakingIdentification;
+        DemandDetails = reqDemandDetails;
+        RequestedExpiryDate = reqRequestedExpiryDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [IsoId("_-Des6HltEeG7BsjMvd1mEw_-1747808883")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking9 UndertakingIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Undertaking9 UndertakingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Undertaking9 UndertakingIdentification { get; init; } 
+    #else
+    public Undertaking9 UndertakingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the demand.
     /// </summary>
+    [IsoId("_-Dn20HltEeG7BsjMvd1mEw_554766845")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Demand Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Demand2 DemandDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Demand2 DemandDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Demand2 DemandDetails { get; init; } 
+    #else
+    public Demand2 DemandDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
+    [IsoId("_-Dn20XltEeG7BsjMvd1mEw_2099672583")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate RequestedExpiryDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly RequestedExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly RequestedExpiryDate { get; init; } 
+    #else
+    public System.DateOnly RequestedExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the instructions from the bank.
     /// </summary>
+    [IsoId("_-Dn20nltEeG7BsjMvd1mEw_1332855114")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Instructions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BankInstructions1? BankInstructions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BankInstructions1? BankInstructions { get; init; } 
+    #else
+    public BankInstructions1? BankInstructions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact at the issuing bank.
     /// </summary>
+    [IsoId("_-Dn203ltEeG7BsjMvd1mEw_916958004")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contacts3? BankContact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contacts3? BankContact { get; init; } 
+    #else
+    public Contacts3? BankContact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
+    [IsoId("_-Dxn0HltEeG7BsjMvd1mEw_-1682717592")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enclosed File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document9? EnclosedFile { get; init; } 
+    #else
+    public Document9? EnclosedFile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_-Dxn0XltEeG7BsjMvd1mEw_1306509943")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
-        UndertakingIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DmndDtls", xmlNamespace );
-        DemandDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReqdXpryDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(RequestedExpiryDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (BankInstructions is BankInstructions1 BankInstructionsValue)
-        {
-            writer.WriteStartElement(null, "BkInstrs", xmlNamespace );
-            BankInstructionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BankContact is Contacts3 BankContactValue)
-        {
-            writer.WriteStartElement(null, "BkCtct", xmlNamespace );
-            BankContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnclosedFile is Document9 EnclosedFileValue)
-        {
-            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
-            EnclosedFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static ExtendOrPayQuery1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

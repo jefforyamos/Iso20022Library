@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed invoice data.
 /// </summary>
+[IsoId("_OEJH4eWiEeevU7McUP3D1w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Invoice")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentInvoice3
-     : IIsoXmlSerilizable<CardPaymentInvoice3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentInvoice3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentInvoice3( InvoiceHeader3 reqInvoiceHeader,TradeAgreement16 reqTradeAgreement,TradeDelivery3 reqTradeDelivery )
+    {
+        InvoiceHeader = reqInvoiceHeader;
+        TradeAgreement = reqTradeAgreement;
+        TradeDelivery = reqTradeDelivery;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// General data relevant to the main body of the invoice such as date of issue, currency code and identification number.
     /// </summary>
+    [IsoId("_ONGPkeWiEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Header")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceHeader3 InvoiceHeader { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvoiceHeader3 InvoiceHeader { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvoiceHeader3 InvoiceHeader { get; init; } 
+    #else
+    public InvoiceHeader3 InvoiceHeader { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contractual details related to the agreement between parties.
     /// </summary>
+    [IsoId("_ONGPk-WiEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Agreement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement16 TradeAgreement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeAgreement16 TradeAgreement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeAgreement16 TradeAgreement { get; init; } 
+    #else
+    public TradeAgreement16 TradeAgreement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
     /// </summary>
+    [IsoId("_ONGPleWiEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Delivery")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeDelivery3 TradeDelivery { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeDelivery3 TradeDelivery { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeDelivery3 TradeDelivery { get; init; } 
+    #else
+    public TradeDelivery3 TradeDelivery { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
     /// </summary>
+    [IsoId("_ONGPl-WiEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Line Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItem17? LineItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LineItem17? LineItem { get; init; } 
+    #else
+    public LineItem17? LineItem { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InvcHdr", xmlNamespace );
-        InvoiceHeader.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradAgrmt", xmlNamespace );
-        TradeAgreement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradDlvry", xmlNamespace );
-        TradeDelivery.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LineItem is LineItem17 LineItemValue)
-        {
-            writer.WriteStartElement(null, "LineItm", xmlNamespace );
-            LineItemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentInvoice3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

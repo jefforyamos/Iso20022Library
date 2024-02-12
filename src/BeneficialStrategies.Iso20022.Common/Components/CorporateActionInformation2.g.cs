@@ -7,101 +7,211 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[IsoId("_Td6PVdp-Ed-ak6NoX_4Aeg_2005876121")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionInformation2
-     : IIsoXmlSerilizable<CorporateActionInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionInformation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionInformation2( PartyIdentification2Choice_ reqAgentIdentification,System.String reqIssuerCorporateActionIdentification,CorporateActionEventType2FormatChoice_ reqEventType,CorporateActionMandatoryVoluntary1FormatChoice_ reqMandatoryVoluntaryEventType,FinancialInstrumentDescription3 reqUnderlyingSecurity )
+    {
+        AgentIdentification = reqAgentIdentification;
+        IssuerCorporateActionIdentification = reqIssuerCorporateActionIdentification;
+        EventType = reqEventType;
+        MandatoryVoluntaryEventType = reqMandatoryVoluntaryEventType;
+        UnderlyingSecurity = reqUnderlyingSecurity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the issuer's agent or the issuer.
     /// </summary>
+    [IsoId("_Td6PVtp-Ed-ak6NoX_4Aeg_-1997258841")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ AgentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ AgentIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_ AgentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference given to the event by the CA event issuer (agent).
     /// </summary>
+    [IsoId("_Td6PV9p-Ed-ak6NoX_4Aeg_-561952179")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Corporate Action Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerCorporateActionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IssuerCorporateActionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IssuerCorporateActionIdentification { get; init; } 
+    #else
+    public System.String IssuerCorporateActionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference assigned by the (I)CSD to unambiguously identify a corporate avent.
     /// </summary>
+    [IsoId("_Td6PWNp-Ed-ak6NoX_4Aeg_-1997259025")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Processing Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CorporateActionProcessingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CorporateActionProcessingIdentification { get; init; } 
+    #else
+    public System.String? CorporateActionProcessingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Speficies the type of corporate event.
     /// </summary>
+    [IsoId("_Td6PWdp-Ed-ak6NoX_4Aeg_-1997258964")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventType2FormatChoice_ EventType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionEventType2FormatChoice_ EventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventType2FormatChoice_ EventType { get; init; } 
+    #else
+    public CorporateActionEventType2FormatChoice_ EventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of processing involved by a Corporate Action.
     /// </summary>
+    [IsoId("_Td6PWtp-Ed-ak6NoX_4Aeg_-1997258933")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Processing Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventProcessingType1FormatChoice_? EventProcessingType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventProcessingType1FormatChoice_? EventProcessingType { get; init; } 
+    #else
+    public CorporateActionEventProcessingType1FormatChoice_? EventProcessingType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
+    [IsoId("_Td6PW9p-Ed-ak6NoX_4Aeg_-1997258902")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandatory Voluntary Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMandatoryVoluntary1FormatChoice_ MandatoryVoluntaryEventType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionMandatoryVoluntary1FormatChoice_ MandatoryVoluntaryEventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionMandatoryVoluntary1FormatChoice_ MandatoryVoluntaryEventType { get; init; } 
+    #else
+    public CorporateActionMandatoryVoluntary1FormatChoice_ MandatoryVoluntaryEventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>
+    [IsoId("_TeEAUNp-Ed-ak6NoX_4Aeg_-1997258872")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentDescription3 UnderlyingSecurity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentDescription3 UnderlyingSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentDescription3 UnderlyingSecurity { get; init; } 
+    #else
+    public FinancialInstrumentDescription3 UnderlyingSecurity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the secondary underlying financial instrument, ie, the non-principal financial instrument affected by the corporate action event.
     /// </summary>
+    [IsoId("_TeEAUdp-Ed-ak6NoX_4Aeg_301729875")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Underlying Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentDescription3? OtherUnderlyingSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentDescription3? OtherUnderlyingSecurity { get; init; } 
+    #else
+    public FinancialInstrumentDescription3? OtherUnderlyingSecurity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AgtId", xmlNamespace );
-        AgentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IssrCorpActnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerCorporateActionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CorporateActionProcessingIdentification is IsoMax35Text CorporateActionProcessingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CorpActnPrcgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateActionProcessingIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "EvtTp", xmlNamespace );
-        EventType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EventProcessingType is CorporateActionEventProcessingType1FormatChoice_ EventProcessingTypeValue)
-        {
-            writer.WriteStartElement(null, "EvtPrcgTp", xmlNamespace );
-            EventProcessingTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MndtryVlntryEvtTp", xmlNamespace );
-        MandatoryVoluntaryEventType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
-        UnderlyingSecurity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OtherUnderlyingSecurity is FinancialInstrumentDescription3 OtherUnderlyingSecurityValue)
-        {
-            writer.WriteStartElement(null, "OthrUndrlygScty", xmlNamespace );
-            OtherUnderlyingSecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

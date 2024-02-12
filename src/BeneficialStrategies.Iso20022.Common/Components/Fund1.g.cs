@@ -7,176 +7,295 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about an investment fund.
 /// </summary>
+[IsoId("_pEbB0QcxEeSuMrNEGTimoA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Fund1
-     : IIsoXmlSerilizable<Fund1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the fund/sub fund.
     /// </summary>
+    [IsoId("_pUqPF1-KEeS7xuKaq75oiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the fund/sub fund with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [IsoId("_pUqPGF-KEeS7xuKaq75oiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Entity Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LegalEntityIdentifier { get; init; } 
+    #else
+    public System.String? LegalEntityIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for the fund/sub fund, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [IsoId("_pUqPFl-KEeS7xuKaq75oiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherIdentification4? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherIdentification4? Identification { get; init; } 
+    #else
+    public OtherIdentification4? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the fund/sub fund.
     /// </summary>
+    [IsoId("_pgiWLwcxEeSuMrNEGTimoA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and, if required, the time, at which the price will be applied.
     /// </summary>
+    [IsoId("__EBBkmAFEeSkSfzdpzkxXg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? TradeDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? TradeDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? TradeDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
+    [IsoId("__EBBk2AFEeSkSfzdpzkxXg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Trade Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Estimated total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
+    [IsoId("_pgiWHQcxEeSuMrNEGTimoA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Total NAV")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EstimatedTotalNAV { get; init; } 
+    #else
+    public System.Decimal? EstimatedTotalNAV { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
+    [IsoId("_pgiWHwcxEeSuMrNEGTimoA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Total NAV")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousTotalNAV { get; init; } 
+    #else
+    public System.Decimal? PreviousTotalNAV { get; set; } 
+    #endif
+    
     /// <summary>
     /// Estimated total number of units of the fund/sub fund.
     /// </summary>
+    [IsoId("_pgiWIQcxEeSuMrNEGTimoA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous total number of units of the fund/sub fund.
     /// </summary>
+    [IsoId("_pgiWIwcxEeSuMrNEGTimoA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Estimated consolidated net cash flow expressed as a percentage of the previous total NAV for the fund/sub fund.
     /// </summary>
+    [IsoId("_2qUxoQdDEeSyIPzOZ6VzBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Percentage Of Fund Total NAV")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? EstimatedPercentageOfFundTotalNAV { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EstimatedPercentageOfFundTotalNAV { get; init; } 
+    #else
+    public System.Decimal? EstimatedPercentageOfFundTotalNAV { get; set; } 
+    #endif
+    
     /// <summary>
     /// Estimated cash movement into the fund/sub fund.
     /// </summary>
+    [IsoId("_wzHsEF-HEeS7xuKaq75oiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Cash In Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInOutForecast7? EstimatedCashInForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashInOutForecast7? EstimatedCashInForecastDetails { get; init; } 
+    #else
+    public CashInOutForecast7? EstimatedCashInForecastDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Estimated cash movement out of the fund/sub fund.
     /// </summary>
+    [IsoId("_wzHsEV-HEeS7xuKaq75oiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Cash Out Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInOutForecast7? EstimatedCashOutForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashInOutForecast7? EstimatedCashOutForecastDetails { get; init; } 
+    #else
+    public CashInOutForecast7? EstimatedCashOutForecastDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows.
     /// </summary>
+    [IsoId("_wzHsEl-HEeS7xuKaq75oiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Net Cash Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast5? EstimatedNetCashForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetCashForecast5? EstimatedNetCashForecastDetails { get; init; } 
+    #else
+    public NetCashForecast5? EstimatedNetCashForecastDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax350Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
-        {
-            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Identification is OtherIdentification4 IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TradeDateTime is DateAndDateTimeChoice_ TradeDateTimeValue)
-        {
-            writer.WriteStartElement(null, "TradDtTm", xmlNamespace );
-            TradeDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousTradeDateTime is DateAndDateTimeChoice_ PreviousTradeDateTimeValue)
-        {
-            writer.WriteStartElement(null, "PrvsTradDtTm", xmlNamespace );
-            PreviousTradeDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EstimatedTotalNAV is IsoActiveOrHistoricCurrencyAndAmount EstimatedTotalNAVValue)
-        {
-            writer.WriteStartElement(null, "EstmtdTtlNAV", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(EstimatedTotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviousTotalNAV is IsoActiveOrHistoricCurrencyAndAmount PreviousTotalNAVValue)
-        {
-            writer.WriteStartElement(null, "PrvsTtlNAV", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(PreviousTotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EstimatedTotalUnitsNumber is FinancialInstrumentQuantity1 EstimatedTotalUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "EstmtdTtlUnitsNb", xmlNamespace );
-            EstimatedTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousTotalUnitsNumber is FinancialInstrumentQuantity1 PreviousTotalUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "PrvsTtlUnitsNb", xmlNamespace );
-            PreviousTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EstimatedPercentageOfFundTotalNAV is IsoPercentageRate EstimatedPercentageOfFundTotalNAVValue)
-        {
-            writer.WriteStartElement(null, "EstmtdPctgOfFndTtlNAV", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(EstimatedPercentageOfFundTotalNAVValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EstimatedCashInForecastDetails is CashInOutForecast7 EstimatedCashInForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "EstmtdCshInFcstDtls", xmlNamespace );
-            EstimatedCashInForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EstimatedCashOutForecastDetails is CashInOutForecast7 EstimatedCashOutForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "EstmtdCshOutFcstDtls", xmlNamespace );
-            EstimatedCashOutForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EstimatedNetCashForecastDetails is NetCashForecast5 EstimatedNetCashForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "EstmtdNetCshFcstDtls", xmlNamespace );
-            EstimatedNetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Fund1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

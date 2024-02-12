@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of balance types to provide transaction details.
-/// </summary>
-[KnownType(typeof(AdjustedBalanceTypeSD4Choice.StockLoan))]
-[KnownType(typeof(AdjustedBalanceTypeSD4Choice.Repo))]
-public abstract partial record AdjustedBalanceTypeSD4Choice_ : IIsoXmlSerilizable<AdjustedBalanceTypeSD4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of balance types to provide transaction details.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AdjustedBalanceTypeSD4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AdjustedBalanceTypeSD4Choice.StockLoan))]
+    [KnownType(typeof(AdjustedBalanceTypeSD4Choice.Repo))]
+    [IsoId("_RWpyEcSTEeeRJJtE9TSlkw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjusted Balance Type SD 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AdjustedBalanceTypeSD4Choice_
+    #else
+    public abstract partial class AdjustedBalanceTypeSD4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "StockLn" => AdjustedBalanceTypeSD4Choice.StockLoan.Deserialize(elementWithPayload),
-             "Repo" => AdjustedBalanceTypeSD4Choice.Repo.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AdjustedBalanceTypeSD4Choice choice.")
-        };
     }
 }

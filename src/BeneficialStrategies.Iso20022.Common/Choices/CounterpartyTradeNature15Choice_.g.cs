@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Nature of the counterparty's company activities.
-/// </summary>
-[KnownType(typeof(CounterpartyTradeNature15Choice.FinancialInstitution))]
-[KnownType(typeof(CounterpartyTradeNature15Choice.NonFinancialInstitution))]
-[KnownType(typeof(CounterpartyTradeNature15Choice.CentralCounterParty))]
-[KnownType(typeof(CounterpartyTradeNature15Choice.Other))]
-public abstract partial record CounterpartyTradeNature15Choice_ : IIsoXmlSerilizable<CounterpartyTradeNature15Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Nature of the counterparty's company activities.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CounterpartyTradeNature15Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CounterpartyTradeNature15Choice.FinancialInstitution))]
+    [KnownType(typeof(CounterpartyTradeNature15Choice.NonFinancialInstitution))]
+    [KnownType(typeof(CounterpartyTradeNature15Choice.CentralCounterParty))]
+    [KnownType(typeof(CounterpartyTradeNature15Choice.Other))]
+    [IsoId("_1y9eQQz1Ee2YoLD-1vFj0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Trade Nature 15 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CounterpartyTradeNature15Choice_
+    #else
+    public abstract partial class CounterpartyTradeNature15Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FI" => CounterpartyTradeNature15Choice.FinancialInstitution.Deserialize(elementWithPayload),
-             "NFI" => CounterpartyTradeNature15Choice.NonFinancialInstitution.Deserialize(elementWithPayload),
-             "CntrlCntrPty" => CounterpartyTradeNature15Choice.CentralCounterParty.Deserialize(elementWithPayload),
-             "Othr" => CounterpartyTradeNature15Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CounterpartyTradeNature15Choice choice.")
-        };
     }
 }

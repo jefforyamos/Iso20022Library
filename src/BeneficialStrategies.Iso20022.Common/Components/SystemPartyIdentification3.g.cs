@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
+[IsoId("_knPM8u5NEeCisYr99QEiWA_1121388777")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemPartyIdentification3
-     : IIsoXmlSerilizable<SystemPartyIdentification3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SystemPartyIdentification3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SystemPartyIdentification3( System.String reqRelatedPartyIdentification,System.String reqResponsiblePartyIdentification )
+    {
+        RelatedPartyIdentification = reqRelatedPartyIdentification;
+        ResponsiblePartyIdentification = reqResponsiblePartyIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
+    [IsoId("_knPM8-5NEeCisYr99QEiWA_-2106270244")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier RelatedPartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RelatedPartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RelatedPartyIdentification { get; init; } 
+    #else
+    public System.String RelatedPartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
+    [IsoId("_knPM9O5NEeCisYr99QEiWA_1566757500")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier ResponsiblePartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ResponsiblePartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ResponsiblePartyIdentification { get; init; } 
+    #else
+    public System.String ResponsiblePartyIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RltdPtyId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(RelatedPartyIdentification)); // data type BICFIIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(ResponsiblePartyIdentification)); // data type BICFIIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static SystemPartyIdentification3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References6Choice.AccountServicerTransactionIdentification))]
-[KnownType(typeof(References6Choice.AccountOwnerTransactionIdentification))]
-[KnownType(typeof(References6Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References6Choice.PoolIdentification))]
-[KnownType(typeof(References6Choice.CommonIdentification))]
-[KnownType(typeof(References6Choice.TradeIdentification))]
-public abstract partial record References6Choice_ : IIsoXmlSerilizable<References6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References6Choice.AccountServicerTransactionIdentification))]
+    [KnownType(typeof(References6Choice.AccountOwnerTransactionIdentification))]
+    [KnownType(typeof(References6Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References6Choice.PoolIdentification))]
+    [KnownType(typeof(References6Choice.CommonIdentification))]
+    [KnownType(typeof(References6Choice.TradeIdentification))]
+    [IsoId("_UTGx8Np-Ed-ak6NoX_4Aeg_1758264340")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References6Choice_
+    #else
+    public abstract partial class References6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AcctSvcrTxId" => References6Choice.AccountServicerTransactionIdentification.Deserialize(elementWithPayload),
-             "AcctOwnrTxId" => References6Choice.AccountOwnerTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => References6Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "PoolId" => References6Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "CmonId" => References6Choice.CommonIdentification.Deserialize(elementWithPayload),
-             "TradId" => References6Choice.TradeIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References6Choice choice.")
-        };
     }
 }

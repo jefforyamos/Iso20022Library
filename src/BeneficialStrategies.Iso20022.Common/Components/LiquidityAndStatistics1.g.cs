@@ -7,94 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
+[IsoId("_SW1Shdp-Ed-ak6NoX_4Aeg_-268744168")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Liquidity And Statistics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LiquidityAndStatistics1
-     : IIsoXmlSerilizable<LiquidityAndStatistics1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LiquidityAndStatistics1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LiquidityAndStatistics1( System.String reqGrossIndicator,LiquidityIndicatorType1Code reqIndicatorType,System.Decimal reqWeightedAverageLiquidity,System.Decimal reqOutMainCountryIndex )
+    {
+        GrossIndicator = reqGrossIndicator;
+        IndicatorType = reqIndicatorType;
+        WeightedAverageLiquidity = reqWeightedAverageLiquidity;
+        OutMainCountryIndex = reqOutMainCountryIndex;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether an amount is a gross amount (including all charges, commissions and tax), or a net amount.
     /// </summary>
+    [IsoId("_SW1Shtp-Ed-ak6NoX_4Aeg_823585447")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator GrossIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String GrossIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String GrossIndicator { get; init; } 
+    #else
+    public System.String GrossIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of liquidity measure, of a financial instrument, on a market.
     /// </summary>
+    [IsoId("_SW1Sh9p-Ed-ak6NoX_4Aeg_620603298")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indicator Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidityIndicatorType1Code IndicatorType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public LiquidityIndicatorType1Code IndicatorType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidityIndicatorType1Code IndicatorType { get; init; } 
+    #else
+    public LiquidityIndicatorType1Code IndicatorType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the overall weighted average liquidity expressed as a percentage of average daily volume.
     /// </summary>
+    [IsoId("_SW1SiNp-Ed-ak6NoX_4Aeg_880114594")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Weighted Average Liquidity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate WeightedAverageLiquidity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal WeightedAverageLiquidity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal WeightedAverageLiquidity { get; init; } 
+    #else
+    public System.Decimal WeightedAverageLiquidity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Accepted value of stocks composing an index located outside its country of origin.
     /// </summary>
+    [IsoId("_SW1Sidp-Ed-ak6NoX_4Aeg_936447934")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Out Main Country Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal OutMainCountryIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal OutMainCountryIndex { get; init; } 
+    #else
+    public System.Decimal OutMainCountryIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of program that crosses in Currency.
     /// </summary>
+    [IsoId("_SW1Sitp-Ed-ak6NoX_4Aeg_1407444508")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cross Percent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CrossPercent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CrossPercent { get; init; } 
+    #else
+    public System.Decimal? CrossPercent { get; set; } 
+    #endif
+    
     /// <summary>
     /// SideValue1 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
+    [IsoId("_SW1Si9p-Ed-ak6NoX_4Aeg_58180983")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SideValue1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SideValue1 { get; init; } 
+    #else
+    public System.Decimal? SideValue1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// SideValue2 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
+    [IsoId("_SW1SjNp-Ed-ak6NoX_4Aeg_89580521")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SideValue2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SideValue2 { get; init; } 
+    #else
+    public System.Decimal? SideValue2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "GrssInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(GrossIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IndTp", xmlNamespace );
-        writer.WriteValue(IndicatorType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "WghtdAvrgLqdty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(WeightedAverageLiquidity)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OutMainCtryIndx", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OutMainCountryIndex)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (CrossPercent is IsoPercentageRate CrossPercentValue)
-        {
-            writer.WriteStartElement(null, "CrossPct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CrossPercentValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SideValue1 is IsoActiveCurrencyAndAmount SideValue1Value)
-        {
-            writer.WriteStartElement(null, "SdVal1", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SideValue1Value)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SideValue2 is IsoActiveCurrencyAndAmount SideValue2Value)
-        {
-            writer.WriteStartElement(null, "SdVal2", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SideValue2Value)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static LiquidityAndStatistics1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

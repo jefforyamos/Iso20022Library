@@ -7,66 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
+[IsoId("_EkHNFf2qEeiS2rs-hXBB5Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalInformation19
-     : IIsoXmlSerilizable<AdditionalInformation19>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Key-entered numeric data.
     /// </summary>
+    [IsoId("_EkHNGf2qEeiS2rs-hXBB5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entered Data Numeric")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? EnteredDataNumeric { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EnteredDataNumeric { get; init; } 
+    #else
+    public System.String? EnteredDataNumeric { get; set; } 
+    #endif
+    
     /// <summary>
     /// Key-entered alphanumeric data.
     /// </summary>
+    [IsoId("_UZ4L4P2qEeiS2rs-hXBB5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entered Data Alpha Numeric")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? EnteredDataAlphaNumeric { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EnteredDataAlphaNumeric { get; init; } 
+    #else
+    public System.String? EnteredDataAlphaNumeric { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional fleet summary data. 
     /// </summary>
+    [IsoId("_W13GIP2qEeiS2rs-hXBB5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EnteredDataNumeric is IsoMax35NumericText EnteredDataNumericValue)
-        {
-            writer.WriteStartElement(null, "NtrdDataNmrc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(EnteredDataNumericValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EnteredDataAlphaNumeric is IsoMax350Text EnteredDataAlphaNumericValue)
-        {
-            writer.WriteStartElement(null, "NtrdDataAlphaNmrc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(EnteredDataAlphaNumericValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalInformation19 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

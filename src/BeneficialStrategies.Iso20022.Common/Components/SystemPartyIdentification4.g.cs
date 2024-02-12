@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by the executing system, to unambiguously identify the party in the system.
 /// </summary>
+[IsoId("_jPKmw-5NEeCisYr99QEiWA_578360019")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemPartyIdentification4
-     : IIsoXmlSerilizable<SystemPartyIdentification4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SystemPartyIdentification4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SystemPartyIdentification4( System.String reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
+    [IsoId("_jPKmxO5NEeCisYr99QEiWA_1870157368")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the party responsible (national central bank or central securities depositary) for the party reference data.
     /// </summary>
+    [IsoId("_jPUXwO5NEeCisYr99QEiWA_-1904747478")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; init; } 
+    #else
+    public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(Identification)); // data type BICFIIdentifier System.String
-        writer.WriteEndElement();
-        if (ResponsiblePartyIdentification is CSDOrNCB1Choice_ ResponsiblePartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
-            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemPartyIdentification4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

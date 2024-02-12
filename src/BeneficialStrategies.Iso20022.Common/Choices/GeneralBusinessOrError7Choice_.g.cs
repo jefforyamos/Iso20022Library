@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// It is used to provide some or all of the members with information related to the processing of the system.
-/// </summary>
-[KnownType(typeof(GeneralBusinessOrError7Choice.OperationalError))]
-[KnownType(typeof(GeneralBusinessOrError7Choice.BusinessReport))]
-public abstract partial record GeneralBusinessOrError7Choice_ : IIsoXmlSerilizable<GeneralBusinessOrError7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// It is used to provide some or all of the members with information related to the processing of the system.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static GeneralBusinessOrError7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(GeneralBusinessOrError7Choice.OperationalError))]
+    [KnownType(typeof(GeneralBusinessOrError7Choice.BusinessReport))]
+    [IsoId("_QOIUkXhdEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Business Or Error 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record GeneralBusinessOrError7Choice_
+    #else
+    public abstract partial class GeneralBusinessOrError7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OprlErr" => GeneralBusinessOrError7Choice.OperationalError.Deserialize(elementWithPayload),
-             "BizRpt" => GeneralBusinessOrError7Choice.BusinessReport.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid GeneralBusinessOrError7Choice choice.")
-        };
     }
 }

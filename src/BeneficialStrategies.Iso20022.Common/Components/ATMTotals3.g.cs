@@ -7,87 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals of the ATM.
 /// </summary>
+[IsoId("_A8HNEYtzEeSLQutgI1Ulfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Totals")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTotals3
-     : IIsoXmlSerilizable<ATMTotals3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTotals3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTotals3( System.String reqIdentification,ATMCounterType2Code reqPeriod,System.UInt64 reqCount )
+    {
+        Identification = reqIdentification;
+        Period = reqPeriod;
+        Count = reqCount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the type of transaction. The following values are predefined: Withdrawal, QuickWithdrawal, WithdrawalForDisabledPerson, CashDeposit, Transfer, InternationalTransfer, PeriodicTransfer, CheckCommand, MobileTopUp, Moneo.
     /// </summary>
+    [IsoId("_cyRboItzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional identification of the type of transaction. The following values are predefined: Vodaphone, TMobile, Verizon.
     /// </summary>
+    [IsoId("_h4nDUItzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalIdentification { get; init; } 
+    #else
+    public System.String? AdditionalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period of computation for the counters.
     /// </summary>
+    [IsoId("_Waj2MOg6EeSbwP3G-MV9YA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCounterType2Code Period { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMCounterType2Code Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCounterType2Code Period { get; init; } 
+    #else
+    public ATMCounterType2Code Period { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the totals.
     /// </summary>
+    [IsoId("_BIxwE4tzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of transaction with the defined currency.
     /// </summary>
+    [IsoId("_BIxwGYtzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Count { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Count { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Count { get; init; } 
+    #else
+    public System.UInt64 Count { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of transaction with the defined currency.
     /// </summary>
+    [IsoId("_BIxwFYtzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax70Text(Identification)); // data type Max70Text System.String
-        writer.WriteEndElement();
-        if (AdditionalIdentification is IsoMax70Text AdditionalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Prd", xmlNamespace );
-        writer.WriteValue(Period.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Cnt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(Count)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (Amount is IsoImpliedCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTotals3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

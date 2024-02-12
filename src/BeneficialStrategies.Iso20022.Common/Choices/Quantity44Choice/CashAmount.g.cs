@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Quantity44Choice;
-
-/// <summary>
-/// Cash amount to be transferred.
-/// </summary>
-public partial record CashAmount : Quantity44Choice_
-     , IIsoXmlSerilizable<CashAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Quantity44Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217. The number of fractional digits (or minor unit of currency) is not checked as per ISO 4217: It must be lesser than or equal to 13.|Note: The decimal separator is a dot.
+    /// Cash amount to be transferred.
     /// </summary>
-    public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_ZMtfME3WEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CashAmount : Quantity44Choice_
+    #else
+    public partial class CashAmount : Quantity44Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CshAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Value)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static new CashAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CashAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CashAmount( System.Decimal reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217. The number of fractional digits (or minor unit of currency) is not checked as per ISO 4217: It must be lesser than or equal to 13.|Note: The decimal separator is a dot.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Value { get; init; } 
+        #else
+        public System.Decimal Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

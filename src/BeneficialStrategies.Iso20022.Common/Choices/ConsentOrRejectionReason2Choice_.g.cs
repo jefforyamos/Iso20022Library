@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the rejection reason.
-/// </summary>
-[KnownType(typeof(ConsentOrRejectionReason2Choice.Code))]
-[KnownType(typeof(ConsentOrRejectionReason2Choice.Proprietary))]
-public abstract partial record ConsentOrRejectionReason2Choice_ : IIsoXmlSerilizable<ConsentOrRejectionReason2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the rejection reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ConsentOrRejectionReason2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ConsentOrRejectionReason2Choice.Code))]
+    [KnownType(typeof(ConsentOrRejectionReason2Choice.Proprietary))]
+    [IsoId("_0fpplAlIEeGATtfOBToyew_1694942243")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Consent Or Rejection Reason 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ConsentOrRejectionReason2Choice_
+    #else
+    public abstract partial class ConsentOrRejectionReason2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ConsentOrRejectionReason2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ConsentOrRejectionReason2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ConsentOrRejectionReason2Choice choice.")
-        };
     }
 }

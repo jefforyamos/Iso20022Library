@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
 /// </summary>
+[IsoId("_TToR8Np-Ed-ak6NoX_4Aeg_-2110798678")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Equalisation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Equalisation1
-     : IIsoXmlSerilizable<Equalisation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money resulting from the calculation of the equalisation.
     /// </summary>
+    [IsoId("_TToR8dp-Ed-ak6NoX_4Aeg_-2039690036")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used for calculation of the equalisation.
     /// </summary>
+    [IsoId("_TToR8tp-Ed-ak6NoX_4Aeg_-2039690011")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Amount is IsoActiveOrHistoricCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static Equalisation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

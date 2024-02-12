@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Geographic location specified by geographic or UTM coordinates.
 /// </summary>
+[IsoId("_4ORaINj8EeiojJsa6FYyew")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Geolocation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Geolocation1
-     : IIsoXmlSerilizable<Geolocation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Geographic location specified by geographic coordinates.
     /// </summary>
+    [IsoId("_A7PU0Nj-EeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Geographic Coordinates")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeolocationGeographicCoordinates1? GeographicCoordinates { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GeolocationGeographicCoordinates1? GeographicCoordinates { get; init; } 
+    #else
+    public GeolocationGeographicCoordinates1? GeographicCoordinates { get; set; } 
+    #endif
+    
     /// <summary>
     /// Geographic location specified by UTM coordinates.
     /// </summary>
+    [IsoId("_wMXuUNj-EeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("UTM Coordinates")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeolocationUTMCoordinates1? UTMCoordinates { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GeolocationUTMCoordinates1? UTMCoordinates { get; init; } 
+    #else
+    public GeolocationUTMCoordinates1? UTMCoordinates { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (GeographicCoordinates is GeolocationGeographicCoordinates1 GeographicCoordinatesValue)
-        {
-            writer.WriteStartElement(null, "GeogcCordints", xmlNamespace );
-            GeographicCoordinatesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UTMCoordinates is GeolocationUTMCoordinates1 UTMCoordinatesValue)
-        {
-            writer.WriteStartElement(null, "UTMCordints", xmlNamespace );
-            UTMCoordinatesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Geolocation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

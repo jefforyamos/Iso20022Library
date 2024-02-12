@@ -7,17 +7,44 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Supplies additional transaction information for fleet transactions.
 /// </summary>
+[IsoId("_BF5jY_jUEeiM7KpzmLtmTQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fleet Line Item")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FleetLineItem1
-     : IIsoXmlSerilizable<FleetLineItem1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FleetLineItem1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FleetLineItem1( System.String reqFuelIndicator )
+    {
+        FuelIndicator = reqFuelIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,189 +52,335 @@ public partial record FleetLineItem1
     /// True = Fuel item
     /// False = Non-fuel item
     /// </summary>
+    [IsoId("_BF5jaPjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fuel Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator FuelIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FuelIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FuelIndicator { get; init; } 
+    #else
+    public System.String FuelIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of service received at the acceptor location. 
     /// </summary>
+    [IsoId("_BF5javjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetServiceType1Code? ServiceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FleetServiceType1Code? ServiceType { get; init; } 
+    #else
+    public FleetServiceType1Code? ServiceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code that identifies the brand of the fuel purchased. 
     /// </summary>
+    [IsoId("_BF5jafjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fuel Brand Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? FuelBrandCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FuelBrandCode { get; init; } 
+    #else
+    public System.String? FuelBrandCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Product code of fleet product or service being purchased.
     /// </summary>
+    [IsoId("_BF7_kfjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fleet Product Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? FleetProductCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FleetProductCode { get; init; } 
+    #else
+    public System.String? FleetProductCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains a code that identifies a category of fleet products or services. 
     /// </summary>
+    [IsoId("_KOHNYP2oEeiS2rs-hXBB5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fleet Product Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FleetProductCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FleetProductCategory { get; init; } 
+    #else
+    public System.String? FleetProductCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains a code that identifies the product qualifier of the fleet product or service. 
     /// </summary>
+    [IsoId("_BF5jZPjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fleet Product Qualifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 6 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6Text? FleetProductQualifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FleetProductQualifier { get; init; } 
+    #else
+    public System.String? FleetProductQualifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains a code that identifies the product code assigner.
     /// </summary>
+    [IsoId("_jbzk4P2oEeiS2rs-hXBB5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fleet Product Code Assigner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FleetProductCodeAssigner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FleetProductCodeAssigner { get; init; } 
+    #else
+    public System.String? FleetProductCodeAssigner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not tax is included in unit price.
     /// True: includes tax 
     /// False: does not include tax.   
     /// </summary>
+    [IsoId("_BF5jZvjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price Tax Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? UnitPriceTaxIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UnitPriceTaxIndicator { get; init; } 
+    #else
+    public System.String? UnitPriceTaxIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit price of the fleet line item.
     /// </summary>
+    [IsoId("_BF6KYPjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnitPrice { get; init; } 
+    #else
+    public System.Decimal? UnitPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [IsoId("_BF5ja_jUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
+    #else
+    public UnitOfMeasure1Code? UnitOfMeasure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other unit of measure.
     /// </summary>
+    [IsoId("_BF7_kPjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherUnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherUnitOfMeasure { get; init; } 
+    #else
+    public System.String? OtherUnitOfMeasure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of product or item.
     /// </summary>
+    [IsoId("_BF7_lPjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax12NumericText? ProductQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductQuantity { get; init; } 
+    #else
+    public System.String? ProductQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the discount amount applied to the fleet transaction (includes coupons).
     /// </summary>
+    [IsoId("_BF7_lfjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DiscountAmount { get; init; } 
+    #else
+    public System.Decimal? DiscountAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not amount of fleet purchase is taxable. 
     /// </summary>
+    [IsoId("_BF7_l_jUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Taxable Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NonTaxableIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NonTaxableIndicator { get; init; } 
+    #else
+    public System.String? NonTaxableIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
+    [IsoId("_BF7_lvjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax33? Tax { get; init; } 
+    #else
+    public Tax33? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount excluding tax.
     /// </summary>
+    [IsoId("_BF5jZfjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount Excluding Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountExcludingTax { get; init; } 
+    #else
+    public System.Decimal? TotalAmountExcludingTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount including tax.
     /// </summary>
+    [IsoId("_BF7YgPjUEeiM7KpzmLtmTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount Including Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountIncludingTax { get; init; } 
+    #else
+    public System.Decimal? TotalAmountIncludingTax { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FuelInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FuelIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (ServiceType is FleetServiceType1Code ServiceTypeValue)
-        {
-            writer.WriteStartElement(null, "SvcTp", xmlNamespace );
-            writer.WriteValue(ServiceTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FuelBrandCode is IsoMax4Text FuelBrandCodeValue)
-        {
-            writer.WriteStartElement(null, "FuelBrndCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(FuelBrandCodeValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (FleetProductCode is IsoMax4Text FleetProductCodeValue)
-        {
-            writer.WriteStartElement(null, "FleetPdctCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(FleetProductCodeValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (FleetProductCategory is IsoMax35Text FleetProductCategoryValue)
-        {
-            writer.WriteStartElement(null, "FleetPdctCtgy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FleetProductCategoryValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FleetProductQualifier is IsoMax6Text FleetProductQualifierValue)
-        {
-            writer.WriteStartElement(null, "FleetPdctQlfr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6Text(FleetProductQualifierValue)); // data type Max6Text System.String
-            writer.WriteEndElement();
-        }
-        if (FleetProductCodeAssigner is IsoMax35Text FleetProductCodeAssignerValue)
-        {
-            writer.WriteStartElement(null, "FleetPdctCdAssgnr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FleetProductCodeAssignerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (UnitPriceTaxIndicator is IsoTrueFalseIndicator UnitPriceTaxIndicatorValue)
-        {
-            writer.WriteStartElement(null, "UnitPricTaxInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(UnitPriceTaxIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is IsoImpliedCurrencyAndAmount UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitPriceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is UnitOfMeasure1Code UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherUnitOfMeasure is IsoMax35Text OtherUnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "OthrUnitOfMeasr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherUnitOfMeasureValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProductQuantity is IsoMax12NumericText ProductQuantityValue)
-        {
-            writer.WriteStartElement(null, "PdctQty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax12NumericText(ProductQuantityValue)); // data type Max12NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (DiscountAmount is IsoImpliedCurrencyAndAmount DiscountAmountValue)
-        {
-            writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(DiscountAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NonTaxableIndicator is IsoTrueFalseIndicator NonTaxableIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NonTaxblInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NonTaxableIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Tax is Tax33 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalAmountExcludingTax is IsoImpliedCurrencyAndAmount TotalAmountExcludingTaxValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtExclgTax", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountExcludingTaxValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalAmountIncludingTax is IsoImpliedCurrencyAndAmount TotalAmountIncludingTaxValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtInclgTax", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountIncludingTaxValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static FleetLineItem1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Period of time details related to the tax payment.
 /// </summary>
+[IsoId("_UQSHctp-Ed-ak6NoX_4Aeg_2034124941")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxPeriod1
-     : IIsoXmlSerilizable<TaxPeriod1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Year related to the tax payment.
     /// </summary>
+    [IsoId("_UQSHc9p-Ed-ak6NoX_4Aeg_-1889586026")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Year")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Year { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Year { get; init; } 
+    #else
+    public System.DateOnly? Year { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the period related to the tax payment.
     /// </summary>
+    [IsoId("_UQSHdNp-Ed-ak6NoX_4Aeg_-1889586018")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxRecordPeriod1Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxRecordPeriod1Code? Type { get; init; } 
+    #else
+    public TaxRecordPeriod1Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of time between a start date and an end date for which the tax report is provided.
     /// </summary>
+    [IsoId("_UQSHddp-Ed-ak6NoX_4Aeg_-1889585995")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodDetails? FromToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriodDetails? FromToDate { get; init; } 
+    #else
+    public DatePeriodDetails? FromToDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Year is IsoISODate YearValue)
-        {
-            writer.WriteStartElement(null, "Yr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(YearValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Type is TaxRecordPeriod1Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FromToDate is DatePeriodDetails FromToDateValue)
-        {
-            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
-            FromToDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxPeriod1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

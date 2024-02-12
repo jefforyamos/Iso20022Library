@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reports on collateral values or error report in case of business processing of the related request.
-/// </summary>
-[KnownType(typeof(CollateralValueReportOrError5Choice.BusinessReport))]
-[KnownType(typeof(CollateralValueReportOrError5Choice.OperationalError))]
-public abstract partial record CollateralValueReportOrError5Choice_ : IIsoXmlSerilizable<CollateralValueReportOrError5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reports on collateral values or error report in case of business processing of the related request.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CollateralValueReportOrError5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CollateralValueReportOrError5Choice.BusinessReport))]
+    [KnownType(typeof(CollateralValueReportOrError5Choice.OperationalError))]
+    [IsoId("_95GpHzpvEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Value Report Or Error 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CollateralValueReportOrError5Choice_
+    #else
+    public abstract partial class CollateralValueReportOrError5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BizRpt" => CollateralValueReportOrError5Choice.BusinessReport.Deserialize(elementWithPayload),
-             "OprlErr" => CollateralValueReportOrError5Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CollateralValueReportOrError5Choice choice.")
-        };
     }
 }

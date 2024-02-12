@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Priority is expressed as a code or a text.
-/// </summary>
-[KnownType(typeof(PriorityCode2Choice.Code))]
-[KnownType(typeof(PriorityCode2Choice.Proprietary))]
-public abstract partial record PriorityCode2Choice_ : IIsoXmlSerilizable<PriorityCode2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Priority is expressed as a code or a text.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriorityCode2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PriorityCode2Choice.Code))]
+    [KnownType(typeof(PriorityCode2Choice.Proprietary))]
+    [IsoId("_74UMsqMgEeCJ6YNENx4h-w_784788398")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Priority Code 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriorityCode2Choice_
+    #else
+    public abstract partial class PriorityCode2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => PriorityCode2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => PriorityCode2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriorityCode2Choice choice.")
-        };
     }
 }

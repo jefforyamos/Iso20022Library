@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice number format.
-/// </summary>
-[KnownType(typeof(Number2Choice.Short))]
-[KnownType(typeof(Number2Choice.Long))]
-public abstract partial record Number2Choice_ : IIsoXmlSerilizable<Number2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice number format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Number2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Number2Choice.Short))]
+    [KnownType(typeof(Number2Choice.Long))]
+    [IsoId("_Qu0y5Np-Ed-ak6NoX_4Aeg_-1987698151")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Number2Choice_
+    #else
+    public abstract partial class Number2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Shrt" => Number2Choice.Short.Deserialize(elementWithPayload),
-             "Lng" => Number2Choice.Long.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Number2Choice choice.")
-        };
     }
 }

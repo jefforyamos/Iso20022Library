@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Floating rate related information.
 /// </summary>
+[IsoId("_GPrWwQ1IEeqV4s5SpzR1dQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Floating Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FloatingRate5
-     : IIsoXmlSerilizable<FloatingRate5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
+    [IsoId("_GQZvgw1IEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FloatingRateIdentification3Choice_? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FloatingRateIdentification3Choice_? Rate { get; init; } 
+    #else
+    public FloatingRateIdentification3Choice_? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to reference period.
     /// </summary>
+    [IsoId("_GQZvhQ1IEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateContractTerm3? ReferencePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateContractTerm3? ReferencePeriod { get; init; } 
+    #else
+    public InterestRateContractTerm3? ReferencePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Spread expressed as a rate.
     /// </summary>
+    [IsoId("_GQZvhw1IEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Spread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Spread { get; init; } 
+    #else
+    public System.Decimal? Spread { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
+    [IsoId("_GQZviQ1IEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
+    #else
+    public InterestRateFrequency2Choice_? PaymentFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
+    [IsoId("_GQZviw1IEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reset Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateFrequency2Choice_? ResetFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateFrequency2Choice_? ResetFrequency { get; init; } 
+    #else
+    public InterestRateFrequency2Choice_? ResetFrequency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Rate is FloatingRateIdentification3Choice_ RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            RateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferencePeriod is InterestRateContractTerm3 ReferencePeriodValue)
-        {
-            writer.WriteStartElement(null, "RefPrd", xmlNamespace );
-            ReferencePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Spread is IsoPercentageRate SpreadValue)
-        {
-            writer.WriteStartElement(null, "Sprd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PaymentFrequency is InterestRateFrequency2Choice_ PaymentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
-            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResetFrequency is InterestRateFrequency2Choice_ ResetFrequencyValue)
-        {
-            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
-            ResetFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FloatingRate5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

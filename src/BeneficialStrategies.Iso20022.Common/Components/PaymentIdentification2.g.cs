@@ -7,62 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide further means of referencing a payment transaction.
 /// </summary>
+[IsoId("_Ps9tQdp-Ed-ak6NoX_4Aeg_1593827907")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentIdentification2
-     : IIsoXmlSerilizable<PaymentIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentIdentification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentIdentification2( System.String reqEndToEndIdentification,System.String reqTransactionIdentification )
+    {
+        EndToEndIdentification = reqEndToEndIdentification;
+        TransactionIdentification = reqTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction.||Usage: the instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
+    [IsoId("_Ps9tQtp-Ed-ak6NoX_4Aeg_1593828020")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionIdentification { get; init; } 
+    #else
+    public System.String? InstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.
     /// Usage: In case there are technical limitations to carry on multiple references, the end-to-end identification must be carried on throughout the entire end-to-end chain.
     /// </summary>
+    [IsoId("_Ps9tQ9p-Ed-ak6NoX_4Aeg_1593827967")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End To End Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text EndToEndIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String EndToEndIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String EndToEndIdentification { get; init; } 
+    #else
+    public System.String EndToEndIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification assigned by the first instructing agent to unambiguously identify the transaction and passed on, unchanged, throughout the entire interbank chain. ||Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure the transaction identification is unique for a pre-agreed period.
     /// </summary>
+    [IsoId("_Ps9tRNp-Ed-ak6NoX_4Aeg_1735127457")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransactionIdentification { get; init; } 
+    #else
+    public System.String TransactionIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "InstrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static PaymentIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Year in which the ISA plan is issued.
 /// </summary>
+[IsoId("_Sv3dmNp-Ed-ak6NoX_4Aeg_98060804")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ISA Years Of Issue")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ISAYearsOfIssue1
-     : IIsoXmlSerilizable<ISAYearsOfIssue1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ISAYearsOfIssue1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ISAYearsOfIssue1( System.String reqCashComponentIndicator )
+    {
+        CashComponentIndicator = reqCashComponentIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Current year ISA is an ISA that was issued during the current fiscal year.
     /// </summary>
+    [IsoId("_Sv3dmdp-Ed-ak6NoX_4Aeg_98062664")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Year Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISAType1Code? CurrentYearType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ISAType1Code? CurrentYearType { get; init; } 
+    #else
+    public ISAType1Code? CurrentYearType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current year ISA is an ISA that was issued during the current fiscal year.
     /// </summary>
+    [IsoId("_Sv3dmtp-Ed-ak6NoX_4Aeg_642016687")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Current Year Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedCurrentYearType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExtendedCurrentYearType { get; init; } 
+    #else
+    public System.String? ExtendedCurrentYearType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
+    [IsoId("_Sv3dm9p-Ed-ak6NoX_4Aeg_1710283535")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Component Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CashComponentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CashComponentIndicator { get; init; } 
+    #else
+    public System.String CashComponentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
+    [IsoId("_Sv3dnNp-Ed-ak6NoX_4Aeg_1898859737")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreviousYear1? PreviousYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PreviousYear1? PreviousYears { get; init; } 
+    #else
+    public PreviousYear1? PreviousYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amounts already subscribed for the current year.
     /// </summary>
+    [IsoId("_SwBOkNp-Ed-ak6NoX_4Aeg_1154359412")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Year Subscription Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubscriptionInformation1? CurrentYearSubscriptionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubscriptionInformation1? CurrentYearSubscriptionDetails { get; init; } 
+    #else
+    public SubscriptionInformation1? CurrentYearSubscriptionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CurrentYearType is ISAType1Code CurrentYearTypeValue)
-        {
-            writer.WriteStartElement(null, "CurYrTp", xmlNamespace );
-            writer.WriteValue(CurrentYearTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExtendedCurrentYearType is IsoExtended350Code ExtendedCurrentYearTypeValue)
-        {
-            writer.WriteStartElement(null, "XtndedCurYrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedCurrentYearTypeValue)); // data type Extended350Code System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (PreviousYears is PreviousYear1 PreviousYearsValue)
-        {
-            writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
-            PreviousYearsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrentYearSubscriptionDetails is SubscriptionInformation1 CurrentYearSubscriptionDetailsValue)
-        {
-            writer.WriteStartElement(null, "CurYrSbcptDtls", xmlNamespace );
-            CurrentYearSubscriptionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ISAYearsOfIssue1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

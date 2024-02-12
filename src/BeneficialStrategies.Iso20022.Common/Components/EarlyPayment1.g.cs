@@ -7,87 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
+[IsoId("_T6ZIUVm_EeOQYsoJizpkVw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Early Payment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EarlyPayment1
-     : IIsoXmlSerilizable<EarlyPayment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a EarlyPayment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public EarlyPayment1( System.DateOnly reqEarlyPaymentDate,System.Decimal reqDiscountPercent,System.Decimal reqDiscountAmount )
+    {
+        EarlyPaymentDate = reqEarlyPaymentDate;
+        DiscountPercent = reqDiscountPercent;
+        DiscountAmount = reqDiscountAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date before which the early payment discount is valid for payment.
     /// </summary>
+    [IsoId("_eUAngFm_EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EarlyPaymentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly EarlyPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly EarlyPaymentDate { get; init; } 
+    #else
+    public System.DateOnly EarlyPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Discount percent for early payment.
     /// </summary>
+    [IsoId("_UGcnaVm_EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Percent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate DiscountPercent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal DiscountPercent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal DiscountPercent { get; init; } 
+    #else
+    public System.Decimal DiscountPercent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Early payment discount with tax, with currency.
     /// </summary>
+    [IsoId("_UGcnZVm_EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount DiscountAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal DiscountAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal DiscountAmount { get; init; } 
+    #else
+    public System.Decimal DiscountAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// In tax specification for early payment discount one defined the applied tax rates for specific early payment. VAT stands for value added tax.
     /// </summary>
+    [IsoId("_EkXkEFnAEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Payment Tax Specification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EarlyPaymentsVAT1? EarlyPaymentTaxSpecification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EarlyPaymentsVAT1? EarlyPaymentTaxSpecification { get; init; } 
+    #else
+    public EarlyPaymentsVAT1? EarlyPaymentTaxSpecification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax total in early payment, with currency.
     /// </summary>
+    [IsoId("_sh6QoFm_EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Payment Tax Total")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? EarlyPaymentTaxTotal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EarlyPaymentTaxTotal { get; init; } 
+    #else
+    public System.Decimal? EarlyPaymentTaxTotal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payable amount with discount of early payment, with currency.
     /// </summary>
+    [IsoId("_3UqokFm_EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Payable Amount With Early Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DuePayableAmountWithEarlyPayment { get; init; } 
+    #else
+    public System.Decimal? DuePayableAmountWithEarlyPayment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "EarlyPmtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EarlyPaymentDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DscntPct", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(DiscountPercent)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DiscountAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (EarlyPaymentTaxSpecification is EarlyPaymentsVAT1 EarlyPaymentTaxSpecificationValue)
-        {
-            writer.WriteStartElement(null, "EarlyPmtTaxSpcfctn", xmlNamespace );
-            EarlyPaymentTaxSpecificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarlyPaymentTaxTotal is IsoCurrencyAndAmount EarlyPaymentTaxTotalValue)
-        {
-            writer.WriteStartElement(null, "EarlyPmtTaxTtl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(EarlyPaymentTaxTotalValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DuePayableAmountWithEarlyPayment is IsoCurrencyAndAmount DuePayableAmountWithEarlyPaymentValue)
-        {
-            writer.WriteStartElement(null, "DuePyblAmtWthEarlyPmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DuePayableAmountWithEarlyPaymentValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static EarlyPayment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

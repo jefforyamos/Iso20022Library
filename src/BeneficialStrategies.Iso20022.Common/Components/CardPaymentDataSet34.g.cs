@@ -7,85 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of transactions to capture, sharing common characteristics.
 /// </summary>
+[IsoId("_sB2BoXJPEe299ZbWCkdR_w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Data Set")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentDataSet34
-     : IIsoXmlSerilizable<CardPaymentDataSet34>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentDataSet34 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentDataSet34( DataSetIdentification5 reqDataSetIdentification )
+    {
+        DataSetIdentification = reqDataSetIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the data set.
     /// </summary>
+    [IsoId("_sIT2AXJPEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification5 DataSetIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DataSetIdentification5 DataSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataSetIdentification5 DataSetIdentification { get; init; } 
+    #else
+    public DataSetIdentification5 DataSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of partners involved in the data set building.
     /// </summary>
+    [IsoId("_sIT2A3JPEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Traceability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Traceability8? Traceability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Traceability8? Traceability { get; init; } 
+    #else
+    public Traceability8? Traceability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Initiator of the data set.
     /// </summary>
+    [IsoId("_sIT2BXJPEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? DataSetInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification176? DataSetInitiator { get; init; } 
+    #else
+    public GenericIdentification176? DataSetInitiator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction totals of the data set.
     /// </summary>
+    [IsoId("_sIT2B3JPEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TransactionTotals12? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _sIT2B3JPEe299ZbWCkdR_w
+    
     /// <summary>
     /// Data common to all transactions of the data set.
     /// </summary>
+    [IsoId("_sIT2CXJPEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommonData12? CommonData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommonData12? CommonData { get; init; } 
+    #else
+    public CommonData12? CommonData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of transaction to Process.
     /// </summary>
+    [IsoId("_sIT2C3JPEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public CardPaymentDataSetTransaction11Choice_? Transaction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _sIT2C3JPEe299ZbWCkdR_w
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
-        DataSetIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Traceability is Traceability8 TraceabilityValue)
-        {
-            writer.WriteStartElement(null, "Tracblt", xmlNamespace );
-            TraceabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DataSetInitiator is GenericIdentification176 DataSetInitiatorValue)
-        {
-            writer.WriteStartElement(null, "DataSetInitr", xmlNamespace );
-            DataSetInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize TransactionTotals, multiplicity Unknown
-        if (CommonData is CommonData12 CommonDataValue)
-        {
-            writer.WriteStartElement(null, "CmonData", xmlNamespace );
-            CommonDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Transaction, multiplicity Unknown
-    }
-    public static CardPaymentDataSet34 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,17 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the attributes for a debtor activation.
 /// </summary>
+[IsoId("_UPBU9eH7Eeqbls7Gk4-ckA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Debtor Activation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DebtorActivation3
-     : IIsoXmlSerilizable<DebtorActivation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DebtorActivation3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DebtorActivation3( RTPPartyIdentification1 reqDebtor,RTPPartyIdentification1 reqDebtorSolutionProvider,RTPPartyIdentification1 reqCreditor )
+    {
+        Debtor = reqDebtor;
+        DebtorSolutionProvider = reqDebtorSolutionProvider;
+        Creditor = reqCreditor;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,153 +54,273 @@ public partial record DebtorActivation3
     /// Usage:
     /// This element may be used for technical reconciliation purpose.
     /// </summary>
+    [IsoId("_UQacEeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Activation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DebtorActivationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DebtorActivationIdentification { get; init; } 
+    #else
+    public System.String? DebtorActivationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name by which the debtor is known, other than legal name, such as the name to be shown to the creditor. 
     /// </summary>
+    [IsoId("_UQacE-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? DisplayName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DisplayName { get; init; } 
+    #else
+    public System.String? DisplayName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_UQacFeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RTPPartyIdentification1? UltimateDebtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RTPPartyIdentification1? UltimateDebtor { get; init; } 
+    #else
+    public RTPPartyIdentification1? UltimateDebtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_UQacF-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RTPPartyIdentification1 Debtor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RTPPartyIdentification1 Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RTPPartyIdentification1 Debtor { get; init; } 
+    #else
+    public RTPPartyIdentification1 Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Organisation servicing the e-invoicing for the debtor (to which the activation status report must be sent).
     /// </summary>
+    [IsoId("_UQacGeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Solution Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RTPPartyIdentification1 DebtorSolutionProvider { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RTPPartyIdentification1 DebtorSolutionProvider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RTPPartyIdentification1 DebtorSolutionProvider { get; init; } 
+    #else
+    public RTPPartyIdentification1 DebtorSolutionProvider { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
+    [IsoId("_UQacG-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party49Choice_? CustomerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party49Choice_? CustomerIdentification { get; init; } 
+    #else
+    public Party49Choice_? CustomerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document format type supported to exchange the contracts.
     /// </summary>
+    [IsoId("_UQacHeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Format Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentFormat2Choice_? ContractFormatType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentFormat2Choice_? ContractFormatType { get; init; } 
+    #else
+    public DocumentFormat2Choice_? ContractFormatType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code choice external/prop
     /// Description
     /// identical to the Instruction for Debtor
     /// </summary>
+    [IsoId("_UQacH-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractReference1? ContractReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContractReference1? ContractReference { get; init; } 
+    #else
+    public ContractReference1? ContractReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [IsoId("_UQacIeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RTPPartyIdentification1 Creditor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RTPPartyIdentification1 Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RTPPartyIdentification1 Creditor { get; init; } 
+    #else
+    public RTPPartyIdentification1 Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [IsoId("_UQacI-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RTPPartyIdentification1? UltimateCreditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RTPPartyIdentification1? UltimateCreditor { get; init; } 
+    #else
+    public RTPPartyIdentification1? UltimateCreditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Creditor's service provider address to which the debtor activation has to be delivered.
     /// </summary>
+    [IsoId("_UQacJeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Activation Request Delivery Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RTPPartyIdentification1? ActivationRequestDeliveryParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RTPPartyIdentification1? ActivationRequestDeliveryParty { get; init; } 
+    #else
+    public RTPPartyIdentification1? ActivationRequestDeliveryParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the debtor activation will be activated.
     /// </summary>
+    [IsoId("_UQacJ-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? StartDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the debtor activation will be deactivated.
     /// </summary>
+    [IsoId("_UQacKeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? EndDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique, one-time code that a creditor may require from a debtor for activation purposes, and which is known only by the creditor and the debtor.
     /// </summary>
+    [IsoId("_UQacMeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dedicated Activation Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DedicatedActivationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DedicatedActivationCode { get; init; } 
+    #else
+    public System.String? DedicatedActivationCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DebtorActivationIdentification is IsoMax35Text DebtorActivationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DbtrActvtnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorActivationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DisplayName is IsoMax140Text DisplayNameValue)
-        {
-            writer.WriteStartElement(null, "DispNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(DisplayNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (UltimateDebtor is RTPPartyIdentification1 UltimateDebtorValue)
-        {
-            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
-            UltimateDebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-        Debtor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DbtrSolPrvdr", xmlNamespace );
-        DebtorSolutionProvider.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CustomerIdentification is Party49Choice_ CustomerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
-            CustomerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractFormatType is DocumentFormat2Choice_ ContractFormatTypeValue)
-        {
-            writer.WriteStartElement(null, "CtrctFrmtTp", xmlNamespace );
-            ContractFormatTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractReference is ContractReference1 ContractReferenceValue)
-        {
-            writer.WriteStartElement(null, "CtrctRef", xmlNamespace );
-            ContractReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-        Creditor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UltimateCreditor is RTPPartyIdentification1 UltimateCreditorValue)
-        {
-            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
-            UltimateCreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActivationRequestDeliveryParty is RTPPartyIdentification1 ActivationRequestDeliveryPartyValue)
-        {
-            writer.WriteStartElement(null, "ActvtnReqDlvryPty", xmlNamespace );
-            ActivationRequestDeliveryPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StartDate is DateAndDateTime2Choice_ StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            StartDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EndDate is DateAndDateTime2Choice_ EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            EndDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DedicatedActivationCode is IsoMax35Text DedicatedActivationCodeValue)
-        {
-            writer.WriteStartElement(null, "DdctdActvtnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DedicatedActivationCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DebtorActivation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

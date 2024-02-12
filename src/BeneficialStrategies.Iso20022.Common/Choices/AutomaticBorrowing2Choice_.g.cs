@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the automatic borrowing information.
-/// </summary>
-[KnownType(typeof(AutomaticBorrowing2Choice.Code))]
-[KnownType(typeof(AutomaticBorrowing2Choice.Proprietary))]
-public abstract partial record AutomaticBorrowing2Choice_ : IIsoXmlSerilizable<AutomaticBorrowing2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the automatic borrowing information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AutomaticBorrowing2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AutomaticBorrowing2Choice.Code))]
+    [KnownType(typeof(AutomaticBorrowing2Choice.Proprietary))]
+    [IsoId("_QtyRFNp-Ed-ak6NoX_4Aeg_-1043359290")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Automatic Borrowing 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AutomaticBorrowing2Choice_
+    #else
+    public abstract partial class AutomaticBorrowing2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AutomaticBorrowing2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AutomaticBorrowing2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AutomaticBorrowing2Choice choice.")
-        };
     }
 }

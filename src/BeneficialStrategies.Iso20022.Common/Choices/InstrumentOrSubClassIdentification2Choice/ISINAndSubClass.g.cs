@@ -9,60 +9,107 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentification2Choice;
-
-/// <summary>
-/// Identifies the financial instrument to which the result relates and its sub-class among non-equity instruments
-/// </summary>
-public partial record ISINAndSubClass : InstrumentOrSubClassIdentification2Choice_
-     , IIsoXmlSerilizable<ISINAndSubClass>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identifies the financial instrument using an ISIN.
+    /// Identifies the financial instrument to which the result relates and its sub-class among non-equity instruments
     /// </summary>
-    public required IsoISINOct2015Identifier ISIN { get; init; } 
-    /// <summary>
-    /// Sub class of non-equity instruments to which the instrument belongs.
-    /// </summary>
-    public NonEquitySubClass1? DerivativeSubClass { get; init; } 
-    /// <summary>
-    /// Identification of non-equity financial instruments.
-    /// </summary>
-    public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_BSnWYaaUEeqZmriXpMtonA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISIN And Sub Class")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ISINAndSubClass : InstrumentOrSubClassIdentification2Choice_
+    #else
+    public partial class ISINAndSubClass : InstrumentOrSubClassIdentification2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "ISIN", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISIN)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        if (DerivativeSubClass is NonEquitySubClass1 DerivativeSubClassValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ISINAndSubClass instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ISINAndSubClass( System.String reqISIN )
         {
-            writer.WriteStartElement(null, "DerivSubClss", xmlNamespace );
-            DerivativeSubClassValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            ISIN = reqISIN;
         }
-        if (FinancialInstrumentClassification is NonEquityInstrumentReportingClassification1Code FinancialInstrumentClassificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmClssfctn", xmlNamespace );
-            writer.WriteValue(FinancialInstrumentClassificationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static new ISINAndSubClass Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the financial instrument using an ISIN.
+        /// </summary>
+        [IsoId("_GWXkIaaUEeqZmriXpMtonA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("ISIN")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISINOct2015Identifier ISIN { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String ISIN { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String ISIN { get; init; } 
+        #else
+        public System.String ISIN { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sub class of non-equity instruments to which the instrument belongs.
+        /// </summary>
+        [IsoId("_GWXkI6aUEeqZmriXpMtonA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Derivative Sub Class")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public NonEquitySubClass1? DerivativeSubClass { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NonEquitySubClass1? DerivativeSubClass { get; init; } 
+        #else
+        public NonEquitySubClass1? DerivativeSubClass { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of non-equity financial instruments.
+        /// </summary>
+        [IsoId("_GWXkJaaUEeqZmriXpMtonA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument Classification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
+        #else
+        public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

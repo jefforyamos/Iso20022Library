@@ -7,93 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Play Request message.
 /// </summary>
+[IsoId("_3pwzIC8GEeu125Ip9zFcsQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Play Resource Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DevicePlayResourceRequest1
-     : IIsoXmlSerilizable<DevicePlayResourceRequest1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DevicePlayResourceRequest1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DevicePlayResourceRequest1( ResourceAction1Code reqResourceAction )
+    {
+        ResourceAction = reqResourceAction;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Message response awaited by the initiator of the Request.
     /// </summary>
+    [IsoId("_XQLAMS8HEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseMode2Code? ResponseMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseMode2Code? ResponseMode { get; init; } 
+    #else
+    public ResponseMode2Code? ResponseMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested Action: Start to play a media resource, Stop to play a media resource, Set the default volume.
     /// </summary>
+    [IsoId("_u_G6sy8HEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resource Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResourceAction1Code ResourceAction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResourceAction1Code ResourceAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResourceAction1Code ResourceAction { get; init; } 
+    #else
+    public ResourceAction1Code ResourceAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Volume of a sound, either in a percentage of the maximum volume, or 0 to mute.
     /// </summary>
+    [IsoId("_u_G6tC8HEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sound Volume")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SoundVolume { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SoundVolume { get; init; } 
+    #else
+    public System.Decimal? SoundVolume { get; set; } 
+    #endif
+    
     /// <summary>
     /// Resolution to use.
     /// </summary>
+    [IsoId("_JPIR4C8IEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Resolution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DisplayResolution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DisplayResolution { get; init; } 
+    #else
+    public System.String? DisplayResolution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the resource to use.
     /// </summary>
+    [IsoId("_u_G6tS8HEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resource")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResourceContent1? Resource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResourceContent1? Resource { get; init; } 
+    #else
+    public ResourceContent1? Resource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the moment to manage the media resource.
     /// </summary>
+    [IsoId("_vqtnAC8IEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Timing Slot")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition2Code? TimingSlot { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingPosition2Code? TimingSlot { get; init; } 
+    #else
+    public ProcessingPosition2Code? TimingSlot { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ResponseMode is ResponseMode2Code ResponseModeValue)
-        {
-            writer.WriteStartElement(null, "RspnMd", xmlNamespace );
-            writer.WriteValue(ResponseModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RsrcActn", xmlNamespace );
-        writer.WriteValue(ResourceAction.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SoundVolume is IsoPercentageRate SoundVolumeValue)
-        {
-            writer.WriteStartElement(null, "SoundVol", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SoundVolumeValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DisplayResolution is IsoMax35Text DisplayResolutionValue)
-        {
-            writer.WriteStartElement(null, "DispRsltn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DisplayResolutionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Resource is ResourceContent1 ResourceValue)
-        {
-            writer.WriteStartElement(null, "Rsrc", xmlNamespace );
-            ResourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TimingSlot is ProcessingPosition2Code TimingSlotValue)
-        {
-            writer.WriteStartElement(null, "TmgSlot", xmlNamespace );
-            writer.WriteValue(TimingSlotValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static DevicePlayResourceRequest1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

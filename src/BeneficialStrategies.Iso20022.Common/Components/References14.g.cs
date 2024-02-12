@@ -7,86 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// References of the original instruction for which an action has been requested.
 /// </summary>
+[IsoId("_jyL0QO5NEeCisYr99QEiWA_53798055")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("References")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record References14
-     : IIsoXmlSerilizable<References14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [IsoId("_jyL0Qe5NEeCisYr99QEiWA_-825767186")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountOwnerTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountOwnerTransactionIdentification { get; init; } 
+    #else
+    public System.String? AccountOwnerTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
+    [IsoId("_jyL0Qu5NEeCisYr99QEiWA_-1877643182")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountServicerTransactionIdentification { get; init; } 
+    #else
+    public System.String? AccountServicerTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [IsoId("_jyL0Q-5NEeCisYr99QEiWA_1711117493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Infrastructure Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MarketInfrastructureTransactionIdentification { get; init; } 
+    #else
+    public System.String? MarketInfrastructureTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the transaction as assigned by the processor.
     /// </summary>
+    [IsoId("_jyL0RO5NEeCisYr99QEiWA_171305167")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processor Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProcessorTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProcessorTransactionIdentification { get; init; } 
+    #else
+    public System.String? ProcessorTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [IsoId("_jyVlQO5NEeCisYr99QEiWA_310609337")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pool Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PoolIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PoolIdentification { get; init; } 
+    #else
+    public System.String? PoolIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountOwnerTransactionIdentification is IsoMax35Text AccountOwnerTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountServicerTransactionIdentification is IsoMax35Text AccountServicerTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MarketInfrastructureTransactionIdentification is IsoMax35Text MarketInfrastructureTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProcessorTransactionIdentification is IsoMax35Text ProcessorTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrcrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessorTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PoolIdentification is IsoMax35Text PoolIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PoolId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PoolIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static References14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identification of a person, an organisation or a financial institution.
-/// </summary>
-[KnownType(typeof(Party40Choice.Party))]
-[KnownType(typeof(Party40Choice.Agent))]
-public abstract partial record Party40Choice_ : IIsoXmlSerilizable<Party40Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identification of a person, an organisation or a financial institution.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Party40Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Party40Choice.Party))]
+    [KnownType(typeof(Party40Choice.Agent))]
+    [IsoId("_8KfE5248EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party 40 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Party40Choice_
+    #else
+    public abstract partial class Party40Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Pty" => Party40Choice.Party.Deserialize(elementWithPayload),
-             "Agt" => Party40Choice.Agent.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Party40Choice choice.")
-        };
     }
 }

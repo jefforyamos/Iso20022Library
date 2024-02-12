@@ -7,90 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to a component of the POI (Point Of Interaction) performing the transaction.
 /// </summary>
+[IsoId("__Mkz8SYBEeym0KcvJF9aDQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Point Of Interaction Component")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PointOfInteractionComponent13
-     : IIsoXmlSerilizable<PointOfInteractionComponent13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PointOfInteractionComponent13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PointOfInteractionComponent13( POIComponentType5Code reqType,PointOfInteractionComponentIdentification3 reqIdentification )
+    {
+        Type = reqType;
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of component belonging to a POI (Point Of Interaction) Terminal.
     /// </summary>
+    [IsoId("__SG0MSYBEeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required POIComponentType5Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public POIComponentType5Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public POIComponentType5Code Type { get; init; } 
+    #else
+    public POIComponentType5Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the POI (Point Of Interaction) component.
     /// </summary>
+    [IsoId("__SG0MyYBEeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PointOfInteractionComponentIdentification3 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PointOfInteractionComponentIdentification3 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponentIdentification3 Identification { get; init; } 
+    #else
+    public PointOfInteractionComponentIdentification3 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the POI (Point Of Interaction) component.
     /// </summary>
+    [IsoId("__SG0NSYBEeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentStatus3? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponentStatus3? Status { get; init; } 
+    #else
+    public PointOfInteractionComponentStatus3? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the standard for which the component complies with.
     /// </summary>
+    [IsoId("__SG0NyYBEeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standard Compliance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification48? StandardCompliance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification48? StandardCompliance { get; init; } 
+    #else
+    public GenericIdentification48? StandardCompliance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Characteristics of a POI (Point Of Interaction) component.
     /// </summary>
+    [IsoId("__SG0OSYBEeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentCharacteristics4? Characteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponentCharacteristics4? Characteristics { get; init; } 
+    #else
+    public PointOfInteractionComponentCharacteristics4? Characteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Assessments for the component of the point of interaction.
     /// </summary>
+    [IsoId("__SG0OyYBEeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assessment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentIdentification3? Assessment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponentIdentification3? Assessment { get; init; } 
+    #else
+    public PointOfInteractionComponentIdentification3? Assessment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Status is PointOfInteractionComponentStatus3 StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            StatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandardCompliance is GenericIdentification48 StandardComplianceValue)
-        {
-            writer.WriteStartElement(null, "StdCmplc", xmlNamespace );
-            StandardComplianceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Characteristics is PointOfInteractionComponentCharacteristics4 CharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "Chrtcs", xmlNamespace );
-            CharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Assessment is PointOfInteractionComponentIdentification3 AssessmentValue)
-        {
-            writer.WriteStartElement(null, "Assmnt", xmlNamespace );
-            AssessmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PointOfInteractionComponent13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

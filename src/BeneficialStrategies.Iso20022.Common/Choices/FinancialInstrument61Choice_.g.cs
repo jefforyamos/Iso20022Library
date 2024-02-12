@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of financial instrument.
-/// </summary>
-[KnownType(typeof(FinancialInstrument61Choice.Security))]
-[KnownType(typeof(FinancialInstrument61Choice.CashAsset))]
-[KnownType(typeof(FinancialInstrument61Choice.OtherAsset))]
-public abstract partial record FinancialInstrument61Choice_ : IIsoXmlSerilizable<FinancialInstrument61Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of financial instrument.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrument61Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrument61Choice.Security))]
+    [KnownType(typeof(FinancialInstrument61Choice.CashAsset))]
+    [KnownType(typeof(FinancialInstrument61Choice.OtherAsset))]
+    [IsoId("_mDJucZNBEemQB_8XA98K0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument 61 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrument61Choice_
+    #else
+    public abstract partial class FinancialInstrument61Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Scty" => FinancialInstrument61Choice.Security.Deserialize(elementWithPayload),
-             "CshAsst" => FinancialInstrument61Choice.CashAsset.Deserialize(elementWithPayload),
-             "OthrAsst" => FinancialInstrument61Choice.OtherAsset.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrument61Choice choice.")
-        };
     }
 }

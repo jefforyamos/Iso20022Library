@@ -7,17 +7,48 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting quantitative details of equity instruments as part of transparency calculations.
 /// </summary>
+[IsoId("_pRLggWlAEeaLAKoEUNsD9g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transparency Data Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransparencyDataReport13
-     : IIsoXmlSerilizable<TransparencyDataReport13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransparencyDataReport13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransparencyDataReport13( System.String reqIdentification,System.String reqSuspension,NumberAndVolume2 reqTransactionsExecuted,NumberAndVolume2 reqTransactionsExecutedExcludingPreTradeWaiver,NumberAndVolume2 reqTransactionsExecutedExcludingPostTradeLargeInScaleWaiver )
+    {
+        Identification = reqIdentification;
+        Suspension = reqSuspension;
+        TransactionsExecuted = reqTransactionsExecuted;
+        TransactionsExecutedExcludingPreTradeWaiver = reqTransactionsExecutedExcludingPreTradeWaiver;
+        TransactionsExecutedExcludingPostTradeLargeInScaleWaiver = reqTransactionsExecutedExcludingPostTradeLargeInScaleWaiver;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,85 +56,161 @@ public partial record TransparencyDataReport13
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [IsoId("_paFk5WlAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [IsoId("_paFk52lAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date to which the quantitative data fields below relate.
     /// </summary>
+    [IsoId("_paFk6WlAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ReportingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ReportingDate { get; init; } 
+    #else
+    public System.DateOnly? ReportingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
+    [IsoId("_paFk62lAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradingVenue { get; init; } 
+    #else
+    public System.String? TradingVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the instrument was suspended for trading on that Trading Venue for the whole day on the given reporting day.
     /// </summary>
+    [IsoId("_paFk7WlAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Suspension { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Suspension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Suspension { get; init; } 
+    #else
+    public System.String Suspension { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of transactions executed on the reporting day.
     /// </summary>
+    [IsoId("_paFk72lAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transactions Executed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NumberAndVolume2 TransactionsExecuted { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NumberAndVolume2 TransactionsExecuted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndVolume2 TransactionsExecuted { get; init; } 
+    #else
+    public NumberAndVolume2 TransactionsExecuted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details all transactions that have been performed under a pre-trade Waiver.
     /// </summary>
+    [IsoId("_paFk8WlAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transactions Executed Excluding Pre Trade Waiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NumberAndVolume2 TransactionsExecutedExcludingPreTradeWaiver { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NumberAndVolume2 TransactionsExecutedExcludingPreTradeWaiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndVolume2 TransactionsExecutedExcludingPreTradeWaiver { get; init; } 
+    #else
+    public NumberAndVolume2 TransactionsExecutedExcludingPreTradeWaiver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details all transactions that have been performed under a post-trade large in scale waivers.
     /// </summary>
+    [IsoId("_paFk82lAEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transactions Executed Excluding Post Trade Large In Scale Waiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NumberAndVolume2 TransactionsExecutedExcludingPostTradeLargeInScaleWaiver { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NumberAndVolume2 TransactionsExecutedExcludingPostTradeLargeInScaleWaiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndVolume2 TransactionsExecutedExcludingPostTradeLargeInScaleWaiver { get; init; } 
+    #else
+    public NumberAndVolume2 TransactionsExecutedExcludingPostTradeLargeInScaleWaiver { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        if (ReportingDate is IsoISODate ReportingDateValue)
-        {
-            writer.WriteStartElement(null, "RptgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ReportingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
-        {
-            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sspnsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Suspension)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxsExctd", xmlNamespace );
-        TransactionsExecuted.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxsExctdExclgPreTradWvr", xmlNamespace );
-        TransactionsExecutedExcludingPreTradeWaiver.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxsExctdExclgPstTradLrgInScaleWvr", xmlNamespace );
-        TransactionsExecutedExcludingPostTradeLargeInScaleWaiver.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static TransparencyDataReport13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

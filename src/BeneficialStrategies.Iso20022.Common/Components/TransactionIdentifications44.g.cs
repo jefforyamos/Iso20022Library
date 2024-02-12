@@ -7,103 +7,196 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides unambiguous instruction or transaction identification information.
 /// </summary>
+[IsoId("_UJ6-h-OPEem5PtD3jXNVeQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Identifications")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionIdentifications44
-     : IIsoXmlSerilizable<TransactionIdentifications44>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionIdentifications44 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionIdentifications44( System.String reqTripartyAgentServiceProviderCollateralInstructionIdentification )
+    {
+        TripartyAgentServiceProviderCollateralInstructionIdentification = reqTripartyAgentServiceProviderCollateralInstructionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference assigned to the instruction by the triparty-agent/service-provider.
     /// </summary>
+    [IsoId("_UJ6-iOOPEem5PtD3jXNVeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent Service Provider Collateral Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
+    #else
+    public System.String TripartyAgentServiceProviderCollateralInstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the triparty-agent/service-provider collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
+    [IsoId("_UJ6-jeOPEem5PtD3jXNVeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent Service Provider Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? TripartyAgentServiceProviderCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the collateral management transaction from the client's point of view. Identifies the potential match.
     /// </summary>
+    [IsoId("_UJ6-jOOPEem5PtD3jXNVeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Collateral Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientCollateralInstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientCollateralInstructionIdentification { get; init; } 
+    #else
+    public System.String? ClientCollateralInstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the collateral management transaction from the client's point of view. Present in case of a decrease.
     /// </summary>
+    [IsoId("_UJ6-iuOPEem5PtD3jXNVeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? ClientCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique collateral instruction reference assigned by counterparty.
     /// </summary>
+    [IsoId("_1HEfYGmyEeqtioZoQfxdKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Collateral Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CounterpartyCollateralInstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterpartyCollateralInstructionIdentification { get; init; } 
+    #else
+    public System.String? CounterpartyCollateralInstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique collateral transaction reference assigned by counterparty.
     /// </summary>
+    [IsoId("_UJ6-ieOPEem5PtD3jXNVeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CounterpartyCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterpartyCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? CounterpartyCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [IsoId("_UJ6-i-OPEem5PtD3jXNVeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommonTransactionIdentification { get; init; } 
+    #else
+    public System.String? CommonTransactionIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCollInstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderCollateralInstructionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (TripartyAgentServiceProviderCollateralTransactionIdentification is IsoMax35Text TripartyAgentServiceProviderCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClientCollateralInstructionIdentification is IsoMax35Text ClientCollateralInstructionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntCollInstrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientCollateralInstructionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClientCollateralTransactionIdentification is IsoMax35Text ClientCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CounterpartyCollateralInstructionIdentification is IsoMax35Text CounterpartyCollateralInstructionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyCollInstrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyCollateralInstructionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CounterpartyCollateralTransactionIdentification is IsoMax35Text CounterpartyCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CommonTransactionIdentification is IsoMax52Text CommonTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmonTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommonTransactionIdentificationValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionIdentifications44 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,93 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details relative to the submission of the insurance data set.
 /// </summary>
+[IsoId("_Rax58tp-Ed-ak6NoX_4Aeg_-1897093654")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Required Submission")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RequiredSubmission3
-     : IIsoXmlSerilizable<RequiredSubmission3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RequiredSubmission3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RequiredSubmission3( System.String reqMatchIssueDate,System.String reqMatchTransport,System.String reqMatchAmount )
+    {
+        MatchIssueDate = reqMatchIssueDate;
+        MatchTransport = reqMatchTransport;
+        MatchAmount = reqMatchAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
+    [IsoId("_Rax589p-Ed-ak6NoX_4Aeg_-1897093637")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Submitter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rax589p-Ed-ak6NoX_4Aeg_-1897093637
+    
     /// <summary>
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
+    [IsoId("_Rax59Np-Ed-ak6NoX_4Aeg_1704101757")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Match Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification27? MatchIssuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification27? MatchIssuer { get; init; } 
+    #else
+    public PartyIdentification27? MatchIssuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
+    [IsoId("_Rax59dp-Ed-ak6NoX_4Aeg_-1540614996")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Match Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MatchIssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MatchIssueDate { get; init; } 
+    #else
+    public System.String MatchIssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the transport information must be matched as part of the validation of the data set.
     /// </summary>
+    [IsoId("_Rax59tp-Ed-ak6NoX_4Aeg_-1514758562")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Match Transport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchTransport { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MatchTransport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MatchTransport { get; init; } 
+    #else
+    public System.String MatchTransport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the insured amount must be matched as part of the validation of the data set.
     /// </summary>
+    [IsoId("_Rax599p-Ed-ak6NoX_4Aeg_-1037296621")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Match Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MatchAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MatchAmount { get; init; } 
+    #else
+    public System.String MatchAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies which clauses are required in the insurance data set.
     /// </summary>
+    [IsoId("_Rax5-Np-Ed-ak6NoX_4Aeg_-1000355227")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clauses Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InsuranceClauses1Code? ClausesRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InsuranceClauses1Code? ClausesRequired { get; init; } 
+    #else
+    public InsuranceClauses1Code? ClausesRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the assured (insured) party must be matched as part of the validation of the data set.
     /// </summary>
+    [IsoId("_Ra7q8Np-Ed-ak6NoX_4Aeg_-711292782")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Match Assured Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssuredType1Code? MatchAssuredParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssuredType1Code? MatchAssuredParty { get; init; } 
+    #else
+    public AssuredType1Code? MatchAssuredParty { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize Submitter, multiplicity Unknown
-        if (MatchIssuer is PartyIdentification27 MatchIssuerValue)
-        {
-            writer.WriteStartElement(null, "MtchIssr", xmlNamespace );
-            MatchIssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MtchIsseDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchIssueDate)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MtchTrnsprt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchTransport)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MtchAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchAmount)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (ClausesRequired is InsuranceClauses1Code ClausesRequiredValue)
-        {
-            writer.WriteStartElement(null, "ClausesReqrd", xmlNamespace );
-            writer.WriteValue(ClausesRequiredValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MatchAssuredParty is AssuredType1Code MatchAssuredPartyValue)
-        {
-            writer.WriteStartElement(null, "MtchAssrdPty", xmlNamespace );
-            writer.WriteValue(MatchAssuredPartyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static RequiredSubmission3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

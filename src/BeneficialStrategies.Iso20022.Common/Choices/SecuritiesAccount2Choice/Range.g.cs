@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice;
-
-/// <summary>
-/// Range of identifications of the securities accounts.
-/// </summary>
-public partial record Range : SecuritiesAccount2Choice_
-     , IIsoXmlSerilizable<Range>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Securities account number or code at which the range starts.
+    /// Range of identifications of the securities accounts.
     /// </summary>
-    public required SecuritiesAccount19 From { get; init; } 
-    /// <summary>
-    /// Securities account number or code at which the range ends.
-    /// </summary>
-    public required SecuritiesAccount19 To { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_4H1_oeGBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Range")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Range : SecuritiesAccount2Choice_
+    #else
+    public partial class Range : SecuritiesAccount2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Fr", xmlNamespace );
-        From.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "To", xmlNamespace );
-        To.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Range Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Range instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Range( SecuritiesAccount19 reqFrom,SecuritiesAccount19 reqTo )
+        {
+            From = reqFrom;
+            To = reqTo;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Securities account number or code at which the range starts.
+        /// </summary>
+        [IsoId("_4UfUgeGBEeWCAvUNsZ5u6g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("From")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SecuritiesAccount19 From { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SecuritiesAccount19 From { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesAccount19 From { get; init; } 
+        #else
+        public SecuritiesAccount19 From { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Securities account number or code at which the range ends.
+        /// </summary>
+        [IsoId("_4UfUg-GBEeWCAvUNsZ5u6g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("To")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SecuritiesAccount19 To { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SecuritiesAccount19 To { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesAccount19 To { get; init; } 
+        #else
+        public SecuritiesAccount19 To { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

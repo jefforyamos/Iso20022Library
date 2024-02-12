@@ -9,57 +9,111 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification99Choice;
-
-/// <summary>
-/// Name and address and Alternative Identifier of a party.
-/// </summary>
-public partial record NameAndAddress : PartyIdentification99Choice_
-     , IIsoXmlSerilizable<NameAndAddress>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification99Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name by which a party is known and which is usually used to identify that party.
+    /// Name and address and Alternative Identifier of a party.
     /// </summary>
-    public required IsoMax350Text Name { get; init; } 
-    /// <summary>
-    /// Postal address of a party.
-    /// </summary>
-    public PostalAddress1? Address { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
-    /// </summary>
-    public SimpleValueList<IsoMax35Text> AlternativeIdentifier { get; init; } = [];
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-6Y-U2z9EeWv_oZ1Y01DUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name And Address")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NameAndAddress : PartyIdentification99Choice_
+    #else
+    public partial class NameAndAddress : PartyIdentification99Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Nm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (Address is PostalAddress1 AddressValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a NameAndAddress instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public NameAndAddress( System.String reqName )
         {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Name = reqName;
         }
-        writer.WriteStartElement(null, "AltrntvIdr", xmlNamespace );
-        AlternativeIdentifier.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
-        writer.WriteEndElement();
-    }
-    public static new NameAndAddress Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name by which a party is known and which is usually used to identify that party.
+        /// </summary>
+        [IsoId("_PZvPQdp-Ed-ak6NoX_4Aeg_-611452364")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax350Text Name { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Name { get; init; } 
+        #else
+        public System.String Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Postal address of a party.
+        /// </summary>
+        [IsoId("_PZvPQtp-Ed-ak6NoX_4Aeg_-611452322")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PostalAddress1? Address { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostalAddress1? Address { get; init; } 
+        #else
+        public PostalAddress1? Address { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
+        /// </summary>
+        [IsoId("_PZvPQ9p-Ed-ak6NoX_4Aeg_-106286787")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Alternative Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(10)]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        public SimpleValueList<System.String> AlternativeIdentifier { get; init; } = new SimpleValueList<System.String>(){};
+        
+        
+        #nullable disable
+        
     }
 }

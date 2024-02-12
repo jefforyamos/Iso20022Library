@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice;
-
-/// <summary>
-/// Reason why the payment status is pending (failing settlement).
-/// </summary>
-public partial record PendingFailingSettlement : PaymentStatusReasonCode7Choice_
-     , IIsoXmlSerilizable<PendingFailingSettlement>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies the reason the transaction/instruction is pending failing settlement, and the settlement at the instruction settlement date is no longer possible.
+    /// Reason why the payment status is pending (failing settlement).
     /// </summary>
-    public required PendingFailingSettlement1Code Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Ny9Dx5lPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Failing Settlement")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PendingFailingSettlement : PaymentStatusReasonCode7Choice_
+    #else
+    public partial class PendingFailingSettlement : PaymentStatusReasonCode7Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PdgFlngSttlm", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new PendingFailingSettlement Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a PendingFailingSettlement instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public PendingFailingSettlement( PendingFailingSettlement1Code reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies the reason the transaction/instruction is pending failing settlement, and the settlement at the instruction settlement date is no longer possible.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PendingFailingSettlement1Code Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PendingFailingSettlement1Code Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PendingFailingSettlement1Code Value { get; init; } 
+        #else
+        public PendingFailingSettlement1Code Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

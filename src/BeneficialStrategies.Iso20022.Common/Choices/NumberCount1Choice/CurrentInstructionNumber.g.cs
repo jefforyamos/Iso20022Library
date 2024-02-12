@@ -9,41 +9,71 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.NumberCount1Choice;
-
-/// <summary>
-/// Sequential number of the instruction in a range of linked settlement instructions.
-/// </summary>
-public partial record CurrentInstructionNumber : NumberCount1Choice_
-     , IIsoXmlSerilizable<CurrentInstructionNumber>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.NumberCount1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies a numeric string with an exact length of 3 digits.
+    /// Sequential number of the instruction in a range of linked settlement instructions.
     /// </summary>
-    public required IsoExact3NumericText Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QrsmaNp-Ed-ak6NoX_4Aeg_1394466276")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Instruction Number")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CurrentInstructionNumber : NumberCount1Choice_
+    #else
+    public partial class CurrentInstructionNumber : NumberCount1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CurInstrNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(Value)); // data type Exact3NumericText System.String
-        writer.WriteEndElement();
-    }
-    public static new CurrentInstructionNumber Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CurrentInstructionNumber instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CurrentInstructionNumber( System.String reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies a numeric string with an exact length of 3 digits.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoExact3NumericText Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

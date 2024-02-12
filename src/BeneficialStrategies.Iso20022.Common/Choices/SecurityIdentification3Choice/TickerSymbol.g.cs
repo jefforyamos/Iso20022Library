@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
-
-/// <summary>
-/// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, eg, RTR.L for Reuters quoted in London.
-/// </summary>
-public partial record TickerSymbol : SecurityIdentification3Choice_
-     , IIsoXmlSerilizable<TickerSymbol>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, for example, RTR.L for Reuters quoted in London.
+    /// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, eg, RTR.L for Reuters quoted in London.
     /// </summary>
-    public required IsoTickerIdentifier Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Qdr_lNp-Ed-ak6NoX_4Aeg_1064399370")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ticker Symbol")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record TickerSymbol : SecurityIdentification3Choice_
+    #else
+    public partial class TickerSymbol : SecurityIdentification3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TckrSymb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTickerIdentifier(Value)); // data type TickerIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static new TickerSymbol Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a TickerSymbol instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public TickerSymbol( System.String reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, for example, RTR.L for Reuters quoted in London.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoTickerIdentifier Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,6 +7,7 @@
 // For source code clarity, the primative types used in this implementation are represented in source code as their ISO-declared types.
 // Because too many were clashing with Microsoft framework types, all names are prefixed with 'Iso' for disambiguation. 
 
+#if NET8_0_OR_GREATER // C# 12 Global type alias
 global using IsoMax35Text = System.String; // Text
 global using IsoMax70Text = System.String; // Text
 global using IsoMax140Text = System.String; // Text
@@ -452,3 +453,4 @@ global using ExternalTrackerInvestigationType1Code = System.String;
 global using ExternalTrackerInvestigationStatusCode = System.String;
 global using ExternalTrackerInvestigationStatusReasonCode = System.String;
 global using ExternalTrackerInvestigationTypeCode = System.String;
+#endif

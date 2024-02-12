@@ -7,83 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[IsoId("_SvM2BAEcEeCQm6a_G2yO_w_-47074384")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeData5
-     : IIsoXmlSerilizable<TradeData5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeData5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeData5( System.String reqMatchingSystemUniqueReference )
+    {
+        MatchingSystemUniqueReference = reqMatchingSystemUniqueReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
+    [IsoId("_SvM2BQEcEeCQm6a_G2yO_w_-1044146737")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching System Unique Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MatchingSystemUniqueReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MatchingSystemUniqueReference { get; init; } 
+    #else
+    public System.String MatchingSystemUniqueReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the identification of the notification for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
+    [IsoId("_SvM2BgEcEeCQm6a_G2yO_w_-160913450")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NotificationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NotificationIdentification { get; init; } 
+    #else
+    public System.String? NotificationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
+    [IsoId("_SvM2BwEcEeCQm6a_G2yO_w_-766998321")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching System Matching Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MatchingSystemMatchingReference { get; init; } 
+    #else
+    public System.String? MatchingSystemMatchingReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time at which the current status was assigned to the individual trade.
     /// </summary>
+    [IsoId("_SvM2CAEcEeCQm6a_G2yO_w_1678438019")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CurrentStatusDateTime { get; init; } 
+    #else
+    public System.DateTime? CurrentStatusDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Product type of the individual trade.
     /// </summary>
+    [IsoId("_SvM2CQEcEeCQm6a_G2yO_w_709682600")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProductType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductType { get; init; } 
+    #else
+    public System.String? ProductType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (NotificationIdentification is IsoMax35Text NotificationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MatchingSystemMatchingReference is IsoMax35Text MatchingSystemMatchingReferenceValue)
-        {
-            writer.WriteStartElement(null, "MtchgSysMtchgRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemMatchingReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CurrentStatusDateTime is IsoISODateTime CurrentStatusDateTimeValue)
-        {
-            writer.WriteStartElement(null, "CurStsDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CurrentStatusDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ProductType is IsoMax35Text ProductTypeValue)
-        {
-            writer.WriteStartElement(null, "PdctTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeData5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity20Choice;
-
-/// <summary>
-/// Quantity expressed as a number, for example, a number of shares.
-/// </summary>
-public partial record Unit : FinancialInstrumentQuantity20Choice_
-     , IIsoXmlSerilizable<Unit>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity20Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
+    /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
-    public required IsoDecimalNumber Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_pPlzOwFIEeGhYJiRaPcH8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Unit : FinancialInstrumentQuantity20Choice_
+    #else
+    public partial class Unit : FinancialInstrumentQuantity20Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Unit", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static new Unit Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Unit instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Unit( System.UInt64 reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoDecimalNumber Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 Value { get; init; } 
+        #else
+        public System.UInt64 Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

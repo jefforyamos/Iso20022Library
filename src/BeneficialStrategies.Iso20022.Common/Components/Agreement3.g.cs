@@ -7,106 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contractual details related to the agreement between parties.
 /// </summary>
+[IsoId("_AxQTQNokEeC60axPepSq7g_-153529059")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Agreement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Agreement3
-     : IIsoXmlSerilizable<Agreement3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Full name of the base standard agreement, annexes and amendments in place between the principals and applicable to this deal.
     /// </summary>
+    [IsoId("_AxQTQdokEeC60axPepSq7g_-267368125")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Numeric representation of the day of the month and year.
     /// </summary>
+    [IsoId("_AxQTQtokEeC60axPepSq7g_2033454465")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? Date { get; init; } 
+    #else
+    public System.DateTime? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contractual currency forming the basis of a financing agreement and associated transactions. Usually, but not always, the same as the trade currency.
     /// </summary>
+    [IsoId("_AxaEQNokEeC60axPepSq7g_1036382112")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of financing closing.
     /// </summary>
+    [IsoId("_AxaEQdokEeC60axPepSq7g_39309759")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClosingType1Code? ClosingType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClosingType1Code? ClosingType { get; init; } 
+    #else
+    public ClosingType1Code? ClosingType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Start date of a financing deal that is the date the buyer pays the seller cash and takes control of the collateral.
     /// </summary>
+    [IsoId("_AxaEQtokEeC60axPepSq7g_-957762594")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? StartDate { get; init; } 
+    #else
+    public System.DateTime? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies type of settlement.
     /// </summary>
+    [IsoId("_AxaEQ9okEeC60axPepSq7g_-1954834947")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryType2Code? DeliveryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryType2Code? DeliveryType { get; init; } 
+    #else
+    public DeliveryType2Code? DeliveryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fraction of the cash consideration that must be collateralized, expressed as a percent. A margin ratio of 02% indicates that the value of the collateral (after deducting for "haircut") must exceed the cash consideration by 2%.
     /// </summary>
+    [IsoId("_AxaERNokEeC60axPepSq7g_1343059996")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Ratio")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MarginRatio { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarginRatio { get; init; } 
+    #else
+    public System.Decimal? MarginRatio { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Description is IsoMax350Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODateTime DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (Currency is CurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ClosingType is ClosingType1Code ClosingTypeValue)
-        {
-            writer.WriteStartElement(null, "ClsgTp", xmlNamespace );
-            writer.WriteValue(ClosingTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (StartDate is IsoISODateTime StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(StartDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (DeliveryType is DeliveryType2Code DeliveryTypeValue)
-        {
-            writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
-            writer.WriteValue(DeliveryTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MarginRatio is IsoPercentageRate MarginRatioValue)
-        {
-            writer.WriteStartElement(null, "MrgnRatio", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MarginRatioValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static Agreement3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

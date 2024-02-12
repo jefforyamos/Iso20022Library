@@ -9,79 +9,129 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7Choice;
-
-/// <summary>
-/// Identifies the transactions.
-/// </summary>
-public partial record Movements : IntraBalanceOrOperationalError7Choice_
-     , IIsoXmlSerilizable<Movements>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Account to or from which an entry is made.
+    /// Identifies the transactions.
     /// </summary>
-    public CashAccount38? CashAccount { get; init; } 
-    /// <summary>
-    /// Party that owns the account.
-    /// </summary>
-    public SystemPartyIdentification8? CashAccountOwner { get; init; } 
-    /// <summary>
-    /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
-    /// </summary>
-    public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
-    /// <summary>
-    /// Status and status reason of the transaction.
-    /// </summary>
-    public IntraBalanceStatusAndReason2? StatusAndReason { get; init; } 
-    /// <summary>
-    /// Further details on the individual intrabalance movement transaction.
-    /// </summary>
-    public IntraBalanceMovement5? Movement { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _YN1OfTneEem7JZMuWtwtsg
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_YDGlITneEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Movements")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Movements : IntraBalanceOrOperationalError7Choice_
+    #else
+    public partial class Movements : IntraBalanceOrOperationalError7Choice_
+    #endif
     {
-        if (CashAccount is CashAccount38 CashAccountValue)
-        {
-            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-            CashAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
-            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
-        {
-            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
-            CashAccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StatusAndReason is IntraBalanceStatusAndReason2 StatusAndReasonValue)
-        {
-            writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
-            StatusAndReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Movement, multiplicity Unknown
-    }
-    public static new Movements Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Account to or from which an entry is made.
+        /// </summary>
+        [IsoId("_YN1OeTneEem7JZMuWtwtsg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Account")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashAccount38? CashAccount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccount38? CashAccount { get; init; } 
+        #else
+        public CashAccount38? CashAccount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that owns the account.
+        /// </summary>
+        [IsoId("_YN1OdzneEem7JZMuWtwtsg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemPartyIdentification8? CashAccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemPartyIdentification8? CashAccountOwner { get; init; } 
+        #else
+        public SystemPartyIdentification8? CashAccountOwner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
+        /// </summary>
+        [IsoId("_lqm_kTqBEemJ3KLLPeYl6g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Account Servicer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
+        #else
+        public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Status and status reason of the transaction.
+        /// </summary>
+        [IsoId("_YN1OezneEem7JZMuWtwtsg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Status And Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IntraBalanceStatusAndReason2? StatusAndReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public IntraBalanceStatusAndReason2? StatusAndReason { get; init; } 
+        #else
+        public IntraBalanceStatusAndReason2? StatusAndReason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Further details on the individual intrabalance movement transaction.
+        /// </summary>
+        [IsoId("_YN1OfTneEem7JZMuWtwtsg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Movement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public IntraBalanceMovement5? Movement { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _YN1OfTneEem7JZMuWtwtsg
+        
+        
+        #nullable disable
+        
     }
 }

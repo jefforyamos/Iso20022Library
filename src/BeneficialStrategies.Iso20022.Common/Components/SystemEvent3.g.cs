@@ -7,80 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on an event occurring in a system, whether planned or unplanned as stipulated in the specifications of the system.
 /// </summary>
+[IsoId("_dw2Oi3hkEeidzqjNEfehPg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemEvent3
-     : IIsoXmlSerilizable<SystemEvent3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SystemEvent3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SystemEvent3( SystemEventType4Choice_ reqType,System.DateTime reqScheduledTime )
+    {
+        Type = reqType;
+        ScheduledTime = reqScheduledTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
+    [IsoId("_d6_pA3hkEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventType4Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SystemEventType4Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemEventType4Choice_ Type { get; init; } 
+    #else
+    public SystemEventType4Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the event is foreseen to occur.
     /// </summary>
+    [IsoId("_d6_pBXhkEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scheduled Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ScheduledTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime ScheduledTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime ScheduledTime { get; init; } 
+    #else
+    public System.DateTime ScheduledTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the event effectively takes place.
     /// </summary>
+    [IsoId("_d6_pB3hkEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EffectiveTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? EffectiveTime { get; init; } 
+    #else
+    public System.DateTime? EffectiveTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time at which the event starts.
     /// </summary>
+    [IsoId("_d6_pCXhkEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StartTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? StartTime { get; init; } 
+    #else
+    public System.DateTime? StartTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time at which the event ends.
     /// </summary>
+    [IsoId("_d6_pC3hkEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? EndTime { get; init; } 
+    #else
+    public System.DateTime? EndTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SchdldTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ScheduledTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (EffectiveTime is IsoISODateTime EffectiveTimeValue)
-        {
-            writer.WriteStartElement(null, "FctvTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(EffectiveTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (StartTime is IsoISODateTime StartTimeValue)
-        {
-            writer.WriteStartElement(null, "StartTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(StartTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (EndTime is IsoISODateTime EndTimeValue)
-        {
-            writer.WriteStartElement(null, "EndTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(EndTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemEvent3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

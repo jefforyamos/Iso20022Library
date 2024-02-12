@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of an EU capital gain type.
-/// </summary>
-[KnownType(typeof(EUCapitalGainType2Choice.EUCapitalGain))]
-[KnownType(typeof(EUCapitalGainType2Choice.Proprietary))]
-public abstract partial record EUCapitalGainType2Choice_ : IIsoXmlSerilizable<EUCapitalGainType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of an EU capital gain type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static EUCapitalGainType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(EUCapitalGainType2Choice.EUCapitalGain))]
+    [KnownType(typeof(EUCapitalGainType2Choice.Proprietary))]
+    [IsoId("_f57zwNoqEeCWg-hsBVGrDA_-1171256508")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EU Capital Gain Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record EUCapitalGainType2Choice_
+    #else
+    public abstract partial class EUCapitalGainType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "EUCptlGn" => EUCapitalGainType2Choice.EUCapitalGain.Deserialize(elementWithPayload),
-             "Prtry" => EUCapitalGainType2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid EUCapitalGainType2Choice choice.")
-        };
     }
 }

@@ -9,33 +9,44 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.IndicativeOrMarketPrice7Choice;
-
-/// <summary>
-/// Estimated price, for example, for valuation purposes.
-/// </summary>
-public partial record IndicativePrice : IndicativeOrMarketPrice7Choice_
-     , IIsoXmlSerilizable<IndicativePrice>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.IndicativeOrMarketPrice7Choice
 {
-    #nullable enable
-    
-    
-    #nullable disable
-    
-    
     /// <summary>
-    /// Used to format the various primative types during serialization.
+    /// Estimated price, for example, for valuation purposes.
     /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_dWrpA0EJEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indicative Price")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record IndicativePrice : IndicativeOrMarketPrice7Choice_
+    #else
+    public partial class IndicativePrice : IndicativeOrMarketPrice7Choice_
+    #endif
     {
-    }
-    public static new IndicativePrice Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        
+        #nullable disable
+        
     }
 }

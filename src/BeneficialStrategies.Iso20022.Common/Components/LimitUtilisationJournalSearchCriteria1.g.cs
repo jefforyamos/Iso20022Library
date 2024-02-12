@@ -7,90 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a limit.
 /// </summary>
+[IsoId("_jOa_4-5NEeCisYr99QEiWA_-1185186372")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Limit Utilisation Journal Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LimitUtilisationJournalSearchCriteria1
-     : IIsoXmlSerilizable<LimitUtilisationJournalSearchCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LimitUtilisationJournalSearchCriteria1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LimitUtilisationJournalSearchCriteria1( System.DateOnly reqJournalActivityDate,SystemPartyIdentification4 reqBilateralLimitCounterpartyIdentification )
+    {
+        JournalActivityDate = reqJournalActivityDate;
+        BilateralLimitCounterpartyIdentification = reqBilateralLimitCounterpartyIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
+    [IsoId("_jOa_5O5NEeCisYr99QEiWA_-1661846618")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitType4Code? LimitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LimitType4Code? LimitType { get; init; } 
+    #else
+    public LimitType4Code? LimitType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date upon which journal activity takes place.
     /// </summary>
+    [IsoId("_jOkw4O5NEeCisYr99QEiWA_-733934865")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Journal Activity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate JournalActivityDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly JournalActivityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly JournalActivityDate { get; init; } 
+    #else
+    public System.DateOnly JournalActivityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_jOkw4e5NEeCisYr99QEiWA_-766183687")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+    #else
+    public AccountIdentification4Choice_? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
+    [IsoId("_jOkw4u5NEeCisYr99QEiWA_658227287")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LimitCurrency { get; init; } 
+    #else
+    public string? LimitCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [IsoId("_jOkw4-5NEeCisYr99QEiWA_-1984336654")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICFIIdentifier? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountOwner { get; init; } 
+    #else
+    public System.String? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
+    [IsoId("_jOkw5O5NEeCisYr99QEiWA_1853746946")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bilateral Limit Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
+    #else
+    public SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LimitType is LimitType4Code LimitTypeValue)
-        {
-            writer.WriteStartElement(null, "LmtTp", xmlNamespace );
-            writer.WriteValue(LimitTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "JrnlActvtyDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(JournalActivityDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LimitCurrency is ActiveCurrencyCode LimitCurrencyValue)
-        {
-            writer.WriteStartElement(null, "LmtCcy", xmlNamespace );
-            writer.WriteValue(LimitCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AccountOwner is IsoBICFIIdentifier AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(AccountOwnerValue)); // data type BICFIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
-        BilateralLimitCounterpartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static LimitUtilisationJournalSearchCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

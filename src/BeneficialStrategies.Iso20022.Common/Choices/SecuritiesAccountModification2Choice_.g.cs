@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identifies which information are involved by a modification request for securities account reference data.
-/// </summary>
-[KnownType(typeof(SecuritiesAccountModification2Choice.SystemSecuritiesAccount))]
-[KnownType(typeof(SecuritiesAccountModification2Choice.SystemRestriction))]
-[KnownType(typeof(SecuritiesAccountModification2Choice.MarketSpecificAttribute))]
-public abstract partial record SecuritiesAccountModification2Choice_ : IIsoXmlSerilizable<SecuritiesAccountModification2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identifies which information are involved by a modification request for securities account reference data.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesAccountModification2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesAccountModification2Choice.SystemSecuritiesAccount))]
+    [KnownType(typeof(SecuritiesAccountModification2Choice.SystemRestriction))]
+    [KnownType(typeof(SecuritiesAccountModification2Choice.MarketSpecificAttribute))]
+    [IsoId("_7-eWJTp0Eemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Modification 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesAccountModification2Choice_
+    #else
+    public abstract partial class SecuritiesAccountModification2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SysSctiesAcct" => SecuritiesAccountModification2Choice.SystemSecuritiesAccount.Deserialize(elementWithPayload),
-             "SysRstrctn" => SecuritiesAccountModification2Choice.SystemRestriction.Deserialize(elementWithPayload),
-             "MktSpcfcAttr" => SecuritiesAccountModification2Choice.MarketSpecificAttribute.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesAccountModification2Choice choice.")
-        };
     }
 }

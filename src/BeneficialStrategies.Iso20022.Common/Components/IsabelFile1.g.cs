@@ -7,87 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the parameters for an Isabel payment file.
 /// </summary>
+[IsoId("_ji0LAMmIEeWAGphE2LvqeA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Isabel File")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IsabelFile1
-     : IIsoXmlSerilizable<IsabelFile1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IsabelFile1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IsabelFile1( System.String reqIdentification,System.UInt64 reqSize,System.String reqFormat )
+    {
+        Identification = reqIdentification;
+        Size = reqSize;
+        Format = reqFormat;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the file.	.
     /// </summary>
+    [IsoId("_rZhBgMmIEeWAGphE2LvqeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 14 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax14AlphaNumericText Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the originator of the file.
     /// </summary>
+    [IsoId("_2XvCkcmIEeWAGphE2LvqeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 14 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax14AlphaNumericText? Originator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Originator { get; init; } 
+    #else
+    public System.String? Originator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Size of the file.
     /// </summary>
+    [IsoId("_AMHtwMmJEeWAGphE2LvqeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Size { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Size { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Size { get; init; } 
+    #else
+    public System.UInt64 Size { get; set; } 
+    #endif
+    
     /// <summary>
     /// Format of the file.
     /// </summary>
+    [IsoId("_DXfdkMmJEeWAGphE2LvqeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax16Text Format { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Format { get; init; } 
+    #else
+    public System.String Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the format of the file.
     /// </summary>
+    [IsoId("_IjaI0MmJEeWAGphE2LvqeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? FormatVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FormatVersion { get; init; } 
+    #else
+    public System.String? FormatVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Length of the individual records in the file.
     /// </summary>
+    [IsoId("_S3XE4MmJEeWAGphE2LvqeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? RecordLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RecordLength { get; init; } 
+    #else
+    public System.String? RecordLength { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax14AlphaNumericText(Identification)); // data type Max14AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (Originator is IsoMax14AlphaNumericText OriginatorValue)
-        {
-            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax14AlphaNumericText(OriginatorValue)); // data type Max14AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sz", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(Size)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Frmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax16Text(Format)); // data type Max16Text System.String
-        writer.WriteEndElement();
-        if (FormatVersion is IsoMax16Text FormatVersionValue)
-        {
-            writer.WriteStartElement(null, "FrmtVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax16Text(FormatVersionValue)); // data type Max16Text System.String
-            writer.WriteEndElement();
-        }
-        if (RecordLength is IsoMax4NumericText RecordLengthValue)
-        {
-            writer.WriteStartElement(null, "RcrdLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(RecordLengthValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static IsabelFile1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

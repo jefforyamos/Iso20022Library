@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details for the trading under waiver of the instrument.
 /// </summary>
+[IsoId("__YT0wJuKEeaPcol5ibnfBQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trading Under Waivers Percentage")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradingUnderWaiversPercentage1
-     : IIsoXmlSerilizable<TradingUnderWaiversPercentage1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradingUnderWaiversPercentage1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradingUnderWaiversPercentage1( System.Decimal reqTradingUnderWaiverPercentage,System.String reqTradingVenue )
+    {
+        TradingUnderWaiverPercentage = reqTradingUnderWaiverPercentage;
+        TradingVenue = reqTradingVenue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total percentage of trading under waiver of the instrument in this specific reporting period on this trading venue.
     /// </summary>
+    [IsoId("_V9BX0JuLEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Under Waiver Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TradingUnderWaiverPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TradingUnderWaiverPercentage { get; init; } 
+    #else
+    public System.Decimal TradingUnderWaiverPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// The venue this trading under waiver percentage is in relation to.
     /// </summary>
+    [IsoId("_ri_asJuLEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMICIdentifier TradingVenue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TradingVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TradingVenue { get; init; } 
+    #else
+    public System.String TradingVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for interpreting the result.
     /// </summary>
+    [IsoId("_wreiAJuMEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Disclaimer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Disclaimer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Disclaimer { get; init; } 
+    #else
+    public System.String? Disclaimer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TradgUdrWvrPctg", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(TradingUnderWaiverPercentage)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradgVn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenue)); // data type MICIdentifier System.String
-        writer.WriteEndElement();
-        if (Disclaimer is IsoMax350Text DisclaimerValue)
-        {
-            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(DisclaimerValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradingUnderWaiversPercentage1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between earliest/latest shipment date and a shipment schedule per sub quantity of line item quantity.
-/// </summary>
-[KnownType(typeof(ShipmentSchedule2Choice.ShipmentDateRange))]
-[KnownType(typeof(ShipmentSchedule2Choice.ShipmentSubSchedule))]
-public abstract partial record ShipmentSchedule2Choice_ : IIsoXmlSerilizable<ShipmentSchedule2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between earliest/latest shipment date and a shipment schedule per sub quantity of line item quantity.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ShipmentSchedule2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ShipmentSchedule2Choice.ShipmentDateRange))]
+    [KnownType(typeof(ShipmentSchedule2Choice.ShipmentSubSchedule))]
+    [IsoId("_z9WAAefHEeKNfc-Rw_dPYg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipment Schedule 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ShipmentSchedule2Choice_
+    #else
+    public abstract partial class ShipmentSchedule2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ShipmntDtRg" => ShipmentSchedule2Choice.ShipmentDateRange.Deserialize(elementWithPayload),
-             "ShipmntSubSchdl" => ShipmentSchedule2Choice.ShipmentSubSchedule.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ShipmentSchedule2Choice choice.")
-        };
     }
 }

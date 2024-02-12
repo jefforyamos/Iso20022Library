@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for the identification of the financial institution.
-/// </summary>
-[KnownType(typeof(FinancialInstitutionIdentification3Choice.NameAndAddress))]
-[KnownType(typeof(FinancialInstitutionIdentification3Choice.BIC))]
-[KnownType(typeof(FinancialInstitutionIdentification3Choice.ClearingSystemMemberIdentification))]
-[KnownType(typeof(FinancialInstitutionIdentification3Choice.ProprietaryIdentification))]
-public abstract partial record FinancialInstitutionIdentification3Choice_ : IIsoXmlSerilizable<FinancialInstitutionIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for the identification of the financial institution.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstitutionIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstitutionIdentification3Choice.NameAndAddress))]
+    [KnownType(typeof(FinancialInstitutionIdentification3Choice.BIC))]
+    [KnownType(typeof(FinancialInstitutionIdentification3Choice.ClearingSystemMemberIdentification))]
+    [KnownType(typeof(FinancialInstitutionIdentification3Choice.ProprietaryIdentification))]
+    [IsoId("_QE8vcNp-Ed-ak6NoX_4Aeg_2089460166")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstitutionIdentification3Choice_
+    #else
+    public abstract partial class FinancialInstitutionIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NmAndAdr" => FinancialInstitutionIdentification3Choice.NameAndAddress.Deserialize(elementWithPayload),
-             "BIC" => FinancialInstitutionIdentification3Choice.BIC.Deserialize(elementWithPayload),
-             "ClrSysMmbId" => FinancialInstitutionIdentification3Choice.ClearingSystemMemberIdentification.Deserialize(elementWithPayload),
-             "PrtryId" => FinancialInstitutionIdentification3Choice.ProprietaryIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstitutionIdentification3Choice choice.")
-        };
     }
 }

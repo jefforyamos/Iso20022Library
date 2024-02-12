@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the quantities (eg of securities) in the underlying transaction.
-/// </summary>
-[KnownType(typeof(TransactionQuantities1Choice.Quantity))]
-[KnownType(typeof(TransactionQuantities1Choice.Proprietary))]
-public abstract partial record TransactionQuantities1Choice_ : IIsoXmlSerilizable<TransactionQuantities1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the quantities (eg of securities) in the underlying transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionQuantities1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionQuantities1Choice.Quantity))]
+    [KnownType(typeof(TransactionQuantities1Choice.Proprietary))]
+    [IsoId("_RU0b5tp-Ed-ak6NoX_4Aeg_-584387568")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Quantities 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionQuantities1Choice_
+    #else
+    public abstract partial class TransactionQuantities1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Qty" => TransactionQuantities1Choice.Quantity.Deserialize(elementWithPayload),
-             "Prtry" => TransactionQuantities1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionQuantities1Choice choice.")
-        };
     }
 }

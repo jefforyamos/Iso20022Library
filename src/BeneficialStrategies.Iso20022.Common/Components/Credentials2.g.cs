@@ -7,80 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains credential information.
 /// </summary>
+[IsoId("_3tXfsad2EeuEcqP2FGAFaA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Credentials")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Credentials2
-     : IIsoXmlSerilizable<Credentials2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Credentials2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Credentials2( Identification3Code reqIdentificationCode,System.String reqIdentificationValue )
+    {
+        IdentificationCode = reqIdentificationCode;
+        IdentificationValue = reqIdentificationValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the type of credential.
     /// </summary>
+    [IsoId("_3zANoad2EeuEcqP2FGAFaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Identification3Code IdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Identification3Code IdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Identification3Code IdentificationCode { get; init; } 
+    #else
+    public Identification3Code IdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used when OtherNational or OtherPrivate value is selected in identification code list. 
     /// </summary>
+    [IsoId("_3zA0sad2EeuEcqP2FGAFaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherIdentificationCode { get; init; } 
+    #else
+    public System.String? OtherIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of identification.
     /// </summary>
+    [IsoId("_3zA0s6d2EeuEcqP2FGAFaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text IdentificationValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IdentificationValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IdentificationValue { get; init; } 
+    #else
+    public System.String IdentificationValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expiration date of the identification.
     /// </summary>
+    [IsoId("_HbqHgCX9Eeym0KcvJF9aDQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? IdentificationExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16? IdentificationExpiryDate { get; init; } 
+    #else
+    public System.UInt16? IdentificationExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that assigns and manages this type of identification.
     /// </summary>
+    [IsoId("_JSH9oKd8EeuEcqP2FGAFaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assigner Authority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Authority1? AssignerAuthority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Authority1? AssignerAuthority { get; init; } 
+    #else
+    public Authority1? AssignerAuthority { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IdCd", xmlNamespace );
-        writer.WriteValue(IdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherIdentificationCode is IsoMax35Text OtherIdentificationCodeValue)
-        {
-            writer.WriteStartElement(null, "OthrIdCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherIdentificationCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IdVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
-        writer.WriteEndElement();
-        if (IdentificationExpiryDate is IsoISOYearMonth IdentificationExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "IdXpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(IdentificationExpiryDateValue)); // data type ISOYearMonth System.UInt16
-            writer.WriteEndElement();
-        }
-        if (AssignerAuthority is Authority1 AssignerAuthorityValue)
-        {
-            writer.WriteStartElement(null, "AssgnrAuthrty", xmlNamespace );
-            AssignerAuthorityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Credentials2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

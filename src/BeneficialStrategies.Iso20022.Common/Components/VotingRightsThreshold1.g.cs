@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a threshold level and a threshold basis for passing resolutions at general meetings.
 /// </summary>
+[IsoId("_IyKJABuMEeyhRdHRjakS2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Voting Rights Threshold")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VotingRightsThreshold1
-     : IIsoXmlSerilizable<VotingRightsThreshold1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a VotingRightsThreshold1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public VotingRightsThreshold1( NumberOrPercentage1Choice_ reqThreshold )
+    {
+        Threshold = reqThreshold;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Voting rights threshold required for a resolution to pass in percentage or in quantity.
     /// </summary>
+    [IsoId("_hM2WQBuMEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Threshold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NumberOrPercentage1Choice_ Threshold { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NumberOrPercentage1Choice_ Threshold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberOrPercentage1Choice_ Threshold { get; init; } 
+    #else
+    public NumberOrPercentage1Choice_ Threshold { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
     /// </summary>
+    [IsoId("_lbAYwBuMEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Threshold Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ThresholdBasis1Choice_? ThresholdBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ThresholdBasis1Choice_? ThresholdBasis { get; init; } 
+    #else
+    public ThresholdBasis1Choice_? ThresholdBasis { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Thrshld", xmlNamespace );
-        Threshold.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ThresholdBasis is ThresholdBasis1Choice_ ThresholdBasisValue)
-        {
-            writer.WriteStartElement(null, "ThrshldBsis", xmlNamespace );
-            ThresholdBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static VotingRightsThreshold1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

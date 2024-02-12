@@ -7,126 +7,223 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to define the tax record.
 /// </summary>
+[IsoId("_yKFWd69fEeen6L7OP7lnvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Record")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxRecord2
-     : IIsoXmlSerilizable<TaxRecord2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// High level code to identify the type of tax details.
     /// </summary>
+    [IsoId("_yeA_A69fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Type { get; init; } 
+    #else
+    public System.String? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the tax code as published by the tax authority.
     /// </summary>
+    [IsoId("_yeA_Ba9fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Category { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Category { get; init; } 
+    #else
+    public System.String? Category { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides further details of the category tax code.
     /// </summary>
+    [IsoId("_yeA_B69fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Category Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CategoryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CategoryDetails { get; init; } 
+    #else
+    public System.String? CategoryDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code provided by local authority to identify the status of the party that has drawn up the settlement document.
     /// </summary>
+    [IsoId("_yeA_Ca9fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DebtorStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DebtorStatus { get; init; } 
+    #else
+    public System.String? DebtorStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification number of the tax report as assigned by the taxing authority.
     /// </summary>
+    [IsoId("_yeA_C69fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CertificateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificateIdentification { get; init; } 
+    #else
+    public System.String? CertificateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies, in a coded form, on which template the tax report is to be provided.
     /// </summary>
+    [IsoId("_yeA_Da9fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Forms Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FormsCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FormsCode { get; init; } 
+    #else
+    public System.String? FormsCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide details on the period of time related to the tax payment.
     /// </summary>
+    [IsoId("_yeA_D69fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxPeriod2? Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxPeriod2? Period { get; init; } 
+    #else
+    public TaxPeriod2? Period { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide information on the amount of the tax record.
     /// </summary>
+    [IsoId("_yeA_Ea9fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxAmount2? TaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxAmount2? TaxAmount { get; init; } 
+    #else
+    public TaxAmount2? TaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of the tax record.
     /// </summary>
+    [IsoId("_yeA_E69fEeen6L7OP7lnvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is IsoMax35Text TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Category is IsoMax35Text CategoryValue)
-        {
-            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CategoryDetails is IsoMax35Text CategoryDetailsValue)
-        {
-            writer.WriteStartElement(null, "CtgyDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryDetailsValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DebtorStatus is IsoMax35Text DebtorStatusValue)
-        {
-            writer.WriteStartElement(null, "DbtrSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorStatusValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CertificateIdentification is IsoMax35Text CertificateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CertId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FormsCode is IsoMax35Text FormsCodeValue)
-        {
-            writer.WriteStartElement(null, "FrmsCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FormsCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Period is TaxPeriod2 PeriodValue)
-        {
-            writer.WriteStartElement(null, "Prd", xmlNamespace );
-            PeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxAmount is TaxAmount2 TaxAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxAmt", xmlNamespace );
-            TaxAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxRecord2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

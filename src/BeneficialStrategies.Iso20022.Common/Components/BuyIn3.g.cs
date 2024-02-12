@@ -7,78 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies elements related to the response sent by the clearing member to the central counterparty in the context of the buy in process.
 /// </summary>
+[IsoId("_Uo3mk9p-Ed-ak6NoX_4Aeg_392375521")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Buy In")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BuyIn3
-     : IIsoXmlSerilizable<BuyIn3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BuyIn3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BuyIn3( System.String reqBuyInNotificationIdentification,System.String reqRequestForDelayIndicator,System.UInt64 reqNumberOfDays,FinancialInstrumentQuantity1Choice_ reqInitialQuantity,FinancialInstrumentQuantity1Choice_ reqCoveredQuantity,FinancialInstrumentQuantity1Choice_ reqUncoveredQuantity )
+    {
+        BuyInNotificationIdentification = reqBuyInNotificationIdentification;
+        RequestForDelayIndicator = reqRequestForDelayIndicator;
+        NumberOfDays = reqNumberOfDays;
+        InitialQuantity = reqInitialQuantity;
+        CoveredQuantity = reqCoveredQuantity;
+        UncoveredQuantity = reqUncoveredQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
+    [IsoId("_Uo3mlNp-Ed-ak6NoX_4Aeg_903405859")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Notification Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BuyInNotificationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String BuyInNotificationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String BuyInNotificationIdentification { get; init; } 
+    #else
+    public System.String BuyInNotificationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific continuous net settlement case where the central counterparty can call for buy-in at a date anterior to "theoretical" buy-in date, the clearing member may request a delay.
     /// </summary>
+    [IsoId("_Uo3mldp-Ed-ak6NoX_4Aeg_-1794174189")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request For Delay Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator RequestForDelayIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RequestForDelayIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RequestForDelayIndicator { get; init; } 
+    #else
+    public System.String RequestForDelayIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days associated to the request for delay.
     /// </summary>
+    [IsoId("_Uo3mltp-Ed-ak6NoX_4Aeg_755179045")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfDays { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 NumberOfDays { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 NumberOfDays { get; init; } 
+    #else
+    public System.UInt64 NumberOfDays { get; set; } 
+    #endif
+    
     /// <summary>
     /// Buy in quantity called initially by the central counterparty.
     /// </summary>
+    [IsoId("_Uo3ml9p-Ed-ak6NoX_4Aeg_-1486972163")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ InitialQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1Choice_ InitialQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_ InitialQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_ InitialQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity amount covered by the clearing member after notification.
     /// </summary>
+    [IsoId("_Uo3mmNp-Ed-ak6NoX_4Aeg_-1479836456")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Covered Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity amount non covered by the clearing member after notification (this is, new buy in amount to be executed).
     /// </summary>
+    [IsoId("_Uo3mmdp-Ed-ak6NoX_4Aeg_-657470426")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Uncovered Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BuyInNtfctnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(BuyInNotificationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReqForDelyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RequestForDelayIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDays)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InitlQty", xmlNamespace );
-        InitialQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CvrdQty", xmlNamespace );
-        CoveredQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UcvrdQty", xmlNamespace );
-        UncoveredQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static BuyIn3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

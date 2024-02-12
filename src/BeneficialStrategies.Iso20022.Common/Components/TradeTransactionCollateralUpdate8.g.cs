@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the loan used for financing the transaction.
 /// </summary>
+[IsoId("__yc-Uc0DEeufhKfUxzsnrQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Transaction Collateral Update")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeTransactionCollateralUpdate8
-     : IIsoXmlSerilizable<TradeTransactionCollateralUpdate8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeTransactionCollateralUpdate8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeTransactionCollateralUpdate8( CounterpartyData88 reqCounterpartySpecificData,TransactionCollateralData18Choice_ reqCollateralData )
+    {
+        CounterpartySpecificData = reqCounterpartySpecificData;
+        CollateralData = reqCollateralData;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [IsoId("__0b7Uc0DEeufhKfUxzsnrQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Counterparty and related information.
     /// </summary>
+    [IsoId("__0b7U80DEeufhKfUxzsnrQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Specific Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData88 CounterpartySpecificData { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CounterpartyData88 CounterpartySpecificData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyData88 CounterpartySpecificData { get; init; } 
+    #else
+    public CounterpartyData88 CounterpartySpecificData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
+    [IsoId("__0b7Vc0DEeufhKfUxzsnrQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loan Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionLoanData26Choice_? LoanData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionLoanData26Choice_? LoanData { get; init; } 
+    #else
+    public TransactionLoanData26Choice_? LoanData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
+    [IsoId("__0b7V80DEeufhKfUxzsnrQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionCollateralData18Choice_ CollateralData { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionCollateralData18Choice_ CollateralData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionCollateralData18Choice_ CollateralData { get; init; } 
+    #else
+    public TransactionCollateralData18Choice_ CollateralData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
+    [IsoId("__0b7Wc0DEeufhKfUxzsnrQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
-        CounterpartySpecificData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LoanData is TransactionLoanData26Choice_ LoanDataValue)
-        {
-            writer.WriteStartElement(null, "LnData", xmlNamespace );
-            LoanDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CollData", xmlNamespace );
-        CollateralData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeTransactionCollateralUpdate8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

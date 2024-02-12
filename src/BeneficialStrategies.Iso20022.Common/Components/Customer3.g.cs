@@ -7,96 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the customer in a transfer of money.
 /// </summary>
+[IsoId("_q6pIUEB-EeeXpbqDpLawug")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Customer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Customer3
-     : IIsoXmlSerilizable<Customer3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the customer assigned by a party.
     /// </summary>
+    [IsoId("_oI6qUBVjEei_7rtBiunN6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CustomerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerIdentification { get; init; } 
+    #else
+    public System.String? CustomerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the financial customer.
     /// </summary>
+    [IsoId("_Cza7UEB_EeeXpbqDpLawug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address of the financial customer.
     /// </summary>
+    [IsoId("_HBTRAEB_EeeXpbqDpLawug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address1? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address1? Address { get; init; } 
+    #else
+    public Address1? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
+    [IsoId("_DEsCwECFEeeXpbqDpLawug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credentials")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Credentials1? Credentials { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Credentials1? Credentials { get; init; } 
+    #else
+    public Credentials1? Credentials { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>
+    [IsoId("_Dc28oBVkEei_7rtBiunN6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
+    [IsoId("_K3F7MBqYEeqH1IQNpbVpEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DateOfBirth { get; init; } 
+    #else
+    public System.DateOnly? DateOfBirth { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is Address1 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Credentials is Credentials1 CredentialsValue)
-        {
-            writer.WriteStartElement(null, "Crdntls", xmlNamespace );
-            CredentialsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax256Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalInformationValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (DateOfBirth is IsoISODate DateOfBirthValue)
-        {
-            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static Customer3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

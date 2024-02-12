@@ -7,136 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the agents specific to the individual transaction.
 /// </summary>
+[IsoId("_P57LNtp-Ed-ak6NoX_4Aeg_489795231")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Agents")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionAgents2
-     : IIsoXmlSerilizable<TransactionAgents2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [IsoId("_P57LN9p-Ed-ak6NoX_4Aeg_489795786")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? DebtorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [IsoId("_P57LONp-Ed-ak6NoX_4Aeg_489796187")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? CreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? CreditorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? CreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
+    [IsoId("_P6E8MNp-Ed-ak6NoX_4Aeg_489796332")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent1 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
+    [IsoId("_P6E8Mdp-Ed-ak6NoX_4Aeg_489796301")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent2 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent2 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
+    [IsoId("_P6E8Mtp-Ed-ak6NoX_4Aeg_489795816")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent3 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent3 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent3 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, such as central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
+    [IsoId("_P6E8M9p-Ed-ak6NoX_4Aeg_489795694")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiving Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? ReceivingAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? ReceivingAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? ReceivingAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, such as a central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
+    [IsoId("_P6E8NNp-Ed-ak6NoX_4Aeg_489796125")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivering Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? DeliveringAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? DeliveringAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? DeliveringAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
+    [IsoId("_P6E8Ndp-Ed-ak6NoX_4Aeg_489796209")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuing Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? IssuingAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? IssuingAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? IssuingAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where settlement of the securities takes place.|Usage: This is typed by a financial institution identification as this is the standard way to identify a securities settlement agent/central system.
     /// </summary>
+    [IsoId("_P6E8Ntp-Ed-ak6NoX_4Aeg_489795385")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? SettlementPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? SettlementPlace { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? SettlementPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary agent related to the underlying transaction.
     /// </summary>
+    [IsoId("_P6E8N9p-Ed-ak6NoX_4Aeg_489795323")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryAgent2? Proprietary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProprietaryAgent2? Proprietary { get; init; } 
+    #else
+    public ProprietaryAgent2? Proprietary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DebtorAgent is BranchAndFinancialInstitutionIdentification4 DebtorAgentValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-            DebtorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAgent is BranchAndFinancialInstitutionIdentification4 CreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-            CreditorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent1 is BranchAndFinancialInstitutionIdentification4 IntermediaryAgent1Value)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
-            IntermediaryAgent1Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent2 is BranchAndFinancialInstitutionIdentification4 IntermediaryAgent2Value)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt2", xmlNamespace );
-            IntermediaryAgent2Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent3 is BranchAndFinancialInstitutionIdentification4 IntermediaryAgent3Value)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt3", xmlNamespace );
-            IntermediaryAgent3Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceivingAgent is BranchAndFinancialInstitutionIdentification4 ReceivingAgentValue)
-        {
-            writer.WriteStartElement(null, "RcvgAgt", xmlNamespace );
-            ReceivingAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveringAgent is BranchAndFinancialInstitutionIdentification4 DeliveringAgentValue)
-        {
-            writer.WriteStartElement(null, "DlvrgAgt", xmlNamespace );
-            DeliveringAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssuingAgent is BranchAndFinancialInstitutionIdentification4 IssuingAgentValue)
-        {
-            writer.WriteStartElement(null, "IssgAgt", xmlNamespace );
-            IssuingAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementPlace is BranchAndFinancialInstitutionIdentification4 SettlementPlaceValue)
-        {
-            writer.WriteStartElement(null, "SttlmPlc", xmlNamespace );
-            SettlementPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Proprietary is ProprietaryAgent2 ProprietaryValue)
-        {
-            writer.WriteStartElement(null, "Prtry", xmlNamespace );
-            ProprietaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionAgents2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

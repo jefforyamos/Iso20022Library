@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card transaction entry.
 /// </summary>
+[IsoId("_t6PVslkyEeGeoaLUQk__nA_118964037")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Entry")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardEntry1
-     : IIsoXmlSerilizable<CardEntry1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
     /// </summary>
+    [IsoId("_t6PVs1kyEeGeoaLUQk__nA_458882299")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCard4? Card { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCard4? Card { get; init; } 
+    #else
+    public PaymentCard4? Card { get; set; } 
+    #endif
+    
     /// <summary>
     /// Physical or logical card payment terminal containing software and hardware components.
     /// </summary>
+    [IsoId("_t6ZGsFkyEeGeoaLUQk__nA_1876471602")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction1? POI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteraction1? POI { get; init; } 
+    #else
+    public PointOfInteraction1? POI { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card entry details, based on card transaction aggregated data performed by the account servicer.
     /// </summary>
+    [IsoId("_t6ZGsVkyEeGeoaLUQk__nA_-2135334410")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Aggregated Entry")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAggregated1? AggregatedEntry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAggregated1? AggregatedEntry { get; init; } 
+    #else
+    public CardAggregated1? AggregatedEntry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Card is PaymentCard4 CardValue)
-        {
-            writer.WriteStartElement(null, "Card", xmlNamespace );
-            CardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POI is PointOfInteraction1 POIValue)
-        {
-            writer.WriteStartElement(null, "POI", xmlNamespace );
-            POIValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AggregatedEntry is CardAggregated1 AggregatedEntryValue)
-        {
-            writer.WriteStartElement(null, "AggtdNtry", xmlNamespace );
-            AggregatedEntryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardEntry1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

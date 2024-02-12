@@ -7,157 +7,289 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[IsoId("_8u6kdSPvEeWQjryFgN2ITg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ISA Transfer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ISATransfer24
-     : IIsoXmlSerilizable<ISATransfer24>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ISATransfer24 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ISATransfer24( Account19 reqTransferorAccount,PartyIdentification70Choice_ reqTransferee,ISATransfer25 reqProductTransferAndReference )
+    {
+        TransferorAccount = reqTransferorAccount;
+        Transferee = reqTransferee;
+        ProductTransferAndReference = reqProductTransferAndReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information identifying the primary individual investor, for example, name, address, social security number and date of birth.
     /// </summary>
+    [IsoId("_9MFBnSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Individual Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? PrimaryIndividualInvestor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPerson8? PrimaryIndividualInvestor { get; init; } 
+    #else
+    public IndividualPerson8? PrimaryIndividualInvestor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.
     /// </summary>
+    [IsoId("_9MFBnyPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Individual Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? SecondaryIndividualInvestor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPerson8? SecondaryIndividualInvestor { get; init; } 
+    #else
+    public IndividualPerson8? SecondaryIndividualInvestor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information identifying the other individual investors, for example, name, address, social security number and date of birth.
     /// </summary>
+    [IsoId("_9MFBoSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Individual Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? OtherIndividualInvestor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPerson8? OtherIndividualInvestor { get; init; } 
+    #else
+    public IndividualPerson8? OtherIndividualInvestor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information identifying the primary corporate investor, for example, name and address.
     /// </summary>
+    [IsoId("_9MFBoyPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Corporate Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation21? PrimaryCorporateInvestor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation21? PrimaryCorporateInvestor { get; init; } 
+    #else
+    public Organisation21? PrimaryCorporateInvestor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information identifying the secondary corporate investor, for example, name and address.
     /// </summary>
+    [IsoId("_9MFBpSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Corporate Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation21? SecondaryCorporateInvestor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation21? SecondaryCorporateInvestor { get; init; } 
+    #else
+    public Organisation21? SecondaryCorporateInvestor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information identifying the other corporate investors, for example, name and address.
     /// </summary>
+    [IsoId("_9MFBpyPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Corporate Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation21? OtherCorporateInvestor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation21? OtherCorporateInvestor { get; init; } 
+    #else
+    public Organisation21? OtherCorporateInvestor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
     /// </summary>
+    [IsoId("_9MFBqSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transferor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Account19 TransferorAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Account19 TransferorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account19 TransferorAccount { get; init; } 
+    #else
+    public Account19 TransferorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
+    [IsoId("_9MFBqyPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nominee Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account19? NomineeAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account19? NomineeAccount { get; init; } 
+    #else
+    public Account19? NomineeAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the institution to which the financial instrument is to be transferred.
     /// </summary>
+    [IsoId("_9MFBrSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transferee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification70Choice_ Transferee { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification70Choice_ Transferee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification70Choice_ Transferee { get; init; } 
+    #else
+    public PartyIdentification70Choice_ Transferee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
+    [IsoId("_ky2vYSYdEeWJkOUkQWu90g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Intermediary34? IntermediaryInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Intermediary34? IntermediaryInformation { get; init; } 
+    #else
+    public Intermediary34? IntermediaryInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
     /// </summary>
+    [IsoId("_9MFBryPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount34? CashAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount34? CashAccount { get; init; } 
+    #else
+    public CashAccount34? CashAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the transfer to be cancelled.
     /// </summary>
+    [IsoId("_9MFBsSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Transfer And Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISATransfer25 ProductTransferAndReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ISATransfer25 ProductTransferAndReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ISATransfer25 ProductTransferAndReference { get; init; } 
+    #else
+    public ISATransfer25 ProductTransferAndReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_9MFBsyPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PrimaryIndividualInvestor is IndividualPerson8 PrimaryIndividualInvestorValue)
-        {
-            writer.WriteStartElement(null, "PmryIndvInvstr", xmlNamespace );
-            PrimaryIndividualInvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondaryIndividualInvestor is IndividualPerson8 SecondaryIndividualInvestorValue)
-        {
-            writer.WriteStartElement(null, "ScndryIndvInvstr", xmlNamespace );
-            SecondaryIndividualInvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherIndividualInvestor is IndividualPerson8 OtherIndividualInvestorValue)
-        {
-            writer.WriteStartElement(null, "OthrIndvInvstr", xmlNamespace );
-            OtherIndividualInvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrimaryCorporateInvestor is Organisation21 PrimaryCorporateInvestorValue)
-        {
-            writer.WriteStartElement(null, "PmryCorpInvstr", xmlNamespace );
-            PrimaryCorporateInvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondaryCorporateInvestor is Organisation21 SecondaryCorporateInvestorValue)
-        {
-            writer.WriteStartElement(null, "ScndryCorpInvstr", xmlNamespace );
-            SecondaryCorporateInvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCorporateInvestor is Organisation21 OtherCorporateInvestorValue)
-        {
-            writer.WriteStartElement(null, "OthrCorpInvstr", xmlNamespace );
-            OtherCorporateInvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfrAcct", xmlNamespace );
-        TransferorAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (NomineeAccount is Account19 NomineeAccountValue)
-        {
-            writer.WriteStartElement(null, "NmneeAcct", xmlNamespace );
-            NomineeAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Trfee", xmlNamespace );
-        Transferee.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (IntermediaryInformation is Intermediary34 IntermediaryInformationValue)
-        {
-            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
-            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccount is CashAccount34 CashAccountValue)
-        {
-            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-            CashAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PdctTrfAndRef", xmlNamespace );
-        ProductTransferAndReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ISATransfer24 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

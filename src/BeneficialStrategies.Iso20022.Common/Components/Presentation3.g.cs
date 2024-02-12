@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Electronic presentation information.
 /// </summary>
+[IsoId("_97IpNHltEeG7BsjMvd1mEw_776064240")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Presentation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Presentation3
-     : IIsoXmlSerilizable<Presentation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Format for presentation documents that are submitted electronically.
     /// </summary>
+    [IsoId("_97RzIHltEeG7BsjMvd1mEw_1774083101")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentFormat1Choice_? Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentFormat1Choice_? Format { get; init; } 
+    #else
+    public DocumentFormat1Choice_? Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Channel through which presentation documents are submitted electronically, such as SWIFT, Web upload, or secure email.
     /// </summary>
+    [IsoId("_97RzIXltEeG7BsjMvd1mEw_-403292535")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Channel1Choice_? Channel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Channel1Choice_? Channel { get; init; } 
+    #else
+    public Channel1Choice_? Channel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Uniform Resource Identifier (URI), such as a web or an email address, specifying where the presentation can be addressed.
     /// </summary>
+    [IsoId("_97RzInltEeG7BsjMvd1mEw_837339061")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Address { get; init; } 
+    #else
+    public System.String? Address { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Format is DocumentFormat1Choice_ FormatValue)
-        {
-            writer.WriteStartElement(null, "Frmt", xmlNamespace );
-            FormatValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Channel is Channel1Choice_ ChannelValue)
-        {
-            writer.WriteStartElement(null, "Chanl", xmlNamespace );
-            ChannelValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Address is IsoMax256Text AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Presentation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

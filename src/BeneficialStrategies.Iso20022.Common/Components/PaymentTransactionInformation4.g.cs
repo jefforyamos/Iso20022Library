@@ -7,126 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference and status information concerning the original transactions, included in the original instruction, to which the reversal message applies.
 /// </summary>
+[IsoId("_Pr6kbtp-Ed-ak6NoX_4Aeg_2146802204")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Transaction Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTransactionInformation4
-     : IIsoXmlSerilizable<PaymentTransactionInformation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the reversed transaction.
     /// </summary>
+    [IsoId("_PsEVYNp-Ed-ak6NoX_4Aeg_2146802222")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReversalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReversalIdentification { get; init; } 
+    #else
+    public System.String? ReversalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier of the original payment information block as assigned by the original sending party.
     /// </summary>
+    [IsoId("_PsEVYdp-Ed-ak6NoX_4Aeg_2146802256")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalPaymentInformationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalPaymentInformationIdentification { get; init; } 
+    #else
+    public System.String? OriginalPaymentInformationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original unique instruction identification as assigned by an instructing party for an instructed party to unambiguously identify the original instruction.||Usage: the original instruction identification is the original point to point reference used between the instructing party and the instructed party to refer to the original instruction.
     /// </summary>
+    [IsoId("_PsEVYtp-Ed-ak6NoX_4Aeg_2146802516")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalInstructionIdentification { get; init; } 
+    #else
+    public System.String? OriginalInstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original unique identification assigned by the initiating party to unambiguously identify the original transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// </summary>
+    [IsoId("_PsEVY9p-Ed-ak6NoX_4Aeg_2146802533")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original End To End Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalEndToEndIdentification { get; init; } 
+    #else
+    public System.String? OriginalEndToEndIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency as ordered by the initiating party in the original transaction.
     /// </summary>
+    [IsoId("_PsEVZNp-Ed-ak6NoX_4Aeg_1381325256")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Instructed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OriginalInstructedAmount { get; init; } 
+    #else
+    public System.Decimal? OriginalInstructedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, in the reversed transaction.
     /// </summary>
+    [IsoId("_PsEVZdp-Ed-ak6NoX_4Aeg_2146802593")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversed Instructed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ReversedInstructedAmount { get; init; } 
+    #else
+    public System.Decimal? ReversedInstructedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the creditor and/or debtor will bear the charges associated with the processing of the payment transaction.||Usage: The ChargeBearer applies to the reversal message, not to the original instruction.
     /// </summary>
+    [IsoId("_PsEVZtp-Ed-ak6NoX_4Aeg_-2147244601")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Bearer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeBearerType1Code? ChargeBearer { get; init; } 
+    #else
+    public ChargeBearerType1Code? ChargeBearer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information on the reversal reason.
     /// </summary>
+    [IsoId("_PsEVZ9p-Ed-ak6NoX_4Aeg_-2147244463")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalReasonInformation1? ReversalReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReversalReasonInformation1? ReversalReasonInformation { get; init; } 
+    #else
+    public ReversalReasonInformation1? ReversalReasonInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of key elements of the original transaction being referred to.
     /// </summary>
+    [IsoId("_PsEVaNp-Ed-ak6NoX_4Aeg_-2147244048")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Transaction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalTransactionReference1? OriginalTransactionReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalTransactionReference1? OriginalTransactionReference { get; init; } 
+    #else
+    public OriginalTransactionReference1? OriginalTransactionReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReversalIdentification is IsoMax35Text ReversalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RvslId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReversalIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalPaymentInformationIdentification is IsoMax35Text OriginalPaymentInformationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPmtInfId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalInstructedAmount is IsoCurrencyAndAmount OriginalInstructedAmountValue)
-        {
-            writer.WriteStartElement(null, "OrgnlInstdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OriginalInstructedAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ReversedInstructedAmount is IsoCurrencyAndAmount ReversedInstructedAmountValue)
-        {
-            writer.WriteStartElement(null, "RvsdInstdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ReversedInstructedAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
-        {
-            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
-            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReversalReasonInformation is ReversalReasonInformation1 ReversalReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "RvslRsnInf", xmlNamespace );
-            ReversalReasonInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalTransactionReference is OriginalTransactionReference1 OriginalTransactionReferenceValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
-            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentTransactionInformation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

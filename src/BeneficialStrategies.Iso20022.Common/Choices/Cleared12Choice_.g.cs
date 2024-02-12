@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Indicates whether the contract was cleared or not.
-/// </summary>
-[KnownType(typeof(Cleared12Choice.Cleared))]
-[KnownType(typeof(Cleared12Choice.IntendToClear))]
-[KnownType(typeof(Cleared12Choice.NonCleared))]
-public abstract partial record Cleared12Choice_ : IIsoXmlSerilizable<Cleared12Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Indicates whether the contract was cleared or not.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Cleared12Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Cleared12Choice.Cleared))]
+    [KnownType(typeof(Cleared12Choice.IntendToClear))]
+    [KnownType(typeof(Cleared12Choice.NonCleared))]
+    [IsoId("_BT5_1-xYEemioJdkOVFBdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cleared 12 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Cleared12Choice_
+    #else
+    public abstract partial class Cleared12Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Clrd" => Cleared12Choice.Cleared.Deserialize(elementWithPayload),
-             "IntndToClear" => Cleared12Choice.IntendToClear.Deserialize(elementWithPayload),
-             "NonClrd" => Cleared12Choice.NonCleared.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Cleared12Choice choice.")
-        };
     }
 }

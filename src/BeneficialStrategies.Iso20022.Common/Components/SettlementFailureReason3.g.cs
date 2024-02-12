@@ -7,17 +7,37 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
+[IsoId("_nWYekSGkEeqlG_HhjTmcZg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Failure Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementFailureReason3
-     : IIsoXmlSerilizable<SettlementFailureReason3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,36 +45,35 @@ public partial record SettlementFailureReason3
     /// Usage: 
     /// Duration of fails is value based.
     /// </summary>
+    [IsoId("_nXq4ASGkEeqlG_HhjTmcZg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2Fraction1NonNegativeNumber? AverageDuration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? AverageDuration { get; init; } 
+    #else
+    public System.UInt64? AverageDuration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed description of the failure reasons.
     /// </summary>
+    [IsoId("_nXq4AyGkEeqlG_HhjTmcZg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public SettlementFailureReason2? Description { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _nXq4AyGkEeqlG_HhjTmcZg
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AverageDuration is IsoMax2Fraction1NonNegativeNumber AverageDurationValue)
-        {
-            writer.WriteStartElement(null, "AvrgDrtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2Fraction1NonNegativeNumber(AverageDurationValue)); // data type Max2Fraction1NonNegativeNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Description, multiplicity Unknown
-    }
-    public static SettlementFailureReason3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

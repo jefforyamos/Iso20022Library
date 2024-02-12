@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Designates the tax calculation to be applied on a service.
 /// </summary>
+[IsoId("_6RJWjpqlEeGSON8vddiWzQ_-263337197")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Service Tax Designation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ServiceTaxDesignation1
-     : IIsoXmlSerilizable<ServiceTaxDesignation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ServiceTaxDesignation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ServiceTaxDesignation1( ServiceTaxDesignation1Code reqCode )
+    {
+        Code = reqCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the taxable status of the service.
     /// </summary>
+    [IsoId("_6RJWj5qlEeGSON8vddiWzQ_1442912136")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServiceTaxDesignation1Code Code { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ServiceTaxDesignation1Code Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ServiceTaxDesignation1Code Code { get; init; } 
+    #else
+    public ServiceTaxDesignation1Code Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the tax region associated with the service. This element must be present if taxes are involved with any portion of the statement.
     /// </summary>
+    [IsoId("_6RJWkJqlEeGSON8vddiWzQ_115283382")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Region")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Region { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Region { get; init; } 
+    #else
+    public System.String? Region { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides free form explanations of the various tax codes used within the statement.
     /// </summary>
+    [IsoId("_6RSgcJqlEeGSON8vddiWzQ_1740386990")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReason1? TaxReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxReason1? TaxReason { get; init; } 
+    #else
+    public TaxReason1? TaxReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Code.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Region is IsoMax35Text RegionValue)
-        {
-            writer.WriteStartElement(null, "Rgn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxReason is TaxReason1 TaxReasonValue)
-        {
-            writer.WriteStartElement(null, "TaxRsn", xmlNamespace );
-            TaxReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ServiceTaxDesignation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

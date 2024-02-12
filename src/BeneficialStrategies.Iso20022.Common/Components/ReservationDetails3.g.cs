@@ -7,76 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the reservation details
 /// </summary>
+[IsoId("_tCvU1PPiEeihCvvpsmGI2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reservation Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReservationDetails3
-     : IIsoXmlSerilizable<ReservationDetails3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Computerised reservation system used to make the reservation and purchase the ticket.
     /// </summary>
+    [IsoId("_tCvU1_PiEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? System { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? System { get; init; } 
+    #else
+    public System.String? System { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value that uniquely identifies the reservation. 
     /// </summary>
+    [IsoId("_tCvU1vPiEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reservation Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReservationNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReservationNumber { get; init; } 
+    #else
+    public System.String? ReservationNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// System code that identifies the original reservation system used to make the reservation and purchase the ticket. 
     /// </summary>
+    [IsoId("_tCvU1fPiEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original System")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? OriginalSystem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalSystem { get; init; } 
+    #else
+    public System.String? OriginalSystem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value that identifies the original reservation generated during the original reservation and purchase of the ticket. 
     /// </summary>
+    [IsoId("_1YJEEfPjEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Reservation Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalReservationNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalReservationNumber { get; init; } 
+    #else
+    public System.String? OriginalReservationNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (System is IsoMax4Text SystemValue)
-        {
-            writer.WriteStartElement(null, "Sys", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(SystemValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReservationNumber is IsoMax35Text ReservationNumberValue)
-        {
-            writer.WriteStartElement(null, "RsvatnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReservationNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalSystem is IsoMax4Text OriginalSystemValue)
-        {
-            writer.WriteStartElement(null, "OrgnlSys", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(OriginalSystemValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalReservationNumber is IsoMax35Text OriginalReservationNumberValue)
-        {
-            writer.WriteStartElement(null, "OrgnlRsvatnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalReservationNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReservationDetails3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

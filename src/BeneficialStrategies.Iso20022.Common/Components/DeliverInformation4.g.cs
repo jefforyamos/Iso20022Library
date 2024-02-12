@@ -7,127 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
+[IsoId("_SgXpCdp-Ed-ak6NoX_4Aeg_1988845075")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Deliver Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeliverInformation4
-     : IIsoXmlSerilizable<DeliverInformation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeliverInformation4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeliverInformation4( System.String reqStampDutyIndicator,DeliveringPartiesAndAccount4 reqSettlementPartiesDetails,System.String reqPhysicalTransferIndicator )
+    {
+        StampDutyIndicator = reqStampDutyIndicator;
+        SettlementPartiesDetails = reqSettlementPartiesDetails;
+        PhysicalTransferIndicator = reqPhysicalTransferIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time at which the securities were exchange at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [IsoId("_SgXpCtp-Ed-ak6NoX_4Aeg_-1551741626")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? EffectiveSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? EffectiveSettlementDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? EffectiveSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [IsoId("_SgXpC9p-Ed-ak6NoX_4Aeg_-112280753")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SettlementAmount { get; init; } 
+    #else
+    public System.Decimal? SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the settlement amount includes the stamp duty amount.
     /// </summary>
+    [IsoId("_SgXpDNp-Ed-ak6NoX_4Aeg_1399257674")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stamp Duty Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator StampDutyIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String StampDutyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String StampDutyIndicator { get; init; } 
+    #else
+    public System.String StampDutyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deal amount.
     /// </summary>
+    [IsoId("_SgXpDdp-Ed-ak6NoX_4Aeg_-1920471835")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetAmount { get; init; } 
+    #else
+    public System.Decimal? NetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
+    [IsoId("_SgXpDtp-Ed-ak6NoX_4Aeg_1058413565")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge20? ChargeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge20? ChargeDetails { get; init; } 
+    #else
+    public Charge20? ChargeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
+    [IsoId("_SghaANp-Ed-ak6NoX_4Aeg_-1811039457")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commission Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission12? CommissionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Commission12? CommissionDetails { get; init; } 
+    #else
+    public Commission12? CommissionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
+    [IsoId("_SghaAdp-Ed-ak6NoX_4Aeg_1988845177")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax15? TaxDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax15? TaxDetails { get; init; } 
+    #else
+    public Tax15? TaxDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [IsoId("_SghaAtp-Ed-ak6NoX_4Aeg_1988845238")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Parties Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveringPartiesAndAccount4 SettlementPartiesDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DeliveringPartiesAndAccount4 SettlementPartiesDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveringPartiesAndAccount4 SettlementPartiesDetails { get; init; } 
+    #else
+    public DeliveringPartiesAndAccount4 SettlementPartiesDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [IsoId("_SghaA9p-Ed-ak6NoX_4Aeg_1988845101")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Transfer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PhysicalTransferIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PhysicalTransferIndicator { get; init; } 
+    #else
+    public System.String PhysicalTransferIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
+    [IsoId("_SghaBNp-Ed-ak6NoX_4Aeg_1988845521")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Transfer Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
+    #else
+    public DeliveryParameters4? PhysicalTransferDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EffectiveSettlementDate is DateAndDateTimeChoice_ EffectiveSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "FctvSttlmDt", xmlNamespace );
-            EffectiveSettlementDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StmpDtyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StampDutyIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (NetAmount is IsoActiveCurrencyAndAmount NetAmountValue)
-        {
-            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ChargeDetails is Charge20 ChargeDetailsValue)
-        {
-            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
-            ChargeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommissionDetails is Commission12 CommissionDetailsValue)
-        {
-            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
-            CommissionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxDetails is Tax15 TaxDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
-            TaxDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
-        SettlementPartiesDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PhysTrfInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalTransferIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (PhysicalTransferDetails is DeliveryParameters4 PhysicalTransferDetailsValue)
-        {
-            writer.WriteStartElement(null, "PhysTrfDtls", xmlNamespace );
-            PhysicalTransferDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DeliverInformation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

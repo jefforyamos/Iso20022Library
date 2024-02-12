@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the margin requirements for the variation margin and the segregated independent amount, or the segregated independent amount only.
-/// </summary>
-[KnownType(typeof(MarginRequirement1Choice.MarginRequirement))]
-[KnownType(typeof(MarginRequirement1Choice.SegregatedIndependentAmountRequirement))]
-public abstract partial record MarginRequirement1Choice_ : IIsoXmlSerilizable<MarginRequirement1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the margin requirements for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MarginRequirement1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MarginRequirement1Choice.MarginRequirement))]
+    [KnownType(typeof(MarginRequirement1Choice.SegregatedIndependentAmountRequirement))]
+    [IsoId("_QmevONp-Ed-ak6NoX_4Aeg_-593475226")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Requirement 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MarginRequirement1Choice_
+    #else
+    public abstract partial class MarginRequirement1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MrgnRqrmnt" => MarginRequirement1Choice.MarginRequirement.Deserialize(elementWithPayload),
-             "SgrtdIndpdntAmtRqrmnt" => MarginRequirement1Choice.SegregatedIndependentAmountRequirement.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MarginRequirement1Choice choice.")
-        };
     }
 }

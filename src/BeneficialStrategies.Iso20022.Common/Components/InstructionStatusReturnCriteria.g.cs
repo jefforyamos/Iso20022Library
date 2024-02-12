@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to report on the payment status.
 /// </summary>
+[IsoId("_RImk0tp-Ed-ak6NoX_4Aeg_-1267402839")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Instruction Status Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InstructionStatusReturnCriteria
-     : IIsoXmlSerilizable<InstructionStatusReturnCriteria>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InstructionStatusReturnCriteria instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InstructionStatusReturnCriteria( System.String reqPaymentInstructionStatusIndicator )
+    {
+        PaymentInstructionStatusIndicator = reqPaymentInstructionStatusIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates if the instruction status is requested.
     /// </summary>
+    [IsoId("_RImk09p-Ed-ak6NoX_4Aeg_-1267402838")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Status Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator PaymentInstructionStatusIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PaymentInstructionStatusIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PaymentInstructionStatusIndicator { get; init; } 
+    #else
+    public System.String PaymentInstructionStatusIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the status date and time are requested.
     /// </summary>
+    [IsoId("_RImk1Np-Ed-ak6NoX_4Aeg_-1267402837")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Status Date Time Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentInstructionStatusDateTimeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentInstructionStatusDateTimeIndicator { get; init; } 
+    #else
+    public System.String? PaymentInstructionStatusDateTimeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the status reason is requested.
     /// </summary>
+    [IsoId("_RImk1dp-Ed-ak6NoX_4Aeg_-1267402836")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Status Reason Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentInstructionStatusReasonIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentInstructionStatusReasonIndicator { get; init; } 
+    #else
+    public System.String? PaymentInstructionStatusReasonIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PmtInstrStsInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionStatusIndicator)); // data type RequestedIndicator System.String
-        writer.WriteEndElement();
-        if (PaymentInstructionStatusDateTimeIndicator is IsoRequestedIndicator PaymentInstructionStatusDateTimeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrStsDtTmInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionStatusDateTimeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentInstructionStatusReasonIndicator is IsoRequestedIndicator PaymentInstructionStatusReasonIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrStsRsnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionStatusReasonIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InstructionStatusReturnCriteria Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,33 +9,44 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ResponseProcessingStatus1Choice;
-
-/// <summary>
-/// The received message or the multipart received report (sent with pagination in multiple messages) is rejected.
-/// </summary>
-public partial record Rejected : ResponseProcessingStatus1Choice_
-     , IIsoXmlSerilizable<Rejected>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ResponseProcessingStatus1Choice
 {
-    #nullable enable
-    
-    
-    #nullable disable
-    
-    
     /// <summary>
-    /// Used to format the various primative types during serialization.
+    /// The received message or the multipart received report (sent with pagination in multiple messages) is rejected.
     /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_mjD0wIeUEemJ1cSJJmVYRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Rejected : ResponseProcessingStatus1Choice_
+    #else
+    public partial class Rejected : ResponseProcessingStatus1Choice_
+    #endif
     {
-    }
-    public static new Rejected Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        
+        #nullable disable
+        
     }
 }

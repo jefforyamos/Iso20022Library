@@ -7,78 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the individual record of the file signature.
 /// </summary>
+[IsoId("_fhqo8KA3EeWiJt5KdX5iuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Isabel Signature Record")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IsabelSignatureRecord1
-     : IIsoXmlSerilizable<IsabelSignatureRecord1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IsabelSignatureRecord1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IsabelSignatureRecord1( SignatureOriginType1Code reqSignatureType,System.String reqSerialNumber,System.Byte[] reqCertificate,System.Byte[] reqSignature,System.String reqAlgorithm,System.String reqSignerIdentification )
+    {
+        SignatureType = reqSignatureType;
+        SerialNumber = reqSerialNumber;
+        Certificate = reqCertificate;
+        Signature = reqSignature;
+        Algorithm = reqAlgorithm;
+        SignerIdentification = reqSignerIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of the signature.
     /// </summary>
+    [IsoId("_Uvx6EsnAEeWI4cSIO9foRA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignatureOriginType1Code SignatureType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SignatureOriginType1Code SignatureType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignatureOriginType1Code SignatureType { get; init; } 
+    #else
+    public SignatureOriginType1Code SignatureType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Serial number of the certificate.
     /// </summary>
+    [IsoId("_ut-UQKMaEeWZDvWHgGXs7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Serial Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20AlphaNumericText SerialNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SerialNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SerialNumber { get; init; } 
+    #else
+    public System.String SerialNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Electronic document which uses a digital signature to bind together a public key with an identity.
     /// </summary>
+    [IsoId("_OG7hUMnBEeWI4cSIO9foRA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4kBinary Certificate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] Certificate { get; init; } 
+    #else
+    public System.Byte[] Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of a digital message or document.
     /// </summary>
+    [IsoId("_WHuH8MnBEeWI4cSIO9foRA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax1kBinary Signature { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] Signature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] Signature { get; init; } 
+    #else
+    public System.Byte[] Signature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Effective method for calculating the signature using a finite sequence of instructions.
     /// </summary>
+    [IsoId("_pPYVUMnBEeWI4cSIO9foRA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Algorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Algorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Algorithm { get; init; } 
+    #else
+    public System.String Algorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the signer that issued the signature.
     /// </summary>
+    [IsoId("_tcEYMMnBEeWI4cSIO9foRA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 13 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax13AlphaNumericText SignerIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SignerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SignerIdentification { get; init; } 
+    #else
+    public System.String SignerIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SgntrTp", xmlNamespace );
-        writer.WriteValue(SignatureType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SrlNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax20AlphaNumericText(SerialNumber)); // data type Max20AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cert", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4kBinary(Certificate)); // data type Max4kBinary System.Byte[]
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sgntr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax1kBinary(Signature)); // data type Max1kBinary System.Byte[]
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Algo", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax105Text(Algorithm)); // data type Max105Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SgnrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax13AlphaNumericText(SignerIdentification)); // data type Max13AlphaNumericText System.String
-        writer.WriteEndElement();
-    }
-    public static IsabelSignatureRecord1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,80 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
+[IsoId("_VMxk59p-Ed-ak6NoX_4Aeg_-1013586045")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Deliver Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeliverInformation2
-     : IIsoXmlSerilizable<DeliverInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeliverInformation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeliverInformation2( DeliveringPartiesAndAccount1 reqSettlementPartiesDetails,System.String reqPhysicalTransferIndicator )
+    {
+        SettlementPartiesDetails = reqSettlementPartiesDetails;
+        PhysicalTransferIndicator = reqPhysicalTransferIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
+    [IsoId("_VMxk6Np-Ed-ak6NoX_4Aeg_-214525296")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge4? ChargeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge4? ChargeDetails { get; init; } 
+    #else
+    public Charge4? ChargeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
+    [IsoId("_VMxk6dp-Ed-ak6NoX_4Aeg_534530656")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax3? TaxDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax3? TaxDetails { get; init; } 
+    #else
+    public Tax3? TaxDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [IsoId("_VMxk6tp-Ed-ak6NoX_4Aeg_-889025934")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Parties Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveringPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DeliveringPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveringPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
+    #else
+    public DeliveringPartiesAndAccount1 SettlementPartiesDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [IsoId("_VMxk69p-Ed-ak6NoX_4Aeg_-1109217545")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Transfer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PhysicalTransferIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PhysicalTransferIndicator { get; init; } 
+    #else
+    public System.String PhysicalTransferIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
+    [IsoId("_VM7V4Np-Ed-ak6NoX_4Aeg_-816993140")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Transfer Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
+    #else
+    public DeliveryParameters2? PhysicalTransferDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ChargeDetails is Charge4 ChargeDetailsValue)
-        {
-            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
-            ChargeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxDetails is Tax3 TaxDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
-            TaxDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
-        SettlementPartiesDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PhysTrfInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalTransferIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (PhysicalTransferDetails is DeliveryParameters2 PhysicalTransferDetailsValue)
-        {
-            writer.WriteStartElement(null, "PhysTrfDtls", xmlNamespace );
-            PhysicalTransferDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DeliverInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

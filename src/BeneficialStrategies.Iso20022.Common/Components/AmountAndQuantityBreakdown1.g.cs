@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of breakdown of a an amount or quantity.
 /// </summary>
+[IsoId("_qHXhcbFMEeqxQ8-YVgMtLw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amount And Quantity Breakdown")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmountAndQuantityBreakdown1
-     : IIsoXmlSerilizable<AmountAndQuantityBreakdown1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
+    [IsoId("_qJ54EbFMEeqxQ8-YVgMtLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification37? LotNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification37? LotNumber { get; init; } 
+    #else
+    public GenericIdentification37? LotNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that is part of the lot described.
     /// </summary>
+    [IsoId("_zq6URLFMEeqxQ8-YVgMtLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection5? LotAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection5? LotAmount { get; init; } 
+    #else
+    public AmountAndDirection5? LotAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
+    [IsoId("_qJ54GbFMEeqxQ8-YVgMtLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? LotQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
+    [IsoId("_qJ54IbFMEeqxQ8-YVgMtLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Sub Balance Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? CashSubBalanceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification30? CashSubBalanceType { get; init; } 
+    #else
+    public GenericIdentification30? CashSubBalanceType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LotNumber is GenericIdentification37 LotNumberValue)
-        {
-            writer.WriteStartElement(null, "LotNb", xmlNamespace );
-            LotNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LotAmount is AmountAndDirection5 LotAmountValue)
-        {
-            writer.WriteStartElement(null, "LotAmt", xmlNamespace );
-            LotAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LotQuantity is FinancialInstrumentQuantity1Choice_ LotQuantityValue)
-        {
-            writer.WriteStartElement(null, "LotQty", xmlNamespace );
-            LotQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashSubBalanceType is GenericIdentification30 CashSubBalanceTypeValue)
-        {
-            writer.WriteStartElement(null, "CshSubBalTp", xmlNamespace );
-            CashSubBalanceTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AmountAndQuantityBreakdown1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

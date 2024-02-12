@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the multimodal or the individual transport of goods.
 /// </summary>
+[IsoId("_Stoo-Np-Ed-ak6NoX_4Aeg_165416872")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport Means")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportMeans1
-     : IIsoXmlSerilizable<TransportMeans1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransportMeans1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransportMeans1( SingleTransport4 reqIndividualTransport )
+    {
+        IndividualTransport = reqIndividualTransport;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
+    [IsoId("_Stoo-dp-Ed-ak6NoX_4Aeg_165417133")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Transport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SingleTransport4 IndividualTransport { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SingleTransport4 IndividualTransport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SingleTransport4 IndividualTransport { get; init; } 
+    #else
+    public SingleTransport4 IndividualTransport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
     /// </summary>
+    [IsoId("_Stoo-tp-Ed-ak6NoX_4Aeg_165417254")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multimodal Transport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MultimodalTransport3? MultimodalTransport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MultimodalTransport3? MultimodalTransport { get; init; } 
+    #else
+    public MultimodalTransport3? MultimodalTransport { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IndvTrnsprt", xmlNamespace );
-        IndividualTransport.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MultimodalTransport is MultimodalTransport3 MultimodalTransportValue)
-        {
-            writer.WriteStartElement(null, "MltmdlTrnsprt", xmlNamespace );
-            MultimodalTransportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportMeans1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

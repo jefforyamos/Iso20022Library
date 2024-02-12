@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the settlement date.
-/// </summary>
-[KnownType(typeof(SettlementDate12Choice.Date))]
-[KnownType(typeof(SettlementDate12Choice.DateCode))]
-public abstract partial record SettlementDate12Choice_ : IIsoXmlSerilizable<SettlementDate12Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the settlement date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementDate12Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementDate12Choice.Date))]
+    [KnownType(typeof(SettlementDate12Choice.DateCode))]
+    [IsoId("_5TGUn5NLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date 12 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementDate12Choice_
+    #else
+    public abstract partial class SettlementDate12Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => SettlementDate12Choice.Date.Deserialize(elementWithPayload),
-             "DtCd" => SettlementDate12Choice.DateCode.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementDate12Choice choice.")
-        };
     }
 }

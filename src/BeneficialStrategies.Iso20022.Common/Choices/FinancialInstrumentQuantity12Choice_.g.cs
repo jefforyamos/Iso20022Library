@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ways to express the quantity of the financial instrument to be redeemed.
-/// </summary>
-[KnownType(typeof(FinancialInstrumentQuantity12Choice.UnitsNumber))]
-[KnownType(typeof(FinancialInstrumentQuantity12Choice.OrderedAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity12Choice.NetAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity12Choice.GrossAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity12Choice.HoldingsRate))]
-[KnownType(typeof(FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount))]
-public abstract partial record FinancialInstrumentQuantity12Choice_ : IIsoXmlSerilizable<FinancialInstrumentQuantity12Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ways to express the quantity of the financial instrument to be redeemed.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrumentQuantity12Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrumentQuantity12Choice.UnitsNumber))]
+    [KnownType(typeof(FinancialInstrumentQuantity12Choice.OrderedAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity12Choice.NetAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity12Choice.GrossAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity12Choice.HoldingsRate))]
+    [KnownType(typeof(FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount))]
+    [IsoId("_RgvYAtp-Ed-ak6NoX_4Aeg_426549080")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Quantity 12 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrumentQuantity12Choice_
+    #else
+    public abstract partial class FinancialInstrumentQuantity12Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "UnitsNb" => FinancialInstrumentQuantity12Choice.UnitsNumber.Deserialize(elementWithPayload),
-             "OrdrdAmt" => FinancialInstrumentQuantity12Choice.OrderedAmount.Deserialize(elementWithPayload),
-             "NetAmt" => FinancialInstrumentQuantity12Choice.NetAmount.Deserialize(elementWithPayload),
-             "GrssAmt" => FinancialInstrumentQuantity12Choice.GrossAmount.Deserialize(elementWithPayload),
-             "HldgsRate" => FinancialInstrumentQuantity12Choice.HoldingsRate.Deserialize(elementWithPayload),
-             "PctgOfTtlSbcptAmt" => FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrumentQuantity12Choice choice.")
-        };
     }
 }

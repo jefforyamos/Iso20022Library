@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Information related to an identification, eg, party identification or account identification.
-/// </summary>
-[KnownType(typeof(IdentificationType1Choice.IdentificationType))]
-[KnownType(typeof(IdentificationType1Choice.Proprietary))]
-public abstract partial record IdentificationType1Choice_ : IIsoXmlSerilizable<IdentificationType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IdentificationType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IdentificationType1Choice.IdentificationType))]
+    [KnownType(typeof(IdentificationType1Choice.Proprietary))]
+    [IsoId("_QAoQJtp-Ed-ak6NoX_4Aeg_-1560497991")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IdentificationType1Choice_
+    #else
+    public abstract partial class IdentificationType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IdTp" => IdentificationType1Choice.IdentificationType.Deserialize(elementWithPayload),
-             "Prtry" => IdentificationType1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IdentificationType1Choice choice.")
-        };
     }
 }

@@ -7,60 +7,104 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the cash proceeds.
 /// </summary>
+[IsoId("_UP1bhtp-Ed-ak6NoX_4Aeg_1953970402")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Proceeds")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashProceeds1
-     : IIsoXmlSerilizable<CashProceeds1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashProceeds1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashProceeds1( System.Decimal reqPostingAmount )
+    {
+        PostingAmount = reqPostingAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Cash amount which is posted.
     /// </summary>
+    [IsoId("_UP1bh9p-Ed-ak6NoX_4Aeg_1291538706")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posting Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PostingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PostingAmount { get; init; } 
+    #else
+    public System.Decimal PostingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reconciliation information.
     /// </summary>
+    [IsoId("_UP1biNp-Ed-ak6NoX_4Aeg_1379272721")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ReconciliationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationDetails { get; init; } 
+    #else
+    public System.String? ReconciliationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the debited securities account.
     /// </summary>
-    public ValueList<CashAccount19> AccountDetails { get; init; } = [];
+    [IsoId("_UP1bidp-Ed-ak6NoX_4Aeg_-876446591")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<CashAccount19> AccountDetails { get; init; } = new ValueList<CashAccount19>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PstngAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PostingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (ReconciliationDetails is IsoMax350Text ReconciliationDetailsValue)
-        {
-            writer.WriteStartElement(null, "RcncltnDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ReconciliationDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
-        AccountDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CashProceeds1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

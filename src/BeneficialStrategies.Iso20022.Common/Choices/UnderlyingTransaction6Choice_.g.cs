@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides details of the underlying transaction, on which the investigation is processed.
-/// </summary>
-[KnownType(typeof(UnderlyingTransaction6Choice.Initiation))]
-[KnownType(typeof(UnderlyingTransaction6Choice.Interbank))]
-[KnownType(typeof(UnderlyingTransaction6Choice.StatementEntry))]
-public abstract partial record UnderlyingTransaction6Choice_ : IIsoXmlSerilizable<UnderlyingTransaction6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides details of the underlying transaction, on which the investigation is processed.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnderlyingTransaction6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnderlyingTransaction6Choice.Initiation))]
+    [KnownType(typeof(UnderlyingTransaction6Choice.Interbank))]
+    [KnownType(typeof(UnderlyingTransaction6Choice.StatementEntry))]
+    [IsoId("_xBEjS8loEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Transaction 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnderlyingTransaction6Choice_
+    #else
+    public abstract partial class UnderlyingTransaction6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Initn" => UnderlyingTransaction6Choice.Initiation.Deserialize(elementWithPayload),
-             "IntrBk" => UnderlyingTransaction6Choice.Interbank.Deserialize(elementWithPayload),
-             "StmtNtry" => UnderlyingTransaction6Choice.StatementEntry.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnderlyingTransaction6Choice choice.")
-        };
     }
 }

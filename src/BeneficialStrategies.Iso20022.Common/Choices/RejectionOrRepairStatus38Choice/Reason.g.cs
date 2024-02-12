@@ -9,53 +9,83 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.RejectionOrRepairStatus38Choice;
-
-/// <summary>
-/// Specifies the reason of the rejection or repair status.
-/// </summary>
-public partial record Reason : RejectionOrRepairStatus38Choice_
-     , IIsoXmlSerilizable<Reason>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.RejectionOrRepairStatus38Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the reason why the instruction/request has a rejected or repair status.
+    /// Specifies the reason of the rejection or repair status.
     /// </summary>
-    public RejectionAndRepairReason32Choice_? Code { get; init; } 
-    /// <summary>
-    /// Provides additional reason information that cannot be provided in a structured field.
-    /// </summary>
-    public IsoMax210Text? AdditionalReasonInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_WgqHGeFUEeWIA4E9cYSxxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reason : RejectionOrRepairStatus38Choice_
+    #else
+    public partial class Reason : RejectionOrRepairStatus38Choice_
+    #endif
     {
-        if (Code is RejectionAndRepairReason32Choice_ CodeValue)
-        {
-            writer.WriteStartElement(null, "Cd", xmlNamespace );
-            CodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Reason Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the reason why the instruction/request has a rejected or repair status.
+        /// </summary>
+        [IsoId("_WplZkeFUEeWIA4E9cYSxxQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RejectionAndRepairReason32Choice_? Code { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RejectionAndRepairReason32Choice_? Code { get; init; } 
+        #else
+        public RejectionAndRepairReason32Choice_? Code { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides additional reason information that cannot be provided in a structured field.
+        /// </summary>
+        [IsoId("_WplZmeFUEeWIA4E9cYSxxQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Reason Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalReasonInformation { get; init; } 
+        #else
+        public System.String? AdditionalReasonInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a statement of investment fund transactions.
 /// </summary>
+[IsoId("_ROHW-tp-Ed-ak6NoX_4Aeg_-1658317001")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Statement Of Investment Fund Transactions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatementOfInvestmentFundTransactions2
-     : IIsoXmlSerilizable<StatementOfInvestmentFundTransactions2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StatementOfInvestmentFundTransactions2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StatementOfInvestmentFundTransactions2( SubAccountIdentification6 reqSubAccountDetails )
+    {
+        SubAccountDetails = reqSubAccountDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// General information related to the investment fund statement of transactions that is being cancelled.
     /// </summary>
+    [IsoId("_ROHW-9p-Ed-ak6NoX_4Aeg_-1658316838")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement General Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Statement8? StatementGeneralDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Statement8? StatementGeneralDetails { get; init; } 
+    #else
+    public Statement8? StatementGeneralDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to an investment account of the statement that is being cancelled.
     /// </summary>
+    [IsoId("_ROHW_Np-Ed-ak6NoX_4Aeg_-1658316880")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount25? InvestmentAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount25? InvestmentAccountDetails { get; init; } 
+    #else
+    public InvestmentAccount25? InvestmentAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
     /// </summary>
+    [IsoId("_RORH8Np-Ed-ak6NoX_4Aeg_-1658316898")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction On Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundTransactionsByFund2? TransactionOnAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentFundTransactionsByFund2? TransactionOnAccount { get; init; } 
+    #else
+    public InvestmentFundTransactionsByFund2? TransactionOnAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub-account of the safekeeping or investment account.
     /// </summary>
+    [IsoId("_RORH8dp-Ed-ak6NoX_4Aeg_-1658316940")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubAccountIdentification6 SubAccountDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SubAccountIdentification6 SubAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubAccountIdentification6 SubAccountDetails { get; init; } 
+    #else
+    public SubAccountIdentification6 SubAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_RORH8tp-Ed-ak6NoX_4Aeg_-1658316820")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StatementGeneralDetails is Statement8 StatementGeneralDetailsValue)
-        {
-            writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
-            StatementGeneralDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentAccountDetails is InvestmentAccount25 InvestmentAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
-            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionOnAccount is InvestmentFundTransactionsByFund2 TransactionOnAccountValue)
-        {
-            writer.WriteStartElement(null, "TxOnAcct", xmlNamespace );
-            TransactionOnAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
-        SubAccountDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static StatementOfInvestmentFundTransactions2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

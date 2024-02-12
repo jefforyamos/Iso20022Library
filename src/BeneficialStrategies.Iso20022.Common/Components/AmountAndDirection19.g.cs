@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money debited or credited on the books of an account servicer.
 /// </summary>
+[IsoId("_WSOKB9p-Ed-ak6NoX_4Aeg_-1965842707")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amount And Direction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmountAndDirection19
-     : IIsoXmlSerilizable<AmountAndDirection19>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AmountAndDirection19 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AmountAndDirection19( System.Decimal reqAmount )
+    {
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money that is debited or credited.
     /// </summary>
+    [IsoId("_WSOKCNp-Ed-ak6NoX_4Aeg_334979883")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the amount is a debited or a credited.
     /// </summary>
+    [IsoId("_WSOKCdp-Ed-ak6NoX_4Aeg_-1659164823")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode? CreditDebit { get; init; } 
+    #else
+    public CreditDebitCode? CreditDebit { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(Amount)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (CreditDebit is CreditDebitCode CreditDebitValue)
-        {
-            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
-            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static AmountAndDirection19 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

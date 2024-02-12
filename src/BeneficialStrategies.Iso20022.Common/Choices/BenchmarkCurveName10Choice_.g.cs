@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for benchmark curve name.
-/// </summary>
-[KnownType(typeof(BenchmarkCurveName10Choice.Index))]
-[KnownType(typeof(BenchmarkCurveName10Choice.Name))]
-public abstract partial record BenchmarkCurveName10Choice_ : IIsoXmlSerilizable<BenchmarkCurveName10Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for benchmark curve name.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static BenchmarkCurveName10Choice_ Deserialize(XElement element)
+    [KnownType(typeof(BenchmarkCurveName10Choice.Index))]
+    [KnownType(typeof(BenchmarkCurveName10Choice.Name))]
+    [IsoId("_CSXHb6x2Eem81-uIvTF5rQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Benchmark Curve Name 10 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record BenchmarkCurveName10Choice_
+    #else
+    public abstract partial class BenchmarkCurveName10Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Indx" => BenchmarkCurveName10Choice.Index.Deserialize(elementWithPayload),
-             "Nm" => BenchmarkCurveName10Choice.Name.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid BenchmarkCurveName10Choice choice.")
-        };
     }
 }

@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines commodity specific attributes of a derivative.
-/// </summary>
-[KnownType(typeof(AssetClassCommodity2Choice.Agricultural))]
-[KnownType(typeof(AssetClassCommodity2Choice.Energy))]
-[KnownType(typeof(AssetClassCommodity2Choice.Environmental))]
-[KnownType(typeof(AssetClassCommodity2Choice.Freight))]
-[KnownType(typeof(AssetClassCommodity2Choice.Index))]
-[KnownType(typeof(AssetClassCommodity2Choice.Metal))]
-[KnownType(typeof(AssetClassCommodity2Choice.Exotic))]
-[KnownType(typeof(AssetClassCommodity2Choice.Other))]
-public abstract partial record AssetClassCommodity2Choice_ : IIsoXmlSerilizable<AssetClassCommodity2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines commodity specific attributes of a derivative.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassCommodity2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassCommodity2Choice.Agricultural))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Energy))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Environmental))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Freight))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Index))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Metal))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Exotic))]
+    [KnownType(typeof(AssetClassCommodity2Choice.Other))]
+    [IsoId("_BzEmOCYyEeWHeosc_5RQEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Commodity 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassCommodity2Choice_
+    #else
+    public abstract partial class AssetClassCommodity2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Agrcltrl" => AssetClassCommodity2Choice.Agricultural.Deserialize(elementWithPayload),
-             "Nrgy" => AssetClassCommodity2Choice.Energy.Deserialize(elementWithPayload),
-             "Envttl" => AssetClassCommodity2Choice.Environmental.Deserialize(elementWithPayload),
-             "Frght" => AssetClassCommodity2Choice.Freight.Deserialize(elementWithPayload),
-             "Indx" => AssetClassCommodity2Choice.Index.Deserialize(elementWithPayload),
-             "Metl" => AssetClassCommodity2Choice.Metal.Deserialize(elementWithPayload),
-             "Extc" => AssetClassCommodity2Choice.Exotic.Deserialize(elementWithPayload),
-             "Othr" => AssetClassCommodity2Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassCommodity2Choice choice.")
-        };
     }
 }

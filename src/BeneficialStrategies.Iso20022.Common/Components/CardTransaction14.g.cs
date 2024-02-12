@@ -7,77 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key exchange transaction.
 /// </summary>
+[IsoId("_lhtygXvREeS2PZh7wUMQog")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardTransaction14
-     : IIsoXmlSerilizable<CardTransaction14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardTransaction14 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardTransaction14( CardServiceType3Code reqKeyExchangeType,System.DateTime reqInitiatorDateTime,ResponseType2 reqTransactionResponse )
+    {
+        KeyExchangeType = reqKeyExchangeType;
+        InitiatorDateTime = reqInitiatorDateTime;
+        TransactionResponse = reqTransactionResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of key exchange.
     /// </summary>
+    [IsoId("_Y34voISiEeScnfYByhaIWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Exchange Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardServiceType3Code KeyExchangeType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardServiceType3Code KeyExchangeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardServiceType3Code KeyExchangeType { get; init; } 
+    #else
+    public CardServiceType3Code KeyExchangeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the transaction.
     /// </summary>
+    [IsoId("_eXsAMISiEeScnfYByhaIWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiator Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime InitiatorDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime InitiatorDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime InitiatorDateTime { get; init; } 
+    #else
+    public System.DateTime InitiatorDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Key that has been verified.
     /// </summary>
+    [IsoId("__taDUHvREeS2PZh7wUMQog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KEKIdentifier3? KeyVerification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KEKIdentifier3? KeyVerification { get; init; } 
+    #else
+    public KEKIdentifier3? KeyVerification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Created key to be stored.
     /// </summary>
+    [IsoId("_lurQd3vREeS2PZh7wUMQog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey6? Key { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CryptographicKey6? Key { get; init; } 
+    #else
+    public CryptographicKey6? Key { get; set; } 
+    #endif
+    
     /// <summary>
     /// Response to the key exchange request.
     /// </summary>
+    [IsoId("_mCKVQIO1EeSWSLYdc10LRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType2 TransactionResponse { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType2 TransactionResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType2 TransactionResponse { get; init; } 
+    #else
+    public ResponseType2 TransactionResponse { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "KeyXchgTp", xmlNamespace );
-        writer.WriteValue(KeyExchangeType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InitrDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiatorDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (KeyVerification is KEKIdentifier3 KeyVerificationValue)
-        {
-            writer.WriteStartElement(null, "KeyVrfctn", xmlNamespace );
-            KeyVerificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Key is CryptographicKey6 KeyValue)
-        {
-            writer.WriteStartElement(null, "Key", xmlNamespace );
-            KeyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
-        TransactionResponse.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CardTransaction14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

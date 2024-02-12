@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies individually each leg of a transport of goods.
 /// </summary>
+[IsoId("_aFxzoRrhEeOVR9VN6fAMUg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Single Transport")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SingleTransport7
-     : IIsoXmlSerilizable<SingleTransport7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
+    [IsoId("_adK_8RrhEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport By Air")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportByAir5? TransportByAir { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportByAir5? TransportByAir { get; init; } 
+    #else
+    public TransportByAir5? TransportByAir { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related for the transportation of goods by sea.
     /// </summary>
+    [IsoId("_adK_8xrhEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport By Sea")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportBySea6? TransportBySea { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportBySea6? TransportBySea { get; init; } 
+    #else
+    public TransportBySea6? TransportBySea { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the transportation of goods by road.
     /// </summary>
+    [IsoId("_adK_9RrhEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport By Road")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportByRoad5? TransportByRoad { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportByRoad5? TransportByRoad { get; init; } 
+    #else
+    public TransportByRoad5? TransportByRoad { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the transportation of goods by rail.
     /// </summary>
+    [IsoId("_adK_9xrhEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport By Rail")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportByRail5? TransportByRail { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportByRail5? TransportByRail { get; init; } 
+    #else
+    public TransportByRail5? TransportByRail { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TransportByAir is TransportByAir5 TransportByAirValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtByAir", xmlNamespace );
-            TransportByAirValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransportBySea is TransportBySea6 TransportBySeaValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtBySea", xmlNamespace );
-            TransportBySeaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransportByRoad is TransportByRoad5 TransportByRoadValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtByRoad", xmlNamespace );
-            TransportByRoadValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransportByRail is TransportByRail5 TransportByRailValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtByRail", xmlNamespace );
-            TransportByRailValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SingleTransport7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

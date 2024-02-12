@@ -7,71 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a payment against a purchase order.
 /// </summary>
+[IsoId("_ToDCydp-Ed-ak6NoX_4Aeg_-314950341")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Line")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportLine1
-     : IIsoXmlSerilizable<ReportLine1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportLine1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportLine1( System.String reqTransactionIdentification,TransactionStatus4 reqTransactionStatus,DocumentIdentification7 reqPurchaseOrderReference,System.Decimal reqPurchaseOrderTotalNetAmount,System.Decimal reqAccumulatedNetAmount )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        TransactionStatus = reqTransactionStatus;
+        PurchaseOrderReference = reqPurchaseOrderReference;
+        PurchaseOrderTotalNetAmount = reqPurchaseOrderTotalNetAmount;
+        AccumulatedNetAmount = reqAccumulatedNetAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.
     /// </summary>
+    [IsoId("_ToMMsNp-Ed-ak6NoX_4Aeg_-80376411")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransactionIdentification { get; init; } 
+    #else
+    public System.String TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the status of the transaction.
     /// </summary>
+    [IsoId("_ToMMsdp-Ed-ak6NoX_4Aeg_-1126725260")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionStatus4 TransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionStatus4 TransactionStatus { get; init; } 
+    #else
+    public TransactionStatus4 TransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the purchase order, assigned by the buyer.
     /// </summary>
+    [IsoId("_ToMMstp-Ed-ak6NoX_4Aeg_-43433619")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Order Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    #else
+    public DocumentIdentification7 PurchaseOrderReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the purchase order after taxes, adjustments and charges.
     /// </summary>
+    [IsoId("_ToMMs9p-Ed-ak6NoX_4Aeg_203143575")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Order Total Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount PurchaseOrderTotalNetAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PurchaseOrderTotalNetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PurchaseOrderTotalNetAmount { get; init; } 
+    #else
+    public System.Decimal PurchaseOrderTotalNetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Accumulated net amount, after adjustments, intended to be paid.
     /// </summary>
+    [IsoId("_ToMMtNp-Ed-ak6NoX_4Aeg_289031555")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accumulated Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount AccumulatedNetAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal AccumulatedNetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal AccumulatedNetAmount { get; init; } 
+    #else
+    public System.Decimal AccumulatedNetAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        TransactionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
-        PurchaseOrderReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PurchsOrdrTtlNetAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(PurchaseOrderTotalNetAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcmltdNetAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AccumulatedNetAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static ReportLine1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

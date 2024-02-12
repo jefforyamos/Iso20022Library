@@ -7,127 +7,250 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[IsoId("_7KIJAZR3Eeak6e8_Fc5fQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeData12
-     : IIsoXmlSerilizable<TradeData12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeData12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeData12( System.String reqMessageIdentification,StatusAndSubStatus2 reqCurrentStatus,System.DateTime reqCurrentStatusDateTime )
+    {
+        MessageIdentification = reqMessageIdentification;
+        CurrentStatus = reqCurrentStatus;
+        CurrentStatusDateTime = reqCurrentStatusDateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the present message assigned by the party issuing the message. This identification must be unique amongst all messages of same type sent by the same party.
     /// </summary>
+    [IsoId("_7WM2I5R3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that assigned the status to the foreign exchange trade.
     /// </summary>
+    [IsoId("_7WM2JZR3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatusOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatusOriginator { get; init; } 
+    #else
+    public System.String? StatusOriginator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the new status of the trade.
     /// </summary>
+    [IsoId("_7WM2J5R3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusAndSubStatus2 CurrentStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StatusAndSubStatus2 CurrentStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusAndSubStatus2 CurrentStatus { get; init; } 
+    #else
+    public StatusAndSubStatus2 CurrentStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the current status of the trade.
     /// </summary>
+    [IsoId("_7WM2KZR3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusSubType2Code? CurrentStatusSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusSubType2Code? CurrentStatusSubType { get; init; } 
+    #else
+    public StatusSubType2Code? CurrentStatusSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time at which the current status was assigned to all the trades, unless overwritten by a date and time assigned to an individual trade.
     /// </summary>
+    [IsoId("_7WM2K5R3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CurrentStatusDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CurrentStatusDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CurrentStatusDateTime { get; init; } 
+    #else
+    public System.DateTime CurrentStatusDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [IsoId("_7WM2LZR3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Status28Choice_? PreviousStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Status28Choice_? PreviousStatus { get; init; } 
+    #else
+    public Status28Choice_? PreviousStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [IsoId("_7WM2L5R3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Status Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusSubType2Code? PreviousStatusSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusSubType2Code? PreviousStatusSubType { get; init; } 
+    #else
+    public StatusSubType2Code? PreviousStatusSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported, unless overwritten by a product type assigned to an individual trade.
     /// </summary>
+    [IsoId("_7WM2MZR3Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProductType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductType { get; init; } 
+    #else
+    public System.String? ProductType { get; set; } 
+    #endif
+    
     /// <summary>
     /// To indicate the requested CLS settlement session that the related trade is part of.
     /// </summary>
+    [IsoId("_HDIpMZU6EeaYkf5FCqYMeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Session Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementSessionIdentifier { get; init; } 
+    #else
+    public System.String? SettlementSessionIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// The identification that links the quoted trades with a submitted Report issued by a central system.
     /// </summary>
+    [IsoId("_V88rQJR4Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked Report Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LinkedReportIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LinkedReportIdentification { get; init; } 
+    #else
+    public System.String? LinkedReportIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (StatusOriginator is IsoMax35Text StatusOriginatorValue)
-        {
-            writer.WriteStartElement(null, "StsOrgtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusOriginatorValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CurSts", xmlNamespace );
-        CurrentStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CurrentStatusSubType is StatusSubType2Code CurrentStatusSubTypeValue)
-        {
-            writer.WriteStartElement(null, "CurStsSubTp", xmlNamespace );
-            writer.WriteValue(CurrentStatusSubTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CurStsDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CurrentStatusDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (PreviousStatus is Status28Choice_ PreviousStatusValue)
-        {
-            writer.WriteStartElement(null, "PrvsSts", xmlNamespace );
-            PreviousStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousStatusSubType is StatusSubType2Code PreviousStatusSubTypeValue)
-        {
-            writer.WriteStartElement(null, "PrvsStsSubTp", xmlNamespace );
-            writer.WriteValue(PreviousStatusSubTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ProductType is IsoMax35Text ProductTypeValue)
-        {
-            writer.WriteStartElement(null, "PdctTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
-        {
-            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (LinkedReportIdentification is IsoMax35Text LinkedReportIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LkdRptId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkedReportIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeData12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

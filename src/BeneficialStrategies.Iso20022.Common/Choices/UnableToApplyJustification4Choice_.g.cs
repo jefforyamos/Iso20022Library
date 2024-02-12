@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the details of missing or incorrect information or the complete set of available information.
-/// </summary>
-[KnownType(typeof(UnableToApplyJustification4Choice.AnyInformation))]
-[KnownType(typeof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation))]
-[KnownType(typeof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction))]
-public abstract partial record UnableToApplyJustification4Choice_ : IIsoXmlSerilizable<UnableToApplyJustification4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the details of missing or incorrect information or the complete set of available information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnableToApplyJustification4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnableToApplyJustification4Choice.AnyInformation))]
+    [KnownType(typeof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation))]
+    [KnownType(typeof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction))]
+    [IsoId("_7JifAdjKEeq5MfBBxQig1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unable To Apply Justification 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnableToApplyJustification4Choice_
+    #else
+    public abstract partial class UnableToApplyJustification4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AnyInf" => UnableToApplyJustification4Choice.AnyInformation.Deserialize(elementWithPayload),
-             "MssngOrIncrrctInf" => UnableToApplyJustification4Choice.MissingOrIncorrectInformation.Deserialize(elementWithPayload),
-             "PssblDplctInstr" => UnableToApplyJustification4Choice.PossibleDuplicateInstruction.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnableToApplyJustification4Choice choice.")
-        };
     }
 }

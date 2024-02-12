@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
+[IsoId("_URnkO9p-Ed-ak6NoX_4Aeg_633125920")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashParties3
-     : IIsoXmlSerilizable<CashParties3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_URnkPNp-Ed-ak6NoX_4Aeg_811244592")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount20? Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount20? Debtor { get; init; } 
+    #else
+    public PartyIdentificationAndAccount20? Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [IsoId("_URnkPdp-Ed-ak6NoX_4Aeg_-363946433")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount15? DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount15? DebtorAgent { get; init; } 
+    #else
+    public PartyIdentificationAndAccount15? DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [IsoId("_URnkPtp-Ed-ak6NoX_4Aeg_1281321002")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount20? Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount20? Creditor { get; init; } 
+    #else
+    public PartyIdentificationAndAccount20? Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [IsoId("_URnkP9p-Ed-ak6NoX_4Aeg_-1474857852")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount15? CreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount15? CreditorAgent { get; init; } 
+    #else
+    public PartyIdentificationAndAccount15? CreditorAgent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Debtor is PartyIdentificationAndAccount20 DebtorValue)
-        {
-            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-            DebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAgent is PartyIdentificationAndAccount15 DebtorAgentValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-            DebtorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Creditor is PartyIdentificationAndAccount20 CreditorValue)
-        {
-            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-            CreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAgent is PartyIdentificationAndAccount15 CreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-            CreditorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashParties3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

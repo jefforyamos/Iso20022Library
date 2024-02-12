@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of each package of currency control records.
 /// </summary>
+[IsoId("_Zza3wOFQEeSvv6t4Ka7B7A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Currency Control Package Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CurrencyControlPackageStatus1
-     : IIsoXmlSerilizable<CurrencyControlPackageStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CurrencyControlPackageStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CurrencyControlPackageStatus1( System.String reqPackageIdentification,StatisticalReportingStatus1Code reqStatus )
+    {
+        PackageIdentification = reqPackageIdentification;
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of each package of transactions and optionally the entry/record within the package of transactions.
     /// </summary>
+    [IsoId("_Zza3xeFQEeSvv6t4Ka7B7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Package Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PackageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PackageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PackageIdentification { get; init; } 
+    #else
+    public System.String PackageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the status of the reported transaction.
     /// </summary>
+    [IsoId("_Zza3xOFQEeSvv6t4Ka7B7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticalReportingStatus1Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StatisticalReportingStatus1Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatisticalReportingStatus1Code Status { get; init; } 
+    #else
+    public StatisticalReportingStatus1Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
+    [IsoId("_DB4cUQtPEeWkxvNyFrBT8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusReason1? StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValidationStatusReason1? StatusReason { get; init; } 
+    #else
+    public ValidationStatusReason1? StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>
+    [IsoId("_YwSMsW5bEeW1GNjYvtuLyQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StatusDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? StatusDateTime { get; init; } 
+    #else
+    public System.DateTime? StatusDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the status of the individual records in the package.
     /// </summary>
+    [IsoId("_12MosAtPEeWkxvNyFrBT8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyControlRecordStatus1? RecordStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyControlRecordStatus1? RecordStatus { get; init; } 
+    #else
+    public CurrencyControlRecordStatus1? RecordStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PackgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PackageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (StatusReason is ValidationStatusReason1 StatusReasonValue)
-        {
-            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-            StatusReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StatusDateTime is IsoISODateTime StatusDateTimeValue)
-        {
-            writer.WriteStartElement(null, "StsDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (RecordStatus is CurrencyControlRecordStatus1 RecordStatusValue)
-        {
-            writer.WriteStartElement(null, "RcrdSts", xmlNamespace );
-            RecordStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CurrencyControlPackageStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

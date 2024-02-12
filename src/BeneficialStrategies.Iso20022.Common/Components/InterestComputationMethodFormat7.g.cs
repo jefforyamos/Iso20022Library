@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between a standard code or proprietary code to specify the type of interest computation method.
 /// </summary>
+[IsoId("_YO9D8XitEeqKjIYaFgh_2g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Interest Computation Method Format")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InterestComputationMethodFormat7
-     : IIsoXmlSerilizable<InterestComputationMethodFormat7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InterestComputationMethodFormat7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InterestComputationMethodFormat7( InterestComputationMethod4Code reqCode )
+    {
+        Code = reqCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Standard code to specify the method used to compute accruing interest of a financial instrument.
     /// </summary>
+    [IsoId("_YPsq0XitEeqKjIYaFgh_2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestComputationMethod4Code Code { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InterestComputationMethod4Code Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestComputationMethod4Code Code { get; init; } 
+    #else
+    public InterestComputationMethod4Code Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// The computation method can not be represented in the predefined fields.
     /// </summary>
+    [IsoId("_2h3KIH_yEeqdQubSe21TTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Narrative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? Narrative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Narrative { get; init; } 
+    #else
+    public System.String? Narrative { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Code.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Narrative is IsoMax1000Text NarrativeValue)
-        {
-            writer.WriteStartElement(null, "Nrrtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1000Text(NarrativeValue)); // data type Max1000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InterestComputationMethodFormat7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,83 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the type of opening instruction and identification of the application request.
 /// </summary>
+[IsoId("_KlCNQSFfEeW9XJWqfgXIIA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Investment Account Opening")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvestmentAccountOpening2
-     : IIsoXmlSerilizable<InvestmentAccountOpening2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InvestmentAccountOpening2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InvestmentAccountOpening2( AccountOpeningType1Code reqOpeningType )
+    {
+        OpeningType = reqOpeningType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies if the account opening instruction is about a newly created account or a supplementary account.
     /// </summary>
+    [IsoId("_LCIY8SFfEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountOpeningType1Code OpeningType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountOpeningType1Code OpeningType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountOpeningType1Code OpeningType { get; init; } 
+    #else
+    public AccountOpeningType1Code OpeningType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier of the account opening request at application level.
     /// </summary>
+    [IsoId("_LCIY8yFfEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountApplicationIdentification { get; init; } 
+    #else
+    public System.String? AccountApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of a transaction, for example, a transfer, as assigned by the investor or account owner.
     /// </summary>
+    [IsoId("_LCIY9SFfEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientReference { get; init; } 
+    #else
+    public System.String? ClientReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the transaction, for example, a transfer, as allocated by the counterparty.
     /// </summary>
+    [IsoId("_LCIY9yFfEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference6? CounterpartyReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference6? CounterpartyReference { get; init; } 
+    #else
+    public AdditionalReference6? CounterpartyReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
+    [IsoId("_NYAGsFxQEeW8MLuBzR10cg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Existing Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExistingAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExistingAccountIdentification { get; init; } 
+    #else
+    public System.String? ExistingAccountIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OpngTp", xmlNamespace );
-        writer.WriteValue(OpeningType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClientReference is IsoMax35Text ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CounterpartyReference is AdditionalReference6 CounterpartyReferenceValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
-            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExistingAccountIdentification is IsoMax35Text ExistingAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ExstgAcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ExistingAccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InvestmentAccountOpening2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

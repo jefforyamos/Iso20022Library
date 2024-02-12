@@ -7,150 +7,268 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[IsoId("_-lkefgVSEeqjd8n6wD9JVw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionOption173
-     : IIsoXmlSerilizable<CorporateActionOption173>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionOption173 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionOption173( OptionNumber1Choice_ reqOptionNumber,CorporateActionOption39Choice_ reqOptionType )
+    {
+        OptionNumber = reqOptionNumber;
+        OptionType = reqOptionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [IsoId("_-lkeggVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #else
+    public OptionNumber1Choice_ OptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [IsoId("_-lkeigVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption39Choice_ OptionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionOption39Choice_ OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption39Choice_ OptionType { get; init; } 
+    #else
+    public CorporateActionOption39Choice_ OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
+    [IsoId("_-lkekgVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Features")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionFeaturesFormat19Choice_? OptionFeatures { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionFeaturesFormat19Choice_? OptionFeatures { get; init; } 
+    #else
+    public OptionFeaturesFormat19Choice_? OptionFeatures { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
+    [IsoId("_-lkemgVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fraction Disposition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FractionDispositionType30Choice_? FractionDisposition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FractionDispositionType30Choice_? FractionDisposition { get; init; } 
+    #else
+    public FractionDispositionType30Choice_? FractionDisposition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
+    [IsoId("_-lkeogVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Option")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CurrencyOption { get; init; } 
+    #else
+    public string? CurrencyOption { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the dates related to a corporate action option.
     /// </summary>
+    [IsoId("_-lkeqgVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate68? DateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDate68? DateDetails { get; init; } 
+    #else
+    public CorporateActionDate68? DateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the periods related to a corporate action option.
     /// </summary>
+    [IsoId("_-lkesgVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPeriod13? PeriodDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPeriod13? PeriodDetails { get; init; } 
+    #else
+    public CorporateActionPeriod13? PeriodDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>
+    [IsoId("_-lkeugVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate And Amount Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRate101? RateAndAmountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionRate101? RateAndAmountDetails { get; init; } 
+    #else
+    public CorporateActionRate101? RateAndAmountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the prices related to a corporate action option.
     /// </summary>
+    [IsoId("_-lkewgVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPrice63? PriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPrice63? PriceDetails { get; init; } 
+    #else
+    public CorporateActionPrice63? PriceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the trade was executed.
     /// </summary>
+    [IsoId("_-lkeygVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Trade")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification90? PlaceOfTrade { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketIdentification90? PlaceOfTrade { get; init; } 
+    #else
+    public MarketIdentification90? PlaceOfTrade { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the securities movement linked to the corporate action option.
     /// </summary>
+    [IsoId("_-lke0gVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesOption74? SecuritiesMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesOption74? SecuritiesMovementDetails { get; init; } 
+    #else
+    public SecuritiesOption74? SecuritiesMovementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the cash movement related to a corporate action option.
     /// </summary>
+    [IsoId("_-lke2gVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOption73? CashMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashOption73? CashMovementDetails { get; init; } 
+    #else
+    public CashOption73? CashMovementDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
-        OptionNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-        OptionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OptionFeatures is OptionFeaturesFormat19Choice_ OptionFeaturesValue)
-        {
-            writer.WriteStartElement(null, "OptnFeatrs", xmlNamespace );
-            OptionFeaturesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FractionDisposition is FractionDispositionType30Choice_ FractionDispositionValue)
-        {
-            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
-            FractionDispositionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrencyOption is ActiveCurrencyCode CurrencyOptionValue)
-        {
-            writer.WriteStartElement(null, "CcyOptn", xmlNamespace );
-            writer.WriteValue(CurrencyOptionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DateDetails is CorporateActionDate68 DateDetailsValue)
-        {
-            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
-            DateDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PeriodDetails is CorporateActionPeriod13 PeriodDetailsValue)
-        {
-            writer.WriteStartElement(null, "PrdDtls", xmlNamespace );
-            PeriodDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RateAndAmountDetails is CorporateActionRate101 RateAndAmountDetailsValue)
-        {
-            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
-            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceDetails is CorporateActionPrice63 PriceDetailsValue)
-        {
-            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
-            PriceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlaceOfTrade is MarketIdentification90 PlaceOfTradeValue)
-        {
-            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
-            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesMovementDetails is SecuritiesOption74 SecuritiesMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
-            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashMovementDetails is CashOption73 CashMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
-            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionOption173 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

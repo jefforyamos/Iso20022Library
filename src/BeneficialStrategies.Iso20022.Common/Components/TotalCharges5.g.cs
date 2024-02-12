@@ -7,43 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total amount of charges.
 /// </summary>
+[IsoId("_WI09c9p-Ed-ak6NoX_4Aeg_628420775")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Charges")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalCharges5
-     : IIsoXmlSerilizable<TotalCharges5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information related to a specific charge.
     /// </summary>
-    public ValueList<Charge23> ChargeDetails { get; init; } = [];
+    [IsoId("_WI09dNp-Ed-ak6NoX_4Aeg_628420899")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(4)]
+    #endif
+    public ValueList<Charge23> ChargeDetails { get; init; } = new ValueList<Charge23>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
-        ChargeDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static TotalCharges5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

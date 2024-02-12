@@ -7,141 +7,283 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the settlement obligation.
 /// </summary>
+[IsoId("_-ezL8aMOEeCojJW5vEuTEQ_1121588279")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Obligation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementObligation5
-     : IIsoXmlSerilizable<SettlementObligation5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementObligation5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementObligation5( FinancialInstrumentQuantity1Choice_ reqQuantity,AmountAndDirection27 reqSettlementAmount,System.DateOnly reqSettlementDate,ReceiveDelivery1Code reqSecuritiesMovementType,DeliveryReceiptType2Code reqPayment )
+    {
+        Quantity = reqQuantity;
+        SettlementAmount = reqSettlementAmount;
+        SettlementDate = reqSettlementDate;
+        SecuritiesMovementType = reqSecuritiesMovementType;
+        Payment = reqPayment;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the identification of an existing obligation that is linked to the new obligation.
     /// </summary>
+    [IsoId("_-ezL8qMOEeCojJW5vEuTEQ_1007749213")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Settlement Obligation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RelatedSettlementObligationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RelatedSettlementObligationIdentification { get; init; } 
+    #else
+    public System.String? RelatedSettlementObligationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of the obligation.
     /// </summary>
+    [IsoId("_-ezL86MOEeCojJW5vEuTEQ_10676860")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Obligation Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ObligationType1Choice_? ObligationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ObligationType1Choice_? ObligationType { get; init; } 
+    #else
+    public ObligationType1Choice_? ObligationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information related to the linked obligation.
     /// </summary>
+    [IsoId("_-ezL9KMOEeCojJW5vEuTEQ_-986395493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the original trade date.
     /// </summary>
+    [IsoId("_-ezL9aMOEeCojJW5vEuTEQ_-1983467846")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TradeDate { get; init; } 
+    #else
+    public System.DateOnly? TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
+    [IsoId("_-ezL9qMOEeCojJW5vEuTEQ_1428266163")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_ Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the price applied to that net position.
     /// </summary>
+    [IsoId("_-ezL96MOEeCojJW5vEuTEQ_431193810")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Position Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NetPositionPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? NetPositionPrice { get; init; } 
+    #else
+    public Price4? NetPositionPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
+    [IsoId("_-e888KMOEeCojJW5vEuTEQ_-565878543")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? TradingCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? TradingCurrency { get; init; } 
+    #else
+    public string? TradingCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the total amount to be settled.
     /// </summary>
+    [IsoId("_-e888aMOEeCojJW5vEuTEQ_-679717609")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection27 SettlementAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection27 SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection27 SettlementAmount { get; init; } 
+    #else
+    public AmountAndDirection27 SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
+    [IsoId("_-e888qMOEeCojJW5vEuTEQ_-1676789962")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly SettlementDate { get; init; } 
+    #else
+    public System.DateOnly SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the obligation will result in a receive or a delivery of securities.
     /// </summary>
+    [IsoId("_-e8886MOEeCojJW5vEuTEQ_1734944047")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Movement Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    #else
+    public ReceiveDelivery1Code SecuritiesMovementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how the transaction is to be settled.
     /// </summary>
+    [IsoId("_-e889KMOEeCojJW5vEuTEQ_1621104981")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveryReceiptType2Code Payment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DeliveryReceiptType2Code Payment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryReceiptType2Code Payment { get; init; } 
+    #else
+    public DeliveryReceiptType2Code Payment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the references of the underlying trade leg(s) and/or the reference to the related net position message.
     /// </summary>
+    [IsoId("_-e889aMOEeCojJW5vEuTEQ_624032628")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference19? References { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Reference19? References { get; init; } 
+    #else
+    public Reference19? References { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RelatedSettlementObligationIdentification is IsoMax35Text RelatedSettlementObligationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RltdSttlmOblgtnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedSettlementObligationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ObligationType is ObligationType1Choice_ ObligationTypeValue)
-        {
-            writer.WriteStartElement(null, "OblgtnTp", xmlNamespace );
-            ObligationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Description is IsoMax35Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DescriptionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradeDate is IsoISODate TradeDateValue)
-        {
-            writer.WriteStartElement(null, "TradDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        Quantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (NetPositionPrice is Price4 NetPositionPriceValue)
-        {
-            writer.WriteStartElement(null, "NetPosPric", xmlNamespace );
-            NetPositionPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingCurrency is CurrencyCode TradingCurrencyValue)
-        {
-            writer.WriteStartElement(null, "TradgCcy", xmlNamespace );
-            writer.WriteValue(TradingCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-        SettlementAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
-        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Pmt", xmlNamespace );
-        writer.WriteValue(Payment.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (References is Reference19 ReferencesValue)
-        {
-            writer.WriteStartElement(null, "Refs", xmlNamespace );
-            ReferencesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementObligation5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

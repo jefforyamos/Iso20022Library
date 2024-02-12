@@ -7,159 +7,346 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the foreign exchange trade including Spot\Forward\NDF that is captured.
 /// </summary>
+[IsoId("_IWV_wA2MEeSw7Op2IIeBeQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Trade3
-     : IIsoXmlSerilizable<Trade3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Trade3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Trade3( System.Decimal reqExecutionPrice,System.Decimal reqLastQuantity,SettlementDateCode reqSettlementType,System.DateOnly reqSettlementDate,AgreedRate3 reqValuationRate,System.Decimal reqCalculatedCounterpartyCurrencyLastQuantity,System.DateOnly reqValueDate,System.Decimal reqRiskAmount,SecurityIdentification18 reqSecurityIdentification )
+    {
+        ExecutionPrice = reqExecutionPrice;
+        LastQuantity = reqLastQuantity;
+        SettlementType = reqSettlementType;
+        SettlementDate = reqSettlementDate;
+        ValuationRate = reqValuationRate;
+        CalculatedCounterpartyCurrencyLastQuantity = reqCalculatedCounterpartyCurrencyLastQuantity;
+        ValueDate = reqValueDate;
+        RiskAmount = reqRiskAmount;
+        SecurityIdentification = reqSecurityIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Price of the execution of the trade.
     /// </summary>
+    [IsoId("_aPM3sQ2MEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ExecutionPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ExecutionPrice { get; init; } 
+    #else
+    public System.Decimal ExecutionPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of trade in trading currency.
     /// </summary>
+    [IsoId("_ZP3hoQ2MEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount LastQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal LastQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal LastQuantity { get; init; } 
+    #else
+    public System.Decimal LastQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the settlment period of the foreign exchange trade.
     /// </summary>
+    [IsoId("_5e0S4IaBEeSspsEopx56mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDateCode SettlementType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementDateCode SettlementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementDateCode SettlementType { get; init; } 
+    #else
+    public SettlementDateCode SettlementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date on which the trade will be settled.
     /// </summary>
+    [IsoId("_zqtBsQ2MEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly SettlementDate { get; init; } 
+    #else
+    public System.DateOnly SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the valuation rate used for the trade.
     /// </summary>
+    [IsoId("_doQmQYaCEeSspsEopx56mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 ValuationRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AgreedRate3 ValuationRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreedRate3 ValuationRate { get; init; } 
+    #else
+    public AgreedRate3 ValuationRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the forward points of the trade if needed.
     /// </summary>
+    [IsoId("_N8HR8YaMEeSzIqahkBT6cQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Forward Points")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ForwardPoints { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ForwardPoints { get; init; } 
+    #else
+    public System.UInt64? ForwardPoints { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of trade in corresponding currency.
     /// </summary>
+    [IsoId("_WyqfYQ2MEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculated Counterparty Currency Last Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    #else
+    public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the value date of spot transaction.
     /// </summary>
+    [IsoId("_zV_V9A2MEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ValueDate { get; init; } 
+    #else
+    public System.DateOnly ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
+    [IsoId("_sqMCcIaEEeSzIqahkBT6cQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal RiskAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal RiskAmount { get; init; } 
+    #else
+    public System.Decimal RiskAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security identification of the trade.
     /// </summary>
+    [IsoId("_U5Fn8IaIEeSzIqahkBT6cQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification18 SecurityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification18 SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification18 SecurityIdentification { get; init; } 
+    #else
+    public SecurityIdentification18 SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the ISO code of the fixing currency.
     /// </summary>
+    [IsoId("_4irkELMeEeSOJaFmPosvyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fixing Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? FixingCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? FixingCurrency { get; init; } 
+    #else
+    public string? FixingCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the rate determination is made in the NDF trade.
     /// </summary>
+    [IsoId("_YuYQwESYEeS6cOLECtYLrA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fixing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FixingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FixingDate { get; init; } 
+    #else
+    public System.DateOnly? FixingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the spot trade is produced by the option.
     /// </summary>
+    [IsoId("_r_EfUESNEeS6cOLECtYLrA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OptionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OptionIndicator { get; init; } 
+    #else
+    public System.String? OptionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicate the trade whether it's exchange delta.
     /// </summary>
+    [IsoId("_o6Tt0ESNEeS6cOLECtYLrA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delta Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DeltaIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeltaIndicator { get; init; } 
+    #else
+    public System.String? DeltaIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Some associated trade reference needs to be specified.
     /// </summary>
+    [IsoId("_CP330YaNEeSzIqahkBT6cQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Associated Trade Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AssociatedTradeReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AssociatedTradeReference { get; init; } 
+    #else
+    public System.String? AssociatedTradeReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ExctnPric", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(ExecutionPrice)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "LastQty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(LastQuantity)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
-        writer.WriteValue(SettlementType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnRate", xmlNamespace );
-        ValuationRate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ForwardPoints is IsoDecimalNumber ForwardPointsValue)
-        {
-            writer.WriteStartElement(null, "FwdPts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ForwardPointsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ClctdCtrPtyCcyLastQty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CalculatedCounterpartyCurrencyLastQuantity)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RskAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RiskAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SctyId", xmlNamespace );
-        SecurityIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FixingCurrency is CurrencyCode FixingCurrencyValue)
-        {
-            writer.WriteStartElement(null, "FxgCcy", xmlNamespace );
-            writer.WriteValue(FixingCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FixingDate is IsoISODate FixingDateValue)
-        {
-            writer.WriteStartElement(null, "FxgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FixingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (OptionIndicator is IsoYesNoIndicator OptionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OptnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OptionIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DeltaIndicator is IsoYesNoIndicator DeltaIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DltaInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DeltaIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AssociatedTradeReference is IsoMax70Text AssociatedTradeReferenceValue)
-        {
-            writer.WriteStartElement(null, "AssoctdTradRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AssociatedTradeReferenceValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Trade3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

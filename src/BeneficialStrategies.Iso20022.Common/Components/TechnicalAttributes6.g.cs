@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies technical attributes of the message.
 /// </summary>
+[IsoId("_zQe54Th4Ee2PxMOcF-jxEw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Technical Attributes")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TechnicalAttributes6
-     : IIsoXmlSerilizable<TechnicalAttributes6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [IsoId("_zXW98Th4Ee2PxMOcF-jxEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date and time of the receipt of the submission of the report to the trade repository as recorded by the trade repository. This item should only be present in a message from the trade repository to an authority and/or other recipients of the message.
     /// </summary>
+    [IsoId("_zXW99Th4Ee2PxMOcF-jxEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Receipt Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ReportReceiptTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ReportReceiptTimeStamp { get; init; } 
+    #else
+    public System.DateTime? ReportReceiptTimeStamp { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReportReceiptTimeStamp is IsoISODateTime ReportReceiptTimeStampValue)
-        {
-            writer.WriteStartElement(null, "RptRctTmStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportReceiptTimeStampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static TechnicalAttributes6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

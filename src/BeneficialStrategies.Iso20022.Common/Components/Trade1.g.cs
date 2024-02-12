@@ -7,178 +7,361 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the treasury trade captured.
 /// </summary>
+[IsoId("_sJMGoAKMEeStmNeY_LieLw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Trade1
-     : IIsoXmlSerilizable<Trade1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Trade1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Trade1( System.String reqTradeIdentification,System.DateTime reqDateAndTime,TradingMethodType1Code reqTradingMethod,ClearingMethod1Code reqClearingMethod,OrderStatus8Code reqExecutionType,System.String reqSymbol )
+    {
+        TradeIdentification = reqTradeIdentification;
+        DateAndTime = reqDateAndTime;
+        TradingMethod = reqTradingMethod;
+        ClearingMethod = reqClearingMethod;
+        ExecutionType = reqExecutionType;
+        Symbol = reqSymbol;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
     /// </summary>
+    [IsoId("_FtqxAAKOEeStmNeY_LieLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TradeIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TradeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TradeIdentification { get; init; } 
+    #else
+    public System.String TradeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the trade was executed.
     /// </summary>
+    [IsoId("_qpf9AJ-yEeS9JvCuR85TWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime DateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime DateAndTime { get; init; } 
+    #else
+    public System.DateTime DateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying product type.
     /// </summary>
+    [IsoId("_eGCUUQ8WEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Trade Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingProductIdentifier1Code? ForeignExchangeTradeProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingProductIdentifier1Code? ForeignExchangeTradeProduct { get; init; } 
+    #else
+    public UnderlyingProductIdentifier1Code? ForeignExchangeTradeProduct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
+    [IsoId("_xfWdkAKNEeStmNeY_LieLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? TradingCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? TradingCurrency { get; init; } 
+    #else
+    public string? TradingCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Settlement currency of the trade, agreed by both sides of the trade.
     /// </summary>
+    [IsoId("_Ktg0wAvGEeSMj_LPtVIELA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? SettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? SettlementCurrency { get; init; } 
+    #else
+    public string? SettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the type of trading method.
     /// </summary>
+    [IsoId("_BUyh4ESdEeS6cOLECtYLrA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradingMethodType1Code TradingMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradingMethodType1Code TradingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingMethodType1Code TradingMethod { get; init; } 
+    #else
+    public TradingMethodType1Code TradingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the type of the trade mode.
     /// </summary>
+    [IsoId("_5jz2oEVREeSGWeX3z5zSZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingModeType1Code? TradingMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingModeType1Code? TradingMode { get; init; } 
+    #else
+    public TradingModeType1Code? TradingMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Clearing method of the trade, agreed by both sides of the trade.
     /// </summary>
+    [IsoId("_UCh9wAKOEeStmNeY_LieLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClearingMethod1Code ClearingMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ClearingMethod1Code ClearingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingMethod1Code ClearingMethod { get; init; } 
+    #else
+    public ClearingMethod1Code ClearingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies current status of the trade.
     /// </summary>
+    [IsoId("_ukQGsIv7EeSJHZdigg3NTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderStatus8Code ExecutionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrderStatus8Code ExecutionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrderStatus8Code ExecutionType { get; init; } 
+    #else
+    public OrderStatus8Code ExecutionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Symbol of the trade.
     /// </summary>
+    [IsoId("_5wKMMIceEeSSpbtwQkzChA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Symbol")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Symbol { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Symbol { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Symbol { get; init; } 
+    #else
+    public System.String Symbol { get; set; } 
+    #endif
+    
     /// <summary>
     /// Infrastructure where the trade confirmation will take place.
     /// </summary>
+    [IsoId("_8VvYUAKNEeStmNeY_LieLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Confirmation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PlaceOfConfirmation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceOfConfirmation { get; init; } 
+    #else
+    public System.String? PlaceOfConfirmation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the message was executed.
     /// </summary>
+    [IsoId("_F5UgwIvdEeSJHZdigg3NTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TransactionTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? TransactionTime { get; init; } 
+    #else
+    public System.DateTime? TransactionTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of the foreign exchange trade including Spot Forward and NDF.
     /// </summary>
+    [IsoId("_RJwWIA2MEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Trade3? ForeignExchangeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Trade3? ForeignExchangeDetails { get; init; } 
+    #else
+    public Trade3? ForeignExchangeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details about each leg of the multileg instrument (foreign exchange swap).
     /// </summary>
+    [IsoId("_ybY9oQ2GEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Swap Leg")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstrumentLeg6? SwapLeg { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstrumentLeg6? SwapLeg { get; init; } 
+    #else
+    public InstrumentLeg6? SwapLeg { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the parameters of the foreign exchange option.
     /// </summary>
+    [IsoId("_zbUJkQ2GEeSw7Op2IIeBeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Option10? Option { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Option10? Option { get; init; } 
+    #else
+    public Option10? Option { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the treasury trade product, as assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [IsoId("_ctXI0w8kEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification22Choice_? ProductIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification22Choice_? ProductIdentification { get; init; } 
+    #else
+    public SecurityIdentification22Choice_? ProductIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TradId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (ForeignExchangeTradeProduct is UnderlyingProductIdentifier1Code ForeignExchangeTradeProductValue)
-        {
-            writer.WriteStartElement(null, "FXTradPdct", xmlNamespace );
-            writer.WriteValue(ForeignExchangeTradeProductValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TradingCurrency is CurrencyCode TradingCurrencyValue)
-        {
-            writer.WriteStartElement(null, "TradgCcy", xmlNamespace );
-            writer.WriteValue(TradingCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SettlementCurrency is CurrencyCode SettlementCurrencyValue)
-        {
-            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
-            writer.WriteValue(SettlementCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TradgMtd", xmlNamespace );
-        writer.WriteValue(TradingMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (TradingMode is TradingModeType1Code TradingModeValue)
-        {
-            writer.WriteStartElement(null, "TradgMd", xmlNamespace );
-            writer.WriteValue(TradingModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ClrMtd", xmlNamespace );
-        writer.WriteValue(ClearingMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ExctnTp", xmlNamespace );
-        writer.WriteValue(ExecutionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Symb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Symbol)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (PlaceOfConfirmation is IsoMax35Text PlaceOfConfirmationValue)
-        {
-            writer.WriteStartElement(null, "PlcOfConf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfConfirmationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionTime is IsoISODateTime TransactionTimeValue)
-        {
-            writer.WriteStartElement(null, "TxTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ForeignExchangeDetails is Trade3 ForeignExchangeDetailsValue)
-        {
-            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
-            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SwapLeg is InstrumentLeg6 SwapLegValue)
-        {
-            writer.WriteStartElement(null, "SwpLeg", xmlNamespace );
-            SwapLegValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Option is Option10 OptionValue)
-        {
-            writer.WriteStartElement(null, "Optn", xmlNamespace );
-            OptionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProductIdentification is SecurityIdentification22Choice_ ProductIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PdctId", xmlNamespace );
-            ProductIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Trade1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

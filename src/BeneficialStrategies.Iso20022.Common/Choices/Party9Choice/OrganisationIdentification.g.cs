@@ -9,83 +9,137 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Party9Choice;
-
-/// <summary>
-/// Identification of a person or an organisation.
-/// </summary>
-public partial record OrganisationIdentification : Party9Choice_
-     , IIsoXmlSerilizable<OrganisationIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Party9Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name by which a party is known and which is usually used to identify that party.
+    /// Identification of a person or an organisation.
     /// </summary>
-    public IsoMax140Text? Name { get; init; } 
-    /// <summary>
-    /// Information that locates and identifies a specific address, as defined by postal services.
-    /// </summary>
-    public PostalAddress6? PostalAddress { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identification of a party.
-    /// </summary>
-    public Party10Choice_? Identification { get; init; } 
-    /// <summary>
-    /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
-    /// </summary>
-    public CountryCode? CountryOfResidence { get; init; } 
-    /// <summary>
-    /// Set of elements used to indicate how to contact the party.
-    /// </summary>
-    public ContactDetails2? ContactDetails { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_PW59s9p-Ed-ak6NoX_4Aeg_-1623662466")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OrganisationIdentification : Party9Choice_
+    #else
+    public partial class OrganisationIdentification : Party9Choice_
+    #endif
     {
-        if (Name is IsoMax140Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (PostalAddress is PostalAddress6 PostalAddressValue)
-        {
-            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-            PostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Identification is Party10Choice_ IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CountryOfResidence is CountryCode CountryOfResidenceValue)
-        {
-            writer.WriteStartElement(null, "CtryOfRes", xmlNamespace );
-            writer.WriteValue(CountryOfResidenceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ContactDetails is ContactDetails2 ContactDetailsValue)
-        {
-            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
-            ContactDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new OrganisationIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name by which a party is known and which is usually used to identify that party.
+        /// </summary>
+        [IsoId("_PWwzxtp-Ed-ak6NoX_4Aeg_-950561134")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information that locates and identifies a specific address, as defined by postal services.
+        /// </summary>
+        [IsoId("_PWwzx9p-Ed-ak6NoX_4Aeg_1349169450")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Postal Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PostalAddress6? PostalAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostalAddress6? PostalAddress { get; init; } 
+        #else
+        public PostalAddress6? PostalAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identification of a party.
+        /// </summary>
+        [IsoId("_PWwzyNp-Ed-ak6NoX_4Aeg_1214397538")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Party10Choice_? Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Party10Choice_? Identification { get; init; } 
+        #else
+        public Party10Choice_? Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
+        /// </summary>
+        [IsoId("_PW59sNp-Ed-ak6NoX_4Aeg_1173508778")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Country Of Residence")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CountryCode? CountryOfResidence { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? CountryOfResidence { get; init; } 
+        #else
+        public string? CountryOfResidence { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Set of elements used to indicate how to contact the party.
+        /// </summary>
+        [IsoId("_PW59sdp-Ed-ak6NoX_4Aeg_999422025")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Contact Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ContactDetails2? ContactDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ContactDetails2? ContactDetails { get; init; } 
+        #else
+        public ContactDetails2? ContactDetails { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides reference information to the original message.
 /// </summary>
+[IsoId("_BSviu24-EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original Transaction Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalTransactionReference30
-     : IIsoXmlSerilizable<OriginalTransactionReference30>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [IsoId("_BcbqM24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageIdentification { get; init; } 
+    #else
+    public System.String? MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [IsoId("_BcbqNW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Name Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageNameIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageNameIdentification { get; init; } 
+    #else
+    public System.String? MessageNameIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [IsoId("_BcbqN24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CreationDateTime { get; init; } 
+    #else
+    public System.DateTime? CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides reference information to the original transaction.
     /// </summary>
+    [IsoId("_BcbqOW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentIdentification5? OriginalTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentIdentification5? OriginalTransaction { get; init; } 
+    #else
+    public PaymentIdentification5? OriginalTransaction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MsgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MessageNameIdentification is IsoMax35Text MessageNameIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (OriginalTransaction is PaymentIdentification5 OriginalTransactionValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTx", xmlNamespace );
-            OriginalTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OriginalTransactionReference30 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

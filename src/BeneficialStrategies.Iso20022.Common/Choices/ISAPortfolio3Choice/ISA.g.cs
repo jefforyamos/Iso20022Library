@@ -9,54 +9,81 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio3Choice;
-
-/// <summary>
-/// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. 
-/// The Individual Savings Account (ISA) is provided only by UK based financial institutions.
-/// </summary>
-public partial record ISA : ISAPortfolio3Choice_
-     , IIsoXmlSerilizable<ISA>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// ISA that was issued during the current fiscal year.
+    /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. 
+    /// The Individual Savings Account (ISA) is provided only by UK based financial institutions.
     /// </summary>
-    public CurrentYearType2Choice_? CurrentYear { get; init; } 
-    /// <summary>
-    /// Selection of investment plans issued during previous years.
-    /// </summary>
-    public PreviousYearChoice_? PreviousYears { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_L26-t_sqEeCXvelB0HU7AQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISA")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ISA : ISAPortfolio3Choice_
+    #else
+    public partial class ISA : ISAPortfolio3Choice_
+    #endif
     {
-        if (CurrentYear is CurrentYearType2Choice_ CurrentYearValue)
-        {
-            writer.WriteStartElement(null, "CurYr", xmlNamespace );
-            CurrentYearValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousYears is PreviousYearChoice_ PreviousYearsValue)
-        {
-            writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
-            PreviousYearsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new ISA Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// ISA that was issued during the current fiscal year.
+        /// </summary>
+        [IsoId("_3gqDQEXfEeGY6MkiuzuPOA_-1966733702")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Current Year")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CurrentYearType2Choice_? CurrentYear { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CurrentYearType2Choice_? CurrentYear { get; init; } 
+        #else
+        public CurrentYearType2Choice_? CurrentYear { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Selection of investment plans issued during previous years.
+        /// </summary>
+        [IsoId("_3gqDQUXfEeGY6MkiuzuPOA_334088888")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Previous Years")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PreviousYearChoice_? PreviousYears { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PreviousYearChoice_? PreviousYears { get; init; } 
+        #else
+        public PreviousYearChoice_? PreviousYears { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

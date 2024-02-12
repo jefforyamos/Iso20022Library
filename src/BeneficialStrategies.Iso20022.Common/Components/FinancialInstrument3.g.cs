@@ -7,103 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
+[IsoId("_VG0G0tp-Ed-ak6NoX_4Aeg_-2041666443")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrument3
-     : IIsoXmlSerilizable<FinancialInstrument3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialInstrument3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialInstrument3( SecurityIdentification1Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [IsoId("_VG0G09p-Ed-ak6NoX_4Aeg_-1837566972")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification1Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification1Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification1Choice_ Identification { get; init; } 
+    #else
+    public SecurityIdentification1Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [IsoId("_VG0G1Np-Ed-ak6NoX_4Aeg_-1837566937")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
+    [IsoId("_VG0G1dp-Ed-ak6NoX_4Aeg_605592417")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SupplementaryIdentification { get; init; } 
+    #else
+    public System.String? SupplementaryIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [IsoId("_VG0G1tp-Ed-ak6NoX_4Aeg_-1564440567")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested NAV Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedNAVCurrency { get; init; } 
+    #else
+    public string? RequestedNAVCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
     /// </summary>
+    [IsoId("_VG0G19p-Ed-ak6NoX_4Aeg_-93961271")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Class Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClassType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClassType { get; init; } 
+    #else
+    public System.String? ClassType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
+    [IsoId("_VG0G2Np-Ed-ak6NoX_4Aeg_605592884")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Form")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FormOfSecurity1Code? SecuritiesForm { get; init; } 
+    #else
+    public FormOfSecurity1Code? SecuritiesForm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
+    [IsoId("_VG0G2dp-Ed-ak6NoX_4Aeg_-88419001")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Distribution Policy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionPolicy1Code? DistributionPolicy { get; init; } 
+    #else
+    public DistributionPolicy1Code? DistributionPolicy { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Name is IsoMax350Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (SupplementaryIdentification is IsoMax35Text SupplementaryIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SplmtryId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SupplementaryIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RequestedNAVCurrency is ActiveOrHistoricCurrencyCode RequestedNAVCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdNAVCcy", xmlNamespace );
-            writer.WriteValue(RequestedNAVCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ClassType is IsoMax35Text ClassTypeValue)
-        {
-            writer.WriteStartElement(null, "ClssTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesForm is FormOfSecurity1Code SecuritiesFormValue)
-        {
-            writer.WriteStartElement(null, "SctiesForm", xmlNamespace );
-            writer.WriteValue(SecuritiesFormValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DistributionPolicy is DistributionPolicy1Code DistributionPolicyValue)
-        {
-            writer.WriteStartElement(null, "DstrbtnPlcy", xmlNamespace );
-            writer.WriteValue(DistributionPolicyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrument3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,144 +7,274 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component define the type of Device service to be used with this message.
 /// </summary>
+[IsoId("_by2wwYYDEemxIqbaFEE8-w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeviceResponse2
-     : IIsoXmlSerilizable<DeviceResponse2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeviceResponse2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeviceResponse2( CardPaymentEnvironment73 reqEnvironment,CardPaymentContext27 reqContext,RetailerService9Code reqServiceContent,ResponseType9 reqResponse )
+    {
+        Environment = reqEnvironment;
+        Context = reqContext;
+        ServiceContent = reqServiceContent;
+        Response = reqResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [IsoId("_b9IuIYYDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment73 Environment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentEnvironment73 Environment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentEnvironment73 Environment { get; init; } 
+    #else
+    public CardPaymentEnvironment73 Environment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [IsoId("_b9IuI4YDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext27 Context { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentContext27 Context { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentContext27 Context { get; init; } 
+    #else
+    public CardPaymentContext27 Context { get; set; } 
+    #endif
+    
     /// <summary>
     /// Define the type of service answered.
     /// </summary>
+    [IsoId("_b9IuJYYDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService9Code ServiceContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RetailerService9Code ServiceContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerService9Code ServiceContent { get; init; } 
+    #else
+    public RetailerService9Code ServiceContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Display Response message.
     /// </summary>
+    [IsoId("_b9IuJ4YDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceDisplayResponse1? DisplayResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceDisplayResponse1? DisplayResponse { get; init; } 
+    #else
+    public DeviceDisplayResponse1? DisplayResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Input Response message.
     /// </summary>
+    [IsoId("_b9IuKYYDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Input Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceInputResponse1? InputResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceInputResponse1? InputResponse { get; init; } 
+    #else
+    public DeviceInputResponse1? InputResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Print Response message.
     /// </summary>
+    [IsoId("_b9IuK4YDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Print Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DevicePrintResponse1? PrintResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DevicePrintResponse1? PrintResponse { get; init; } 
+    #else
+    public DevicePrintResponse1? PrintResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Response to a secure input request.
     /// </summary>
+    [IsoId("_b9IuLYYDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secure Input Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceSecureInputResponse1? SecureInputResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceSecureInputResponse1? SecureInputResponse { get; init; } 
+    #else
+    public DeviceSecureInputResponse1? SecureInputResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content received after a card initialisation.
     /// </summary>
+    [IsoId("_b9IuL4YDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initialisation Card Reader Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceInitialisationCardReaderResponse1? InitialisationCardReaderResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceInitialisationCardReaderResponse1? InitialisationCardReaderResponse { get; init; } 
+    #else
+    public DeviceInitialisationCardReaderResponse1? InitialisationCardReaderResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Card Reader APDU (Application Protocol Data Unit) response message.
     /// </summary>
+    [IsoId("_b9IuMYYDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Reader Application Protocol Data Unit Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceSendApplicationProtocolDataUnitCardReaderResponse1? CardReaderApplicationProtocolDataUnitResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceSendApplicationProtocolDataUnitCardReaderResponse1? CardReaderApplicationProtocolDataUnitResponse { get; init; } 
+    #else
+    public DeviceSendApplicationProtocolDataUnitCardReaderResponse1? CardReaderApplicationProtocolDataUnitResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Transmit Response message.
     /// </summary>
+    [IsoId("_b9IuM4YDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transmission Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceTransmitMessageResponse1? TransmissionResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeviceTransmitMessageResponse1? TransmissionResponse { get; init; } 
+    #else
+    public DeviceTransmitMessageResponse1? TransmissionResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [IsoId("_b9IuNYYDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType9 Response { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType9 Response { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType9 Response { get; init; } 
+    #else
+    public ResponseType9 Response { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
+    [IsoId("_b9IuN4YDEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Envt", xmlNamespace );
-        Environment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-        Context.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SvcCntt", xmlNamespace );
-        writer.WriteValue(ServiceContent.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (DisplayResponse is DeviceDisplayResponse1 DisplayResponseValue)
-        {
-            writer.WriteStartElement(null, "DispRspn", xmlNamespace );
-            DisplayResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InputResponse is DeviceInputResponse1 InputResponseValue)
-        {
-            writer.WriteStartElement(null, "InptRspn", xmlNamespace );
-            InputResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrintResponse is DevicePrintResponse1 PrintResponseValue)
-        {
-            writer.WriteStartElement(null, "PrtRspn", xmlNamespace );
-            PrintResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecureInputResponse is DeviceSecureInputResponse1 SecureInputResponseValue)
-        {
-            writer.WriteStartElement(null, "ScrInptRspn", xmlNamespace );
-            SecureInputResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InitialisationCardReaderResponse is DeviceInitialisationCardReaderResponse1 InitialisationCardReaderResponseValue)
-        {
-            writer.WriteStartElement(null, "InitlstnCardRdrRspn", xmlNamespace );
-            InitialisationCardReaderResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardReaderApplicationProtocolDataUnitResponse is DeviceSendApplicationProtocolDataUnitCardReaderResponse1 CardReaderApplicationProtocolDataUnitResponseValue)
-        {
-            writer.WriteStartElement(null, "CardRdrApplPrtcolDataUnitRspn", xmlNamespace );
-            CardReaderApplicationProtocolDataUnitResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransmissionResponse is DeviceTransmitMessageResponse1 TransmissionResponseValue)
-        {
-            writer.WriteStartElement(null, "TrnsmssnRspn", xmlNamespace );
-            TransmissionResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Rspn", xmlNamespace );
-        Response.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DeviceResponse2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

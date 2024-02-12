@@ -7,106 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vehicle for hire for passenger transport - excludes vehicles driven by a renter.  Examples include, but are not limited to, taxi, chauffered limousine, boats.
 /// </summary>
+[IsoId("_nUxnfPQZEeihCvvpsmGI2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Hired Vehicle")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record HiredVehicle1
-     : IIsoXmlSerilizable<HiredVehicle1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the type of company or vehicle being hired (for example, private, taxi, chauffeur service, rideshare).
     /// </summary>
+    [IsoId("_nUxngfQZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Company Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CompanyType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CompanyType { get; init; } 
+    #else
+    public System.String? CompanyType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the name of the company that provided the hired vehicle services. 
     /// </summary>
+    [IsoId("_nUxnhvQZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Company Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CompanyName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CompanyName { get; init; } 
+    #else
+    public System.String? CompanyName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the type of vehicle that was hired (for example, limousine, black, SUV). 
     /// </summary>
+    [IsoId("_nUxnhfQZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Vehicle")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TypeOfVehicle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TypeOfVehicle { get; init; } 
+    #else
+    public System.String? TypeOfVehicle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the identifier assigned to the vehicle.
     /// </summary>
+    [IsoId("_nUxnffQZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VehicleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VehicleIdentification { get; init; } 
+    #else
+    public System.String? VehicleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the identifier assigned to the driver.
     /// </summary>
+    [IsoId("_nUxnf_QZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driver Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DriverIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DriverIdentification { get; init; } 
+    #else
+    public System.String? DriverIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the tax identifier assigned to the driver.
     /// </summary>
+    [IsoId("_nUxngPQZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driver Tax Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DriverTaxIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DriverTaxIdentification { get; init; } 
+    #else
+    public System.String? DriverTaxIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Destination of the hired vehicle. 
     /// </summary>
+    [IsoId("_nUxng_QZEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Destination2? Destination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Destination2? Destination { get; init; } 
+    #else
+    public Destination2? Destination { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CompanyType is IsoMax35Text CompanyTypeValue)
-        {
-            writer.WriteStartElement(null, "CpnyTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CompanyTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CompanyName is IsoMax70Text CompanyNameValue)
-        {
-            writer.WriteStartElement(null, "CpnyNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CompanyNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (TypeOfVehicle is IsoMax35Text TypeOfVehicleValue)
-        {
-            writer.WriteStartElement(null, "TpOfVhcl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeOfVehicleValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (VehicleIdentification is IsoMax35Text VehicleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "VhclId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(VehicleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DriverIdentification is IsoMax35Text DriverIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DrvrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DriverIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DriverTaxIdentification is IsoMax35Text DriverTaxIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DrvrTaxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DriverTaxIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Destination is Destination2 DestinationValue)
-        {
-            writer.WriteStartElement(null, "Dstn", xmlNamespace );
-            DestinationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static HiredVehicle1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

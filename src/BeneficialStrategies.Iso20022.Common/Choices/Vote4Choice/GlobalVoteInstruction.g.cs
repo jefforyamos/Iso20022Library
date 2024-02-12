@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice;
-
-/// <summary>
-/// Instruction specifying a vote instruction per resolution for the entire entitlement.
-/// </summary>
-public partial record GlobalVoteInstruction : Vote4Choice_
-     , IIsoXmlSerilizable<GlobalVoteInstruction>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Number of the resolution as specified by the issuer or its agent.
+    /// Instruction specifying a vote instruction per resolution for the entire entitlement.
     /// </summary>
-    public required IsoMax35Text IssuerLabel { get; init; } 
-    /// <summary>
-    /// Vote instructed.
-    /// </summary>
-    public required VoteInstructionType1Choice_ VoteOption { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Y98Lta4cEemG7MmivSuE5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Global Vote Instruction")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record GlobalVoteInstruction : Vote4Choice_
+    #else
+    public partial class GlobalVoteInstruction : Vote4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VoteOptn", xmlNamespace );
-        VoteOption.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new GlobalVoteInstruction Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a GlobalVoteInstruction instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public GlobalVoteInstruction( System.String reqIssuerLabel,VoteInstructionType1Choice_ reqVoteOption )
+        {
+            IssuerLabel = reqIssuerLabel;
+            VoteOption = reqVoteOption;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Number of the resolution as specified by the issuer or its agent.
+        /// </summary>
+        [IsoId("_ZRuqYa4cEemG7MmivSuE5g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer Label")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text IssuerLabel { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String IssuerLabel { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String IssuerLabel { get; init; } 
+        #else
+        public System.String IssuerLabel { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Vote instructed.
+        /// </summary>
+        [IsoId("_ZRuqY64cEemG7MmivSuE5g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Vote Option")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required VoteInstructionType1Choice_ VoteOption { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public VoteInstructionType1Choice_ VoteOption { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public VoteInstructionType1Choice_ VoteOption { get; init; } 
+        #else
+        public VoteInstructionType1Choice_ VoteOption { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and time query criteria.
 /// </summary>
+[IsoId("_np2jIWE3Ee2S65ml6YCOtA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Date Time Query Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeDateTimeQueryCriteria5
-     : IIsoXmlSerilizable<TradeDateTimeQueryCriteria5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the reporting date and full hour that transaction was reported.
     /// </summary>
+    [IsoId("_nrlBc2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ReportingDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1? ReportingDateTime { get; init; } 
+    #else
+    public DateTimePeriod1? ReportingDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date and full hour the trade was executed.
     /// </summary>
+    [IsoId("_nrlBdWE3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ExecutionDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1? ExecutionDateTime { get; init; } 
+    #else
+    public DateTimePeriod1? ExecutionDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date when the trade was matured.
     /// </summary>
+    [IsoId("_nrlBd2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrBlankQuery2Choice_? MaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateOrBlankQuery2Choice_? MaturityDate { get; init; } 
+    #else
+    public DateOrBlankQuery2Choice_? MaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date when obligations under the contract come into effect.
     /// </summary>
+    [IsoId("_nrlBeWE3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod1? EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriod1? EffectiveDate { get; init; } 
+    #else
+    public DatePeriod1? EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the valuation.
     /// </summary>
+    [IsoId("_nrlBe2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ValuationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1? ValuationDateTime { get; init; } 
+    #else
+    public DateTimePeriod1? ValuationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date when the trade was terminated.
     /// </summary>
+    [IsoId("_nrlBfWE3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrBlankQuery2Choice_? ExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateOrBlankQuery2Choice_? ExpirationDate { get; init; } 
+    #else
+    public DateOrBlankQuery2Choice_? ExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the effective date of the early termination of the reported derivative transaction.
     /// </summary>
+    [IsoId("_nrlBf2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Termination Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod1? EarlyTerminationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriod1? EarlyTerminationDate { get; init; } 
+    #else
+    public DatePeriod1? EarlyTerminationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the collateral time stamp range.
     /// </summary>
+    [IsoId("_p7LQEGE4Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimeOrBlankQuery1Choice_? CollateralTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimeOrBlankQuery1Choice_? CollateralTimeStamp { get; init; } 
+    #else
+    public DateTimeOrBlankQuery1Choice_? CollateralTimeStamp { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportingDateTime is DateTimePeriod1 ReportingDateTimeValue)
-        {
-            writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
-            ReportingDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExecutionDateTime is DateTimePeriod1 ExecutionDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
-            ExecutionDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaturityDate is DateOrBlankQuery2Choice_ MaturityDateValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-            MaturityDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EffectiveDate is DatePeriod1 EffectiveDateValue)
-        {
-            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-            EffectiveDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValuationDateTime is DateTimePeriod1 ValuationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ValtnDtTm", xmlNamespace );
-            ValuationDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExpirationDate is DateOrBlankQuery2Choice_ ExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
-            ExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarlyTerminationDate is DatePeriod1 EarlyTerminationDateValue)
-        {
-            writer.WriteStartElement(null, "EarlyTermntnDt", xmlNamespace );
-            EarlyTerminationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralTimeStamp is DateTimeOrBlankQuery1Choice_ CollateralTimeStampValue)
-        {
-            writer.WriteStartElement(null, "CollTmStmp", xmlNamespace );
-            CollateralTimeStampValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeDateTimeQueryCriteria5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

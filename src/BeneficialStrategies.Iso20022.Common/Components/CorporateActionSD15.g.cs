@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains details about called certificates.
 /// </summary>
+[IsoId("_Jgj5IZ2NEeW-bsa36JFb9A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionSD15
-     : IIsoXmlSerilizable<CorporateActionSD15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionSD15 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionSD15( System.String reqCertificateNumber,System.UInt64 reqCertificateCalledAmount )
+    {
+        CertificateNumber = reqCertificateNumber;
+        CertificateCalledAmount = reqCertificateCalledAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
+    [IsoId("_J3BRUZ2NEeW-bsa36JFb9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CertificateNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CertificateNumber { get; init; } 
+    #else
+    public System.String CertificateNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Principal amount (for debt issues) or number of shares (for equity issues) that has been called for redemption for a particular certificate number.
     /// </summary>
+    [IsoId("_J3BRWZ2NEeW-bsa36JFb9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Called Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber CertificateCalledAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 CertificateCalledAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 CertificateCalledAmount { get; init; } 
+    #else
+    public System.UInt64 CertificateCalledAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CertNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15AlphaNumericText(CertificateNumber)); // data type Max15AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CertClldAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(CertificateCalledAmount)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static CorporateActionSD15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

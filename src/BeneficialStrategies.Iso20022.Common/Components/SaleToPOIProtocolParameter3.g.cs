@@ -7,137 +7,268 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a sale system.
 /// </summary>
+[IsoId("_tmvvQXIVEe2OqYulmHWukQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sale To POI Protocol Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SaleToPOIProtocolParameter3
-     : IIsoXmlSerilizable<SaleToPOIProtocolParameter3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SaleToPOIProtocolParameter3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SaleToPOIProtocolParameter3( TerminalManagementAction3Code reqActionType,System.String reqVersion,System.String reqHostIdentification )
+    {
+        ActionType = reqActionType;
+        Version = reqVersion;
+        HostIdentification = reqHostIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [IsoId("_ttnzUXIVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #else
+    public TerminalManagementAction3Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
+    [IsoId("_ttnzU3IVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation26? MerchantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation26? MerchantIdentification { get; init; } 
+    #else
+    public Organisation26? MerchantIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the parameters.
     /// </summary>
+    [IsoId("_ttnzVXIVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification used to retrieve HostCommunicationParameters.
     /// </summary>
+    [IsoId("_ttnzV3IVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text HostIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String HostIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String HostIdentification { get; init; } 
+    #else
+    public System.String HostIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the POI during communication with sale system.
     /// </summary>
+    [IsoId("_ttnzWXIVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant POI Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MerchantPOIIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MerchantPOIIdentification { get; init; } 
+    #else
+    public System.String? MerchantPOIIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the SaleSystem connected to the POI.
     /// </summary>
+    [IsoId("_ttnzW3IVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleIdentification { get; init; } 
+    #else
+    public System.String? SaleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a message that a Sale system could send to the POI system.
     /// </summary>
+    [IsoId("_3C5rMHIWEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed Sale Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerMessage1Code? AllowedSaleMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerMessage1Code? AllowedSaleMessage { get; init; } 
+    #else
+    public RetailerMessage1Code? AllowedSaleMessage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a message that a POI system could send to the Sale system.
     /// </summary>
+    [IsoId("_js7fkHIXEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed POI Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerMessage1Code? AllowedPOIMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerMessage1Code? AllowedPOIMessage { get; init; } 
+    #else
+    public RetailerMessage1Code? AllowedPOIMessage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a service that a POI system could support to the Sale system.
     /// </summary>
+    [IsoId("_RC-scHIYEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed POI Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerService2Code? AllowedPOIService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerService2Code? AllowedPOIService { get; init; } 
+    #else
+    public RetailerService2Code? AllowedPOIService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a device request that a Sale system could ask to the POI system.
     /// </summary>
+    [IsoId("__D-60HIYEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed Sale Device")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerService8Code? AllowedSaleDevice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerService8Code? AllowedSaleDevice { get; init; } 
+    #else
+    public RetailerService8Code? AllowedSaleDevice { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
+    [IsoId("_ttnzXXIVEe2OqYulmHWukQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Externally Type Supported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? ExternallyTypeSupported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExternallyTypeSupported { get; init; } 
+    #else
+    public System.String? ExternallyTypeSupported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MerchantIdentification is Organisation26 MerchantIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
-            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "HstId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (MerchantPOIIdentification is IsoMax35Text MerchantPOIIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MrchntPOIId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantPOIIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AllowedSaleMessage is RetailerMessage1Code AllowedSaleMessageValue)
-        {
-            writer.WriteStartElement(null, "AllwdSaleMsg", xmlNamespace );
-            writer.WriteValue(AllowedSaleMessageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AllowedPOIMessage is RetailerMessage1Code AllowedPOIMessageValue)
-        {
-            writer.WriteStartElement(null, "AllwdPOIMsg", xmlNamespace );
-            writer.WriteValue(AllowedPOIMessageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AllowedPOIService is RetailerService2Code AllowedPOIServiceValue)
-        {
-            writer.WriteStartElement(null, "AllwdPOISvc", xmlNamespace );
-            writer.WriteValue(AllowedPOIServiceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AllowedSaleDevice is RetailerService8Code AllowedSaleDeviceValue)
-        {
-            writer.WriteStartElement(null, "AllwdSaleDvc", xmlNamespace );
-            writer.WriteValue(AllowedSaleDeviceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExternallyTypeSupported is IsoMax1025Text ExternallyTypeSupportedValue)
-        {
-            writer.WriteStartElement(null, "XtrnlyTpSpprtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ExternallyTypeSupportedValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SaleToPOIProtocolParameter3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

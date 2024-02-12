@@ -7,33 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format  conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
-/// ISO 8583 bit 35
-/// </summary>
-[KnownType(typeof(Track2Data1Choice.TextValue))]
-[KnownType(typeof(Track2Data1Choice.HexadecimalBinaryValue))]
-public abstract partial record Track2Data1Choice_ : IIsoXmlSerilizable<Track2Data1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format  conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
+    /// ISO 8583 bit 35
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Track2Data1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Track2Data1Choice.TextValue))]
+    [KnownType(typeof(Track2Data1Choice.HexadecimalBinaryValue))]
+    [IsoId("_NkLQYEbbEeeIjf8aP9KbJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track 2 Data 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Track2Data1Choice_
+    #else
+    public abstract partial class Track2Data1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "TxtVal" => Track2Data1Choice.TextValue.Deserialize(elementWithPayload),
-             "HexBinryVal" => Track2Data1Choice.HexadecimalBinaryValue.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Track2Data1Choice choice.")
-        };
     }
 }

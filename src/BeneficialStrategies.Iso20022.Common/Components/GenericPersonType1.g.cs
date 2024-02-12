@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a generic type of identification requested for a person.
 /// </summary>
+[IsoId("_lvDzgnFwEemaN4ndAVY1ZQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Generic Person Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GenericPersonType1
-     : IIsoXmlSerilizable<GenericPersonType1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a GenericPersonType1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public GenericPersonType1( System.String reqRequested,PersonIdentificationSchemeName1Choice_ reqSchemeName )
+    {
+        Requested = reqRequested;
+        SchemeName = reqSchemeName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the private type for the customer identification is requested or not.
     /// </summary>
+    [IsoId("_lvDzhHFwEemaN4ndAVY1ZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator Requested { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Requested { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Requested { get; init; } 
+    #else
+    public System.String Requested { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [IsoId("_lvDzhnFwEemaN4ndAVY1ZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scheme Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
+    #else
+    public PersonIdentificationSchemeName1Choice_ SchemeName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Reqd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(Requested)); // data type RequestedIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
-        SchemeName.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static GenericPersonType1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

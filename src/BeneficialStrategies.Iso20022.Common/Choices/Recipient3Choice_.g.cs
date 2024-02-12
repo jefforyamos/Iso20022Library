@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Transport key or key encryption key (KEK) for the recipient.
-/// </summary>
-[KnownType(typeof(Recipient3Choice.KeyTransport))]
-[KnownType(typeof(Recipient3Choice.KEK))]
-[KnownType(typeof(Recipient3Choice.KeyIdentifier))]
-public abstract partial record Recipient3Choice_ : IIsoXmlSerilizable<Recipient3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Transport key or key encryption key (KEK) for the recipient.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Recipient3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Recipient3Choice.KeyTransport))]
+    [KnownType(typeof(Recipient3Choice.KEK))]
+    [KnownType(typeof(Recipient3Choice.KeyIdentifier))]
+    [IsoId("_k-l58S9eEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Recipient3Choice_
+    #else
+    public abstract partial class Recipient3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "KeyTrnsprt" => Recipient3Choice.KeyTransport.Deserialize(elementWithPayload),
-             "KEK" => Recipient3Choice.KEK.Deserialize(elementWithPayload),
-             "KeyIdr" => Recipient3Choice.KeyIdentifier.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Recipient3Choice choice.")
-        };
     }
 }

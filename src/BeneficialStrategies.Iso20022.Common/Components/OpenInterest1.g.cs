@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
 /// </summary>
+[IsoId("_XEpRcLVZEeadLcJesEbkTQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Open Interest")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OpenInterest1
-     : IIsoXmlSerilizable<OpenInterest1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OpenInterest1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OpenInterest1( System.Decimal reqGrossNotionalAmount )
+    {
+        GrossNotionalAmount = reqGrossNotionalAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Gross notional of product cleared, if applicable.
     /// </summary>
+    [IsoId("_bzGkoLVZEeadLcJesEbkTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Notional Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd24Amount GrossNotionalAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal GrossNotionalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal GrossNotionalAmount { get; init; } 
+    #else
+    public System.Decimal GrossNotionalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Open interest in number of lots, if applicable.
     /// </summary>
+    [IsoId("_nF1dILVZEeadLcJesEbkTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Lots")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? NumberOfLots { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfLots { get; init; } 
+    #else
+    public System.UInt64? NumberOfLots { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "GrssNtnlAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(GrossNotionalAmount)); // data type ActiveCurrencyAnd24Amount System.Decimal
-        writer.WriteEndElement();
-        if (NumberOfLots is IsoPositiveNumber NumberOfLotsValue)
-        {
-            writer.WriteStartElement(null, "NbOfLots", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(NumberOfLotsValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static OpenInterest1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

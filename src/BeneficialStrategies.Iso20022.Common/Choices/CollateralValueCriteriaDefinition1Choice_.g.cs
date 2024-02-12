@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Definition of the collateral value query criteria.
-/// </summary>
-[KnownType(typeof(CollateralValueCriteriaDefinition1Choice.QueryName))]
-[KnownType(typeof(CollateralValueCriteriaDefinition1Choice.NewCriteria))]
-public abstract partial record CollateralValueCriteriaDefinition1Choice_ : IIsoXmlSerilizable<CollateralValueCriteriaDefinition1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Definition of the collateral value query criteria.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CollateralValueCriteriaDefinition1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CollateralValueCriteriaDefinition1Choice.QueryName))]
+    [KnownType(typeof(CollateralValueCriteriaDefinition1Choice.NewCriteria))]
+    [IsoId("_jJgDo-5NEeCisYr99QEiWA_-333364953")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Value Criteria Definition 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CollateralValueCriteriaDefinition1Choice_
+    #else
+    public abstract partial class CollateralValueCriteriaDefinition1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "QryNm" => CollateralValueCriteriaDefinition1Choice.QueryName.Deserialize(elementWithPayload),
-             "NewCrit" => CollateralValueCriteriaDefinition1Choice.NewCriteria.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CollateralValueCriteriaDefinition1Choice choice.")
-        };
     }
 }

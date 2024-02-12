@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Diagnosis Response message.
 /// </summary>
+[IsoId("_sVO1MU6rEeyGi9JAv6wq7Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Diagnosis Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DiagnosisResponse4
-     : IIsoXmlSerilizable<DiagnosisResponse4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sale Terminal logged to.
     /// </summary>
+    [IsoId("_sbX5cU6rEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Logged Sale Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LoggedSaleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LoggedSaleIdentification { get; init; } 
+    #else
+    public System.String? LoggedSaleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the POI.
     /// </summary>
+    [IsoId("_sbX5c06rEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReportContent11? POIStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusReportContent11? POIStatus { get; init; } 
+    #else
+    public StatusReportContent11? POIStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// State of a Host.
     /// </summary>
+    [IsoId("_sbX5dU6rEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HostStatus1? HostStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HostStatus1? HostStatus { get; init; } 
+    #else
+    public HostStatus1? HostStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LoggedSaleIdentification is IsoMax35Text LoggedSaleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LggdSaleId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LoggedSaleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (POIStatus is StatusReportContent11 POIStatusValue)
-        {
-            writer.WriteStartElement(null, "POISts", xmlNamespace );
-            POIStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HostStatus is HostStatus1 HostStatusValue)
-        {
-            writer.WriteStartElement(null, "HstSts", xmlNamespace );
-            HostStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DiagnosisResponse4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

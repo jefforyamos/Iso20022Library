@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a financial institution.
 /// </summary>
+[IsoId("_56x2kUmwEeaw890XtoVB-Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Institution Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstitutionIdentification10
-     : IIsoXmlSerilizable<FinancialInstitutionIdentification10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialInstitutionIdentification10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialInstitutionIdentification10( FinancialInstitutionIdentification8Choice_ reqParty )
+    {
+        Party = reqParty;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
+    [IsoId("__N1roEmwEeaw890XtoVB-Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification8Choice_ Party { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstitutionIdentification8Choice_ Party { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstitutionIdentification8Choice_ Party { get; init; } 
+    #else
+    public FinancialInstitutionIdentification8Choice_ Party { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>
+    [IsoId("_D6-JIUmxEeaw890XtoVB-Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("LEI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LEI { get; init; } 
+    #else
+    public System.String? LEI { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Pty", xmlNamespace );
-        Party.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LEI is IsoLEIIdentifier LEIValue)
-        {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstitutionIdentification10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,144 +7,278 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Undertaking status information.
 /// </summary>
+[IsoId("_-DLK5XltEeG7BsjMvd1mEw_1047822406")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking Status Advice")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UndertakingStatusAdvice1
-     : IIsoXmlSerilizable<UndertakingStatusAdvice1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UndertakingStatusAdvice1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UndertakingStatusAdvice1( PartyIdentification43 reqInitiatingParty,ExternalUndertakingStatusCategory1Code reqStatusCategory,UndertakingStatus3Code reqStatus )
+    {
+        InitiatingParty = reqInitiatingParty;
+        StatusCategory = reqStatusCategory;
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details related to the party that initiated the report.
     /// </summary>
+    [IsoId("_-DLK5nltEeG7BsjMvd1mEw_24427462")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiating Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 InitiatingParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification43 InitiatingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43 InitiatingParty { get; init; } 
+    #else
+    public PartyIdentification43 InitiatingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [IsoId("_-DLK53ltEeG7BsjMvd1mEw_-1609250460")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Undertaking8? UndertakingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Undertaking8? UndertakingIdentification { get; init; } 
+    #else
+    public Undertaking8? UndertakingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence number assigned by the issuer to each amendment of the undertaking.
     /// </summary>
+    [IsoId("_-DLK6HltEeG7BsjMvd1mEw_-238433445")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amendment Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? AmendmentSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? AmendmentSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? AmendmentSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
+    [IsoId("_-DU74HltEeG7BsjMvd1mEw_-1490832620")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Advising Party Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdvisingPartyReferenceNumber { get; init; } 
+    #else
+    public System.String? AdvisingPartyReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [IsoId("_-DU74XltEeG7BsjMvd1mEw_1807062323")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmer Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConfirmerReferenceNumber { get; init; } 
+    #else
+    public System.String? ConfirmerReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the category of the status.
     /// </summary>
+    [IsoId("_-DU75HltEeG7BsjMvd1mEw_-482858718")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
+    #else
+    public ExternalUndertakingStatusCategory1Code StatusCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reported status.
     /// </summary>
+    [IsoId("_-DU74nltEeG7BsjMvd1mEw_-818864240")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingStatus3Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingStatus3Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingStatus3Code Status { get; init; } 
+    #else
+    public UndertakingStatus3Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
+    [IsoId("_-DU743ltEeG7BsjMvd1mEw_1827841012")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation8? StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusReasonInformation8? StatusReason { get; init; } 
+    #else
+    public StatusReasonInformation8? StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount reported.
     /// </summary>
+    [IsoId("_rO8tFq-2EeGNi5z8K_XPKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reported Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportedAmount1? ReportedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportedAmount1? ReportedAmount { get; init; } 
+    #else
+    public ReportedAmount1? ReportedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information concerning the original message to which the status report may be sent in response.
     /// </summary>
+    [IsoId("_-DU75XltEeG7BsjMvd1mEw_1261386021")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessage1? OriginalMessageDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMessage1? OriginalMessageDetails { get; init; } 
+    #else
+    public OriginalMessage1? OriginalMessageDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document or template enclosed in the report.
     /// </summary>
+    [IsoId("_1IyGs37nEeGudZE4UaJCHQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enclosed File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document9? EnclosedFile { get; init; } 
+    #else
+    public Document9? EnclosedFile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the report.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_-Des4HltEeG7BsjMvd1mEw_1652499690")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
-        InitiatingParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UndertakingIdentification is Undertaking8 UndertakingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
-            UndertakingIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AmendmentSequenceNumber is IsoNumber AmendmentSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "AmdmntSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(AmendmentSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AdvisingPartyReferenceNumber is IsoMax35Text AdvisingPartyReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "AdvsgPtyRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ConfirmerReferenceNumber is IsoMax35Text ConfirmerReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "CnfrmrRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ConfirmerReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StsCtgy", xmlNamespace );
-        writer.WriteValue(StatusCategory.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (StatusReason is StatusReasonInformation8 StatusReasonValue)
-        {
-            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-            StatusReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportedAmount is ReportedAmount1 ReportedAmountValue)
-        {
-            writer.WriteStartElement(null, "RptdAmt", xmlNamespace );
-            ReportedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalMessageDetails is OriginalMessage1 OriginalMessageDetailsValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMsgDtls", xmlNamespace );
-            OriginalMessageDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnclosedFile is Document9 EnclosedFileValue)
-        {
-            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
-            EnclosedFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static UndertakingStatusAdvice1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

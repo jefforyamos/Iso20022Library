@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details for the adjustment of the mandate.
 /// </summary>
+[IsoId("_PJFAQGVQEeacpJ-gG9kyUQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mandate Adjustment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MandateAdjustment1
-     : IIsoXmlSerilizable<MandateAdjustment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MandateAdjustment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MandateAdjustment1( System.String reqDateAdjustmentRuleIndicator )
+    {
+        DateAdjustmentRuleIndicator = reqDateAdjustmentRuleIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether an adjustment is to be applied on pre-agreed collection date or not.
     /// </summary>
+    [IsoId("_RgDh4GVUEeacpJ-gG9kyUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Adjustment Rule Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator DateAdjustmentRuleIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DateAdjustmentRuleIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DateAdjustmentRuleIndicator { get; init; } 
+    #else
+    public System.String DateAdjustmentRuleIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the category of adjustment.
     /// </summary>
+    [IsoId("_uNQtMGVUEeacpJ-gG9kyUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency37Choice_? Category { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency37Choice_? Category { get; init; } 
+    #else
+    public Frequency37Choice_? Category { get; set; } 
+    #endif
+    
     /// <summary>
     /// Pre-agreed amount to increase or decrease the mandate amount as justified per information in the category.
     /// </summary>
+    [IsoId("_njXk5WVQEeacpJ-gG9kyUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Pre-agreed increase or decrease rate that will be applied to the collection amount.
     /// </summary>
+    [IsoId("_OG1PAGoEEearR-CA7eRZXQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DtAdjstmntRuleInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DateAdjustmentRuleIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (Category is Frequency37Choice_ CategoryValue)
-        {
-            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
-            CategoryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static MandateAdjustment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

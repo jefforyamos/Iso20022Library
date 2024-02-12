@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides information about the status of a corporate action or the status of a payment.
-/// </summary>
-[KnownType(typeof(EventProcessingStatus5Choice.Complete))]
-[KnownType(typeof(EventProcessingStatus5Choice.Reconciled))]
-[KnownType(typeof(EventProcessingStatus5Choice.Pending))]
-[KnownType(typeof(EventProcessingStatus5Choice.ProprietaryStatus))]
-public abstract partial record EventProcessingStatus5Choice_ : IIsoXmlSerilizable<EventProcessingStatus5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides information about the status of a corporate action or the status of a payment.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static EventProcessingStatus5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(EventProcessingStatus5Choice.Complete))]
+    [KnownType(typeof(EventProcessingStatus5Choice.Reconciled))]
+    [KnownType(typeof(EventProcessingStatus5Choice.Pending))]
+    [KnownType(typeof(EventProcessingStatus5Choice.ProprietaryStatus))]
+    [IsoId("_sSD3MeaEEemtTOaHuc_63w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Processing Status 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record EventProcessingStatus5Choice_
+    #else
+    public abstract partial class EventProcessingStatus5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cmplt" => EventProcessingStatus5Choice.Complete.Deserialize(elementWithPayload),
-             "Rcncld" => EventProcessingStatus5Choice.Reconciled.Deserialize(elementWithPayload),
-             "Pdg" => EventProcessingStatus5Choice.Pending.Deserialize(elementWithPayload),
-             "PrtrySts" => EventProcessingStatus5Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid EventProcessingStatus5Choice choice.")
-        };
     }
 }

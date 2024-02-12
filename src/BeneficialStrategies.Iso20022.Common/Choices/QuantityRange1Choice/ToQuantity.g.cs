@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
-
-/// <summary>
-/// Upper boundary of a range of quantity values.
-/// </summary>
-public partial record ToQuantity : QuantityRange1Choice_
-     , IIsoXmlSerilizable<ToQuantity>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Quantity value of the range limit.
+    /// Upper boundary of a range of quantity values.
     /// </summary>
-    public required IsoDecimalNumber Boundary { get; init; } 
-    /// <summary>
-    /// Indicates whether the boundary quantity is included in the range of quantity values.
-    /// </summary>
-    public required IsoYesNoIndicator Included { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_jtRfEe5NEeCisYr99QEiWA_44952824")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("To Quantity")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ToQuantity : QuantityRange1Choice_
+    #else
+    public partial class ToQuantity : QuantityRange1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Bdry", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Boundary)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Incl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static new ToQuantity Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ToQuantity instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ToQuantity( System.UInt64 reqBoundary,System.String reqIncluded )
+        {
+            Boundary = reqBoundary;
+            Included = reqIncluded;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Quantity value of the range limit.
+        /// </summary>
+        [IsoId("_jtapAO5NEeCisYr99QEiWA_-330775982")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Boundary")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoDecimalNumber Boundary { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 Boundary { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 Boundary { get; init; } 
+        #else
+        public System.UInt64 Boundary { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the boundary quantity is included in the range of quantity values.
+        /// </summary>
+        [IsoId("_jtapAe5NEeCisYr99QEiWA_279625946")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Included")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator Included { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Included { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Included { get; init; } 
+        #else
+        public System.String Included { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

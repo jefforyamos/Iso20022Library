@@ -7,153 +7,284 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[IsoId("_U4qWFdp-Ed-ak6NoX_4Aeg_-44720744")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unit Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnitPrice6
-     : IIsoXmlSerilizable<UnitPrice6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UnitPrice6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UnitPrice6( PriceType2 reqType,System.String reqForExecutionIndicator,System.String reqCumDividendIndicator )
+    {
+        Type = reqType;
+        ForExecutionIndicator = reqForExecutionIndicator;
+        CumDividendIndicator = reqCumDividendIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [IsoId("_U4qWFtp-Ed-ak6NoX_4Aeg_-44720725")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceType2 Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceType2 Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceType2 Type { get; init; } 
+    #else
+    public PriceType2 Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [IsoId("_U4qWF9p-Ed-ak6NoX_4Aeg_-44720701")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceMethod1Code? PriceMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceMethod1Code? PriceMethod { get; init; } 
+    #else
+    public PriceMethod1Code? PriceMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_U4qWGNp-Ed-ak6NoX_4Aeg_-44720684")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value In Investment Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public PriceValue1? ValueInInvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _U4qWGNp-Ed-ak6NoX_4Aeg_-44720684
+    
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_U4qWGdp-Ed-ak6NoX_4Aeg_-44720418")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value In Alternative Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? ValueInAlternativeCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue1? ValueInAlternativeCurrency { get; init; } 
+    #else
+    public PriceValue1? ValueInAlternativeCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
+    [IsoId("_U40HENp-Ed-ak6NoX_4Aeg_-44720393")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("For Execution Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ForExecutionIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ForExecutionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ForExecutionIndicator { get; init; } 
+    #else
+    public System.String ForExecutionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the dividend is included, ie, cum-dividend, in the price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
+    [IsoId("_U40HEdp-Ed-ak6NoX_4Aeg_-44720358")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cum Dividend Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CumDividendIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CumDividendIndicator { get; init; } 
+    #else
+    public System.String CumDividendIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ratio applied on the non-adjusted price.
     /// </summary>
+    [IsoId("_U40HEtp-Ed-ak6NoX_4Aeg_-144399643")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CalculationBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CalculationBasis { get; init; } 
+    #else
+    public System.Decimal? CalculationBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the number of days from trade date that the counterparty on the other side of the trade should "given up" or divulged.
     /// </summary>
+    [IsoId("_U40HE9p-Ed-ak6NoX_4Aeg_-168219132")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Days Accrued")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfDaysAccrued { get; init; } 
+    #else
+    public System.UInt64? NumberOfDaysAccrued { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [IsoId("_U40HFNp-Ed-ak6NoX_4Aeg_-168218824")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxable Income Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountPrice1Choice_? TaxableIncomePerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountPrice1Choice_? TaxableIncomePerShare { get; init; } 
+    #else
+    public AmountPrice1Choice_? TaxableIncomePerShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
+    [IsoId("_U40HFdp-Ed-ak6NoX_4Aeg_-514208777")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxable Income Per Share Calculated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxableIncomePerShareCalculated1? TaxableIncomePerShareCalculated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxableIncomePerShareCalculated1? TaxableIncomePerShareCalculated { get; init; } 
+    #else
+    public TaxableIncomePerShareCalculated1? TaxableIncomePerShareCalculated { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
+    [IsoId("_U40HFtp-Ed-ak6NoX_4Aeg_-44720322")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge9? ChargeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge9? ChargeDetails { get; init; } 
+    #else
+    public Charge9? ChargeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to taxes that are due.
     /// </summary>
+    [IsoId("_U40HF9p-Ed-ak6NoX_4Aeg_-44720297")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Liability Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax8? TaxLiabilityDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax8? TaxLiabilityDetails { get; init; } 
+    #else
+    public Tax8? TaxLiabilityDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to taxes that are paid back.
     /// </summary>
+    [IsoId("_U40HGNp-Ed-ak6NoX_4Aeg_-626866032")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Refund Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax8? TaxRefundDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax8? TaxRefundDetails { get; init; } 
+    #else
+    public Tax8? TaxRefundDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PriceMethod is PriceMethod1Code PriceMethodValue)
-        {
-            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
-            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize ValueInInvestmentCurrency, multiplicity Unknown
-        if (ValueInAlternativeCurrency is PriceValue1 ValueInAlternativeCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ValInAltrntvCcy", xmlNamespace );
-            ValueInAlternativeCurrencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ForExctnInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForExecutionIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CumDvddInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CumDividendIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (CalculationBasis is IsoPercentageRate CalculationBasisValue)
-        {
-            writer.WriteStartElement(null, "ClctnBsis", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculationBasisValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
-        {
-            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TaxableIncomePerShare is AmountPrice1Choice_ TaxableIncomePerShareValue)
-        {
-            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
-            TaxableIncomePerShareValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculated1 TaxableIncomePerShareCalculatedValue)
-        {
-            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
-            TaxableIncomePerShareCalculatedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargeDetails is Charge9 ChargeDetailsValue)
-        {
-            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
-            ChargeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxLiabilityDetails is Tax8 TaxLiabilityDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxLbltyDtls", xmlNamespace );
-            TaxLiabilityDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxRefundDetails is Tax8 TaxRefundDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxRfndDtls", xmlNamespace );
-            TaxRefundDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static UnitPrice6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

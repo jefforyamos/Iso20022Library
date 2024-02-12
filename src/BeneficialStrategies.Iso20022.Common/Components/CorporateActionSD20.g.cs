@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action details.
 /// </summary>
+[IsoId("_cj6Cwb-zEeeb2ZBoAlSG1Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionSD20
-     : IIsoXmlSerilizable<CorporateActionSD20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_czxDsb-zEeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTC generated number to distinguish between the series of lotteries run against a particular redemption.
     /// </summary>
+    [IsoId("_czxDs7-zEeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lottery Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? LotterySequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LotterySequenceNumber { get; init; } 
+    #else
+    public System.String? LotterySequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>
+    [IsoId("_czxDtb-zEeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lottery Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LotteryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? LotteryDate { get; init; } 
+    #else
+    public System.DateOnly? LotteryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
+    [IsoId("_czxDvb-zEeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Process To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ProcessToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ProcessToDate { get; init; } 
+    #else
+    public System.DateOnly? ProcessToDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (LotterySequenceNumber is IsoMax3NumericText LotterySequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "LtrySeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(LotterySequenceNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (LotteryDate is IsoISODate LotteryDateValue)
-        {
-            writer.WriteStartElement(null, "LtryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(LotteryDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ProcessToDate is IsoISODate ProcessToDateValue)
-        {
-            writer.WriteStartElement(null, "PrcToDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ProcessToDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionSD20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

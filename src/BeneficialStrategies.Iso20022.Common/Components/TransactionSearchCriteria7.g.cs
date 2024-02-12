@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to search for a payment transaction.
 /// </summary>
+[IsoId("_VCTJ7ZlQEee-Zps0fZQaFQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionSearchCriteria7
-     : IIsoXmlSerilizable<TransactionSearchCriteria7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the criteria which are used to search for the destination of the payment.
     /// </summary>
+    [IsoId("_VKVrkZlQEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemSearch3? PaymentTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemSearch3? PaymentTo { get; init; } 
+    #else
+    public SystemSearch3? PaymentTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria which are used to search for the origin of the payment.
     /// </summary>
+    [IsoId("_VKVrk5lQEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemSearch3? PaymentFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemSearch3? PaymentFrom { get; init; } 
+    #else
+    public SystemSearch3? PaymentFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria which are used to search for a payment.
     /// </summary>
+    [IsoId("_VKVrlZlQEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Search")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentSearch7? PaymentSearch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentSearch7? PaymentSearch { get; init; } 
+    #else
+    public PaymentSearch7? PaymentSearch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria which are used to search for a cash entry.
     /// </summary>
+    [IsoId("_VKVrl5lQEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Entry Search")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountEntrySearch5? AccountEntrySearch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountEntrySearch5? AccountEntrySearch { get; init; } 
+    #else
+    public CashAccountEntrySearch5? AccountEntrySearch { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PaymentTo is SystemSearch3 PaymentToValue)
-        {
-            writer.WriteStartElement(null, "PmtTo", xmlNamespace );
-            PaymentToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentFrom is SystemSearch3 PaymentFromValue)
-        {
-            writer.WriteStartElement(null, "PmtFr", xmlNamespace );
-            PaymentFromValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentSearch is PaymentSearch7 PaymentSearchValue)
-        {
-            writer.WriteStartElement(null, "PmtSch", xmlNamespace );
-            PaymentSearchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountEntrySearch is CashAccountEntrySearch5 AccountEntrySearchValue)
-        {
-            writer.WriteStartElement(null, "AcctNtrySch", xmlNamespace );
-            AccountEntrySearchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionSearchCriteria7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

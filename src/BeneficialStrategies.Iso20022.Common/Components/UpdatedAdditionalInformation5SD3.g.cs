@@ -7,101 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension for updated additional information.
 /// </summary>
+[IsoId("_X9K4QaXREeOkjarA2DHHxg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Updated Additional Information 5 SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UpdatedAdditionalInformation5SD3
-     : IIsoXmlSerilizable<UpdatedAdditionalInformation5SD3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [IsoId("_YYUjM6XREeOkjarA2DHHxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total distribution fund rate per share.
     /// 一株あたりの交付金先等の額.
     /// </summary>
+    [IsoId("_YYUjNaXREeOkjarA2DHHxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Distribution Amount Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? DistributionAmountPerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat36Choice_? DistributionAmountPerShare { get; init; } 
+    #else
+    public RateAndAmountFormat36Choice_? DistributionAmountPerShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate information of how much net asset decrease happens as a result of the fund distribution.
     /// </summary>
+    [IsoId("_YYUjN6XREeOkjarA2DHHxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Asset Decrease Ratio")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? NetAssetDecreaseRatio { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetAssetDecreaseRatio { get; init; } 
+    #else
+    public System.Decimal? NetAssetDecreaseRatio { get; set; } 
+    #endif
+    
     /// <summary>
     /// Distribution amount of accumulated profit per share.
     /// 一株あたり利益剰余金の額.
     /// </summary>
+    [IsoId("_YYUjOaXREeOkjarA2DHHxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accumulated Profit Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? AccumulatedProfitPerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat36Choice_? AccumulatedProfitPerShare { get; init; } 
+    #else
+    public RateAndAmountFormat36Choice_? AccumulatedProfitPerShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxable distribution amount of dividend.
     /// 一株あたりみなし配当の額.
     /// </summary>
+    [IsoId("_YYUjO6XREeOkjarA2DHHxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deemed Dividend Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? DeemedDividendPerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat36Choice_? DeemedDividendPerShare { get; init; } 
+    #else
+    public RateAndAmountFormat36Choice_? DeemedDividendPerShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax exempted distribution amount of dividend. 
     /// 一株あたりみなし譲渡収入の額.
     /// </summary>
+    [IsoId("_YYUjPaXREeOkjarA2DHHxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Residual Distribution Amount Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? ResidualDistributionAmountPerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat36Choice_? ResidualDistributionAmountPerShare { get; init; } 
+    #else
+    public RateAndAmountFormat36Choice_? ResidualDistributionAmountPerShare { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (DistributionAmountPerShare is RateAndAmountFormat36Choice_ DistributionAmountPerShareValue)
-        {
-            writer.WriteStartElement(null, "DstrbtnAmtPerShr", xmlNamespace );
-            DistributionAmountPerShareValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetAssetDecreaseRatio is IsoPercentageRate NetAssetDecreaseRatioValue)
-        {
-            writer.WriteStartElement(null, "NetAsstDcrRatio", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(NetAssetDecreaseRatioValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AccumulatedProfitPerShare is RateAndAmountFormat36Choice_ AccumulatedProfitPerShareValue)
-        {
-            writer.WriteStartElement(null, "AcmltdPrftPerShr", xmlNamespace );
-            AccumulatedProfitPerShareValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeemedDividendPerShare is RateAndAmountFormat36Choice_ DeemedDividendPerShareValue)
-        {
-            writer.WriteStartElement(null, "DmdDvddPerShr", xmlNamespace );
-            DeemedDividendPerShareValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResidualDistributionAmountPerShare is RateAndAmountFormat36Choice_ ResidualDistributionAmountPerShareValue)
-        {
-            writer.WriteStartElement(null, "RsdlDstrbtnAmtPerShr", xmlNamespace );
-            ResidualDistributionAmountPerShareValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static UpdatedAdditionalInformation5SD3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,77 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
+[IsoId("_WKBQTtp-Ed-ak6NoX_4Aeg_-117785638")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Foreign Exchange Terms")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ForeignExchangeTerms10
-     : IIsoXmlSerilizable<ForeignExchangeTerms10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ForeignExchangeTerms10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ForeignExchangeTerms10( string reqUnitCurrency,string reqQuotedCurrency,System.Decimal reqExchangeRate )
+    {
+        UnitCurrency = reqUnitCurrency;
+        QuotedCurrency = reqQuotedCurrency;
+        ExchangeRate = reqExchangeRate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Cash amount resulting from a foreign exchange trade.
     /// </summary>
+    [IsoId("_WKBQT9p-Ed-ak6NoX_4Aeg_-117785546")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("To Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ToAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ToAmount { get; init; } 
+    #else
+    public System.Decimal? ToAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash amount for which a foreign exchange is required.
     /// </summary>
+    [IsoId("_WKBQUNp-Ed-ak6NoX_4Aeg_-117785606")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? FromAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FromAmount { get; init; } 
+    #else
+    public System.Decimal? FromAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
+    [IsoId("_WKBQUdp-Ed-ak6NoX_4Aeg_-117785515")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode UnitCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string UnitCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string UnitCurrency { get; init; } 
+    #else
+    public string UnitCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [IsoId("_WKLBQNp-Ed-ak6NoX_4Aeg_-117785206")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quoted Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string QuotedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string QuotedCurrency { get; init; } 
+    #else
+    public string QuotedCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [IsoId("_WKLBQdp-Ed-ak6NoX_4Aeg_-117785175")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate ExchangeRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ExchangeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ExchangeRate { get; init; } 
+    #else
+    public System.Decimal ExchangeRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ToAmount is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount ToAmountValue)
-        {
-            writer.WriteStartElement(null, "ToAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(ToAmountValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FromAmount is IsoRestrictedFINActiveCurrencyAndAmount FromAmountValue)
-        {
-            writer.WriteStartElement(null, "FrAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(FromAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "UnitCcy", xmlNamespace );
-        writer.WriteValue(UnitCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
-        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
-        writer.WriteEndElement();
-    }
-    public static ForeignExchangeTerms10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

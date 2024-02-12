@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
+[IsoId("_csYs0zi8Eeydid5dcNPKvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sub Balance Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SubBalanceInformation24
-     : IIsoXmlSerilizable<SubBalanceInformation24>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SubBalanceInformation24 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SubBalanceInformation24( SubBalanceType13Choice_ reqSubBalanceType,Balance27 reqQuantity )
+    {
+        SubBalanceType = reqSubBalanceType;
+        Quantity = reqQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
+    [IsoId("_csYs2Ti8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Balance Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceType13Choice_ SubBalanceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SubBalanceType13Choice_ SubBalanceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubBalanceType13Choice_ SubBalanceType { get; init; } 
+    #else
+    public SubBalanceType13Choice_ SubBalanceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [IsoId("_csYs4Ti8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Balance27 Quantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Balance27 Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Balance27 Quantity { get; init; } 
+    #else
+    public Balance27 Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional subbalance information.
     /// </summary>
+    [IsoId("_csYs6Ti8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Balance Additional Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax140Text? SubBalanceAdditionalDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubBalanceAdditionalDetails { get; init; } 
+    #else
+    public System.String? SubBalanceAdditionalDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
+    [IsoId("_csYs8Ti8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityBreakdown71? QuantityBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityBreakdown71? QuantityBreakdown { get; init; } 
+    #else
+    public QuantityBreakdown71? QuantityBreakdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
+    [IsoId("_csYs-Ti8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Balance Breakdown Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalBalanceInformation24? AdditionalBalanceBreakdownDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalBalanceInformation24? AdditionalBalanceBreakdownDetails { get; init; } 
+    #else
+    public AdditionalBalanceInformation24? AdditionalBalanceBreakdownDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SubBalTp", xmlNamespace );
-        SubBalanceType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        Quantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SubBalanceAdditionalDetails is IsoRestrictedFINXMax140Text SubBalanceAdditionalDetailsValue)
-        {
-            writer.WriteStartElement(null, "SubBalAddtlDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax140Text(SubBalanceAdditionalDetailsValue)); // data type RestrictedFINXMax140Text System.String
-            writer.WriteEndElement();
-        }
-        if (QuantityBreakdown is QuantityBreakdown71 QuantityBreakdownValue)
-        {
-            writer.WriteStartElement(null, "QtyBrkdwn", xmlNamespace );
-            QuantityBreakdownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalBalanceBreakdownDetails is AdditionalBalanceInformation24 AdditionalBalanceBreakdownDetailsValue)
-        {
-            writer.WriteStartElement(null, "AddtlBalBrkdwnDtls", xmlNamespace );
-            AdditionalBalanceBreakdownDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SubBalanceInformation24 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

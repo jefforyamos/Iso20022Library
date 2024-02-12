@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the options for the time to maturity.
-/// </summary>
-[KnownType(typeof(TimeToMaturity1Choice.Period))]
-[KnownType(typeof(TimeToMaturity1Choice.Special))]
-public abstract partial record TimeToMaturity1Choice_ : IIsoXmlSerilizable<TimeToMaturity1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the options for the time to maturity.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TimeToMaturity1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TimeToMaturity1Choice.Period))]
+    [KnownType(typeof(TimeToMaturity1Choice.Special))]
+    [IsoId("_r8FOkMVaEeiYpLQka876sg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time To Maturity 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TimeToMaturity1Choice_
+    #else
+    public abstract partial class TimeToMaturity1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Prd" => TimeToMaturity1Choice.Period.Deserialize(elementWithPayload),
-             "Spcl" => TimeToMaturity1Choice.Special.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TimeToMaturity1Choice choice.")
-        };
     }
 }

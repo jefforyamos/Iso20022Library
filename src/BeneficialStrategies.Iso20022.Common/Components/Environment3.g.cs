@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
+[IsoId("_3zNAcU93EeePXdaAO32Uew")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Environment3
-     : IIsoXmlSerilizable<Environment3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Initiator of the process.
     /// </summary>
+    [IsoId("_3-g4kU93EeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Originator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Originator { get; init; } 
+    #else
+    public PartyIdentification197? Originator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
+    [IsoId("_3-g4k093EeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Sender { get; init; } 
+    #else
+    public PartyIdentification197? Sender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
+    [IsoId("_3-g4lU93EeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Receiver { get; init; } 
+    #else
+    public PartyIdentification197? Receiver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [IsoId("_Pncm0E96EeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Destination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Destination { get; init; } 
+    #else
+    public PartyIdentification197? Destination { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Originator is PartyIdentification197 OriginatorValue)
-        {
-            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
-            OriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Sender is PartyIdentification197 SenderValue)
-        {
-            writer.WriteStartElement(null, "Sndr", xmlNamespace );
-            SenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Receiver is PartyIdentification197 ReceiverValue)
-        {
-            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
-            ReceiverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Destination is PartyIdentification197 DestinationValue)
-        {
-            writer.WriteStartElement(null, "Dstn", xmlNamespace );
-            DestinationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Environment3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

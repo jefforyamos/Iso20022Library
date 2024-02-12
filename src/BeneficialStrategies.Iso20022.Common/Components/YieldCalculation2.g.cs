@@ -7,90 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Return provided by a financial instrument.
 /// </summary>
+[IsoId("_oLtAMNorEeCWg-hsBVGrDA_726632043")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Yield Calculation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record YieldCalculation2
-     : IIsoXmlSerilizable<YieldCalculation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a YieldCalculation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public YieldCalculation2( System.Decimal reqValue,CalculationType1Code reqCalculationType )
+    {
+        Value = reqValue;
+        CalculationType = reqCalculationType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Result of the yield calculation.
     /// </summary>
+    [IsoId("_oLtAMdorEeCWg-hsBVGrDA_612792977")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Value { get; init; } 
+    #else
+    public System.Decimal Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of calculation.
     /// </summary>
+    [IsoId("_oL2KINorEeCWg-hsBVGrDA_-270440310")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CalculationType1Code CalculationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CalculationType1Code CalculationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CalculationType1Code CalculationType { get; init; } 
+    #else
+    public CalculationType1Code CalculationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price to which the yield has been calculated.
     /// </summary>
+    [IsoId("_oL2KIdorEeCWg-hsBVGrDA_1339987811")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? RedemptionPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? RedemptionPrice { get; init; } 
+    #else
+    public Price4? RedemptionPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which the calculation is based, for example, valuation on October 1 (price date) based on price of September 19 ( value date).
     /// </summary>
+    [IsoId("_oL2KItorEeCWg-hsBVGrDA_342915458")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValueDate { get; init; } 
+    #else
+    public System.DateOnly? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period on which the calculation is based.
     /// </summary>
+    [IsoId("_oL2KI9orEeCWg-hsBVGrDA_229076392")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodChoice_? ValuePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriodChoice_? ValuePeriod { get; init; } 
+    #else
+    public DateTimePeriodChoice_? ValuePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Included as needed to clarify yield irregularities associated with date, e.g. when it falls on a non-business day.
     /// </summary>
+    [IsoId("_oL2KJNorEeCWg-hsBVGrDA_-654156895")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CalculationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CalculationDate { get; init; } 
+    #else
+    public System.DateOnly? CalculationDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Value)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClctnTp", xmlNamespace );
-        writer.WriteValue(CalculationType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (RedemptionPrice is Price4 RedemptionPriceValue)
-        {
-            writer.WriteStartElement(null, "RedPric", xmlNamespace );
-            RedemptionPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is IsoISODate ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ValuePeriod is DateTimePeriodChoice_ ValuePeriodValue)
-        {
-            writer.WriteStartElement(null, "ValPrd", xmlNamespace );
-            ValuePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CalculationDate is IsoISODate CalculationDateValue)
-        {
-            writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CalculationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static YieldCalculation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

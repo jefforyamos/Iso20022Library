@@ -7,70 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an interest payment schedule, that is an amount that must be paid no sooner than the expected payment date and no later than the due date.
 /// </summary>
+[IsoId("_es4FpdOJEeSQ_-lmj1tzfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Interest Payment Date Range")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InterestPaymentDateRange2
-     : IIsoXmlSerilizable<InterestPaymentDateRange2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InterestPaymentDateRange2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InterestPaymentDateRange2( System.Decimal reqAmount,System.DateOnly reqDueDate )
+    {
+        Amount = reqAmount;
+        DueDate = reqDueDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the interest payment schedule.
     /// </summary>
+    [IsoId("_es4FptOJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Schedule Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InterestScheduleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterestScheduleIdentification { get; init; } 
+    #else
+    public System.String? InterestScheduleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interest amount that must be paid at due date.
     /// </summary>
+    [IsoId("_es4FqdOJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Latest date whereby the interest must be paid.
     /// </summary>
+    [IsoId("_es4FqNOJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly DueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly DueDate { get; init; } 
+    #else
+    public System.DateOnly DueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the interest payments.
     /// </summary>
+    [IsoId("_obya8dOJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InterestScheduleIdentification is IsoMax35Text InterestScheduleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IntrstSchdlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestScheduleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DueDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(DueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InterestPaymentDateRange2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

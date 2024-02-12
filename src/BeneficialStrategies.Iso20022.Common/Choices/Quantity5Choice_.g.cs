@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different quantity of security formats.
-/// </summary>
-[KnownType(typeof(Quantity5Choice.Code))]
-[KnownType(typeof(Quantity5Choice.OriginalAndCurrentFaceAmount))]
-[KnownType(typeof(Quantity5Choice.Quantity))]
-public abstract partial record Quantity5Choice_ : IIsoXmlSerilizable<Quantity5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different quantity of security formats.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Quantity5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Quantity5Choice.Code))]
+    [KnownType(typeof(Quantity5Choice.OriginalAndCurrentFaceAmount))]
+    [KnownType(typeof(Quantity5Choice.Quantity))]
+    [IsoId("_Sn0U1dp-Ed-ak6NoX_4Aeg_89127208")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Quantity5Choice_
+    #else
+    public abstract partial class Quantity5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => Quantity5Choice.Code.Deserialize(elementWithPayload),
-             "OrgnlAndCurFaceAmt" => Quantity5Choice.OriginalAndCurrentFaceAmount.Deserialize(elementWithPayload),
-             "Qty" => Quantity5Choice.Quantity.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Quantity5Choice choice.")
-        };
     }
 }

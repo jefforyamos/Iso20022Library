@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
+[IsoId("_jTOIgU9nEeePXdaAO32Uew")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Context")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Context2
-     : IIsoXmlSerilizable<Context2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains point of interaction information specific to a given transaction that may change from transaction to transaction.
     /// </summary>
+    [IsoId("_LW7KcRqbEeqH1IQNpbVpEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Point Of Service Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfServiceContext1? PointOfServiceContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfServiceContext1? PointOfServiceContext { get; init; } 
+    #else
+    public PointOfServiceContext1? PointOfServiceContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
+    [IsoId("_jeFUs09nEeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionContext3? TransactionContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionContext3? TransactionContext { get; init; } 
+    #else
+    public TransactionContext3? TransactionContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method and data intended to be used for this transaction in order to authenticate or verify  the cardholder or his card.
     /// </summary>
+    [IsoId("_jeFUtU9nEeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Verification2? Verification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Verification2? Verification { get; init; } 
+    #else
+    public Verification2? Verification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>
+    [IsoId("_jeFUt09nEeePXdaAO32Uew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskContext1? RiskContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RiskContext1? RiskContext { get; init; } 
+    #else
+    public RiskContext1? RiskContext { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PointOfServiceContext is PointOfServiceContext1 PointOfServiceContextValue)
-        {
-            writer.WriteStartElement(null, "PtOfSvcCntxt", xmlNamespace );
-            PointOfServiceContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionContext is TransactionContext3 TransactionContextValue)
-        {
-            writer.WriteStartElement(null, "TxCntxt", xmlNamespace );
-            TransactionContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Verification is Verification2 VerificationValue)
-        {
-            writer.WriteStartElement(null, "Vrfctn", xmlNamespace );
-            VerificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RiskContext is RiskContext1 RiskContextValue)
-        {
-            writer.WriteStartElement(null, "RskCntxt", xmlNamespace );
-            RiskContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Context2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

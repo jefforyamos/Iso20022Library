@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
+[IsoId("_TfjOFNp-Ed-ak6NoX_4Aeg_1806455399")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDate5
-     : IIsoXmlSerilizable<CorporateActionDate5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
+    [IsoId("_TfjOFdp-Ed-ak6NoX_4Aeg_1920050127")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Rate Fixing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? ForeignExchangeRateFixingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat4Choice_? ForeignExchangeRateFixingDate { get; init; } 
+    #else
+    public DateFormat4Choice_? ForeignExchangeRateFixingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).
     /// </summary>
+    [IsoId("_TfjOFtp-Ed-ak6NoX_4Aeg_-1783188999")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat4Choice_? ValueDate { get; init; } 
+    #else
+    public DateFormat4Choice_? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the distribution is due to take place (cash and/or securities).
     /// </summary>
+    [IsoId("_TfjOF9p-Ed-ak6NoX_4Aeg_104425986")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat4Choice_? PaymentDate { get; init; } 
+    #else
+    public DateFormat4Choice_? PaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which a payment can be made, eg, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
+    [IsoId("_TfjOGNp-Ed-ak6NoX_4Aeg_-19325862")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earliest Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? EarliestPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat4Choice_? EarliestPaymentDate { get; init; } 
+    #else
+    public DateFormat4Choice_? EarliestPaymentDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ForeignExchangeRateFixingDate is DateFormat4Choice_ ForeignExchangeRateFixingDateValue)
-        {
-            writer.WriteStartElement(null, "FXRateFxgDt", xmlNamespace );
-            ForeignExchangeRateFixingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is DateFormat4Choice_ ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            ValueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentDate is DateFormat4Choice_ PaymentDateValue)
-        {
-            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-            PaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarliestPaymentDate is DateFormat4Choice_ EarliestPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
-            EarliestPaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDate5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

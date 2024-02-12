@@ -7,133 +7,256 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
+[IsoId("_USEQI9p-Ed-ak6NoX_4Aeg_2081535346")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transaction7
-     : IIsoXmlSerilizable<Transaction7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transaction7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transaction7( System.String reqAccountOwnerTransactionIdentification )
+    {
+        AccountOwnerTransactionIdentification = reqAccountOwnerTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [IsoId("_USEQJNp-Ed-ak6NoX_4Aeg_-2074116900")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AccountOwnerTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AccountOwnerTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AccountOwnerTransactionIdentification { get; init; } 
+    #else
+    public System.String AccountOwnerTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
+    [IsoId("_USEQJdp-Ed-ak6NoX_4Aeg_-1631128408")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountServicerTransactionIdentification { get; init; } 
+    #else
+    public System.String? AccountServicerTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [IsoId("_USEQJtp-Ed-ak6NoX_4Aeg_-1620029631")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Infrastructure Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MarketInfrastructureTransactionIdentification { get; init; } 
+    #else
+    public System.String? MarketInfrastructureTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
+    [IsoId("_USEQJ9p-Ed-ak6NoX_4Aeg_-1864186309")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TradeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradeIdentification { get; init; } 
+    #else
+    public System.String? TradeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [IsoId("_USEQKNp-Ed-ak6NoX_4Aeg_2081535364")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pool Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PoolIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PoolIdentification { get; init; } 
+    #else
+    public System.String? PoolIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [IsoId("_USEQKdp-Ed-ak6NoX_4Aeg_2081535389")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommonIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommonIdentification { get; init; } 
+    #else
+    public System.String? CommonIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [IsoId("_USEQKtp-Ed-ak6NoX_4Aeg_-306367557")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Event Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CorporateActionEventIdentification { get; init; } 
+    #else
+    public System.String? CorporateActionEventIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the triparty agent's point of view.
     /// </summary>
+    [IsoId("_USEQK9p-Ed-ak6NoX_4Aeg_-306367280")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TripartyAgentCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TripartyAgentCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? TripartyAgentCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
+    [IsoId("_USOBINp-Ed-ak6NoX_4Aeg_-306367203")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Triparty Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientTripartyCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? ClientTripartyCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the details of the transaction.
     /// </summary>
+    [IsoId("_USOBIdp-Ed-ak6NoX_4Aeg_2081535502")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionDetails7? TransactionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionDetails7? TransactionDetails { get; init; } 
+    #else
+    public TransactionDetails7? TransactionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerTransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (AccountServicerTransactionIdentification is IsoMax35Text AccountServicerTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MarketInfrastructureTransactionIdentification is IsoMax35Text MarketInfrastructureTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradeIdentification is IsoMax35Text TradeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TradId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PoolIdentification is IsoMax35Text PoolIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PoolId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PoolIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CommonIdentification is IsoMax35Text CommonIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmonId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CorporateActionEventIdentification is IsoMax35Text CorporateActionEventIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateActionEventIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TripartyAgentCollateralTransactionIdentification is IsoMax35Text TripartyAgentCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgtCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClientTripartyCollateralTransactionIdentification is IsoMax35Text ClientTripartyCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntTrptyCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientTripartyCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionDetails is TransactionDetails7 TransactionDetailsValue)
-        {
-            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
-            TransactionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Transaction7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

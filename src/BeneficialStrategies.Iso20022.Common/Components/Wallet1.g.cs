@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Container for tenders used by the customer to perform the payment transaction.
 /// </summary>
+[IsoId("_kmWJIEanEeeIjf8aP9KbJA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Wallet")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Wallet1
-     : IIsoXmlSerilizable<Wallet1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the provider of the wallet.
     /// </summary>
+    [IsoId("_LWrmQEaoEeeIjf8aP9KbJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Provider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Provider { get; init; } 
+    #else
+    public PartyIdentification197? Provider { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional data associated with wallet.
     /// </summary>
+    [IsoId("_Xa5YkBWJEeiTbY4xN42WAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Wallet Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AdditionalWalletData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalWalletData { get; init; } 
+    #else
+    public System.String? AdditionalWalletData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Provider is PartyIdentification197 ProviderValue)
-        {
-            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
-            ProviderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalWalletData is IsoMax256Text AdditionalWalletDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlWlltData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalWalletDataValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Wallet1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

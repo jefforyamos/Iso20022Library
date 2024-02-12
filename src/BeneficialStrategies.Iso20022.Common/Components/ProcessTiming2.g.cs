@@ -7,96 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters defining the timing conditions to process an action.
 /// </summary>
+[IsoId("_iZSpcR3fEeKWfegf-2AeBQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Process Timing")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProcessTiming2
-     : IIsoXmlSerilizable<ProcessTiming2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Waiting time after the previous action in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
+    [IsoId("_ikvrgR3fEeKWfegf-2AeBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Waiting Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax9NumericText? WaitingTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? WaitingTime { get; init; } 
+    #else
+    public System.String? WaitingTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time to start the action.
     /// </summary>
+    [IsoId("_ikvrhR3fEeKWfegf-2AeBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StartTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? StartTime { get; init; } 
+    #else
+    public System.DateTime? StartTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time after which the action cannot be processed.
     /// </summary>
+    [IsoId("_ikvriR3fEeKWfegf-2AeBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? EndTime { get; init; } 
+    #else
+    public System.DateTime? EndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period delay between cyclic action activation in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
+    [IsoId("_ikvrjR3fEeKWfegf-2AeBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax9NumericText? Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Period { get; init; } 
+    #else
+    public System.String? Period { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of cyclic calls.
     /// </summary>
+    [IsoId("_ikvrkR3fEeKWfegf-2AeBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumNumber { get; init; } 
+    #else
+    public System.UInt64? MaximumNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Definition of retry process if activation of the action fails.
     /// </summary>
+    [IsoId("_ikvrlR3fEeKWfegf-2AeBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Re Try")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessRetry2? ReTry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessRetry2? ReTry { get; init; } 
+    #else
+    public ProcessRetry2? ReTry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (WaitingTime is IsoMax9NumericText WaitingTimeValue)
-        {
-            writer.WriteStartElement(null, "WtgTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax9NumericText(WaitingTimeValue)); // data type Max9NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (StartTime is IsoISODateTime StartTimeValue)
-        {
-            writer.WriteStartElement(null, "StartTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(StartTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (EndTime is IsoISODateTime EndTimeValue)
-        {
-            writer.WriteStartElement(null, "EndTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(EndTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (Period is IsoMax9NumericText PeriodValue)
-        {
-            writer.WriteStartElement(null, "Prd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax9NumericText(PeriodValue)); // data type Max9NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (MaximumNumber is IsoNumber MaximumNumberValue)
-        {
-            writer.WriteStartElement(null, "MaxNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (ReTry is ProcessRetry2 ReTryValue)
-        {
-            writer.WriteStartElement(null, "ReTry", xmlNamespace );
-            ReTryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ProcessTiming2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,60 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification3Choice;
-
-/// <summary>
-/// Unique identification of an agent, as assigned by an institution, using an identification scheme.
-/// </summary>
-public partial record Other : MemberIdentification3Choice_
-     , IIsoXmlSerilizable<Other>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identification of a person.
+    /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public required IsoMax35Text Identification { get; init; } 
-    /// <summary>
-    /// Name of the identification scheme.
-    /// </summary>
-    public FinancialIdentificationSchemeName1Choice_? SchemeName { get; init; } 
-    /// <summary>
-    /// Entity that assigns the identification.
-    /// </summary>
-    public IsoMax35Text? Issuer { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_iR9Bh3SbEeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Other : MemberIdentification3Choice_
+    #else
+    public partial class Other : MemberIdentification3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (SchemeName is FinancialIdentificationSchemeName1Choice_ SchemeNameValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Other instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Other( System.String reqIdentification )
         {
-            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
-            SchemeNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-        if (Issuer is IsoMax35Text IssuerValue)
-        {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Other Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identification of a person.
+        /// </summary>
+        [IsoId("_QALkNNp-Ed-ak6NoX_4Aeg_-2141717392")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the identification scheme.
+        /// </summary>
+        [IsoId("_QALkNdp-Ed-ak6NoX_4Aeg_-2141717054")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Scheme Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialIdentificationSchemeName1Choice_? SchemeName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialIdentificationSchemeName1Choice_? SchemeName { get; init; } 
+        #else
+        public FinancialIdentificationSchemeName1Choice_? SchemeName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Entity that assigns the identification.
+        /// </summary>
+        [IsoId("_QALkNtp-Ed-ak6NoX_4Aeg_-2141717116")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Issuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Issuer { get; init; } 
+        #else
+        public System.String? Issuer { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

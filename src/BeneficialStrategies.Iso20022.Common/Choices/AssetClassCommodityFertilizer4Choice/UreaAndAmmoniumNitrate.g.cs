@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer4Choice;
-
-/// <summary>
-/// Urea and ammonium nitrate fertilizer commodity derivative.
-/// </summary>
-public partial record UreaAndAmmoniumNitrate : AssetClassCommodityFertilizer4Choice_
-     , IIsoXmlSerilizable<UreaAndAmmoniumNitrate>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
+    /// Urea and ammonium nitrate fertilizer commodity derivative.
     /// </summary>
-    public required AssetClassProductType5Code BaseProduct { get; init; } 
-    /// <summary>
-    /// Sub-product for the underlying asset class.
-    /// </summary>
-    public AssetClassSubProductType44Code? SubProduct { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_idnj-08REe2PGo0mhYCh1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Urea And Ammonium Nitrate")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record UreaAndAmmoniumNitrate : AssetClassCommodityFertilizer4Choice_
+    #else
+    public partial class UreaAndAmmoniumNitrate : AssetClassCommodityFertilizer4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
-        writer.WriteValue(BaseProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SubProduct is AssetClassSubProductType44Code SubProductValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a UreaAndAmmoniumNitrate instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public UreaAndAmmoniumNitrate( AssetClassProductType5Code reqBaseProduct )
         {
-            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
-            writer.WriteValue(SubProductValue.ToString()); // Enum value
-            writer.WriteEndElement();
+            BaseProduct = reqBaseProduct;
         }
-    }
-    public static new UreaAndAmmoniumNitrate Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
+        /// </summary>
+        [IsoId("_yLnG0U8REe2PGo0mhYCh1g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Base Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AssetClassProductType5Code BaseProduct { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AssetClassProductType5Code BaseProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassProductType5Code BaseProduct { get; init; } 
+        #else
+        public AssetClassProductType5Code BaseProduct { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sub-product for the underlying asset class.
+        /// </summary>
+        [IsoId("_yLnG008REe2PGo0mhYCh1g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sub Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AssetClassSubProductType44Code? SubProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassSubProductType44Code? SubProduct { get; init; } 
+        #else
+        public AssetClassSubProductType44Code? SubProduct { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

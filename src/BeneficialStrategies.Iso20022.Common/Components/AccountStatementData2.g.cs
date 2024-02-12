@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[IsoId("_mIue8TaqEeyjpIf0r_Ojqw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Statement Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountStatementData2
-     : IIsoXmlSerilizable<AccountStatementData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date the statement is generated.
     /// </summary>
+    [IsoId("_mNrQYTaqEeyjpIf0r_Ojqw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StatementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? StatementDate { get; init; } 
+    #else
+    public System.DateOnly? StatementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time the account statement is generated.
     /// </summary>
+    [IsoId("_mNrQYzaqEeyjpIf0r_Ojqw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? StatementTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? StatementTime { get; init; } 
+    #else
+    public System.TimeOnly? StatementTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Statement information.
     /// </summary>
+    [IsoId("_mNrQZTaqEeyjpIf0r_Ojqw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Statement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountStatementDetails2? AccountStatement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountStatementDetails2? AccountStatement { get; init; } 
+    #else
+    public AccountStatementDetails2? AccountStatement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StatementDate is IsoISODate StatementDateValue)
-        {
-            writer.WriteStartElement(null, "StmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(StatementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (StatementTime is IsoISOTime StatementTimeValue)
-        {
-            writer.WriteStartElement(null, "StmtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(StatementTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (AccountStatement is AccountStatementDetails2 AccountStatementValue)
-        {
-            writer.WriteStartElement(null, "AcctStmt", xmlNamespace );
-            AccountStatementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountStatementData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason why the corporate action reversal occurs.
 /// </summary>
+[IsoId("_ragCYTQVEe2o-K1dwNg8Gg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Reversal Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionReversalReason5
-     : IIsoXmlSerilizable<CorporateActionReversalReason5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionReversalReason5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionReversalReason5( CorporateActionReversalReason5Choice_ reqReason )
+    {
+        Reason = reqReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
+    [IsoId("_ryV6ozQVEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionReversalReason5Choice_ Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionReversalReason5Choice_ Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionReversalReason5Choice_ Reason { get; init; } 
+    #else
+    public CorporateActionReversalReason5Choice_ Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>
+    [IsoId("_ryV6pTQVEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AdditionalReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalReasonInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalReasonInformation is IsoMax256Text AdditionalReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalReasonInformationValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionReversalReason5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

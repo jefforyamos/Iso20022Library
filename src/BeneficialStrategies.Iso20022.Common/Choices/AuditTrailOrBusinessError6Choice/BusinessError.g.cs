@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice;
-
-/// <summary>
-/// Business error resulting from a rejection.
-/// </summary>
-public partial record BusinessError : AuditTrailOrBusinessError6Choice_
-     , IIsoXmlSerilizable<BusinessError>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specification of the error, in coded or proprietary form.
+    /// Business error resulting from a rejection.
     /// </summary>
-    public required ErrorHandling3Choice_ Error { get; init; } 
-    /// <summary>
-    /// Specification of the error, in free format.
-    /// </summary>
-    public IsoMax140Text? Description { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_bcWXk2c-EemvNLufWGIVOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Error")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record BusinessError : AuditTrailOrBusinessError6Choice_
+    #else
+    public partial class BusinessError : AuditTrailOrBusinessError6Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Err", xmlNamespace );
-        Error.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Description is IsoMax140Text DescriptionValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a BusinessError instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public BusinessError( ErrorHandling3Choice_ reqError )
         {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
+            Error = reqError;
         }
-    }
-    public static new BusinessError Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specification of the error, in coded or proprietary form.
+        /// </summary>
+        [IsoId("_RA_78XhdEeidzqjNEfehPg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Error")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ErrorHandling3Choice_ Error { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ErrorHandling3Choice_ Error { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ErrorHandling3Choice_ Error { get; init; } 
+        #else
+        public ErrorHandling3Choice_ Error { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specification of the error, in free format.
+        /// </summary>
+        [IsoId("_RA_783hdEeidzqjNEfehPg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Description")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? Description { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Description { get; init; } 
+        #else
+        public System.String? Description { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

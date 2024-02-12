@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the elements for the identification of an index. ISIN is the preferred format.
 /// </summary>
+[IsoId("_bs7zADN1Ee2gE4h-lpiUxQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Index Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IndexIdentification1
-     : IIsoXmlSerilizable<IndexIdentification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
+    [IsoId("_bs8aEDN1Ee2gE4h-lpiUxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? ISIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ISIN { get; init; } 
+    #else
+    public System.String? ISIN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary identification of the index on which the financial instrument is based.
     /// </summary>
+    [IsoId("_bs7zATN1Ee2gE4h-lpiUxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index name where the underlying is an index.
     /// </summary>
+    [IsoId("_bs7zAjN1Ee2gE4h-lpiUxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalBenchmarkCurveName1Code? Index { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBenchmarkCurveName1Code? Index { get; init; } 
+    #else
+    public ExternalBenchmarkCurveName1Code? Index { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ISIN is IsoISINOct2015Identifier ISINValue)
-        {
-            writer.WriteStartElement(null, "ISIN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax350Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Index is ExternalBenchmarkCurveName1Code IndexValue)
-        {
-            writer.WriteStartElement(null, "Indx", xmlNamespace );
-            writer.WriteValue(IndexValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static IndexIdentification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

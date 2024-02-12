@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice to define the price of the securities transaction.
-/// </summary>
-[KnownType(typeof(SecuritiesTransactionPrice3Choice.MonetaryValue))]
-[KnownType(typeof(SecuritiesTransactionPrice3Choice.Unit))]
-[KnownType(typeof(SecuritiesTransactionPrice3Choice.Percentage))]
-[KnownType(typeof(SecuritiesTransactionPrice3Choice.Yield))]
-[KnownType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice))]
-public abstract partial record SecuritiesTransactionPrice3Choice_ : IIsoXmlSerilizable<SecuritiesTransactionPrice3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice to define the price of the securities transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesTransactionPrice3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesTransactionPrice3Choice.MonetaryValue))]
+    [KnownType(typeof(SecuritiesTransactionPrice3Choice.Unit))]
+    [KnownType(typeof(SecuritiesTransactionPrice3Choice.Percentage))]
+    [KnownType(typeof(SecuritiesTransactionPrice3Choice.Yield))]
+    [KnownType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice))]
+    [IsoId("_rS83x0DWEeWOL-OsSq2h6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Transaction Price 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesTransactionPrice3Choice_
+    #else
+    public abstract partial class SecuritiesTransactionPrice3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MntryVal" => SecuritiesTransactionPrice3Choice.MonetaryValue.Deserialize(elementWithPayload),
-             "Unit" => SecuritiesTransactionPrice3Choice.Unit.Deserialize(elementWithPayload),
-             "Pctg" => SecuritiesTransactionPrice3Choice.Percentage.Deserialize(elementWithPayload),
-             "Yld" => SecuritiesTransactionPrice3Choice.Yield.Deserialize(elementWithPayload),
-             "PdgPric" => SecuritiesTransactionPrice3Choice.PendingPrice.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesTransactionPrice3Choice choice.")
-        };
     }
 }

@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that identifies a side pocket in investment fund orders.
 /// </summary>
+[IsoId("_Sd15dtp-Ed-ak6NoX_4Aeg_-47444681")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Side Pocket Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SidePocketInformation1
-     : IIsoXmlSerilizable<SidePocketInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the investor wants to participate in the optional side pocket.
     /// </summary>
+    [IsoId("_Sd15d9p-Ed-ak6NoX_4Aeg_-890846613")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side Pocket Inclusion Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SidePocketInclusionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SidePocketInclusionIndicator { get; init; } 
+    #else
+    public System.String? SidePocketInclusionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the side pocket.
     /// </summary>
+    [IsoId("_Sd15eNp-Ed-ak6NoX_4Aeg_1426393911")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side Pocket Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SidePocketIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SidePocketIdentification { get; init; } 
+    #else
+    public System.String? SidePocketIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of the side pocket.
     /// </summary>
+    [IsoId("_Sd_DYNp-Ed-ak6NoX_4Aeg_-1013251518")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side Pocket Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SidePocketUnitsOrAmountOrRate1Choice_? SidePocketQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SidePocketUnitsOrAmountOrRate1Choice_? SidePocketQuantity { get; init; } 
+    #else
+    public SidePocketUnitsOrAmountOrRate1Choice_? SidePocketQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SidePocketInclusionIndicator is IsoYesNoIndicator SidePocketInclusionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SdPcktInclsnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SidePocketInclusionIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SidePocketIdentification is IsoMax35Text SidePocketIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SdPcktId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SidePocketIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SidePocketQuantity is SidePocketUnitsOrAmountOrRate1Choice_ SidePocketQuantityValue)
-        {
-            writer.WriteStartElement(null, "SdPcktQty", xmlNamespace );
-            SidePocketQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SidePocketInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

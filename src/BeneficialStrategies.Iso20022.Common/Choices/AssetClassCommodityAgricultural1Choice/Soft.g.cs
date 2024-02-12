@@ -9,54 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural1Choice;
-
-/// <summary>
-/// Soft agricultural commodity derivative.
-/// </summary>
-public partial record Soft : AssetClassCommodityAgricultural1Choice_
-     , IIsoXmlSerilizable<Soft>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
+    /// Soft agricultural commodity derivative.
     /// </summary>
-    public required AssetClassProductType1Code BaseProduct { get; init; } 
-    /// <summary>
-    /// Sub-product for the underlying asset class.
-    /// </summary>
-    public required AssetClassSubProductType2Code SubProduct { get; init; } 
-    /// <summary>
-    /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
-    /// </summary>
-    public required AssetClassDetailedSubProductType2Code AdditionalSubProduct { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_VQFYZA2jEeW72qLtWESimw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Soft")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Soft : AssetClassCommodityAgricultural1Choice_
+    #else
+    public partial class Soft : AssetClassCommodityAgricultural1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
-        writer.WriteValue(BaseProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SubPdct", xmlNamespace );
-        writer.WriteValue(SubProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AddtlSubPdct", xmlNamespace );
-        writer.WriteValue(AdditionalSubProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new Soft Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Soft instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Soft( AssetClassProductType1Code reqBaseProduct,AssetClassSubProductType2Code reqSubProduct,AssetClassDetailedSubProductType2Code reqAdditionalSubProduct )
+        {
+            BaseProduct = reqBaseProduct;
+            SubProduct = reqSubProduct;
+            AdditionalSubProduct = reqAdditionalSubProduct;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
+        /// </summary>
+        [IsoId("_NRHWpw2jEeW72qLtWESimw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Base Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AssetClassProductType1Code BaseProduct { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AssetClassProductType1Code BaseProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassProductType1Code BaseProduct { get; init; } 
+        #else
+        public AssetClassProductType1Code BaseProduct { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sub-product for the underlying asset class.
+        /// </summary>
+        [IsoId("_NRHWpg2jEeW72qLtWESimw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sub Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AssetClassSubProductType2Code SubProduct { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AssetClassSubProductType2Code SubProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassSubProductType2Code SubProduct { get; init; } 
+        #else
+        public AssetClassSubProductType2Code SubProduct { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
+        /// </summary>
+        [IsoId("_NRHWpQ2jEeW72qLtWESimw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Sub Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AssetClassDetailedSubProductType2Code AdditionalSubProduct { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AssetClassDetailedSubProductType2Code AdditionalSubProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassDetailedSubProductType2Code AdditionalSubProduct { get; init; } 
+        #else
+        public AssetClassDetailedSubProductType2Code AdditionalSubProduct { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

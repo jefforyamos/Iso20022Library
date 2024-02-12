@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AddressOrParty1Choice;
-
-/// <summary>
-/// New beneficiary.
-/// </summary>
-public partial record NewBeneficiary : AddressOrParty1Choice_
-     , IIsoXmlSerilizable<NewBeneficiary>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AddressOrParty1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name by which a party is known and is usually used to identify that party.
+    /// New beneficiary.
     /// </summary>
-    public required IsoMax140Text Name { get; init; } 
-    /// <summary>
-    /// Postal address of a party.
-    /// </summary>
-    public required PostalAddress6 Address { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-Eq_sXltEeG7BsjMvd1mEw_-1059783639")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Beneficiary")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NewBeneficiary : AddressOrParty1Choice_
+    #else
+    public partial class NewBeneficiary : AddressOrParty1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Nm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Adr", xmlNamespace );
-        Address.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new NewBeneficiary Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a NewBeneficiary instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public NewBeneficiary( System.String reqName,PostalAddress6 reqAddress )
+        {
+            Name = reqName;
+            Address = reqAddress;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name by which a party is known and is usually used to identify that party.
+        /// </summary>
+        [IsoId("_Pa7iEtp-Ed-ak6NoX_4Aeg_1232531078")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax140Text Name { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Name { get; init; } 
+        #else
+        public System.String Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Postal address of a party.
+        /// </summary>
+        [IsoId("_Pa7iE9p-Ed-ak6NoX_4Aeg_1232531138")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PostalAddress6 Address { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PostalAddress6 Address { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostalAddress6 Address { get; init; } 
+        #else
+        public PostalAddress6 Address { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

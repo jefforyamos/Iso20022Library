@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the repurchase transaction type information.
-/// </summary>
-[KnownType(typeof(RepurchaseType23Choice.Code))]
-[KnownType(typeof(RepurchaseType23Choice.Proprietary))]
-public abstract partial record RepurchaseType23Choice_ : IIsoXmlSerilizable<RepurchaseType23Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the repurchase transaction type information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RepurchaseType23Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RepurchaseType23Choice.Code))]
+    [KnownType(typeof(RepurchaseType23Choice.Proprietary))]
+    [IsoId("_ATHRgY-VEeaVK-2bgpxeYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repurchase Type 23 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RepurchaseType23Choice_
+    #else
+    public abstract partial class RepurchaseType23Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => RepurchaseType23Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => RepurchaseType23Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RepurchaseType23Choice choice.")
-        };
     }
 }

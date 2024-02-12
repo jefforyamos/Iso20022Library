@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format between a rate, an amount or a unspecified rate.
-/// </summary>
-[KnownType(typeof(RateAndAmountFormat14Choice.Rate))]
-[KnownType(typeof(RateAndAmountFormat14Choice.NotSpecifiedRate))]
-[KnownType(typeof(RateAndAmountFormat14Choice.Amount))]
-public abstract partial record RateAndAmountFormat14Choice_ : IIsoXmlSerilizable<RateAndAmountFormat14Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format between a rate, an amount or a unspecified rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RateAndAmountFormat14Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RateAndAmountFormat14Choice.Rate))]
+    [KnownType(typeof(RateAndAmountFormat14Choice.NotSpecifiedRate))]
+    [KnownType(typeof(RateAndAmountFormat14Choice.Amount))]
+    [IsoId("_po6BweGYEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate And Amount Format 14 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RateAndAmountFormat14Choice_
+    #else
+    public abstract partial class RateAndAmountFormat14Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rate" => RateAndAmountFormat14Choice.Rate.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => RateAndAmountFormat14Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-             "Amt" => RateAndAmountFormat14Choice.Amount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RateAndAmountFormat14Choice choice.")
-        };
     }
 }

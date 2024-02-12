@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different instruction processing statuses.
-/// </summary>
-[KnownType(typeof(InstructionProcessingStatus49Choice.Cancelled))]
-[KnownType(typeof(InstructionProcessingStatus49Choice.AcceptedForFurtherProcessing))]
-[KnownType(typeof(InstructionProcessingStatus49Choice.Rejected))]
-[KnownType(typeof(InstructionProcessingStatus49Choice.Pending))]
-[KnownType(typeof(InstructionProcessingStatus49Choice.DefaultAction))]
-[KnownType(typeof(InstructionProcessingStatus49Choice.StandingInstruction))]
-[KnownType(typeof(InstructionProcessingStatus49Choice.ProprietaryStatus))]
-public abstract partial record InstructionProcessingStatus49Choice_ : IIsoXmlSerilizable<InstructionProcessingStatus49Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different instruction processing statuses.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InstructionProcessingStatus49Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InstructionProcessingStatus49Choice.Cancelled))]
+    [KnownType(typeof(InstructionProcessingStatus49Choice.AcceptedForFurtherProcessing))]
+    [KnownType(typeof(InstructionProcessingStatus49Choice.Rejected))]
+    [KnownType(typeof(InstructionProcessingStatus49Choice.Pending))]
+    [KnownType(typeof(InstructionProcessingStatus49Choice.DefaultAction))]
+    [KnownType(typeof(InstructionProcessingStatus49Choice.StandingInstruction))]
+    [KnownType(typeof(InstructionProcessingStatus49Choice.ProprietaryStatus))]
+    [IsoId("_piIs-ji7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Processing Status 49 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InstructionProcessingStatus49Choice_
+    #else
+    public abstract partial class InstructionProcessingStatus49Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Canc" => InstructionProcessingStatus49Choice.Cancelled.Deserialize(elementWithPayload),
-             "AccptdForFrthrPrcg" => InstructionProcessingStatus49Choice.AcceptedForFurtherProcessing.Deserialize(elementWithPayload),
-             "Rjctd" => InstructionProcessingStatus49Choice.Rejected.Deserialize(elementWithPayload),
-             "Pdg" => InstructionProcessingStatus49Choice.Pending.Deserialize(elementWithPayload),
-             "DfltActn" => InstructionProcessingStatus49Choice.DefaultAction.Deserialize(elementWithPayload),
-             "StgInstr" => InstructionProcessingStatus49Choice.StandingInstruction.Deserialize(elementWithPayload),
-             "PrtrySts" => InstructionProcessingStatus49Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InstructionProcessingStatus49Choice choice.")
-        };
     }
 }

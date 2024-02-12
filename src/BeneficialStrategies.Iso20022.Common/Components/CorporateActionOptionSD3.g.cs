@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
+[IsoId("_1esTRjL3EeKU9IrkkToqcw_223855287")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Option SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionOptionSD3
-     : IIsoXmlSerilizable<CorporateActionOptionSD3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionOptionSD3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionOptionSD3( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1e2EQDL3EeKU9IrkkToqcw_72030178")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
+    [IsoId("_1e2EQTL3EeKU9IrkkToqcw_-1808275462")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Option Features")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
+    #else
+    public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the option will be processed as default by DTC (The Depository Trust Corporation) when no election is made.
     /// </summary>
+    [IsoId("_1e2EQjL3EeKU9IrkkToqcw_-2125169151")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Default Option Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCDefaultOptionFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCDefaultOptionFlag { get; init; } 
+    #else
+    public System.String? DTCDefaultOptionFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the option is announced/supported by the issuer/agent.
     /// </summary>
+    [IsoId("_1e2EQzL3EeKU9IrkkToqcw_78045457")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Supported Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IssuerSupportedFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuerSupportedFlag { get; init; } 
+    #else
+    public System.String? IssuerSupportedFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Certain tax authorities provide control numbers to investors to instruct on Foreign Tax Relief service at DTC (The Depository Trust Corporation). This flag notes which events have these requirements and requires the DTC participant to input the control numbers.
     /// </summary>
+    [IsoId("_1e2ERDL3EeKU9IrkkToqcw_-15276405")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Tax Control Number Required Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCTaxControlNumberRequiredFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCTaxControlNumberRequiredFlag { get; init; } 
+    #else
+    public System.String? DTCTaxControlNumberRequiredFlag { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (ExtendedOptionFeatures is ExtendedOptionFeature1Code ExtendedOptionFeaturesValue)
-        {
-            writer.WriteStartElement(null, "XtndedOptnFeatrs", xmlNamespace );
-            writer.WriteValue(ExtendedOptionFeaturesValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DTCDefaultOptionFlag is IsoYesNoIndicator DTCDefaultOptionFlagValue)
-        {
-            writer.WriteStartElement(null, "DTCDfltOptnFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCDefaultOptionFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (IssuerSupportedFlag is IsoYesNoIndicator IssuerSupportedFlagValue)
-        {
-            writer.WriteStartElement(null, "IssrSpprtdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(IssuerSupportedFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DTCTaxControlNumberRequiredFlag is IsoYesNoIndicator DTCTaxControlNumberRequiredFlagValue)
-        {
-            writer.WriteStartElement(null, "DTCTaxCtrlNbReqrdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCTaxControlNumberRequiredFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionOptionSD3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

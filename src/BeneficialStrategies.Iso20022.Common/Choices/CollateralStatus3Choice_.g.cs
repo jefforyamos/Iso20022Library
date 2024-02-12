@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the collateral status of an instruction.
-/// </summary>
-[KnownType(typeof(CollateralStatus3Choice.Pending))]
-[KnownType(typeof(CollateralStatus3Choice.Proprietary))]
-public abstract partial record CollateralStatus3Choice_ : IIsoXmlSerilizable<CollateralStatus3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the collateral status of an instruction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CollateralStatus3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CollateralStatus3Choice.Pending))]
+    [KnownType(typeof(CollateralStatus3Choice.Proprietary))]
+    [IsoId("_K3a_kOCdEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Status 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CollateralStatus3Choice_
+    #else
+    public abstract partial class CollateralStatus3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Pdg" => CollateralStatus3Choice.Pending.Deserialize(elementWithPayload),
-             "Prtry" => CollateralStatus3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CollateralStatus3Choice choice.")
-        };
     }
 }

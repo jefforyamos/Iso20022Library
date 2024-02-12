@@ -7,106 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional acceptor data
 /// </summary>
+[IsoId("_ZG0IJfJREeiJn9rM2Znz2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Acceptor Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalAcceptorData1
-     : IIsoXmlSerilizable<AdditionalAcceptorData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains a code that facilitates card acceptor/corporation communication and record keeping.
     /// </summary>
+    [IsoId("_ZG0vMfJREeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Transaction Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalTransactionReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalTransactionReferenceNumber { get; init; } 
+    #else
+    public System.String? AdditionalTransactionReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the company recognized by the taxation authority.  Used for reporting transaction-related taxes.
     /// </summary>
+    [IsoId("__OitIfJREeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Registration Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxRegistrationIdentification { get; init; } 
+    #else
+    public System.String? TaxRegistrationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the company recognized by the taxation authority.  Used for reporting corporate-related taxes.
     /// </summary>
+    [IsoId("_ZG0vMvJREeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Tax Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CorporateTaxIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CorporateTaxIdentification { get; init; } 
+    #else
+    public System.String? CorporateTaxIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the corporate tax identification type.
     /// </summary>
+    [IsoId("_AFElwP41Eeix6ug6HlF6IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Tax Identification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateTaxType1Code? CorporateTaxIdentificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateTaxType1Code? CorporateTaxIdentificationType { get; init; } 
+    #else
+    public CorporateTaxType1Code? CorporateTaxIdentificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional identification information. 
     /// </summary>
+    [IsoId("_ZG0vMPJREeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalIdentification1? AdditionalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalIdentification1? AdditionalIdentification { get; init; } 
+    #else
+    public AdditionalIdentification1? AdditionalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains various classifications of business ownership characteristics.
     /// </summary>
+    [IsoId("_0X-5oPJZEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristics1? Characteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalCharacteristics1? Characteristics { get; init; } 
+    #else
+    public AdditionalCharacteristics1? Characteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the card acceptor.
     /// </summary>
+    [IsoId("_aVCxoPJYEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AdditionalTransactionReferenceNumber is IsoMax70Text AdditionalTransactionReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "AddtlTxRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalTransactionReferenceNumberValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxRegistrationIdentification is IsoMax70Text TaxRegistrationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TaxRegnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(TaxRegistrationIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CorporateTaxIdentification is IsoMax35Text CorporateTaxIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CorpTaxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateTaxIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CorporateTaxIdentificationType is CorporateTaxType1Code CorporateTaxIdentificationTypeValue)
-        {
-            writer.WriteStartElement(null, "CorpTaxIdTp", xmlNamespace );
-            writer.WriteValue(CorporateTaxIdentificationTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalIdentification is AdditionalIdentification1 AdditionalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
-            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Characteristics is AdditionalCharacteristics1 CharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "Chrtcs", xmlNamespace );
-            CharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalAcceptorData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

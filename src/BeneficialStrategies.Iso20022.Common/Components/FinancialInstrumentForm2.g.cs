@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the form of the financial Instrument.
 /// </summary>
+[IsoId("_dPETJeLxEeWOD7aAy2fAcA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Form")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentForm2
-     : IIsoXmlSerilizable<FinancialInstrumentForm2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the booking appearance of the financial Instrument.
     /// </summary>
+    [IsoId("_dYSgkeLxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Booking Appearance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Appearance3Choice_? BookingAppearance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Appearance3Choice_? BookingAppearance { get; init; } 
+    #else
+    public Appearance3Choice_? BookingAppearance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
+    [IsoId("_dYSgk-LxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Form")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity8Choice_? LegalForm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FormOfSecurity8Choice_? LegalForm { get; init; } 
+    #else
+    public FormOfSecurity8Choice_? LegalForm { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BookingAppearance is Appearance3Choice_ BookingAppearanceValue)
-        {
-            writer.WriteStartElement(null, "BookgApprnc", xmlNamespace );
-            BookingAppearanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalForm is FormOfSecurity8Choice_ LegalFormValue)
-        {
-            writer.WriteStartElement(null, "LglForm", xmlNamespace );
-            LegalFormValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrumentForm2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

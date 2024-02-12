@@ -7,43 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference to enable the receiving account servicer to reconcile the payment with the message.
 /// </summary>
+[IsoId("_60SyMQ2aEeSNWNtJlXOAhg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Balance Transfer Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BalanceTransferReference1
-     : IIsoXmlSerilizable<BalanceTransferReference1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BalanceTransferReference1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BalanceTransferReference1( System.String reqBalanceTransferReference )
+    {
+        BalanceTransferReference = reqBalanceTransferReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Used by the debtor in a suitable reference field of a payment message sent over an alternative payment channel to enable the creditor to match the payment with the payment request.
     /// </summary>
+    [IsoId("_-1hL8A2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Transfer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BalanceTransferReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String BalanceTransferReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String BalanceTransferReference { get; init; } 
+    #else
+    public System.String BalanceTransferReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BalTrfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(BalanceTransferReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static BalanceTransferReference1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

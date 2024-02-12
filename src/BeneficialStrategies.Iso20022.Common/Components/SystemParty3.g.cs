@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -17,118 +23,188 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A party shall denote any legal or organisational entity required in the system. 
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
+[IsoId("_kmMrI-5NEeCisYr99QEiWA_-1960651676")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Party")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemParty3
-     : IIsoXmlSerilizable<SystemParty3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
+    [IsoId("_kmMrJO5NEeCisYr99QEiWA_518289586")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OpeningDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? OpeningDate { get; init; } 
+    #else
+    public System.DateOnly? OpeningDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
+    [IsoId("_kmV1EO5NEeCisYr99QEiWA_-478782767")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ClosingDate { get; init; } 
+    #else
+    public System.DateOnly? ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
+    [IsoId("_kmV1Ee5NEeCisYr99QEiWA_-1475855120")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyType1Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyType1Code? Type { get; init; } 
+    #else
+    public SystemPartyType1Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
+    [IsoId("_kmV1Eu5NEeCisYr99QEiWA_1822039823")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TechnicalIdentification1Choice_? TechnicalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TechnicalIdentification1Choice_? TechnicalAddress { get; init; } 
+    #else
+    public TechnicalIdentification1Choice_? TechnicalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
+    [IsoId("_kmV1E-5NEeCisYr99QEiWA_824967470")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Specific Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
+    #else
+    public MarketSpecificAttribute1? MarketSpecificAttribute { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
+    [IsoId("_kmV1FO5NEeCisYr99QEiWA_399330754")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification1? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification1? Identification { get; init; } 
+    #else
+    public SystemPartyIdentification1? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name by which an organisation is known and which is usually used to identify that organisation.
     /// </summary>
+    [IsoId("_kmfmEO5NEeCisYr99QEiWA_-2055026817")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyName3? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyName3? Name { get; init; } 
+    #else
+    public PartyName3? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
+    [IsoId("_kmfmEe5NEeCisYr99QEiWA_-341683547")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress10? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress10? Address { get; init; } 
+    #else
+    public PostalAddress10? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
+    [IsoId("_kmfmEu5NEeCisYr99QEiWA_-437950738")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restriction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemRestriction1? Restriction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemRestriction1? Restriction { get; init; } 
+    #else
+    public SystemRestriction1? Restriction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OpeningDate is IsoISODate OpeningDateValue)
-        {
-            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ClosingDate is IsoISODate ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Type is SystemPartyType1Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TechnicalAddress is TechnicalIdentification1Choice_ TechnicalAddressValue)
-        {
-            writer.WriteStartElement(null, "TechAdr", xmlNamespace );
-            TechnicalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketSpecificAttribute is MarketSpecificAttribute1 MarketSpecificAttributeValue)
-        {
-            writer.WriteStartElement(null, "MktSpcfcAttr", xmlNamespace );
-            MarketSpecificAttributeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Identification is SystemPartyIdentification1 IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Name is PartyName3 NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            NameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Address is PostalAddress10 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Restriction is SystemRestriction1 RestrictionValue)
-        {
-            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
-            RestrictionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemParty3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

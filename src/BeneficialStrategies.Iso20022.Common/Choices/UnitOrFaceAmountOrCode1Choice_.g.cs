@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a unit in decimal number, a face amount in currency and amount or a unit expressed as a code.
-/// </summary>
-[KnownType(typeof(UnitOrFaceAmountOrCode1Choice.Unit))]
-[KnownType(typeof(UnitOrFaceAmountOrCode1Choice.FaceAmount))]
-[KnownType(typeof(UnitOrFaceAmountOrCode1Choice.Code))]
-public abstract partial record UnitOrFaceAmountOrCode1Choice_ : IIsoXmlSerilizable<UnitOrFaceAmountOrCode1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a unit in decimal number, a face amount in currency and amount or a unit expressed as a code.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnitOrFaceAmountOrCode1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnitOrFaceAmountOrCode1Choice.Unit))]
+    [KnownType(typeof(UnitOrFaceAmountOrCode1Choice.FaceAmount))]
+    [KnownType(typeof(UnitOrFaceAmountOrCode1Choice.Code))]
+    [IsoId("_SoH21tp-Ed-ak6NoX_4Aeg_361302758")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Or Face Amount Or Code 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnitOrFaceAmountOrCode1Choice_
+    #else
+    public abstract partial class UnitOrFaceAmountOrCode1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Unit" => UnitOrFaceAmountOrCode1Choice.Unit.Deserialize(elementWithPayload),
-             "FaceAmt" => UnitOrFaceAmountOrCode1Choice.FaceAmount.Deserialize(elementWithPayload),
-             "Cd" => UnitOrFaceAmountOrCode1Choice.Code.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnitOrFaceAmountOrCode1Choice choice.")
-        };
     }
 }

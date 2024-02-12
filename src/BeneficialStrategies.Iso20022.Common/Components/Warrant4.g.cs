@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial instrument that gives the holder the right to purchase shares or bonds at a given price within a specified time.
 /// </summary>
+[IsoId("_rfndQWf2Eembv_9KtOEw8g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Warrant")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Warrant4
-     : IIsoXmlSerilizable<Warrant4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
+    [IsoId("_rsuFIWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multiplier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? Multiplier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Multiplier { get; init; } 
+    #else
+    public System.Decimal? Multiplier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Pre-determined price at which the holder of a warrant is entitled to buy the underlying instrument.
     /// </summary>
+    [IsoId("_rsuFI2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscription Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? SubscriptionPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price8? SubscriptionPrice { get; init; } 
+    #else
+    public Price8? SubscriptionPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates when a warrant can be exercised.
     /// </summary>
+    [IsoId("_rsuFJWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WarrantStyle3Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public WarrantStyle3Choice_? Type { get; init; } 
+    #else
+    public WarrantStyle3Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity appointed by the issuer to process the exercising of warrants, sometimes responsible for the issuance of the warrants into the market.
     /// </summary>
+    [IsoId("_rsuFJ2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Warrant Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? WarrantAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation38? WarrantAgent { get; init; } 
+    #else
+    public Organisation38? WarrantAgent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Multiplier is IsoBaseOneRate MultiplierValue)
-        {
-            writer.WriteStartElement(null, "Mltplr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(MultiplierValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SubscriptionPrice is Price8 SubscriptionPriceValue)
-        {
-            writer.WriteStartElement(null, "SbcptPric", xmlNamespace );
-            SubscriptionPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Type is WarrantStyle3Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WarrantAgent is Organisation38 WarrantAgentValue)
-        {
-            writer.WriteStartElement(null, "WarrtAgt", xmlNamespace );
-            WarrantAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Warrant4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

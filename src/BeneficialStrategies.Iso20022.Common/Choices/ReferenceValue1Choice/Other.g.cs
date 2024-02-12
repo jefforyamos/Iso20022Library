@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
-
-/// <summary>
-/// Other type of reference.
-/// </summary>
-public partial record Other : ReferenceValue1Choice_
-     , IIsoXmlSerilizable<Other>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of reference
+    /// Other type of reference.
     /// </summary>
-    public required ReferenceType1Choice_ Type { get; init; } 
-    /// <summary>
-    /// Value of the reference
-    /// </summary>
-    public required IsoMax256Text Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_rIqsMMeQEeysUoBKYz1Ytw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Other : ReferenceValue1Choice_
+    #else
+    public partial class Other : ReferenceValue1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Value)); // data type Max256Text System.String
-        writer.WriteEndElement();
-    }
-    public static new Other Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Other instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Other( ReferenceType1Choice_ reqType,System.String reqValue )
+        {
+            Type = reqType;
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of reference
+        /// </summary>
+        [IsoId("_GZsGAMeUEeysUoBKYz1Ytw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ReferenceType1Choice_ Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ReferenceType1Choice_ Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReferenceType1Choice_ Type { get; init; } 
+        #else
+        public ReferenceType1Choice_ Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the reference
+        /// </summary>
+        [IsoId("_LuoKYMeUEeysUoBKYz1Ytw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax256Text Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

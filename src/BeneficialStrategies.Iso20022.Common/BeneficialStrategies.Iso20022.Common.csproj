@@ -1,10 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>NET8;NET7;NET6</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>BeneficialStrategies.Iso20022</RootNamespace>
+    <PackageId>com.beneficialstrategies.iso20022.2024.02.09</PackageId>
+    <Version>1.0.0-alpha</Version>
+    <Authors>Jeff Ward</Authors>
+    <Company>BeneficialStrategies.com</Company>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
  </Project>

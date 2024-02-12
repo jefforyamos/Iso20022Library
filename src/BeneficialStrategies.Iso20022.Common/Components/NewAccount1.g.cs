@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the new account.
 /// </summary>
+[IsoId("_D6dWYA2kEeSNWNtJlXOAhg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("New Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NewAccount1
-     : IIsoXmlSerilizable<NewAccount1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NewAccount1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NewAccount1( CashAccount36 reqAccount )
+    {
+        Account = reqAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details of the new account.
     /// </summary>
+    [IsoId("_KBJAwA2kEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount36 Account { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount36 Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount36 Account { get; init; } 
+    #else
+    public CashAccount36 Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party or parties to be identified in the context of account operations.
     /// </summary>
+    [IsoId("_UbCz0A2kEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public IndividualPerson19? AccountParty { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UbCz0A2kEeSNWNtJlXOAhg
+    
     /// <summary>
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>
+    [IsoId("_Xw-N0A2kEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation20? Organisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation20? Organisation { get; init; } 
+    #else
+    public Organisation20? Organisation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Acct", xmlNamespace );
-        Account.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize AccountParty, multiplicity Unknown
-        if (Organisation is Organisation20 OrganisationValue)
-        {
-            writer.WriteStartElement(null, "Org", xmlNamespace );
-            OrganisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static NewAccount1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
-/// </summary>
-[KnownType(typeof(PreviousYear1Choice.AllPreviousYears))]
-[KnownType(typeof(PreviousYear1Choice.SpecificPreviousYears))]
-public abstract partial record PreviousYear1Choice_ : IIsoXmlSerilizable<PreviousYear1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PreviousYear1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PreviousYear1Choice.AllPreviousYears))]
+    [KnownType(typeof(PreviousYear1Choice.SpecificPreviousYears))]
+    [IsoId("_3fxScUXfEeGY6MkiuzuPOA_-1781639499")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Year 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PreviousYear1Choice_
+    #else
+    public abstract partial class PreviousYear1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AllPrvsYrs" => PreviousYear1Choice.AllPreviousYears.Deserialize(elementWithPayload),
-             "SpcfcPrvsYrs" => PreviousYear1Choice.SpecificPreviousYears.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PreviousYear1Choice choice.")
-        };
     }
 }

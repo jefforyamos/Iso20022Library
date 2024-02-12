@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification248Choice;
-
-/// <summary>
-/// Party is a natural person.
-/// </summary>
-public partial record Natural : PartyIdentification248Choice_
-     , IIsoXmlSerilizable<Natural>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification248Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identification of the natural person.
+    /// Party is a natural person.
     /// </summary>
-    public required NaturalPersonIdentification2 Identification { get; init; } 
-    /// <summary>
-    /// Code of country of residence of a natural person.
-    /// </summary>
-    public CountryCode? Country { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_WAhpkz3YEe2uHKhHp3bXyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Natural")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Natural : PartyIdentification248Choice_
+    #else
+    public partial class Natural : PartyIdentification248Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Country is CountryCode CountryValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Natural instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Natural( NaturalPersonIdentification2 reqIdentification )
         {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(CountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-    }
-    public static new Natural Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identification of the natural person.
+        /// </summary>
+        [IsoId("_kMVykT3ZEe2uHKhHp3bXyA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required NaturalPersonIdentification2 Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public NaturalPersonIdentification2 Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NaturalPersonIdentification2 Identification { get; init; } 
+        #else
+        public NaturalPersonIdentification2 Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Code of country of residence of a natural person.
+        /// </summary>
+        [IsoId("_P8TLYD3aEe2uHKhHp3bXyA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Country")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CountryCode? Country { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? Country { get; init; } 
+        #else
+        public string? Country { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

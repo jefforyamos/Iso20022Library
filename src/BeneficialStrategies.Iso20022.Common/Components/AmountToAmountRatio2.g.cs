@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ratio expressed as a quotient of amounts.
 /// </summary>
+[IsoId("_UHohydp-Ed-ak6NoX_4Aeg_-722645114")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amount To Amount Ratio")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmountToAmountRatio2
-     : IIsoXmlSerilizable<AmountToAmountRatio2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AmountToAmountRatio2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AmountToAmountRatio2( System.Decimal reqAmount1,System.Decimal reqAmount2 )
+    {
+        Amount1 = reqAmount1;
+        Amount2 = reqAmount2;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Numerator of the quotient of amounts.
     /// </summary>
+    [IsoId("_UHohytp-Ed-ak6NoX_4Aeg_1560297783")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount Amount1 { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount1 { get; init; } 
+    #else
+    public System.Decimal Amount1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Denominator of the quotient of amounts.
     /// </summary>
+    [IsoId("_UHohy9p-Ed-ak6NoX_4Aeg_1248536401")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount Amount2 { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount2 { get; init; } 
+    #else
+    public System.Decimal Amount2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt1", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount1)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Amt2", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount2)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static AmountToAmountRatio2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

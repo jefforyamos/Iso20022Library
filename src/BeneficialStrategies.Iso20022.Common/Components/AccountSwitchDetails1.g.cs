@@ -7,109 +7,207 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the account switch, including its status and any response codes.
 /// </summary>
+[IsoId("_8m2xcQ2ZEeSNWNtJlXOAhg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Switch Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountSwitchDetails1
-     : IIsoXmlSerilizable<AccountSwitchDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountSwitchDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountSwitchDetails1( System.String reqUniqueReferenceNumber,System.String reqRoutingUniqueReferenceNumber,SwitchType1Code reqSwitchType )
+    {
+        UniqueReferenceNumber = reqUniqueReferenceNumber;
+        RoutingUniqueReferenceNumber = reqRoutingUniqueReferenceNumber;
+        SwitchType = reqSwitchType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// </summary>
+    [IsoId("_vm6TwA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unique Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text UniqueReferenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String UniqueReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String UniqueReferenceNumber { get; init; } 
+    #else
+    public System.String UniqueReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// Usage: Where one or more account switches have taken place since the original account switch this field contains the unique number that relates to the switch that transferred the account to the latest new account servicer.
     /// </summary>
+    [IsoId("_cbscEA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Routing Unique Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RoutingUniqueReferenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RoutingUniqueReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RoutingUniqueReferenceNumber { get; init; } 
+    #else
+    public System.String RoutingUniqueReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time that the request was received by the central switch service, populated by the central switch service only.
     /// </summary>
+    [IsoId("_f7vbYA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Switch Received Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? SwitchReceivedDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? SwitchReceivedDateTime { get; init; } 
+    #else
+    public System.DateTime? SwitchReceivedDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the account switch is expected to have completed. The value is the same as the targeted switch date if the switch completes in the expected timeline.
     /// </summary>
+    [IsoId("_o9RtUA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Switch Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SwitchDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SwitchDate { get; init; } 
+    #else
+    public System.DateOnly? SwitchDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account switch is a full switch or a partial switch.
     /// Usage: A full switch indicates the transfer of the full balance of the account and associated payment mandates. A partial switch indicates the transfer of certain payment mandates to a new account.
     /// </summary>
+    [IsoId("_jB57EA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Switch Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchType1Code SwitchType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SwitchType1Code SwitchType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SwitchType1Code SwitchType { get; init; } 
+    #else
+    public SwitchType1Code SwitchType { get; set; } 
+    #endif
+    
     /// <summary>
     /// State of the account switch at the time the message is sent.
     /// </summary>
+    [IsoId("_mPEaoA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Switch Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SwitchStatus1Code? SwitchStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SwitchStatus1Code? SwitchStatus { get; init; } 
+    #else
+    public SwitchStatus1Code? SwitchStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the processing window in which the balance transfer will be processed on the day of the account switch.
     /// </summary>
+    [IsoId("_s39aMA2aEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Transfer Window")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceTransferWindow1Code? BalanceTransferWindow { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceTransferWindow1Code? BalanceTransferWindow { get; init; } 
+    #else
+    public BalanceTransferWindow1Code? BalanceTransferWindow { get; set; } 
+    #endif
+    
     /// <summary>
     /// Response code and additional information.
     /// </summary>
+    [IsoId("_wTtyIBE7EeafpqhYGpTDnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseDetails1? Response { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseDetails1? Response { get; init; } 
+    #else
+    public ResponseDetails1? Response { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UnqRefNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(UniqueReferenceNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RtgUnqRefNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RoutingUniqueReferenceNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (SwitchReceivedDateTime is IsoISODateTime SwitchReceivedDateTimeValue)
-        {
-            writer.WriteStartElement(null, "SwtchRcvdDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(SwitchReceivedDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (SwitchDate is IsoISODate SwitchDateValue)
-        {
-            writer.WriteStartElement(null, "SwtchDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SwitchDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SwtchTp", xmlNamespace );
-        writer.WriteValue(SwitchType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SwitchStatus is SwitchStatus1Code SwitchStatusValue)
-        {
-            writer.WriteStartElement(null, "SwtchSts", xmlNamespace );
-            writer.WriteValue(SwitchStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BalanceTransferWindow is BalanceTransferWindow1Code BalanceTransferWindowValue)
-        {
-            writer.WriteStartElement(null, "BalTrfWndw", xmlNamespace );
-            writer.WriteValue(BalanceTransferWindowValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Response is ResponseDetails1 ResponseValue)
-        {
-            writer.WriteStartElement(null, "Rspn", xmlNamespace );
-            ResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountSwitchDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

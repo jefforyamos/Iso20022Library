@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Information about contract status.
-/// </summary>
-[KnownType(typeof(ClearingExceptionOrExemption3Choice.Reason))]
-[KnownType(typeof(ClearingExceptionOrExemption3Choice.Counterparties))]
-public abstract partial record ClearingExceptionOrExemption3Choice_ : IIsoXmlSerilizable<ClearingExceptionOrExemption3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Information about contract status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ClearingExceptionOrExemption3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ClearingExceptionOrExemption3Choice.Reason))]
+    [KnownType(typeof(ClearingExceptionOrExemption3Choice.Counterparties))]
+    [IsoId("_Ah8Gl5PuEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Exception Or Exemption 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ClearingExceptionOrExemption3Choice_
+    #else
+    public abstract partial class ClearingExceptionOrExemption3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rsn" => ClearingExceptionOrExemption3Choice.Reason.Deserialize(elementWithPayload),
-             "CtrPties" => ClearingExceptionOrExemption3Choice.Counterparties.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ClearingExceptionOrExemption3Choice choice.")
-        };
     }
 }

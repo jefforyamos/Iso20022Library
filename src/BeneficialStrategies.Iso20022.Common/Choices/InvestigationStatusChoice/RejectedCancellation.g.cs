@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
-
-/// <summary>
-/// Explains the reason for rejecting a payment cancellation request.
-/// </summary>
-public partial record RejectedCancellation : InvestigationStatusChoice_
-     , IIsoXmlSerilizable<RejectedCancellation>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Justification for the rejection of the cancellation.
+    /// Explains the reason for rejecting a payment cancellation request.
     /// </summary>
-    public required PaymentCancellationRejection1Code ReasonCode { get; init; } 
-    /// <summary>
-    /// Free text justification for rejecting a cancellation.
-    /// </summary>
-    public IsoMax140Text? Reason { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UuYYtdp-Ed-ak6NoX_4Aeg_1934789984")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Cancellation")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record RejectedCancellation : InvestigationStatusChoice_
+    #else
+    public partial class RejectedCancellation : InvestigationStatusChoice_
+    #endif
     {
-        writer.WriteStartElement(null, "RsnCd", xmlNamespace );
-        writer.WriteValue(ReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Reason is IsoMax140Text ReasonValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a RejectedCancellation instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public RejectedCancellation( PaymentCancellationRejection1Code reqReasonCode )
         {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(ReasonValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
+            ReasonCode = reqReasonCode;
         }
-    }
-    public static new RejectedCancellation Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Justification for the rejection of the cancellation.
+        /// </summary>
+        [IsoId("_T9gVY9p-Ed-ak6NoX_4Aeg_173058696")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PaymentCancellationRejection1Code ReasonCode { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PaymentCancellationRejection1Code ReasonCode { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PaymentCancellationRejection1Code ReasonCode { get; init; } 
+        #else
+        public PaymentCancellationRejection1Code ReasonCode { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Free text justification for rejecting a cancellation.
+        /// </summary>
+        [IsoId("_T9gVZNp-Ed-ak6NoX_4Aeg_1563536447")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? Reason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Reason { get; init; } 
+        #else
+        public System.String? Reason { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

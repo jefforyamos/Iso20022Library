@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
-/// </summary>
-[KnownType(typeof(PlaceOfTradeIdentification3Choice.Country))]
-[KnownType(typeof(PlaceOfTradeIdentification3Choice.Exchange))]
-[KnownType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
-public abstract partial record PlaceOfTradeIdentification3Choice_ : IIsoXmlSerilizable<PlaceOfTradeIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PlaceOfTradeIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PlaceOfTradeIdentification3Choice.Country))]
+    [KnownType(typeof(PlaceOfTradeIdentification3Choice.Exchange))]
+    [KnownType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
+    [IsoId("_WNc-0tp-Ed-ak6NoX_4Aeg_-1162943357")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Trade Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PlaceOfTradeIdentification3Choice_
+    #else
+    public abstract partial class PlaceOfTradeIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ctry" => PlaceOfTradeIdentification3Choice.Country.Deserialize(elementWithPayload),
-             "Xchg" => PlaceOfTradeIdentification3Choice.Exchange.Deserialize(elementWithPayload),
-             "OverTheCntr" => PlaceOfTradeIdentification3Choice.OverTheCounter.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PlaceOfTradeIdentification3Choice choice.")
-        };
     }
 }

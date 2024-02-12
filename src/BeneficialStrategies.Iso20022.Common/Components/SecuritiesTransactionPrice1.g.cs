@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Descriptive fields capturing where no strike price is known.
 /// </summary>
+[IsoId("_cqBnQOI_EeWWKb0jFHxViQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Transaction Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesTransactionPrice1
-     : IIsoXmlSerilizable<SecuritiesTransactionPrice1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesTransactionPrice1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesTransactionPrice1( PriceStatus1Code reqPending )
+    {
+        Pending = reqPending;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
+    [IsoId("_lr-v8OI_EeWWKb0jFHxViQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceStatus1Code Pending { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceStatus1Code Pending { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceStatus1Code Pending { get; init; } 
+    #else
+    public PriceStatus1Code Pending { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
+    [IsoId("_tbdkIOI_EeWWKb0jFHxViQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Pdg", xmlNamespace );
-        writer.WriteValue(Pending.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesTransactionPrice1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

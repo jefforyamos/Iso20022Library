@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a custody statement of holdings.
 /// </summary>
+[IsoId("_RPKf0tp-Ed-ak6NoX_4Aeg_1115213683")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Custody Statement Of Holdings")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CustodyStatementOfHoldings2
-     : IIsoXmlSerilizable<CustodyStatementOfHoldings2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// General information related to the custody statement of holdings that is being cancelled.
     /// </summary>
+    [IsoId("_RPKf09p-Ed-ak6NoX_4Aeg_1115213702")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement General Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Statement7? StatementGeneralDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Statement7? StatementGeneralDetails { get; init; } 
+    #else
+    public Statement7? StatementGeneralDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Safekeeping or investment account of the statement that is being cancelled.
     /// </summary>
+    [IsoId("_RPKf1Np-Ed-ak6NoX_4Aeg_1115213839")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingAccount2? AccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafekeepingAccount2? AccountDetails { get; init; } 
+    #else
+    public SafekeepingAccount2? AccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
+    [IsoId("_RPKf1dp-Ed-ak6NoX_4Aeg_1115213779")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance For Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateBalanceInformation4? BalanceForAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AggregateBalanceInformation4? BalanceForAccount { get; init; } 
+    #else
+    public AggregateBalanceInformation4? BalanceForAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub-account of the safekeeping or investment account.
     /// </summary>
+    [IsoId("_RPKf1tp-Ed-ak6NoX_4Aeg_1115213821")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubAccountIdentification5? SubAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubAccountIdentification5? SubAccountDetails { get; init; } 
+    #else
+    public SubAccountIdentification5? SubAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of total holdings reported.
     /// </summary>
+    [IsoId("_RPKf19p-Ed-ak6NoX_4Aeg_1115213744")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Values")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalValueInPageAndStatement? TotalValues { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TotalValueInPageAndStatement? TotalValues { get; init; } 
+    #else
+    public TotalValueInPageAndStatement? TotalValues { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_RPKf2Np-Ed-ak6NoX_4Aeg_1115213874")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StatementGeneralDetails is Statement7 StatementGeneralDetailsValue)
-        {
-            writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
-            StatementGeneralDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountDetails is SafekeepingAccount2 AccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
-            AccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BalanceForAccount is AggregateBalanceInformation4 BalanceForAccountValue)
-        {
-            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
-            BalanceForAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubAccountDetails is SubAccountIdentification5 SubAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
-            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalValues is TotalValueInPageAndStatement TotalValuesValue)
-        {
-            writer.WriteStartElement(null, "TtlVals", xmlNamespace );
-            TotalValuesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CustodyStatementOfHoldings2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

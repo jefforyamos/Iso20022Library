@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details to specify the frequency, pattern and other items to allow for the communication of a series of payments to be made to the same recipient over a period of time.
 /// </summary>
+[IsoId("_QUNr4Q2lEeSNWNtJlXOAhg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Frequency")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Frequency1
-     : IIsoXmlSerilizable<Frequency1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Frequency1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Frequency1( System.DateOnly reqStartDate,EndPoint1Choice_ reqEndPointChoice )
+    {
+        StartDate = reqStartDate;
+        EndPointChoice = reqEndPointChoice;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Technical identifier of a Credit Transfer as part of a series of Credit Transfers within a single Payment Instruction. Assists the transfer of complex variable future payment schedules, associated with a single act of customer consent, within a single Payment Instruction.
     /// </summary>
+    [IsoId("_eeziUA2lEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? Sequence { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Sequence { get; init; } 
+    #else
+    public System.String? Sequence { get; set; } 
+    #endif
+    
     /// <summary>
     /// The date of the first payment to be made for this payment schedule.
     /// </summary>
+    [IsoId("_g4fWgA2lEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate StartDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly StartDate { get; init; } 
+    #else
+    public System.DateOnly StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about when the payment arrangement will end.
     /// </summary>
+    [IsoId("_2-aEwA2lEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Point Choice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EndPoint1Choice_ EndPointChoice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EndPoint1Choice_ EndPointChoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EndPoint1Choice_ EndPointChoice { get; init; } 
+    #else
+    public EndPoint1Choice_ EndPointChoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment schedule frequency pattern which indicates how frequently a payment is made.
     /// </summary>
+    [IsoId("_7pukYA2lEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Frequency Pattern")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency37Choice_? RequestedFrequencyPattern { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency37Choice_? RequestedFrequencyPattern { get; init; } 
+    #else
+    public Frequency37Choice_? RequestedFrequencyPattern { get; set; } 
+    #endif
+    
     /// <summary>
     /// Adjustment indicator for a non-working day to enable payment to be made on the next working day.
     /// </summary>
+    [IsoId("_qsJo8A2lEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Working Day Adjustment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
+    #else
+    public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Sequence is IsoMax3NumericText SequenceValue)
-        {
-            writer.WriteStartElement(null, "Seq", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(SequenceValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StartDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EndPtChc", xmlNamespace );
-        EndPointChoice.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (RequestedFrequencyPattern is Frequency37Choice_ RequestedFrequencyPatternValue)
-        {
-            writer.WriteStartElement(null, "ReqdFrqcyPttrn", xmlNamespace );
-            RequestedFrequencyPatternValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NonWorkingDayAdjustment is BusinessDayConvention1Code NonWorkingDayAdjustmentValue)
-        {
-            writer.WriteStartElement(null, "NonWorkgDayAdjstmnt", xmlNamespace );
-            writer.WriteValue(NonWorkingDayAdjustmentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Frequency1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

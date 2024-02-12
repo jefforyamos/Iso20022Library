@@ -9,83 +9,137 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentification5Choice;
-
-/// <summary>
-/// Unique and unambiguous identification of a financial institution, through a combimation of globally recognised or proprietary identification scheme.
-/// </summary>
-public partial record CombinedIdentification : FinancialInstitutionIdentification5Choice_
-     , IIsoXmlSerilizable<CombinedIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentification5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+    /// Unique and unambiguous identification of a financial institution, through a combimation of globally recognised or proprietary identification scheme.
     /// </summary>
-    public IsoBICIdentifier? BIC { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
-    /// </summary>
-    public ClearingSystemMemberIdentification3Choice_? ClearingSystemMemberIdentification { get; init; } 
-    /// <summary>
-    /// Name by which a party is known and which is usually used to identify that party.
-    /// </summary>
-    public IsoMax70Text? Name { get; init; } 
-    /// <summary>
-    /// Information that locates and identifies a specific address, as defined by postal services.
-    /// </summary>
-    public PostalAddress1? PostalAddress { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
-    /// </summary>
-    public GenericIdentification3? ProprietaryIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_TFnrItp-Ed-ak6NoX_4Aeg_1781480692")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Combined Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CombinedIdentification : FinancialInstitutionIdentification5Choice_
+    #else
+    public partial class CombinedIdentification : FinancialInstitutionIdentification5Choice_
+    #endif
     {
-        if (BIC is IsoBICIdentifier BICValue)
-        {
-            writer.WriteStartElement(null, "BIC", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBICIdentifier(BICValue)); // data type BICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification3Choice_ ClearingSystemMemberIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
-            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (PostalAddress is PostalAddress1 PostalAddressValue)
-        {
-            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-            PostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProprietaryIdentification is GenericIdentification3 ProprietaryIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
-            ProprietaryIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new CombinedIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+        /// </summary>
+        [IsoId("_TFehMdp-Ed-ak6NoX_4Aeg_696920663")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("BIC")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoBICIdentifier? BIC { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? BIC { get; init; } 
+        #else
+        public System.String? BIC { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
+        /// </summary>
+        [IsoId("_TFehMtp-Ed-ak6NoX_4Aeg_696921670")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Clearing System Member Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ClearingSystemMemberIdentification3Choice_? ClearingSystemMemberIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ClearingSystemMemberIdentification3Choice_? ClearingSystemMemberIdentification { get; init; } 
+        #else
+        public ClearingSystemMemberIdentification3Choice_? ClearingSystemMemberIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name by which a party is known and which is usually used to identify that party.
+        /// </summary>
+        [IsoId("_TFehM9p-Ed-ak6NoX_4Aeg_696922156")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax70Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information that locates and identifies a specific address, as defined by postal services.
+        /// </summary>
+        [IsoId("_TFehNNp-Ed-ak6NoX_4Aeg_696923981")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Postal Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PostalAddress1? PostalAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostalAddress1? PostalAddress { get; init; } 
+        #else
+        public PostalAddress1? PostalAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
+        /// </summary>
+        [IsoId("_TFehNdp-Ed-ak6NoX_4Aeg_-1274464914")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Proprietary Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public GenericIdentification3? ProprietaryIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification3? ProprietaryIdentification { get; init; } 
+        #else
+        public GenericIdentification3? ProprietaryIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

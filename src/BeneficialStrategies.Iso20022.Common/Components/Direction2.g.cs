@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements indicating the direction of the derivative transaction.
 /// </summary>
+[IsoId("_9zN68C0WEe2ZUuvBHegNNg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Direction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Direction2
-     : IIsoXmlSerilizable<Direction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Direction2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Direction2( OptionParty3Code reqDirectionOfTheFirstLeg )
+    {
+        DirectionOfTheFirstLeg = reqDirectionOfTheFirstLeg;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the first leg as determined at the time of transaction.
     /// </summary>
+    [IsoId("_gC-v4C0XEe2ZUuvBHegNNg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Direction Of The First Leg")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
+    #else
+    public OptionParty3Code DirectionOfTheFirstLeg { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the second leg as determined at the time of transaction.
     /// </summary>
+    [IsoId("_p5uykC0XEe2ZUuvBHegNNg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Direction Of The Second Leg")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionParty3Code? DirectionOfTheSecondLeg { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionParty3Code? DirectionOfTheSecondLeg { get; init; } 
+    #else
+    public OptionParty3Code? DirectionOfTheSecondLeg { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DrctnOfTheFrstLeg", xmlNamespace );
-        writer.WriteValue(DirectionOfTheFirstLeg.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (DirectionOfTheSecondLeg is OptionParty3Code DirectionOfTheSecondLegValue)
-        {
-            writer.WriteStartElement(null, "DrctnOfTheScndLeg", xmlNamespace );
-            writer.WriteValue(DirectionOfTheSecondLegValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Direction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

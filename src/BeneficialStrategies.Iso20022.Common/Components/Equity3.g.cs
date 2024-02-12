@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial instrument which represents a title of ownership in a company, ie, the shareholder is entitled to a part of the company's profit - usually by payment of a dividend - and to voting rights, if any. Each company issues generally different classes of shares, eg, ordinary or common shares, which have no guaranteed amount of dividend but carry voting rights, or preferred shares, which receive dividends before ordinary shares but have no voting right.
 /// </summary>
+[IsoId("_4YmZIeLZEeWFtOV72FbX9w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Equity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Equity3
-     : IIsoXmlSerilizable<Equity3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Equity3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Equity3( PreferenceToIncome5Choice_ reqPreferenceToIncome )
+    {
+        PreferenceToIncome = reqPreferenceToIncome;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the level of priority to claim on income and assets of the company in case of the payment of dividends and in the event of a bankruptcy, for example, ordinary/common stocks, preferred stocks, subordinated debt, etc.
     /// </summary>
+    [IsoId("_4jwgQeLZEeWFtOV72FbX9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Preference To Income")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
+    #else
+    public PreferenceToIncome5Choice_ PreferenceToIncome { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the security will no longer exist, for example, redeemable preference shares.
     /// </summary>
+    [IsoId("_4jwgQ-LZEeWFtOV72FbX9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? MaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? MaturityDate { get; init; } 
+    #else
+    public System.DateTime? MaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nominal amount which is not paid yet.
     /// </summary>
+    [IsoId("_4jwgReLZEeWFtOV72FbX9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Paid Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NonPaidAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NonPaidAmount { get; init; } 
+    #else
+    public System.Decimal? NonPaidAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nominal value of an equity security.
     /// </summary>
+    [IsoId("_4jwgR-LZEeWFtOV72FbX9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Par Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ParValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ParValue { get; init; } 
+    #else
+    public System.Decimal? ParValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of voting rights per share.
     /// </summary>
+    [IsoId("_4jwgSeLZEeWFtOV72FbX9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Voting Rights Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? VotingRightsPerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? VotingRightsPerShare { get; init; } 
+    #else
+    public System.UInt64? VotingRightsPerShare { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrefToIncm", xmlNamespace );
-        PreferenceToIncome.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MaturityDate is IsoISODateTime MaturityDateValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(MaturityDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (NonPaidAmount is IsoActiveCurrencyAndAmount NonPaidAmountValue)
-        {
-            writer.WriteStartElement(null, "NonPdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NonPaidAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ParValue is IsoActiveCurrencyAndAmount ParValueValue)
-        {
-            writer.WriteStartElement(null, "ParVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ParValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (VotingRightsPerShare is IsoNumber VotingRightsPerShareValue)
-        {
-            writer.WriteStartElement(null, "VtngRghtsPerShr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VotingRightsPerShareValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static Equity3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

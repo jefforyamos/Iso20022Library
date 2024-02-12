@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of identification of a party.
-/// </summary>
-[KnownType(typeof(PartyIdentification244Choice.BIC))]
-[KnownType(typeof(PartyIdentification244Choice.NameAndAddress))]
-[KnownType(typeof(PartyIdentification244Choice.Country))]
-public abstract partial record PartyIdentification244Choice_ : IIsoXmlSerilizable<PartyIdentification244Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of identification of a party.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PartyIdentification244Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PartyIdentification244Choice.BIC))]
+    [KnownType(typeof(PartyIdentification244Choice.NameAndAddress))]
+    [KnownType(typeof(PartyIdentification244Choice.Country))]
+    [IsoId("_IP93bQavEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification 244 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PartyIdentification244Choice_
+    #else
+    public abstract partial class PartyIdentification244Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BIC" => PartyIdentification244Choice.BIC.Deserialize(elementWithPayload),
-             "NmAndAdr" => PartyIdentification244Choice.NameAndAddress.Deserialize(elementWithPayload),
-             "Ctry" => PartyIdentification244Choice.Country.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PartyIdentification244Choice choice.")
-        };
     }
 }

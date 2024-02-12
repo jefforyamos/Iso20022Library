@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the transaction and it's status to be updated in the tracker.
 /// </summary>
+[IsoId("_utoSAVc8EeunQrLahSRvvA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Status And Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerStatusAndTransaction11
-     : IIsoXmlSerilizable<TrackerStatusAndTransaction11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TrackerStatusAndTransaction11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TrackerStatusAndTransaction11( TrackerStatus4 reqTransactionStatus )
+    {
+        TransactionStatus = reqTransactionStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides detailed information on the transaction status to be updated in the tracker.
     /// </summary>
+    [IsoId("_uuX441c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerStatus4 TransactionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TrackerStatus4 TransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerStatus4 TransactionStatus { get; init; } 
+    #else
+    public TrackerStatus4 TransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
+    [IsoId("_uuX45Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TrackerPaymentTransaction10? Transaction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _uuX45Vc8EeunQrLahSRvvA
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        TransactionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize Transaction, multiplicity Unknown
-    }
-    public static TrackerStatusAndTransaction11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

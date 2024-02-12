@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information such as the default fund account identification or the default fund amount.
 /// </summary>
+[IsoId("_UqpvS9p-Ed-ak6NoX_4Aeg_1890910429")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Default Fund")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DefaultFund1
-     : IIsoXmlSerilizable<DefaultFund1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DefaultFund1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DefaultFund1( AccountIdentification4Choice_ reqDefaultFundAccount,System.Decimal reqTotalDefaultFundAmount )
+    {
+        DefaultFundAccount = reqDefaultFundAccount;
+        TotalDefaultFundAmount = reqTotalDefaultFundAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the account identification of the clearing member at the ICSD (International Central Securities Depository) or at the central bank.
     /// </summary>
+    [IsoId("_UqpvTNp-Ed-ak6NoX_4Aeg_82468307")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Default Fund Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
+    #else
+    public AccountIdentification4Choice_ DefaultFundAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount required by the clearing member to participate to the default fund.
     /// </summary>
+    [IsoId("_UqpvTdp-Ed-ak6NoX_4Aeg_107176358")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Default Fund Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalDefaultFundAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalDefaultFundAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalDefaultFundAmount { get; init; } 
+    #else
+    public System.Decimal TotalDefaultFundAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details about the contribution to the default fund by trading venues/products.
     /// </summary>
+    [IsoId("_UqzgQNp-Ed-ak6NoX_4Aeg_-799365417")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contribution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contribution1? Contribution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contribution1? Contribution { get; init; } 
+    #else
+    public Contribution1? Contribution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional amount that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on central counterparty specific criteria.
     /// </summary>
+    [IsoId("_UqzgQdp-Ed-ak6NoX_4Aeg_1324320952")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Increase Coverage Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? IncreaseCoverageAmount { get; init; } 
+    #else
+    public System.Decimal? IncreaseCoverageAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DfltFndAcct", xmlNamespace );
-        DefaultFundAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlDfltFndAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalDefaultFundAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (Contribution is Contribution1 ContributionValue)
-        {
-            writer.WriteStartElement(null, "Cntrbtn", xmlNamespace );
-            ContributionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncreaseCoverageAmount is IsoActiveCurrencyAndAmount IncreaseCoverageAmountValue)
-        {
-            writer.WriteStartElement(null, "IncrCvrgAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncreaseCoverageAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static DefaultFund1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Asset class specific details of a derivative.
-/// </summary>
-[KnownType(typeof(AssetClassAttributes1Choice.Interest))]
-[KnownType(typeof(AssetClassAttributes1Choice.ForeignExchange))]
-[KnownType(typeof(AssetClassAttributes1Choice.Both))]
-public abstract partial record AssetClassAttributes1Choice_ : IIsoXmlSerilizable<AssetClassAttributes1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Asset class specific details of a derivative.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassAttributes1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassAttributes1Choice.Interest))]
+    [KnownType(typeof(AssetClassAttributes1Choice.ForeignExchange))]
+    [KnownType(typeof(AssetClassAttributes1Choice.Both))]
+    [IsoId("_id4oJO94EeW7gabYEJmWIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Attributes 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassAttributes1Choice_
+    #else
+    public abstract partial class AssetClassAttributes1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Intrst" => AssetClassAttributes1Choice.Interest.Deserialize(elementWithPayload),
-             "FX" => AssetClassAttributes1Choice.ForeignExchange.Deserialize(elementWithPayload),
-             "Both" => AssetClassAttributes1Choice.Both.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassAttributes1Choice choice.")
-        };
     }
 }

@@ -9,60 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CurrencyOrDigitalTokenAmount1Choice;
-
-/// <summary>
-/// Amount specified as a non-ISO currency (ISO 4217).
-/// </summary>
-public partial record DigitalTokenAmount : CurrencyOrDigitalTokenAmount1Choice_
-     , IIsoXmlSerilizable<DigitalTokenAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CurrencyOrDigitalTokenAmount1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the digital token identifier (DTI).
+    /// Amount specified as a non-ISO currency (ISO 4217).
     /// </summary>
-    public IsoDTI2021Identifier? Identifier { get; init; } 
-    /// <summary>
-    /// Quantity of digital tokens expressed as a number, for example, a number of blockchain tokens.
-    /// </summary>
-    public required IsoMax30DecimalNumber Unit { get; init; } 
-    /// <summary>
-    /// Provides a description of the digital token identifier.
-    /// </summary>
-    public IsoMax30Text? Description { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_JFyZAANiEe2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Token Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DigitalTokenAmount : CurrencyOrDigitalTokenAmount1Choice_
+    #else
+    public partial class DigitalTokenAmount : CurrencyOrDigitalTokenAmount1Choice_
+    #endif
     {
-        if (Identifier is IsoDTI2021Identifier IdentifierValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DigitalTokenAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DigitalTokenAmount( System.UInt64 reqUnit )
         {
-            writer.WriteStartElement(null, "Idr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDTI2021Identifier(IdentifierValue)); // data type DTI2021Identifier System.String
-            writer.WriteEndElement();
+            Unit = reqUnit;
         }
-        writer.WriteStartElement(null, "Unit", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax30DecimalNumber(Unit)); // data type Max30DecimalNumber System.UInt64
-        writer.WriteEndElement();
-        if (Description is IsoMax30Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax30Text(DescriptionValue)); // data type Max30Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new DigitalTokenAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the digital token identifier (DTI).
+        /// </summary>
+        [IsoId("_XQvb0ANiEe2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoDTI2021Identifier? Identifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Identifier { get; init; } 
+        #else
+        public System.String? Identifier { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Quantity of digital tokens expressed as a number, for example, a number of blockchain tokens.
+        /// </summary>
+        [IsoId("_dmVr8QNiEe2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax30DecimalNumber Unit { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 Unit { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 Unit { get; init; } 
+        #else
+        public System.UInt64 Unit { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides a description of the digital token identifier.
+        /// </summary>
+        [IsoId("_FY9sgANjEe2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Description")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 30 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax30Text? Description { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Description { get; init; } 
+        #else
+        public System.String? Description { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

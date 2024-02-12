@@ -9,63 +9,101 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice;
-
-/// <summary>
-/// Explicitly defines the query criteria.
-/// </summary>
-public partial record NewCriteria : AccountCriteria2Choice_
-     , IIsoXmlSerilizable<NewCriteria>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name of the query defined by the search criteria and return criteria.
+    /// Explicitly defines the query criteria.
     /// </summary>
-    public IsoMax35Text? NewQueryName { get; init; } 
-    /// <summary>
-    /// Defines the criteria to be used to extract the account information.
-    /// </summary>
-    public CashAccountSearchCriteria6? SearchCriteria { get; init; } 
-    /// <summary>
-    /// Defines the expected account report.
-    /// </summary>
-    public CashAccountReturnCriteria4? ReturnCriteria { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_4GLX1ZlaEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Criteria")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NewCriteria : AccountCriteria2Choice_
+    #else
+    public partial class NewCriteria : AccountCriteria2Choice_
+    #endif
     {
-        if (NewQueryName is IsoMax35Text NewQueryNameValue)
-        {
-            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SearchCriteria is CashAccountSearchCriteria6 SearchCriteriaValue)
-        {
-            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
-            SearchCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnCriteria is CashAccountReturnCriteria4 ReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
-            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new NewCriteria Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name of the query defined by the search criteria and return criteria.
+        /// </summary>
+        [IsoId("_4OF9s5laEeeE1Ya-LgRsuQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New Query Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? NewQueryName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? NewQueryName { get; init; } 
+        #else
+        public System.String? NewQueryName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Defines the criteria to be used to extract the account information.
+        /// </summary>
+        [IsoId("_4OF9tZlaEeeE1Ya-LgRsuQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Search Criteria")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashAccountSearchCriteria6? SearchCriteria { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccountSearchCriteria6? SearchCriteria { get; init; } 
+        #else
+        public CashAccountSearchCriteria6? SearchCriteria { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Defines the expected account report.
+        /// </summary>
+        [IsoId("_4OF9t5laEeeE1Ya-LgRsuQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Return Criteria")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashAccountReturnCriteria4? ReturnCriteria { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccountReturnCriteria4? ReturnCriteria { get; init; } 
+        #else
+        public CashAccountReturnCriteria4? ReturnCriteria { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

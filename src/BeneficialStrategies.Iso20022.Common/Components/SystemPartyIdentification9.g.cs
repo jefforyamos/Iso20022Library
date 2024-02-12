@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of a party within a system.
 /// </summary>
+[IsoId("_x7Ud0RirEeiNm9ItaZcR2A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemPartyIdentification9
-     : IIsoXmlSerilizable<SystemPartyIdentification9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SystemPartyIdentification9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SystemPartyIdentification9( PartyIdentification136 reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
+    [IsoId("_yN6psRirEeiNm9ItaZcR2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification136 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136 Identification { get; init; } 
+    #else
+    public PartyIdentification136 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the responsible party.
     /// </summary>
+    [IsoId("_vUry8VhKEeih3fUfzR38Ig")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
+    #else
+    public PartyIdentification136? ResponsiblePartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Starting date from which the identification is valid.
     /// </summary>
+    [IsoId("_xkq4kVhKEeih3fUfzR38Ig")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valid From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValidFrom { get; init; } 
+    #else
+    public System.DateOnly? ValidFrom { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ResponsiblePartyIdentification is PartyIdentification136 ResponsiblePartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
-            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValidFrom is IsoISODate ValidFromValue)
-        {
-            writer.WriteStartElement(null, "VldFr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemPartyIdentification9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

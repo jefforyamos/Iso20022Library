@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing information specific to the individual direct debit(s).
 /// </summary>
+[IsoId("_U68zAAbvEearf7_vc3OyqQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("FI To FI Direct Debit Transaction Information Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FIToFIDirectDebitTransactionInformationDetails1
-     : IIsoXmlSerilizable<FIToFIDirectDebitTransactionInformationDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FIToFIDirectDebitTransactionInformationDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FIToFIDirectDebitTransactionInformationDetails1( GroupHeader63 reqGroupHeader )
+    {
+        GroupHeader = reqGroupHeader;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Common characteristics for all individual transactions included in the message.
     /// </summary>
+    [IsoId("_eLGvwAbvEearf7_vc3OyqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group Header")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader63 GroupHeader { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GroupHeader63 GroupHeader { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GroupHeader63 GroupHeader { get; init; } 
+    #else
+    public GroupHeader63 GroupHeader { get; set; } 
+    #endif
+    
     /// <summary>
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
     /// </summary>
+    [IsoId("_iCkJgAbvEearf7_vc3OyqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Instruction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public CreditTransferTransaction9? CreditInstruction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _iCkJgAbvEearf7_vc3OyqQ
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_7HBTgBkZEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
-        GroupHeader.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize CreditInstruction, multiplicity Unknown
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FIToFIDirectDebitTransactionInformationDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

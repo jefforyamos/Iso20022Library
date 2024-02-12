@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details related to a direct debit mandate signed between the creditor and the debtor.
 /// </summary>
+[IsoId("_rKvJEdppEeearpaEPXv9UA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mandate Related Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MandateRelatedInformation13
-     : IIsoXmlSerilizable<MandateRelatedInformation13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MandateRelatedInformation13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MandateRelatedInformation13( System.String reqMandateIdentification )
+    {
+        MandateIdentification = reqMandateIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
+    [IsoId("_rTxJQ9ppEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MandateIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MandateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MandateIdentification { get; init; } 
+    #else
+    public System.String MandateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the direct debit mandate has been signed by the debtor.
     /// </summary>
+    [IsoId("_rTxJRdppEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DateOfSignature { get; init; } 
+    #else
+    public System.DateOnly? DateOfSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Image of scanned signed mandate.
     /// </summary>
+    [IsoId("_IYrp8NpqEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Image")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2MBBinary? MandateImage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? MandateImage { get; init; } 
+    #else
+    public System.Byte[]? MandateImage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MndtId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (DateOfSignature is IsoISODate DateOfSignatureValue)
-        {
-            writer.WriteStartElement(null, "DtOfSgntr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfSignatureValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MandateImage is IsoMax2MBBinary MandateImageValue)
-        {
-            writer.WriteStartElement(null, "MndtImg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2MBBinary(MandateImageValue)); // data type Max2MBBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static MandateRelatedInformation13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

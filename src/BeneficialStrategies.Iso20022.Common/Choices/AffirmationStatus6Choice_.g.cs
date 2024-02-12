@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status for the affirmation.
-/// </summary>
-[KnownType(typeof(AffirmationStatus6Choice.Affirmed))]
-[KnownType(typeof(AffirmationStatus6Choice.Unaffirmed))]
-[KnownType(typeof(AffirmationStatus6Choice.ProprietaryStatus))]
-public abstract partial record AffirmationStatus6Choice_ : IIsoXmlSerilizable<AffirmationStatus6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status for the affirmation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AffirmationStatus6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AffirmationStatus6Choice.Affirmed))]
+    [KnownType(typeof(AffirmationStatus6Choice.Unaffirmed))]
+    [KnownType(typeof(AffirmationStatus6Choice.ProprietaryStatus))]
+    [IsoId("_A55R5NokEeC60axPepSq7g_-1061221633")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Affirmation Status 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AffirmationStatus6Choice_
+    #else
+    public abstract partial class AffirmationStatus6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Affrmd" => AffirmationStatus6Choice.Affirmed.Deserialize(elementWithPayload),
-             "Uaffrmd" => AffirmationStatus6Choice.Unaffirmed.Deserialize(elementWithPayload),
-             "PrtrySts" => AffirmationStatus6Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AffirmationStatus6Choice choice.")
-        };
     }
 }

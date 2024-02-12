@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -18,9 +24,32 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ISO 8583:93 bit 53 or 111
 /// ISO 8583:2003 bit 53 or 50
 /// </summary>
+[IsoId("_pFv0qvGOEeiGNursv3uE_g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("MAC Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MACData1
-     : IIsoXmlSerilizable<MACData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MACData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MACData1( System.String reqControl,System.String reqKeySetIdentifier,System.String reqAlgorithm )
+    {
+        Control = reqControl;
+        KeySetIdentifier = reqKeySetIdentifier;
+        Algorithm = reqAlgorithm;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -28,113 +57,211 @@ public partial record MACData1
     /// ISO 13492
     /// Binary, length of 1
     /// </summary>
+    [IsoId("_pFv0q_GOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Control")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact1HexBinaryText Control { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Control { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Control { get; init; } 
+    #else
+    public System.String Control { get; set; } 
+    #endif
+    
     /// <summary>
     /// key-set identifier is a number that uniquely identifies a group of related keys that are all different but have certain characteristics in common.
     /// ISO 13492
     /// lengths of 6 or 8
     /// </summary>
+    [IsoId("_pFv0r_GOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Set Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax8NumericText KeySetIdentifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String KeySetIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String KeySetIdentifier { get; init; } 
+    #else
+    public System.String KeySetIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Random number or counter in order to have a unique key per transaction. for example, UKPT PIN encryption or the transaction counter.
     /// ISO 13492
     /// Binary, lengths of 5, 8, 16 or 32 
     /// </summary>
+    [IsoId("_pFv0sPGOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derived Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax32HexBinaryText? DerivedInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DerivedInformation { get; init; } 
+    #else
+    public System.String? DerivedInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Selects the encryption algorithm used to encipher the keys contained in the associated key management data element.
     /// ISO 13492
     /// </summary>
+    [IsoId("_pFv0rfGOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2NumericText Algorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Algorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Algorithm { get; init; } 
+    #else
+    public System.String Algorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the length of the keys being transported, not the encrypting key.
     /// ISO 13492
     /// </summary>
+    [IsoId("_pFv0rvGOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? KeyLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? KeyLength { get; init; } 
+    #else
+    public System.String? KeyLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mechanism used to provide key confidentiality and integrity. 
     /// ISO 13492
     /// </summary>
+    [IsoId("_pFv0rPGOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Protection")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? KeyProtection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? KeyProtection { get; init; } 
+    #else
+    public System.String? KeyProtection { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a unique key set when multiple keys with the same key set identifier are used. for example, key rotation.
     /// ISO 13492
     /// Length of 2 or 5
     /// </summary>
+    [IsoId("_pFv0s_GOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? KeyIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? KeyIndex { get; init; } 
+    #else
+    public System.String? KeyIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the padding method used for MAC.
     /// ISO 13492
     /// </summary>
+    [IsoId("_pFv0svGOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Padding Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? PaddingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaddingMethod { get; init; } 
+    #else
+    public System.String? PaddingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Initialisation vector for CBC.
     /// ISO 13492
     /// Binary, lengths of  8, 16 or 32 
     /// </summary>
+    [IsoId("_pFv0sfGOEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initialisation Vector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax32HexBinaryText? InitialisationVector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InitialisationVector { get; init; } 
+    #else
+    public System.String? InitialisationVector { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ctrl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact1HexBinaryText(Control)); // data type Exact1HexBinaryText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "KeySetIdr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax8NumericText(KeySetIdentifier)); // data type Max8NumericText System.String
-        writer.WriteEndElement();
-        if (DerivedInformation is IsoMax32HexBinaryText DerivedInformationValue)
-        {
-            writer.WriteStartElement(null, "DrvdInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax32HexBinaryText(DerivedInformationValue)); // data type Max32HexBinaryText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Algo", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax2NumericText(Algorithm)); // data type Max2NumericText System.String
-        writer.WriteEndElement();
-        if (KeyLength is IsoMax4NumericText KeyLengthValue)
-        {
-            writer.WriteStartElement(null, "KeyLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(KeyLengthValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (KeyProtection is IsoMax2NumericText KeyProtectionValue)
-        {
-            writer.WriteStartElement(null, "KeyPrtcn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(KeyProtectionValue)); // data type Max2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (KeyIndex is IsoMax5NumericText KeyIndexValue)
-        {
-            writer.WriteStartElement(null, "KeyIndx", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(KeyIndexValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (PaddingMethod is IsoMax2NumericText PaddingMethodValue)
-        {
-            writer.WriteStartElement(null, "PddgMtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(PaddingMethodValue)); // data type Max2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (InitialisationVector is IsoMax32HexBinaryText InitialisationVectorValue)
-        {
-            writer.WriteStartElement(null, "InitlstnVctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax32HexBinaryText(InitialisationVectorValue)); // data type Max32HexBinaryText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static MACData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

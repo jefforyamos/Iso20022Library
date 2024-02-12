@@ -7,139 +7,248 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the delegation of a maintenance action or maintenance function.
 /// </summary>
+[IsoId("_8v84AU6nEeyGi9JAv6wq7Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Maintenance Delegation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MaintenanceDelegation13
-     : IIsoXmlSerilizable<MaintenanceDelegation13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MaintenanceDelegation13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MaintenanceDelegation13( TerminalManagementAction3Code reqDelegationType )
+    {
+        DelegationType = reqDelegationType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of delegation action.
     /// </summary>
+    [IsoId("_82xRsU6nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delegation Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code DelegationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code DelegationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code DelegationType { get; init; } 
+    #else
+    public TerminalManagementAction3Code DelegationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maintenance service to be delegated.
     /// </summary>
+    [IsoId("_82x4wU6nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maintenance Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public DataSetCategory16Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _82x4wU6nEeyGi9JAv6wq7Q
+    
     /// <summary>
     /// Flag to indicate that the delegated maintenance must be performed on a subset of the terminal estate.
     /// </summary>
+    [IsoId("_82x4w06nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Partial Delegation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PartialDelegation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PartialDelegation { get; init; } 
+    #else
+    public System.String? PartialDelegation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
+    [IsoId("_82x4xU6nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Subset")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POISubset { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? POISubset { get; init; } 
+    #else
+    public System.String? POISubset { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for the MTM to build or include delegated actions in the management plan of the POI.
     /// </summary>
+    [IsoId("_82x4x06nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delegated Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaintenanceDelegateAction7? DelegatedAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MaintenanceDelegateAction7? DelegatedAction { get; init; } 
+    #else
+    public MaintenanceDelegateAction7? DelegatedAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the delegation scope assigned by the MTM.
     /// </summary>
+    [IsoId("_82x4yU6nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delegation Scope Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DelegationScopeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DelegationScopeIdentification { get; init; } 
+    #else
+    public System.String? DelegationScopeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// This element contains all information relevant to the DelegationScopeIdentification. The format of this element is out of scope of this definition.
     /// </summary>
+    [IsoId("_82x4y06nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delegation Scope Definition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? DelegationScopeDefinition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? DelegationScopeDefinition { get; init; } 
+    #else
+    public System.Byte[]? DelegationScopeDefinition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Certificate path of the terminal manager.
     /// </summary>
+    [IsoId("_82x4zU6nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? Certificate { get; init; } 
+    #else
+    public System.Byte[]? Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
+    [IsoId("_82x4z06nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Identification Association")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init; } 
+    #else
+    public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the key to manage or to download.
     /// </summary>
+    [IsoId("_82x40U6nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Symmetric Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KEKIdentifier5? SymmetricKey { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KEKIdentifier5? SymmetricKey { get; init; } 
+    #else
+    public KEKIdentifier5? SymmetricKey { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters of the terminal manager to be sent by the MTM.
     /// </summary>
+    [IsoId("_82x4006nEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameter Data Set")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcceptorConfigurationDataSet3? ParameterDataSet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcceptorConfigurationDataSet3? ParameterDataSet { get; init; } 
+    #else
+    public AcceptorConfigurationDataSet3? ParameterDataSet { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DlgtnTp", xmlNamespace );
-        writer.WriteValue(DelegationType.ToString()); // Enum value
-        writer.WriteEndElement();
-        // Not sure how to serialize MaintenanceService, multiplicity Unknown
-        if (PartialDelegation is IsoTrueFalseIndicator PartialDelegationValue)
-        {
-            writer.WriteStartElement(null, "PrtlDlgtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PartialDelegationValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (POISubset is IsoMax35Text POISubsetValue)
-        {
-            writer.WriteStartElement(null, "POISubset", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(POISubsetValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DelegatedAction is MaintenanceDelegateAction7 DelegatedActionValue)
-        {
-            writer.WriteStartElement(null, "DlgtdActn", xmlNamespace );
-            DelegatedActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DelegationScopeIdentification is IsoMax35Text DelegationScopeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DlgtnScpId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DelegationScopeIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DelegationScopeDefinition is IsoMax3000Binary DelegationScopeDefinitionValue)
-        {
-            writer.WriteStartElement(null, "DlgtnScpDef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(DelegationScopeDefinitionValue)); // data type Max3000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Certificate is IsoMax10KBinary CertificateValue)
-        {
-            writer.WriteStartElement(null, "Cert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(CertificateValue)); // data type Max10KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (POIIdentificationAssociation is MaintenanceIdentificationAssociation1 POIIdentificationAssociationValue)
-        {
-            writer.WriteStartElement(null, "POIIdAssoctn", xmlNamespace );
-            POIIdentificationAssociationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SymmetricKey is KEKIdentifier5 SymmetricKeyValue)
-        {
-            writer.WriteStartElement(null, "SmmtrcKey", xmlNamespace );
-            SymmetricKeyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ParameterDataSet is AcceptorConfigurationDataSet3 ParameterDataSetValue)
-        {
-            writer.WriteStartElement(null, "ParamDataSet", xmlNamespace );
-            ParameterDataSetValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MaintenanceDelegation13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

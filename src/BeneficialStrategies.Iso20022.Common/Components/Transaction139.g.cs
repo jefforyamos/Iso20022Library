@@ -7,73 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains transaction details.
 /// </summary>
+[IsoId("_K1XcwYzHEeujJfnIQ4NlpQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transaction139
-     : IIsoXmlSerilizable<Transaction139>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transaction139 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transaction139( TransactionIdentification12 reqTransactionIdentification )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [IsoId("_K6f0YYzHEeujJfnIQ4NlpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentification12 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
+    [IsoId("_K6f0Y4zHEeujJfnIQ4NlpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalFee2? AdditionalFee { get; init; } 
+    #else
+    public AdditionalFee2? AdditionalFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
+    [IsoId("_K6f0ZYzHEeujJfnIQ4NlpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? TransactionDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionDescription { get; init; } 
+    #else
+    public System.String? TransactionDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional data.
     /// </summary>
+    [IsoId("_K6f0Z4zHEeujJfnIQ4NlpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
-        {
-            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
-            AdditionalFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
-        {
-            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Transaction139 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

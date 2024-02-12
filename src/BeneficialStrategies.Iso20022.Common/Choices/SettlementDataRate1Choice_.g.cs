@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the volume and value percentage rates of settlement instructions.
-/// </summary>
-[KnownType(typeof(SettlementDataRate1Choice.NumberOfInstructions))]
-[KnownType(typeof(SettlementDataRate1Choice.ValueOfInstructions))]
-public abstract partial record SettlementDataRate1Choice_ : IIsoXmlSerilizable<SettlementDataRate1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the volume and value percentage rates of settlement instructions.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementDataRate1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementDataRate1Choice.NumberOfInstructions))]
+    [KnownType(typeof(SettlementDataRate1Choice.ValueOfInstructions))]
+    [IsoId("_yFQMA8s0EemSav3hRKzWyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Data Rate 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementDataRate1Choice_
+    #else
+    public abstract partial class SettlementDataRate1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NbOfInstrs" => SettlementDataRate1Choice.NumberOfInstructions.Deserialize(elementWithPayload),
-             "ValOfInstrs" => SettlementDataRate1Choice.ValueOfInstructions.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementDataRate1Choice choice.")
-        };
     }
 }

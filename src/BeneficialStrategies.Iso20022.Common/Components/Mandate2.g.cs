@@ -7,184 +7,352 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that serves as a basis to debit an account.
 /// </summary>
+[IsoId("_tzFk1FkyEeGeoaLUQk__nA_-1336724626")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mandate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Mandate2
-     : IIsoXmlSerilizable<Mandate2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Mandate2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Mandate2( System.String reqMandateRequestIdentification,PartyIdentification43 reqCreditor,PartyIdentification43 reqDebtor,BranchAndFinancialInstitutionIdentification5 reqDebtorAgent )
+    {
+        MandateRequestIdentification = reqMandateRequestIdentification;
+        Creditor = reqCreditor;
+        Debtor = reqDebtor;
+        DebtorAgent = reqDebtorAgent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
+    [IsoId("_tzFk1VkyEeGeoaLUQk__nA_-422390729")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MandateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MandateIdentification { get; init; } 
+    #else
+    public System.String? MandateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification for the mandate request, as assigned by the initiating party.
     /// </summary>
+    [IsoId("_tzFk1lkyEeGeoaLUQk__nA_-1653312282")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MandateRequestIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MandateRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MandateRequestIdentification { get; init; } 
+    #else
+    public System.String MandateRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of mandate, such as paper, electronic or scheme.
     /// </summary>
+    [IsoId("_tzPV0FkyEeGeoaLUQk__nA_1762453646")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateTypeInformation1? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateTypeInformation1? Type { get; init; } 
+    #else
+    public MandateTypeInformation1? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of the duration of the mandate and occurrence of the underlying transactions.
     /// </summary>
+    [IsoId("_tzPV0VkyEeGeoaLUQk__nA_1887837166")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Occurrences")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateOccurrences2? Occurrences { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateOccurrences2? Occurrences { get; init; } 
+    #else
+    public MandateOccurrences2? Occurrences { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fixed amount to be collected from the debtor's account.
     /// </summary>
+    [IsoId("_tzPV0lkyEeGeoaLUQk__nA_-1534115730")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collection Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CollectionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CollectionAmount { get; init; } 
+    #else
+    public System.Decimal? CollectionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum amount that may be collected from the debtor's account, per instruction.
     /// </summary>
+    [IsoId("_tzPV01kyEeGeoaLUQk__nA_916982577")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MaximumAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>
+    [IsoId("_tzPV1FkyEeGeoaLUQk__nA_680675377")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Scheme Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? CreditorSchemeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? CreditorSchemeIdentification { get; init; } 
+    #else
+    public PartyIdentification43? CreditorSchemeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that signs the mandate and to whom an amount of money is due.
     /// </summary>
+    [IsoId("_tzYfwFkyEeGeoaLUQk__nA_362898716")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Creditor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification43 Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43 Creditor { get; init; } 
+    #else
+    public PartyIdentification43 Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
+    [IsoId("_tzYfwVkyEeGeoaLUQk__nA_299996813")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? CreditorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? CreditorAccount { get; init; } 
+    #else
+    public CashAccount24? CreditorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [IsoId("_tzYfwlkyEeGeoaLUQk__nA_288898036")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [IsoId("_tzYfw1kyEeGeoaLUQk__nA_1211061346")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? UltimateCreditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? UltimateCreditor { get; init; } 
+    #else
+    public PartyIdentification43? UltimateCreditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that signs the mandate and owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_tzYfxFkyEeGeoaLUQk__nA_1031028459")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Debtor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification43 Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43 Debtor { get; init; } 
+    #else
+    public PartyIdentification43 Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the debtor, to which a debit entry will be made as a result of the transaction.
     /// </summary>
+    [IsoId("_tziQwFkyEeGeoaLUQk__nA_180954941")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? DebtorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? DebtorAccount { get; init; } 
+    #else
+    public CashAccount24? DebtorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [IsoId("_tziQwVkyEeGeoaLUQk__nA_1258975279")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_tziQwlkyEeGeoaLUQk__nA_424209446")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? UltimateDebtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? UltimateDebtor { get; init; } 
+    #else
+    public PartyIdentification43? UltimateDebtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information to identify the underlying documents associated with the mandate.
     /// </summary>
+    [IsoId("_tziQw1kyEeGeoaLUQk__nA_878296715")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentInformation3? ReferredDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReferredDocumentInformation3? ReferredDocument { get; init; } 
+    #else
+    public ReferredDocumentInformation3? ReferredDocument { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MndtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MndtReqId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateRequestIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Type is MandateTypeInformation1 TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Occurrences is MandateOccurrences2 OccurrencesValue)
-        {
-            writer.WriteStartElement(null, "Ocrncs", xmlNamespace );
-            OccurrencesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollectionAmount is IsoActiveCurrencyAndAmount CollectionAmountValue)
-        {
-            writer.WriteStartElement(null, "ColltnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollectionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MaximumAmount is IsoActiveCurrencyAndAmount MaximumAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CreditorSchemeIdentification is PartyIdentification43 CreditorSchemeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CdtrSchmeId", xmlNamespace );
-            CreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-        Creditor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CreditorAccount is CashAccount24 CreditorAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
-            CreditorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAgent is BranchAndFinancialInstitutionIdentification5 CreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-            CreditorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UltimateCreditor is PartyIdentification43 UltimateCreditorValue)
-        {
-            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
-            UltimateCreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-        Debtor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DebtorAccount is CashAccount24 DebtorAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
-            DebtorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-        DebtorAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UltimateDebtor is PartyIdentification43 UltimateDebtorValue)
-        {
-            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
-            UltimateDebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferredDocument is ReferredDocumentInformation3 ReferredDocumentValue)
-        {
-            writer.WriteStartElement(null, "RfrdDoc", xmlNamespace );
-            ReferredDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Mandate2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

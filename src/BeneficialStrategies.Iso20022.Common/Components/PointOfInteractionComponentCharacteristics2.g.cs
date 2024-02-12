@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Physical and logical characteristics of a POI component (Point of Interaction).
 /// </summary>
+[IsoId("_c4on0S9QEeOlZIh7PImd0A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Point Of Interaction Component Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PointOfInteractionComponentCharacteristics2
-     : IIsoXmlSerilizable<PointOfInteractionComponentCharacteristics2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Memory characteristics of the component.
     /// </summary>
+    [IsoId("_dJS6AS9QEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Memory")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MemoryCharacteristics1? Memory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MemoryCharacteristics1? Memory { get; init; } 
+    #else
+    public MemoryCharacteristics1? Memory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
+    [IsoId("_dJS6Ay9QEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Communication")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationCharacteristics2? Communication { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationCharacteristics2? Communication { get; init; } 
+    #else
+    public CommunicationCharacteristics2? Communication { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of security access modules (SAM).
     /// </summary>
+    [IsoId("_dJS6BS9QEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Access Modules")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SecurityAccessModules { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SecurityAccessModules { get; init; } 
+    #else
+    public System.UInt64? SecurityAccessModules { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of subscriber identity modules (SIM).
     /// </summary>
+    [IsoId("_dJS6By9QEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscriber Identity Modules")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SubscriberIdentityModules { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SubscriberIdentityModules { get; init; } 
+    #else
+    public System.UInt64? SubscriberIdentityModules { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value for checking a cryptographic key security parameter.
     /// </summary>
+    [IsoId("_dJS6CS9QEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Check Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? KeyCheckValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? KeyCheckValue { get; init; } 
+    #else
+    public System.Byte[]? KeyCheckValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Memory is MemoryCharacteristics1 MemoryValue)
-        {
-            writer.WriteStartElement(null, "Mmry", xmlNamespace );
-            MemoryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Communication is CommunicationCharacteristics2 CommunicationValue)
-        {
-            writer.WriteStartElement(null, "Com", xmlNamespace );
-            CommunicationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecurityAccessModules is IsoNumber SecurityAccessModulesValue)
-        {
-            writer.WriteStartElement(null, "SctyAccsMdls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SecurityAccessModulesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (SubscriberIdentityModules is IsoNumber SubscriberIdentityModulesValue)
-        {
-            writer.WriteStartElement(null, "SbcbrIdntyMdls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SubscriberIdentityModulesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (KeyCheckValue is IsoMax35Binary KeyCheckValueValue)
-        {
-            writer.WriteStartElement(null, "KeyChckVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(KeyCheckValueValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static PointOfInteractionComponentCharacteristics2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

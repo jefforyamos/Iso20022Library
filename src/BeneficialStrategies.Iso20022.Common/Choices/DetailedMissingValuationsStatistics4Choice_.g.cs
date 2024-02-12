@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Detailed information of no valuation or outdated valuation.
-/// </summary>
-[KnownType(typeof(DetailedMissingValuationsStatistics4Choice.DataSetAction))]
-[KnownType(typeof(DetailedMissingValuationsStatistics4Choice.Report))]
-public abstract partial record DetailedMissingValuationsStatistics4Choice_ : IIsoXmlSerilizable<DetailedMissingValuationsStatistics4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Detailed information of no valuation or outdated valuation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DetailedMissingValuationsStatistics4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DetailedMissingValuationsStatistics4Choice.DataSetAction))]
+    [KnownType(typeof(DetailedMissingValuationsStatistics4Choice.Report))]
+    [IsoId("_x0O2MVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Missing Valuations Statistics 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DetailedMissingValuationsStatistics4Choice_
+    #else
+    public abstract partial class DetailedMissingValuationsStatistics4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => DetailedMissingValuationsStatistics4Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Rpt" => DetailedMissingValuationsStatistics4Choice.Report.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DetailedMissingValuationsStatistics4Choice choice.")
-        };
     }
 }

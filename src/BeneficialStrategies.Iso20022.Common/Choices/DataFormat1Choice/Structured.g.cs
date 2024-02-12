@@ -9,50 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DataFormat1Choice;
-
-/// <summary>
-/// Specification of data in structured form.
-/// </summary>
-public partial record Structured : DataFormat1Choice_
-     , IIsoXmlSerilizable<Structured>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DataFormat1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name of the identification scheme.
+    /// Specification of data in structured form.
     /// </summary>
-    public required IsoMax35Text SchemeName { get; init; } 
-    /// <summary>
-    /// Entity that assigns the identification.
-    /// </summary>
-    public IsoMax35Text? Issuer { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Uys4Btp-Ed-ak6NoX_4Aeg_1723007680")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Structured")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Structured : DataFormat1Choice_
+    #else
+    public partial class Structured : DataFormat1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(SchemeName)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Issuer is IsoMax35Text IssuerValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Structured instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Structured( System.String reqSchemeName )
         {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            SchemeName = reqSchemeName;
         }
-    }
-    public static new Structured Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name of the identification scheme.
+        /// </summary>
+        [IsoId("_VC8TdNp-Ed-ak6NoX_4Aeg_704057909")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Scheme Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text SchemeName { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String SchemeName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String SchemeName { get; init; } 
+        #else
+        public System.String SchemeName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Entity that assigns the identification.
+        /// </summary>
+        [IsoId("_VC8Tddp-Ed-ak6NoX_4Aeg_704057910")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Issuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Issuer { get; init; } 
+        #else
+        public System.String? Issuer { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the content of a report.
 /// </summary>
+[IsoId("_dItHIMlVEeuJ35KoBRZFOg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Content")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportContent1
-     : IIsoXmlSerilizable<ReportContent1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportContent1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportContent1( ReportContent1Choice_ reqFormattedContent )
+    {
+        FormattedContent = reqFormattedContent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sequence number of the report line in the report.
     /// </summary>
+    [IsoId("_3xe8kMlVEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Line Sequence")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumericText? ReportLineSequence { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReportLineSequence { get; init; } 
+    #else
+    public System.String? ReportLineSequence { get; set; } 
+    #endif
+    
     /// <summary>
     /// Formatted or unformatted report content.
     /// </summary>
+    [IsoId("_GZ00EMlYEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Formatted Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportContent1Choice_ FormattedContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReportContent1Choice_ FormattedContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportContent1Choice_ FormattedContent { get; init; } 
+    #else
+    public ReportContent1Choice_ FormattedContent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportLineSequence is IsoMax10NumericText ReportLineSequenceValue)
-        {
-            writer.WriteStartElement(null, "RptLineSeq", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(ReportLineSequenceValue)); // data type Max10NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FrmtdCntt", xmlNamespace );
-        FormattedContent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ReportContent1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

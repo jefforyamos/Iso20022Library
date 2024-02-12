@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountOwner2Choice;
-
-/// <summary>
-/// Identification of the organisation that legally owns the account.
-/// </summary>
-public partial record OrganisationOwnerIdentification : AccountOwner2Choice_
-     , IIsoXmlSerilizable<OrganisationOwnerIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountOwner2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identification of the organisation.
+    /// Identification of the organisation that legally owns the account.
     /// </summary>
-    public PartyIdentification96Choice_? Identification { get; init; } 
-    /// <summary>
-    /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
-    /// </summary>
-    public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-VSBM4oVEeahcZ3Nzs1Qag")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation Owner Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OrganisationOwnerIdentification : AccountOwner2Choice_
+    #else
+    public partial class OrganisationOwnerIdentification : AccountOwner2Choice_
+    #endif
     {
-        if (Identification is PartyIdentification96Choice_ IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
-        {
-            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new OrganisationOwnerIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of the organisation.
+        /// </summary>
+        [IsoId("_f2C84SGYEeWKAaDJcYGKLw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification96Choice_? Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification96Choice_? Identification { get; init; } 
+        #else
+        public PartyIdentification96Choice_? Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
+        /// </summary>
+        [IsoId("_f2C84yGYEeWKAaDJcYGKLw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Legal Entity Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LegalEntityIdentifier { get; init; } 
+        #else
+        public System.String? LegalEntityIdentifier { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

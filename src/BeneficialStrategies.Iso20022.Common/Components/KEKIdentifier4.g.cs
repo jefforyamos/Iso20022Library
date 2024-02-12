@@ -7,66 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cryptographic key involved in the security command.
 /// </summary>
+[IsoId("_21LV8YtJEeSxlKlAGYErFg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("KEK Identifier")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record KEKIdentifier4
-     : IIsoXmlSerilizable<KEKIdentifier4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name or label of the key.
     /// </summary>
+    [IsoId("_3Bi-AYtJEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
+    [IsoId("_3Bi-A4tJEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? KeyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? KeyIdentification { get; init; } 
+    #else
+    public System.String? KeyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [IsoId("_3Bi-BYtJEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? KeyVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? KeyVersion { get; init; } 
+    #else
+    public System.String? KeyVersion { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax140Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (KeyIdentification is IsoMax140Text KeyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "KeyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (KeyVersion is IsoMax140Text KeyVersionValue)
-        {
-            writer.WriteStartElement(null, "KeyVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyVersionValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static KEKIdentifier4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

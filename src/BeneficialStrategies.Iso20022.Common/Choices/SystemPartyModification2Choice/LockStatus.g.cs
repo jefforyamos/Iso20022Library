@@ -9,60 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
-
-/// <summary>
-/// Specifies whether the party is locked or not, and the reason for this status, when required.
-/// </summary>
-public partial record LockStatus : SystemPartyModification2Choice_
-     , IIsoXmlSerilizable<LockStatus>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the date from which the lock status is valid.
+    /// Specifies whether the party is locked or not, and the reason for this status, when required.
     /// </summary>
-    public IsoISODate? ValidFrom { get; init; } 
-    /// <summary>
-    /// Lock status of the party.
-    /// </summary>
-    public required LockStatus1Code Status { get; init; } 
-    /// <summary>
-    /// Specifies the underlying reason for the locking of the party.
-    /// </summary>
-    public IsoMax35Text? LockReason { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("__edeA4v_Eei289CGNqs21g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lock Status")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record LockStatus : SystemPartyModification2Choice_
+    #else
+    public partial class LockStatus : SystemPartyModification2Choice_
+    #endif
     {
-        if (ValidFrom is IsoISODate ValidFromValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a LockStatus instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public LockStatus( LockStatus1Code reqStatus )
         {
-            writer.WriteStartElement(null, "VldFr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
+            Status = reqStatus;
         }
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (LockReason is IsoMax35Text LockReasonValue)
-        {
-            writer.WriteStartElement(null, "LckRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LockReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new LockStatus Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the date from which the lock status is valid.
+        /// </summary>
+        [IsoId("_WiPMQGjNEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Valid From")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ValidFrom { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ValidFrom { get; init; } 
+        #else
+        public System.DateOnly? ValidFrom { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Lock status of the party.
+        /// </summary>
+        [IsoId("_JfT982jMEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required LockStatus1Code Status { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public LockStatus1Code Status { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LockStatus1Code Status { get; init; } 
+        #else
+        public LockStatus1Code Status { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the underlying reason for the locking of the party.
+        /// </summary>
+        [IsoId("_JfT99GjMEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Lock Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? LockReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LockReason { get; init; } 
+        #else
+        public System.String? LockReason { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

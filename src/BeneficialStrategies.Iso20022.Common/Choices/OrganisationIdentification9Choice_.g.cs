@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the identification of the organisation.
-/// </summary>
-[KnownType(typeof(OrganisationIdentification9Choice.LEI))]
-[KnownType(typeof(OrganisationIdentification9Choice.ClientIdentification))]
-[KnownType(typeof(OrganisationIdentification9Choice.AnyBIC))]
-public abstract partial record OrganisationIdentification9Choice_ : IIsoXmlSerilizable<OrganisationIdentification9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the identification of the organisation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OrganisationIdentification9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OrganisationIdentification9Choice.LEI))]
+    [KnownType(typeof(OrganisationIdentification9Choice.ClientIdentification))]
+    [KnownType(typeof(OrganisationIdentification9Choice.AnyBIC))]
+    [IsoId("_L_GVAZQMEeiILOjNP8ro1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation Identification 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OrganisationIdentification9Choice_
+    #else
+    public abstract partial class OrganisationIdentification9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "LEI" => OrganisationIdentification9Choice.LEI.Deserialize(elementWithPayload),
-             "ClntId" => OrganisationIdentification9Choice.ClientIdentification.Deserialize(elementWithPayload),
-             "AnyBIC" => OrganisationIdentification9Choice.AnyBIC.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OrganisationIdentification9Choice choice.")
-        };
     }
 }

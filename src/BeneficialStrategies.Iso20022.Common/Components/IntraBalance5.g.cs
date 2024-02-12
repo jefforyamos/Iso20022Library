@@ -7,94 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-balance movement.
 /// </summary>
+[IsoId("_pqQzoTnfEem7JZMuWtwtsg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraBalance5
-     : IIsoXmlSerilizable<IntraBalance5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntraBalance5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntraBalance5( Amount2Choice_ reqSettlementAmount,DateAndDateTime2Choice_ reqSettlementDate,CashSubBalanceTypeAndQuantityBreakdown3 reqBalanceFrom,CashSubBalanceTypeAndQuantityBreakdown3 reqBalanceTo )
+    {
+        SettlementAmount = reqSettlementAmount;
+        SettlementDate = reqSettlementDate;
+        BalanceFrom = reqBalanceFrom;
+        BalanceTo = reqBalanceTo;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total amount of money to be settled.
     /// </summary>
+    [IsoId("_p0siBTnfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2Choice_ SettlementAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount2Choice_ SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2Choice_ SettlementAmount { get; init; } 
+    #else
+    public Amount2Choice_ SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the amount of money is to be moved.
     /// </summary>
+    [IsoId("_p0siBznfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ SettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTime2Choice_ SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_ SettlementDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_ SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
+    [IsoId("_p0siDznfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
+    #else
+    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
+    [IsoId("_p0siFznfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; init; } 
+    #else
+    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying a lot constituting the sub-balance.
     /// </summary>
+    [IsoId("_p0siHznfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Sub Balance Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification37? CashSubBalanceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification37? CashSubBalanceIdentification { get; init; } 
+    #else
+    public GenericIdentification37? CashSubBalanceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
+    [IsoId("_p0siITnfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriorityNumeric4Choice_? Priority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriorityNumeric4Choice_? Priority { get; init; } 
+    #else
+    public PriorityNumeric4Choice_? Priority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [IsoId("_p0siKTnfEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Processing Additional Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionProcessingAdditionalDetails { get; init; } 
+    #else
+    public System.String? InstructionProcessingAdditionalDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-        SettlementAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        SettlementDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BalFr", xmlNamespace );
-        BalanceFrom.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BalTo", xmlNamespace );
-        BalanceTo.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CashSubBalanceIdentification is GenericIdentification37 CashSubBalanceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CshSubBalId", xmlNamespace );
-            CashSubBalanceIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Priority is PriorityNumeric4Choice_ PriorityValue)
-        {
-            writer.WriteStartElement(null, "Prty", xmlNamespace );
-            PriorityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionProcessingAdditionalDetails is IsoMax350Text InstructionProcessingAdditionalDetailsValue)
-        {
-            writer.WriteStartElement(null, "InstrPrcgAddtlDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionProcessingAdditionalDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static IntraBalance5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

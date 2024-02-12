@@ -7,96 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sale context in which the transaction is performed.
 /// </summary>
+[IsoId("_SwsDzAEcEeCQm6a_G2yO_w_1953670809")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sale Context")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SaleContext1
-     : IIsoXmlSerilizable<SaleContext1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the sale terminal (electronic cash register) or the sale system.
     /// </summary>
+    [IsoId("_SwsDzQEcEeCQm6a_G2yO_w_-1301262192")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleIdentification { get; init; } 
+    #else
+    public System.String? SaleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
+    [IsoId("_SwsDzgEcEeCQm6a_G2yO_w_-1321065836")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleReferenceNumber { get; init; } 
+    #else
+    public System.String? SaleReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of the reconciliation between the Sale system and the POI system.
     /// </summary>
+    [IsoId("_Sw1NsAEcEeCQm6a_G2yO_w_-1796156354")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleReconciliationIdentification { get; init; } 
+    #else
+    public System.String? SaleReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the cashier who carried out the transaction.
     /// </summary>
+    [IsoId("_Sw1NsQEcEeCQm6a_G2yO_w_1983014102")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cashier Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashierIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashierIdentification { get; init; } 
+    #else
+    public System.String? CashierIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
+    [IsoId("_Sw1NsgEcEeCQm6a_G2yO_w_1568063427")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shift Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? ShiftNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ShiftNumber { get; init; } 
+    #else
+    public System.String? ShiftNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information associated with the sale transaction.
     /// </summary>
+    [IsoId("_Sw1NswEcEeCQm6a_G2yO_w_842115279")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Sale Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalSaleData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalSaleData { get; init; } 
+    #else
+    public System.String? AdditionalSaleData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CashierIdentification is IsoMax35Text CashierIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CshrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashierIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ShiftNumber is IsoMax2NumericText ShiftNumberValue)
-        {
-            writer.WriteStartElement(null, "ShftNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(ShiftNumberValue)); // data type Max2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalSaleData is IsoMax70Text AdditionalSaleDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlSaleData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalSaleDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SaleContext1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

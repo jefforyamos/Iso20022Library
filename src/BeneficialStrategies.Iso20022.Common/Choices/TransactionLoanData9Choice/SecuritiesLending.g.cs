@@ -9,60 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData9Choice;
-
-/// <summary>
-/// Details of the securities lending transaction.
-/// </summary>
-public partial record SecuritiesLending : TransactionLoanData9Choice_
-     , IIsoXmlSerilizable<SecuritiesLending>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData9Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
+    /// Details of the securities lending transaction.
     /// </summary>
-    public required IsoISODate EventDate { get; init; } 
-    /// <summary>
-    /// Unique trade Identifier (UTI) as agreed with the other counterparty.
-    /// </summary>
-    public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
-    /// <summary>
-    /// Reference to master agreement under which the counterparties concluded a documented transaction.
-    /// </summary>
-    public MasterAgreement6? MasterAgreement { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_lm1dcKoMEemdLtwzt4CWxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Lending")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SecuritiesLending : TransactionLoanData9Choice_
+    #else
+    public partial class SecuritiesLending : TransactionLoanData9Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (UniqueTradeIdentifier is IsoMax52Text UniqueTradeIdentifierValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a SecuritiesLending instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public SecuritiesLending( System.DateOnly reqEventDate )
         {
-            writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifierValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
+            EventDate = reqEventDate;
         }
-        if (MasterAgreement is MasterAgreement6 MasterAgreementValue)
-        {
-            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
-            MasterAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new SecuritiesLending Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
+        /// </summary>
+        [IsoId("_vFPjgaoKEemdLtwzt4CWxg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate EventDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly EventDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly EventDate { get; init; } 
+        #else
+        public System.DateOnly EventDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique trade Identifier (UTI) as agreed with the other counterparty.
+        /// </summary>
+        [IsoId("_tnAD4aoKEemdLtwzt4CWxg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unique Trade Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? UniqueTradeIdentifier { get; init; } 
+        #else
+        public System.String? UniqueTradeIdentifier { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reference to master agreement under which the counterparties concluded a documented transaction.
+        /// </summary>
+        [IsoId("_tnAD46oKEemdLtwzt4CWxg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Master Agreement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MasterAgreement6? MasterAgreement { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MasterAgreement6? MasterAgreement { get; init; } 
+        #else
+        public MasterAgreement6? MasterAgreement { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

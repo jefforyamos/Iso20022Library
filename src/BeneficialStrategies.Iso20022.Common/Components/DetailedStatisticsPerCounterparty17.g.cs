@@ -7,64 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
+[IsoId("_rpsLRVowEe23K4GXSpBSeg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Detailed Statistics Per Counterparty")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DetailedStatisticsPerCounterparty17
-     : IIsoXmlSerilizable<DetailedStatisticsPerCounterparty17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DetailedStatisticsPerCounterparty17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DetailedStatisticsPerCounterparty17( System.DateOnly reqReferenceDate,DetailedMissingValuationsStatistics4Choice_ reqMissingValuation,DetailedMissingMarginInformationStatistics4Choice_ reqMissingMarginInformation,DetailedAbnormalValuesStatistics4Choice_ reqAbnormalValues )
+    {
+        ReferenceDate = reqReferenceDate;
+        MissingValuation = reqMissingValuation;
+        MissingMarginInformation = reqMissingMarginInformation;
+        AbnormalValues = reqAbnormalValues;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
+    [IsoId("_rqy-gVowEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReferenceDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ReferenceDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ReferenceDate { get; init; } 
+    #else
+    public System.DateOnly ReferenceDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
     /// </summary>
+    [IsoId("_rqy-g1owEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Missing Valuation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
+    #else
+    public DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
     /// </summary>
+    [IsoId("_rqy-hVowEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Missing Margin Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
+    #else
+    public DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information of the derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
     /// </summary>
+    [IsoId("_rqy-h1owEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Abnormal Values")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
+    #else
+    public DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RefDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MssngValtn", xmlNamespace );
-        MissingValuation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MssngMrgnInf", xmlNamespace );
-        MissingMarginInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AbnrmlVals", xmlNamespace );
-        AbnormalValues.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static DetailedStatisticsPerCounterparty17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

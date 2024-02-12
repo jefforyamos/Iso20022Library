@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the value of a date.
-/// </summary>
-[KnownType(typeof(DateFormat12Choice.Date))]
-[KnownType(typeof(DateFormat12Choice.NotSpecifiedDate))]
-public abstract partial record DateFormat12Choice_ : IIsoXmlSerilizable<DateFormat12Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the value of a date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateFormat12Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateFormat12Choice.Date))]
+    [KnownType(typeof(DateFormat12Choice.NotSpecifiedDate))]
+    [IsoId("_T6Em6dp-Ed-ak6NoX_4Aeg_-1991980092")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Format 12 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateFormat12Choice_
+    #else
+    public abstract partial class DateFormat12Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => DateFormat12Choice.Date.Deserialize(elementWithPayload),
-             "NotSpcfdDt" => DateFormat12Choice.NotSpecifiedDate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateFormat12Choice choice.")
-        };
     }
 }

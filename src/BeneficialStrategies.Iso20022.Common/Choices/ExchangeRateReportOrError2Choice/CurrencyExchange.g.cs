@@ -9,54 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice;
-
-/// <summary>
-/// Requested business information.
-/// </summary>
-public partial record CurrencyExchange : ExchangeRateReportOrError2Choice_
-     , IIsoXmlSerilizable<CurrencyExchange>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
+    /// Requested business information.
     /// </summary>
-    public required IsoBaseOneRate ExchangeRate { get; init; } 
-    /// <summary>
-    /// Currency into which the base currency is converted, in a currency exchange.
-    /// </summary>
-    public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
-    /// <summary>
-    /// Date and time at which an exchange rate is quoted.
-    /// </summary>
-    public required IsoISODateTime QuotationDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_77TPQ6MgEeCJ6YNENx4h-w_-1305206641")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Exchange")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CurrencyExchange : ExchangeRateReportOrError2Choice_
+    #else
+    public partial class CurrencyExchange : ExchangeRateReportOrError2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
-        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "QtnDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDate)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static new CurrencyExchange Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CurrencyExchange instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CurrencyExchange( System.Decimal reqExchangeRate,string reqQuotedCurrency,System.DateTime reqQuotationDate )
+        {
+            ExchangeRate = reqExchangeRate;
+            QuotedCurrency = reqQuotedCurrency;
+            QuotationDate = reqQuotationDate;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
+        /// </summary>
+        [IsoId("_77cZMKMgEeCJ6YNENx4h-w_150823148")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Exchange Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoBaseOneRate ExchangeRate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal ExchangeRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal ExchangeRate { get; init; } 
+        #else
+        public System.Decimal ExchangeRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Currency into which the base currency is converted, in a currency exchange.
+        /// </summary>
+        [IsoId("_77cZMaMgEeCJ6YNENx4h-w_-47235485")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quoted Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string QuotedCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string QuotedCurrency { get; init; } 
+        #else
+        public string QuotedCurrency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time at which an exchange rate is quoted.
+        /// </summary>
+        [IsoId("_77cZMqMgEeCJ6YNENx4h-w_1808142586")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quotation Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime QuotationDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime QuotationDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime QuotationDate { get; init; } 
+        #else
+        public System.DateTime QuotationDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

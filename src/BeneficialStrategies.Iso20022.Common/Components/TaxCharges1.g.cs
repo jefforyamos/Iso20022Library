@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
+[IsoId("_Rvygrdp-Ed-ak6NoX_4Aeg_438228373")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Charges")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxCharges1
-     : IIsoXmlSerilizable<TaxCharges1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference used to identify the nature of tax levied, such as Value Added Tax (VAT).
     /// </summary>
+    [IsoId("_Rvygrtp-Ed-ak6NoX_4Aeg_836264050")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [IsoId("_Rv8RoNp-Ed-ak6NoX_4Aeg_438228776")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [IsoId("_Rv8Rodp-Ed-ak6NoX_4Aeg_438228733")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Amount is IsoCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxCharges1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the agent specific tracking system information of a payment transaction.
 /// </summary>
+[IsoId("_XaIX6fWfEemtd4wHZYvFUQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Record")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerRecord3
-     : IIsoXmlSerilizable<TrackerRecord3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
+    [IsoId("_XaIX7_WfEemtd4wHZYvFUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ChargesAmount { get; init; } 
+    #else
+    public System.Decimal? ChargesAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
+    [IsoId("_XaIX8fWfEemtd4wHZYvFUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange16? ExchangeRateData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyExchange16? ExchangeRateData { get; init; } 
+    #else
+    public CurrencyExchange16? ExchangeRateData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ChargesAmount is IsoRestrictedFINActiveCurrencyAndAmount ChargesAmountValue)
-        {
-            writer.WriteStartElement(null, "ChrgsAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(ChargesAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExchangeRateData is CurrencyExchange16 ExchangeRateDataValue)
-        {
-            writer.WriteStartElement(null, "XchgRateData", xmlNamespace );
-            ExchangeRateDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TrackerRecord3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

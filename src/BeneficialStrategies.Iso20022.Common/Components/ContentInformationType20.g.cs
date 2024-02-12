@@ -7,17 +7,45 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
+[IsoId("_fP-osaQuEeeWXKXf3KjtmQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Content Information Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ContentInformationType20
-     : IIsoXmlSerilizable<ContentInformationType20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ContentInformationType20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ContentInformationType20( MACData1 reqMACData,System.String reqMAC )
+    {
+        MACData = reqMACData;
+        MAC = reqMAC;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -26,36 +54,49 @@ public partial record ContentInformationType20
     /// ISO 8583:93 bit 53 or 111
     /// ISO 8583:2003 bit 53 or 50
     /// </summary>
+    [IsoId("_fblbwaQuEeeWXKXf3KjtmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("MAC Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MACData1 MACData { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MACData1 MACData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MACData1 MACData { get; init; } 
+    #else
+    public MACData1 MACData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message Authentication Code data.
     /// Binary, length of 8
     /// ISO 8583 bit 64 or bit 128
     /// </summary>
+    [IsoId("_fblbw6QuEeeWXKXf3KjtmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("MAC")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax8HexBinaryText MAC { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MAC { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MAC { get; init; } 
+    #else
+    public System.String MAC { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MACData", xmlNamespace );
-        MACData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MAC", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax8HexBinaryText(MAC)); // data type Max8HexBinaryText System.String
-        writer.WriteEndElement();
-    }
-    public static ContentInformationType20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

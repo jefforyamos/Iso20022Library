@@ -7,71 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on intraday positions.
 /// </summary>
+[IsoId("_vFk_wKp1EeamNLogr5TkIQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Day Requirement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraDayRequirement1
-     : IIsoXmlSerilizable<IntraDayRequirement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntraDayRequirement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntraDayRequirement1( System.Decimal reqIntraDayMarginCall,System.Decimal reqPeakInitialMarginLiability,System.Decimal reqPeakVariationMarginLiability,System.Decimal reqAggregatePeakLiability,GenericIdentification165 reqMarginAccountIdentification )
+    {
+        IntraDayMarginCall = reqIntraDayMarginCall;
+        PeakInitialMarginLiability = reqPeakInitialMarginLiability;
+        PeakVariationMarginLiability = reqPeakVariationMarginLiability;
+        AggregatePeakLiability = reqAggregatePeakLiability;
+        MarginAccountIdentification = reqMarginAccountIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total aggregate value of collateral called intraday, excluding repayments.
     /// </summary>
+    [IsoId("_tJOLUKp2EeamNLogr5TkIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intra Day Margin Call")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal IntraDayMarginCall { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal IntraDayMarginCall { get; init; } 
+    #else
+    public System.Decimal IntraDayMarginCall { get; set; } 
+    #endif
+    
     /// <summary>
     /// Peak increase in initial margin liability for the account during the day.
     /// </summary>
+    [IsoId("_y6cjEKp2EeamNLogr5TkIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Peak Initial Margin Liability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PeakInitialMarginLiability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PeakInitialMarginLiability { get; init; } 
+    #else
+    public System.Decimal PeakInitialMarginLiability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Peak loss uncollateralised variation margin liability on the margin account during the day.
     /// </summary>
+    [IsoId("_4uHK0Kp2EeamNLogr5TkIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Peak Variation Margin Liability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PeakVariationMarginLiability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PeakVariationMarginLiability { get; init; } 
+    #else
+    public System.Decimal PeakVariationMarginLiability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Peak intraday liability (sum of increase in initial margin relative to end of day plus sum of decrease in variation margin relative to end of day) for a margin account during the day. Liabilities are shown as positive integers.
     /// </summary>
+    [IsoId("_-L_v0Kp2EeamNLogr5TkIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Aggregate Peak Liability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal AggregatePeakLiability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal AggregatePeakLiability { get; init; } 
+    #else
+    public System.Decimal AggregatePeakLiability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the account used to calculate margin requirements and determine intraday calls.
     /// </summary>
+    [IsoId("_QtEHsPneEeadN4WGmMtGCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    #else
+    public GenericIdentification165 MarginAccountIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IntraDayMrgnCall", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IntraDayMarginCall)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PeakInitlMrgnLblty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakInitialMarginLiability)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PeakVartnMrgnLblty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakVariationMarginLiability)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AggtPeakLblty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AggregatePeakLiability)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MrgnAcctId", xmlNamespace );
-        MarginAccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static IntraDayRequirement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,80 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the advice for the issuance of an undertaking.
 /// </summary>
+[IsoId("_-AMvZnltEeG7BsjMvd1mEw_-927366247")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking Advice")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UndertakingAdvice1
-     : IIsoXmlSerilizable<UndertakingAdvice1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UndertakingAdvice1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UndertakingAdvice1( UndertakingIssuanceMessage reqUndertakingIssuanceMessage )
+    {
+        UndertakingIssuanceMessage = reqUndertakingIssuanceMessage;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contents of the related UndertakingIssuance message.
     /// </summary>
+    [IsoId("_-AV5UHltEeG7BsjMvd1mEw_-1964463570")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Issuance Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    #else
+    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the first advising party.
     /// </summary>
+    [IsoId("_1N8wBT1UEeKvwJ48Wu13ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Advising Party Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdvisingPartyAdditionalInformation1? FirstAdvisingPartyAdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdvisingPartyAdditionalInformation1? FirstAdvisingPartyAdditionalInformation { get; init; } 
+    #else
+    public AdvisingPartyAdditionalInformation1? FirstAdvisingPartyAdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the second advising party.
     /// </summary>
+    [IsoId("_32L9lT1UEeKvwJ48Wu13ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Second Advising Party Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdvisingPartyAdditionalInformation1? SecondAdvisingPartyAdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdvisingPartyAdditionalInformation1? SecondAdvisingPartyAdditionalInformation { get; init; } 
+    #else
+    public AdvisingPartyAdditionalInformation1? SecondAdvisingPartyAdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the confirmation of the undertaking.
     /// </summary>
+    [IsoId("_-AV5UXltEeG7BsjMvd1mEw_616959669")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingConfirmation1? ConfirmationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingConfirmation1? ConfirmationDetails { get; init; } 
+    #else
+    public UndertakingConfirmation1? ConfirmationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature of the party providing additional undertaking advice details.
     /// </summary>
-    public ValueList<PartyAndSignature2> DigitalSignature { get; init; } = [];
+    [IsoId("_AoReQz1VEeKvwJ48Wu13ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(3)]
+    #endif
+    public ValueList<PartyAndSignature2> DigitalSignature { get; init; } = new ValueList<PartyAndSignature2>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UdrtkgIssncMsg", xmlNamespace );
-        UndertakingIssuanceMessage.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FirstAdvisingPartyAdditionalInformation is AdvisingPartyAdditionalInformation1 FirstAdvisingPartyAdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "FrstAdvsgPtyAddtlInf", xmlNamespace );
-            FirstAdvisingPartyAdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondAdvisingPartyAdditionalInformation is AdvisingPartyAdditionalInformation1 SecondAdvisingPartyAdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "ScndAdvsgPtyAddtlInf", xmlNamespace );
-            SecondAdvisingPartyAdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConfirmationDetails is UndertakingConfirmation1 ConfirmationDetailsValue)
-        {
-            writer.WriteStartElement(null, "ConfDtls", xmlNamespace );
-            ConfirmationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
-        DigitalSignature.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static UndertakingAdvice1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

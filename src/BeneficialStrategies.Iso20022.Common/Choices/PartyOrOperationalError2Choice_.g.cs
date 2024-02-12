@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Report between the party reference data or an operational error.
-/// </summary>
-[KnownType(typeof(PartyOrOperationalError2Choice.PartyReport))]
-[KnownType(typeof(PartyOrOperationalError2Choice.OperationalError))]
-public abstract partial record PartyOrOperationalError2Choice_ : IIsoXmlSerilizable<PartyOrOperationalError2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Report between the party reference data or an operational error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PartyOrOperationalError2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PartyOrOperationalError2Choice.PartyReport))]
+    [KnownType(typeof(PartyOrOperationalError2Choice.OperationalError))]
+    [IsoId("_edSPgfAzEeWPfa2xBhBfLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Or Operational Error 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PartyOrOperationalError2Choice_
+    #else
+    public abstract partial class PartyOrOperationalError2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PtyRpt" => PartyOrOperationalError2Choice.PartyReport.Deserialize(elementWithPayload),
-             "OprlErr" => PartyOrOperationalError2Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PartyOrOperationalError2Choice choice.")
-        };
     }
 }

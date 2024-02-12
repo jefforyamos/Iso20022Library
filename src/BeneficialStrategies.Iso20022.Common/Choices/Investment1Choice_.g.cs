@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the financial instrument purchased by a central counterparty using clearing member assets.
-/// </summary>
-[KnownType(typeof(Investment1Choice.UnsecuredCashDeposit))]
-[KnownType(typeof(Investment1Choice.CentralBankDeposit))]
-[KnownType(typeof(Investment1Choice.RepurchaseAgreement))]
-[KnownType(typeof(Investment1Choice.OtherInvestments))]
-[KnownType(typeof(Investment1Choice.OutrightInvestment))]
-public abstract partial record Investment1Choice_ : IIsoXmlSerilizable<Investment1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the financial instrument purchased by a central counterparty using clearing member assets.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Investment1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Investment1Choice.UnsecuredCashDeposit))]
+    [KnownType(typeof(Investment1Choice.CentralBankDeposit))]
+    [KnownType(typeof(Investment1Choice.RepurchaseAgreement))]
+    [KnownType(typeof(Investment1Choice.OtherInvestments))]
+    [KnownType(typeof(Investment1Choice.OutrightInvestment))]
+    [IsoId("_nrsigLJUEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Investment1Choice_
+    #else
+    public abstract partial class Investment1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "UscrdCshDpst" => Investment1Choice.UnsecuredCashDeposit.Deserialize(elementWithPayload),
-             "CntrlBkDpst" => Investment1Choice.CentralBankDeposit.Deserialize(elementWithPayload),
-             "RpAgrmt" => Investment1Choice.RepurchaseAgreement.Deserialize(elementWithPayload),
-             "OthrInvstmts" => Investment1Choice.OtherInvestments.Deserialize(elementWithPayload),
-             "OutrghtInvstmt" => Investment1Choice.OutrightInvestment.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Investment1Choice choice.")
-        };
     }
 }

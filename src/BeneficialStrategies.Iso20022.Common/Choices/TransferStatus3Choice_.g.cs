@@ -7,46 +7,40 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of statuses for the status of a transfer.
-/// </summary>
-[KnownType(typeof(TransferStatus3Choice.Status))]
-[KnownType(typeof(TransferStatus3Choice.PendingSettlement))]
-[KnownType(typeof(TransferStatus3Choice.Unmatched))]
-[KnownType(typeof(TransferStatus3Choice.InRepair))]
-[KnownType(typeof(TransferStatus3Choice.Rejected))]
-[KnownType(typeof(TransferStatus3Choice.FailedSettlement))]
-[KnownType(typeof(TransferStatus3Choice.Cancelled))]
-[KnownType(typeof(TransferStatus3Choice.Reversed))]
-[KnownType(typeof(TransferStatus3Choice.CancellationPending))]
-public abstract partial record TransferStatus3Choice_ : IIsoXmlSerilizable<TransferStatus3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of statuses for the status of a transfer.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransferStatus3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransferStatus3Choice.Status))]
+    [KnownType(typeof(TransferStatus3Choice.PendingSettlement))]
+    [KnownType(typeof(TransferStatus3Choice.Unmatched))]
+    [KnownType(typeof(TransferStatus3Choice.InRepair))]
+    [KnownType(typeof(TransferStatus3Choice.Rejected))]
+    [KnownType(typeof(TransferStatus3Choice.FailedSettlement))]
+    [KnownType(typeof(TransferStatus3Choice.Cancelled))]
+    [KnownType(typeof(TransferStatus3Choice.Reversed))]
+    [KnownType(typeof(TransferStatus3Choice.CancellationPending))]
+    [IsoId("_aORxAVNUEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Status 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransferStatus3Choice_
+    #else
+    public abstract partial class TransferStatus3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Sts" => TransferStatus3Choice.Status.Deserialize(elementWithPayload),
-             "PdgSttlm" => TransferStatus3Choice.PendingSettlement.Deserialize(elementWithPayload),
-             "Umtchd" => TransferStatus3Choice.Unmatched.Deserialize(elementWithPayload),
-             "InRpr" => TransferStatus3Choice.InRepair.Deserialize(elementWithPayload),
-             "Rjctd" => TransferStatus3Choice.Rejected.Deserialize(elementWithPayload),
-             "FaildSttlm" => TransferStatus3Choice.FailedSettlement.Deserialize(elementWithPayload),
-             "Canc" => TransferStatus3Choice.Cancelled.Deserialize(elementWithPayload),
-             "Rvsd" => TransferStatus3Choice.Reversed.Deserialize(elementWithPayload),
-             "CxlPdg" => TransferStatus3Choice.CancellationPending.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransferStatus3Choice choice.")
-        };
     }
 }

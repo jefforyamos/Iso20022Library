@@ -7,150 +7,271 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Subscription leg, or switch-in, of a switch order.
 /// </summary>
+[IsoId("_VS4z9Np-Ed-ak6NoX_4Aeg_1801928799")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Switch Subscription Leg Order")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SwitchSubscriptionLegOrder2
-     : IIsoXmlSerilizable<SwitchSubscriptionLegOrder2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SwitchSubscriptionLegOrder2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SwitchSubscriptionLegOrder2( FinancialInstrument6 reqFinancialInstrumentDetails,System.String reqPhysicalDeliveryIndicator )
+    {
+        FinancialInstrumentDetails = reqFinancialInstrumentDetails;
+        PhysicalDeliveryIndicator = reqPhysicalDeliveryIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique technical identifier for an instance of a leg within a switch.
     /// </summary>
+    [IsoId("_VS4z9dp-Ed-ak6NoX_4Aeg_1801930589")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Leg Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LegIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LegIdentification { get; init; } 
+    #else
+    public System.String? LegIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
+    [IsoId("_VS4z9tp-Ed-ak6NoX_4Aeg_1801931092")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument6 FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
+    [IsoId("_VS4z99p-Ed-ak6NoX_4Aeg_1801930797")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Quantity Choice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity4Choice_? FinancialInstrumentQuantityChoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity4Choice_? FinancialInstrumentQuantityChoice { get; init; } 
+    #else
+    public FinancialInstrumentQuantity4Choice_? FinancialInstrumentQuantityChoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [IsoId("_VS4z-Np-Ed-ak6NoX_4Aeg_1801928841")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Preference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncomePreference1Code? IncomePreference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IncomePreference1Code? IncomePreference { get; init; } 
+    #else
+    public IncomePreference1Code? IncomePreference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [IsoId("_VS4z-dp-Ed-ak6NoX_4Aeg_82888763")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedSettlementCurrency { get; init; } 
+    #else
+    public string? RequestedSettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [IsoId("_VS4z-tp-Ed-ak6NoX_4Aeg_82888848")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested NAV Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedNAVCurrency { get; init; } 
+    #else
+    public string? RequestedNAVCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
+    [IsoId("_VS4z-9p-Ed-ak6NoX_4Aeg_1801931152")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge8? ChargeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge8? ChargeDetails { get; init; } 
+    #else
+    public Charge8? ChargeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
+    [IsoId("_VS4z_Np-Ed-ak6NoX_4Aeg_1801931169")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commission Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission6? CommissionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Commission6? CommissionDetails { get; init; } 
+    #else
+    public Commission6? CommissionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax related to an investment fund order.
     /// </summary>
+    [IsoId("_VTCk8Np-Ed-ak6NoX_4Aeg_1801931213")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax6? TaxDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax6? TaxDetails { get; init; } 
+    #else
+    public Tax6? TaxDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
+    [IsoId("_VTCk8dp-Ed-ak6NoX_4Aeg_1801930626")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement And Custody Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundSettlementParameters4? SettlementAndCustodyDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundSettlementParameters4? SettlementAndCustodyDetails { get; init; } 
+    #else
+    public FundSettlementParameters4? SettlementAndCustodyDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [IsoId("_VTCk8tp-Ed-ak6NoX_4Aeg_1801928859")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Delivery Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PhysicalDeliveryIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PhysicalDeliveryIndicator { get; init; } 
+    #else
+    public System.String PhysicalDeliveryIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to physical delivery of the securities.
     /// </summary>
+    [IsoId("_VTCk89p-Ed-ak6NoX_4Aeg_1801930642")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Delivery Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress4? PhysicalDeliveryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress4? PhysicalDeliveryDetails { get; init; } 
+    #else
+    public NameAndAddress4? PhysicalDeliveryDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LegIdentification is IsoMax35Text LegIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LegId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LegIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FinancialInstrumentQuantityChoice is FinancialInstrumentQuantity4Choice_ FinancialInstrumentQuantityChoiceValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmQtyChc", xmlNamespace );
-            FinancialInstrumentQuantityChoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
-        {
-            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
-            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RequestedSettlementCurrency is CurrencyCode RequestedSettlementCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdSttlmCcy", xmlNamespace );
-            writer.WriteValue(RequestedSettlementCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RequestedNAVCurrency is CurrencyCode RequestedNAVCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdNAVCcy", xmlNamespace );
-            writer.WriteValue(RequestedNAVCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ChargeDetails is Charge8 ChargeDetailsValue)
-        {
-            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
-            ChargeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommissionDetails is Commission6 CommissionDetailsValue)
-        {
-            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
-            CommissionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxDetails is Tax6 TaxDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
-            TaxDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementAndCustodyDetails is FundSettlementParameters4 SettlementAndCustodyDetailsValue)
-        {
-            writer.WriteStartElement(null, "SttlmAndCtdyDtls", xmlNamespace );
-            SettlementAndCustodyDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PhysDlvryInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalDeliveryIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (PhysicalDeliveryDetails is NameAndAddress4 PhysicalDeliveryDetailsValue)
-        {
-            writer.WriteStartElement(null, "PhysDlvryDtls", xmlNamespace );
-            PhysicalDeliveryDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SwitchSubscriptionLegOrder2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

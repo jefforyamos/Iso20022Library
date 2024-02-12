@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identifies a product in coded form or free text.
-/// </summary>
-[KnownType(typeof(ProductIdentifier2Choice.StructuredProductIdentifier))]
-[KnownType(typeof(ProductIdentifier2Choice.OtherProductIdentifier))]
-public abstract partial record ProductIdentifier2Choice_ : IIsoXmlSerilizable<ProductIdentifier2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identifies a product in coded form or free text.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProductIdentifier2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProductIdentifier2Choice.StructuredProductIdentifier))]
+    [KnownType(typeof(ProductIdentifier2Choice.OtherProductIdentifier))]
+    [IsoId("_Rb1C0Np-Ed-ak6NoX_4Aeg_-1291805290")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Identifier 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProductIdentifier2Choice_
+    #else
+    public abstract partial class ProductIdentifier2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "StrdPdctIdr" => ProductIdentifier2Choice.StructuredProductIdentifier.Deserialize(elementWithPayload),
-             "OthrPdctIdr" => ProductIdentifier2Choice.OtherProductIdentifier.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProductIdentifier2Choice choice.")
-        };
     }
 }

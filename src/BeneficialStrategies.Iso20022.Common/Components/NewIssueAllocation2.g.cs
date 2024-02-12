@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the investment account ownership with respect to new issue allocation for a hedge fund.
 /// </summary>
+[IsoId("_0BdZcQgpEeSUG-8hqXsVMQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("New Issue Allocation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NewIssueAllocation2
-     : IIsoXmlSerilizable<NewIssueAllocation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NewIssueAllocation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NewIssueAllocation2( System.String reqRestricted )
+    {
+        Restricted = reqRestricted;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the investor is eligible to participate in the profits and losses from a new issue.
     /// </summary>
+    [IsoId("_0cGHAwgpEeSUG-8hqXsVMQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restricted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Restricted { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Restricted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Restricted { get; init; } 
+    #else
+    public System.String Restricted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for exemption.
     /// </summary>
+    [IsoId("_0cGHBQgpEeSUG-8hqXsVMQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exempt Person Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ExemptPersonReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExemptPersonReason { get; init; } 
+    #else
+    public System.String? ExemptPersonReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Conditions applicable when the investor is covered by the "de minimis" exemption.
     /// </summary>
+    [IsoId("_7u93sAgpEeSUG-8hqXsVMQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("De Minimus")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeMinimus1Choice_? DeMinimus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeMinimus1Choice_? DeMinimus { get; init; } 
+    #else
+    public DeMinimus1Choice_? DeMinimus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rstrctd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Restricted)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (ExemptPersonReason is IsoMax350Text ExemptPersonReasonValue)
-        {
-            writer.WriteStartElement(null, "XmptPrsnRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ExemptPersonReasonValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeMinimus is DeMinimus1Choice_ DeMinimusValue)
-        {
-            writer.WriteStartElement(null, "DeMnms", xmlNamespace );
-            DeMinimusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static NewIssueAllocation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

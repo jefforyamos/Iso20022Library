@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reference to the linked transaction.
-/// </summary>
-[KnownType(typeof(References70Choice.ClientCollateralInstructionIdentification))]
-[KnownType(typeof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
-public abstract partial record References70Choice_ : IIsoXmlSerilizable<References70Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reference to the linked transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References70Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References70Choice.ClientCollateralInstructionIdentification))]
+    [KnownType(typeof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
+    [IsoId("_21pbMFSLEemTt7251YwCKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 70 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References70Choice_
+    #else
+    public abstract partial class References70Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ClntCollInstrId" => References70Choice.ClientCollateralInstructionIdentification.Deserialize(elementWithPayload),
-             "TrptyAgtSvcPrvdrCollInstrId" => References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References70Choice choice.")
-        };
     }
 }

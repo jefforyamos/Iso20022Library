@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice;
-
-/// <summary>
-/// Provides the expected collateral type and direction for the variation margin and optionaly the segregated independent amount.
-/// </summary>
-public partial record ExpectedCollateralDetails : ExpectedCollateral1Choice_
-     , IIsoXmlSerilizable<ExpectedCollateralDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides the expected collateral type and direction for the variation margin.
+    /// Provides the expected collateral type and direction for the variation margin and optionaly the segregated independent amount.
     /// </summary>
-    public required ExpectedCollateralMovement1 VariationMargin { get; init; } 
-    /// <summary>
-    /// Provides the expected collateral type and direction for the segregated independent amount.
-    /// </summary>
-    public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QmevM9p-Ed-ak6NoX_4Aeg_-1089909522")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Collateral Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ExpectedCollateralDetails : ExpectedCollateral1Choice_
+    #else
+    public partial class ExpectedCollateralDetails : ExpectedCollateral1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
-        VariationMargin.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SegregatedIndependentAmount is ExpectedCollateralMovement1 SegregatedIndependentAmountValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ExpectedCollateralDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ExpectedCollateralDetails( ExpectedCollateralMovement1 reqVariationMargin )
         {
-            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
-            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            VariationMargin = reqVariationMargin;
         }
-    }
-    public static new ExpectedCollateralDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides the expected collateral type and direction for the variation margin.
+        /// </summary>
+        [IsoId("_UlvaENp-Ed-ak6NoX_4Aeg_259803372")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variation Margin")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ExpectedCollateralMovement1 VariationMargin { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ExpectedCollateralMovement1 VariationMargin { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ExpectedCollateralMovement1 VariationMargin { get; init; } 
+        #else
+        public ExpectedCollateralMovement1 VariationMargin { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the expected collateral type and direction for the segregated independent amount.
+        /// </summary>
+        [IsoId("_UlvaEdp-Ed-ak6NoX_4Aeg_-964605282")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Segregated Independent Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; init; } 
+        #else
+        public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

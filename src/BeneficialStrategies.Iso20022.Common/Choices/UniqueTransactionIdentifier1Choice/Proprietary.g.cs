@@ -9,50 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier1Choice;
-
-/// <summary>
-/// Frequency expressed in a proprietary notation.
-/// </summary>
-public partial record Proprietary : UniqueTransactionIdentifier1Choice_
-     , IIsoXmlSerilizable<Proprietary>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identification of the lot, according to a data source scheme. Used to indicate which processing to apply to the corresponding market value amount.
+    /// Frequency expressed in a proprietary notation.
     /// </summary>
-    public required IsoMax52Text Identification { get; init; } 
-    /// <summary>
-    /// Entity that assigns the identification.
-    /// </summary>
-    public IsoMax35Text? Issuer { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_yq1bcQxeEeuoAcnnpX2x_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Proprietary : UniqueTransactionIdentifier1Choice_
+    #else
+    public partial class Proprietary : UniqueTransactionIdentifier1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax52Text(Identification)); // data type Max52Text System.String
-        writer.WriteEndElement();
-        if (Issuer is IsoMax35Text IssuerValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Proprietary instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Proprietary( System.String reqIdentification )
         {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-    }
-    public static new Proprietary Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of the lot, according to a data source scheme. Used to indicate which processing to apply to the corresponding market value amount.
+        /// </summary>
+        [IsoId("_fe2HtQxeEeuoAcnnpX2x_w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax52Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Entity that assigns the identification.
+        /// </summary>
+        [IsoId("_fe2HtAxeEeuoAcnnpX2x_w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Issuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Issuer { get; init; } 
+        #else
+        public System.String? Issuer { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

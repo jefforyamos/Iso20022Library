@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for an investment need.
-/// </summary>
-[KnownType(typeof(InvestmentNeed2Choice.Code))]
-[KnownType(typeof(InvestmentNeed2Choice.Proprietary))]
-public abstract partial record InvestmentNeed2Choice_ : IIsoXmlSerilizable<InvestmentNeed2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for an investment need.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InvestmentNeed2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InvestmentNeed2Choice.Code))]
+    [KnownType(typeof(InvestmentNeed2Choice.Proprietary))]
+    [IsoId("_bO8yEaDtEequlaOyi6MUhw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Need 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InvestmentNeed2Choice_
+    #else
+    public abstract partial class InvestmentNeed2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => InvestmentNeed2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => InvestmentNeed2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InvestmentNeed2Choice choice.")
-        };
     }
 }

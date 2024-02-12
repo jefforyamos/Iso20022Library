@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the settlement details.
 /// </summary>
+[IsoId("_-dwqJaMOEeCojJW5vEuTEQ_-717706352")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Settlement1
-     : IIsoXmlSerilizable<Settlement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Settlement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Settlement1( AmountAndDirection27 reqSettlementAmount )
+    {
+        SettlementAmount = reqSettlementAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total amount to be settled.
     /// </summary>
+    [IsoId("_-dwqJqMOEeCojJW5vEuTEQ_-831545418")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection27 SettlementAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection27 SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection27 SettlementAmount { get; init; } 
+    #else
+    public AmountAndDirection27 SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [IsoId("_-dwqJ6MOEeCojJW5vEuTEQ_-1828617771")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification34Choice_? Depository { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification34Choice_? Depository { get; init; } 
+    #else
+    public PartyIdentification34Choice_? Depository { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-        SettlementAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Depository is PartyIdentification34Choice_ DepositoryValue)
-        {
-            writer.WriteStartElement(null, "Dpstry", xmlNamespace );
-            DepositoryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Settlement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

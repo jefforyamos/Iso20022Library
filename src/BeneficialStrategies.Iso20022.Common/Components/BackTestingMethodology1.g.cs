@@ -7,67 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the characteristics of a backtesting methodology used to test the performance of a risk model.
 /// </summary>
+[IsoId("_4TLUQLC2EeaSl6vJk5Bd8w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Back Testing Methodology")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BackTestingMethodology1
-     : IIsoXmlSerilizable<BackTestingMethodology1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BackTestingMethodology1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BackTestingMethodology1( ModelType1Choice_ reqRiskModelType,System.Decimal reqModelConfidenceLevel,System.String reqVariationMarginCleanIndicator )
+    {
+        RiskModelType = reqRiskModelType;
+        ModelConfidenceLevel = reqModelConfidenceLevel;
+        VariationMarginCleanIndicator = reqVariationMarginCleanIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the core model type, excluding any modifications for pro-cyclicality.
     /// </summary>
+    [IsoId("_-fqEoLC2EeaSl6vJk5Bd8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Model Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModelType1Choice_ RiskModelType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ModelType1Choice_ RiskModelType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ModelType1Choice_ RiskModelType { get; init; } 
+    #else
+    public ModelType1Choice_ RiskModelType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the confidence interval used on a daily basis to assess the performance of the model.
     /// </summary>
+    [IsoId("_N9vjQLC3EeaSl6vJk5Bd8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Model Confidence Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate ModelConfidenceLevel { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ModelConfidenceLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ModelConfidenceLevel { get; init; } 
+    #else
+    public System.Decimal ModelConfidenceLevel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the CCP model calculates mark-to-market changes on fixed portfolios when backtesting.
     /// </summary>
+    [IsoId("_1WtGoLC3EeaSl6vJk5Bd8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Clean Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator VariationMarginCleanIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String VariationMarginCleanIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String VariationMarginCleanIndicator { get; init; } 
+    #else
+    public System.String VariationMarginCleanIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of backtesting methodology.
     /// </summary>
+    [IsoId("_n56ysMBgEeak3I7j2hsibw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RskMdlTp", xmlNamespace );
-        RiskModelType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MdlCnfdncLvl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ModelConfidenceLevel)); // data type BaseOneRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VartnMrgnCleanInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(VariationMarginCleanIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (Description is IsoMax2000Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(DescriptionValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static BackTestingMethodology1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice element to define a derivative instrument.
-/// </summary>
-[KnownType(typeof(Derivative3Choice.Commodity))]
-[KnownType(typeof(Derivative3Choice.InterestRate))]
-[KnownType(typeof(Derivative3Choice.ForeignExchange))]
-[KnownType(typeof(Derivative3Choice.Equity))]
-[KnownType(typeof(Derivative3Choice.ContractForDifference))]
-[KnownType(typeof(Derivative3Choice.Credit))]
-[KnownType(typeof(Derivative3Choice.EmissionAllowance))]
-public abstract partial record Derivative3Choice_ : IIsoXmlSerilizable<Derivative3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice element to define a derivative instrument.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Derivative3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Derivative3Choice.Commodity))]
+    [KnownType(typeof(Derivative3Choice.InterestRate))]
+    [KnownType(typeof(Derivative3Choice.ForeignExchange))]
+    [KnownType(typeof(Derivative3Choice.Equity))]
+    [KnownType(typeof(Derivative3Choice.ContractForDifference))]
+    [KnownType(typeof(Derivative3Choice.Credit))]
+    [KnownType(typeof(Derivative3Choice.EmissionAllowance))]
+    [IsoId("_w9mvYSe0Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivative 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Derivative3Choice_
+    #else
+    public abstract partial class Derivative3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cmmdty" => Derivative3Choice.Commodity.Deserialize(elementWithPayload),
-             "IntrstRate" => Derivative3Choice.InterestRate.Deserialize(elementWithPayload),
-             "FX" => Derivative3Choice.ForeignExchange.Deserialize(elementWithPayload),
-             "Eqty" => Derivative3Choice.Equity.Deserialize(elementWithPayload),
-             "CtrctForDiff" => Derivative3Choice.ContractForDifference.Deserialize(elementWithPayload),
-             "Cdt" => Derivative3Choice.Credit.Deserialize(elementWithPayload),
-             "EmssnAllwnc" => Derivative3Choice.EmissionAllowance.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Derivative3Choice choice.")
-        };
     }
 }

@@ -7,62 +7,89 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Encrypted data with encryption key.
 /// </summary>
+[IsoId("_vJy54WizEeS87LmvcA55sg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Enveloped Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EnvelopedData4
-     : IIsoXmlSerilizable<EnvelopedData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [IsoId("_vXG9IWizEeS87LmvcA55sg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Session key or identification of the protection key used by the recipient.
     /// </summary>
+    [IsoId("_vXG9I2izEeS87LmvcA55sg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public Recipient4Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _vXG9I2izEeS87LmvcA55sg
+    
     /// <summary>
     /// Data protection by encryption (digital envelope), with an encryption key.
     /// </summary>
+    [IsoId("_vXG9JWizEeS87LmvcA55sg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encrypted Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptedContent3? EncryptedContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EncryptedContent3? EncryptedContent { get; init; } 
+    #else
+    public EncryptedContent3? EncryptedContent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Recipient, multiplicity Unknown
-        if (EncryptedContent is EncryptedContent3 EncryptedContentValue)
-        {
-            writer.WriteStartElement(null, "NcrptdCntt", xmlNamespace );
-            EncryptedContentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static EnvelopedData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

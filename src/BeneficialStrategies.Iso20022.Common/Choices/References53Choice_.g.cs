@@ -7,56 +7,45 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References53Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
-[KnownType(typeof(References53Choice.IntraPositionMovementConfirmationIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesBalanceAccountingReportIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesBalanceCustodyReportIdentification))]
-[KnownType(typeof(References53Choice.IntraPositionMovementPostingReportIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesFinancingConfirmationIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesTransactionPendingReportIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesTransactionPostingReportIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
-[KnownType(typeof(References53Choice.PortfolioTransferNotificationIdentification))]
-[KnownType(typeof(References53Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
-[KnownType(typeof(References53Choice.OtherMessageIdentification))]
-[KnownType(typeof(References53Choice.TotalPortfolioValuationReportIdentification))]
-public abstract partial record References53Choice_ : IIsoXmlSerilizable<References53Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References53Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References53Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
+    [KnownType(typeof(References53Choice.IntraPositionMovementConfirmationIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesBalanceAccountingReportIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesBalanceCustodyReportIdentification))]
+    [KnownType(typeof(References53Choice.IntraPositionMovementPostingReportIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesFinancingConfirmationIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesTransactionPendingReportIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesTransactionPostingReportIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
+    [KnownType(typeof(References53Choice.PortfolioTransferNotificationIdentification))]
+    [KnownType(typeof(References53Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
+    [KnownType(typeof(References53Choice.OtherMessageIdentification))]
+    [KnownType(typeof(References53Choice.TotalPortfolioValuationReportIdentification))]
+    [IsoId("_6EvMLZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 53 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References53Choice_
+    #else
+    public abstract partial class References53Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxConfId" => References53Choice.SecuritiesSettlementTransactionConfirmationIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntConfId" => References53Choice.IntraPositionMovementConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesBalAcctgRptId" => References53Choice.SecuritiesBalanceAccountingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesBalCtdyRptId" => References53Choice.SecuritiesBalanceCustodyReportIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntPstngRptId" => References53Choice.IntraPositionMovementPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesFincgConfId" => References53Choice.SecuritiesFinancingConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPdgRptId" => References53Choice.SecuritiesTransactionPendingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPstngRptId" => References53Choice.SecuritiesTransactionPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtRptId" => References53Choice.SecuritiesSettlementTransactionAllegementReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtNtfctnTxId" => References53Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification.Deserialize(elementWithPayload),
-             "PrtflTrfNtfctnId" => References53Choice.PortfolioTransferNotificationIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxGnrtnNtfctnId" => References53Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification.Deserialize(elementWithPayload),
-             "OthrMsgId" => References53Choice.OtherMessageIdentification.Deserialize(elementWithPayload),
-             "TtlPrtflValtnRptId" => References53Choice.TotalPortfolioValuationReportIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References53Choice choice.")
-        };
     }
 }

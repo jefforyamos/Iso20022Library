@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Current totals of the ATM.
 /// </summary>
+[IsoId("_XPWq4IqdEeS4a4abTJTSSw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Totals")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTotals1
-     : IIsoXmlSerilizable<ATMTotals1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of media inside the cassette.
     /// </summary>
+    [IsoId("_H7ZjMIqeEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Media Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMMediaType1Code? MediaType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMMediaType1Code? MediaType { get; init; } 
+    #else
+    public ATMMediaType1Code? MediaType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the totals.
     /// </summary>
+    [IsoId("_QIrGoIqeEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total balance of the ATM including reject cassette, but excluding the retract cassette.
     /// </summary>
+    [IsoId("_iyycYIqeEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ATMBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ATMBalance { get; init; } 
+    #else
+    public System.Decimal? ATMBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Available amount for dispense in the ATM.
     /// </summary>
+    [IsoId("_pmgL4IqeEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Current")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ATMCurrent { get; init; } 
+    #else
+    public System.Decimal? ATMCurrent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of units for non-valued media, including reject cassette.
     /// </summary>
+    [IsoId("_uaqecIqeEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Balance Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ATMBalanceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ATMBalanceNumber { get; init; } 
+    #else
+    public System.UInt64? ATMBalanceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of units for non-valued media, excluding reject cassette.
     /// </summary>
+    [IsoId("_yIVqEIqeEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Current Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ATMCurrentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ATMCurrentNumber { get; init; } 
+    #else
+    public System.UInt64? ATMCurrentNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MediaType is ATMMediaType1Code MediaTypeValue)
-        {
-            writer.WriteStartElement(null, "MdiaTp", xmlNamespace );
-            writer.WriteValue(MediaTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ATMBalance is IsoImpliedCurrencyAndAmount ATMBalanceValue)
-        {
-            writer.WriteStartElement(null, "ATMBal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ATMBalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ATMCurrent is IsoImpliedCurrencyAndAmount ATMCurrentValue)
-        {
-            writer.WriteStartElement(null, "ATMCur", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ATMCurrentValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ATMBalanceNumber is IsoNumber ATMBalanceNumberValue)
-        {
-            writer.WriteStartElement(null, "ATMBalNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(ATMBalanceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (ATMCurrentNumber is IsoNumber ATMCurrentNumberValue)
-        {
-            writer.WriteStartElement(null, "ATMCurNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(ATMCurrentNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTotals1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,123 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to the merchant.
 /// </summary>
+[IsoId("_0MN8QTAZEeugIJ3Gvoevmg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Merchant Configuration Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MerchantConfigurationParameters6
-     : IIsoXmlSerilizable<MerchantConfigurationParameters6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MerchantConfigurationParameters6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MerchantConfigurationParameters6( TerminalManagementAction3Code reqActionType )
+    {
+        ActionType = reqActionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [IsoId("_0YL7sTAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #else
+    public TerminalManagementAction3Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the merchant for the MTM, if the POI manages several merchants.
     /// </summary>
+    [IsoId("_0YL7szAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MerchantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MerchantIdentification { get; init; } 
+    #else
+    public System.String? MerchantIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the merchant parameters.
     /// </summary>
+    [IsoId("_0YL7tTAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Version { get; init; } 
+    #else
+    public System.String? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the parameters' format.
     /// </summary>
+    [IsoId("_0YL7tzAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameter Format Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ParameterFormatIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ParameterFormatIdentifier { get; init; } 
+    #else
+    public System.String? ParameterFormatIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Local proxy configuration.
     /// </summary>
+    [IsoId("_0YL7uTAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proxy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters8? Proxy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters8? Proxy { get; init; } 
+    #else
+    public NetworkParameters8? Proxy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Full length of other parameters.
     /// </summary>
+    [IsoId("_tMDFIzAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Parameters Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OtherParametersLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? OtherParametersLength { get; init; } 
+    #else
+    public System.UInt64? OtherParametersLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place of this  Block, beginning with 0, in the full other parameters.
     /// </summary>
+    [IsoId("_tMDFJDAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OffsetStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? OffsetStart { get; init; } 
+    #else
+    public System.UInt64? OffsetStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Following place of this Block in the full other parameters.
     /// </summary>
+    [IsoId("_tMDFJTAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset End")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OffsetEnd { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? OffsetEnd { get; init; } 
+    #else
+    public System.UInt64? OffsetEnd { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other merchant parameters.
     /// </summary>
+    [IsoId("_0YL7uzAZEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? OtherParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? OtherParameters { get; init; } 
+    #else
+    public System.Byte[]? OtherParameters { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MerchantIdentification is IsoMax35Text MerchantIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Version is IsoMax256Text VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(VersionValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (ParameterFormatIdentifier is IsoMax8Text ParameterFormatIdentifierValue)
-        {
-            writer.WriteStartElement(null, "ParamFrmtIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8Text(ParameterFormatIdentifierValue)); // data type Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (Proxy is NetworkParameters8 ProxyValue)
-        {
-            writer.WriteStartElement(null, "Prxy", xmlNamespace );
-            ProxyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherParametersLength is IsoPositiveNumber OtherParametersLengthValue)
-        {
-            writer.WriteStartElement(null, "OthrParamsLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OtherParametersLengthValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OffsetStart is IsoPositiveNumber OffsetStartValue)
-        {
-            writer.WriteStartElement(null, "OffsetStart", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetStartValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OffsetEnd is IsoPositiveNumber OffsetEndValue)
-        {
-            writer.WriteStartElement(null, "OffsetEnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetEndValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OtherParameters is IsoMax10000Binary OtherParametersValue)
-        {
-            writer.WriteStartElement(null, "OthrParams", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(OtherParametersValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static MerchantConfigurationParameters6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

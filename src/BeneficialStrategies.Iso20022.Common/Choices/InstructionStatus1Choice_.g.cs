@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Status applying to the instruction request received.
-/// </summary>
-[KnownType(typeof(InstructionStatus1Choice.GlobalInstructionStatus))]
-[KnownType(typeof(InstructionStatus1Choice.DetailedInstructionStatus))]
-public abstract partial record InstructionStatus1Choice_ : IIsoXmlSerilizable<InstructionStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Status applying to the instruction request received.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InstructionStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InstructionStatus1Choice.GlobalInstructionStatus))]
+    [KnownType(typeof(InstructionStatus1Choice.DetailedInstructionStatus))]
+    [IsoId("_RWnLp9p-Ed-ak6NoX_4Aeg_1278003297")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InstructionStatus1Choice_
+    #else
+    public abstract partial class InstructionStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "GblInstrSts" => InstructionStatus1Choice.GlobalInstructionStatus.Deserialize(elementWithPayload),
-             "DtldInstrSts" => InstructionStatus1Choice.DetailedInstructionStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InstructionStatus1Choice choice.")
-        };
     }
 }

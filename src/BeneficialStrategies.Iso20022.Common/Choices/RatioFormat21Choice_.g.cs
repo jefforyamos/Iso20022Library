@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format to expressed a ratio.
-/// </summary>
-[KnownType(typeof(RatioFormat21Choice.QuantityToQuantity))]
-[KnownType(typeof(RatioFormat21Choice.AmountToAmount))]
-public abstract partial record RatioFormat21Choice_ : IIsoXmlSerilizable<RatioFormat21Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format to expressed a ratio.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RatioFormat21Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RatioFormat21Choice.QuantityToQuantity))]
+    [KnownType(typeof(RatioFormat21Choice.AmountToAmount))]
+    [IsoId("_ckBxt5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ratio Format 21 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RatioFormat21Choice_
+    #else
+    public abstract partial class RatioFormat21Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "QtyToQty" => RatioFormat21Choice.QuantityToQuantity.Deserialize(elementWithPayload),
-             "AmtToAmt" => RatioFormat21Choice.AmountToAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RatioFormat21Choice choice.")
-        };
     }
 }

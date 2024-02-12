@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies whether the status is provided with a reason or not.
-/// </summary>
-[KnownType(typeof(DeniedStatus19Choice.NoSpecifiedReason))]
-[KnownType(typeof(DeniedStatus19Choice.Reason))]
-public abstract partial record DeniedStatus19Choice_ : IIsoXmlSerilizable<DeniedStatus19Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies whether the status is provided with a reason or not.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DeniedStatus19Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DeniedStatus19Choice.NoSpecifiedReason))]
+    [KnownType(typeof(DeniedStatus19Choice.Reason))]
+    [IsoId("_6GXkLZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Denied Status 19 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DeniedStatus19Choice_
+    #else
+    public abstract partial class DeniedStatus19Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => DeniedStatus19Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => DeniedStatus19Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DeniedStatus19Choice choice.")
-        };
     }
 }

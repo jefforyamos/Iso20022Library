@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Descriptive fields capturing where no strike price is known.
 /// </summary>
+[IsoId("_M5QB8ZivEe2f7NHvXATP5g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Transaction Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesTransactionPrice6
-     : IIsoXmlSerilizable<SecuritiesTransactionPrice6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesTransactionPrice6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesTransactionPrice6( PriceStatus1Code reqPending )
+    {
+        Pending = reqPending;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
+    [IsoId("_M65AsZivEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceStatus1Code Pending { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceStatus1Code Pending { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceStatus1Code Pending { get; init; } 
+    #else
+    public PriceStatus1Code Pending { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
+    [IsoId("_M65As5ivEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the digital token when the number of units may not be known.
     /// </summary>
+    [IsoId("_NPG9MpivEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Token")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DigitalTokenAmount2? DigitalToken { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DigitalTokenAmount2? DigitalToken { get; init; } 
+    #else
+    public DigitalTokenAmount2? DigitalToken { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Pdg", xmlNamespace );
-        writer.WriteValue(Pending.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DigitalToken is DigitalTokenAmount2 DigitalTokenValue)
-        {
-            writer.WriteStartElement(null, "DgtlTkn", xmlNamespace );
-            DigitalTokenValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesTransactionPrice6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

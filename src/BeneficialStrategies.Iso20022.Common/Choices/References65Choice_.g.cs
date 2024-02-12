@@ -7,46 +7,40 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between references.
-/// </summary>
-[KnownType(typeof(References65Choice.SecuritiesSettlementTransactionIdentification))]
-[KnownType(typeof(References65Choice.IntraPositionMovementIdentification))]
-[KnownType(typeof(References65Choice.IntraBalanceMovementIdentification))]
-[KnownType(typeof(References65Choice.AccountServicerTransactionIdentification))]
-[KnownType(typeof(References65Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References65Choice.PoolIdentification))]
-[KnownType(typeof(References65Choice.CommonIdentification))]
-[KnownType(typeof(References65Choice.TradeIdentification))]
-[KnownType(typeof(References65Choice.OtherTransactionIdentification))]
-public abstract partial record References65Choice_ : IIsoXmlSerilizable<References65Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between references.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References65Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References65Choice.SecuritiesSettlementTransactionIdentification))]
+    [KnownType(typeof(References65Choice.IntraPositionMovementIdentification))]
+    [KnownType(typeof(References65Choice.IntraBalanceMovementIdentification))]
+    [KnownType(typeof(References65Choice.AccountServicerTransactionIdentification))]
+    [KnownType(typeof(References65Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References65Choice.PoolIdentification))]
+    [KnownType(typeof(References65Choice.CommonIdentification))]
+    [KnownType(typeof(References65Choice.TradeIdentification))]
+    [KnownType(typeof(References65Choice.OtherTransactionIdentification))]
+    [IsoId("_03jkTdBwEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 65 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References65Choice_
+    #else
+    public abstract partial class References65Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxId" => References65Choice.SecuritiesSettlementTransactionIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntId" => References65Choice.IntraPositionMovementIdentification.Deserialize(elementWithPayload),
-             "IntraBalMvmntId" => References65Choice.IntraBalanceMovementIdentification.Deserialize(elementWithPayload),
-             "AcctSvcrTxId" => References65Choice.AccountServicerTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => References65Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "PoolId" => References65Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "CmonId" => References65Choice.CommonIdentification.Deserialize(elementWithPayload),
-             "TradId" => References65Choice.TradeIdentification.Deserialize(elementWithPayload),
-             "OthrTxId" => References65Choice.OtherTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References65Choice choice.")
-        };
     }
 }

@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the proprietary status and reason of an instruction or an instruction cancellation.
 /// </summary>
+[IsoId("_UatOwdp-Ed-ak6NoX_4Aeg_-1279072871")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Proprietary Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProprietaryStatusAndReason1
-     : IIsoXmlSerilizable<ProprietaryStatusAndReason1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProprietaryStatusAndReason1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProprietaryStatusAndReason1( GenericIdentification20 reqProprietaryStatus )
+    {
+        ProprietaryStatus = reqProprietaryStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Proprietary identification of the status related to an instruction.
     /// </summary>
+    [IsoId("_UatOwtp-Ed-ak6NoX_4Aeg_-1158092658")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification20 ProprietaryStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification20 ProprietaryStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification20 ProprietaryStatus { get; init; } 
+    #else
+    public GenericIdentification20 ProprietaryStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary identification of the reason related to a proprietary status.
     /// </summary>
+    [IsoId("_UatOw9p-Ed-ak6NoX_4Aeg_-1512024757")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryReason1? ProprietaryReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProprietaryReason1? ProprietaryReason { get; init; } 
+    #else
+    public ProprietaryReason1? ProprietaryReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrtrySts", xmlNamespace );
-        ProprietaryStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ProprietaryReason is ProprietaryReason1 ProprietaryReasonValue)
-        {
-            writer.WriteStartElement(null, "PrtryRsn", xmlNamespace );
-            ProprietaryReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ProprietaryStatusAndReason1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

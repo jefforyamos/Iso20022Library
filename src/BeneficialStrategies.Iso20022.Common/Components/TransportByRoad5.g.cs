@@ -7,92 +7,155 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by road.
 /// </summary>
+[IsoId("_kwevEYj7EeO0H4aqD2Yw9Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport By Road")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportByRoad5
-     : IIsoXmlSerilizable<TransportByRoad5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
+    [IsoId("_lBJoUYj7EeO0H4aqD2Yw9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Receipt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PlaceOfReceipt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceOfReceipt { get; init; } 
+    #else
+    public System.String? PlaceOfReceipt { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    public IsoMax35Text? PlaceOfDelivery { get; init;  } // Warning: Don't know multiplicity.
+    [IsoId("_lBJoU4j7EeO0H4aqD2Yw9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Delivery")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    public System.String? PlaceOfDelivery { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _lBJoU4j7EeO0H4aqD2Yw9Q
+    
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [IsoId("_lBJoVYj7EeO0H4aqD2Yw9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Road Carrier Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? RoadCarrierName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RoadCarrierName { get; init; } 
+    #else
+    public System.String? RoadCarrierName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
+    [IsoId("_lBJoV4j7EeO0H4aqD2Yw9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Road Carrier Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? RoadCarrierCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RoadCarrierCountry { get; init; } 
+    #else
+    public string? RoadCarrierCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_lBJoWYj7EeO0H4aqD2Yw9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CarrierAgentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CarrierAgentName { get; init; } 
+    #else
+    public System.String? CarrierAgentName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_lBJoW4j7EeO0H4aqD2Yw9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CarrierAgentCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CarrierAgentCountry { get; init; } 
+    #else
+    public string? CarrierAgentCountry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceOfReceipt is IsoMax35Text PlaceOfReceiptValue)
-        {
-            writer.WriteStartElement(null, "PlcOfRct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfReceiptValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize PlaceOfDelivery, multiplicity Unknown
-        if (RoadCarrierName is IsoMax70Text RoadCarrierNameValue)
-        {
-            writer.WriteStartElement(null, "RoadCrrierNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(RoadCarrierNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (RoadCarrierCountry is CountryCode RoadCarrierCountryValue)
-        {
-            writer.WriteStartElement(null, "RoadCrrierCtry", xmlNamespace );
-            writer.WriteValue(RoadCarrierCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentName is IsoMax70Text CarrierAgentNameValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CarrierAgentNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentCountry is CountryCode CarrierAgentCountryValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtCtry", xmlNamespace );
-            writer.WriteValue(CarrierAgentCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportByRoad5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

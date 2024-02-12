@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice number format.
-/// </summary>
-[KnownType(typeof(Number24Choice.NumberIdentification))]
-[KnownType(typeof(Number24Choice.Proprietary))]
-public abstract partial record Number24Choice_ : IIsoXmlSerilizable<Number24Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice number format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Number24Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Number24Choice.NumberIdentification))]
+    [KnownType(typeof(Number24Choice.Proprietary))]
+    [IsoId("_6OTyMZBfEeakHoV5BVecAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number 24 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Number24Choice_
+    #else
+    public abstract partial class Number24Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NbId" => Number24Choice.NumberIdentification.Deserialize(elementWithPayload),
-             "Prtry" => Number24Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Number24Choice choice.")
-        };
     }
 }

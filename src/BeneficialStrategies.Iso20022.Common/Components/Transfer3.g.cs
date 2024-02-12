@@ -7,67 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[IsoId("_VOajpdp-Ed-ak6NoX_4Aeg_-1021622577")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transfer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transfer3
-     : IIsoXmlSerilizable<Transfer3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transfer3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transfer3( System.String reqTransferReference,FinancialInstrumentQuantity1 reqTotalUnitsNumber,System.String reqOwnAccountTransferIndicator )
+    {
+        TransferReference = reqTransferReference;
+        TotalUnitsNumber = reqTotalUnitsNumber;
+        OwnAccountTransferIndicator = reqOwnAccountTransferIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_VOajptp-Ed-ak6NoX_4Aeg_172416714")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransferReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransferReference { get; init; } 
+    #else
+    public System.String TransferReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [IsoId("_VOajp9p-Ed-ak6NoX_4Aeg_236844217")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat1Choice_? TransferDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat1Choice_? TransferDate { get; init; } 
+    #else
+    public DateFormat1Choice_? TransferDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [IsoId("_VOajqNp-Ed-ak6NoX_4Aeg_826469126")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1 TotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
+    [IsoId("_VOajqdp-Ed-ak6NoX_4Aeg_-443498289")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Own Account Transfer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator OwnAccountTransferIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OwnAccountTransferIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OwnAccountTransferIndicator { get; init; } 
+    #else
+    public System.String OwnAccountTransferIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (TransferDate is DateFormat1Choice_ TransferDateValue)
-        {
-            writer.WriteStartElement(null, "TrfDt", xmlNamespace );
-            TransferDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
-        TotalUnitsNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OwnAcctTrfInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OwnAccountTransferIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static Transfer3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

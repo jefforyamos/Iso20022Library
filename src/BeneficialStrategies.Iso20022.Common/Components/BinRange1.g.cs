@@ -7,50 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a set of cards which shares the same functionalities.
 /// </summary>
+[IsoId("_qe2mAHC8Ee2bmOA3bkVsMg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Bin Range")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BinRange1
-     : IIsoXmlSerilizable<BinRange1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BinRange1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BinRange1( System.String reqLowerBin,System.String reqHigherBin )
+    {
+        LowerBin = reqLowerBin;
+        HigherBin = reqHigherBin;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Lower value of BIN in the range.
     /// </summary>
+    [IsoId("_6yFj8HC8Ee2bmOA3bkVsMg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lower Bin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText LowerBin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String LowerBin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String LowerBin { get; init; } 
+    #else
+    public System.String LowerBin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Higher value of BIN in the range.
     /// </summary>
+    [IsoId("_-Bh7cHC8Ee2bmOA3bkVsMg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Higher Bin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText HigherBin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String HigherBin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String HigherBin { get; init; } 
+    #else
+    public System.String HigherBin { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LwrBin", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(LowerBin)); // data type Max15NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "HghrBin", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(HigherBin)); // data type Max15NumericText System.String
-        writer.WriteEndElement();
-    }
-    public static BinRange1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

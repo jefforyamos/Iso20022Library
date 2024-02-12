@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[IsoId("_HG95hcWFEeiRga8tPu1L4Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set Total")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSetTotal1
-     : IIsoXmlSerilizable<PositionSetTotal1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Refers to the number of trades contained in the position set.
     /// </summary>
+    [IsoId("_HG95hsWFEeiRga8tPu1L4Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Trades")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20PositiveNumber? NumberOfTrades { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfTrades { get; init; } 
+    #else
+    public System.UInt64? NumberOfTrades { get; set; } 
+    #endif
+    
     /// <summary>
     /// Aggregations of all positive values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
+    [IsoId("_HG95k8WFEeiRga8tPu1L4Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Positive")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetValueAndNotional1? Positive { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PositionSetValueAndNotional1? Positive { get; init; } 
+    #else
+    public PositionSetValueAndNotional1? Positive { get; set; } 
+    #endif
+    
     /// <summary>
     /// Aggregations of all negative values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
+    [IsoId("_HG95jcWFEeiRga8tPu1L4Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Negative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetValueAndNotional1? Negative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PositionSetValueAndNotional1? Negative { get; init; } 
+    #else
+    public PositionSetValueAndNotional1? Negative { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NumberOfTrades is IsoMax20PositiveNumber NumberOfTradesValue)
-        {
-            writer.WriteStartElement(null, "NbOfTrds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(NumberOfTradesValue)); // data type Max20PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Positive is PositionSetValueAndNotional1 PositiveValue)
-        {
-            writer.WriteStartElement(null, "Postv", xmlNamespace );
-            PositiveValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Negative is PositionSetValueAndNotional1 NegativeValue)
-        {
-            writer.WriteStartElement(null, "Neg", xmlNamespace );
-            NegativeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PositionSetTotal1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

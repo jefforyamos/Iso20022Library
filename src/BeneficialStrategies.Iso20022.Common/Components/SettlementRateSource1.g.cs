@@ -7,73 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the components of a settlement rate source for a non delvierable trade.
 /// </summary>
+[IsoId("_CldIUJULEeak6e8_Fc5fQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Rate Source")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementRateSource1
-     : IIsoXmlSerilizable<SettlementRateSource1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementRateSource1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementRateSource1( System.String reqRateSource )
+    {
+        RateSource = reqRateSource;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the rate source for the non deliverable trade.
     /// </summary>
+    [IsoId("_6mn-oJUMEeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRateSourceText RateSource { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RateSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RateSource { get; init; } 
+    #else
+    public System.String RateSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time "HHMM" associated with the rate source.
     /// </summary>
+    [IsoId("_UdWPkJUOEeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? Time { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Time { get; init; } 
+    #else
+    public System.String? Time { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the country code for the quoted rate source.
     /// </summary>
+    [IsoId("_ISDz4JUNEeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CountryCode { get; init; } 
+    #else
+    public string? CountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// The location expressed as a 2 character code.
     /// </summary>
+    [IsoId("_1wrG4JUNEeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2AlphaNumericText? LocationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LocationCode { get; init; } 
+    #else
+    public System.String? LocationCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RateSrc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRateSourceText(RateSource)); // data type RateSourceText System.String
-        writer.WriteEndElement();
-        if (Time is IsoExact4NumericText TimeValue)
-        {
-            writer.WriteStartElement(null, "Tm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(TimeValue)); // data type Exact4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CountryCode is CountryCode CountryCodeValue)
-        {
-            writer.WriteStartElement(null, "CtryCd", xmlNamespace );
-            writer.WriteValue(CountryCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (LocationCode is IsoExact2AlphaNumericText LocationCodeValue)
-        {
-            writer.WriteStartElement(null, "LctnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact2AlphaNumericText(LocationCodeValue)); // data type Exact2AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementRateSource1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

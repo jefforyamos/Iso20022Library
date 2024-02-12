@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare for a option style.
 /// </summary>
+[IsoId("_s87WEE6lEeyEpI66tm807w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compare Option Style")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CompareOptionStyle1
-     : IIsoXmlSerilizable<CompareOptionStyle1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [IsoId("_2QfMIE6lEeyEpI66tm807w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle6Code? Value1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle6Code? Value1 { get; init; } 
+    #else
+    public OptionStyle6Code? Value1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [IsoId("_4V4yYE6lEeyEpI66tm807w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle6Code? Value2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle6Code? Value2 { get; init; } 
+    #else
+    public OptionStyle6Code? Value2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Value1 is OptionStyle6Code Value1Value)
-        {
-            writer.WriteStartElement(null, "Val1", xmlNamespace );
-            writer.WriteValue(Value1Value.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Value2 is OptionStyle6Code Value2Value)
-        {
-            writer.WriteStartElement(null, "Val2", xmlNamespace );
-            writer.WriteValue(Value2Value.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static CompareOptionStyle1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about actions that may be taken on an account.
 /// </summary>
+[IsoId("_TCoJUe6SEemVDc1WJaqofw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Investor Profile")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvestorProfile2
-     : IIsoXmlSerilizable<InvestorProfile2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of profile.
     /// </summary>
+    [IsoId("_TXAd4e6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProfileType1Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProfileType1Choice_? Type { get; init; } 
+    #else
+    public ProfileType1Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the profile.
     /// </summary>
+    [IsoId("_TXAd4-6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorProfileStatus1Choice_? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestorProfileStatus1Choice_? Status { get; init; } 
+    #else
+    public InvestorProfileStatus1Choice_? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the profile for treasury trading.
     /// </summary>
+    [IsoId("_TXAd5e6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Treasury")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TreasuryProfile1? Treasury { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TreasuryProfile1? Treasury { get; init; } 
+    #else
+    public TreasuryProfile1? Treasury { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the profile for high frequency trading.
     /// </summary>
+    [IsoId("_TXAd5-6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("High Frequency Trading")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HighFrequencyTradingProfile1? HighFrequencyTrading { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HighFrequencyTradingProfile1? HighFrequencyTrading { get; init; } 
+    #else
+    public HighFrequencyTradingProfile1? HighFrequencyTrading { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the profile for a market marker.
     /// </summary>
+    [IsoId("_TXAd6e6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Maker")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketMakerProfile2? MarketMaker { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketMakerProfile2? MarketMaker { get; init; } 
+    #else
+    public MarketMakerProfile2? MarketMaker { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is ProfileType1Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Status is InvestorProfileStatus1Choice_ StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            StatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Treasury is TreasuryProfile1 TreasuryValue)
-        {
-            writer.WriteStartElement(null, "Trsr", xmlNamespace );
-            TreasuryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HighFrequencyTrading is HighFrequencyTradingProfile1 HighFrequencyTradingValue)
-        {
-            writer.WriteStartElement(null, "HghFrqcyTradg", xmlNamespace );
-            HighFrequencyTradingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketMaker is MarketMakerProfile2 MarketMakerValue)
-        {
-            writer.WriteStartElement(null, "MktMakr", xmlNamespace );
-            MarketMakerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static InvestorProfile2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

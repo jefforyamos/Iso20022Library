@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the formats to indicate the location of the meeting.
-/// </summary>
-[KnownType(typeof(LocationFormat1Choice.Address))]
-[KnownType(typeof(LocationFormat1Choice.LocationCode))]
-public abstract partial record LocationFormat1Choice_ : IIsoXmlSerilizable<LocationFormat1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the formats to indicate the location of the meeting.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static LocationFormat1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(LocationFormat1Choice.Address))]
+    [KnownType(typeof(LocationFormat1Choice.LocationCode))]
+    [IsoId("_RXD3l9p-Ed-ak6NoX_4Aeg_-341096000")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location Format 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record LocationFormat1Choice_
+    #else
+    public abstract partial class LocationFormat1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Adr" => LocationFormat1Choice.Address.Deserialize(elementWithPayload),
-             "LctnCd" => LocationFormat1Choice.LocationCode.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid LocationFormat1Choice choice.")
-        };
     }
 }

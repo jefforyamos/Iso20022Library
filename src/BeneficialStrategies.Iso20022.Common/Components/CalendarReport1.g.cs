@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports either on the risk management limit or on a business error.
 /// </summary>
+[IsoId("_dVcQ24m7Eeipw6hHPgB4Sw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Calendar Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CalendarReport1
-     : IIsoXmlSerilizable<CalendarReport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CalendarReport1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CalendarReport1( CalendarOrBusinessError1Choice_ reqCalendarOrError )
+    {
+        CalendarOrError = reqCalendarOrError;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the service or system for which the calendar information is provided.
     /// </summary>
+    [IsoId("_G00uIYm8Eeipw6hHPgB4Sw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemAndCurrency1? Service { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemAndCurrency1? Service { get; init; } 
+    #else
+    public SystemAndCurrency1? Service { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested information on the calendar or business error report when information has not been found.
     /// </summary>
+    [IsoId("_dVcQ34m7Eeipw6hHPgB4Sw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calendar Or Error")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+    #else
+    public CalendarOrBusinessError1Choice_ CalendarOrError { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Service is SystemAndCurrency1 ServiceValue)
-        {
-            writer.WriteStartElement(null, "Svc", xmlNamespace );
-            ServiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CalOrErr", xmlNamespace );
-        CalendarOrError.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CalendarReport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

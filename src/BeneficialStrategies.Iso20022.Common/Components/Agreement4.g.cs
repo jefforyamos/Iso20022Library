@@ -7,77 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Agreement details for the over the counter market.
 /// </summary>
+[IsoId("_6T7_AYbEEeWguotXa4lFgg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Agreement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Agreement4
-     : IIsoXmlSerilizable<Agreement4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Agreement4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Agreement4( System.String reqAgreementDetails,System.DateOnly reqAgreementDate,string reqBaseCurrency )
+    {
+        AgreementDetails = reqAgreementDetails;
+        AgreementDate = reqAgreementDate;
+        BaseCurrency = reqBaseCurrency;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Full details of the supporting legal agreement under which the margin call can be issued and/or governed.
     /// </summary>
+    [IsoId("_6qZXMYbEEeWguotXa4lFgg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AgreementDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AgreementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AgreementDetails { get; init; } 
+    #else
+    public System.String AgreementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Common reference to the agreement between the two counterparties.
     /// </summary>
+    [IsoId("_6qZXM4bEEeWguotXa4lFgg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AgreementIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AgreementIdentification { get; init; } 
+    #else
+    public System.String? AgreementIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the collateral agreement was signed.
     /// </summary>
+    [IsoId("_6qZXNYbEEeWguotXa4lFgg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate AgreementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly AgreementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly AgreementDate { get; init; } 
+    #else
+    public System.DateOnly AgreementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Denomination currency as specified in the collateral agreement.
     /// </summary>
+    [IsoId("_6qZXN4bEEeWguotXa4lFgg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string BaseCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string BaseCurrency { get; init; } 
+    #else
+    public string BaseCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying master agreement.
     /// </summary>
+    [IsoId("_6qZXOYbEEeWguotXa4lFgg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Framework")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreementFramework1Choice_? AgreementFramework { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreementFramework1Choice_? AgreementFramework { get; init; } 
+    #else
+    public AgreementFramework1Choice_? AgreementFramework { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AgrmtDtls", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(AgreementDetails)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        if (AgreementIdentification is IsoMax140Text AgreementIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AgrmtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AgreementIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AgrmtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(AgreementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BaseCcy", xmlNamespace );
-        writer.WriteValue(BaseCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AgreementFramework is AgreementFramework1Choice_ AgreementFrameworkValue)
-        {
-            writer.WriteStartElement(null, "AgrmtFrmwk", xmlNamespace );
-            AgreementFrameworkValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Agreement4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

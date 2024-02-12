@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Criteria for the trade venue identification.
-/// </summary>
-[KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.MIC))]
-[KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.AnyMIC))]
-public abstract partial record SecuritiesTradeVenueCriteria1Choice_ : IIsoXmlSerilizable<SecuritiesTradeVenueCriteria1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Criteria for the trade venue identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesTradeVenueCriteria1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.MIC))]
+    [KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.AnyMIC))]
+    [IsoId("_a5LOAx3ZEeWNp95x0ENf8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Trade Venue Criteria 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesTradeVenueCriteria1Choice_
+    #else
+    public abstract partial class SecuritiesTradeVenueCriteria1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MIC" => SecuritiesTradeVenueCriteria1Choice.MIC.Deserialize(elementWithPayload),
-             "AnyMIC" => SecuritiesTradeVenueCriteria1Choice.AnyMIC.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesTradeVenueCriteria1Choice choice.")
-        };
     }
 }

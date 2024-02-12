@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Benchmark report by the relevant national institution. The report can be either an update or a cancellation.
-/// </summary>
-[KnownType(typeof(BenchmarkReport1Choice.Create))]
-[KnownType(typeof(BenchmarkReport1Choice.Update))]
-[KnownType(typeof(BenchmarkReport1Choice.Cancellation))]
-public abstract partial record BenchmarkReport1Choice_ : IIsoXmlSerilizable<BenchmarkReport1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Benchmark report by the relevant national institution. The report can be either an update or a cancellation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static BenchmarkReport1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(BenchmarkReport1Choice.Create))]
+    [KnownType(typeof(BenchmarkReport1Choice.Update))]
+    [KnownType(typeof(BenchmarkReport1Choice.Cancellation))]
+    [IsoId("_P2VfczrWEeedCZZ8dIPp6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Benchmark Report 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record BenchmarkReport1Choice_
+    #else
+    public abstract partial class BenchmarkReport1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cret" => BenchmarkReport1Choice.Create.Deserialize(elementWithPayload),
-             "Upd" => BenchmarkReport1Choice.Update.Deserialize(elementWithPayload),
-             "Cxl" => BenchmarkReport1Choice.Cancellation.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid BenchmarkReport1Choice choice.")
-        };
     }
 }

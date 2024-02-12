@@ -7,88 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total of credit or debit transactions.
 /// </summary>
+[IsoId("_xVxxEXu-EeSLmfFG0DG7zQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Totals")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionTotals5
-     : IIsoXmlSerilizable<TransactionTotals5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionTotals5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionTotals5( System.Decimal reqAmount,System.UInt64 reqNumber,System.Decimal reqChargeBackAmount,System.UInt64 reqChargeBackNumber,System.Decimal reqReversalAmount,System.UInt64 reqReversalNumber )
+    {
+        Amount = reqAmount;
+        Number = reqNumber;
+        ChargeBackAmount = reqChargeBackAmount;
+        ChargeBackNumber = reqChargeBackNumber;
+        ReversalAmount = reqReversalAmount;
+        ReversalNumber = reqReversalNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Cumulative amount of all financial transactions.
     /// </summary>
+    [IsoId("_FRyMgHu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of all financial transactions.
     /// </summary>
+    [IsoId("_Jv4vgHu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Number { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Number { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Number { get; init; } 
+    #else
+    public System.UInt64 Number { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cumulative amount of all chargeback transactions exclusive of any fees.
     /// </summary>
+    [IsoId("_OZXcEHu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Back Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ChargeBackAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ChargeBackAmount { get; init; } 
+    #else
+    public System.Decimal ChargeBackAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of chargeback transactions.
     /// </summary>
+    [IsoId("_RTCX4Hu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Back Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ChargeBackNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ChargeBackNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ChargeBackNumber { get; init; } 
+    #else
+    public System.UInt64 ChargeBackNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cumulative amount of all reversal transactions exclusive of any fees.
     /// </summary>
+    [IsoId("_WkGo4Hu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ReversalAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ReversalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ReversalAmount { get; init; } 
+    #else
+    public System.Decimal ReversalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of reversal transactions.
     /// </summary>
+    [IsoId("_ZPLIAHu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ReversalNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ReversalNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ReversalNumber { get; init; } 
+    #else
+    public System.UInt64 ReversalNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sum amount of all fees.
     /// </summary>
+    [IsoId("_efytEHu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fee Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FeeAmounts { get; init; } 
+    #else
+    public System.Decimal? FeeAmounts { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Nb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(Number)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ChrgBckAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ChargeBackAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ChrgBckNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(ChargeBackNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RvslAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversalAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RvslNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(ReversalNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (FeeAmounts is IsoImpliedCurrencyAndAmount FeeAmountsValue)
-        {
-            writer.WriteStartElement(null, "FeeAmts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FeeAmountsValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionTotals5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Rebate form to an award.
 /// </summary>
+[IsoId("_M2VZgNxOEeioifFt1dhnJA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Loyalty Rebates")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LoyaltyRebates1
-     : IIsoXmlSerilizable<LoyaltyRebates1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// The global awarded amount that is not attached to an item.
     /// </summary>
+    [IsoId("_Wj6SENxOEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Rebate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalRebate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalRebate { get; init; } 
+    #else
+    public System.Decimal? TotalRebate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Short text to qualify a rebate on an line item.
     /// </summary>
+    [IsoId("_ZewSkNxOEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rebate Label")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RebateLabel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RebateLabel { get; init; } 
+    #else
+    public System.String? RebateLabel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
+    [IsoId("_dE2PgNxOEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Item Rebate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleItemRebate1? SaleItemRebate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SaleItemRebate1? SaleItemRebate { get; init; } 
+    #else
+    public SaleItemRebate1? SaleItemRebate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalRebate is IsoImpliedCurrencyAndAmount TotalRebateValue)
-        {
-            writer.WriteStartElement(null, "TtlRbt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalRebateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RebateLabel is IsoMax35Text RebateLabelValue)
-        {
-            writer.WriteStartElement(null, "RbtLabl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RebateLabelValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleItemRebate is SaleItemRebate1 SaleItemRebateValue)
-        {
-            writer.WriteStartElement(null, "SaleItmRbt", xmlNamespace );
-            SaleItemRebateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LoyaltyRebates1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a rate or an unspecified rate.
-/// </summary>
-[KnownType(typeof(SolicitationFeeRateFormat1Choice.Rate))]
-[KnownType(typeof(SolicitationFeeRateFormat1Choice.NotSpecifiedRate))]
-[KnownType(typeof(SolicitationFeeRateFormat1Choice.AmountToQuantity))]
-public abstract partial record SolicitationFeeRateFormat1Choice_ : IIsoXmlSerilizable<SolicitationFeeRateFormat1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a rate or an unspecified rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SolicitationFeeRateFormat1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SolicitationFeeRateFormat1Choice.Rate))]
+    [KnownType(typeof(SolicitationFeeRateFormat1Choice.NotSpecifiedRate))]
+    [KnownType(typeof(SolicitationFeeRateFormat1Choice.AmountToQuantity))]
+    [IsoId("_UOMcx9p-Ed-ak6NoX_4Aeg_-903069211")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Solicitation Fee Rate Format 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SolicitationFeeRateFormat1Choice_
+    #else
+    public abstract partial class SolicitationFeeRateFormat1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rate" => SolicitationFeeRateFormat1Choice.Rate.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => SolicitationFeeRateFormat1Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-             "AmtToQty" => SolicitationFeeRateFormat1Choice.AmountToQuantity.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SolicitationFeeRateFormat1Choice choice.")
-        };
     }
 }

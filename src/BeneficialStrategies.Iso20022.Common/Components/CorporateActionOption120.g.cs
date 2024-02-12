@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[IsoId("_xN1l8UGTEeWqy4niLuXETA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionOption120
-     : IIsoXmlSerilizable<CorporateActionOption120>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionOption120 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionOption120( OptionNumber1Choice_ reqOptionNumber,CorporateActionOption20Choice_ reqOptionType,Quantity20Choice_ reqInstructedQuantity )
+    {
+        OptionNumber = reqOptionNumber;
+        OptionType = reqOptionType;
+        InstructedQuantity = reqInstructedQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [IsoId("_xbrNp0GTEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #else
+    public OptionNumber1Choice_ OptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [IsoId("_xbrNr0GTEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption20Choice_ OptionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionOption20Choice_ OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption20Choice_ OptionType { get; init; } 
+    #else
+    public CorporateActionOption20Choice_ OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
+    [IsoId("_y0OgUWOSEeW4z96Yfj3Wng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity20Choice_ InstructedQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Quantity20Choice_ InstructedQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity20Choice_ InstructedQuantity { get; init; } 
+    #else
+    public Quantity20Choice_ InstructedQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
-        OptionNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-        OptionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstdQty", xmlNamespace );
-        InstructedQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CorporateActionOption120 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

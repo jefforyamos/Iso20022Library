@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a proxy appointed to represent a party authorised to vote at a shareholders meeting and proxy vote.
 /// </summary>
+[IsoId("_ww1xRRrfEeyhRdHRjakS2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Proxy")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Proxy12
-     : IIsoXmlSerilizable<Proxy12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Proxy12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Proxy12( ProxyType3Code reqProxyType )
+    {
+        ProxyType = reqProxyType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of proxy.
     /// </summary>
+    [IsoId("_xFQiBRrfEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proxy Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProxyType3Code ProxyType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ProxyType3Code ProxyType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProxyType3Code ProxyType { get; init; } 
+    #else
+    public ProxyType3Code ProxyType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person, other than the chairman of the meeting, assigned by the security holder as the proxy.
     /// </summary>
+    [IsoId("_xFQiBxrfEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Person Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson42? PersonDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPerson42? PersonDetails { get; init; } 
+    #else
+    public IndividualPerson42? PersonDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrxyTp", xmlNamespace );
-        writer.WriteValue(ProxyType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (PersonDetails is IndividualPerson42 PersonDetailsValue)
-        {
-            writer.WriteStartElement(null, "PrsnDtls", xmlNamespace );
-            PersonDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Proxy12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

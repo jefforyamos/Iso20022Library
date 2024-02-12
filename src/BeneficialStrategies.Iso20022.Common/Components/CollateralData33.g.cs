@@ -7,146 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
+[IsoId("_QMn0QcguEeuGrNSsxk3B0A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralData33
-     : IIsoXmlSerilizable<CollateralData33>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
+    [IsoId("_QOdAQ8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Exposure Collateralisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NetExposureCollateralisationIndicator { get; init; } 
+    #else
+    public System.String? NetExposureCollateralisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication of the type of collateral component.
     /// </summary>
+    [IsoId("_QOdARcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Component Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralType6Code? ComponentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralType6Code? ComponentType { get; init; } 
+    #else
+    public CollateralType6Code? ComponentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of unit of cash collateral component.
     /// </summary>
+    [IsoId("_QOdAR8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Collateral Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? CashCollateralCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CashCollateralCurrency { get; init; } 
+    #else
+    public string? CashCollateralCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of price of unit of collateral component.
     /// </summary>
+    [IsoId("_QOdAScguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? PriceCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? PriceCurrency { get; init; } 
+    #else
+    public string? PriceCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code that classifies the risk of the security.
     /// </summary>
+    [IsoId("_QOdAS8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quality")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralQualityType1Code? Quality { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralQualityType1Code? Quality { get; init; } 
+    #else
+    public CollateralQualityType1Code? Quality { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maturity of the security.
     /// </summary>
+    [IsoId("_QOdATcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractTerm6Choice_? Maturity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContractTerm6Choice_? Maturity { get; init; } 
+    #else
+    public ContractTerm6Choice_? Maturity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. 
     /// </summary>
+    [IsoId("_QOdAT8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Jurisdiction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; init; } 
+    #else
+    public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
+    [IsoId("_QOdAUcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesLendingType3Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesLendingType3Choice_? Type { get; init; } 
+    #else
+    public SecuritiesLendingType3Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Trade Repository to which the other counterparty reported.
     /// </summary>
+    [IsoId("_QOdAU8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Repository")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? TradeRepository { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_? TradeRepository { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_? TradeRepository { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
+    [IsoId("_QOdAVcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReconciliationFlag2? ReconciliationFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReconciliationFlag2? ReconciliationFlag { get; init; } 
+    #else
+    public ReconciliationFlag2? ReconciliationFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
+    [IsoId("_QOdAV8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvested Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReinvestedCashTypeAndAmount2? ReinvestedCash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReinvestedCashTypeAndAmount2? ReinvestedCash { get; init; } 
+    #else
+    public ReinvestedCashTypeAndAmount2? ReinvestedCash { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NetExposureCollateralisationIndicator is IsoTrueFalseIndicator NetExposureCollateralisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NetExposureCollateralisationIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ComponentType is CollateralType6Code ComponentTypeValue)
-        {
-            writer.WriteStartElement(null, "CmpntTp", xmlNamespace );
-            writer.WriteValue(ComponentTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CashCollateralCurrency is ActiveOrHistoricCurrencyCode CashCollateralCurrencyValue)
-        {
-            writer.WriteStartElement(null, "CshCollCcy", xmlNamespace );
-            writer.WriteValue(CashCollateralCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PriceCurrency is ActiveOrHistoricCurrencyCode PriceCurrencyValue)
-        {
-            writer.WriteStartElement(null, "PricCcy", xmlNamespace );
-            writer.WriteValue(PriceCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Quality is CollateralQualityType1Code QualityValue)
-        {
-            writer.WriteStartElement(null, "Qlty", xmlNamespace );
-            writer.WriteValue(QualityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Maturity is ContractTerm6Choice_ MaturityValue)
-        {
-            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
-            MaturityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssuerJurisdiction is IssuerJurisdiction1Choice_ IssuerJurisdictionValue)
-        {
-            writer.WriteStartElement(null, "IssrJursdctn", xmlNamespace );
-            IssuerJurisdictionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Type is SecuritiesLendingType3Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeRepository is OrganisationIdentification15Choice_ TradeRepositoryValue)
-        {
-            writer.WriteStartElement(null, "TradRpstry", xmlNamespace );
-            TradeRepositoryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationFlag is ReconciliationFlag2 ReconciliationFlagValue)
-        {
-            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
-            ReconciliationFlagValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReinvestedCash is ReinvestedCashTypeAndAmount2 ReinvestedCashValue)
-        {
-            writer.WriteStartElement(null, "RinvstdCsh", xmlNamespace );
-            ReinvestedCashValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralData33 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

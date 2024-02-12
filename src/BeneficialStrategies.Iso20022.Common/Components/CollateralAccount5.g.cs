@@ -7,69 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
 /// </summary>
+[IsoId("_hcja4XYAEee_qcLXasnA4g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralAccount5
-     : IIsoXmlSerilizable<CollateralAccount5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralAccount5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralAccount5( PartyIdentification118Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifer for the collateral account.
     /// </summary>
+    [IsoId("_hlIvIXYAEee_qcLXasnA4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification118Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification118Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification118Choice_ Identification { get; init; } 
+    #else
+    public PartyIdentification118Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
     /// </summary>
+    [IsoId("_EPbHcHYCEee_qcLXasnA4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Margin Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public MarginAccount1? RelatedMarginAccount { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _EPbHcHYCEee_qcLXasnA4g
+    
     /// <summary>
     /// Indicates whether the account can be used for clients of UK FCA authorised firms subject to Title Transfer Collateral Arrangements (TTCA).
     /// </summary>
+    [IsoId("_GuWoAHYCEee_qcLXasnA4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Title Transfer Collateral Arrangement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TitleTransferCollateralArrangement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TitleTransferCollateralArrangement { get; init; } 
+    #else
+    public System.String? TitleTransferCollateralArrangement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the client collateral is segregated by value in accordance with local regulations. Usage: In the context of clearing members with US clients, in accordance with Section 4d(a)(2) of the Commodity Exchange Act.
     /// </summary>
+    [IsoId("_JNSIkHYCEee_qcLXasnA4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Segregation By Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CollateralSegregationByValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralSegregationByValue { get; init; } 
+    #else
+    public System.String? CollateralSegregationByValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize RelatedMarginAccount, multiplicity Unknown
-        if (TitleTransferCollateralArrangement is IsoTrueFalseIndicator TitleTransferCollateralArrangementValue)
-        {
-            writer.WriteStartElement(null, "TitlTrfCollArrgmnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TitleTransferCollateralArrangementValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralSegregationByValue is IsoTrueFalseIndicator CollateralSegregationByValueValue)
-        {
-            writer.WriteStartElement(null, "CollSgrtnByVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CollateralSegregationByValueValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralAccount5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

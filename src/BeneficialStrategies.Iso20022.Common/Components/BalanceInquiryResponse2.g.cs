@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Balance Inquiry Response message.
 /// </summary>
+[IsoId("_FM7pwQxrEeqdx6buGpCCQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Balance Inquiry Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BalanceInquiryResponse2
-     : IIsoXmlSerilizable<BalanceInquiryResponse2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Payment account information.
     /// </summary>
+    [IsoId("_FYARUQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentAccount3? PaymentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentAccount3? PaymentAccount { get; init; } 
+    #else
+    public PaymentAccount3? PaymentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loyalty account information.
     /// </summary>
+    [IsoId("_FYARUwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyAccount2? LoyaltyAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyAccount2? LoyaltyAccount { get; init; } 
+    #else
+    public LoyaltyAccount2? LoyaltyAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Stored value account information.
     /// </summary>
+    [IsoId("_FYARVQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stored Value Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueAccount2? StoredValueAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueAccount2? StoredValueAccount { get; init; } 
+    #else
+    public StoredValueAccount2? StoredValueAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Receipt to print after a balance inquiry.
     /// </summary>
+    [IsoId("_FYARVwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receipt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentReceipt2? Receipt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentReceipt2? Receipt { get; init; } 
+    #else
+    public PaymentReceipt2? Receipt { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PaymentAccount is PaymentAccount3 PaymentAccountValue)
-        {
-            writer.WriteStartElement(null, "PmtAcct", xmlNamespace );
-            PaymentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoyaltyAccount is LoyaltyAccount2 LoyaltyAccountValue)
-        {
-            writer.WriteStartElement(null, "LltyAcct", xmlNamespace );
-            LoyaltyAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StoredValueAccount is StoredValueAccount2 StoredValueAccountValue)
-        {
-            writer.WriteStartElement(null, "StordValAcct", xmlNamespace );
-            StoredValueAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Receipt is PaymentReceipt2 ReceiptValue)
-        {
-            writer.WriteStartElement(null, "Rct", xmlNamespace );
-            ReceiptValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BalanceInquiryResponse2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

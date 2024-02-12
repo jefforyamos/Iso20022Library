@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InterestRate27Choice;
-
-/// <summary>
-/// Details of the fixed rate.
-/// </summary>
-public partial record Fixed : InterestRate27Choice_
-     , IIsoXmlSerilizable<Fixed>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InterestRate27Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Annualised interest rate on the principal amount of the repurchase transaction in accordance with the day count convention.
+    /// Details of the fixed rate.
     /// </summary>
-    public IsoPercentageRate? Rate { get; init; } 
-    /// <summary>
-    /// Method for calculating the accrued interest on the principal amount for a fixed rate.
-    /// </summary>
-    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Z-T6Ucg6Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fixed")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Fixed : InterestRate27Choice_
+    #else
+    public partial class Fixed : InterestRate27Choice_
+    #endif
     {
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DayCountBasis is InterestComputationMethodFormat6Choice_ DayCountBasisValue)
-        {
-            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
-            DayCountBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Fixed Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Annualised interest rate on the principal amount of the repurchase transaction in accordance with the day count convention.
+        /// </summary>
+        [IsoId("_6GPnwa5qEeuo-IflVgGqiA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPercentageRate? Rate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? Rate { get; init; } 
+        #else
+        public System.Decimal? Rate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Method for calculating the accrued interest on the principal amount for a fixed rate.
+        /// </summary>
+        [IsoId("_6GPnw65qEeuo-IflVgGqiA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Day Count Basis")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
+        #else
+        public InterestComputationMethodFormat6Choice_? DayCountBasis { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,123 +7,217 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status information.
 /// </summary>
+[IsoId("_8vNzgUQSEealVdmlTDXWkw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Management Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountManagementStatusAndReason5
-     : IIsoXmlSerilizable<AccountManagementStatusAndReason5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountManagementStatusAndReason5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountManagementStatusAndReason5( Status25Choice_ reqStatus )
+    {
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status of the account management instruction that was previously received.
     /// </summary>
+    [IsoId("_9H6nYUQSEealVdmlTDXWkw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status25Choice_ Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Status25Choice_ Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Status25Choice_ Status { get; init; } 
+    #else
+    public Status25Choice_ Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the status of the account management instruction.
     /// </summary>
+    [IsoId("_cPlMMGBdEeaR1OOiVxm3Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcceptedStatusReason1Choice_? StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcceptedStatusReason1Choice_? StatusReason { get; init; } 
+    #else
+    public AcceptedStatusReason1Choice_? StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
+    [IsoId("_9H6nY0QSEealVdmlTDXWkw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountApplicationIdentification { get; init; } 
+    #else
+    public System.String? AccountApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
+    [IsoId("_9H6nZUQSEealVdmlTDXWkw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Existing Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account23? ExistingAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account23? ExistingAccountIdentification { get; init; } 
+    #else
+    public Account23? ExistingAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_CTz6oEy9EeafiMTDrtSnyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountIdentification { get; init; } 
+    #else
+    public System.String? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the account.
     /// </summary>
+    [IsoId("_EJC98Ey9EeafiMTDrtSnyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountStatus2? AccountStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountStatus2? AccountStatus { get; init; } 
+    #else
+    public AccountStatus2? AccountStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the account is blocked and other factors for the blocked account.
     /// </summary>
+    [IsoId("_2AZVkV1BEeagR5I1rq5oaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockedStatusReason2Choice_? BlockedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BlockedStatusReason2Choice_? BlockedStatus { get; init; } 
+    #else
+    public BlockedStatusReason2Choice_? BlockedStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
+    [IsoId("_tfSXcWBzEeaHEJD5P6-ccw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("FATCA Reporting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FATCAReportingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FATCAReportingDate { get; init; } 
+    #else
+    public System.DateOnly? FATCAReportingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
+    [IsoId("_VrHMUXXXEeaH0fB6yD0LBA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CRS Reporting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CRSReportingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CRSReportingDate { get; init; } 
+    #else
+    public System.DateOnly? CRSReportingDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        Status.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (StatusReason is AcceptedStatusReason1Choice_ StatusReasonValue)
-        {
-            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-            StatusReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExistingAccountIdentification is Account23 ExistingAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ExstgAcctId", xmlNamespace );
-            ExistingAccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountStatus is AccountStatus2 AccountStatusValue)
-        {
-            writer.WriteStartElement(null, "AcctSts", xmlNamespace );
-            AccountStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockedStatus is BlockedStatusReason2Choice_ BlockedStatusValue)
-        {
-            writer.WriteStartElement(null, "BlckdSts", xmlNamespace );
-            BlockedStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FATCAReportingDate is IsoISODate FATCAReportingDateValue)
-        {
-            writer.WriteStartElement(null, "FATCARptgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FATCAReportingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CRSReportingDate is IsoISODate CRSReportingDateValue)
-        {
-            writer.WriteStartElement(null, "CRSRptgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CRSReportingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountManagementStatusAndReason5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

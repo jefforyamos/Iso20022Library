@@ -9,110 +9,198 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountSelection1Choice;
-
-/// <summary>
-/// Various investment account information used to select a specific account.
-/// </summary>
-public partial record OtherAccountSelectionData : AccountSelection1Choice_
-     , IIsoXmlSerilizable<OtherAccountSelectionData>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountSelection1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
+    /// Various investment account information used to select a specific account.
     /// </summary>
-    public IsoMax35Text? Name { get; init; } 
-    /// <summary>
-    /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
-    /// </summary>
-    public IsoMax35Text? Designation { get; init; } 
-    /// <summary>
-    /// Legal form of the fund, for example, UCITS, SICAV, OEIC, Unit Trust, and FCP.
-    /// </summary>
-    public IsoMax35Text? FundType { get; init; } 
-    /// <summary>
-    /// Name of the investment fund family.
-    /// </summary>
-    public IsoMax350Text? FundFamilyName { get; init; } 
-    /// <summary>
-    /// Detailed information about the investment fund associated to the account.
-    /// </summary>
-    public FinancialInstrument45? SecurityDetails { get; init; } 
-    /// <summary>
-    /// Owner of the account.
-    /// </summary>
-    public AccountOwner1Choice_? AccountOwner { get; init; } 
-    /// <summary>
-    /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
-    /// </summary>
-    public ValueList<Intermediary33> Intermediary { get; init; } = [];
-    /// <summary>
-    /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
-    /// </summary>
-    public PartyIdentification70Choice_? AccountServicer { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RjijYyFSEeWgV9SQSyaAog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Account Selection Data")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OtherAccountSelectionData : AccountSelection1Choice_
+    #else
+    public partial class OtherAccountSelectionData : AccountSelection1Choice_
+    #endif
     {
-        if (Name is IsoMax35Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Designation is IsoMax35Text DesignationValue)
-        {
-            writer.WriteStartElement(null, "Dsgnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DesignationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FundType is IsoMax35Text FundTypeValue)
-        {
-            writer.WriteStartElement(null, "FndTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FundTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FundFamilyName is IsoMax350Text FundFamilyNameValue)
-        {
-            writer.WriteStartElement(null, "FndFmlyNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(FundFamilyNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecurityDetails is FinancialInstrument45 SecurityDetailsValue)
-        {
-            writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
-            SecurityDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountOwner is AccountOwner1Choice_ AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Intrmy", xmlNamespace );
-        Intermediary.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountServicer is PartyIdentification70Choice_ AccountServicerValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
-            AccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new OtherAccountSelectionData Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
+        /// </summary>
+        [IsoId("_zWVvhSFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
+        /// </summary>
+        [IsoId("_zWVvhyFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Designation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Designation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Designation { get; init; } 
+        #else
+        public System.String? Designation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Legal form of the fund, for example, UCITS, SICAV, OEIC, Unit Trust, and FCP.
+        /// </summary>
+        [IsoId("_zWVviSFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Fund Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? FundType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? FundType { get; init; } 
+        #else
+        public System.String? FundType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the investment fund family.
+        /// </summary>
+        [IsoId("_zWVviyFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Fund Family Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? FundFamilyName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? FundFamilyName { get; init; } 
+        #else
+        public System.String? FundFamilyName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Detailed information about the investment fund associated to the account.
+        /// </summary>
+        [IsoId("_zWVvjSFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Security Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrument45? SecurityDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrument45? SecurityDetails { get; init; } 
+        #else
+        public FinancialInstrument45? SecurityDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Owner of the account.
+        /// </summary>
+        [IsoId("_fF8jACFTEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AccountOwner1Choice_? AccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountOwner1Choice_? AccountOwner { get; init; } 
+        #else
+        public AccountOwner1Choice_? AccountOwner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
+        /// </summary>
+        [IsoId("_zWVvkyFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Intermediary")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(10)]
+        #endif
+        public ValueList<Intermediary33> Intermediary { get; init; } = new ValueList<Intermediary33>(){};
+        
+        /// <summary>
+        /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
+        /// </summary>
+        [IsoId("_zWVvlSFSEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Servicer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification70Choice_? AccountServicer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification70Choice_? AccountServicer { get; init; } 
+        #else
+        public PartyIdentification70Choice_? AccountServicer { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

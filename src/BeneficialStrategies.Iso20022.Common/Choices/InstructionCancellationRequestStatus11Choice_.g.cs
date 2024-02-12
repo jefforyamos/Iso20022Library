@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different instruction cancellation request statuses.
-/// </summary>
-[KnownType(typeof(InstructionCancellationRequestStatus11Choice.CancellationCompleted))]
-[KnownType(typeof(InstructionCancellationRequestStatus11Choice.Accepted))]
-[KnownType(typeof(InstructionCancellationRequestStatus11Choice.Rejected))]
-[KnownType(typeof(InstructionCancellationRequestStatus11Choice.PendingCancellation))]
-[KnownType(typeof(InstructionCancellationRequestStatus11Choice.ProprietaryStatus))]
-public abstract partial record InstructionCancellationRequestStatus11Choice_ : IIsoXmlSerilizable<InstructionCancellationRequestStatus11Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different instruction cancellation request statuses.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InstructionCancellationRequestStatus11Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InstructionCancellationRequestStatus11Choice.CancellationCompleted))]
+    [KnownType(typeof(InstructionCancellationRequestStatus11Choice.Accepted))]
+    [KnownType(typeof(InstructionCancellationRequestStatus11Choice.Rejected))]
+    [KnownType(typeof(InstructionCancellationRequestStatus11Choice.PendingCancellation))]
+    [KnownType(typeof(InstructionCancellationRequestStatus11Choice.ProprietaryStatus))]
+    [IsoId("_1OEe8YluEeavwKddCbm3hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Cancellation Request Status 11 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InstructionCancellationRequestStatus11Choice_
+    #else
+    public abstract partial class InstructionCancellationRequestStatus11Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CxlCmpltd" => InstructionCancellationRequestStatus11Choice.CancellationCompleted.Deserialize(elementWithPayload),
-             "Accptd" => InstructionCancellationRequestStatus11Choice.Accepted.Deserialize(elementWithPayload),
-             "Rjctd" => InstructionCancellationRequestStatus11Choice.Rejected.Deserialize(elementWithPayload),
-             "PdgCxl" => InstructionCancellationRequestStatus11Choice.PendingCancellation.Deserialize(elementWithPayload),
-             "PrtrySts" => InstructionCancellationRequestStatus11Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InstructionCancellationRequestStatus11Choice choice.")
-        };
     }
 }

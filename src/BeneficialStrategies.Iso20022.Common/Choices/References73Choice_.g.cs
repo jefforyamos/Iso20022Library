@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References73Choice.SecuritiesSettlementTransactionIdentification))]
-[KnownType(typeof(References73Choice.IntraPositionMovementIdentification))]
-[KnownType(typeof(References73Choice.IntraBalanceMovementIdentification))]
-[KnownType(typeof(References73Choice.AccountServicerTransactionIdentification))]
-[KnownType(typeof(References73Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References73Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References73Choice.PoolIdentification))]
-[KnownType(typeof(References73Choice.OtherTransactionIdentification))]
-public abstract partial record References73Choice_ : IIsoXmlSerilizable<References73Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References73Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References73Choice.SecuritiesSettlementTransactionIdentification))]
+    [KnownType(typeof(References73Choice.IntraPositionMovementIdentification))]
+    [KnownType(typeof(References73Choice.IntraBalanceMovementIdentification))]
+    [KnownType(typeof(References73Choice.AccountServicerTransactionIdentification))]
+    [KnownType(typeof(References73Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References73Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References73Choice.PoolIdentification))]
+    [KnownType(typeof(References73Choice.OtherTransactionIdentification))]
+    [IsoId("_N6yrtygVEeym1_Zp1BTvEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 73 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References73Choice_
+    #else
+    public abstract partial class References73Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxId" => References73Choice.SecuritiesSettlementTransactionIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntId" => References73Choice.IntraPositionMovementIdentification.Deserialize(elementWithPayload),
-             "IntraBalMvmntId" => References73Choice.IntraBalanceMovementIdentification.Deserialize(elementWithPayload),
-             "AcctSvcrTxId" => References73Choice.AccountServicerTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => References73Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "CtrPtyMktInfrstrctrTxId" => References73Choice.CounterpartyMarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "PoolId" => References73Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "OthrTxId" => References73Choice.OtherTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References73Choice choice.")
-        };
     }
 }

@@ -7,163 +7,292 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
+[IsoId("_1lZYNDL3EeKU9IrkkToqcw_-592229774")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Option SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashOptionSD1
-     : IIsoXmlSerilizable<CashOptionSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashOptionSD1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashOptionSD1( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1lZYNTL3EeKU9IrkkToqcw_1873999229")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Income classification of the cash proceeds for dividend reinvestment.
     /// </summary>
+    [IsoId("_1lZYNjL3EeKU9IrkkToqcw_-6306411")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvestment Income Classification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
+    #else
+    public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of payment. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [IsoId("_1ljJMDL3EeKU9IrkkToqcw_-1006731445")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Pay Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 3 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? DTCPayMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCPayMethod { get; init; } 
+    #else
+    public System.String? DTCPayMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [IsoId("_1ljJMTL3EeKU9IrkkToqcw_1407930211")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Pay Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 3 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? DTCPayOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCPayOrder { get; init; } 
+    #else
+    public System.String? DTCPayOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
+    [IsoId("_1ljJMjL3EeKU9IrkkToqcw_297018792")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entitlement Calculation Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
+    #else
+    public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
+    [IsoId("_1ljJMzL3EeKU9IrkkToqcw_887221562")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Estimated Rate Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EstimatedRateFlag { get; init; } 
+    #else
+    public System.String? EstimatedRateFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the income events which are subject to withholding tax if paid to a non-U.S. resident alien (NRA).
     /// </summary>
+    [IsoId("_1ljJNDL3EeKU9IrkkToqcw_-993084078")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("NRA Tax Reportable Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NRATaxReportableFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NRATaxReportableFlag { get; init; } 
+    #else
+    public System.String? NRATaxReportableFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
     /// </summary>
+    [IsoId("_1ljJNTL3EeKU9IrkkToqcw_-2103995497")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Charge Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProtectChargeFlag { get; init; } 
+    #else
+    public System.String? ProtectChargeFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [IsoId("_1ljJNjL3EeKU9IrkkToqcw_-309584778")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declared Cash Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredCashRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormatSD1Choice_? DeclaredCashRate { get; init; } 
+    #else
+    public PriceFormatSD1Choice_? DeclaredCashRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Gross cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [IsoId("_1ls6MDL3EeKU9IrkkToqcw_2105076878")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declared Gross Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredGrossRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormatSD1Choice_? DeclaredGrossRate { get; init; } 
+    #else
+    public PriceFormatSD1Choice_? DeclaredGrossRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [IsoId("_1ls6MTL3EeKU9IrkkToqcw_994165459")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declared Net Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredNetRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormatSD1Choice_? DeclaredNetRate { get; init; } 
+    #else
+    public PriceFormatSD1Choice_? DeclaredNetRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
+    [IsoId("_1ls6MjL3EeKU9IrkkToqcw_879842262")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declared Fee Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredFeeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormatSD1Choice_? DeclaredFeeRate { get; init; } 
+    #else
+    public PriceFormatSD1Choice_? DeclaredFeeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>
+    [IsoId("_1ls6MzL3EeKU9IrkkToqcw_-1203916842")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTCUS Tax Instruction Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period3? DTCUSTaxInstructionPeriod { get; init; } 
+    #else
+    public Period3? DTCUSTaxInstructionPeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (ReinvestmentIncomeClassification is ReinvestmentIncomeClassification1Code ReinvestmentIncomeClassificationValue)
-        {
-            writer.WriteStartElement(null, "RinvstmtIncmClssfctn", xmlNamespace );
-            writer.WriteValue(ReinvestmentIncomeClassificationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DTCPayMethod is IsoMax3Text DTCPayMethodValue)
-        {
-            writer.WriteStartElement(null, "DTCPayMtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Text(DTCPayMethodValue)); // data type Max3Text System.String
-            writer.WriteEndElement();
-        }
-        if (DTCPayOrder is IsoMax3Text DTCPayOrderValue)
-        {
-            writer.WriteStartElement(null, "DTCPayOrdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Text(DTCPayOrderValue)); // data type Max3Text System.String
-            writer.WriteEndElement();
-        }
-        if (EntitlementCalculationMethod is DTCEntitlementCalculationMethod1Code EntitlementCalculationMethodValue)
-        {
-            writer.WriteStartElement(null, "EntitlmntClctnMtd", xmlNamespace );
-            writer.WriteValue(EntitlementCalculationMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EstimatedRateFlag is IsoYesNoIndicator EstimatedRateFlagValue)
-        {
-            writer.WriteStartElement(null, "EstmtdRateFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EstimatedRateFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (NRATaxReportableFlag is IsoYesNoIndicator NRATaxReportableFlagValue)
-        {
-            writer.WriteStartElement(null, "NRATaxRptblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NRATaxReportableFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ProtectChargeFlag is IsoYesNoIndicator ProtectChargeFlagValue)
-        {
-            writer.WriteStartElement(null, "PrtctChrgFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ProtectChargeFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DeclaredCashRate is PriceFormatSD1Choice_ DeclaredCashRateValue)
-        {
-            writer.WriteStartElement(null, "DclrdCshRate", xmlNamespace );
-            DeclaredCashRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeclaredGrossRate is PriceFormatSD1Choice_ DeclaredGrossRateValue)
-        {
-            writer.WriteStartElement(null, "DclrdGrssRate", xmlNamespace );
-            DeclaredGrossRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeclaredNetRate is PriceFormatSD1Choice_ DeclaredNetRateValue)
-        {
-            writer.WriteStartElement(null, "DclrdNetRate", xmlNamespace );
-            DeclaredNetRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeclaredFeeRate is PriceFormatSD1Choice_ DeclaredFeeRateValue)
-        {
-            writer.WriteStartElement(null, "DclrdFeeRate", xmlNamespace );
-            DeclaredFeeRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DTCUSTaxInstructionPeriod is Period3 DTCUSTaxInstructionPeriodValue)
-        {
-            writer.WriteStartElement(null, "DTCUSTaxInstrPrd", xmlNamespace );
-            DTCUSTaxInstructionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashOptionSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

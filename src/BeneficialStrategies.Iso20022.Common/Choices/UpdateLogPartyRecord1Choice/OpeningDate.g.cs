@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
-
-/// <summary>
-/// Specifies the opening date of the party.
-/// </summary>
-public partial record OpeningDate : UpdateLogPartyRecord1Choice_
-     , IIsoXmlSerilizable<OpeningDate>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Old value before the update.
+    /// Specifies the opening date of the party.
     /// </summary>
-    public required IsoISODate Old { get; init; } 
-    /// <summary>
-    /// New value after the update.
-    /// </summary>
-    public required IsoISODate New { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_xPt7hGjNEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Date")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OpeningDate : UpdateLogPartyRecord1Choice_
+    #else
+    public partial class OpeningDate : UpdateLogPartyRecord1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Od", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(Old)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "New", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(New)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-    }
-    public static new OpeningDate Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OpeningDate instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OpeningDate( System.DateOnly reqOld,System.DateOnly reqNew )
+        {
+            Old = reqOld;
+            New = reqNew;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Old value before the update.
+        /// </summary>
+        [IsoId("_Zi5HlGjSEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Old")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate Old { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly Old { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly Old { get; init; } 
+        #else
+        public System.DateOnly Old { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// New value after the update.
+        /// </summary>
+        [IsoId("_Zi5HlWjSEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate New { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly New { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly New { get; init; } 
+        #else
+        public System.DateOnly New { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

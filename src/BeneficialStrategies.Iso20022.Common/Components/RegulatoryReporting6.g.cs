@@ -7,307 +7,542 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Includes data elements that can be used for reporting to trade repositories, it is not to be used on regular trade confirmations. Although some fields, for example, unique transaction identifier and prior unique transaction identifier, might be used on regular trade confirmations.
 /// </summary>
+[IsoId("_vafxwZR6Eeak6e8_Fc5fQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Regulatory Reporting")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RegulatoryReporting6
-     : IIsoXmlSerilizable<RegulatoryReporting6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Regulatory transaction reporting information from the Trading Side party.
     /// </summary>
+    [IsoId("_vlrHAZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Side Transaction Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingSideTransactionReporting1? TradingSideTransactionReporting { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingSideTransactionReporting1? TradingSideTransactionReporting { get; init; } 
+    #else
+    public TradingSideTransactionReporting1? TradingSideTransactionReporting { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regulatory transaction reporting information from the Counterparty Side party.
     /// </summary>
+    [IsoId("_vlrHA5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Side Transaction Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartySideTransactionReporting1? CounterpartySideTransactionReporting { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartySideTransactionReporting1? CounterpartySideTransactionReporting { get; init; } 
+    #else
+    public CounterpartySideTransactionReporting1? CounterpartySideTransactionReporting { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies an agency or separate corporation of a futures exchange responsible for settling and
     /// clearing trades, collecting and maintaining margins, regulating delivery and reporting trade data. This can also be known as a Central Counterparty (CCP).
     /// </summary>
+    [IsoId("_vlrHBZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Central Counterparty Clearing House")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? CentralCounterpartyClearingHouse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? CentralCounterpartyClearingHouse { get; init; } 
+    #else
+    public PartyIdentification73Choice_? CentralCounterpartyClearingHouse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is a member of the clearing house (CCP) and that acts as a liaison between the investor and the Cntral Counterparty (CCP).
     /// </summary>
+    [IsoId("_vlrHB5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Broker")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? ClearingBroker { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? ClearingBroker { get; init; } 
+    #else
+    public PartyIdentification73Choice_? ClearingBroker { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
+    [IsoId("_vlrHCZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Exception Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? ClearingExceptionParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? ClearingExceptionParty { get; init; } 
+    #else
+    public PartyIdentification73Choice_? ClearingExceptionParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
+    [IsoId("_vlrHC5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Broker Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
+    #else
+    public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the contract is above or below the clearing threshold. Where No indicates the contract is below the clearing threshold and Yes indicates the contract is above the clearing threshold.
     /// </summary>
+    [IsoId("_vlrHDZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Threshold Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ClearingThresholdIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClearingThresholdIndicator { get; init; } 
+    #else
+    public System.String? ClearingThresholdIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reference number assigned by the Central Counterparty (CCP).
     /// </summary>
+    [IsoId("_vlrHD5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cleared Product Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClearedProductIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClearedProductIdentification { get; init; } 
+    #else
+    public System.String? ClearedProductIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying product type.
     /// </summary>
+    [IsoId("_vlrHEZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Product Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
+    #else
+    public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.
     /// </summary>
+    [IsoId("_vlrHE5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allocation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AllocationIndicator1Code? AllocationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AllocationIndicator1Code? AllocationIndicator { get; init; } 
+    #else
+    public AllocationIndicator1Code? AllocationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the transaction is collateralised.
     /// </summary>
+    [IsoId("_vlrHFZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
+    #else
+    public CollateralisationIndicator1Code? CollateralisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the trading venue of the transaction.
     /// </summary>
+    [IsoId("_vlrHF5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExecutionVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExecutionVenue { get; init; } 
+    #else
+    public System.String? ExecutionVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
+    [IsoId("_vlrHGZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Timestamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ExecutionTimestamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? ExecutionTimestamp { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? ExecutionTimestamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>
+    [IsoId("_vlrHG5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Standard Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NonStandardFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NonStandardFlag { get; init; } 
+    #else
+    public System.String? NonStandardFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the common reference or correlation identification for a swap transaction where the near and far leg are confirmed separately.
     /// </summary>
+    [IsoId("_vlrHHZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Link Swap Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact42Text? LinkSwapIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LinkSwapIdentification { get; init; } 
+    #else
+    public System.String? LinkSwapIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the financial nature of the reporting counterparty.
     /// </summary>
+    [IsoId("_vlrHH5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Nature Of The Counterparty Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FinancialNatureOfTheCounterpartyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FinancialNatureOfTheCounterpartyIndicator { get; init; } 
+    #else
+    public System.String? FinancialNatureOfTheCounterpartyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the collateral is posted on a portfolio basis.
     /// </summary>
+    [IsoId("_vlrHIZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Portfolio Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CollateralPortfolioIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralPortfolioIndicator { get; init; } 
+    #else
+    public System.String? CollateralPortfolioIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the portfolio code to which the trade belongs if the collateral is posted on a portfolio basis (and not trade by trade).
     /// </summary>
+    [IsoId("_vlrHI5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Portfolio Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? CollateralPortfolioCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralPortfolioCode { get; init; } 
+    #else
+    public System.String? CollateralPortfolioCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the trade results from portfolio compression.
     /// </summary>
+    [IsoId("_vlrHJZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio Compression Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PortfolioCompressionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PortfolioCompressionIndicator { get; init; } 
+    #else
+    public System.String? PortfolioCompressionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the corporate sector of the counterparty.
     /// </summary>
+    [IsoId("_vlrHJ5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Sector Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateSectorIdentifier1Code? CorporateSectorIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateSectorIdentifier1Code? CorporateSectorIndicator { get; init; } 
+    #else
+    public CorporateSectorIdentifier1Code? CorporateSectorIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the counterparty has entered into a trade with a non-European Economic Area (EEA) counterparty that is not subject to the reporting obligation.
     /// </summary>
+    [IsoId("_vlrHKZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade With Non EEA Counterparty Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TradeWithNonEEACounterpartyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradeWithNonEEACounterpartyIndicator { get; init; } 
+    #else
+    public System.String? TradeWithNonEEACounterpartyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// To indicate if a reported trade falls under the definition of intragroup transaction, as defined by European Securities and Markets Authority (ESMA) in the Technical Standards.
     /// </summary>
+    [IsoId("_vlrHK5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intragroup Trade Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IntragroupTradeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IntragroupTradeIndicator { get; init; } 
+    #else
+    public System.String? IntragroupTradeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the contract is objectively measurable as directly linked to the non-financial counterparty's commercial or treasury financing activity.
     /// </summary>
+    [IsoId("_vlrHLZR6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commercial Or Treasury Financing Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CommercialOrTreasuryFinancingIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommercialOrTreasuryFinancingIndicator { get; init; } 
+    #else
+    public System.String? CommercialOrTreasuryFinancingIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [IsoId("_DF-d4ZR7Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time of the confirmation of the trade in UTC.
     /// </summary>
+    [IsoId("_kyLvAJUZEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Date And Timestamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ConfirmationDateAndTimestamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ConfirmationDateAndTimestamp { get; init; } 
+    #else
+    public System.DateTime? ConfirmationDateAndTimestamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time at which the CCP has legally taken on the clearing of the trade in UTC.
     /// </summary>
+    [IsoId("_s3QYsJUZEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Timestamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ClearingTimestamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? ClearingTimestamp { get; init; } 
+    #else
+    public System.TimeOnly? ClearingTimestamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies additional information that might be required by the regulator.
     /// </summary>
+    [IsoId("_vlrHL5R6Eeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reporting Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? AdditionalReportingInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReportingInformation { get; init; } 
+    #else
+    public System.String? AdditionalReportingInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TradingSideTransactionReporting is TradingSideTransactionReporting1 TradingSideTransactionReportingValue)
-        {
-            writer.WriteStartElement(null, "TradgSdTxRptg", xmlNamespace );
-            TradingSideTransactionReportingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CounterpartySideTransactionReporting is CounterpartySideTransactionReporting1 CounterpartySideTransactionReportingValue)
-        {
-            writer.WriteStartElement(null, "CtrPtySdTxRptg", xmlNamespace );
-            CounterpartySideTransactionReportingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CentralCounterpartyClearingHouse is PartyIdentification73Choice_ CentralCounterpartyClearingHouseValue)
-        {
-            writer.WriteStartElement(null, "CntrlCtrPtyClrHs", xmlNamespace );
-            CentralCounterpartyClearingHouseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingBroker is PartyIdentification73Choice_ ClearingBrokerValue)
-        {
-            writer.WriteStartElement(null, "ClrBrkr", xmlNamespace );
-            ClearingBrokerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingExceptionParty is PartyIdentification73Choice_ ClearingExceptionPartyValue)
-        {
-            writer.WriteStartElement(null, "ClrXcptnPty", xmlNamespace );
-            ClearingExceptionPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingBrokerIdentification is ClearingBrokerIdentification1 ClearingBrokerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrBrkrId", xmlNamespace );
-            ClearingBrokerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingThresholdIndicator is IsoYesNoIndicator ClearingThresholdIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ClrThrshldInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClearingThresholdIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ClearedProductIdentification is IsoMax35Text ClearedProductIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrdPdctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearedProductIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (UnderlyingProductIdentifier is UnderlyingProductIdentifier1Code UnderlyingProductIdentifierValue)
-        {
-            writer.WriteStartElement(null, "UndrlygPdctIdr", xmlNamespace );
-            writer.WriteValue(UnderlyingProductIdentifierValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AllocationIndicator is AllocationIndicator1Code AllocationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AllcnInd", xmlNamespace );
-            writer.WriteValue(AllocationIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CollateralisationIndicator is CollateralisationIndicator1Code CollateralisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CollstnInd", xmlNamespace );
-            writer.WriteValue(CollateralisationIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExecutionVenue is IsoMax35Text ExecutionVenueValue)
-        {
-            writer.WriteStartElement(null, "ExctnVn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ExecutionVenueValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExecutionTimestamp is DateAndDateTimeChoice_ ExecutionTimestampValue)
-        {
-            writer.WriteStartElement(null, "ExctnTmstmp", xmlNamespace );
-            ExecutionTimestampValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NonStandardFlag is IsoYesNoIndicator NonStandardFlagValue)
-        {
-            writer.WriteStartElement(null, "NonStdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NonStandardFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LinkSwapIdentification is IsoExact42Text LinkSwapIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LkSwpId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact42Text(LinkSwapIdentificationValue)); // data type Exact42Text System.String
-            writer.WriteEndElement();
-        }
-        if (FinancialNatureOfTheCounterpartyIndicator is IsoYesNoIndicator FinancialNatureOfTheCounterpartyIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FinNtrOfTheCtrPtyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FinancialNatureOfTheCounterpartyIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralPortfolioIndicator is IsoYesNoIndicator CollateralPortfolioIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CollPrtflInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralPortfolioIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralPortfolioCode is IsoMax10Text CollateralPortfolioCodeValue)
-        {
-            writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10Text(CollateralPortfolioCodeValue)); // data type Max10Text System.String
-            writer.WriteEndElement();
-        }
-        if (PortfolioCompressionIndicator is IsoYesNoIndicator PortfolioCompressionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtflCmprssnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PortfolioCompressionIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CorporateSectorIndicator is CorporateSectorIdentifier1Code CorporateSectorIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CorpSctrInd", xmlNamespace );
-            writer.WriteValue(CorporateSectorIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TradeWithNonEEACounterpartyIndicator is IsoYesNoIndicator TradeWithNonEEACounterpartyIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TradWthNonEEACtrPtyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TradeWithNonEEACounterpartyIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (IntragroupTradeIndicator is IsoYesNoIndicator IntragroupTradeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NtrgrpTradInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(IntragroupTradeIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CommercialOrTreasuryFinancingIndicator is IsoYesNoIndicator CommercialOrTreasuryFinancingIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ComrclOrTrsrFincgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CommercialOrTreasuryFinancingIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConfirmationDateAndTimestamp is IsoISODateTime ConfirmationDateAndTimestampValue)
-        {
-            writer.WriteStartElement(null, "ConfDtAndTmstmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ConfirmationDateAndTimestampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ClearingTimestamp is IsoISOTime ClearingTimestampValue)
-        {
-            writer.WriteStartElement(null, "ClrTmstmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(ClearingTimestampValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (AdditionalReportingInformation is IsoMax210Text AdditionalReportingInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRptgInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReportingInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RegulatoryReporting6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

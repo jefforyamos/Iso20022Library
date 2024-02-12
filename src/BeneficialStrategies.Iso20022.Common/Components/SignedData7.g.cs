@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Digital signatures of data from one or several signers.
 /// </summary>
+[IsoId("_4_PTwVFKEeyApZmLzm74zA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Signed Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SignedData7
-     : IIsoXmlSerilizable<SignedData7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [IsoId("_5FjXIVFKEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of digest algorithm applied before signature.
     /// </summary>
+    [IsoId("_5FjXI1FKEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification21? DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification21? DigestAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification21? DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data to sign.
     /// </summary>
+    [IsoId("_5FjXJVFKEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encapsulated Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncapsulatedContent3? EncapsulatedContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EncapsulatedContent3? EncapsulatedContent { get; init; } 
+    #else
+    public EncapsulatedContent3? EncapsulatedContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Chain of X.509 certificates.
     /// </summary>
+    [IsoId("_5FjXJ1FKEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? Certificate { get; init; } 
+    #else
+    public System.Byte[]? Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature and identification of a signer.
     /// </summary>
+    [IsoId("_5FjXKVFKEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Signer6? Signer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Signer6? Signer { get; init; } 
+    #else
+    public Signer6? Signer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (DigestAlgorithm is AlgorithmIdentification21 DigestAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-            DigestAlgorithmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EncapsulatedContent is EncapsulatedContent3 EncapsulatedContentValue)
-        {
-            writer.WriteStartElement(null, "NcpsltdCntt", xmlNamespace );
-            EncapsulatedContentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Certificate is IsoMax5000Binary CertificateValue)
-        {
-            writer.WriteStartElement(null, "Cert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(CertificateValue)); // data type Max5000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Signer is Signer6 SignerValue)
-        {
-            writer.WriteStartElement(null, "Sgnr", xmlNamespace );
-            SignerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SignedData7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

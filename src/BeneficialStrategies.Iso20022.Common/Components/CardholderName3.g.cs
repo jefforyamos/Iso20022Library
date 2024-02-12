@@ -7,76 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Complete name of the cardholder.
 /// </summary>
+[IsoId("_s6MQgcriEeuQjLd-KKZrCg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cardholder Name")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardholderName3
-     : IIsoXmlSerilizable<CardholderName3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the cardholder, which is usually the full name.
     /// </summary>
+    [IsoId("_s_YSgcriEeuQjLd-KKZrCg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// First name of the cardholder.
     /// </summary>
+    [IsoId("_s_Y5kcriEeuQjLd-KKZrCg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Given Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? GivenName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GivenName { get; init; } 
+    #else
+    public System.String? GivenName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Middle name or initials present in the name of a person.
     /// </summary>
+    [IsoId("_s_Y5k8riEeuQjLd-KKZrCg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Middle Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MiddleName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MiddleName { get; init; } 
+    #else
+    public System.String? MiddleName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Family name of the cardholder.
     /// </summary>
+    [IsoId("_s_Y5lcriEeuQjLd-KKZrCg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LastName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LastName { get; init; } 
+    #else
+    public System.String? LastName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (GivenName is IsoMax35Text GivenNameValue)
-        {
-            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MiddleName is IsoMax35Text MiddleNameValue)
-        {
-            writer.WriteStartElement(null, "MddlNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MiddleNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LastName is IsoMax35Text LastNameValue)
-        {
-            writer.WriteStartElement(null, "LastNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LastNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CardholderName3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

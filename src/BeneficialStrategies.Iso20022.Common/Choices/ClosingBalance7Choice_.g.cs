@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of closing balance.
-/// </summary>
-[KnownType(typeof(ClosingBalance7Choice.Final))]
-[KnownType(typeof(ClosingBalance7Choice.Intermediary))]
-public abstract partial record ClosingBalance7Choice_ : IIsoXmlSerilizable<ClosingBalance7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of closing balance.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ClosingBalance7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ClosingBalance7Choice.Final))]
+    [KnownType(typeof(ClosingBalance7Choice.Intermediary))]
+    [IsoId("_gJxaizi8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Balance 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ClosingBalance7Choice_
+    #else
+    public abstract partial class ClosingBalance7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Fnl" => ClosingBalance7Choice.Final.Deserialize(elementWithPayload),
-             "Intrmy" => ClosingBalance7Choice.Intermediary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ClosingBalance7Choice choice.")
-        };
     }
 }

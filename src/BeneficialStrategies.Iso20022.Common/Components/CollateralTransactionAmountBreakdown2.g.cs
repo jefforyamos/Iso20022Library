@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of breakdown of a market value.
 /// </summary>
+[IsoId("_kK-5sRIoEeyZaPkaPAzTvQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Transaction Amount Breakdown")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralTransactionAmountBreakdown2
-     : IIsoXmlSerilizable<CollateralTransactionAmountBreakdown2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralTransactionAmountBreakdown2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralTransactionAmountBreakdown2( GenericIdentification178 reqLotNumber )
+    {
+        LotNumber = reqLotNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the underlying transaction (exposure split).
     /// </summary>
+    [IsoId("_kiYGARIoEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification178 LotNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification178 LotNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification178 LotNumber { get; init; } 
+    #else
+    public GenericIdentification178 LotNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Split amount of the aggregate transaction amount (exposure).
     /// </summary>
+    [IsoId("_kiYGCRIoEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TransactionAmount { get; init; } 
+    #else
+    public System.Decimal? TransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period that applies to the aggregate transation amount (exposure).
     /// </summary>
+    [IsoId("_kiYGCxIoEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_? Period { get; init; } 
+    #else
+    public Period4Choice_? Period { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LotNb", xmlNamespace );
-        LotNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TransactionAmount is IsoActiveOrHistoricCurrencyAndAmount TransactionAmountValue)
-        {
-            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TransactionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Period is Period4Choice_ PeriodValue)
-        {
-            writer.WriteStartElement(null, "Prd", xmlNamespace );
-            PeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralTransactionAmountBreakdown2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

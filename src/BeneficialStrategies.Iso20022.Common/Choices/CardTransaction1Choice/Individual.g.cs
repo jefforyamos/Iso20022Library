@@ -9,124 +9,219 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice;
-
-/// <summary>
-/// Card transaction details for the individual transaction, as recorded at the POI (point of interaction).
-/// </summary>
-public partial record Individual : CardTransaction1Choice_
-     , IIsoXmlSerilizable<Individual>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Service in addition to the main service.
+    /// Card transaction details for the individual transaction, as recorded at the POI (point of interaction).
     /// </summary>
-    public CardPaymentServiceType2Code? AdditionalService { get; init; } 
-    /// <summary>
-    /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
-    /// </summary>
-    public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
-    /// <summary>
-    /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
-    /// </summary>
-    public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
-    /// <summary>
-    /// Unique reference of the sales as provided by the merchant.
-    /// </summary>
-    public IsoMax35Text? SaleReferenceNumber { get; init; } 
-    /// <summary>
-    /// Sequential number of the card transaction, as assigned by the POI (Point of Interaction). |Usage: The sequential number is increased incrementally for each transaction.
-    /// </summary>
-    public IsoMax35Text? SequenceNumber { get; init; } 
-    /// <summary>
-    /// Identification of the transaction assigned by the POI (Point Of Interaction).
-    /// </summary>
-    public TransactionIdentifier1? TransactionIdentification { get; init; } 
-    /// <summary>
-    /// Product purchased with the transaction.
-    /// </summary>
-    public Product2? Product { get; init; } 
-    /// <summary>
-    /// Date when the deposit was validated by the financial institution that collected the cash.
-    /// </summary>
-    public IsoISODate? ValidationDate { get; init; } 
-    /// <summary>
-    /// Sequential number of the validation of the cash deposit.
-    /// Usage: The sequential number is increased incrementally for each transaction.
-    /// </summary>
-    public IsoMax35Text? ValidationSequenceNumber { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_t6ZGtFkyEeGeoaLUQk__nA_97770603")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Individual : CardTransaction1Choice_
+    #else
+    public partial class Individual : CardTransaction1Choice_
+    #endif
     {
-        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
-        {
-            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
-            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TransactionCategory is ExternalCardTransactionCategory1Code TransactionCategoryValue)
-        {
-            writer.WriteStartElement(null, "TxCtgy", xmlNamespace );
-            writer.WriteValue(TransactionCategoryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SequenceNumber is IsoMax35Text SequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SequenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentification is TransactionIdentifier1 TransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxId", xmlNamespace );
-            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Product is Product2 ProductValue)
-        {
-            writer.WriteStartElement(null, "Pdct", xmlNamespace );
-            ProductValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValidationDate is IsoISODate ValidationDateValue)
-        {
-            writer.WriteStartElement(null, "VldtnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ValidationSequenceNumber is IsoMax35Text ValidationSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "VldtnSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ValidationSequenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Individual Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Service in addition to the main service.
+        /// </summary>
+        [IsoId("_t58aw1kyEeGeoaLUQk__nA_-877465578")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Service")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CardPaymentServiceType2Code? AdditionalService { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentServiceType2Code? AdditionalService { get; init; } 
+        #else
+        public CardPaymentServiceType2Code? AdditionalService { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
+        /// </summary>
+        [IsoId("_t58axFkyEeGeoaLUQk__nA_95506098")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Category")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? TransactionCategory { get; init; } 
+        #else
+        public string? TransactionCategory { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
+        /// </summary>
+        [IsoId("_t6FksFkyEeGeoaLUQk__nA_1800136738")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sale Reconciliation Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? SaleReconciliationIdentification { get; init; } 
+        #else
+        public System.String? SaleReconciliationIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique reference of the sales as provided by the merchant.
+        /// </summary>
+        [IsoId("_t6FksVkyEeGeoaLUQk__nA_882698409")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sale Reference Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? SaleReferenceNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? SaleReferenceNumber { get; init; } 
+        #else
+        public System.String? SaleReferenceNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sequential number of the card transaction, as assigned by the POI (Point of Interaction). |Usage: The sequential number is increased incrementally for each transaction.
+        /// </summary>
+        [IsoId("_t6FkslkyEeGeoaLUQk__nA_1131399274")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sequence Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? SequenceNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? SequenceNumber { get; init; } 
+        #else
+        public System.String? SequenceNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the transaction assigned by the POI (Point Of Interaction).
+        /// </summary>
+        [IsoId("_t6Fks1kyEeGeoaLUQk__nA_588414190")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TransactionIdentifier1? TransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransactionIdentifier1? TransactionIdentification { get; init; } 
+        #else
+        public TransactionIdentifier1? TransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Product purchased with the transaction.
+        /// </summary>
+        [IsoId("_t6FktFkyEeGeoaLUQk__nA_-807094894")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Product2? Product { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Product2? Product { get; init; } 
+        #else
+        public Product2? Product { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date when the deposit was validated by the financial institution that collected the cash.
+        /// </summary>
+        [IsoId("_t6PVsFkyEeGeoaLUQk__nA_1719363359")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Validation Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ValidationDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ValidationDate { get; init; } 
+        #else
+        public System.DateOnly? ValidationDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sequential number of the validation of the cash deposit.
+        /// Usage: The sequential number is increased incrementally for each transaction.
+        /// </summary>
+        [IsoId("_t6PVsVkyEeGeoaLUQk__nA_-667251474")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Validation Sequence Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? ValidationSequenceNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ValidationSequenceNumber { get; init; } 
+        #else
+        public System.String? ValidationSequenceNumber { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// De minimus applicability conditions.
-/// </summary>
-[KnownType(typeof(DeMinimus1Choice.DeMinimusApplicable))]
-[KnownType(typeof(DeMinimus1Choice.DeMinimusNotApplicable))]
-public abstract partial record DeMinimus1Choice_ : IIsoXmlSerilizable<DeMinimus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// De minimus applicability conditions.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DeMinimus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DeMinimus1Choice.DeMinimusApplicable))]
+    [KnownType(typeof(DeMinimus1Choice.DeMinimusNotApplicable))]
+    [IsoId("_8saXYAgpEeSUG-8hqXsVMQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("De Minimus 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DeMinimus1Choice_
+    #else
+    public abstract partial class DeMinimus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DeMnmsAplbl" => DeMinimus1Choice.DeMinimusApplicable.Deserialize(elementWithPayload),
-             "DeMnmsNotAplbl" => DeMinimus1Choice.DeMinimusNotApplicable.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DeMinimus1Choice choice.")
-        };
     }
 }

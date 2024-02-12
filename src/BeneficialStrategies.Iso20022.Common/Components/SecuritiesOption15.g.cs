@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the security option of a corporate event.
 /// </summary>
+[IsoId("_CfMJYeGaEd-1Ktb5rVaajw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesOption15
-     : IIsoXmlSerilizable<SecuritiesOption15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Maximum quantity (or lot) of financial instrument that must be exercised or tendered.
     /// </summary>
+    [IsoId("_CfMJY-GaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Exercisable Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MaximumExercisableQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MaximumExercisableQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MaximumExercisableQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity (or lot) of financial instrument that must be exercised or tendered.
     /// </summary>
+    [IsoId("_CfV6YeGaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple quantity (or lot) of financial instrument that must be exercised or tendered.
     /// </summary>
+    [IsoId("_CfV6Y-GaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Multiple Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
+    [IsoId("_CfV6ZeGaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Board Lot Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
+    [IsoId("_CfV6Z-GaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Denomination Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
+    [IsoId("_CfV6aeGaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Front End Odd Lot Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity16Choice_? FrontEndOddLotQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity16Choice_? FrontEndOddLotQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity16Choice_? FrontEndOddLotQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
+    [IsoId("_CfV6a-GaEd-1Ktb5rVaajw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Back End Odd Lot Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity16Choice_? BackEndOddLotQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity16Choice_? BackEndOddLotQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity16Choice_? BackEndOddLotQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MaximumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MaximumExercisableQuantityValue)
-        {
-            writer.WriteStartElement(null, "MaxExrcblQty", xmlNamespace );
-            MaximumExercisableQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblQty", xmlNamespace );
-            MinimumExercisableQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableMultipleQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableMultipleQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblMltplQty", xmlNamespace );
-            MinimumExercisableMultipleQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewBoardLotQuantity is FinancialInstrumentQuantity1Choice_ NewBoardLotQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewBrdLotQty", xmlNamespace );
-            NewBoardLotQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewDenominationQuantity is FinancialInstrumentQuantity1Choice_ NewDenominationQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewDnmtnQty", xmlNamespace );
-            NewDenominationQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FrontEndOddLotQuantity is FinancialInstrumentQuantity16Choice_ FrontEndOddLotQuantityValue)
-        {
-            writer.WriteStartElement(null, "FrntEndOddLotQty", xmlNamespace );
-            FrontEndOddLotQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BackEndOddLotQuantity is FinancialInstrumentQuantity16Choice_ BackEndOddLotQuantityValue)
-        {
-            writer.WriteStartElement(null, "BckEndOddLotQty", xmlNamespace );
-            BackEndOddLotQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesOption15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

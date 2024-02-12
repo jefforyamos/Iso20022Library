@@ -9,61 +9,134 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice;
-
-/// <summary>
-/// Shares or some other fixed amount of derivative (such an ERIS future or swaption), or a fixed quantity of commodities.
-/// </summary>
-public partial record QuantityDefinedAttributes : DefinedAttributes1Choice_
-     , IIsoXmlSerilizable<QuantityDefinedAttributes>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Quantity of product defined in the contract.
+    /// Shares or some other fixed amount of derivative (such an ERIS future or swaption), or a fixed quantity of commodities.
     /// </summary>
-    public required ContractSize1 ContractSize { get; init; } 
-    /// <summary>
-    /// Indicates whether the contract is cash/physical/optional settled.
-    /// </summary>
-    public required PhysicalTransferType4Code DeliveryType { get; init; } 
-    /// <summary>
-    /// Unique identifier for underlying or deliverable financial product on which final settlement price or equivalent is calculated.
-    /// </summary>
-    public required GenericIdentification165 UnderlyingIdentification { get; init; } 
-    /// <summary>
-    /// Specifies the currency of price of underlying.
-    /// </summary>
-    public required ActiveCurrencyCode PriceCurrency { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("__F7tMOPJEea7_eMQH225xA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Defined Attributes")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record QuantityDefinedAttributes : DefinedAttributes1Choice_
+    #else
+    public partial class QuantityDefinedAttributes : DefinedAttributes1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
-        ContractSize.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
-        writer.WriteValue(DeliveryType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UndrlygId", xmlNamespace );
-        UnderlyingIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PricCcy", xmlNamespace );
-        writer.WriteValue(PriceCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new QuantityDefinedAttributes Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a QuantityDefinedAttributes instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public QuantityDefinedAttributes( ContractSize1 reqContractSize,PhysicalTransferType4Code reqDeliveryType,GenericIdentification165 reqUnderlyingIdentification,string reqPriceCurrency )
+        {
+            ContractSize = reqContractSize;
+            DeliveryType = reqDeliveryType;
+            UnderlyingIdentification = reqUnderlyingIdentification;
+            PriceCurrency = reqPriceCurrency;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Quantity of product defined in the contract.
+        /// </summary>
+        [IsoId("_lvercMhjEeadgvwNGwK05w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Contract Size")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ContractSize1 ContractSize { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ContractSize1 ContractSize { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ContractSize1 ContractSize { get; init; } 
+        #else
+        public ContractSize1 ContractSize { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the contract is cash/physical/optional settled.
+        /// </summary>
+        [IsoId("_ZPUhEMhkEeadgvwNGwK05w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Delivery Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PhysicalTransferType4Code DeliveryType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PhysicalTransferType4Code DeliveryType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PhysicalTransferType4Code DeliveryType { get; init; } 
+        #else
+        public PhysicalTransferType4Code DeliveryType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identifier for underlying or deliverable financial product on which final settlement price or equivalent is calculated.
+        /// </summary>
+        [IsoId("_dlsEYMhkEeadgvwNGwK05w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Underlying Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericIdentification165 UnderlyingIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericIdentification165 UnderlyingIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification165 UnderlyingIdentification { get; init; } 
+        #else
+        public GenericIdentification165 UnderlyingIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the currency of price of underlying.
+        /// </summary>
+        [IsoId("_0ce18MhkEeadgvwNGwK05w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Price Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveCurrencyCode PriceCurrency { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string PriceCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string PriceCurrency { get; init; } 
+        #else
+        public string PriceCurrency { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

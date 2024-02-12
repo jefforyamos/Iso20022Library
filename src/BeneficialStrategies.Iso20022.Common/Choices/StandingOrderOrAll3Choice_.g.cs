@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Characteristics of one or all standing orders set by the member and managed by the transaction administrator.
-/// </summary>
-[KnownType(typeof(StandingOrderOrAll3Choice.StandingOrder))]
-[KnownType(typeof(StandingOrderOrAll3Choice.AllStandingOrders))]
-public abstract partial record StandingOrderOrAll3Choice_ : IIsoXmlSerilizable<StandingOrderOrAll3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Characteristics of one or all standing orders set by the member and managed by the transaction administrator.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static StandingOrderOrAll3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(StandingOrderOrAll3Choice.StandingOrder))]
+    [KnownType(typeof(StandingOrderOrAll3Choice.AllStandingOrders))]
+    [IsoId("_ewVxkdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standing Order Or All 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record StandingOrderOrAll3Choice_
+    #else
+    public abstract partial class StandingOrderOrAll3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "StgOrdr" => StandingOrderOrAll3Choice.StandingOrder.Deserialize(elementWithPayload),
-             "AllStgOrdrs" => StandingOrderOrAll3Choice.AllStandingOrders.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid StandingOrderOrAll3Choice choice.")
-        };
     }
 }

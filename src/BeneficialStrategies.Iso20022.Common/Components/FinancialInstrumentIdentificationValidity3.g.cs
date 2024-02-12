@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the date from which the financial instrument identification is valid.
 /// </summary>
+[IsoId("_QCL0wZJKEeuAlLVx8pyt3w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Identification Validity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentIdentificationValidity3
-     : IIsoXmlSerilizable<FinancialInstrumentIdentificationValidity3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
+    [IsoId("_QETUoZJKEeuAlLVx8pyt3w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification39? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the date from which the instrument code is valid. This date can be before the actual issue date of an instrument for 'when-issued' securities, but may not be a date in the future for a new security.
     /// </summary>
+    [IsoId("_QETUo5JKEeuAlLVx8pyt3w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISIN Valid From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ISINValidFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ISINValidFrom { get; init; } 
+    #else
+    public System.DateOnly? ISINValidFrom { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FinancialInstrumentIdentification is SecurityIdentification39 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ISINValidFrom is IsoISODate ISINValidFromValue)
-        {
-            writer.WriteStartElement(null, "ISINVldFr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ISINValidFromValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrumentIdentificationValidity3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

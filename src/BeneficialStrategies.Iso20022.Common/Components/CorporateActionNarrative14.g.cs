@@ -7,126 +7,229 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[IsoId("_WZX64dp-Ed-ak6NoX_4Aeg_-1553024577")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Narrative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNarrative14
-     : IIsoXmlSerilizable<CorporateActionNarrative14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides declaration details narrative relative to the financial instrument, for example, beneficial ownership.
     /// </summary>
+    [IsoId("_WZX64tp-Ed-ak6NoX_4Aeg_747798013")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declaration Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? DeclarationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeclarationDetails { get; init; } 
+    #else
+    public System.String? DeclarationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
+    [IsoId("_WZX649p-Ed-ak6NoX_4Aeg_-1246346693")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Text")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? AdditionalText { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalText { get; init; } 
+    #else
+    public System.String? AdditionalText { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
+    [IsoId("_WZX65Np-Ed-ak6NoX_4Aeg_-1268249923")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Narrative Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? NarrativeVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NarrativeVersion { get; init; } 
+    #else
+    public System.String? NarrativeVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
+    [IsoId("_WZX65dp-Ed-ak6NoX_4Aeg_1146411733")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? RegistrationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RegistrationDetails { get; init; } 
+    #else
+    public System.String? RegistrationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
+    [IsoId("_WZX65tp-Ed-ak6NoX_4Aeg_-847732973")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? InformationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InformationConditions { get; init; } 
+    #else
+    public System.String? InformationConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
+    [IsoId("_WZX659p-Ed-ak6NoX_4Aeg_1453089617")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information To Comply With")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? InformationToComplyWith { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InformationToComplyWith { get; init; } 
+    #else
+    public System.String? InformationToComplyWith { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [IsoId("_WZX66Np-Ed-ak6NoX_4Aeg_-541055089")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Contact Narrative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? PartyContactNarrative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PartyContactNarrative { get; init; } 
+    #else
+    public System.String? PartyContactNarrative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
+    [IsoId("_WZX66dp-Ed-ak6NoX_4Aeg_-1651966508")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxation Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? TaxationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxationConditions { get; init; } 
+    #else
+    public System.String? TaxationConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information on the basket or index underlying a security, for example a warrant.
     /// </summary>
+    [IsoId("_WZhE0Np-Ed-ak6NoX_4Aeg_648856082")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket Or Index Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? BasketOrIndexInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BasketOrIndexInformation { get; init; } 
+    #else
+    public System.String? BasketOrIndexInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DeclarationDetails is IsoRestrictedFINXMax350Text DeclarationDetailsValue)
-        {
-            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(DeclarationDetailsValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalText is IsoRestrictedFINXMax350Text AdditionalTextValue)
-        {
-            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(AdditionalTextValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (NarrativeVersion is IsoRestrictedFINXMax350Text NarrativeVersionValue)
-        {
-            writer.WriteStartElement(null, "NrrtvVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(NarrativeVersionValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (RegistrationDetails is IsoRestrictedFINXMax350Text RegistrationDetailsValue)
-        {
-            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(RegistrationDetailsValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (InformationConditions is IsoRestrictedFINXMax350Text InformationConditionsValue)
-        {
-            writer.WriteStartElement(null, "InfConds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InformationConditionsValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (InformationToComplyWith is IsoRestrictedFINXMax350Text InformationToComplyWithValue)
-        {
-            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InformationToComplyWithValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (PartyContactNarrative is IsoRestrictedFINXMax350Text PartyContactNarrativeValue)
-        {
-            writer.WriteStartElement(null, "PtyCtctNrrtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(PartyContactNarrativeValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxationConditions is IsoRestrictedFINXMax350Text TaxationConditionsValue)
-        {
-            writer.WriteStartElement(null, "TaxtnConds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(TaxationConditionsValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (BasketOrIndexInformation is IsoRestrictedFINXMax350Text BasketOrIndexInformationValue)
-        {
-            writer.WriteStartElement(null, "BsktOrIndxInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(BasketOrIndexInformationValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNarrative14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

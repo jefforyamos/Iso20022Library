@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on a system or a member of the system.
 /// </summary>
+[IsoId("_RD_KlNp-Ed-ak6NoX_4Aeg_5460592")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemReturnCriteria2
-     : IIsoXmlSerilizable<SystemReturnCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the system identification is requested.
     /// </summary>
+    [IsoId("_RD_Kldp-Ed-ak6NoX_4Aeg_5460611")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Identification Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemIdentificationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SystemIdentificationIndicator { get; init; } 
+    #else
+    public System.String? SystemIdentificationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the member identification is requested.
     /// </summary>
+    [IsoId("_RD_Kltp-Ed-ak6NoX_4Aeg_5460652")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Member Identification Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? MemberIdentificationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MemberIdentificationIndicator { get; init; } 
+    #else
+    public System.String? MemberIdentificationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the country identification is requested.
     /// </summary>
+    [IsoId("_RD_Kl9p-Ed-ak6NoX_4Aeg_348086000")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Identification Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CountryIdentificationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CountryIdentificationIndicator { get; init; } 
+    #else
+    public System.String? CountryIdentificationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account identification is requested.
     /// </summary>
+    [IsoId("_RD_KmNp-Ed-ak6NoX_4Aeg_762169796")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountIdentificationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountIdentificationIndicator { get; init; } 
+    #else
+    public System.String? AccountIdentificationIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SystemIdentificationIndicator is IsoRequestedIndicator SystemIdentificationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SysIdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemIdentificationIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MemberIdentificationIndicator is IsoRequestedIndicator MemberIdentificationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "MmbIdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MemberIdentificationIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CountryIdentificationIndicator is IsoRequestedIndicator CountryIdentificationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtryIdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CountryIdentificationIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AccountIdentificationIndicator is IsoRequestedIndicator AccountIdentificationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AcctIdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountIdentificationIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemReturnCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

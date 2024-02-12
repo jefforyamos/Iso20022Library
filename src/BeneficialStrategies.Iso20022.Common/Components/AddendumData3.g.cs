@@ -7,206 +7,352 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Component contains data structures applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
+[IsoId("_-wbMoYv0EeumSPwlS1PkxQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Addendum Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AddendumData3
-     : IIsoXmlSerilizable<AddendumData3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of identifier present in the message.
     /// </summary>
+    [IsoId("_-2QH0Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Identifier Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PurchaseIdentifierType1Code? PurchaseIdentifierType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PurchaseIdentifierType1Code? PurchaseIdentifierType { get; init; } 
+    #else
+    public PurchaseIdentifierType1Code? PurchaseIdentifierType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used when Purchase Identifier Type is Other National or Other Private. 
     /// </summary>
+    [IsoId("_-2QH04v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Purchase Identifier Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherPurchaseIdentifierType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherPurchaseIdentifierType { get; init; } 
+    #else
+    public System.String? OtherPurchaseIdentifierType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains a value identifying Invoice Data or Purchase Request Data.
     /// </summary>
+    [IsoId("_-2QH1Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 99 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? PurchaseIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PurchaseIdentifier { get; init; } 
+    #else
+    public System.String? PurchaseIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional card acceptor data. 
     /// </summary>
+    [IsoId("_-2QH14v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Acceptor Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalAcceptorData1? AdditionalAcceptorData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalAcceptorData1? AdditionalAcceptorData { get; init; } 
+    #else
+    public AdditionalAcceptorData1? AdditionalAcceptorData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the customer.
     /// </summary>
+    [IsoId("_-2QH2Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer4? Customer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Customer4? Customer { get; init; } 
+    #else
+    public Customer4? Customer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of good and services included in the sale.
     /// </summary>
+    [IsoId("_-2QH24v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Sale2? Sale { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Sale2? Sale { get; init; } 
+    #else
+    public Sale2? Sale { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fleet data pertaining to the payment transaction.
     /// </summary>
+    [IsoId("_-2QH3Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fleet")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetData4? Fleet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FleetData4? Fleet { get; init; } 
+    #else
+    public FleetData4? Fleet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Invoice data pertaining to the payment transaction.
     /// </summary>
+    [IsoId("_-2QH34v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Invoice2? Invoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Invoice2? Invoice { get; init; } 
+    #else
+    public Invoice2? Invoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Component supports corporate transactions for travel agency, airline, or railway transactions. Acquirers may submit multiple occurrences of this component. Each occurrence provides detailed travel agency fee data associated with a travel agency, airline, or railway transaction.
     /// </summary>
+    [IsoId("_-2QH4Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Travel Agency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TravelAgency3? TravelAgency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TravelAgency3? TravelAgency { get; init; } 
+    #else
+    public TravelAgency3? TravelAgency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. 
     /// </summary>
+    [IsoId("_-2QH44v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Passenger Transport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PassengerTransport2? PassengerTransport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PassengerTransport2? PassengerTransport { get; init; } 
+    #else
+    public PassengerTransport2? PassengerTransport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Component provides detailed vehicle rental information. One occurrence of this component provides rental agreement data reporting for a single vehicle rental transaction.
     /// </summary>
+    [IsoId("_-2QH5Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Rental")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VehicleRentalService2? VehicleRental { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VehicleRentalService2? VehicleRental { get; init; } 
+    #else
+    public VehicleRentalService2? VehicleRental { get; set; } 
+    #endif
+    
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios.
     /// </summary>
+    [IsoId("_-2QH54v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lodging")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Lodging3? Lodging { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Lodging3? Lodging { get; init; } 
+    #else
+    public Lodging3? Lodging { get; set; } 
+    #endif
+    
     /// <summary>
     /// Shipping or Courier Service detail component provides detailed information regarding delivery or courier services. 
     /// </summary>
+    [IsoId("_-2QH6Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipping Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShippingData2? ShippingData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ShippingData2? ShippingData { get; init; } 
+    #else
+    public ShippingData2? ShippingData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Telecommunication services component is designed to carry telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
+    [IsoId("_-2QH64v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Telecommunication Services")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TelecomServices2? TelecommunicationServices { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TelecomServices2? TelecommunicationServices { get; init; } 
+    #else
+    public TelecomServices2? TelecommunicationServices { get; set; } 
+    #endif
+    
     /// <summary>
     /// Temporary Services component provides detailed information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
     /// </summary>
+    [IsoId("_-2QH7Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Temporary Services")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServices2? TemporaryServices { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TemporaryServices2? TemporaryServices { get; init; } 
+    #else
+    public TemporaryServices2? TemporaryServices { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
+    [IsoId("_-2QH74v0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment4? Instalment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Instalment4? Instalment { get; init; } 
+    #else
+    public Instalment4? Instalment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
+    [IsoId("_-2QH8Yv0EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PurchaseIdentifierType is PurchaseIdentifierType1Code PurchaseIdentifierTypeValue)
-        {
-            writer.WriteStartElement(null, "PurchsIdrTp", xmlNamespace );
-            writer.WriteValue(PurchaseIdentifierTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherPurchaseIdentifierType is IsoMax35Text OtherPurchaseIdentifierTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrPurchsIdrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPurchaseIdentifierTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PurchaseIdentifier is IsoMax99Text PurchaseIdentifierValue)
-        {
-            writer.WriteStartElement(null, "PurchsIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax99Text(PurchaseIdentifierValue)); // data type Max99Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalAcceptorData is AdditionalAcceptorData1 AdditionalAcceptorDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlAccptrData", xmlNamespace );
-            AdditionalAcceptorDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Customer is Customer4 CustomerValue)
-        {
-            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
-            CustomerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Sale is Sale2 SaleValue)
-        {
-            writer.WriteStartElement(null, "Sale", xmlNamespace );
-            SaleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Fleet is FleetData4 FleetValue)
-        {
-            writer.WriteStartElement(null, "Fleet", xmlNamespace );
-            FleetValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Invoice is Invoice2 InvoiceValue)
-        {
-            writer.WriteStartElement(null, "Invc", xmlNamespace );
-            InvoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TravelAgency is TravelAgency3 TravelAgencyValue)
-        {
-            writer.WriteStartElement(null, "TrvlAgcy", xmlNamespace );
-            TravelAgencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PassengerTransport is PassengerTransport2 PassengerTransportValue)
-        {
-            writer.WriteStartElement(null, "PssngrTrnsprt", xmlNamespace );
-            PassengerTransportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VehicleRental is VehicleRentalService2 VehicleRentalValue)
-        {
-            writer.WriteStartElement(null, "VhclRntl", xmlNamespace );
-            VehicleRentalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Lodging is Lodging3 LodgingValue)
-        {
-            writer.WriteStartElement(null, "Ldgg", xmlNamespace );
-            LodgingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ShippingData is ShippingData2 ShippingDataValue)
-        {
-            writer.WriteStartElement(null, "ShppgData", xmlNamespace );
-            ShippingDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TelecommunicationServices is TelecomServices2 TelecommunicationServicesValue)
-        {
-            writer.WriteStartElement(null, "TelecomSvcs", xmlNamespace );
-            TelecommunicationServicesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TemporaryServices is TemporaryServices2 TemporaryServicesValue)
-        {
-            writer.WriteStartElement(null, "TempSvcs", xmlNamespace );
-            TemporaryServicesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Instalment is Instalment4 InstalmentValue)
-        {
-            writer.WriteStartElement(null, "Instlmt", xmlNamespace );
-            InstalmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AddendumData3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

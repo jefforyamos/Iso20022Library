@@ -7,90 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the interest statement.
 /// </summary>
+[IsoId("_Rvb0MWjgEeSwb7MzI8qnfQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Interest Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InterestStatement3
-     : IIsoXmlSerilizable<InterestStatement3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InterestStatement3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InterestStatement3( DatePeriodDetails reqInterestPeriod,System.DateOnly reqValueDate )
+    {
+        InterestPeriod = reqInterestPeriod;
+        ValueDate = reqValueDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the period during which the interest rate has been applied.
     /// </summary>
+    [IsoId("_SM5MQWjgEeSwb7MzI8qnfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DatePeriodDetails InterestPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DatePeriodDetails InterestPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriodDetails InterestPeriod { get; init; } 
+    #else
+    public DatePeriodDetails InterestPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the total amount of interest that is due to partyA.
     /// </summary>
+    [IsoId("_SM5MQ2jgEeSwb7MzI8qnfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Interest Amount Due To A")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalInterestAmountDueToA { get; init; } 
+    #else
+    public System.Decimal? TotalInterestAmountDueToA { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the total amount of interest that is due to partyB.
     /// </summary>
+    [IsoId("_SM5MRWjgEeSwb7MzI8qnfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Interest Amount Due To B")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalInterestAmountDueToB { get; init; } 
+    #else
+    public System.Decimal? TotalInterestAmountDueToB { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the value date of the interest statement.
     /// </summary>
+    [IsoId("_SM5MR2jgEeSwb7MzI8qnfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ValueDate { get; init; } 
+    #else
+    public System.DateOnly ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the reference to the interest payment request.
     /// </summary>
+    [IsoId("_SM5MSWjgEeSwb7MzI8qnfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Payment Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InterestPaymentRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterestPaymentRequestIdentification { get; init; } 
+    #else
+    public System.String? InterestPaymentRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the details of the interest calculation.
     /// </summary>
+    [IsoId("_SM5MS2jgEeSwb7MzI8qnfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Calculation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestCalculation3? InterestCalculation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestCalculation3? InterestCalculation { get; init; } 
+    #else
+    public InterestCalculation3? InterestCalculation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IntrstPrd", xmlNamespace );
-        InterestPeriod.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TotalInterestAmountDueToA is IsoActiveCurrencyAndAmount TotalInterestAmountDueToAValue)
-        {
-            writer.WriteStartElement(null, "TtlIntrstAmtDueToA", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInterestAmountDueToAValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalInterestAmountDueToB is IsoActiveCurrencyAndAmount TotalInterestAmountDueToBValue)
-        {
-            writer.WriteStartElement(null, "TtlIntrstAmtDueToB", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInterestAmountDueToBValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ValDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (InterestPaymentRequestIdentification is IsoMax35Text InterestPaymentRequestIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IntrstPmtReqId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestPaymentRequestIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InterestCalculation is InterestCalculation3 InterestCalculationValue)
-        {
-            writer.WriteStartElement(null, "IntrstClctn", xmlNamespace );
-            InterestCalculationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static InterestStatement3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

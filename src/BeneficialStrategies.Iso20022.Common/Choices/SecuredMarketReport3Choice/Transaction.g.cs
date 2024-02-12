@@ -9,195 +9,425 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice;
-
-/// <summary>
-/// Provides the details of the secured market transaction as reported by the reporting agent.
-/// </summary>
-public partial record Transaction : SecuredMarketReport3Choice_
-     , IIsoXmlSerilizable<Transaction>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
+    /// Provides the details of the secured market transaction as reported by the reporting agent.
     /// </summary>
-    public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous legal entity identification of the branch of the reporting agent in which the transaction has been booked.
-    /// Usage: This field must only be provided if the transaction has been conducted and booked by a branch of the reporting agent and only if this branch has its own LEI that the reporting agent can clearly identify. 
-    /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
-    /// </summary>
-    public IsoLEIIdentifier? BranchIdentification { get; init; } 
-    /// <summary>
-    /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
-    /// </summary>
-    public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
-    /// <summary>
-    /// Internal unique transaction identifier used by the reporting agent for each transaction.
-    /// </summary>
-    public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
-    /// <summary>
-    /// Internal unique proprietary transaction identifier as assigned by the counterparty of the reporting agent for each transaction.
-    /// </summary>
-    public IsoMax105Text? CounterpartyProprietaryTransactionIdentification { get; init; } 
-    /// <summary>
-    /// Identification of the counterparty of the reporting agent for the reported transaction.
-    /// </summary>
-    public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
-    /// <summary>
-    /// Identification of the tri-party agent, when the transaction has been performed via tri-party agent.
-    /// </summary>
-    public IsoLEIIdentifier? TripartyAgentIdentification { get; init; } 
-    /// <summary>
-    /// Date and time on which the parties entered into the reported transaction.
-    /// Usage: when time is available, it must be reported.
-    /// It is to be reported with only the date when the time of the transaction is not available. 
-    /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
-    /// </summary>
-    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
-    /// <summary>
-    /// Date on which the amount of money is initially exchanged versus the asset as contractually agreed.
-    /// Usage:
-    /// In the case of open basis repurchase transactions, this is the date on which the rollover settles (even if no exchange of an amount of money takes place).
-    /// In the case of a settlement failure in which settlement takes place on a date different than initially agreed, no transactional amendment needs to be reported.
-    /// </summary>
-    public required IsoISODate SettlementDate { get; init; } 
-    /// <summary>
-    /// Date on which the repurchase will be executed, that is the date on which the amount of money is due to be returned or received versus the asset pledged or received as collateral.
-    /// </summary>
-    public required IsoISODate MaturityDate { get; init; } 
-    /// <summary>
-    /// Defines whether the transaction is a cash borrowing or cash lending transaction.
-    /// </summary>
-    public required MoneyMarketTransactionType1Code TransactionType { get; init; } 
-    /// <summary>
-    /// Amount of money initially borrowed or lent to be reported as an absolute value.
-    /// </summary>
-    public required IsoActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
-    /// <summary>
-    /// Specifies whether the transaction interest rate of the repurchase agreements is either fixed or floating (variable rate).
-    /// </summary>
-    public required InterestRateType1Code RateType { get; init; } 
-    /// <summary>
-    /// Interest rate expressed in accordance with the local money market convention at which the repurchase agreement has been concluded and at which the cash lent is remunerated.
-    /// Usage:
-    /// When the remuneration for securities lending transactions is represented by a fee amount, the fee amount will be translated into a deal rate per annum based on the ratio between the fee amount and the transaction nominal amount times number of days based on relevant money market convention divided by the number of days between the settlement date and the maturity of the transaction. 
-    /// Only actual values, as opposed to estimated or default values, will be reported for this variable.
-    /// This value can be either positive or negative irrespective of whether the cash is borrowed or lent. It represents the contractually agreed remuneration rate on the transaction nominal amount regardless of the transaction sign (that whether the transaction type is reported as borrowed or lent).
-    /// </summary>
-    public Rate2? DealRate { get; init; } 
-    /// <summary>
-    /// Repurchase agreement in which the periodic interest payments are calculated on the basis of the value (that is, fixing of an underlying reference rate such as Euribor) on predefined dates (that is, fixing dates) and which has a maturity of no more than one year.
-    /// </summary>
-    public FloatingRateNote2? FloatingRateRepurchaseAgreement { get; init; } 
-    /// <summary>
-    /// Specifies whether the transaction is arranged via a third party broker or not.
-    /// </summary>
-    public BrokeredDeal1Code? BrokeredDeal { get; init; } 
-    /// <summary>
-    /// Identifies the asset class pledged as collateral.
-    /// </summary>
-    public required Collateral14 Collateral { get; init; } 
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_hAas86idEeWHO_l3hf2rlA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Transaction : SecuredMarketReport3Choice_
+    #else
+    public partial class Transaction : SecuredMarketReport3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RptdTxSts", xmlNamespace );
-        writer.WriteValue(ReportedTransactionStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (BranchIdentification is IsoLEIIdentifier BranchIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Transaction instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Transaction( TransactionOperationType1Code reqReportedTransactionStatus,System.String reqProprietaryTransactionIdentification,CounterpartyIdentification2Choice_ reqCounterpartyIdentification,DateAndDateTimeChoice_ reqTradeDate,System.DateOnly reqSettlementDate,System.DateOnly reqMaturityDate,MoneyMarketTransactionType1Code reqTransactionType,System.Decimal reqTransactionNominalAmount,InterestRateType1Code reqRateType,Collateral14 reqCollateral )
         {
-            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(BranchIdentificationValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
+            ReportedTransactionStatus = reqReportedTransactionStatus;
+            ProprietaryTransactionIdentification = reqProprietaryTransactionIdentification;
+            CounterpartyIdentification = reqCounterpartyIdentification;
+            TradeDate = reqTradeDate;
+            SettlementDate = reqSettlementDate;
+            MaturityDate = reqMaturityDate;
+            TransactionType = reqTransactionType;
+            TransactionNominalAmount = reqTransactionNominalAmount;
+            RateType = reqRateType;
+            Collateral = reqCollateral;
         }
-        if (UniqueTransactionIdentifier is IsoMax105Text UniqueTransactionIdentifierValue)
-        {
-            writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(UniqueTransactionIdentifierValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PrtryTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax105Text(ProprietaryTransactionIdentification)); // data type Max105Text System.String
-        writer.WriteEndElement();
-        if (CounterpartyProprietaryTransactionIdentification is IsoMax105Text CounterpartyProprietaryTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyPrtryTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(CounterpartyProprietaryTransactionIdentificationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-        CounterpartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TripartyAgentIdentification is IsoLEIIdentifier TripartyAgentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TripartyAgentIdentificationValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TradDt", xmlNamespace );
-        TradeDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        writer.WriteValue(TransactionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxNmnlAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionNominalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RateTp", xmlNamespace );
-        writer.WriteValue(RateType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (DealRate is Rate2 DealRateValue)
-        {
-            writer.WriteStartElement(null, "DealRate", xmlNamespace );
-            DealRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FloatingRateRepurchaseAgreement is FloatingRateNote2 FloatingRateRepurchaseAgreementValue)
-        {
-            writer.WriteStartElement(null, "FltgRateRpAgrmt", xmlNamespace );
-            FloatingRateRepurchaseAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BrokeredDeal is BrokeredDeal1Code BrokeredDealValue)
-        {
-            writer.WriteStartElement(null, "BrkrdDeal", xmlNamespace );
-            writer.WriteValue(BrokeredDealValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Coll", xmlNamespace );
-        Collateral.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Transaction Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
+        /// </summary>
+        [IsoId("_hc-tJaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reported Transaction Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
+        #else
+        public TransactionOperationType1Code ReportedTransactionStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous legal entity identification of the branch of the reporting agent in which the transaction has been booked.
+        /// Usage: This field must only be provided if the transaction has been conducted and booked by a branch of the reporting agent and only if this branch has its own LEI that the reporting agent can clearly identify. 
+        /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
+        /// </summary>
+        [IsoId("_hc-tJ6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Branch Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? BranchIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? BranchIdentification { get; init; } 
+        #else
+        public System.String? BranchIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
+        /// </summary>
+        [IsoId("_hc-tKaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unique Transaction Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? UniqueTransactionIdentifier { get; init; } 
+        #else
+        public System.String? UniqueTransactionIdentifier { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Internal unique transaction identifier used by the reporting agent for each transaction.
+        /// </summary>
+        [IsoId("_hc-tK6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Proprietary Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String ProprietaryTransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String ProprietaryTransactionIdentification { get; init; } 
+        #else
+        public System.String ProprietaryTransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Internal unique proprietary transaction identifier as assigned by the counterparty of the reporting agent for each transaction.
+        /// </summary>
+        [IsoId("_hc-tLaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Proprietary Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax105Text? CounterpartyProprietaryTransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CounterpartyProprietaryTransactionIdentification { get; init; } 
+        #else
+        public System.String? CounterpartyProprietaryTransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the counterparty of the reporting agent for the reported transaction.
+        /// </summary>
+        [IsoId("_hc-tL6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
+        #else
+        public CounterpartyIdentification2Choice_ CounterpartyIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the tri-party agent, when the transaction has been performed via tri-party agent.
+        /// </summary>
+        [IsoId("_hc-tMaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Triparty Agent Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? TripartyAgentIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TripartyAgentIdentification { get; init; } 
+        #else
+        public System.String? TripartyAgentIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time on which the parties entered into the reported transaction.
+        /// Usage: when time is available, it must be reported.
+        /// It is to be reported with only the date when the time of the transaction is not available. 
+        /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
+        /// </summary>
+        [IsoId("_hc-tM6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Trade Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required DateAndDateTimeChoice_ TradeDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public DateAndDateTimeChoice_ TradeDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateAndDateTimeChoice_ TradeDate { get; init; } 
+        #else
+        public DateAndDateTimeChoice_ TradeDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the amount of money is initially exchanged versus the asset as contractually agreed.
+        /// Usage:
+        /// In the case of open basis repurchase transactions, this is the date on which the rollover settles (even if no exchange of an amount of money takes place).
+        /// In the case of a settlement failure in which settlement takes place on a date different than initially agreed, no transactional amendment needs to be reported.
+        /// </summary>
+        [IsoId("_hc-tNaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate SettlementDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly SettlementDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly SettlementDate { get; init; } 
+        #else
+        public System.DateOnly SettlementDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the repurchase will be executed, that is the date on which the amount of money is due to be returned or received versus the asset pledged or received as collateral.
+        /// </summary>
+        [IsoId("_hc-tN6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Maturity Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate MaturityDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly MaturityDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly MaturityDate { get; init; } 
+        #else
+        public System.DateOnly MaturityDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Defines whether the transaction is a cash borrowing or cash lending transaction.
+        /// </summary>
+        [IsoId("_hc-tOaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required MoneyMarketTransactionType1Code TransactionType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public MoneyMarketTransactionType1Code TransactionType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MoneyMarketTransactionType1Code TransactionType { get; init; } 
+        #else
+        public MoneyMarketTransactionType1Code TransactionType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of money initially borrowed or lent to be reported as an absolute value.
+        /// </summary>
+        [IsoId("_hc-tPaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Nominal Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal TransactionNominalAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal TransactionNominalAmount { get; init; } 
+        #else
+        public System.Decimal TransactionNominalAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the transaction interest rate of the repurchase agreements is either fixed or floating (variable rate).
+        /// </summary>
+        [IsoId("_hc-tP6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required InterestRateType1Code RateType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public InterestRateType1Code RateType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateType1Code RateType { get; init; } 
+        #else
+        public InterestRateType1Code RateType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Interest rate expressed in accordance with the local money market convention at which the repurchase agreement has been concluded and at which the cash lent is remunerated.
+        /// Usage:
+        /// When the remuneration for securities lending transactions is represented by a fee amount, the fee amount will be translated into a deal rate per annum based on the ratio between the fee amount and the transaction nominal amount times number of days based on relevant money market convention divided by the number of days between the settlement date and the maturity of the transaction. 
+        /// Only actual values, as opposed to estimated or default values, will be reported for this variable.
+        /// This value can be either positive or negative irrespective of whether the cash is borrowed or lent. It represents the contractually agreed remuneration rate on the transaction nominal amount regardless of the transaction sign (that whether the transaction type is reported as borrowed or lent).
+        /// </summary>
+        [IsoId("_hc-tQaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Deal Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? DealRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? DealRate { get; init; } 
+        #else
+        public Rate2? DealRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Repurchase agreement in which the periodic interest payments are calculated on the basis of the value (that is, fixing of an underlying reference rate such as Euribor) on predefined dates (that is, fixing dates) and which has a maturity of no more than one year.
+        /// </summary>
+        [IsoId("_hc-tQ6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Floating Rate Repurchase Agreement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FloatingRateNote2? FloatingRateRepurchaseAgreement { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FloatingRateNote2? FloatingRateRepurchaseAgreement { get; init; } 
+        #else
+        public FloatingRateNote2? FloatingRateRepurchaseAgreement { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the transaction is arranged via a third party broker or not.
+        /// </summary>
+        [IsoId("_hc-tRaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Brokered Deal")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BrokeredDeal1Code? BrokeredDeal { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BrokeredDeal1Code? BrokeredDeal { get; init; } 
+        #else
+        public BrokeredDeal1Code? BrokeredDeal { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the asset class pledged as collateral.
+        /// </summary>
+        [IsoId("_hc-tR6idEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required Collateral14 Collateral { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public Collateral14 Collateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Collateral14 Collateral { get; init; } 
+        #else
+        public Collateral14 Collateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_hc-tSaidEeWHO_l3hf2rlA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

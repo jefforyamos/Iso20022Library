@@ -7,17 +7,45 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the detailed information as provided by a payment tracking system.
 /// </summary>
+[IsoId("_uu9vLVc8EeunQrLahSRvvA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerData6
-     : IIsoXmlSerilizable<TrackerData6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TrackerData6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TrackerData6( DateAndDateTime2Choice_ reqConfirmedDate,System.Decimal reqConfirmedAmount )
+    {
+        ConfirmedDate = reqConfirmedDate;
+        ConfirmedAmount = reqConfirmedAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,66 +53,100 @@ public partial record TrackerData6
     /// Usage: 
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
+    [IsoId("_uvkLsVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmed Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_ ConfirmedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money effectively credited to the creditor and confirmed to the tracking system by the agent.
     /// </summary>
+    [IsoId("_uvkLs1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ConfirmedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ConfirmedAmount { get; init; } 
+    #else
+    public System.Decimal ConfirmedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money remaining to be confirmed.
     /// </summary>
+    [IsoId("_uvkLtVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining To Be Confirmed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RemainingToBeConfirmedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RemainingToBeConfirmedAmount { get; init; } 
+    #else
+    public System.Decimal? RemainingToBeConfirmedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money previously credited to the creditor and confirmed to the tracking system by the agent.
     /// </summary>
+    [IsoId("_uvkLt1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previously Confirmed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviouslyConfirmedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviouslyConfirmedAmount { get; init; } 
+    #else
+    public System.Decimal? PreviouslyConfirmedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point in time when the previous amount was confirmed.
     /// Usage: 
     /// This date provides the point in time when the last previous confirmed amount was provided to the tracker, in case of a partial confirmation.
     /// </summary>
+    [IsoId("_uvkLuVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previously Confirmed Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? PreviouslyConfirmedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? PreviouslyConfirmedDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? PreviouslyConfirmedDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ConfdDt", xmlNamespace );
-        ConfirmedDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ConfirmedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (RemainingToBeConfirmedAmount is IsoActiveCurrencyAndAmount RemainingToBeConfirmedAmountValue)
-        {
-            writer.WriteStartElement(null, "RmngToBeConfdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RemainingToBeConfirmedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviouslyConfirmedAmount is IsoActiveCurrencyAndAmount PreviouslyConfirmedAmountValue)
-        {
-            writer.WriteStartElement(null, "PrevslyConfdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviouslyConfirmedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviouslyConfirmedDate is DateAndDateTime2Choice_ PreviouslyConfirmedDateValue)
-        {
-            writer.WriteStartElement(null, "PrevslyConfdDt", xmlNamespace );
-            PreviouslyConfirmedDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TrackerData6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

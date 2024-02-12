@@ -7,90 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information that unambiguously identifies a document, such as identification number and issue date time.
 /// </summary>
+[IsoId("_S-ZIkAEcEeCQm6a_G2yO_w_-1398499112")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Document General Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DocumentGeneralInformation2
-     : IIsoXmlSerilizable<DocumentGeneralInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DocumentGeneralInformation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DocumentGeneralInformation2( ExternalDocumentType1Code reqDocumentType,System.String reqDocumentNumber )
+    {
+        DocumentType = reqDocumentType;
+        DocumentNumber = reqDocumentNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
+    [IsoId("_S-ZIkQEcEeCQm6a_G2yO_w_-1690456850")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code DocumentType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentType1Code DocumentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentType1Code DocumentType { get; init; } 
+    #else
+    public ExternalDocumentType1Code DocumentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [IsoId("_S-ZIkgEcEeCQm6a_G2yO_w_-1512338178")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DocumentNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DocumentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DocumentNumber { get; init; } 
+    #else
+    public System.String DocumentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
+    [IsoId("_S-ZIkwEcEeCQm6a_G2yO_w_-166388554")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Receiver Sequence Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SenderReceiverSequenceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderReceiverSequenceIdentification { get; init; } 
+    #else
+    public System.String? SenderReceiverSequenceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [IsoId("_S-ZIlAEcEeCQm6a_G2yO_w_-1163460907")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? IssueDate { get; init; } 
+    #else
+    public System.DateOnly? IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// URL (Uniform Resource Locator) where the document can be found.
     /// </summary>
+    [IsoId("_S-ZIlQEcEeCQm6a_G2yO_w_2134434036")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("URL")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? URL { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? URL { get; init; } 
+    #else
+    public System.String? URL { get; set; } 
+    #endif
+    
     /// <summary>
     /// Attached binary file for this document.
     /// </summary>
+    [IsoId("_S-ZIlgEcEeCQm6a_G2yO_w_1137361683")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attached Binary File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BinaryFile1? AttachedBinaryFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BinaryFile1? AttachedBinaryFile { get; init; } 
+    #else
+    public BinaryFile1? AttachedBinaryFile { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DocTp", xmlNamespace );
-        writer.WriteValue(DocumentType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DocNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (SenderReceiverSequenceIdentification is IsoMax140Text SenderReceiverSequenceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SndrRcvrSeqId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(SenderReceiverSequenceIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (IssueDate is IsoISODate IssueDateValue)
-        {
-            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (URL is IsoMax256Text URLValue)
-        {
-            writer.WriteStartElement(null, "URL", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (AttachedBinaryFile is BinaryFile1 AttachedBinaryFileValue)
-        {
-            writer.WriteStartElement(null, "AttchdBinryFile", xmlNamespace );
-            AttachedBinaryFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DocumentGeneralInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

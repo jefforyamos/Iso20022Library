@@ -7,136 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on an account.
 /// </summary>
+[IsoId("_71ydIaMgEeCJ6YNENx4h-w_1757739430")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Account Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashAccountReturnCriteria3
-     : IIsoXmlSerilizable<CashAccountReturnCriteria3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the account name is requested.
     /// </summary>
+    [IsoId("_71ydIqMgEeCJ6YNENx4h-w_72900079")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? NameIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NameIndicator { get; init; } 
+    #else
+    public System.String? NameIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
+    [IsoId("_71ydI6MgEeCJ6YNENx4h-w_368889736")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CurrencyIndicator { get; init; } 
+    #else
+    public System.String? CurrencyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
+    [IsoId("_71ydJKMgEeCJ6YNENx4h-w_1291053046")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TypeIndicator { get; init; } 
+    #else
+    public System.String? TypeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
+    [IsoId("_71ydJaMgEeCJ6YNENx4h-w_536303172")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multilateral Limit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? MultilateralLimitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MultilateralLimitIndicator { get; init; } 
+    #else
+    public System.String? MultilateralLimitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
+    [IsoId("_71ydJqMgEeCJ6YNENx4h-w_698432703")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multilateral Balance Return Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalanceReturnCriteria? MultilateralBalanceReturnCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalanceReturnCriteria? MultilateralBalanceReturnCriteria { get; init; } 
+    #else
+    public CashBalanceReturnCriteria? MultilateralBalanceReturnCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the bilateral limit is requested.
     /// </summary>
+    [IsoId("_71ydJ6MgEeCJ6YNENx4h-w_515299923")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bilateral Limit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? BilateralLimitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BilateralLimitIndicator { get; init; } 
+    #else
+    public System.String? BilateralLimitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria used to report on a bilateral balance.
     /// </summary>
+    [IsoId("_717nEKMgEeCJ6YNENx4h-w_212243408")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bilateral Balance Return Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalanceReturnCriteria? BilateralBalanceReturnCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalanceReturnCriteria? BilateralBalanceReturnCriteria { get; init; } 
+    #else
+    public CashBalanceReturnCriteria? BilateralBalanceReturnCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account standing order is requested.
     /// </summary>
+    [IsoId("_717nEaMgEeCJ6YNENx4h-w_1264966299")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standing Order Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? StandingOrderIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StandingOrderIndicator { get; init; } 
+    #else
+    public System.String? StandingOrderIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account owner information is requested.
     /// </summary>
+    [IsoId("_717nEqMgEeCJ6YNENx4h-w_472230382")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountOwnerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountOwnerIndicator { get; init; } 
+    #else
+    public System.String? AccountOwnerIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account servicer information is requested.
     /// </summary>
+    [IsoId("_717nE6MgEeCJ6YNENx4h-w_797347889")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountServicerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountServicerIndicator { get; init; } 
+    #else
+    public System.String? AccountServicerIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NameIndicator is IsoRequestedIndicator NameIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NmInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NameIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CurrencyIndicator is IsoRequestedIndicator CurrencyIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CcyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CurrencyIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TypeIndicator is IsoRequestedIndicator TypeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TpInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MultilateralLimitIndicator is IsoRequestedIndicator MultilateralLimitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "MulLmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MultilateralLimitIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MultilateralBalanceReturnCriteria is CashBalanceReturnCriteria MultilateralBalanceReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "MulBalRtrCrit", xmlNamespace );
-            MultilateralBalanceReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BilateralLimitIndicator is IsoRequestedIndicator BilateralLimitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "BilLmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(BilateralLimitIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BilateralBalanceReturnCriteria is CashBalanceReturnCriteria BilateralBalanceReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "BilBalRtrCrit", xmlNamespace );
-            BilateralBalanceReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandingOrderIndicator is IsoRequestedIndicator StandingOrderIndicatorValue)
-        {
-            writer.WriteStartElement(null, "StgOrdrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StandingOrderIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AccountOwnerIndicator is IsoRequestedIndicator AccountOwnerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AccountServicerIndicator is IsoRequestedIndicator AccountServicerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountServicerIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CashAccountReturnCriteria3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

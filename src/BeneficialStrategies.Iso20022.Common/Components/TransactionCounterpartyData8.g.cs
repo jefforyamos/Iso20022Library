@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details related to the parties involved in the securities lending transaction.
 /// </summary>
+[IsoId("_whK7GbQzEemI67HK7aviyg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Counterparty Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionCounterpartyData8
-     : IIsoXmlSerilizable<TransactionCounterpartyData8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the beneficiary who is subject to the rights and obligations arising from the contract.
     /// </summary>
+    [IsoId("_wlpLYbQzEemI67HK7aviyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? Beneficiary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification9Choice_? Beneficiary { get; init; } 
+    #else
+    public OrganisationIdentification9Choice_? Beneficiary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
+    [IsoId("_wlpLY7QzEemI67HK7aviyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? TripartyAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification9Choice_? TripartyAgent { get; init; } 
+    #else
+    public OrganisationIdentification9Choice_? TripartyAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the broker involved in the securities lending transaction.
     /// </summary>
+    [IsoId("_wlpLZbQzEemI67HK7aviyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Broker")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? Broker { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification9Choice_? Broker { get; init; } 
+    #else
+    public OrganisationIdentification9Choice_? Broker { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the clearing member in the case where the trade is cleared.
     /// </summary>
+    [IsoId("_wlpLZ7QzEemI67HK7aviyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Member")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? ClearingMember { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification9Choice_? ClearingMember { get; init; } 
+    #else
+    public OrganisationIdentification9Choice_? ClearingMember { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the parties settling the contract on behalf of the deliverer or receiver.
     /// </summary>
+    [IsoId("_wlpLabQzEemI67HK7aviyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Parties")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties32Choice_? SettlementParties { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementParties32Choice_? SettlementParties { get; init; } 
+    #else
+    public SettlementParties32Choice_? SettlementParties { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
+    [IsoId("_wlpLa7QzEemI67HK7aviyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Lender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? AgentLender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification9Choice_? AgentLender { get; init; } 
+    #else
+    public OrganisationIdentification9Choice_? AgentLender { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Beneficiary is OrganisationIdentification9Choice_ BeneficiaryValue)
-        {
-            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
-            BeneficiaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TripartyAgent is OrganisationIdentification9Choice_ TripartyAgentValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
-            TripartyAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Broker is OrganisationIdentification9Choice_ BrokerValue)
-        {
-            writer.WriteStartElement(null, "Brkr", xmlNamespace );
-            BrokerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingMember is OrganisationIdentification9Choice_ ClearingMemberValue)
-        {
-            writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
-            ClearingMemberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementParties is SettlementParties32Choice_ SettlementPartiesValue)
-        {
-            writer.WriteStartElement(null, "SttlmPties", xmlNamespace );
-            SettlementPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgentLender is OrganisationIdentification9Choice_ AgentLenderValue)
-        {
-            writer.WriteStartElement(null, "AgtLndr", xmlNamespace );
-            AgentLenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionCounterpartyData8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

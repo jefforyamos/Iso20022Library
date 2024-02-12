@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Message in file message identified as a batch record.
 /// </summary>
+[IsoId("_oLyBMZMqEeuleeHpFMMhmQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Record")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Record2
-     : IIsoXmlSerilizable<Record2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Record2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Record2( System.UInt64 reqSequenceCounter,RecordMessage1Choice_ reqRecordMessage )
+    {
+        SequenceCounter = reqSequenceCounter;
+        RecordMessage = reqRecordMessage;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sequence counter of the record from 1 to n
     /// </summary>
+    [IsoId("_oS25kZMqEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Counter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SequenceCounter { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 SequenceCounter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 SequenceCounter { get; init; } 
+    #else
+    public System.UInt64 SequenceCounter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the record to use for the computation of the checksum of the batch.
     /// </summary>
+    [IsoId("_oS25k5MqEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record Checksum Input Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? RecordChecksumInputValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? RecordChecksumInputValue { get; init; } 
+    #else
+    public System.Byte[]? RecordChecksumInputValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information used with financial type of messages when third-party clearing is involved.
     /// </summary>
+    [IsoId("_oS25lZMqEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Record Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingRecordData2? ClearingRecordData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingRecordData2? ClearingRecordData { get; init; } 
+    #else
+    public ClearingRecordData2? ClearingRecordData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message to be sent in a batch transfer as a record.
     /// </summary>
+    [IsoId("_oS25l5MqEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RecordMessage1Choice_ RecordMessage { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RecordMessage1Choice_ RecordMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RecordMessage1Choice_ RecordMessage { get; init; } 
+    #else
+    public RecordMessage1Choice_ RecordMessage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SeqCntr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(SequenceCounter)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (RecordChecksumInputValue is IsoMax140Binary RecordChecksumInputValueValue)
-        {
-            writer.WriteStartElement(null, "RcrdChcksmInptVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(RecordChecksumInputValueValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (ClearingRecordData is ClearingRecordData2 ClearingRecordDataValue)
-        {
-            writer.WriteStartElement(null, "ClrRcrdData", xmlNamespace );
-            ClearingRecordDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RcrdMsg", xmlNamespace );
-        RecordMessage.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Record2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

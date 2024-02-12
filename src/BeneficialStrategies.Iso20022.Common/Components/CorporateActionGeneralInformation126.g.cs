@@ -7,97 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the corporate action event.
 /// </summary>
+[IsoId("_HBE0kZSfEeeh5JjedkaA_g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action General Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionGeneralInformation126
-     : IIsoXmlSerilizable<CorporateActionGeneralInformation126>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionGeneralInformation126 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionGeneralInformation126( System.String reqCorporateActionEventIdentification,CorporateActionEventType74Choice_ reqEventType,SecurityIdentification19 reqFinancialInstrumentIdentification )
+    {
+        CorporateActionEventIdentification = reqCorporateActionEventIdentification;
+        EventType = reqEventType;
+        FinancialInstrumentIdentification = reqFinancialInstrumentIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [IsoId("_HU3TR5SfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Event Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CorporateActionEventIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CorporateActionEventIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CorporateActionEventIdentification { get; init; } 
+    #else
+    public System.String CorporateActionEventIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Official and unique reference assigned by the official central body/entity within each market at the beginning of a corporate action event.
     /// </summary>
+    [IsoId("_HU3TT5SfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Official Corporate Action Event Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OfficialCorporateActionEventIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OfficialCorporateActionEventIdentification { get; init; } 
+    #else
+    public System.String? OfficialCorporateActionEventIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference assigned by a court to a class action.
     /// </summary>
+    [IsoId("_HU3TV5SfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Class Action Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClassActionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClassActionNumber { get; init; } 
+    #else
+    public System.String? ClassActionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
+    [IsoId("_HU3TX5SfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventType74Choice_ EventType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionEventType74Choice_ EventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventType74Choice_ EventType { get; init; } 
+    #else
+    public CorporateActionEventType74Choice_ EventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the security concerned by the corporate action.
     /// </summary>
+    [IsoId("_HU3TZ5SfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of intermediates securities distribution.
     /// </summary>
+    [IsoId("_HU3Tb5SfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediate Securities Distribution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntermediateSecuritiesDistributionTypeFormat16Choice_? IntermediateSecuritiesDistributionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IntermediateSecuritiesDistributionTypeFormat16Choice_? IntermediateSecuritiesDistributionType { get; init; } 
+    #else
+    public IntermediateSecuritiesDistributionTypeFormat16Choice_? IntermediateSecuritiesDistributionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fractional quantity resulting from an event which will be paid with cash in lieu.
     /// </summary>
+    [IsoId("_HU3TcZSfEeeh5JjedkaA_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fractional Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? FractionalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? FractionalQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? FractionalQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateActionEventIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (OfficialCorporateActionEventIdentification is IsoMax35Text OfficialCorporateActionEventIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OffclCorpActnEvtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OfficialCorporateActionEventIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClassActionNumber is IsoMax35Text ClassActionNumberValue)
-        {
-            writer.WriteStartElement(null, "ClssActnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassActionNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "EvtTp", xmlNamespace );
-        EventType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (IntermediateSecuritiesDistributionType is IntermediateSecuritiesDistributionTypeFormat16Choice_ IntermediateSecuritiesDistributionTypeValue)
-        {
-            writer.WriteStartElement(null, "IntrmdtSctiesDstrbtnTp", xmlNamespace );
-            IntermediateSecuritiesDistributionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FractionalQuantity is FinancialInstrumentQuantity1Choice_ FractionalQuantityValue)
-        {
-            writer.WriteStartElement(null, "FrctnlQty", xmlNamespace );
-            FractionalQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionGeneralInformation126 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

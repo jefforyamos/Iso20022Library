@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the account to or from which a securities entry is made and the usage type.
 /// </summary>
+[IsoId("_mzWcD-FgEeWIA4E9cYSxxQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Issuance Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IssuanceAccount2
-     : IIsoXmlSerilizable<IssuanceAccount2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IssuanceAccount2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IssuanceAccount2( SecuritiesAccount19 reqIssuanceAccount,System.String reqPrimaryAccountIndicator )
+    {
+        IssuanceAccount = reqIssuanceAccount;
+        PrimaryAccountIndicator = reqPrimaryAccountIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [IsoId("_m8H9geFgEeWIA4E9cYSxxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuance Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 IssuanceAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesAccount19 IssuanceAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19 IssuanceAccount { get; init; } 
+    #else
+    public SecuritiesAccount19 IssuanceAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines if the related issuance account is the primary account or not.
     /// </summary>
+    [IsoId("_m8H9g-FgEeWIA4E9cYSxxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Account Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PrimaryAccountIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PrimaryAccountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PrimaryAccountIndicator { get; init; } 
+    #else
+    public System.String PrimaryAccountIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IssncAcct", xmlNamespace );
-        IssuanceAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmryAcctInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PrimaryAccountIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static IssuanceAccount2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

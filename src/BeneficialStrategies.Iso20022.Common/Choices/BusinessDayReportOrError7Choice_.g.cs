@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between business day information details or an operational error when the requested data cannot be retrieved.
-/// </summary>
-[KnownType(typeof(BusinessDayReportOrError7Choice.BusinessReport))]
-[KnownType(typeof(BusinessDayReportOrError7Choice.OperationalError))]
-public abstract partial record BusinessDayReportOrError7Choice_ : IIsoXmlSerilizable<BusinessDayReportOrError7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between business day information details or an operational error when the requested data cannot be retrieved.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static BusinessDayReportOrError7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(BusinessDayReportOrError7Choice.BusinessReport))]
+    [KnownType(typeof(BusinessDayReportOrError7Choice.OperationalError))]
+    [IsoId("_wiKh4ZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Day Report Or Error 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record BusinessDayReportOrError7Choice_
+    #else
+    public abstract partial class BusinessDayReportOrError7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BizRpt" => BusinessDayReportOrError7Choice.BusinessReport.Deserialize(elementWithPayload),
-             "OprlErr" => BusinessDayReportOrError7Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid BusinessDayReportOrError7Choice choice.")
-        };
     }
 }

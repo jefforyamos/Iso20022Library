@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatus3Choice;
-
-/// <summary>
-/// Reason for the conditionally accepted status, expressed as a code.
-/// </summary>
-public partial record ReasonDetails : ConditionallyAcceptedStatus3Choice_
-     , IIsoXmlSerilizable<ReasonDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatus3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reason for the conditionally accepted status expressed as a code.
+    /// Reason for the conditionally accepted status, expressed as a code.
     /// </summary>
-    public required ConditionallyAcceptedStatusReason3Choice_ Reason { get; init; } 
-    /// <summary>
-    /// Additional information about the conditionally accepted reason.
-    /// </summary>
-    public IsoMax350Text? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_s1kxx0HXEeamVPoS58KxXA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ReasonDetails : ConditionallyAcceptedStatus3Choice_
+    #else
+    public partial class ReasonDetails : ConditionallyAcceptedStatus3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ReasonDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ReasonDetails( ConditionallyAcceptedStatusReason3Choice_ reqReason )
         {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
+            Reason = reqReason;
         }
-    }
-    public static new ReasonDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reason for the conditionally accepted status expressed as a code.
+        /// </summary>
+        [IsoId("_84wPkEHZEeamVPoS58KxXA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ConditionallyAcceptedStatusReason3Choice_ Reason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ConditionallyAcceptedStatusReason3Choice_ Reason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ConditionallyAcceptedStatusReason3Choice_ Reason { get; init; } 
+        #else
+        public ConditionallyAcceptedStatusReason3Choice_ Reason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the conditionally accepted reason.
+        /// </summary>
+        [IsoId("_BL11YEHaEeamVPoS58KxXA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalInformation { get; init; } 
+        #else
+        public System.String? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

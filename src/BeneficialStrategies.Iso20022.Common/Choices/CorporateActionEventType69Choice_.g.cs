@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats to express the corporate event type.
-/// </summary>
-[KnownType(typeof(CorporateActionEventType69Choice.Code))]
-[KnownType(typeof(CorporateActionEventType69Choice.Proprietary))]
-public abstract partial record CorporateActionEventType69Choice_ : IIsoXmlSerilizable<CorporateActionEventType69Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats to express the corporate event type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CorporateActionEventType69Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CorporateActionEventType69Choice.Code))]
+    [KnownType(typeof(CorporateActionEventType69Choice.Proprietary))]
+    [IsoId("_M_NGr5wxEeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Event Type 69 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CorporateActionEventType69Choice_
+    #else
+    public abstract partial class CorporateActionEventType69Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => CorporateActionEventType69Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => CorporateActionEventType69Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CorporateActionEventType69Choice choice.")
-        };
     }
 }

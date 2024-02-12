@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the reporting counterparty.
 /// </summary>
+[IsoId("_4MnMWcg3EeuGrNSsxk3B0A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Counterparty Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CounterpartyIdentification11
-     : IIsoXmlSerilizable<CounterpartyIdentification11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CounterpartyIdentification11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CounterpartyIdentification11( OrganisationIdentification15Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
+    [IsoId("_4ODWwcg3EeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification15Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrganisationIdentification15Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_ Identification { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nature of the reporting counterparty in accordance with the local regulation.
     /// </summary>
+    [IsoId("_4ODWw8g3EeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyTradeNature7Choice_? Nature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyTradeNature7Choice_? Nature { get; init; } 
+    #else
+    public CounterpartyTradeNature7Choice_? Nature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the branch of the counterparty, when the transaction concludes a transaction through a branch office.
     /// </summary>
+    [IsoId("_4ODWxcg3EeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Branch5Choice_? Branch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Branch5Choice_? Branch { get; init; } 
+    #else
+    public Branch5Choice_? Branch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the reporting counterparty is a collateral provider or a collateral taker.
     /// </summary>
+    [IsoId("_4ODWx8g3EeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralRole1Code? Side { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralRole1Code? Side { get; init; } 
+    #else
+    public CollateralRole1Code? Side { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Nature is CounterpartyTradeNature7Choice_ NatureValue)
-        {
-            writer.WriteStartElement(null, "Ntr", xmlNamespace );
-            NatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Branch is Branch5Choice_ BranchValue)
-        {
-            writer.WriteStartElement(null, "Brnch", xmlNamespace );
-            BranchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Side is CollateralRole1Code SideValue)
-        {
-            writer.WriteStartElement(null, "Sd", xmlNamespace );
-            writer.WriteValue(SideValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static CounterpartyIdentification11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

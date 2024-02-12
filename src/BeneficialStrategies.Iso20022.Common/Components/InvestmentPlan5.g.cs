@@ -7,138 +7,273 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Plan that allows investors to schedule periodical investments or divestments, according to pre-defined criteria.
 /// </summary>
+[IsoId("_QMQRUtp-Ed-ak6NoX_4Aeg_320174351")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Investment Plan")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvestmentPlan5
-     : IIsoXmlSerilizable<InvestmentPlan5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InvestmentPlan5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InvestmentPlan5( EventFrequency1Code reqFrequency,System.String reqExtendedFrequency,System.DateOnly reqStartDate,System.Decimal reqAmount )
+    {
+        Frequency = reqFrequency;
+        ExtendedFrequency = reqExtendedFrequency;
+        StartDate = reqStartDate;
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
+    [IsoId("_QMQRU9p-Ed-ak6NoX_4Aeg_321094358")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventFrequency1Code Frequency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EventFrequency1Code Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventFrequency1Code Frequency { get; init; } 
+    #else
+    public EventFrequency1Code Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
+    [IsoId("_QMQRVNp-Ed-ak6NoX_4Aeg_321094383")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedFrequency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedFrequency { get; init; } 
+    #else
+    public System.String ExtendedFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
+    [IsoId("_QMQRVdp-Ed-ak6NoX_4Aeg_321094418")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate StartDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly StartDate { get; init; } 
+    #else
+    public System.DateOnly StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the investment plan stops.
     /// </summary>
+    [IsoId("_QMQRVtp-Ed-ak6NoX_4Aeg_321094460")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EndDate { get; init; } 
+    #else
+    public System.DateOnly? EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency and amount of the periodical payments.
     /// </summary>
+    [IsoId("_QMQRV9p-Ed-ak6NoX_4Aeg_321094504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether an ordered amount is a gross amount (including all charges, commissions, tax). If it is not a gross amount, the ordered amount is a net amount (amount to be invested or redeemed from the fund to which other elements will be added).
     /// </summary>
+    [IsoId("_QMQRWNp-Ed-ak6NoX_4Aeg_321094876")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Amount Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? GrossAmountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GrossAmountIndicator { get; init; } 
+    #else
+    public System.String? GrossAmountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [IsoId("_QMQRWdp-Ed-ak6NoX_4Aeg_321094911")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Preference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncomePreference1Code? IncomePreference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IncomePreference1Code? IncomePreference { get; init; } 
+    #else
+    public IncomePreference1Code? IncomePreference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of pre-paid instalment periods at the time the investment plan is created.
     /// </summary>
+    [IsoId("_QMaCUNp-Ed-ak6NoX_4Aeg_321094946")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Number Of Instalment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? InitialNumberOfInstalment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? InitialNumberOfInstalment { get; init; } 
+    #else
+    public System.UInt64? InitialNumberOfInstalment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
+    [IsoId("_QMaCUdp-Ed-ak6NoX_4Aeg_321095031")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Instalment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfInstalment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfInstalment { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfInstalment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the rounding direction when an amount is to be spread over several funds.
     /// </summary>
+    [IsoId("_QMaCUtp-Ed-ak6NoX_4Aeg_-1885848957")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rounding Direction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RoundingDirection1Code? RoundingDirection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RoundingDirection1Code? RoundingDirection { get; init; } 
+    #else
+    public RoundingDirection1Code? RoundingDirection { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    public ValueList<Repartition1> SecurityDetails { get; init; } = [];
+    [IsoId("_QMaCU9p-Ed-ak6NoX_4Aeg_321095341")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(50)]
+    #endif
+    public ValueList<Repartition1> SecurityDetails { get; init; } = new ValueList<Repartition1>(){};
+    
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan and to be either inserted or deleted.
     /// </summary>
-    public ValueList<InvestmentFundCashSettlementInformation4> ModifiedCashSettlement { get; init; } = [];
+    [IsoId("_QMaCVNp-Ed-ak6NoX_4Aeg_321095452")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modified Cash Settlement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(8)]
+    #endif
+    public ValueList<InvestmentFundCashSettlementInformation4> ModifiedCashSettlement { get; init; } = new ValueList<InvestmentFundCashSettlementInformation4>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-        writer.WriteValue(Frequency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedFrqcy", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedFrequency)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StartDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (EndDate is IsoISODate EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (GrossAmountIndicator is IsoYesNoIndicator GrossAmountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "GrssAmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(GrossAmountIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
-        {
-            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
-            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (InitialNumberOfInstalment is IsoNumber InitialNumberOfInstalmentValue)
-        {
-            writer.WriteStartElement(null, "InitlNbOfInstlmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(InitialNumberOfInstalmentValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfInstalment is IsoNumber TotalNumberOfInstalmentValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfInstlmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfInstalmentValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RoundingDirection is RoundingDirection1Code RoundingDirectionValue)
-        {
-            writer.WriteStartElement(null, "RndgDrctn", xmlNamespace );
-            writer.WriteValue(RoundingDirectionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
-        SecurityDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ModfdCshSttlm", xmlNamespace );
-        ModifiedCashSettlement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static InvestmentPlan5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

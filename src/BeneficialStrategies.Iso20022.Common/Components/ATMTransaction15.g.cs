@@ -7,123 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deposit transaction for which the service is requested.
 /// </summary>
+[IsoId("_DGFika4AEeWL1uap3dNhCQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransaction15
-     : IIsoXmlSerilizable<ATMTransaction15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTransaction15 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTransaction15( TransactionIdentifier1 reqTransactionIdentification )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [IsoId("_DRHG064AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [IsoId("_DRHG1a4AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationIdentification { get; init; } 
+    #else
+    public System.String? ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unprotected account information.
     /// </summary>
+    [IsoId("_DRHG164AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccount9? AccountData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAccount9? AccountData { get; init; } 
+    #else
+    public CardAccount9? AccountData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encryption of account information.
     /// </summary>
+    [IsoId("_DRHG2a4AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Account Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedAccountData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType10? ProtectedAccountData { get; init; } 
+    #else
+    public ContentInformationType10? ProtectedAccountData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the deposit transaction.
     /// </summary>
+    [IsoId("_DRHG264AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrency1? TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndCurrency1? TotalAmount { get; init; } 
+    #else
+    public AmountAndCurrency1? TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amounts of the deposit transaction.
     /// </summary>
+    [IsoId("_DRHG3a4AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Requested Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount16? DetailedRequestedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount16? DetailedRequestedAmount { get; init; } 
+    #else
+    public DetailedAmount16? DetailedRequestedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deposited media put in the safe.
     /// </summary>
+    [IsoId("_f3v6oK4BEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deposited Media")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMDepositedMedia1? DepositedMedia { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMDepositedMedia1? DepositedMedia { get; init; } 
+    #else
+    public ATMDepositedMedia1? DepositedMedia { get; set; } 
+    #endif
+    
     /// <summary>
     /// True if a receipt has be requested by the customer.
     /// </summary>
+    [IsoId("_DRHG5a4AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Receipt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RequestedReceipt { get; init; } 
+    #else
+    public System.String? RequestedReceipt { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [IsoId("_DRHG564AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Related Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ICCRelatedData { get; init; } 
+    #else
+    public System.Byte[]? ICCRelatedData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountData is CardAccount9 AccountDataValue)
-        {
-            writer.WriteStartElement(null, "AcctData", xmlNamespace );
-            AccountDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProtectedAccountData is ContentInformationType10 ProtectedAccountDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdAcctData", xmlNamespace );
-            ProtectedAccountDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalAmount is AmountAndCurrency1 TotalAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-            TotalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DetailedRequestedAmount is DetailedAmount16 DetailedRequestedAmountValue)
-        {
-            writer.WriteStartElement(null, "DtldReqdAmt", xmlNamespace );
-            DetailedRequestedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositedMedia is ATMDepositedMedia1 DepositedMediaValue)
-        {
-            writer.WriteStartElement(null, "DpstdMdia", xmlNamespace );
-            DepositedMediaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestedReceipt is IsoTrueFalseIndicator RequestedReceiptValue)
-        {
-            writer.WriteStartElement(null, "ReqdRct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequestedReceiptValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
-        {
-            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransaction15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

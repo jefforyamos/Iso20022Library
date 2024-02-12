@@ -7,54 +7,44 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reason.
-/// </summary>
-[KnownType(typeof(Reason7Choice.RepoCallAcknowledgementReason))]
-[KnownType(typeof(Reason7Choice.CancellationReason))]
-[KnownType(typeof(Reason7Choice.PendingCancellationReason))]
-[KnownType(typeof(Reason7Choice.GeneratedReason))]
-[KnownType(typeof(Reason7Choice.DeniedReason))]
-[KnownType(typeof(Reason7Choice.AcknowledgedAcceptedReason))]
-[KnownType(typeof(Reason7Choice.PendingReason))]
-[KnownType(typeof(Reason7Choice.FailingReason))]
-[KnownType(typeof(Reason7Choice.PendingProcessingReason))]
-[KnownType(typeof(Reason7Choice.RejectionReason))]
-[KnownType(typeof(Reason7Choice.RepairReason))]
-[KnownType(typeof(Reason7Choice.PendingModificationReason))]
-[KnownType(typeof(Reason7Choice.UnmatchedReason))]
-public abstract partial record Reason7Choice_ : IIsoXmlSerilizable<Reason7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Reason7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Reason7Choice.RepoCallAcknowledgementReason))]
+    [KnownType(typeof(Reason7Choice.CancellationReason))]
+    [KnownType(typeof(Reason7Choice.PendingCancellationReason))]
+    [KnownType(typeof(Reason7Choice.GeneratedReason))]
+    [KnownType(typeof(Reason7Choice.DeniedReason))]
+    [KnownType(typeof(Reason7Choice.AcknowledgedAcceptedReason))]
+    [KnownType(typeof(Reason7Choice.PendingReason))]
+    [KnownType(typeof(Reason7Choice.FailingReason))]
+    [KnownType(typeof(Reason7Choice.PendingProcessingReason))]
+    [KnownType(typeof(Reason7Choice.RejectionReason))]
+    [KnownType(typeof(Reason7Choice.RepairReason))]
+    [KnownType(typeof(Reason7Choice.PendingModificationReason))]
+    [KnownType(typeof(Reason7Choice.UnmatchedReason))]
+    [IsoId("_E2DtN_4hEeCH9dkaY_DhYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Reason7Choice_
+    #else
+    public abstract partial class Reason7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RepoCallAckRsn" => Reason7Choice.RepoCallAcknowledgementReason.Deserialize(elementWithPayload),
-             "CxlRsn" => Reason7Choice.CancellationReason.Deserialize(elementWithPayload),
-             "PdgCxlRsn" => Reason7Choice.PendingCancellationReason.Deserialize(elementWithPayload),
-             "GnrtdRsn" => Reason7Choice.GeneratedReason.Deserialize(elementWithPayload),
-             "DndRsn" => Reason7Choice.DeniedReason.Deserialize(elementWithPayload),
-             "AckdAccptdRsn" => Reason7Choice.AcknowledgedAcceptedReason.Deserialize(elementWithPayload),
-             "PdgRsn" => Reason7Choice.PendingReason.Deserialize(elementWithPayload),
-             "FlngRsn" => Reason7Choice.FailingReason.Deserialize(elementWithPayload),
-             "PdgPrcgRsn" => Reason7Choice.PendingProcessingReason.Deserialize(elementWithPayload),
-             "RjctnRsn" => Reason7Choice.RejectionReason.Deserialize(elementWithPayload),
-             "RprRsn" => Reason7Choice.RepairReason.Deserialize(elementWithPayload),
-             "PdgModRsn" => Reason7Choice.PendingModificationReason.Deserialize(elementWithPayload),
-             "UmtchdRsn" => Reason7Choice.UnmatchedReason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Reason7Choice choice.")
-        };
     }
 }

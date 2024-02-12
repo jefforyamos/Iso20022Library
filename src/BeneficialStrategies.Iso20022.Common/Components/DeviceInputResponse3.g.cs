@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Input Response message.
 /// </summary>
+[IsoId("_INRIES8PEeu125Ip9zFcsQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Input Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeviceInputResponse3
-     : IIsoXmlSerilizable<DeviceInputResponse3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeviceInputResponse3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeviceInputResponse3( InputResult3 reqInputResult )
+    {
+        InputResult = reqInputResult;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Result of display request.
     /// </summary>
+    [IsoId("_IYtjES8PEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Output Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputResult2? OutputResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OutputResult2? OutputResult { get; init; } 
+    #else
+    public OutputResult2? OutputResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of input request.
     /// </summary>
+    [IsoId("_IYtjEy8PEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Input Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InputResult3 InputResult { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InputResult3 InputResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InputResult3 InputResult { get; init; } 
+    #else
+    public InputResult3 InputResult { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OutputResult is OutputResult2 OutputResultValue)
-        {
-            writer.WriteStartElement(null, "OutptRslt", xmlNamespace );
-            OutputResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InptRslt", xmlNamespace );
-        InputResult.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static DeviceInputResponse3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

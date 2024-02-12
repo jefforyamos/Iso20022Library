@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a blocked account.
 /// </summary>
+[IsoId("_EGbMcSGeEeWKAaDJcYGKLw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Blocked")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Blocked2
-     : IIsoXmlSerilizable<Blocked2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Blocked2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Blocked2( System.String reqBlocked )
+    {
+        Blocked = reqBlocked;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the order or transaction type for which the account is blocked.
     /// </summary>
+    [IsoId("_EjSuoSGeEeWKAaDJcYGKLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public OrderType2Choice_? OrderType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _EjSuoSGeEeWKAaDJcYGKLw
+    
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
+    [IsoId("_EjSuoyGeEeWKAaDJcYGKLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Blocked { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Blocked { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Blocked { get; init; } 
+    #else
+    public System.String Blocked { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason the account is blocked.
     /// </summary>
+    [IsoId("_EjSupSGeEeWKAaDJcYGKLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockedReason1Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BlockedReason1Choice_? Reason { get; init; } 
+    #else
+    public BlockedReason1Choice_? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize OrderType, multiplicity Unknown
-        writer.WriteStartElement(null, "Blckd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Blocked)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Reason is BlockedReason1Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Blocked2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

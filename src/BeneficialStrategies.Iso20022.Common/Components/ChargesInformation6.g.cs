@@ -7,113 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the charges related to the payment transaction.
 /// </summary>
+[IsoId("_Ru5v09p-Ed-ak6NoX_4Aeg_2074358064")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Charges Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ChargesInformation6
-     : IIsoXmlSerilizable<ChargesInformation6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ChargesInformation6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ChargesInformation6( System.Decimal reqAmount )
+    {
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total of all charges and taxes applied to the entry.
     /// </summary>
+    [IsoId("_Ru5v1Np-Ed-ak6NoX_4Aeg_2081742859")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Charges And Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalChargesAndTaxAmount { get; init; } 
+    #else
+    public System.Decimal? TotalChargesAndTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
+    [IsoId("_Ru5v1dp-Ed-ak6NoX_4Aeg_2074358066")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the charges amount is a credit or a debit amount. |Usage: A zero amount is considered to be a credit.
     /// </summary>
+    [IsoId("_Ru5v1tp-Ed-ak6NoX_4Aeg_2043943488")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode? CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
+    [IsoId("_Ru5v19p-Ed-ak6NoX_4Aeg_-1093257310")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeType2Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeType2Choice_? Type { get; init; } 
+    #else
+    public ChargeType2Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>
+    [IsoId("_Ru5v2Np-Ed-ak6NoX_4Aeg_2074358148")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
+    [IsoId("_RvC5wNp-Ed-ak6NoX_4Aeg_2081742829")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bearer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBearerType1Code? Bearer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeBearerType1Code? Bearer { get; init; } 
+    #else
+    public ChargeBearerType1Code? Bearer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that takes the transaction charges or to which the transaction charges are due.
     /// </summary>
+    [IsoId("_RvC5wdp-Ed-ak6NoX_4Aeg_2081743013")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? Party { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? Party { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? Party { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide details on the tax applied to charges.
     /// </summary>
+    [IsoId("_RvC5wtp-Ed-ak6NoX_4Aeg_2081742963")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCharges2? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxCharges2? Tax { get; init; } 
+    #else
+    public TaxCharges2? Tax { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalChargesAndTaxAmount is IsoActiveOrHistoricCurrencyAndAmount TotalChargesAndTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlChrgsAndTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalChargesAndTaxAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Type is ChargeType2Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Bearer is ChargeBearerType1Code BearerValue)
-        {
-            writer.WriteStartElement(null, "Br", xmlNamespace );
-            writer.WriteValue(BearerValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Party is BranchAndFinancialInstitutionIdentification4 PartyValue)
-        {
-            writer.WriteStartElement(null, "Pty", xmlNamespace );
-            PartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Tax is TaxCharges2 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ChargesInformation6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

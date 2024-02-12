@@ -7,100 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response to the PIN management transaction. request.
 /// </summary>
+[IsoId("_VdrcoYrDEeSgLpgNvMAP2g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransaction10
-     : IIsoXmlSerilizable<ATMTransaction10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTransaction10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTransaction10( TransactionIdentifier1 reqTransactionIdentification,ResponseType3 reqTransactionResponse )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        TransactionResponse = reqTransactionResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [IsoId("_VqDEsYrDEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [IsoId("_VqDEs4rDEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationIdentification { get; init; } 
+    #else
+    public System.String? ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// True if a completion advice has to be sent after the end of the transaction.
     /// </summary>
+    [IsoId("_VqDEtYrDEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Completion Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CompletionRequired { get; init; } 
+    #else
+    public System.String? CompletionRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the PIN service.
     /// </summary>
+    [IsoId("_7YUA0IrDEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType3 TransactionResponse { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType3 TransactionResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType3 TransactionResponse { get; init; } 
+    #else
+    public ResponseType3 TransactionResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
+    [IsoId("_FmVUAIrEEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action5? Action { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Action5? Action { get; init; } 
+    #else
+    public Action5? Action { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [IsoId("_VqDEx4rDEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Related Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ICCRelatedData { get; init; } 
+    #else
+    public System.Byte[]? ICCRelatedData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
+    [IsoId("_VqDEyYrDEeSgLpgNvMAP2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand1? Command { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommand1? Command { get; init; } 
+    #else
+    public ATMCommand1? Command { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CompletionRequired is IsoTrueFalseIndicator CompletionRequiredValue)
-        {
-            writer.WriteStartElement(null, "CmpltnReqrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CompletionRequiredValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
-        TransactionResponse.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Action is Action5 ActionValue)
-        {
-            writer.WriteStartElement(null, "Actn", xmlNamespace );
-            ActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
-        {
-            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Command is ATMCommand1 CommandValue)
-        {
-            writer.WriteStartElement(null, "Cmd", xmlNamespace );
-            CommandValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransaction10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

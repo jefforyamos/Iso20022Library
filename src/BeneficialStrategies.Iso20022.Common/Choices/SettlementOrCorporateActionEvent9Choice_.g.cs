@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of transaction type, corporate action event or settlement transaction.
-/// </summary>
-[KnownType(typeof(SettlementOrCorporateActionEvent9Choice.SecuritiesTransactionType))]
-[KnownType(typeof(SettlementOrCorporateActionEvent9Choice.CorporateActionEventType))]
-public abstract partial record SettlementOrCorporateActionEvent9Choice_ : IIsoXmlSerilizable<SettlementOrCorporateActionEvent9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of transaction type, corporate action event or settlement transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementOrCorporateActionEvent9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementOrCorporateActionEvent9Choice.SecuritiesTransactionType))]
+    [KnownType(typeof(SettlementOrCorporateActionEvent9Choice.CorporateActionEventType))]
+    [IsoId("_Izye0RG-EeKHC-9MYSJwtQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Or Corporate Action Event 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementOrCorporateActionEvent9Choice_
+    #else
+    public abstract partial class SettlementOrCorporateActionEvent9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesTxTp" => SettlementOrCorporateActionEvent9Choice.SecuritiesTransactionType.Deserialize(elementWithPayload),
-             "CorpActnEvtTp" => SettlementOrCorporateActionEvent9Choice.CorporateActionEventType.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementOrCorporateActionEvent9Choice choice.")
-        };
     }
 }

@@ -9,103 +9,170 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice;
-
-/// <summary>
-/// Details about the variable rate.
-/// </summary>
-public partial record Floating : InterestRate20Choice_
-     , IIsoXmlSerilizable<Floating>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identifies the reference index for the debt instrument.
+    /// Details about the variable rate.
     /// </summary>
-    public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
-    /// <summary>
-    /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
-    /// </summary>
-    public InterestRateContractTerm2? Term { get; init; } 
-    /// <summary>
-    /// Information related to payment frequency.
-    /// </summary>
-    public InterestRateContractTerm2? PaymentFrequency { get; init; } 
-    /// <summary>
-    /// Information related to reset of payment frequency.
-    /// </summary>
-    public InterestRateContractTerm2? ResetFrequency { get; init; } 
-    /// <summary>
-    /// Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
-    /// </summary>
-    public IsoDecimalNumber? BasisPointSpread { get; init; } 
-    /// <summary>
-    /// Specifies the rate adjustments as determined by the rate schedule.
-    /// </summary>
-    public RateAdjustment1? RateAdjustment { get; init; } 
-    /// <summary>
-    /// Method for calculating the accrued interest on the principal amount for a fixed rate.
-    /// </summary>
-    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_hFv8E6x2Eem81-uIvTF5rQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floating")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Floating : InterestRate20Choice_
+    #else
+    public partial class Floating : InterestRate20Choice_
+    #endif
     {
-        if (ReferenceRate is BenchmarkCurveName10Choice_ ReferenceRateValue)
-        {
-            writer.WriteStartElement(null, "RefRate", xmlNamespace );
-            ReferenceRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Term is InterestRateContractTerm2 TermValue)
-        {
-            writer.WriteStartElement(null, "Term", xmlNamespace );
-            TermValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentFrequency is InterestRateContractTerm2 PaymentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
-            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResetFrequency is InterestRateContractTerm2 ResetFrequencyValue)
-        {
-            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
-            ResetFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BasisPointSpread is IsoDecimalNumber BasisPointSpreadValue)
-        {
-            writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(BasisPointSpreadValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RateAdjustment is RateAdjustment1 RateAdjustmentValue)
-        {
-            writer.WriteStartElement(null, "RateAdjstmnt", xmlNamespace );
-            RateAdjustmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DayCountBasis is InterestComputationMethodFormat6Choice_ DayCountBasisValue)
-        {
-            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
-            DayCountBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Floating Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the reference index for the debt instrument.
+        /// </summary>
+        [IsoId("_hJxgcax2Eem81-uIvTF5rQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reference Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
+        #else
+        public BenchmarkCurveName10Choice_? ReferenceRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
+        /// </summary>
+        [IsoId("_hJxgc6x2Eem81-uIvTF5rQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Term")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateContractTerm2? Term { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateContractTerm2? Term { get; init; } 
+        #else
+        public InterestRateContractTerm2? Term { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to payment frequency.
+        /// </summary>
+        [IsoId("_hJxgdax2Eem81-uIvTF5rQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment Frequency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateContractTerm2? PaymentFrequency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateContractTerm2? PaymentFrequency { get; init; } 
+        #else
+        public InterestRateContractTerm2? PaymentFrequency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to reset of payment frequency.
+        /// </summary>
+        [IsoId("_hJxgd6x2Eem81-uIvTF5rQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reset Frequency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateContractTerm2? ResetFrequency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateContractTerm2? ResetFrequency { get; init; } 
+        #else
+        public InterestRateContractTerm2? ResetFrequency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
+        /// </summary>
+        [IsoId("_hJxgeax2Eem81-uIvTF5rQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Basis Point Spread")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoDecimalNumber? BasisPointSpread { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? BasisPointSpread { get; init; } 
+        #else
+        public System.UInt64? BasisPointSpread { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the rate adjustments as determined by the rate schedule.
+        /// </summary>
+        [IsoId("_wWAosctEEemlLfTG-WCXxw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate Adjustment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RateAdjustment1? RateAdjustment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RateAdjustment1? RateAdjustment { get; init; } 
+        #else
+        public RateAdjustment1? RateAdjustment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Method for calculating the accrued interest on the principal amount for a fixed rate.
+        /// </summary>
+        [IsoId("_hJxge6x2Eem81-uIvTF5rQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Day Count Basis")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
+        #else
+        public InterestComputationMethodFormat6Choice_? DayCountBasis { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

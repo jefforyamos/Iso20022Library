@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business status of the party for processing in the system.
 /// </summary>
+[IsoId("_knY98-5NEeCisYr99QEiWA_336843792")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyStatus1
-     : IIsoXmlSerilizable<PartyStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyStatus1( Status6Code reqStatus )
+    {
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status of the party maintenance instruction.
     /// </summary>
+    [IsoId("_kniH4O5NEeCisYr99QEiWA_2146103806")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status6Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Status6Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Status6Code Status { get; init; } 
+    #else
+    public Status6Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying reason for the status of an object.
     /// </summary>
+    [IsoId("_kniH4e5NEeCisYr99QEiWA_-1456967057")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation10? StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusReasonInformation10? StatusReason { get; init; } 
+    #else
+    public StatusReasonInformation10? StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifications of a party defined within a system.
     /// </summary>
+    [IsoId("_kniH4u5NEeCisYr99QEiWA_-124739370")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification3? SystemPartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification3? SystemPartyIdentification { get; init; } 
+    #else
+    public SystemPartyIdentification3? SystemPartyIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (StatusReason is StatusReasonInformation10 StatusReasonValue)
-        {
-            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-            StatusReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SystemPartyIdentification is SystemPartyIdentification3 SystemPartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SysPtyId", xmlNamespace );
-            SystemPartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

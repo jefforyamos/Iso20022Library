@@ -9,33 +9,44 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.OpeningBalance1Choice;
-
-/// <summary>
-/// Opening balance of this page only. This balance must be the intermediary closing balance of the previous page of the same statement.
-/// </summary>
-public partial record Intermediary : OpeningBalance1Choice_
-     , IIsoXmlSerilizable<Intermediary>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.OpeningBalance1Choice
 {
-    #nullable enable
-    
-    
-    #nullable disable
-    
-    
     /// <summary>
-    /// Used to format the various primative types during serialization.
+    /// Opening balance of this page only. This balance must be the intermediary closing balance of the previous page of the same statement.
     /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_R9Wbidp-Ed-ak6NoX_4Aeg_-666898093")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Intermediary : OpeningBalance1Choice_
+    #else
+    public partial class Intermediary : OpeningBalance1Choice_
+    #endif
     {
-    }
-    public static new Intermediary Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        
+        #nullable disable
+        
     }
 }

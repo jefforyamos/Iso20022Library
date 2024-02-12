@@ -7,96 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication information.
 /// </summary>
+[IsoId("_CwaX8dwtEeeKpa-yxjuKzQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Communication Address")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CommunicationAddress9
-     : IIsoXmlSerilizable<CommunicationAddress9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Postal address of the entity.
     /// </summary>
+    [IsoId("_C6HGgdwtEeeKpa-yxjuKzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Postal Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress22? PostalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress22? PostalAddress { get; init; } 
+    #else
+    public PostalAddress22? PostalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [IsoId("_C6HGg9wtEeeKpa-yxjuKzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Email")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Email { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Email { get; init; } 
+    #else
+    public System.String? Email { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example used over the www (HTTP) service.
     /// </summary>
+    [IsoId("_C6HGhdwtEeeKpa-yxjuKzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("URL Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? URLAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? URLAddress { get; init; } 
+    #else
+    public System.String? URLAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [IsoId("_C6HGh9wtEeeKpa-yxjuKzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Phone")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? Phone { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Phone { get; init; } 
+    #else
+    public System.String? Phone { get; set; } 
+    #endif
+    
     /// <summary>
     /// Phone number of the customer service.
     /// </summary>
+    [IsoId("_C6HGidwtEeeKpa-yxjuKzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? CustomerService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerService { get; init; } 
+    #else
+    public System.String? CustomerService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// </summary>
+    [IsoId("_C6HGi9wtEeeKpa-yxjuKzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Contact Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalContactInformation { get; init; } 
+    #else
+    public System.String? AdditionalContactInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PostalAddress is PostalAddress22 PostalAddressValue)
-        {
-            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-            PostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Email is IsoMax256Text EmailValue)
-        {
-            writer.WriteStartElement(null, "Email", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (URLAddress is IsoMax256Text URLAddressValue)
-        {
-            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (Phone is IsoPhoneNumber PhoneValue)
-        {
-            writer.WriteStartElement(null, "Phne", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerService is IsoPhoneNumber CustomerServiceValue)
-        {
-            writer.WriteStartElement(null, "CstmrSvc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(CustomerServiceValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalContactInformation is IsoMax256Text AdditionalContactInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlCtctInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalContactInformationValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CommunicationAddress9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

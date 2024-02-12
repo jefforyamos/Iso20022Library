@@ -7,155 +7,412 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
+[IsoId("_XCwBUQ8iEeSFHsNYty4C9Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Option10
-     : IIsoXmlSerilizable<Option10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Option10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Option10( DataType1Code reqData,DerivativeExerciseStatus1Code reqExerciseStatus,OptionStyle2Code reqExerciseStyle,OptionType1Code reqOptionType,System.String reqDerivativeOptionIdentification,OptionPayoutType1Code reqOptionPayoutType,AgreedRate3 reqValuationRate,AgreedRate3 reqStrikePrice,System.Decimal reqVolatilityMargin,System.Decimal reqRiskAmount,System.DateTime reqExpiryDateAndTime,System.String reqExpiryLocation,SettlementDateCode reqSettlementType,AmountsAndValueDate4 reqOptionAmounts,PremiumAmount3 reqPremium,SettlementType1Code reqSettlementAmountType,System.String reqAdditionalOptionInformation )
+    {
+        Data = reqData;
+        ExerciseStatus = reqExerciseStatus;
+        ExerciseStyle = reqExerciseStyle;
+        OptionType = reqOptionType;
+        DerivativeOptionIdentification = reqDerivativeOptionIdentification;
+        OptionPayoutType = reqOptionPayoutType;
+        ValuationRate = reqValuationRate;
+        StrikePrice = reqStrikePrice;
+        VolatilityMargin = reqVolatilityMargin;
+        RiskAmount = reqRiskAmount;
+        ExpiryDateAndTime = reqExpiryDateAndTime;
+        ExpiryLocation = reqExpiryLocation;
+        SettlementType = reqSettlementType;
+        OptionAmounts = reqOptionAmounts;
+        Premium = reqPremium;
+        SettlementAmountType = reqSettlementAmountType;
+        AdditionalOptionInformation = reqAdditionalOptionInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of data to indicate whether a trade is an option or resulted by an option exercise.
     /// </summary>
+    [IsoId("_wjtYoEeBEeSzluxs8tdrVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataType1Code Data { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DataType1Code Data { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataType1Code Data { get; init; } 
+    #else
+    public DataType1Code Data { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the exercise status of the option.
     /// </summary>
+    [IsoId("_RGnuACKSEeSFts-9wCD3iw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
+    #else
+    public DerivativeExerciseStatus1Code ExerciseStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines how an option can be exercised.
     /// </summary>
+    [IsoId("_XdRaKQ8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionStyle2Code ExerciseStyle { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionStyle2Code ExerciseStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle2Code ExerciseStyle { get; init; } 
+    #else
+    public OptionStyle2Code ExerciseStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Choice of format for option type.
     /// </summary>
+    [IsoId("_7uMrYEUhEeSGWeX3z5zSZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionType1Code OptionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionType1Code OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType1Code OptionType { get; init; } 
+    #else
+    public OptionType1Code OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the derivative option.
     /// </summary>
+    [IsoId("_lmNm8KbREeSnSIf9q_Ahng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivative Option Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DerivativeOptionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DerivativeOptionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DerivativeOptionIdentification { get; init; } 
+    #else
+    public System.String DerivativeOptionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of payout that will result from an in-the-money option.
     /// </summary>
+    [IsoId("_LQBMwKbFEeSxuMLA5o46jQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Payout Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionPayoutType1Code OptionPayoutType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionPayoutType1Code OptionPayoutType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionPayoutType1Code OptionPayoutType { get; init; } 
+    #else
+    public OptionPayoutType1Code OptionPayoutType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the valuation rate used for the trade.
     /// </summary>
+    [IsoId("_atfU4IabEeS6OMe6QA9z_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 ValuationRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AgreedRate3 ValuationRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreedRate3 ValuationRate { get; init; } 
+    #else
+    public AgreedRate3 ValuationRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
+    [IsoId("_XdRaJw8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 StrikePrice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AgreedRate3 StrikePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreedRate3 StrikePrice { get; init; } 
+    #else
+    public AgreedRate3 StrikePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Annualized volatility for option model calculations.
     /// </summary>
+    [IsoId("_cp_Z0A8mEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Volatility Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate VolatilityMargin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal VolatilityMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal VolatilityMargin { get; init; } 
+    #else
+    public System.Decimal VolatilityMargin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
+    [IsoId("_OITiUIclEeSSpbtwQkzChA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal RiskAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal RiskAmount { get; init; } 
+    #else
+    public System.Decimal RiskAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a privilege (for example, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
+    [IsoId("_XdRaLQ8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime ExpiryDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime ExpiryDateAndTime { get; init; } 
+    #else
+    public System.DateTime ExpiryDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
+    [IsoId("_XdRaLw8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExpiryLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExpiryLocation { get; init; } 
+    #else
+    public System.String ExpiryLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the settlment period of the option trade.
     /// </summary>
+    [IsoId("_2-7xQIabEeS6OMe6QA9z_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDateCode SettlementType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementDateCode SettlementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementDateCode SettlementType { get; init; } 
+    #else
+    public SettlementDateCode SettlementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
+    [IsoId("_XdRaJQ8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate4 OptionAmounts { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountsAndValueDate4 OptionAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountsAndValueDate4 OptionAmounts { get; init; } 
+    #else
+    public AmountsAndValueDate4 OptionAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
+    [IsoId("_XdRaNQ8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PremiumAmount3 Premium { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PremiumAmount3 Premium { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PremiumAmount3 Premium { get; init; } 
+    #else
+    public PremiumAmount3 Premium { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
+    [IsoId("_HLBdkEefEeSC05fFWs3C4A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementType1Code SettlementAmountType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementType1Code SettlementAmountType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementType1Code SettlementAmountType { get; init; } 
+    #else
+    public SettlementType1Code SettlementAmountType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free format text that may contain information on the option.
     /// </summary>
+    [IsoId("_XdRaMw8iEeSFHsNYty4C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Option Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AdditionalOptionInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AdditionalOptionInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AdditionalOptionInformation { get; init; } 
+    #else
+    public System.String AdditionalOptionInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Data", xmlNamespace );
-        writer.WriteValue(Data.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ExrcSts", xmlNamespace );
-        writer.WriteValue(ExerciseStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ExrcStyle", xmlNamespace );
-        writer.WriteValue(ExerciseStyle.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-        writer.WriteValue(OptionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DerivOptnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(DerivativeOptionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OptnPyoutTp", xmlNamespace );
-        writer.WriteValue(OptionPayoutType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnRate", xmlNamespace );
-        ValuationRate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StrkPric", xmlNamespace );
-        StrikePrice.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VoltlyMrgn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(VolatilityMargin)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RskAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RiskAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpryDtAndTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpiryDateAndTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpryLctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ExpiryLocation)); // data type Max4AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
-        writer.WriteValue(SettlementType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OptnAmts", xmlNamespace );
-        OptionAmounts.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Prm", xmlNamespace );
-        Premium.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmAmtTp", xmlNamespace );
-        writer.WriteValue(SettlementAmountType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AddtlOptnInf", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalOptionInformation)); // data type Max140Text System.String
-        writer.WriteEndElement();
-    }
-    public static Option10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

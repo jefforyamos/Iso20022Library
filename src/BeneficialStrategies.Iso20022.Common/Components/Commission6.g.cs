@@ -7,106 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[IsoId("_VPdsgtp-Ed-ak6NoX_4Aeg_-594951840")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Commission")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Commission6
-     : IIsoXmlSerilizable<Commission6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [IsoId("_VPdsg9p-Ed-ak6NoX_4Aeg_-594951798")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommissionType1? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommissionType1? Type { get; init; } 
+    #else
+    public CommissionType1? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
+    [IsoId("_VPdshNp-Ed-ak6NoX_4Aeg_-594951486")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxationBasis1? Basis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxationBasis1? Basis { get; init; } 
+    #else
+    public TaxationBasis1? Basis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
+    [IsoId("_VPdshdp-Ed-ak6NoX_4Aeg_-594951780")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Commission expressed as a percentage.
     /// </summary>
+    [IsoId("_VPdshtp-Ed-ak6NoX_4Aeg_-594951763")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
+    [IsoId("_VPdsh9p-Ed-ak6NoX_4Aeg_-594951528")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_? RecipientIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [IsoId("_VPdsiNp-Ed-ak6NoX_4Aeg_-594951503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commercial Agreement Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommercialAgreementReference { get; init; } 
+    #else
+    public System.String? CommercialAgreementReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Voluntary non-enforcement of the right to all or part of a commission.
     /// </summary>
+    [IsoId("_VPdsidp-Ed-ak6NoX_4Aeg_1252714536")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Waiving Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommissionWaiver2? WaivingDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommissionWaiver2? WaivingDetails { get; init; } 
+    #else
+    public CommissionWaiver2? WaivingDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is CommissionType1 TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Basis is TaxationBasis1 BasisValue)
-        {
-            writer.WriteStartElement(null, "Bsis", xmlNamespace );
-            BasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Amount is IsoActiveCurrencyAnd13DecimalAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RecipientIdentification is PartyIdentification2Choice_ RecipientIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcptId", xmlNamespace );
-            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
-        {
-            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (WaivingDetails is CommissionWaiver2 WaivingDetailsValue)
-        {
-            writer.WriteStartElement(null, "WvgDtls", xmlNamespace );
-            WaivingDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Commission6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

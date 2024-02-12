@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Globalised card transaction entry details.
 /// </summary>
+[IsoId("_SkavGa6BEeexrtTFgmVD3Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Aggregated")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardAggregated2
-     : IIsoXmlSerilizable<CardAggregated2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
+    [IsoId("_StCfka6BEeexrtTFgmVD3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType2Code? AdditionalService { get; init; } 
+    #else
+    public CardPaymentServiceType2Code? AdditionalService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [IsoId("_StCfk66BEeexrtTFgmVD3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? TransactionCategory { get; init; } 
+    #else
+    public string? TransactionCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [IsoId("_StCfla6BEeexrtTFgmVD3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleReconciliationIdentification { get; init; } 
+    #else
+    public System.String? SaleReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of sequence numbers on which the globalisation applies.
     /// </summary>
+    [IsoId("_StCfl66BEeexrtTFgmVD3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Number Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardSequenceNumberRange1? SequenceNumberRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardSequenceNumberRange1? SequenceNumberRange { get; init; } 
+    #else
+    public CardSequenceNumberRange1? SequenceNumberRange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date range on which the globalisation applies.
     /// </summary>
+    [IsoId("_StCfma6BEeexrtTFgmVD3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Date Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrDateTimePeriod1Choice_? TransactionDateRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateOrDateTimePeriod1Choice_? TransactionDateRange { get; init; } 
+    #else
+    public DateOrDateTimePeriod1Choice_? TransactionDateRange { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
-        {
-            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
-            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TransactionCategory is ExternalCardTransactionCategory1Code TransactionCategoryValue)
-        {
-            writer.WriteStartElement(null, "TxCtgy", xmlNamespace );
-            writer.WriteValue(TransactionCategoryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SequenceNumberRange is CardSequenceNumberRange1 SequenceNumberRangeValue)
-        {
-            writer.WriteStartElement(null, "SeqNbRg", xmlNamespace );
-            SequenceNumberRangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionDateRange is DateOrDateTimePeriod1Choice_ TransactionDateRangeValue)
-        {
-            writer.WriteStartElement(null, "TxDtRg", xmlNamespace );
-            TransactionDateRangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardAggregated2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

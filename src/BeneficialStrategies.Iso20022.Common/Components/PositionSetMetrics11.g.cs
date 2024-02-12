@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
+[IsoId("_MVJnAa5REeuo-IflVgGqiA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set Metrics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSetMetrics11
-     : IIsoXmlSerilizable<PositionSetMetrics11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
+    [IsoId("_Mkfqka5REeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Volume Metrics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VolumeMetrics4? VolumeMetrics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VolumeMetrics4? VolumeMetrics { get; init; } 
+    #else
+    public VolumeMetrics4? VolumeMetrics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
+    [IsoId("_Mkfqk65REeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Reinvestment Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CashReinvestmentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashReinvestmentRate { get; init; } 
+    #else
+    public System.Decimal? CashReinvestmentRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (VolumeMetrics is VolumeMetrics4 VolumeMetricsValue)
-        {
-            writer.WriteStartElement(null, "VolMtrcs", xmlNamespace );
-            VolumeMetricsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashReinvestmentRate is IsoPercentageRate CashReinvestmentRateValue)
-        {
-            writer.WriteStartElement(null, "CshRinvstmtRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CashReinvestmentRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static PositionSetMetrics11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

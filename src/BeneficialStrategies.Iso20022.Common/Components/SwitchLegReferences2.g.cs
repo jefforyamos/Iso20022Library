@@ -7,80 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a switch leg that is rejected or repaired.
 /// </summary>
+[IsoId("_Fx2LRTbtEead9bDRE_1DAQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Switch Leg References")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SwitchLegReferences2
-     : IIsoXmlSerilizable<SwitchLegReferences2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SwitchLegReferences2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SwitchLegReferences2( LegIdentification1Choice_ reqLegIdentification )
+    {
+        LegIdentification = reqLegIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a switch leg.
     /// </summary>
+    [IsoId("_pWQb0EglEea9YuSvQGoi-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Leg Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LegIdentification1Choice_ LegIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public LegIdentification1Choice_ LegIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LegIdentification1Choice_ LegIdentification { get; init; } 
+    #else
+    public LegIdentification1Choice_ LegIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the reason for the rejection of the leg.
     /// </summary>
+    [IsoId("_GKGTFzbtEead9bDRE_1DAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Leg Rejection Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? LegRejectionReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LegRejectionReason { get; init; } 
+    #else
+    public System.String? LegRejectionReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    public ValueList<Fee3> RepairedFee { get; init; } = [];
+    [IsoId("_KVakgUgmEea9YuSvQGoi-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<Fee3> RepairedFee { get; init; } = new ValueList<Fee3>(){};
+    
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>
+    [IsoId("_GKGTGzbtEead9bDRE_1DAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
+    #else
+    public InvestmentAccount58? InvestmentAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instrument identification of the switch leg that is rejected or repaired.
     /// </summary>
+    [IsoId("_GKGTHTbtEead9bDRE_1DAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument57? FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LegId", xmlNamespace );
-        LegIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LegRejectionReason is IsoMax350Text LegRejectionReasonValue)
-        {
-            writer.WriteStartElement(null, "LegRjctnRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(LegRejectionReasonValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RprdFee", xmlNamespace );
-        RepairedFee.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (InvestmentAccountDetails is InvestmentAccount58 InvestmentAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
-            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentDetails is FinancialInstrument57 FinancialInstrumentDetailsValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SwitchLegReferences2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

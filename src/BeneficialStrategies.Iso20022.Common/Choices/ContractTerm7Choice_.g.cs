@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies whether the transaction is open term, that is. has no fixed maturity date, or fixed term with a contractually agreed maturity date.
-/// </summary>
-[KnownType(typeof(ContractTerm7Choice.Open))]
-[KnownType(typeof(ContractTerm7Choice.Fixed))]
-public abstract partial record ContractTerm7Choice_ : IIsoXmlSerilizable<ContractTerm7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies whether the transaction is open term, that is. has no fixed maturity date, or fixed term with a contractually agreed maturity date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ContractTerm7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ContractTerm7Choice.Open))]
+    [KnownType(typeof(ContractTerm7Choice.Fixed))]
+    [IsoId("_xcgx0a5qEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Term 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ContractTerm7Choice_
+    #else
+    public abstract partial class ContractTerm7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Opn" => ContractTerm7Choice.Open.Deserialize(elementWithPayload),
-             "Fxd" => ContractTerm7Choice.Fixed.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ContractTerm7Choice choice.")
-        };
     }
 }

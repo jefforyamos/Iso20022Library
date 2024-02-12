@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Transaction Report Response message.
 /// </summary>
+[IsoId("_QC3YoU0zEeybj420QgWBkA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Transaction Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportTransactionResponse4
-     : IIsoXmlSerilizable<ReportTransactionResponse4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportTransactionResponse4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportTransactionResponse4( System.UInt64 reqReportFullSize,System.UInt64 reqBlockStart,System.UInt64 reqBlockStop )
+    {
+        ReportFullSize = reqReportFullSize;
+        BlockStart = reqBlockStart;
+        BlockStop = reqBlockStop;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// The total number of transactions matching the search criteria.
     /// </summary>
+    [IsoId("_QJ3_kU0zEeybj420QgWBkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Full Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber ReportFullSize { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ReportFullSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ReportFullSize { get; init; } 
+    #else
+    public System.UInt64 ReportFullSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index of the first transaction reported in this message within the list of transactions matching the search criteria.
     /// </summary>
+    [IsoId("_QJ3_k00zEeybj420QgWBkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber BlockStart { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 BlockStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 BlockStart { get; init; } 
+    #else
+    public System.UInt64 BlockStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index of the last transaction reported in this message.
     /// </summary>
+    [IsoId("_QJ3_lU0zEeybj420QgWBkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Stop")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber BlockStop { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 BlockStop { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 BlockStop { get; init; } 
+    #else
+    public System.UInt64 BlockStop { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of Transaction Report containing one Transaction Report for each transaction matching the Search criteria. This list may be partial according to requested block.
     /// </summary>
+    [IsoId("_QJ3_l00zEeybj420QgWBkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Report")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionTransactionReport4? TransactionReport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionTransactionReport4? TransactionReport { get; init; } 
+    #else
+    public PointOfInteractionTransactionReport4? TransactionReport { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RptFullSz", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(ReportFullSize)); // data type PositiveNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BlckStart", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStart)); // data type PositiveNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BlckStop", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStop)); // data type PositiveNumber System.UInt64
-        writer.WriteEndElement();
-        if (TransactionReport is PointOfInteractionTransactionReport4 TransactionReportValue)
-        {
-            writer.WriteStartElement(null, "TxRpt", xmlNamespace );
-            TransactionReportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportTransactionResponse4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

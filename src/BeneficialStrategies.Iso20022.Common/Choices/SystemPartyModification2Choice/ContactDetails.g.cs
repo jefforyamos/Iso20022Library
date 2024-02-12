@@ -9,173 +9,323 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
-
-/// <summary>
-/// Specifies the options on how to contact the party.
-/// </summary>
-public partial record ContactDetails : SystemPartyModification2Choice_
-     , IIsoXmlSerilizable<ContactDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the terms used to formally address a person.
+    /// Specifies the options on how to contact the party.
     /// </summary>
-    public NamePrefix2Code? NamePrefix { get; init; } 
-    /// <summary>
-    /// Name by which a party is known and which is usually used to identify that party.
-    /// </summary>
-    public IsoMax140Text? Name { get; init; } 
-    /// <summary>
-    /// Collection of information that identifies a phone number, as defined by telecom services.
-    /// </summary>
-    public IsoPhoneNumber? PhoneNumber { get; init; } 
-    /// <summary>
-    /// Collection of information that identifies a mobile phone number, as defined by telecom services.
-    /// </summary>
-    public IsoPhoneNumber? MobileNumber { get; init; } 
-    /// <summary>
-    /// Collection of information that identifies a FAX number, as defined by telecom services.
-    /// </summary>
-    public IsoPhoneNumber? FaxNumber { get; init; } 
-    /// <summary>
-    /// Address for electronic mail (e-mail).
-    /// </summary>
-    public IsoMax2048Text? EmailAddress { get; init; } 
-    /// <summary>
-    /// Purpose for which an email address may be used.
-    /// </summary>
-    public IsoMax35Text? EmailPurpose { get; init; } 
-    /// <summary>
-    /// Title of the function.
-    /// </summary>
-    public IsoMax35Text? JobTitle { get; init; } 
-    /// <summary>
-    /// Role of a person in an organisation.
-    /// </summary>
-    public IsoMax35Text? Responsibility { get; init; } 
-    /// <summary>
-    /// Identification of a division of a large organisation or building.
-    /// </summary>
-    public IsoMax70Text? Department { get; init; } 
-    /// <summary>
-    /// Contact details in another form.
-    /// </summary>
-    public OtherContact1? Other { get; init; } 
-    /// <summary>
-    /// Preferred method used to reach the technical contact.
-    /// </summary>
-    public PreferredContactMethod1Code? PreferredMethod { get; init; } 
-    /// <summary>
-    /// Starting validity date for the contact.
-    /// </summary>
-    public IsoISODate? ValidFrom { get; init; } 
-    /// <summary>
-    /// Ending validity date for the contact.
-    /// </summary>
-    public IsoISODate? ValidTo { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_J8b4wYwAEei289CGNqs21g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ContactDetails : SystemPartyModification2Choice_
+    #else
+    public partial class ContactDetails : SystemPartyModification2Choice_
+    #endif
     {
-        if (NamePrefix is NamePrefix2Code NamePrefixValue)
-        {
-            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
-            writer.WriteValue(NamePrefixValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax140Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (MobileNumber is IsoPhoneNumber MobileNumberValue)
-        {
-            writer.WriteStartElement(null, "MobNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(MobileNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (FaxNumber is IsoPhoneNumber FaxNumberValue)
-        {
-            writer.WriteStartElement(null, "FaxNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(FaxNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (EmailAddress is IsoMax2048Text EmailAddressValue)
-        {
-            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2048Text(EmailAddressValue)); // data type Max2048Text System.String
-            writer.WriteEndElement();
-        }
-        if (EmailPurpose is IsoMax35Text EmailPurposeValue)
-        {
-            writer.WriteStartElement(null, "EmailPurp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(EmailPurposeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (JobTitle is IsoMax35Text JobTitleValue)
-        {
-            writer.WriteStartElement(null, "JobTitl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(JobTitleValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Responsibility is IsoMax35Text ResponsibilityValue)
-        {
-            writer.WriteStartElement(null, "Rspnsblty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponsibilityValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Department is IsoMax70Text DepartmentValue)
-        {
-            writer.WriteStartElement(null, "Dept", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(DepartmentValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Other is OtherContact1 OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            OtherValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreferredMethod is PreferredContactMethod1Code PreferredMethodValue)
-        {
-            writer.WriteStartElement(null, "PrefrdMtd", xmlNamespace );
-            writer.WriteValue(PreferredMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ValidFrom is IsoISODate ValidFromValue)
-        {
-            writer.WriteStartElement(null, "VldFr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ValidTo is IsoISODate ValidToValue)
-        {
-            writer.WriteStartElement(null, "VldTo", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidToValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static new ContactDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the terms used to formally address a person.
+        /// </summary>
+        [IsoId("_rJkiI4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name Prefix")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public NamePrefix2Code? NamePrefix { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NamePrefix2Code? NamePrefix { get; init; } 
+        #else
+        public NamePrefix2Code? NamePrefix { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name by which a party is known and which is usually used to identify that party.
+        /// </summary>
+        [IsoId("_rJkiJYv3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Collection of information that identifies a phone number, as defined by telecom services.
+        /// </summary>
+        [IsoId("_rJkiJ4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Phone Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPhoneNumber? PhoneNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PhoneNumber { get; init; } 
+        #else
+        public System.String? PhoneNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Collection of information that identifies a mobile phone number, as defined by telecom services.
+        /// </summary>
+        [IsoId("_rJkiKYv3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Mobile Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPhoneNumber? MobileNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? MobileNumber { get; init; } 
+        #else
+        public System.String? MobileNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Collection of information that identifies a FAX number, as defined by telecom services.
+        /// </summary>
+        [IsoId("_rJkiK4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Fax Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPhoneNumber? FaxNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? FaxNumber { get; init; } 
+        #else
+        public System.String? FaxNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Address for electronic mail (e-mail).
+        /// </summary>
+        [IsoId("_rJkiLYv3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Email Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax2048Text? EmailAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EmailAddress { get; init; } 
+        #else
+        public System.String? EmailAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Purpose for which an email address may be used.
+        /// </summary>
+        [IsoId("_rJlJMYv3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Email Purpose")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? EmailPurpose { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EmailPurpose { get; init; } 
+        #else
+        public System.String? EmailPurpose { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Title of the function.
+        /// </summary>
+        [IsoId("_rJlJM4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Job Title")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? JobTitle { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? JobTitle { get; init; } 
+        #else
+        public System.String? JobTitle { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Role of a person in an organisation.
+        /// </summary>
+        [IsoId("_rJlJNYv3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Responsibility")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Responsibility { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Responsibility { get; init; } 
+        #else
+        public System.String? Responsibility { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of a division of a large organisation or building.
+        /// </summary>
+        [IsoId("_rJlJN4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Department")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax70Text? Department { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Department { get; init; } 
+        #else
+        public System.String? Department { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Contact details in another form.
+        /// </summary>
+        [IsoId("_rJlJOYv3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public OtherContact1? Other { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OtherContact1? Other { get; init; } 
+        #else
+        public OtherContact1? Other { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Preferred method used to reach the technical contact.
+        /// </summary>
+        [IsoId("_rJlJO4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Preferred Method")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PreferredContactMethod1Code? PreferredMethod { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PreferredContactMethod1Code? PreferredMethod { get; init; } 
+        #else
+        public PreferredContactMethod1Code? PreferredMethod { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Starting validity date for the contact.
+        /// </summary>
+        [IsoId("_vDRXkov3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Valid From")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ValidFrom { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ValidFrom { get; init; } 
+        #else
+        public System.DateOnly? ValidFrom { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Ending validity date for the contact.
+        /// </summary>
+        [IsoId("_vDRXk4v3Eei289CGNqs21g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Valid To")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ValidTo { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ValidTo { get; init; } 
+        #else
+        public System.DateOnly? ValidTo { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

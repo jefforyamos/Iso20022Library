@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CurrencyToBuyOrSell1Choice;
-
-/// <summary>
-/// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds.
-/// </summary>
-public partial record CurrencyToBuy : CurrencyToBuyOrSell1Choice_
-     , IIsoXmlSerilizable<CurrencyToBuy>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CurrencyToBuyOrSell1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// A code allocated to a currency by a Maintenance Agency under an international identification scheme as described in the latest edition of the international standard ISO 4217 "Codes for the representation of currencies and funds".
+    /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds.
     /// </summary>
-    public required ActiveCurrencyCode Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QsvIMtp-Ed-ak6NoX_4Aeg_-894055874")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency To Buy")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CurrencyToBuy : CurrencyToBuyOrSell1Choice_
+    #else
+    public partial class CurrencyToBuy : CurrencyToBuyOrSell1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CcyToBuy", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new CurrencyToBuy Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CurrencyToBuy instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CurrencyToBuy( string reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// A code allocated to a currency by a Maintenance Agency under an international identification scheme as described in the latest edition of the international standard ISO 4217 "Codes for the representation of currencies and funds".
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveCurrencyCode Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string Value { get; init; } 
+        #else
+        public string Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

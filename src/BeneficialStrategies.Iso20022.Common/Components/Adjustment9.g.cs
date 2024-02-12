@@ -7,117 +7,200 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
+[IsoId("_mBzOifJqEeiJn9rM2Znz2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Adjustment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Adjustment9
-     : IIsoXmlSerilizable<Adjustment9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of adjustment.
     /// </summary>
+    [IsoId("_mBzOjvJqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Type { get; init; } 
+    #else
+    public System.String? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information to specify the type of adjustment.
     /// </summary>
+    [IsoId("_mBzOi_JqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalType { get; init; } 
+    #else
+    public System.String? AdditionalType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the adjustment.
     /// </summary>
+    [IsoId("_mBzOivJqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the adjustment.
     /// </summary>
+    [IsoId("_mBzOj_JqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reason { get; init; } 
+    #else
+    public System.String? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Promotion or adjustment code.
     /// </summary>
+    [IsoId("_sn8w4Rs4EeqrvK3udMUsNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Promotion Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PromotionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PromotionCode { get; init; } 
+    #else
+    public System.String? PromotionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the percentage value of the discount (when applicable).
     /// </summary>
+    [IsoId("_mBzOkPJqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Percentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Percentage { get; init; } 
+    #else
+    public System.Decimal? Percentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains amount of the adjustment, exclusive of tax.
     /// </summary>
+    [IsoId("_mBzOjfJqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjustment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? AdjustmentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AdjustmentAmount { get; init; } 
+    #else
+    public System.Decimal? AdjustmentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not tax was calculated on the original amount of the transaction. 
     /// Note that false (or not present) indicates applicable taxes are based on adjusted amount.
     /// </summary>
+    [IsoId("_mBzOkfJqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Calculated On Original Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TaxCalculatedOnOriginalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxCalculatedOnOriginalAmount { get; init; } 
+    #else
+    public System.String? TaxCalculatedOnOriginalAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is IsoMax35Text TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalType is IsoMax35Text AdditionalTypeValue)
-        {
-            writer.WriteStartElement(null, "AddtlTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Description is IsoMax70Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(DescriptionValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Reason is IsoMax35Text ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PromotionCode is IsoMax35Text PromotionCodeValue)
-        {
-            writer.WriteStartElement(null, "PrmtnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PromotionCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Percentage is IsoPercentageRate PercentageValue)
-        {
-            writer.WriteStartElement(null, "Pctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdjustmentAmount is IsoImpliedCurrencyAndAmount AdjustmentAmountValue)
-        {
-            writer.WriteStartElement(null, "AdjstmntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AdjustmentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxCalculatedOnOriginalAmount is IsoTrueFalseIndicator TaxCalculatedOnOriginalAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxClctdOnOrgnlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TaxCalculatedOnOriginalAmountValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Adjustment9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

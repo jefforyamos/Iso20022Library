@@ -7,56 +7,104 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
 /// </summary>
+[IsoId("_SvkiqNp-Ed-ak6NoX_4Aeg_-248329088")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Previous Year")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PreviousYear1
-     : IIsoXmlSerilizable<PreviousYear1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PreviousYear1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PreviousYear1( System.String reqAllPreviousYears,System.String reqCashComponentIndicator )
+    {
+        AllPreviousYears = reqAllPreviousYears;
+        CashComponentIndicator = reqCashComponentIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Selection ot the entirety of the investment plans.
     /// </summary>
+    [IsoId("_Svkiqdp-Ed-ak6NoX_4Aeg_-248329010")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("All Previous Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPreviousAll AllPreviousYears { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AllPreviousYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AllPreviousYears { get; init; } 
+    #else
+    public System.String AllPreviousYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    public IsoISOYear? SpecificPreviousYears { get; init;  } // Warning: Don't know multiplicity.
+    [IsoId("_Svkiqtp-Ed-ak6NoX_4Aeg_-248328915")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Specific Previous Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    public System.UInt16? SpecificPreviousYears { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Svkiqtp-Ed-ak6NoX_4Aeg_-248328915
+    
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
+    [IsoId("_Svkiq9p-Ed-ak6NoX_4Aeg_306709098")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Component Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CashComponentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CashComponentIndicator { get; init; } 
+    #else
+    public System.String CashComponentIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AllPrvsYrs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPreviousAll(AllPreviousYears)); // data type PreviousAll System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize SpecificPreviousYears, multiplicity Unknown
-        writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static PreviousYear1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

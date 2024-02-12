@@ -7,277 +7,503 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fund reference data.
 /// </summary>
+[IsoId("_oxsv4Z9BEeqxTNfi5y7ywQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Reference Data Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundReferenceDataReport3
-     : IIsoXmlSerilizable<FundReferenceDataReport3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FundReferenceDataReport3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FundReferenceDataReport3( System.DateOnly reqGeneralReferenceDate,SecurityIdentification37 reqSecurityIdentification )
+    {
+        GeneralReferenceDate = reqGeneralReferenceDate;
+        SecurityIdentification = reqSecurityIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique technical identifier for an instance of a report within a fund reference data report, as assigned by the issuer of the report.
     /// </summary>
+    [IsoId("_peCRdZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version Number. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00001 and is the version of the template for which the EMT data is provided.
     /// </summary>
+    [IsoId("_peCRd59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketPracticeVersion1? Version { get; init; } 
+    #else
+    public MarketPracticeVersion1? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that reports the data on behalf of the issuer and the entry point e-mail address for contact. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) references 00002, 00003 and 00004.
     /// </summary>
+    [IsoId("_Ui1C4KDuEequlaOyi6MUhw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorised Proxy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes6? AuthorisedProxy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes6? AuthorisedProxy { get; init; } 
+    #else
+    public ContactAttributes6? AuthorisedProxy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date to which the data refers. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00050. 
     /// </summary>
+    [IsoId("_peCReZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Reference Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate GeneralReferenceDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly GeneralReferenceDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly GeneralReferenceDate { get; init; } 
+    #else
+    public System.DateOnly GeneralReferenceDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether target market data is included in the report. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00006.
     /// </summary>
+    [IsoId("_g11soKDuEequlaOyi6MUhw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Target Market Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TargetMarketIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TargetMarketIndicator { get; init; } 
+    #else
+    public System.String? TargetMarketIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether ex ante costs and charges are included in the report. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00007.
     /// </summary>
+    [IsoId("_q9Tr4KDuEequlaOyi6MUhw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ex Ante Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExAnteIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExAnteIndicator { get; init; } 
+    #else
+    public System.String? ExAnteIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether ex post costs and charges are included in the report. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00008.
     /// </summary>
+    [IsoId("_383SkKDuEequlaOyi6MUhw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ex Post Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExPostIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExPostIndicator { get; init; } 
+    #else
+    public System.String? ExPostIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the security.
     /// </summary>
+    [IsoId("_peCRe59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification37 SecurityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification37 SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification37 SecurityIdentification { get; init; } 
+    #else
+    public SecurityIdentification37 SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parties related to the investment fund.
     /// </summary>
+    [IsoId("_peCRfZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Parties")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundParties1? FundParties { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundParties1? FundParties { get; init; } 
+    #else
+    public FundParties1? FundParties { get; set; } 
+    #endif
+    
     /// <summary>
     /// Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country of domicile.
     /// </summary>
+    [IsoId("_peCRf59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Main Fund Order Desk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrderDesk1? MainFundOrderDesk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrderDesk1? MainFundOrderDesk { get; init; } 
+    #else
+    public OrderDesk1? MainFundOrderDesk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Company that is responsible for the management and operation of the fund, for example, determines the investment strategy, appoints the service providers, and makes major decisions for the fund. It is usually responsible for the distribution and marketing of the fund. For self-managed funds, this will often be a separate promoter or sponsor of the fund.
     /// </summary>
+    [IsoId("_peCRgZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Management Company")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? FundManagementCompany { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes5? FundManagementCompany { get; init; } 
+    #else
+    public ContactAttributes5? FundManagementCompany { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
     /// </summary>
+    [IsoId("_peCRg59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument96? FundDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument96? FundDetails { get; init; } 
+    #else
+    public FinancialInstrument96? FundDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to the instrument, that is, not to the market.
     /// </summary>
+    [IsoId("_peCRhZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Dealing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValuationDealingProcessingCharacteristics3? ValuationDealingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValuationDealingProcessingCharacteristics3? ValuationDealingCharacteristics { get; init; } 
+    #else
+    public ValuationDealingProcessingCharacteristics3? ValuationDealingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment restrictions linked to the trading of the investment fund or an alternative/hedge fund.
     /// </summary>
+    [IsoId("_peCRh59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Restrictions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentRestrictions3? InvestmentRestrictions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentRestrictions3? InvestmentRestrictions { get; init; } 
+    #else
+    public InvestmentRestrictions3? InvestmentRestrictions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to a subscription to the investment fund or alternative/hedge fund.
     /// </summary>
+    [IsoId("_peCRiZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscription Processing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics8? SubscriptionProcessingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingCharacteristics8? SubscriptionProcessingCharacteristics { get; init; } 
+    #else
+    public ProcessingCharacteristics8? SubscriptionProcessingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to a redemption from the investment fund or alternative/hedge fund.
     /// </summary>
+    [IsoId("_peCRi59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Processing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics7? RedemptionProcessingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingCharacteristics7? RedemptionProcessingCharacteristics { get; init; } 
+    #else
+    public ProcessingCharacteristics7? RedemptionProcessingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to a switch of the investment fund or alternative/hedge fund.
     /// </summary>
+    [IsoId("_peCRjZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Switch Processing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; init; } 
+    #else
+    public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Characteristics of the investment plan.
     /// </summary>
+    [IsoId("_peCRj59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plan Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentPlanCharacteristics1? PlanCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentPlanCharacteristics1? PlanCharacteristics { get; init; } 
+    #else
+    public InvestmentPlanCharacteristics1? PlanCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies, for a specific type of transaction, how amounts are to be paid in or paid out.
     /// </summary>
+    [IsoId("_peCRkZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument16? PaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument16? PaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument16? PaymentInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to be used for cash settlement.
     /// </summary>
+    [IsoId("_peCRk59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Settlement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount202? CashSettlementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount202? CashSettlementDetails { get; init; } 
+    #else
+    public CashAccount202? CashSettlementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics specific to a local fund order desk.
     /// </summary>
+    [IsoId("_peCRlZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Market Annex")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalMarketAnnex4? LocalMarketAnnex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LocalMarketAnnex4? LocalMarketAnnex { get; init; } 
+    #else
+    public LocalMarketAnnex4? LocalMarketAnnex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Target market criteria.
     /// </summary>
+    [IsoId("_peCRl59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Target Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket2? TargetMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TargetMarket2? TargetMarket { get; init; } 
+    #else
+    public TargetMarket2? TargetMarket { get; set; } 
+    #endif
+    
     /// <summary>
     /// Distribution strategy criteria.
     /// </summary>
+    [IsoId("_peCRmZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Distribution Strategy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1? DistributionStrategy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionStrategy1? DistributionStrategy { get; init; } 
+    #else
+    public DistributionStrategy1? DistributionStrategy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Costs and charges associated with the distribution of selling of the financial instrument. These may be one-off or recurring. These may be ex ante (intended) or post ante (actual).
     /// </summary>
-    public ValueList<CostsAndCharges2> CostsAndCharges { get; init; } = [];
+    [IsoId("_peCRm59BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Costs And Charges")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<CostsAndCharges2> CostsAndCharges { get; init; } = new ValueList<CostsAndCharges2>(){};
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_peCRnZ9BEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Version is MarketPracticeVersion1 VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            VersionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AuthorisedProxy is ContactAttributes6 AuthorisedProxyValue)
-        {
-            writer.WriteStartElement(null, "AuthrsdPrxy", xmlNamespace );
-            AuthorisedProxyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "GnlRefDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(GeneralReferenceDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (TargetMarketIndicator is IsoYesNoIndicator TargetMarketIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TrgtMktInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TargetMarketIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ExAnteIndicator is IsoYesNoIndicator ExAnteIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ExAnteInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExAnteIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ExPostIndicator is IsoYesNoIndicator ExPostIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ExPstInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExPostIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SctyId", xmlNamespace );
-        SecurityIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FundParties is FundParties1 FundPartiesValue)
-        {
-            writer.WriteStartElement(null, "FndPties", xmlNamespace );
-            FundPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MainFundOrderDesk is OrderDesk1 MainFundOrderDeskValue)
-        {
-            writer.WriteStartElement(null, "MainFndOrdrDsk", xmlNamespace );
-            MainFundOrderDeskValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FundManagementCompany is ContactAttributes5 FundManagementCompanyValue)
-        {
-            writer.WriteStartElement(null, "FndMgmtCpny", xmlNamespace );
-            FundManagementCompanyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FundDetails is FinancialInstrument96 FundDetailsValue)
-        {
-            writer.WriteStartElement(null, "FndDtls", xmlNamespace );
-            FundDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValuationDealingCharacteristics is ValuationDealingProcessingCharacteristics3 ValuationDealingCharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "ValtnDealgChrtcs", xmlNamespace );
-            ValuationDealingCharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentRestrictions is InvestmentRestrictions3 InvestmentRestrictionsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtRstrctns", xmlNamespace );
-            InvestmentRestrictionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubscriptionProcessingCharacteristics is ProcessingCharacteristics8 SubscriptionProcessingCharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "SbcptPrcgChrtcs", xmlNamespace );
-            SubscriptionProcessingCharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RedemptionProcessingCharacteristics is ProcessingCharacteristics7 RedemptionProcessingCharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "RedPrcgChrtcs", xmlNamespace );
-            RedemptionProcessingCharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SwitchProcessingCharacteristics is ProcessingCharacteristics6 SwitchProcessingCharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "SwtchPrcgChrtcs", xmlNamespace );
-            SwitchProcessingCharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlanCharacteristics is InvestmentPlanCharacteristics1 PlanCharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "PlanChrtcs", xmlNamespace );
-            PlanCharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentInstrument is PaymentInstrument16 PaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
-            PaymentInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashSettlementDetails is CashAccount202 CashSettlementDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshSttlmDtls", xmlNamespace );
-            CashSettlementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LocalMarketAnnex is LocalMarketAnnex4 LocalMarketAnnexValue)
-        {
-            writer.WriteStartElement(null, "LclMktAnx", xmlNamespace );
-            LocalMarketAnnexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TargetMarket is TargetMarket2 TargetMarketValue)
-        {
-            writer.WriteStartElement(null, "TrgtMkt", xmlNamespace );
-            TargetMarketValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DistributionStrategy is DistributionStrategy1 DistributionStrategyValue)
-        {
-            writer.WriteStartElement(null, "DstrbtnStrtgy", xmlNamespace );
-            DistributionStrategyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CostsAndChrgs", xmlNamespace );
-        CostsAndCharges.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundReferenceDataReport3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

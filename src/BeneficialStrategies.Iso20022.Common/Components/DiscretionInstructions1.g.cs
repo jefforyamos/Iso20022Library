@@ -7,92 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates on an order that the trader wishes to display one price in the market but will accept trades at another price.
 /// </summary>
+[IsoId("_SyZ0PNp-Ed-ak6NoX_4Aeg_1464463754")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Discretion Instructions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DiscretionInstructions1
-     : IIsoXmlSerilizable<DiscretionInstructions1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DiscretionInstructions1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DiscretionInstructions1( System.Decimal reqOffset,System.String reqOffsetSign,TypeOfDiscretionPrice1Code reqRelatedPriceType,MoveType1Code reqMoveType,System.String reqLimitType,System.String reqRoundDirection,PriceProtectionScope2Code reqScope,OffsetType1Code reqOffsetType )
+    {
+        Offset = reqOffset;
+        OffsetSign = reqOffsetSign;
+        RelatedPriceType = reqRelatedPriceType;
+        MoveType = reqMoveType;
+        LimitType = reqLimitType;
+        RoundDirection = reqRoundDirection;
+        Scope = reqScope;
+        OffsetType = reqOffsetType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information for the executing party about the price to be obtained for an order. It is expressed as an offset from a reference price such as the market price or last trade price.
     /// </summary>
+    [IsoId("_SyZ0Pdp-Ed-ak6NoX_4Aeg_1506944896")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Offset { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Offset { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Offset { get; init; } 
+    #else
+    public System.Decimal Offset { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the offset should be added or subtracted from the related price.
     /// </summary>
+    [IsoId("_SyZ0Ptp-Ed-ak6NoX_4Aeg_1509714576")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset Sign")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPlusOrMinusIndicator OffsetSign { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OffsetSign { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OffsetSign { get; init; } 
+    #else
+    public System.String OffsetSign { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify the type of price an offset is related to. The offset can either be added or subtracted.
     /// </summary>
+    [IsoId("_Syi-INp-Ed-ak6NoX_4Aeg_1505097016")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Price Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
+    #else
+    public TypeOfDiscretionPrice1Code RelatedPriceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes whether discretion price is static/fixed or floats.
     /// </summary>
+    [IsoId("_Syi-Idp-Ed-ak6NoX_4Aeg_-1123942563")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Move Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoveType1Code MoveType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MoveType1Code MoveType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MoveType1Code MoveType { get; init; } 
+    #else
+    public MoveType1Code MoveType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the nature of the resulting discretion price (e.g. or better limit, strict limit etc).
     /// </summary>
+    [IsoId("_Syi-Itp-Ed-ak6NoX_4Aeg_-1110089593")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text LimitType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String LimitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String LimitType { get; init; } 
+    #else
+    public System.String LimitType { get; set; } 
+    #endif
+    
     /// <summary>
     /// If the calculated discretion price is not a valid tick price, specifies how to round the price (e.g. to be more or less aggressive).
     /// </summary>
+    [IsoId("_Syi-I9p-Ed-ak6NoX_4Aeg_-1098080503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Round Direction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RoundDirection { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RoundDirection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RoundDirection { get; init; } 
+    #else
+    public System.String RoundDirection { get; set; } 
+    #endif
+    
     /// <summary>
     /// The scope of "related to" price of the discretion (e.g. local, global etc).
     /// </summary>
+    [IsoId("_Syi-JNp-Ed-ak6NoX_4Aeg_-1082381651")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scope")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceProtectionScope2Code Scope { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceProtectionScope2Code Scope { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceProtectionScope2Code Scope { get; init; } 
+    #else
+    public PriceProtectionScope2Code Scope { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the type of Discretion Offset.
     /// </summary>
+    [IsoId("_Syi-Jdp-Ed-ak6NoX_4Aeg_-980921869")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OffsetType1Code OffsetType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OffsetType1Code OffsetType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OffsetType1Code OffsetType { get; init; } 
+    #else
+    public OffsetType1Code OffsetType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Offset", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Offset)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OffsetSgn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(OffsetSign)); // data type PlusOrMinusIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RltdPricTp", xmlNamespace );
-        writer.WriteValue(RelatedPriceType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MvTp", xmlNamespace );
-        writer.WriteValue(MoveType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "LmtTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(LimitType)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RndDrctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RoundDirection)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Scp", xmlNamespace );
-        writer.WriteValue(Scope.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OffsetTp", xmlNamespace );
-        writer.WriteValue(OffsetType.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static DiscretionInstructions1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

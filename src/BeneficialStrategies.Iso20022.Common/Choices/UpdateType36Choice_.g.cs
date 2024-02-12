@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between action to request on a security.
-/// </summary>
-[KnownType(typeof(UpdateType36Choice.UpdateType))]
-[KnownType(typeof(UpdateType36Choice.Replace))]
-public abstract partial record UpdateType36Choice_ : IIsoXmlSerilizable<UpdateType36Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between action to request on a security.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UpdateType36Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UpdateType36Choice.UpdateType))]
+    [KnownType(typeof(UpdateType36Choice.Replace))]
+    [IsoId("_QGUHDZJKEeuAlLVx8pyt3w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Type 36 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UpdateType36Choice_
+    #else
+    public abstract partial class UpdateType36Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "UpdTp" => UpdateType36Choice.UpdateType.Deserialize(elementWithPayload),
-             "Rplc" => UpdateType36Choice.Replace.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UpdateType36Choice choice.")
-        };
     }
 }

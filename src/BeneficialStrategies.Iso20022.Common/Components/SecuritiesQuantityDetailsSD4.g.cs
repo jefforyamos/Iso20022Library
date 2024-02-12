@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
+[IsoId("_b5LodMYOEeexPc-mfUU5zQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Quantity Details SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesQuantityDetailsSD4
-     : IIsoXmlSerilizable<SecuritiesQuantityDetailsSD4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
+    [IsoId("_b5LodsYOEeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Oversubscription Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity4? OversubscriptionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity4? OversubscriptionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity4? OversubscriptionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
+    [IsoId("_b5LodcYOEeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Oversubscription Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
+    [IsoId("_b5Lod8YOEeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity not fully covered.
     /// </summary>
+    [IsoId("_sPgWoMYOEeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Open Uncovered Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
+    [IsoId("_u1-poMYOEeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interim Covered Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OversubscriptionQuantity is FinancialInstrumentQuantity4 OversubscriptionQuantityValue)
-        {
-            writer.WriteStartElement(null, "OvrsbcptQty", xmlNamespace );
-            OversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalOversubscriptionQuantity is FinancialInstrumentQuantity4 TotalOversubscriptionQuantityValue)
-        {
-            writer.WriteStartElement(null, "TtlOvrsbcptQty", xmlNamespace );
-            TotalOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionQuantity is FinancialInstrumentQuantity31Choice_ InstructionQuantityValue)
-        {
-            writer.WriteStartElement(null, "InstrQty", xmlNamespace );
-            InstructionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OpenUncoveredQuantity is FinancialInstrumentQuantity31Choice_ OpenUncoveredQuantityValue)
-        {
-            writer.WriteStartElement(null, "OpnUcvrdQty", xmlNamespace );
-            OpenUncoveredQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterimCoveredQuantity is FinancialInstrumentQuantity31Choice_ InterimCoveredQuantityValue)
-        {
-            writer.WriteStartElement(null, "IntrmCvrdQty", xmlNamespace );
-            InterimCoveredQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesQuantityDetailsSD4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

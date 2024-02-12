@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
+[IsoId("_e45Eca5QEeuo-IflVgGqiA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Exposure Metrics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExposureMetrics5
-     : IIsoXmlSerilizable<ExposureMetrics5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
+    [IsoId("_fHfhIa5QEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Collateral Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? CashCollateralAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? CashCollateralAmount { get; init; } 
+    #else
+    public AmountAndDirection53? CashCollateralAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [IsoId("_fHfhI65QEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? CollateralMarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? CollateralMarketValue { get; init; } 
+    #else
+    public AmountAndDirection53? CollateralMarketValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CashCollateralAmount is AmountAndDirection53 CashCollateralAmountValue)
-        {
-            writer.WriteStartElement(null, "CshCollAmt", xmlNamespace );
-            CashCollateralAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralMarketValue is AmountAndDirection53 CollateralMarketValueValue)
-        {
-            writer.WriteStartElement(null, "CollMktVal", xmlNamespace );
-            CollateralMarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ExposureMetrics5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

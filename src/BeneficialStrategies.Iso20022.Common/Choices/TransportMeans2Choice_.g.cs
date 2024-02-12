@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Describes the multimodal or the individual transport of goods.
-/// </summary>
-[KnownType(typeof(TransportMeans2Choice.IndividualTransport))]
-[KnownType(typeof(TransportMeans2Choice.MultimodalTransport))]
-public abstract partial record TransportMeans2Choice_ : IIsoXmlSerilizable<TransportMeans2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Describes the multimodal or the individual transport of goods.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransportMeans2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransportMeans2Choice.IndividualTransport))]
+    [KnownType(typeof(TransportMeans2Choice.MultimodalTransport))]
+    [IsoId("_U7oxkdp-Ed-ak6NoX_4Aeg_-761772709")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport Means 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransportMeans2Choice_
+    #else
+    public abstract partial class TransportMeans2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IndvTrnsprt" => TransportMeans2Choice.IndividualTransport.Deserialize(elementWithPayload),
-             "MltmdlTrnsprt" => TransportMeans2Choice.MultimodalTransport.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransportMeans2Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the settlement failure reason as defined in the relevant regulation or explicit no data report..
-/// </summary>
-[KnownType(typeof(SettlementDailyFailureReason1Choice.DataSetAction))]
-[KnownType(typeof(SettlementDailyFailureReason1Choice.Data))]
-public abstract partial record SettlementDailyFailureReason1Choice_ : IIsoXmlSerilizable<SettlementDailyFailureReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the settlement failure reason as defined in the relevant regulation or explicit no data report..
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementDailyFailureReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementDailyFailureReason1Choice.DataSetAction))]
+    [KnownType(typeof(SettlementDailyFailureReason1Choice.Data))]
+    [IsoId("_-7zQ0TOkEeqX8uoQQ3KffQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Daily Failure Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementDailyFailureReason1Choice_
+    #else
+    public abstract partial class SettlementDailyFailureReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => SettlementDailyFailureReason1Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Data" => SettlementDailyFailureReason1Choice.Data.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementDailyFailureReason1Choice choice.")
-        };
     }
 }

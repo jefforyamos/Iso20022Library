@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the sub-balance.
-/// </summary>
-[KnownType(typeof(SubBalanceType14Choice.Code))]
-[KnownType(typeof(SubBalanceType14Choice.Proprietary))]
-public abstract partial record SubBalanceType14Choice_ : IIsoXmlSerilizable<SubBalanceType14Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the sub-balance.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SubBalanceType14Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SubBalanceType14Choice.Code))]
+    [KnownType(typeof(SubBalanceType14Choice.Proprietary))]
+    [IsoId("_5W6c6ZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Balance Type 14 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SubBalanceType14Choice_
+    #else
+    public abstract partial class SubBalanceType14Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SubBalanceType14Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SubBalanceType14Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SubBalanceType14Choice choice.")
-        };
     }
 }

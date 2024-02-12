@@ -7,103 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of performed transactions.
 /// </summary>
+[IsoId("_XRIDwNxWEeioifFt1dhnJA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Performed Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PerformedTransaction1
-     : IIsoXmlSerilizable<PerformedTransaction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PerformedTransaction1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PerformedTransaction1( ResponseType9 reqResponse )
+    {
+        Response = reqResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Response for this performed transaction.
     /// </summary>
+    [IsoId("_dCYQsNxWEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType9 Response { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType9 Response { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType9 Response { get; init; } 
+    #else
+    public ResponseType9 Response { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of a sale transaction.
     /// </summary>
+    [IsoId("_gRXDQNxYEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1? SaleTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of a POI transaction.
     /// </summary>
+    [IsoId("_jis4MNxYEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? POITransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1? POITransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1? POITransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the POI reconciliation period.
     /// </summary>
+    [IsoId("_o_NkMNxYEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? POIReconciliationIdentification { get; init; } 
+    #else
+    public System.String? POIReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to the result of a processed payment transaction.
     /// </summary>
+    [IsoId("_sikWMNxYEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerPaymentResult1? PaymentResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerPaymentResult1? PaymentResult { get; init; } 
+    #else
+    public RetailerPaymentResult1? PaymentResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to the result of a processed Loyalty transaction.
     /// </summary>
+    [IsoId("_v6QDsNxYEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyResult1? LoyaltyResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyResult1? LoyaltyResult { get; init; } 
+    #else
+    public LoyaltyResult1? LoyaltyResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the payment or loyalty to reverse.
     /// </summary>
+    [IsoId("_y5YHQNxYEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ReversedAmount { get; init; } 
+    #else
+    public System.Decimal? ReversedAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rspn", xmlNamespace );
-        Response.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SaleTransactionIdentification is TransactionIdentifier1 SaleTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
-            SaleTransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POITransactionIdentification is TransactionIdentifier1 POITransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POITxId", xmlNamespace );
-            POITransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POIReconciliationIdentification is IsoMax35Text POIReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentResult is RetailerPaymentResult1 PaymentResultValue)
-        {
-            writer.WriteStartElement(null, "PmtRslt", xmlNamespace );
-            PaymentResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoyaltyResult is LoyaltyResult1 LoyaltyResultValue)
-        {
-            writer.WriteStartElement(null, "LltyRslt", xmlNamespace );
-            LoyaltyResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReversedAmount is IsoImpliedCurrencyAndAmount ReversedAmountValue)
-        {
-            writer.WriteStartElement(null, "RvsdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static PerformedTransaction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

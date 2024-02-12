@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reject of an exchange.
 /// </summary>
+[IsoId("_MZve4YPcEeSgq87JnUGd8A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acceptor Rejection")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcceptorRejection4
-     : IIsoXmlSerilizable<AcceptorRejection4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AcceptorRejection4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AcceptorRejection4( RejectReason1Code reqRejectReason )
+    {
+        RejectReason = reqRejectReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reject reason of the message.
     /// </summary>
+    [IsoId("_Mmjy4YPcEeSgq87JnUGd8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reject Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectReason1Code RejectReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectReason1Code RejectReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectReason1Code RejectReason { get; init; } 
+    #else
+    public RejectReason1Code RejectReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed description of an error that caused the rejection for further analysis.
     /// </summary>
+    [IsoId("_q1SJYIPeEeS-ibzJaEIoIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Error Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ErrorReporting1? ErrorReporting { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ErrorReporting1? ErrorReporting { get; init; } 
+    #else
+    public ErrorReporting1? ErrorReporting { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original request that caused the party to reject it.
     /// </summary>
+    [IsoId("_Mmjy5YPcEeSgq87JnUGd8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message In Error")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? MessageInError { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? MessageInError { get; init; } 
+    #else
+    public System.Byte[]? MessageInError { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RjctRsn", xmlNamespace );
-        writer.WriteValue(RejectReason.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ErrorReporting is ErrorReporting1 ErrorReportingValue)
-        {
-            writer.WriteStartElement(null, "ErrRptg", xmlNamespace );
-            ErrorReportingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageInError is IsoMax100KBinary MessageInErrorValue)
-        {
-            writer.WriteStartElement(null, "MsgInErr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageInErrorValue)); // data type Max100KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static AcceptorRejection4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

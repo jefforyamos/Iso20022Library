@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reason for the reversed status.
-/// </summary>
-[KnownType(typeof(ReversedStatus2Choice.Reason))]
-[KnownType(typeof(ReversedStatus2Choice.DataSourceScheme))]
-[KnownType(typeof(ReversedStatus2Choice.NoSpecifiedReason))]
-public abstract partial record ReversedStatus2Choice_ : IIsoXmlSerilizable<ReversedStatus2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reason for the reversed status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReversedStatus2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReversedStatus2Choice.Reason))]
+    [KnownType(typeof(ReversedStatus2Choice.DataSourceScheme))]
+    [KnownType(typeof(ReversedStatus2Choice.NoSpecifiedReason))]
+    [IsoId("_a4QdwSY5EeW_ZNn8gbfY7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversed Status 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReversedStatus2Choice_
+    #else
+    public abstract partial class ReversedStatus2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rsn" => ReversedStatus2Choice.Reason.Deserialize(elementWithPayload),
-             "DataSrcSchme" => ReversedStatus2Choice.DataSourceScheme.Deserialize(elementWithPayload),
-             "NoSpcfdRsn" => ReversedStatus2Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReversedStatus2Choice choice.")
-        };
     }
 }

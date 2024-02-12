@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for business information.
 /// </summary>
+[IsoId("_51l8cZlZEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("General Business Information Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GeneralBusinessInformationSearchCriteria1
-     : IIsoXmlSerilizable<GeneralBusinessInformationSearchCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous reference assigned to a general business information system.
     /// </summary>
+    [IsoId("_59y2MZlZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reference { get; init; } 
+    #else
+    public System.String? Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
     /// </summary>
+    [IsoId("_59y2M5lZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subject")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CharacterSearch1Choice_? Subject { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CharacterSearch1Choice_? Subject { get; init; } 
+    #else
+    public CharacterSearch1Choice_? Subject { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further information about the criticality or importance of a general business information system.
     /// </summary>
+    [IsoId("_59y2NZlZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Qualifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InformationQualifierType1? Qualifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InformationQualifierType1? Qualifier { get; init; } 
+    #else
+    public InformationQualifierType1? Qualifier { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Reference is IsoMax35Text ReferenceValue)
-        {
-            writer.WriteStartElement(null, "Ref", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Subject is CharacterSearch1Choice_ SubjectValue)
-        {
-            writer.WriteStartElement(null, "Sbjt", xmlNamespace );
-            SubjectValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Qualifier is InformationQualifierType1 QualifierValue)
-        {
-            writer.WriteStartElement(null, "Qlfr", xmlNamespace );
-            QualifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static GeneralBusinessInformationSearchCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

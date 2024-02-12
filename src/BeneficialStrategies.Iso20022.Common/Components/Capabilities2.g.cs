@@ -7,159 +7,262 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the terminal.
 /// </summary>
+[IsoId("_e3RowaH4EeuiuNcvKhXmNQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Capabilities")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Capabilities2
-     : IIsoXmlSerilizable<Capabilities2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Card reading capability of the terminal performing the transaction.
     /// </summary>
+    [IsoId("_e88L4aH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Reading Capability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardReadingCapabilities1? CardReadingCapability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardReadingCapabilities1? CardReadingCapability { get; init; } 
+    #else
+    public CardReadingCapabilities1? CardReadingCapability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
+    [IsoId("_e88L5aH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Writing Capability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardWritingCapabilities1? CardWritingCapability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardWritingCapabilities1? CardWritingCapability { get; init; } 
+    #else
+    public CardWritingCapabilities1? CardWritingCapability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of digits that the Point of Interaction is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [IsoId("_e88L6aH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Length Capability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PINLengthCapability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PINLengthCapability { get; init; } 
+    #else
+    public System.UInt64? PINLengthCapability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security characteristic of the PIN Entry device solution.
     /// </summary>
+    [IsoId("_zBxMIKH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Entry Security Characteristic")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PINEntrySecurityCharacteristic1Code? PINEntrySecurityCharacteristic { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PINEntrySecurityCharacteristic1Code? PINEntrySecurityCharacteristic { get; init; } 
+    #else
+    public PINEntrySecurityCharacteristic1Code? PINEntrySecurityCharacteristic { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other privately or nationally assigned code.
     /// </summary>
+    [IsoId("_OFWuQKH5EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other PIN Entry Security Characteristic")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherPINEntrySecurityCharacteristic { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherPINEntrySecurityCharacteristic { get; init; } 
+    #else
+    public System.String? OtherPINEntrySecurityCharacteristic { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of characters of the approval code that the acquirer is able to manage.
     /// </summary>
+    [IsoId("_e88L66H4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Approval Code Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ApprovalCodeLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ApprovalCodeLength { get; init; } 
+    #else
+    public System.UInt64? ApprovalCodeLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
+    [IsoId("_e88L7aH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Max Script Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaxScriptLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaxScriptLength { get; init; } 
+    #else
+    public System.UInt64? MaxScriptLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the terminal can capture cards or not.
     /// True: The terminal is able to capture cards
     /// False: The terminal is not able to capture cards.
     /// </summary>
+    [IsoId("_e88L8aH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Capture Capable")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardCaptureCapable { get; init; } 
+    #else
+    public System.String? CardCaptureCapable { get; set; } 
+    #endif
+    
     /// <summary>
     /// Capability of the terminal to go online.
     /// </summary>
+    [IsoId("_e88L86H4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Line Capability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineCapability2Code? OnLineCapability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OnLineCapability2Code? OnLineCapability { get; init; } 
+    #else
+    public OnLineCapability2Code? OnLineCapability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Capability of the terminal to display or print messages to the cardholder or the merchant.
     /// </summary>
+    [IsoId("_e88L9aH4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Capability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisplayCapabilities6? MessageCapability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DisplayCapabilities6? MessageCapability { get; init; } 
+    #else
+    public DisplayCapabilities6? MessageCapability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// </summary>
+    [IsoId("_e88L96H4EeuiuNcvKhXmNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder Verification Capability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init; } 
+    #else
+    public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Terminal is capable of temporary secure storage of the card details for reuse upon permission of the card issuer.
     /// Default meaning when not present: false.
     /// </summary>
+    [IsoId("_US2J8KhJEeuOaMA1YOy5YQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Temporary Secure Card Data Storage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TemporarySecureCardDataStorage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TemporarySecureCardDataStorage { get; init; } 
+    #else
+    public System.String? TemporarySecureCardDataStorage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CardReadingCapability is CardReadingCapabilities1 CardReadingCapabilityValue)
-        {
-            writer.WriteStartElement(null, "CardRdngCpblty", xmlNamespace );
-            CardReadingCapabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardWritingCapability is CardWritingCapabilities1 CardWritingCapabilityValue)
-        {
-            writer.WriteStartElement(null, "CardWrtgCpblty", xmlNamespace );
-            CardWritingCapabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PINLengthCapability is IsoNumber PINLengthCapabilityValue)
-        {
-            writer.WriteStartElement(null, "PINLngthCpblty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilityValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PINEntrySecurityCharacteristic is PINEntrySecurityCharacteristic1Code PINEntrySecurityCharacteristicValue)
-        {
-            writer.WriteStartElement(null, "PINNtrySctyChrtc", xmlNamespace );
-            writer.WriteValue(PINEntrySecurityCharacteristicValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherPINEntrySecurityCharacteristic is IsoMax35Text OtherPINEntrySecurityCharacteristicValue)
-        {
-            writer.WriteStartElement(null, "OthrPINNtrySctyChrtc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPINEntrySecurityCharacteristicValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ApprovalCodeLength is IsoNumber ApprovalCodeLengthValue)
-        {
-            writer.WriteStartElement(null, "ApprvlCdLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(ApprovalCodeLengthValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaxScriptLength is IsoNumber MaxScriptLengthValue)
-        {
-            writer.WriteStartElement(null, "MxScrptLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaxScriptLengthValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (CardCaptureCapable is IsoTrueFalseIndicator CardCaptureCapableValue)
-        {
-            writer.WriteStartElement(null, "CardCaptrCpbl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardCaptureCapableValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (OnLineCapability is OnLineCapability2Code OnLineCapabilityValue)
-        {
-            writer.WriteStartElement(null, "OnLineCpblty", xmlNamespace );
-            writer.WriteValue(OnLineCapabilityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MessageCapability is DisplayCapabilities6 MessageCapabilityValue)
-        {
-            writer.WriteStartElement(null, "MsgCpblty", xmlNamespace );
-            MessageCapabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardholderVerificationCapability is CardholderVerificationCapabilities1 CardholderVerificationCapabilityValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrVrfctnCpblty", xmlNamespace );
-            CardholderVerificationCapabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TemporarySecureCardDataStorage is IsoTrueFalseIndicator TemporarySecureCardDataStorageValue)
-        {
-            writer.WriteStartElement(null, "TempScrCardDataStorg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TemporarySecureCardDataStorageValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Capabilities2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

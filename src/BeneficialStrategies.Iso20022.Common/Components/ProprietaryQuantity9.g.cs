@@ -7,67 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary quantity format.
 /// </summary>
+[IsoId("_cfAuu5KQEeWHWpTQn1FFVg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Proprietary Quantity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProprietaryQuantity9
-     : IIsoXmlSerilizable<ProprietaryQuantity9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProprietaryQuantity9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProprietaryQuantity9( System.UInt64 reqQuantity,System.String reqQuantityType,System.String reqIssuer )
+    {
+        Quantity = reqQuantity;
+        QuantityType = reqQuantityType;
+        Issuer = reqIssuer;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the proprietary quantity with a decimal number.
     /// </summary>
+    [IsoId("_cfAuvZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Quantity { get; init; } 
+    #else
+    public System.UInt64 Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
+    [IsoId("_cfAuv5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText QuantityType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String QuantityType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String QuantityType { get; init; } 
+    #else
+    public System.String QuantityType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information related to issuer in free format.
     /// </summary>
+    [IsoId("_cfAuwZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText Issuer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Issuer { get; init; } 
+    #else
+    public System.String Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [IsoId("_cfAuyZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scheme Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? SchemeName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SchemeName { get; init; } 
+    #else
+    public System.String? SchemeName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINDecimalNumber(Quantity)); // data type RestrictedFINDecimalNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "QtyTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(QuantityType)); // data type Exact4AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Issr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Issuer)); // data type Max4AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (SchemeName is IsoMax4AlphaNumericText SchemeNameValue)
-        {
-            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(SchemeNameValue)); // data type Max4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ProprietaryQuantity9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

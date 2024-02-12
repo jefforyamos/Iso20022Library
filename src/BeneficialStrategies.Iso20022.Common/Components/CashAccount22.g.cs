@@ -7,77 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[IsoId("_SOMT6Np-Ed-ak6NoX_4Aeg_-1967253219")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashAccount22
-     : IIsoXmlSerilizable<CashAccount22>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashAccount22 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashAccount22( System.String reqServicer,AccountIdentification5Choice_ reqIdentification,System.String reqAccountTypeDescription )
+    {
+        Servicer = reqServicer;
+        Identification = reqIdentification;
+        AccountTypeDescription = reqAccountTypeDescription;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [IsoId("_SOWE4Np-Ed-ak6NoX_4Aeg_-1789134547")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_SOWE4dp-Ed-ak6NoX_4Aeg_-2081092285")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier Servicer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Servicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Servicer { get; init; } 
+    #else
+    public System.String Servicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_SOWE4tp-Ed-ak6NoX_4Aeg_-1902973613")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification5Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountIdentification5Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification5Choice_ Identification { get; init; } 
+    #else
+    public AccountIdentification5Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub-division of a master or omnibus cash account.
     /// </summary>
+    [IsoId("_SOWE49p-Ed-ak6NoX_4Aeg_-286714049")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount21? SecondaryAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount21? SecondaryAccount { get; init; } 
+    #else
+    public CashAccount21? SecondaryAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [IsoId("_SOWE5Np-Ed-ak6NoX_4Aeg_-268592078")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Type Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AccountTypeDescription { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AccountTypeDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AccountTypeDescription { get; init; } 
+    #else
+    public System.String AccountTypeDescription { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Currency is CurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Svcr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(Servicer)); // data type BICIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SecondaryAccount is CashAccount21 SecondaryAccountValue)
-        {
-            writer.WriteStartElement(null, "ScndryAcct", xmlNamespace );
-            SecondaryAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AcctTpDesc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountTypeDescription)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static CashAccount22 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

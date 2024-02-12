@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[IsoId("_OevfoU3hEeidB49bWZiS0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyIdentification132
-     : IIsoXmlSerilizable<PartyIdentification132>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the party expressed as a BIC.
     /// </summary>
+    [IsoId("_RyP3w03hEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Any BIC")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AnyBIC { get; init; } 
+    #else
+    public System.String? AnyBIC { get; set; } 
+    #endif
+    
     /// <summary>
     /// Choice of identifier for a clearing system member, as assigned by the clearing system. In some clearing systems, the accounts of the clearing system members are also assigned an identifier.
     /// </summary>
+    [IsoId("_fA1Y8U3hEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing System Member Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemMemberIdentification2Choice_? ClearingSystemMemberIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingSystemMemberIdentification2Choice_? ClearingSystemMemberIdentification { get; init; } 
+    #else
+    public ClearingSystemMemberIdentification2Choice_? ClearingSystemMemberIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [IsoId("_RyP3xU3hEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name And Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress5? NameAndAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress5? NameAndAddress { get; init; } 
+    #else
+    public NameAndAddress5? NameAndAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to the party using a proprietary identification scheme.
     /// </summary>
+    [IsoId("_RyP3xE3hEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? ProprietaryIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? ProprietaryIdentification { get; init; } 
+    #else
+    public GenericIdentification1? ProprietaryIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>
+    [IsoId("_OvOytU3hEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("LEI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LEI { get; init; } 
+    #else
+    public System.String? LEI { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AnyBIC is IsoAnyBICDec2014Identifier AnyBICValue)
-        {
-            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(AnyBICValue)); // data type AnyBICDec2014Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification2Choice_ ClearingSystemMemberIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
-            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NameAndAddress is NameAndAddress5 NameAndAddressValue)
-        {
-            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
-            NameAndAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProprietaryIdentification is GenericIdentification1 ProprietaryIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
-            ProprietaryIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LEI is IsoLEIIdentifier LEIValue)
-        {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyIdentification132 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

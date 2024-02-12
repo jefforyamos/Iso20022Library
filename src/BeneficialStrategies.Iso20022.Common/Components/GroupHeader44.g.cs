@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide further details on the message.
 /// </summary>
+[IsoId("_P9gDotp-Ed-ak6NoX_4Aeg_1780446347")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Group Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GroupHeader44
-     : IIsoXmlSerilizable<GroupHeader44>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a GroupHeader44 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public GroupHeader44( System.String reqMessageIdentification,System.DateTime reqCreationDateTime )
+    {
+        MessageIdentification = reqMessageIdentification;
+        CreationDateTime = reqCreationDateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the account servicing institution, and sent to the account owner or the party authorised to receive the message, to unambiguously identify the message.||Usage: The account servicing institution has to make sure that 'MessageIdentification' is unique per account owner for a pre-agreed period.
     /// </summary>
+    [IsoId("_P9gDo9p-Ed-ak6NoX_4Aeg_1780446408")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [IsoId("_P9gDpNp-Ed-ak6NoX_4Aeg_1780446500")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CreationDateTime { get; init; } 
+    #else
+    public System.DateTime CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the party that is receiving the message, when different from the account owner.
     /// </summary>
+    [IsoId("_P9gDpdp-Ed-ak6NoX_4Aeg_1780446841")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party7Choice_? MessageRecipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party7Choice_? MessageRecipient { get; init; } 
+    #else
+    public Party7Choice_? MessageRecipient { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (MessageRecipient is Party7Choice_ MessageRecipientValue)
-        {
-            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
-            MessageRecipientValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static GroupHeader44 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

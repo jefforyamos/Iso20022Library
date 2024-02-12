@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the different options to search for an account.
-/// </summary>
-[KnownType(typeof(AccountIdentificationSearchCriteria2Choice.Equal))]
-[KnownType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText))]
-[KnownType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText))]
-public abstract partial record AccountIdentificationSearchCriteria2Choice_ : IIsoXmlSerilizable<AccountIdentificationSearchCriteria2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the different options to search for an account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountIdentificationSearchCriteria2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.Equal))]
+    [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText))]
+    [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText))]
+    [IsoId("_g7QEuGliEeGaMcKyqKNRfQ_-836272256")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification Search Criteria 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountIdentificationSearchCriteria2Choice_
+    #else
+    public abstract partial class AccountIdentificationSearchCriteria2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "EQ" => AccountIdentificationSearchCriteria2Choice.Equal.Deserialize(elementWithPayload),
-             "CTTxt" => AccountIdentificationSearchCriteria2Choice.ContainText.Deserialize(elementWithPayload),
-             "NCTTxt" => AccountIdentificationSearchCriteria2Choice.NotContainText.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountIdentificationSearchCriteria2Choice choice.")
-        };
     }
 }

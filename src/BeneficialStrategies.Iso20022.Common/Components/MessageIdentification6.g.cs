@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing the identification of a message.
 /// </summary>
+[IsoId("_jHt68e5NEeCisYr99QEiWA_-1542843714")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Message Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MessageIdentification6
-     : IIsoXmlSerilizable<MessageIdentification6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the message name identifier of the referenced message.
     /// </summary>
+    [IsoId("_jHt68u5NEeCisYr99QEiWA_-1385597029")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Name Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageNameIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageNameIdentification { get; init; } 
+    #else
+    public System.String? MessageNameIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the identification of the referenced message.
     /// </summary>
+    [IsoId("_jHt68-5NEeCisYr99QEiWA_-942608537")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageIdentification { get; init; } 
+    #else
+    public System.String? MessageIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MessageNameIdentification is IsoMax35Text MessageNameIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MsgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static MessageIdentification6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

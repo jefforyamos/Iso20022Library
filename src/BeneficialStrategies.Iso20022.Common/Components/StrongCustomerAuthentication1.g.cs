@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// EU PSD2 Strong Consumer Authentication data.
 /// </summary>
+[IsoId("_umTNkAMfEeujMs2LsB3mMw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Strong Customer Authentication")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StrongCustomerAuthentication1
-     : IIsoXmlSerilizable<StrongCustomerAuthentication1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Boolean flag indicating whether the transaction is subject to Strong Customer Authentication requirements (True) or not (False).
     /// </summary>
+    [IsoId("_6dGccAMfEeujMs2LsB3mMw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subject To SCA")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SubjectToSCA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubjectToSCA { get; init; } 
+    #else
+    public System.String? SubjectToSCA { get; set; } 
+    #endif
+    
     /// <summary>
     /// Strong customer authentication exemption detail.
     /// </summary>
+    [IsoId("_gEuy0AMlEeujMs2LsB3mMw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exemption")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Exemption1? Exemption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Exemption1? Exemption { get; init; } 
+    #else
+    public Exemption1? Exemption { get; set; } 
+    #endif
+    
     /// <summary>
     /// Authentication performed by a delegated authority (for example by a wallet solution).
     /// </summary>
+    [IsoId("_5g2V8AMnEeubkNI1IXQTVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delegated Authority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttestationValue1Code? DelegatedAuthority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AttestationValue1Code? DelegatedAuthority { get; init; } 
+    #else
+    public AttestationValue1Code? DelegatedAuthority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Waiver claimed for a transaction subject to Strong Customer Authentication.
     /// </summary>
+    [IsoId("_DuufMAMoEeubkNI1IXQTVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Waiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttestationValue1Code? Waiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AttestationValue1Code? Waiver { get; init; } 
+    #else
+    public AttestationValue1Code? Waiver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason why authentication was not performed.
     /// </summary>
+    [IsoId("_PuZWMAMoEeubkNI1IXQTVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason Authentication Not Performed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? ReasonAuthenticationNotPerformed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReasonAuthenticationNotPerformed { get; init; } 
+    #else
+    public System.String? ReasonAuthenticationNotPerformed { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SubjectToSCA is IsoTrueFalseIndicator SubjectToSCAValue)
-        {
-            writer.WriteStartElement(null, "SbjtToSCA", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SubjectToSCAValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Exemption is Exemption1 ExemptionValue)
-        {
-            writer.WriteStartElement(null, "Xmptn", xmlNamespace );
-            ExemptionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DelegatedAuthority is AttestationValue1Code DelegatedAuthorityValue)
-        {
-            writer.WriteStartElement(null, "DlgtdAuthrty", xmlNamespace );
-            writer.WriteValue(DelegatedAuthorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Waiver is AttestationValue1Code WaiverValue)
-        {
-            writer.WriteStartElement(null, "Wvr", xmlNamespace );
-            writer.WriteValue(WaiverValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReasonAuthenticationNotPerformed is IsoMax4Text ReasonAuthenticationNotPerformedValue)
-        {
-            writer.WriteStartElement(null, "RsnAuthntcnNotPrfrmd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(ReasonAuthenticationNotPerformedValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static StrongCustomerAuthentication1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

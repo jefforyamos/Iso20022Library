@@ -7,147 +7,271 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component defines the service to be called.
 /// </summary>
+[IsoId("_R3lwcU31Eey_VecAUE-C9Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Service Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ServiceRequest5
-     : IIsoXmlSerilizable<ServiceRequest5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ServiceRequest5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ServiceRequest5( CardPaymentEnvironment78 reqEnvironment,CardPaymentContext29 reqContext,RetailerService2Code reqServiceContent )
+    {
+        Environment = reqEnvironment;
+        Context = reqContext;
+        ServiceContent = reqServiceContent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [IsoId("_R9zGIU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment78 Environment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentEnvironment78 Environment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentEnvironment78 Environment { get; init; } 
+    #else
+    public CardPaymentEnvironment78 Environment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [IsoId("_R9zGI031Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext29 Context { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentContext29 Context { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentContext29 Context { get; init; } 
+    #else
+    public CardPaymentContext29 Context { get; set; } 
+    #endif
+    
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
+    [IsoId("_R9zGJU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService2Code ServiceContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RetailerService2Code ServiceContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerService2Code ServiceContent { get; init; } 
+    #else
+    public RetailerService2Code ServiceContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the payment request.
     /// </summary>
+    [IsoId("_R9ztMU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentRequest4? PaymentRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentRequest4? PaymentRequest { get; init; } 
+    #else
+    public PaymentRequest4? PaymentRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the reversal request.
     /// </summary>
+    [IsoId("_R9ztM031Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalRequest4? ReversalRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReversalRequest4? ReversalRequest { get; init; } 
+    #else
+    public ReversalRequest4? ReversalRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of a Balance Inquiry Request.
     /// </summary>
+    [IsoId("_R9ztNU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Inquiry Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceInquiryRequest5? BalanceInquiryRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceInquiryRequest5? BalanceInquiryRequest { get; init; } 
+    #else
+    public BalanceInquiryRequest5? BalanceInquiryRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Loyalty Request.
     /// </summary>
+    [IsoId("_R9ztN031Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyRequest4? LoyaltyRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyRequest4? LoyaltyRequest { get; init; } 
+    #else
+    public LoyaltyRequest4? LoyaltyRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of a Stored Value Request.
     /// </summary>
+    [IsoId("_R9ztOU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stored Value Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueRequest5? StoredValueRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueRequest5? StoredValueRequest { get; init; } 
+    #else
+    public StoredValueRequest5? StoredValueRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Batch Request.
     /// </summary>
+    [IsoId("_R9ztO031Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Batch Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BatchRequest4? BatchRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BatchRequest4? BatchRequest { get; init; } 
+    #else
+    public BatchRequest4? BatchRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Enable Service Request.
     /// </summary>
+    [IsoId("_R9ztPU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enable Service Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnableServiceRequest4? EnableServiceRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EnableServiceRequest4? EnableServiceRequest { get; init; } 
+    #else
+    public EnableServiceRequest4? EnableServiceRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Card Acquisition Request.
     /// </summary>
+    [IsoId("_R9ztP031Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Acquisition Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAcquisitionRequest3? CardAcquisitionRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAcquisitionRequest3? CardAcquisitionRequest { get; init; } 
+    #else
+    public CardAcquisitionRequest3? CardAcquisitionRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
+    [IsoId("_R9ztQU31Eey_VecAUE-C9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Envt", xmlNamespace );
-        Environment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-        Context.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SvcCntt", xmlNamespace );
-        writer.WriteValue(ServiceContent.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (PaymentRequest is PaymentRequest4 PaymentRequestValue)
-        {
-            writer.WriteStartElement(null, "PmtReq", xmlNamespace );
-            PaymentRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReversalRequest is ReversalRequest4 ReversalRequestValue)
-        {
-            writer.WriteStartElement(null, "RvslReq", xmlNamespace );
-            ReversalRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BalanceInquiryRequest is BalanceInquiryRequest5 BalanceInquiryRequestValue)
-        {
-            writer.WriteStartElement(null, "BalNqryReq", xmlNamespace );
-            BalanceInquiryRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoyaltyRequest is LoyaltyRequest4 LoyaltyRequestValue)
-        {
-            writer.WriteStartElement(null, "LltyReq", xmlNamespace );
-            LoyaltyRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StoredValueRequest is StoredValueRequest5 StoredValueRequestValue)
-        {
-            writer.WriteStartElement(null, "StordValReq", xmlNamespace );
-            StoredValueRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BatchRequest is BatchRequest4 BatchRequestValue)
-        {
-            writer.WriteStartElement(null, "BtchReq", xmlNamespace );
-            BatchRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnableServiceRequest is EnableServiceRequest4 EnableServiceRequestValue)
-        {
-            writer.WriteStartElement(null, "NblSvcReq", xmlNamespace );
-            EnableServiceRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardAcquisitionRequest is CardAcquisitionRequest3 CardAcquisitionRequestValue)
-        {
-            writer.WriteStartElement(null, "CardAcqstnReq", xmlNamespace );
-            CardAcquisitionRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ServiceRequest5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

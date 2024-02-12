@@ -7,151 +7,298 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the characteristics of the cash account.
 /// </summary>
+[IsoId("_GouI-24-EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Account Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashAccountCharacteristics3
-     : IIsoXmlSerilizable<CashAccountCharacteristics3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashAccountCharacteristics3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashAccountCharacteristics3( AccountLevel2Code reqAccountLevel,CashAccount38 reqCashAccount,CompensationMethod1Code reqCompensationMethod,string reqAccountBalanceCurrencyCode,Contact4 reqAccountServicerContact )
+    {
+        AccountLevel = reqAccountLevel;
+        CashAccount = reqCashAccount;
+        CompensationMethod = reqCompensationMethod;
+        AccountBalanceCurrencyCode = reqAccountBalanceCurrencyCode;
+        AccountServicerContact = reqAccountServicerContact;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the account level within an account hierarchy.
     /// </summary>
+    [IsoId("_Gy28UW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountLevel2Code AccountLevel { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountLevel2Code AccountLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountLevel2Code AccountLevel { get; init; } 
+    #else
+    public AccountLevel2Code AccountLevel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [IsoId("_Gy28U24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount38 CashAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount38 CashAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38 CashAccount { get; init; } 
+    #else
+    public CashAccount38 CashAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Usage: the account servicer is the domicile agent servicing the local account.
     /// </summary>
+    [IsoId("_Gy28VW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines a parent account to which the cash account is related to.
     /// </summary>
+    [IsoId("_Gy28V24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ParentCashAccount3? ParentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ParentCashAccount3? ParentAccount { get; init; } 
+    #else
+    public ParentCashAccount3? ParentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines if and how charges and taxes due are paid to the financial institution.
     /// </summary>
+    [IsoId("_Gy28WW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Compensation Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CompensationMethod1Code CompensationMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CompensationMethod1Code CompensationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompensationMethod1Code CompensationMethod { get; init; } 
+    #else
+    public CompensationMethod1Code CompensationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the account debited for charges and taxes due on the cash account, if different from the cash account.
     /// </summary>
+    [IsoId("_Gy28W24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debit Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? DebitAccount { get; init; } 
+    #else
+    public AccountIdentification4Choice_? DebitAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Future date on which the account will be automatically debited for charges and taxes due.
     /// </summary>
+    [IsoId("_Gy28XW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delayed Debit Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DelayedDebitDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DelayedDebitDate { get; init; } 
+    #else
+    public System.DateOnly? DelayedDebitDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free form message advising the customer about the settlement of charges and taxes due.
     /// </summary>
+    [IsoId("_Gy28X24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Advice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? SettlementAdvice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementAdvice { get; init; } 
+    #else
+    public System.String? SettlementAdvice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency used to specify the account's balance currency.
     /// </summary>
+    [IsoId("_Gy28YW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Balance Currency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode AccountBalanceCurrencyCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string AccountBalanceCurrencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string AccountBalanceCurrencyCode { get; init; } 
+    #else
+    public string AccountBalanceCurrencyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency used to specify the account's settlement currency.
     /// </summary>
+    [IsoId("_Gy28Y24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Currency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? SettlementCurrencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? SettlementCurrencyCode { get; init; } 
+    #else
+    public string? SettlementCurrencyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency used to specify the account's taxing host currency.
     /// </summary>
+    [IsoId("_Gy28ZW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Currency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? HostCurrencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? HostCurrencyCode { get; init; } 
+    #else
+    public string? HostCurrencyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes account taxing parameters.
     /// </summary>
+    [IsoId("_Gy28Z24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountTax1? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountTax1? Tax { get; init; } 
+    #else
+    public AccountTax1? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Individual to contact at the financial institution's location regarding problems of a business nature.
     /// </summary>
+    [IsoId("_Gy28aW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Contact4 AccountServicerContact { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Contact4 AccountServicerContact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact4 AccountServicerContact { get; init; } 
+    #else
+    public Contact4 AccountServicerContact { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctLvl", xmlNamespace );
-        writer.WriteValue(AccountLevel.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-        CashAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountServicer is BranchAndFinancialInstitutionIdentification6 AccountServicerValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
-            AccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ParentAccount is ParentCashAccount3 ParentAccountValue)
-        {
-            writer.WriteStartElement(null, "PrntAcct", xmlNamespace );
-            ParentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CompstnMtd", xmlNamespace );
-        writer.WriteValue(CompensationMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (DebitAccount is AccountIdentification4Choice_ DebitAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtAcct", xmlNamespace );
-            DebitAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DelayedDebitDate is IsoISODate DelayedDebitDateValue)
-        {
-            writer.WriteStartElement(null, "DelydDbtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DelayedDebitDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SettlementAdvice is IsoMax105Text SettlementAdviceValue)
-        {
-            writer.WriteStartElement(null, "SttlmAdvc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(SettlementAdviceValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AcctBalCcyCd", xmlNamespace );
-        writer.WriteValue(AccountBalanceCurrencyCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SettlementCurrencyCode is ActiveOrHistoricCurrencyCode SettlementCurrencyCodeValue)
-        {
-            writer.WriteStartElement(null, "SttlmCcyCd", xmlNamespace );
-            writer.WriteValue(SettlementCurrencyCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (HostCurrencyCode is ActiveOrHistoricCurrencyCode HostCurrencyCodeValue)
-        {
-            writer.WriteStartElement(null, "HstCcyCd", xmlNamespace );
-            writer.WriteValue(HostCurrencyCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Tax is AccountTax1 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AcctSvcrCtct", xmlNamespace );
-        AccountServicerContact.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CashAccountCharacteristics3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

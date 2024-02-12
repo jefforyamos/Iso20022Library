@@ -7,86 +7,168 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of a payment compensation.
 /// </summary>
+[IsoId("_pg0Qk8QHEemsic1bQcEtLA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compensation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Compensation3
-     : IIsoXmlSerilizable<Compensation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Compensation3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Compensation3( System.Decimal reqAmount,BranchAndFinancialInstitutionIdentification6 reqDebtorAgent,BranchAndFinancialInstitutionIdentification6 reqCreditorAgent,CompensationReason1Choice_ reqReason )
+    {
+        Amount = reqAmount;
+        DebtorAgent = reqDebtorAgent;
+        CreditorAgent = reqCreditorAgent;
+        Reason = reqReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money to be paid in compensation.
     /// </summary>
+    [IsoId("_pr10wcQHEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// Usage: The debtor agent is the payer of the compensation amount.
     /// </summary>
+    [IsoId("_pr10w8QHEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 DebtorAgent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification6 DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6 DebtorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6 DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the debtor agent at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_sII4EsQHEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? DebtorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? DebtorAgentAccount { get; init; } 
+    #else
+    public CashAccount38? DebtorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// Usage: The creditor agent is the payee of the compensation amount.
     /// </summary>
+    [IsoId("_pr10xcQHEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 CreditorAgent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification6 CreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6 CreditorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6 CreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
+    [IsoId("_sII4E8QHEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? CreditorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? CreditorAgentAccount { get; init; } 
+    #else
+    public CashAccount38? CreditorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the payment compensation.
     /// </summary>
+    [IsoId("_pr10x8QHEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CompensationReason1Choice_ Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CompensationReason1Choice_ Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompensationReason1Choice_ Reason { get; init; } 
+    #else
+    public CompensationReason1Choice_ Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-        DebtorAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DebtorAgentAccount is CashAccount38 DebtorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
-            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-        CreditorAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CreditorAgentAccount is CashAccount38 CreditorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
-            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Compensation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

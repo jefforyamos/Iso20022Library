@@ -9,57 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice;
-
-/// <summary>
-/// The intention to pay is based on a purchase order.
-/// </summary>
-public partial record ByPurchaseOrder : BreakDown1Choice_
-     , IIsoXmlSerilizable<ByPurchaseOrder>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identification of the purchase order, assigned by the buyer.
+    /// The intention to pay is based on a purchase order.
     /// </summary>
-    public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
-    /// <summary>
-    /// Specifies the adjustments applied to obtain the net amount.
-    /// </summary>
-    public Adjustment6? Adjustment { get; init; } 
-    /// <summary>
-    /// Net amount, after adjustments, intended to be paid.
-    /// </summary>
-    public required IsoCurrencyAndAmount NetAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_2goZwBrYEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("By Purchase Order")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ByPurchaseOrder : BreakDown1Choice_
+    #else
+    public partial class ByPurchaseOrder : BreakDown1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
-        PurchaseOrderReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Adjustment is Adjustment6 AdjustmentValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ByPurchaseOrder instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ByPurchaseOrder( DocumentIdentification7 reqPurchaseOrderReference,System.Decimal reqNetAmount )
         {
-            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
-            AdjustmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            PurchaseOrderReference = reqPurchaseOrderReference;
+            NetAmount = reqNetAmount;
         }
-        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static new ByPurchaseOrder Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identification of the purchase order, assigned by the buyer.
+        /// </summary>
+        [IsoId("_982JIRrXEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Purchase Order Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+        #else
+        public DocumentIdentification7 PurchaseOrderReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the adjustments applied to obtain the net amount.
+        /// </summary>
+        [IsoId("_982JIxrXEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Adjustment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Adjustment6? Adjustment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Adjustment6? Adjustment { get; init; } 
+        #else
+        public Adjustment6? Adjustment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Net amount, after adjustments, intended to be paid.
+        /// </summary>
+        [IsoId("_982JJRrXEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Net Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoCurrencyAndAmount NetAmount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal NetAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal NetAmount { get; init; } 
+        #else
+        public System.Decimal NetAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

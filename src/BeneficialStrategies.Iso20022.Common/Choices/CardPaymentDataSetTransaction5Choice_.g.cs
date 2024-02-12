@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Card payment transaction choice between cancellation, authorisation request and authorisation response.
-/// </summary>
-[KnownType(typeof(CardPaymentDataSetTransaction5Choice.Completion))]
-[KnownType(typeof(CardPaymentDataSetTransaction5Choice.Cancellation))]
-[KnownType(typeof(CardPaymentDataSetTransaction5Choice.AuthorisationRequest))]
-[KnownType(typeof(CardPaymentDataSetTransaction5Choice.AuthorisationResponse))]
-public abstract partial record CardPaymentDataSetTransaction5Choice_ : IIsoXmlSerilizable<CardPaymentDataSetTransaction5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Card payment transaction choice between cancellation, authorisation request and authorisation response.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CardPaymentDataSetTransaction5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CardPaymentDataSetTransaction5Choice.Completion))]
+    [KnownType(typeof(CardPaymentDataSetTransaction5Choice.Cancellation))]
+    [KnownType(typeof(CardPaymentDataSetTransaction5Choice.AuthorisationRequest))]
+    [KnownType(typeof(CardPaymentDataSetTransaction5Choice.AuthorisationResponse))]
+    [IsoId("_CRbUIap3EeanIZ10Ka8PnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Payment Data Set Transaction 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CardPaymentDataSetTransaction5Choice_
+    #else
+    public abstract partial class CardPaymentDataSetTransaction5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cmpltn" => CardPaymentDataSetTransaction5Choice.Completion.Deserialize(elementWithPayload),
-             "Cxl" => CardPaymentDataSetTransaction5Choice.Cancellation.Deserialize(elementWithPayload),
-             "AuthstnReq" => CardPaymentDataSetTransaction5Choice.AuthorisationRequest.Deserialize(elementWithPayload),
-             "AuthstnRspn" => CardPaymentDataSetTransaction5Choice.AuthorisationResponse.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CardPaymentDataSetTransaction5Choice choice.")
-        };
     }
 }

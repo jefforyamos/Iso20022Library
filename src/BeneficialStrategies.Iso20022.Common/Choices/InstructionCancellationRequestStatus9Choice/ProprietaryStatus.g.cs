@@ -9,47 +9,85 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestStatus9Choice;
-
-/// <summary>
-/// Proprietary status related to an instruction cancellation request.
-/// </summary>
-public partial record ProprietaryStatus : InstructionCancellationRequestStatus9Choice_
-     , IIsoXmlSerilizable<ProprietaryStatus>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestStatus9Choice
 {
-    #nullable enable
-    
-    public required GenericIdentification30 Value { get; init; } 
     /// <summary>
-    /// Proprietary identification of the reason related to a proprietary status.
+    /// Proprietary status related to an instruction cancellation request.
     /// </summary>
-    public ProprietaryReason4? ProprietaryReason { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_8rhqA0GWEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Status")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ProprietaryStatus : InstructionCancellationRequestStatus9Choice_
+    #else
+    public partial class ProprietaryStatus : InstructionCancellationRequestStatus9Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PrtrySts", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ProprietaryReason is ProprietaryReason4 ProprietaryReasonValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ProprietaryStatus instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ProprietaryStatus( GenericIdentification30 reqValue )
         {
-            writer.WriteStartElement(null, "PrtryRsn", xmlNamespace );
-            ProprietaryReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Value = reqValue;
         }
-    }
-    public static new ProprietaryStatus Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Proprietary identification of the status related to an instruction.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericIdentification30 Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericIdentification30 Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification30 Value { get; init; } 
+        #else
+        public GenericIdentification30 Value { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Proprietary identification of the reason related to a proprietary status.
+        /// </summary>
+        [IsoId("_y0OagTp4EeWVrPy0StzzSg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Proprietary Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ProprietaryReason4? ProprietaryReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProprietaryReason4? ProprietaryReason { get; init; } 
+        #else
+        public ProprietaryReason4? ProprietaryReason { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

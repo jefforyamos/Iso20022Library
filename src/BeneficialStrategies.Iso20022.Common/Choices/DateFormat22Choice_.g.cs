@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an ISODate or ISODateTime format or a date code.
-/// </summary>
-[KnownType(typeof(DateFormat22Choice.Date))]
-[KnownType(typeof(DateFormat22Choice.DateCode))]
-public abstract partial record DateFormat22Choice_ : IIsoXmlSerilizable<DateFormat22Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an ISODate or ISODateTime format or a date code.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateFormat22Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateFormat22Choice.Date))]
+    [KnownType(typeof(DateFormat22Choice.DateCode))]
+    [IsoId("_EzvTUggYEeCVlvYcV4HKqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Format 22 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateFormat22Choice_
+    #else
+    public abstract partial class DateFormat22Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => DateFormat22Choice.Date.Deserialize(elementWithPayload),
-             "DtCd" => DateFormat22Choice.DateCode.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateFormat22Choice choice.")
-        };
     }
 }

@@ -7,87 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics related to the reject of a transaction.
 /// </summary>
+[IsoId("_AniC8SnDEeKIjpr--01h3Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Header6
-     : IIsoXmlSerilizable<Header6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Header6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Header6( System.String reqDownloadTransfer,System.String reqFormatVersion,System.DateTime reqCreationDateTime )
+    {
+        DownloadTransfer = reqDownloadTransfer;
+        FormatVersion = reqFormatVersion;
+        CreationDateTime = reqCreationDateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates if the file transfer is a download or an upload.
     /// </summary>
+    [IsoId("_Azlh8SnDEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Download Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator DownloadTransfer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DownloadTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DownloadTransfer { get; init; } 
+    #else
+    public System.String DownloadTransfer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of file format.
     /// </summary>
+    [IsoId("_Azlh9SnDEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 6 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax6Text FormatVersion { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FormatVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FormatVersion { get; init; } 
+    #else
+    public System.String FormatVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
+    [IsoId("_Azlh-SnDEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? ExchangeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExchangeIdentification { get; init; } 
+    #else
+    public System.String? ExchangeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the file or message was created.
     /// </summary>
+    [IsoId("_Azlh_SnDEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CreationDateTime { get; init; } 
+    #else
+    public System.DateTime CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
+    [IsoId("_AzliASnDEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiating Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification35? InitiatingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification35? InitiatingParty { get; init; } 
+    #else
+    public GenericIdentification35? InitiatingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the partner that is the recipient of the exchange.
     /// </summary>
+    [IsoId("_AzliBSnDEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification35? RecipientParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification35? RecipientParty { get; init; } 
+    #else
+    public GenericIdentification35? RecipientParty { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DwnldTrf", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DownloadTransfer)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FrmtVrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax6Text(FormatVersion)); // data type Max6Text System.String
-        writer.WriteEndElement();
-        if (ExchangeIdentification is IsoMax3NumericText ExchangeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "XchgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(ExchangeIdentificationValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (InitiatingParty is GenericIdentification35 InitiatingPartyValue)
-        {
-            writer.WriteStartElement(null, "InitgPty", xmlNamespace );
-            InitiatingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RecipientParty is GenericIdentification35 RecipientPartyValue)
-        {
-            writer.WriteStartElement(null, "RcptPty", xmlNamespace );
-            RecipientPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Header6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

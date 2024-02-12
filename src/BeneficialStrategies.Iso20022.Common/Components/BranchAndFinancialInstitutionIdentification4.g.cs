@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
 /// </summary>
+[IsoId("_TFB1RNp-Ed-ak6NoX_4Aeg_-736060150")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Branch And Financial Institution Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BranchAndFinancialInstitutionIdentification4
-     : IIsoXmlSerilizable<BranchAndFinancialInstitutionIdentification4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BranchAndFinancialInstitutionIdentification4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BranchAndFinancialInstitutionIdentification4( FinancialInstitutionIdentification7 reqFinancialInstitutionIdentification )
+    {
+        FinancialInstitutionIdentification = reqFinancialInstitutionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
+    [IsoId("_TFB1Rdp-Ed-ak6NoX_4Aeg_-736059286")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
+    #else
+    public FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a specific branch of a financial institution.||Usage: This component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
+    [IsoId("_TFB1Rtp-Ed-ak6NoX_4Aeg_-1911467512")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Branch Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchData2? BranchIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchData2? BranchIdentification { get; init; } 
+    #else
+    public BranchData2? BranchIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FinInstnId", xmlNamespace );
-        FinancialInstitutionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (BranchIdentification is BranchData2 BranchIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
-            BranchIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BranchAndFinancialInstitutionIdentification4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines a signing party and a digital signature made by this party.
 /// </summary>
+[IsoId("_OTgzMjI3-AOSNFX-8224493")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Qualified Party And XML Signature")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record QualifiedPartyAndXMLSignature1
-     : IIsoXmlSerilizable<QualifiedPartyAndXMLSignature1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a QualifiedPartyAndXMLSignature1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public QualifiedPartyAndXMLSignature1( SignatureEnvelope reqSignature )
+    {
+        Signature = reqSignature;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the signing party.
     /// </summary>
+    [IsoId("_OTgzMjc0-AOSNFX-8224496")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Party { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Party { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Party { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature in XML-DSIG format and reference to signing party.
     /// </summary>
+    [IsoId("_OTgzMjc2-AOSNFX-8224496")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignatureEnvelope Signature { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SignatureEnvelope Signature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignatureEnvelope Signature { get; init; } 
+    #else
+    public SignatureEnvelope Signature { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Party is QualifiedPartyIdentification1 PartyValue)
-        {
-            writer.WriteStartElement(null, "Pty", xmlNamespace );
-            PartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sgntr", xmlNamespace );
-        Signature.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static QualifiedPartyAndXMLSignature1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

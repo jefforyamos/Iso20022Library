@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the status of the cancellation of a payment transaction.
 /// </summary>
+[IsoId("_UFAnxYEqEei51tn2YGQhvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Transaction Cancellation Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTransactionCancellationStatus3
-     : IIsoXmlSerilizable<PaymentTransactionCancellationStatus3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentTransactionCancellationStatus3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentTransactionCancellationStatus3( CancellationIndividualStatus2Code reqTransactionCancellationStatus,System.String reqAssignee,System.DateTime reqCancellationEventDateTime )
+    {
+        TransactionCancellationStatus = reqTransactionCancellationStatus;
+        Assignee = reqAssignee;
+        CancellationEventDateTime = reqCancellationEventDateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the status of a cancellation request.
     /// </summary>
+    [IsoId("_UFAnxoEqEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Cancellation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
+    #else
+    public CancellationIndividualStatus2Code TransactionCancellationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides status reason with regards to the cancellation of the payment.
     /// </summary>
+    [IsoId("_UFAnyYEqEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Status Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCancellationStatusReason3Code? CancellationStatusReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCancellationStatusReason3Code? CancellationStatusReasonInformation { get; init; } 
+    #else
+    public PaymentCancellationStatusReason3Code? CancellationStatusReasonInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that the case is assigned to. This is also the receiver of the message.
     /// </summary>
+    [IsoId("_UFAnyIEqEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assignee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Assignee { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Assignee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Assignee { get; init; } 
+    #else
+    public System.String Assignee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time at which the cancellation response message enters the tracking system and thus on which the status is provided.
     /// </summary>
+    [IsoId("_UFAnx4EqEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Event Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CancellationEventDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CancellationEventDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CancellationEventDateTime { get; init; } 
+    #else
+    public System.DateTime CancellationEventDateTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxCxlSts", xmlNamespace );
-        writer.WriteValue(TransactionCancellationStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (CancellationStatusReasonInformation is PaymentCancellationStatusReason3Code CancellationStatusReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "CxlStsRsnInf", xmlNamespace );
-            writer.WriteValue(CancellationStatusReasonInformationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Assgne", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Assignee)); // data type AnyBICIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CxlEvtDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CancellationEventDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static PaymentTransactionCancellationStatus3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

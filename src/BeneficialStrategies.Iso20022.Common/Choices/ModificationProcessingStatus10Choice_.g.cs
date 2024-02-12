@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the processing status.
-/// </summary>
-[KnownType(typeof(ModificationProcessingStatus10Choice.AcknowledgedAccepted))]
-[KnownType(typeof(ModificationProcessingStatus10Choice.PendingProcessing))]
-[KnownType(typeof(ModificationProcessingStatus10Choice.Denied))]
-[KnownType(typeof(ModificationProcessingStatus10Choice.Rejected))]
-[KnownType(typeof(ModificationProcessingStatus10Choice.Repaired))]
-[KnownType(typeof(ModificationProcessingStatus10Choice.Modified))]
-[KnownType(typeof(ModificationProcessingStatus10Choice.Proprietary))]
-public abstract partial record ModificationProcessingStatus10Choice_ : IIsoXmlSerilizable<ModificationProcessingStatus10Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the processing status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ModificationProcessingStatus10Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ModificationProcessingStatus10Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(ModificationProcessingStatus10Choice.PendingProcessing))]
+    [KnownType(typeof(ModificationProcessingStatus10Choice.Denied))]
+    [KnownType(typeof(ModificationProcessingStatus10Choice.Rejected))]
+    [KnownType(typeof(ModificationProcessingStatus10Choice.Repaired))]
+    [KnownType(typeof(ModificationProcessingStatus10Choice.Modified))]
+    [KnownType(typeof(ModificationProcessingStatus10Choice.Proprietary))]
+    [IsoId("_OSQ54StWEeyhipY4f42fZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Processing Status 10 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ModificationProcessingStatus10Choice_
+    #else
+    public abstract partial class ModificationProcessingStatus10Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AckdAccptd" => ModificationProcessingStatus10Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "PdgPrcg" => ModificationProcessingStatus10Choice.PendingProcessing.Deserialize(elementWithPayload),
-             "Dnd" => ModificationProcessingStatus10Choice.Denied.Deserialize(elementWithPayload),
-             "Rjctd" => ModificationProcessingStatus10Choice.Rejected.Deserialize(elementWithPayload),
-             "Rprd" => ModificationProcessingStatus10Choice.Repaired.Deserialize(elementWithPayload),
-             "Modfd" => ModificationProcessingStatus10Choice.Modified.Deserialize(elementWithPayload),
-             "Prtry" => ModificationProcessingStatus10Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ModificationProcessingStatus10Choice choice.")
-        };
     }
 }

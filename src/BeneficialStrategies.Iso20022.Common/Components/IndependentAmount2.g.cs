@@ -7,27 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the independent amount and how it was applied in the calculation. It also provides a description of the amount type.
 /// </summary>
+[IsoId("_UlSuItp-Ed-ak6NoX_4Aeg_36158148")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Independent Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IndependentAmount2
-     : IIsoXmlSerilizable<IndependentAmount2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IndependentAmount2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IndependentAmount2( System.Decimal reqAmount,IndependentAmountConventionType1Code reqConvention )
+    {
+        Amount = reqAmount;
+        Convention = reqConvention;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Description of the other amount used in the calculation of the independent amount.
     /// </summary>
+    [IsoId("_UlSuI9p-Ed-ak6NoX_4Aeg_-419090839")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the independant amount.
     /// </summary>
+    [IsoId("_UlSuJNp-Ed-ak6NoX_4Aeg_729114902")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Determines how the independent amount was applied in the calculation. 
     /// It is either:
@@ -35,36 +96,24 @@ public partial record IndependentAmount2
     /// - after threshold where the amount is an add on to the credit support amount and forms part of the variation margin requirement,
     /// - segregated where it is treated independently of variation margin for segregation purposes.
     /// </summary>
+    [IsoId("_UlSuJdp-Ed-ak6NoX_4Aeg_186129818")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Convention")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IndependentAmountConventionType1Code Convention { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public IndependentAmountConventionType1Code Convention { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndependentAmountConventionType1Code Convention { get; init; } 
+    #else
+    public IndependentAmountConventionType1Code Convention { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Description is IsoMax140Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cnvntn", xmlNamespace );
-        writer.WriteValue(Convention.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static IndependentAmount2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

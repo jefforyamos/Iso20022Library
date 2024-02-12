@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an amount or an unspecified rate.
-/// </summary>
-[KnownType(typeof(NetDividendRateFormat29Choice.Amount))]
-[KnownType(typeof(NetDividendRateFormat29Choice.AmountAndRateStatus))]
-[KnownType(typeof(NetDividendRateFormat29Choice.RateTypeAndAmountAndRateStatus))]
-[KnownType(typeof(NetDividendRateFormat29Choice.NotSpecifiedRate))]
-public abstract partial record NetDividendRateFormat29Choice_ : IIsoXmlSerilizable<NetDividendRateFormat29Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an amount or an unspecified rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NetDividendRateFormat29Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NetDividendRateFormat29Choice.Amount))]
+    [KnownType(typeof(NetDividendRateFormat29Choice.AmountAndRateStatus))]
+    [KnownType(typeof(NetDividendRateFormat29Choice.RateTypeAndAmountAndRateStatus))]
+    [KnownType(typeof(NetDividendRateFormat29Choice.NotSpecifiedRate))]
+    [IsoId("__n1GMZb7Eee8S7xwGG7Veg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Dividend Rate Format 29 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NetDividendRateFormat29Choice_
+    #else
+    public abstract partial class NetDividendRateFormat29Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Amt" => NetDividendRateFormat29Choice.Amount.Deserialize(elementWithPayload),
-             "AmtAndRateSts" => NetDividendRateFormat29Choice.AmountAndRateStatus.Deserialize(elementWithPayload),
-             "RateTpAndAmtAndRateSts" => NetDividendRateFormat29Choice.RateTypeAndAmountAndRateStatus.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => NetDividendRateFormat29Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NetDividendRateFormat29Choice choice.")
-        };
     }
 }

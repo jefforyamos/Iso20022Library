@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the total margin amount, the collateral amount on deposit and the total minimum requirement that used to calculate the margin result, either an excess or a deficit.
 /// </summary>
+[IsoId("_-dwqLKMOEeCojJW5vEuTEQ_1443454160")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Margin Calculation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MarginCalculation1
-     : IIsoXmlSerilizable<MarginCalculation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MarginCalculation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MarginCalculation1( AmountAndDirection20 reqTotalMarginAmount )
+    {
+        TotalMarginAmount = reqTotalMarginAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total margin requirement (expressed in the reporting currency) that must be provided by the clearing member to the central counterparty. This is the total requirement calculated to cover the initial margin and the variation margin.
     /// </summary>
+    [IsoId("_-d50EKMOEeCojJW5vEuTEQ_536108073")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Margin Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 TotalMarginAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection20 TotalMarginAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection20 TotalMarginAmount { get; init; } 
+    #else
+    public AmountAndDirection20 TotalMarginAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
+    [IsoId("_-d50EaMOEeCojJW5vEuTEQ_-1508761602")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral On Deposit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Collateral6? CollateralOnDeposit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Collateral6? CollateralOnDeposit { get; init; } 
+    #else
+    public Collateral6? CollateralOnDeposit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the central counterparty.
     /// </summary>
+    [IsoId("_-d50EqMOEeCojJW5vEuTEQ_-2109217986")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Requirement Deposit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumRequirementDeposit { get; init; } 
+    #else
+    public System.Decimal? MinimumRequirementDeposit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provide details on the margin result taking into consideration the total margin amount and the minimum requirements deposit.
     /// </summary>
+    [IsoId("_-d50E6MOEeCojJW5vEuTEQ_193184719")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginResult1Choice_? MarginResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarginResult1Choice_? MarginResult { get; init; } 
+    #else
+    public MarginResult1Choice_? MarginResult { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TtlMrgnAmt", xmlNamespace );
-        TotalMarginAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CollateralOnDeposit is Collateral6 CollateralOnDepositValue)
-        {
-            writer.WriteStartElement(null, "CollOnDpst", xmlNamespace );
-            CollateralOnDepositValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumRequirementDeposit is IsoActiveCurrencyAndAmount MinimumRequirementDepositValue)
-        {
-            writer.WriteStartElement(null, "MinRqrmntDpst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumRequirementDepositValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarginResult is MarginResult1Choice_ MarginResultValue)
-        {
-            writer.WriteStartElement(null, "MrgnRslt", xmlNamespace );
-            MarginResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MarginCalculation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,166 +7,295 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a vehicle used during a transaction.
 /// </summary>
+[IsoId("_KI-4wJXyEeWMQt4mOczoDw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Vehicle")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Vehicle1
-     : IIsoXmlSerilizable<Vehicle1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number assigned to the vehicle for identification.
     /// </summary>
+    [IsoId("_YNf8YJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? VehicleNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VehicleNumber { get; init; } 
+    #else
+    public System.String? VehicleNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number assigned to the vehicle trailer for identification.
     /// </summary>
+    [IsoId("_b6qKoJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trailer Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? TrailerNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TrailerNumber { get; init; } 
+    #else
+    public System.String? TrailerNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Registration tag of the vehicle.
     /// </summary>
+    [IsoId("_h6RjsJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Tag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VehicleTag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VehicleTag { get; init; } 
+    #else
+    public System.String? VehicleTag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entry mode of the registration tag.
     /// </summary>
+    [IsoId("_mp2RMJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Tag Entry Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading5Code? VehicleTagEntryMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardDataReading5Code? VehicleTagEntryMode { get; init; } 
+    #else
+    public CardDataReading5Code? VehicleTagEntryMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the vehicle in the fleet.
     /// </summary>
+    [IsoId("_pxuoIJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? UnitNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UnitNumber { get; init; } 
+    #else
+    public System.String? UnitNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// True if the car is a replacement car.
     /// </summary>
+    [IsoId("_vPMWYJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Replacement Car")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReplacementCar { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReplacementCar { get; init; } 
+    #else
+    public System.String? ReplacementCar { get; set; } 
+    #endif
+    
     /// <summary>
     /// Odometer reading value indicating the distance travelled by the vehicle.
     /// </summary>
+    [IsoId("_yYGBAJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Odometer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Odometer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Odometer { get; init; } 
+    #else
+    public System.UInt64? Odometer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Hubometer reading value indicating the distance travelled by the trailer.
     /// </summary>
+    [IsoId("_4WJT0JXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hubometer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Hubometer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Hubometer { get; init; } 
+    #else
+    public System.UInt64? Hubometer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of hours the trailer has been in operation.
     /// </summary>
+    [IsoId("_9SEbQJXyEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trailer Hours")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TrailerHours { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TrailerHours { get; init; } 
+    #else
+    public System.String? TrailerHours { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of hours the refer unit has been in operation.
     /// </summary>
+    [IsoId("_DUOyAJXzEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Refer Hours")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReferHours { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReferHours { get; init; } 
+    #else
+    public System.String? ReferHours { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification assigned to the vehicle related to maintenance.
     /// </summary>
+    [IsoId("_GenqYJXzEeWMQt4mOczoDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maintenance Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MaintenanceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MaintenanceIdentification { get; init; } 
+    #else
+    public System.String? MaintenanceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Second card presented for the payment transaction.
     /// </summary>
+    [IsoId("_sO5mkJbhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driver Or Vehicle Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData17? DriverOrVehicleCard { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlainCardData17? DriverOrVehicleCard { get; init; } 
+    #else
+    public PlainCardData17? DriverOrVehicleCard { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the vehicle.
     /// </summary>
+    [IsoId("_ww05oJbhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Vehicle Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle2? AdditionalVehicleData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Vehicle2? AdditionalVehicleData { get; init; } 
+    #else
+    public Vehicle2? AdditionalVehicleData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (VehicleNumber is IsoMax35NumericText VehicleNumberValue)
-        {
-            writer.WriteStartElement(null, "VhclNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(VehicleNumberValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TrailerNumber is IsoMax35NumericText TrailerNumberValue)
-        {
-            writer.WriteStartElement(null, "TrlrNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(TrailerNumberValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (VehicleTag is IsoMax35Text VehicleTagValue)
-        {
-            writer.WriteStartElement(null, "VhclTag", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(VehicleTagValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (VehicleTagEntryMode is CardDataReading5Code VehicleTagEntryModeValue)
-        {
-            writer.WriteStartElement(null, "VhclTagNtryMd", xmlNamespace );
-            writer.WriteValue(VehicleTagEntryModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UnitNumber is IsoMax35NumericText UnitNumberValue)
-        {
-            writer.WriteStartElement(null, "UnitNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(UnitNumberValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ReplacementCar is IsoTrueFalseIndicator ReplacementCarValue)
-        {
-            writer.WriteStartElement(null, "RplcmntCar", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReplacementCarValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Odometer is IsoDecimalNumber OdometerValue)
-        {
-            writer.WriteStartElement(null, "Odmtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(OdometerValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Hubometer is IsoDecimalNumber HubometerValue)
-        {
-            writer.WriteStartElement(null, "Hbmtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(HubometerValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TrailerHours is IsoMax35Text TrailerHoursValue)
-        {
-            writer.WriteStartElement(null, "TrlrHrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TrailerHoursValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReferHours is IsoMax35Text ReferHoursValue)
-        {
-            writer.WriteStartElement(null, "RefrHrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferHoursValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MaintenanceIdentification is IsoMax35Text MaintenanceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MntncId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MaintenanceIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DriverOrVehicleCard is PlainCardData17 DriverOrVehicleCardValue)
-        {
-            writer.WriteStartElement(null, "DrvrOrVhclCard", xmlNamespace );
-            DriverOrVehicleCardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalVehicleData is Vehicle2 AdditionalVehicleDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlVhclData", xmlNamespace );
-            AdditionalVehicleDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Vehicle1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of payment instruments.
-/// </summary>
-[KnownType(typeof(PaymentInstrument17Choice.CashAccountDetails))]
-[KnownType(typeof(PaymentInstrument17Choice.PaymentCardDetails))]
-[KnownType(typeof(PaymentInstrument17Choice.DirectDebitDetails))]
-[KnownType(typeof(PaymentInstrument17Choice.Cheque))]
-[KnownType(typeof(PaymentInstrument17Choice.BankersDraft))]
-public abstract partial record PaymentInstrument17Choice_ : IIsoXmlSerilizable<PaymentInstrument17Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of payment instruments.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PaymentInstrument17Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PaymentInstrument17Choice.CashAccountDetails))]
+    [KnownType(typeof(PaymentInstrument17Choice.PaymentCardDetails))]
+    [KnownType(typeof(PaymentInstrument17Choice.DirectDebitDetails))]
+    [KnownType(typeof(PaymentInstrument17Choice.Cheque))]
+    [KnownType(typeof(PaymentInstrument17Choice.BankersDraft))]
+    [IsoId("_dK0IcxdHEeK5g-3oYI0_9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instrument 17 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PaymentInstrument17Choice_
+    #else
+    public abstract partial class PaymentInstrument17Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CshAcctDtls" => PaymentInstrument17Choice.CashAccountDetails.Deserialize(elementWithPayload),
-             "PmtCardDtls" => PaymentInstrument17Choice.PaymentCardDetails.Deserialize(elementWithPayload),
-             "DrctDbtDtls" => PaymentInstrument17Choice.DirectDebitDetails.Deserialize(elementWithPayload),
-             "Chq" => PaymentInstrument17Choice.Cheque.Deserialize(elementWithPayload),
-             "BkrsDrft" => PaymentInstrument17Choice.BankersDraft.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PaymentInstrument17Choice choice.")
-        };
     }
 }

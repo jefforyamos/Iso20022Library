@@ -7,165 +7,346 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attempt to buy or sell a large number of financial instruments contained in or comprising a portfolio.
 /// </summary>
+[IsoId("_S0Cy8Np-Ed-ak6NoX_4Aeg_34105770")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Bid")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Bid1
-     : IIsoXmlSerilizable<Bid1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Bid1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Bid1( System.String reqClientBidIdentification,System.UInt64 reqTotalNumberSecurities,System.String reqExchangeForPhysicalIndicator,System.String reqForeignExchangeExecutionRequestedIndicator,TradeType2Code reqTradeType,BasisPriceType1Choice_ reqBasisPriceType,LiquidityAndStatistics1 reqLiquidityAndStatistics )
+    {
+        ClientBidIdentification = reqClientBidIdentification;
+        TotalNumberSecurities = reqTotalNumberSecurities;
+        ExchangeForPhysicalIndicator = reqExchangeForPhysicalIndicator;
+        ForeignExchangeExecutionRequestedIndicator = reqForeignExchangeExecutionRequestedIndicator;
+        TradeType = reqTradeType;
+        BasisPriceType = reqBasisPriceType;
+        LiquidityAndStatistics = reqLiquidityAndStatistics;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier for a Bid Request as assigned by institution. Uniqueness must be guaranteed within a single trading day.
     /// </summary>
+    [IsoId("_S0Cy8dp-Ed-ak6NoX_4Aeg_-2090576255")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Bid Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ClientBidIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ClientBidIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ClientBidIdentification { get; init; } 
+    #else
+    public System.String ClientBidIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the name of the order list.
     /// </summary>
+    [IsoId("_S0Cy8tp-Ed-ak6NoX_4Aeg_337348509")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("List Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 128 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? ListName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ListName { get; init; } 
+    #else
+    public System.String? ListName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of the bid.
     /// </summary>
+    [IsoId("_S0Cy89p-Ed-ak6NoX_4Aeg_75666172")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BidIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BidIdentification { get; init; } 
+    #else
+    public System.String? BidIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of distinct financial instruments for which the bid is applicable.
     /// </summary>
+    [IsoId("_S0Cy9Np-Ed-ak6NoX_4Aeg_590393890")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberSecurities { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 TotalNumberSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 TotalNumberSecurities { get; init; } 
+    #else
+    public System.UInt64 TotalNumberSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not to exchange for physical.
     /// </summary>
+    [IsoId("_S0Cy9dp-Ed-ak6NoX_4Aeg_-549571304")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange For Physical Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ExchangeForPhysicalIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExchangeForPhysicalIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExchangeForPhysicalIndicator { get; init; } 
+    #else
+    public System.String ExchangeForPhysicalIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a request for a foreign exchange accommodation trade to be executed along with security transaction.
     /// </summary>
+    [IsoId("_S0Cy9tp-Ed-ak6NoX_4Aeg_1241941826")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Execution Requested Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ForeignExchangeExecutionRequestedIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ForeignExchangeExecutionRequestedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ForeignExchangeExecutionRequestedIndicator { get; init; } 
+    #else
+    public System.String ForeignExchangeExecutionRequestedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of transaction of which the order is a component.
     /// </summary>
+    [IsoId("_S0Cy99p-Ed-ak6NoX_4Aeg_878401922")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeType2Code TradeType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeType2Code TradeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeType2Code TradeType { get; init; } 
+    #else
+    public TradeType2Code TradeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expected total number of tickets/allocations to be fully executed.
     /// </summary>
+    [IsoId("_S0Cy-Np-Ed-ak6NoX_4Aeg_-456220346")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Tickets")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberTickets { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberTickets { get; init; } 
+    #else
+    public System.UInt64? TotalNumberTickets { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the request to receive a report on the progress of the order or not.||A 'Yes' value means a request for regular status messages to be sent.|A 'No' value means no request to receive regular status messages.
     /// </summary>
+    [IsoId("_S0Cy-dp-Ed-ak6NoX_4Aeg_682286749")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Progress Report Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ProgressReportIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProgressReportIndicator { get; init; } 
+    #else
+    public System.String? ProgressReportIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the interval period in minutes between each ListStatus you wish to receive.
     /// </summary>
+    [IsoId("_S0L84Np-Ed-ak6NoX_4Aeg_691521538")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Progress Period Interval")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ProgressPeriodInterval { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? ProgressPeriodInterval { get; init; } 
+    #else
+    public System.TimeOnly? ProgressPeriodInterval { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the total number of bidders participating to a list trade.
     /// </summary>
+    [IsoId("_S0L84dp-Ed-ak6NoX_4Aeg_2064797609")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Bidders")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfBidders { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfBidders { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfBidders { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [IsoId("_S0L84tp-Ed-ak6NoX_4Aeg_-1737930449")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? TradeDate { get; init; } 
+    #else
+    public System.DateTime? TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time at which current market prices are used to determine the value of a basket.
     /// </summary>
+    [IsoId("_S0L85tp-Ed-ak6NoX_4Aeg_613820836")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StrikeTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? StrikeTime { get; init; } 
+    #else
+    public System.DateTime? StrikeTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Represents the basis price type in a bid order (list trading).
     /// </summary>
+    [IsoId("_S0L85Np-Ed-ak6NoX_4Aeg_-166177959")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis Price Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BasisPriceType1Choice_ BasisPriceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BasisPriceType1Choice_ BasisPriceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BasisPriceType1Choice_ BasisPriceType { get; init; } 
+    #else
+    public BasisPriceType1Choice_ BasisPriceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// General details about the liquidity of the financial instrument.
     /// </summary>
+    [IsoId("_S0L85dp-Ed-ak6NoX_4Aeg_1853639649")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Liquidity And Statistics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidityAndStatistics1 LiquidityAndStatistics { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public LiquidityAndStatistics1 LiquidityAndStatistics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidityAndStatistics1 LiquidityAndStatistics { get; init; } 
+    #else
+    public LiquidityAndStatistics1 LiquidityAndStatistics { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ClntBidId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientBidIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ListName is IsoMax128Text ListNameValue)
-        {
-            writer.WriteStartElement(null, "ListNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax128Text(ListNameValue)); // data type Max128Text System.String
-            writer.WriteEndElement();
-        }
-        if (BidIdentification is IsoMax35Text BidIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BidId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BidIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlNbScties", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberSecurities)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XchgForPhysInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExchangeForPhysicalIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FrgnXchgExctnReqdInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForeignExchangeExecutionRequestedIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradTp", xmlNamespace );
-        writer.WriteValue(TradeType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (TotalNumberTickets is IsoNumber TotalNumberTicketsValue)
-        {
-            writer.WriteStartElement(null, "TtlNbTckts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberTicketsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (ProgressReportIndicator is IsoYesNoIndicator ProgressReportIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrgrsRptInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ProgressReportIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ProgressPeriodInterval is IsoISOTime ProgressPeriodIntervalValue)
-        {
-            writer.WriteStartElement(null, "PrgrsPrdIntrvl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(ProgressPeriodIntervalValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfBidders is IsoNumber TotalNumberOfBiddersValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfBddrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfBiddersValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TradeDate is IsoISODateTime TradeDateValue)
-        {
-            writer.WriteStartElement(null, "TradDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(TradeDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (StrikeTime is IsoISODateTime StrikeTimeValue)
-        {
-            writer.WriteStartElement(null, "StrkTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(StrikeTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "BsisPricTp", xmlNamespace );
-        BasisPriceType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "LqdtyAndSttstcs", xmlNamespace );
-        LiquidityAndStatistics.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Bid1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

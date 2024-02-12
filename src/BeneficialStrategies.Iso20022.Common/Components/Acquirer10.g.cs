@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer involved in the card payment.
 /// </summary>
+[IsoId("_rUynIQumEeqw5uEXxQ9H4g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acquirer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Acquirer10
-     : IIsoXmlSerilizable<Acquirer10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the acquirer (for example the bank identification number BIN).
     /// </summary>
+    [IsoId("_rge5wQumEeqw5uEXxQ9H4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification177? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification177? Identification { get; init; } 
+    #else
+    public GenericIdentification177? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the payment acquirer parameters of the POI.
     /// </summary>
+    [IsoId("_rge5wwumEeqw5uEXxQ9H4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameters Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? ParametersVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ParametersVersion { get; init; } 
+    #else
+    public System.String? ParametersVersion { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is GenericIdentification177 IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ParametersVersion is IsoMax256Text ParametersVersionValue)
-        {
-            writer.WriteStartElement(null, "ParamsVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(ParametersVersionValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Acquirer10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Statistics per counterparty reporting under the local regulation.
-/// </summary>
-[KnownType(typeof(StatisticsPerCounterparty15Choice.DataSetAction))]
-[KnownType(typeof(StatisticsPerCounterparty15Choice.Report))]
-public abstract partial record StatisticsPerCounterparty15Choice_ : IIsoXmlSerilizable<StatisticsPerCounterparty15Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Statistics per counterparty reporting under the local regulation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static StatisticsPerCounterparty15Choice_ Deserialize(XElement element)
+    [KnownType(typeof(StatisticsPerCounterparty15Choice.DataSetAction))]
+    [KnownType(typeof(StatisticsPerCounterparty15Choice.Report))]
+    [IsoId("_cDvmkVovEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statistics Per Counterparty 15 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record StatisticsPerCounterparty15Choice_
+    #else
+    public abstract partial class StatisticsPerCounterparty15Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => StatisticsPerCounterparty15Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Rpt" => StatisticsPerCounterparty15Choice.Report.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid StatisticsPerCounterparty15Choice choice.")
-        };
     }
 }

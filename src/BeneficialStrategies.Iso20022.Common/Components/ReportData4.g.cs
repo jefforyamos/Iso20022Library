@@ -7,81 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numerical representation of the nett increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
+[IsoId("_7xjgAS43EeK7-OZOLIksSw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportData4
-     : IIsoXmlSerilizable<ReportData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportData4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportData4( System.String reqMessageIdentification,System.DateOnly reqValueDate,System.DateTime reqDateAndTimeStamp,Entry2Code reqType,System.String reqScheduleType )
+    {
+        MessageIdentification = reqMessageIdentification;
+        ValueDate = reqValueDate;
+        DateAndTimeStamp = reqDateAndTimeStamp;
+        Type = reqType;
+        ScheduleType = reqScheduleType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the report as assigned by the sender.
     /// </summary>
+    [IsoId("_8AsvRS43EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value date for which the pay-in schedule is generated.
     /// </summary>
+    [IsoId("_8AsvSS43EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ValueDate { get; init; } 
+    #else
+    public System.DateOnly ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
+    [IsoId("_8AsvTS43EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime DateAndTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime DateAndTimeStamp { get; init; } 
+    #else
+    public System.DateTime DateAndTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of pay-in schedule.
     /// </summary>
+    [IsoId("_8AsvUS43EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Entry2Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Entry2Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Entry2Code Type { get; init; } 
+    #else
+    public Entry2Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the schedule timing that is, whether it is an initial or a revised schedule.
     /// </summary>
+    [IsoId("_qFT-gJXDEeK3CZeLifG0eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Schedule Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText ScheduleType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ScheduleType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ScheduleType { get; init; } 
+    #else
+    public System.String ScheduleType { get; set; } 
+    #endif
+    
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
+    [IsoId("_CPlTYi44EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Session Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementSessionIdentifier { get; init; } 
+    #else
+    public System.String? SettlementSessionIdentifier { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DtAndTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SchdlTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(ScheduleType)); // data type Exact4AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
-        {
-            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

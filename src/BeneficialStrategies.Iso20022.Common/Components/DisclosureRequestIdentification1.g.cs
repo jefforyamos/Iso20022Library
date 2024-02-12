@@ -7,57 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information identifying the disclosure request for shareholders identification published by the issuer or third party nominated by the issuer in order to receive the disclosure responses from intermediaries in the custody chain.
 /// </summary>
+[IsoId("_im8pMDqgEemL_ewJY9QP1g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Disclosure Request Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DisclosureRequestIdentification1
-     : IIsoXmlSerilizable<DisclosureRequestIdentification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DisclosureRequestIdentification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DisclosureRequestIdentification1( System.String reqIssuerDisclosureRequestIdentification,SecurityIdentification19 reqFinancialInstrumentIdentification,DateFormat46Choice_ reqShareholdersDisclosureRecordDate )
+    {
+        IssuerDisclosureRequestIdentification = reqIssuerDisclosureRequestIdentification;
+        FinancialInstrumentIdentification = reqFinancialInstrumentIdentification;
+        ShareholdersDisclosureRecordDate = reqShareholdersDisclosureRecordDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Official and unique reference assigned to a shareholders identification disclosure request process by the issuer or third party nominated by him.
     /// </summary>
+    [IsoId("_O-niQzqhEemL_ewJY9QP1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Disclosure Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerDisclosureRequestIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IssuerDisclosureRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IssuerDisclosureRequestIdentification { get; init; } 
+    #else
+    public System.String IssuerDisclosureRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [IsoId("_O-niRDqhEemL_ewJY9QP1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date set by the issuer on which shareholders identity is determined based on the settled positions struck in the books of the Issuer CSD or any other first intermediary at the close of business day. 
     /// </summary>
+    [IsoId("_O-niRTqhEemL_ewJY9QP1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shareholders Disclosure Record Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
+    #else
+    public DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IssrDsclsrReqId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerDisclosureRequestIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ShrhldrsDsclsrRcrdDt", xmlNamespace );
-        ShareholdersDisclosureRecordDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static DisclosureRequestIdentification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

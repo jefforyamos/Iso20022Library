@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the processing request.
 /// </summary>
+[IsoId("_6f_egQR4Ee29PP19jELcvQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Request Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RequestDetails30
-     : IIsoXmlSerilizable<RequestDetails30>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RequestDetails30 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RequestDetails30( System.String reqType )
+    {
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of data being requested, for example, a sub-member BIC.
     /// </summary>
+    [IsoId("_6nOu8QR4Ee29PP19jELcvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Type { get; init; } 
+    #else
+    public System.String Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identificates the requestor.
     /// </summary>
+    [IsoId("_6nOu8wR4Ee29PP19jELcvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requestor Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? RequestorIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification242Choice_? RequestorIdentification { get; init; } 
+    #else
+    public PartyIdentification242Choice_? RequestorIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information to support the processing request.
     /// </summary>
+    [IsoId("_6nOu9QR4Ee29PP19jELcvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Request Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalRequestInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalRequestInformation { get; init; } 
+    #else
+    public System.String? AdditionalRequestInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (RequestorIdentification is PartyIdentification242Choice_ RequestorIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RqstrId", xmlNamespace );
-            RequestorIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalRequestInformation is IsoMax35Text AdditionalRequestInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlReqInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalRequestInformationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RequestDetails30 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

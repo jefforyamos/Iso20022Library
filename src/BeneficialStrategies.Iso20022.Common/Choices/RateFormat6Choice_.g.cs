@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a rate or an unspecified rate.
-/// </summary>
-[KnownType(typeof(RateFormat6Choice.Rate))]
-[KnownType(typeof(RateFormat6Choice.NotSpecifiedRate))]
-public abstract partial record RateFormat6Choice_ : IIsoXmlSerilizable<RateFormat6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a rate or an unspecified rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RateFormat6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RateFormat6Choice.Rate))]
+    [KnownType(typeof(RateFormat6Choice.NotSpecifiedRate))]
+    [IsoId("_PO4fIOwOEd-sn-FiNtktcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Format 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RateFormat6Choice_
+    #else
+    public abstract partial class RateFormat6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rate" => RateFormat6Choice.Rate.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => RateFormat6Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RateFormat6Choice choice.")
-        };
     }
 }

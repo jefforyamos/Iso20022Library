@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deposited media put in the safe.
 /// </summary>
+[IsoId("_r3cB8a4QEeWZgJQOa6iKCQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Deposited Media")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMDepositedMedia3
-     : IIsoXmlSerilizable<ATMDepositedMedia3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMDepositedMedia3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMDepositedMedia3( ATMMediaType2Code reqMediaType )
+    {
+        MediaType = reqMediaType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of deposited media.
     /// </summary>
+    [IsoId("_sB7as64QEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Media Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMMediaType2Code MediaType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMMediaType2Code MediaType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMMediaType2Code MediaType { get; init; } 
+    #else
+    public ATMMediaType2Code MediaType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Category of deposited media items.
     /// </summary>
+    [IsoId("_sB7ata4QEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Media Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMMediaType3Code? MediaCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMMediaType3Code? MediaCategory { get; init; } 
+    #else
+    public ATMMediaType3Code? MediaCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Media item that are deposited.
     /// </summary>
+    [IsoId("_sB7at64QEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Media Items")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public ATMDepositedMedia2? MediaItems { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _sB7at64QEeWZgJQOa6iKCQ
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MdiaTp", xmlNamespace );
-        writer.WriteValue(MediaType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MediaCategory is ATMMediaType3Code MediaCategoryValue)
-        {
-            writer.WriteStartElement(null, "MdiaCtgy", xmlNamespace );
-            writer.WriteValue(MediaCategoryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize MediaItems, multiplicity Unknown
-    }
-    public static ATMDepositedMedia3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

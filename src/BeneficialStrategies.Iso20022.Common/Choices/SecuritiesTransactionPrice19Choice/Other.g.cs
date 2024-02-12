@@ -9,53 +9,83 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choice;
-
-/// <summary>
-/// Price or quantity expressed in another notation.
-/// </summary>
-public partial record Other : SecuritiesTransactionPrice19Choice_
-     , IIsoXmlSerilizable<Other>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Value of the price.
+    /// Price or quantity expressed in another notation.
     /// </summary>
-    public IsoLongFraction19DecimalNumber? Value { get; init; } 
-    /// <summary>
-    /// Notation of the price.
-    /// </summary>
-    public IsoMax35Text? Type { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_8FGzwMgqEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Other : SecuritiesTransactionPrice19Choice_
+    #else
+    public partial class Other : SecuritiesTransactionPrice19Choice_
+    #endif
     {
-        if (Value is IsoLongFraction19DecimalNumber ValueValue)
-        {
-            writer.WriteStartElement(null, "Val", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(ValueValue)); // data type LongFraction19DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Type is IsoMax35Text TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Other Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Value of the price.
+        /// </summary>
+        [IsoId("_U3LMM5jgEeqkLZLH6DK3UQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLongFraction19DecimalNumber? Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? Value { get; init; } 
+        #else
+        public System.UInt64? Value { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Notation of the price.
+        /// </summary>
+        [IsoId("_U3LMNZjgEeqkLZLH6DK3UQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Type { get; init; } 
+        #else
+        public System.String? Type { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

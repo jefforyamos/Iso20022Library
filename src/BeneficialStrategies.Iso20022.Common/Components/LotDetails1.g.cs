@@ -7,80 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Facilitates the redemption of one or more lots.
 /// </summary>
+[IsoId("_Sd15cNp-Ed-ak6NoX_4Aeg_-767969447")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Lot Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LotDetails1
-     : IIsoXmlSerilizable<LotDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LotDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LotDetails1( System.DateOnly reqTradeDate,System.String reqOrderReference )
+    {
+        TradeDate = reqTradeDate;
+        OrderReference = reqOrderReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Description of the lot.
     /// </summary>
+    [IsoId("_Sd15cdp-Ed-ak6NoX_4Aeg_186028060")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? LotDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LotDescription { get; init; } 
+    #else
+    public System.String? LotDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the units were created.
     /// </summary>
+    [IsoId("_Sd15ctp-Ed-ak6NoX_4Aeg_-1080360479")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate TradeDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly TradeDate { get; init; } 
+    #else
+    public System.DateOnly TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier of the original order that resulted in the lot.
     /// </summary>
+    [IsoId("_Sd15c9p-Ed-ak6NoX_4Aeg_1722044927")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OrderReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OrderReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OrderReference { get; init; } 
+    #else
+    public System.String OrderReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deal reference of the original subscription execution that resulted in the lot.
     /// </summary>
+    [IsoId("_Sd15dNp-Ed-ak6NoX_4Aeg_658630436")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deal Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DealReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DealReference { get; init; } 
+    #else
+    public System.String? DealReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of the lot.
     /// </summary>
+    [IsoId("_Sd15ddp-Ed-ak6NoX_4Aeg_-1763708618")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Quantity And Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SidePocketQuantityAndAmount1? LotQuantityAndAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SidePocketQuantityAndAmount1? LotQuantityAndAmount { get; init; } 
+    #else
+    public SidePocketQuantityAndAmount1? LotQuantityAndAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LotDescription is IsoMax350Text LotDescriptionValue)
-        {
-            writer.WriteStartElement(null, "LotDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(LotDescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TradDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (DealReference is IsoMax35Text DealReferenceValue)
-        {
-            writer.WriteStartElement(null, "DealRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LotQuantityAndAmount is SidePocketQuantityAndAmount1 LotQuantityAndAmountValue)
-        {
-            writer.WriteStartElement(null, "LotQtyAndAmt", xmlNamespace );
-            LotQuantityAndAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LotDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies that the category of a product may be indicated by a code or by free text.
-/// </summary>
-[KnownType(typeof(ProductCharacteristics1Choice.StructuredProductCharacteristics))]
-[KnownType(typeof(ProductCharacteristics1Choice.OtherProductCharacteristics))]
-public abstract partial record ProductCharacteristics1Choice_ : IIsoXmlSerilizable<ProductCharacteristics1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies that the category of a product may be indicated by a code or by free text.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProductCharacteristics1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProductCharacteristics1Choice.StructuredProductCharacteristics))]
+    [KnownType(typeof(ProductCharacteristics1Choice.OtherProductCharacteristics))]
+    [IsoId("_RbrR09p-Ed-ak6NoX_4Aeg_-1771903850")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Characteristics 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProductCharacteristics1Choice_
+    #else
+    public abstract partial class ProductCharacteristics1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "StrdPdctChrtcs" => ProductCharacteristics1Choice.StructuredProductCharacteristics.Deserialize(elementWithPayload),
-             "OthrPdctChrtcs" => ProductCharacteristics1Choice.OtherProductCharacteristics.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProductCharacteristics1Choice choice.")
-        };
     }
 }

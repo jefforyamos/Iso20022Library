@@ -7,50 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[IsoId("_WHC0xtp-Ed-ak6NoX_4Aeg_-740301257")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Postal Address")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PostalAddress4
-     : IIsoXmlSerilizable<PostalAddress4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PostalAddress4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PostalAddress4( string reqCountry )
+    {
+        Country = reqCountry;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public SimpleValueList<IsoMax70Text> AddressLine { get; init; } = [];
+    [IsoId("_WHC0x9p-Ed-ak6NoX_4Aeg_-739381131")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address Line")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AddressLine { get; init; } = new SimpleValueList<System.String>(){};
+    
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [IsoId("_WHC0yNp-Ed-ak6NoX_4Aeg_-739381088")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Country { get; init; } 
+    #else
+    public string Country { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AdrLine", xmlNamespace );
-        AddressLine.Serialize(writer, xmlNamespace, "Max70Text", SerializationFormatter.IsoMax70Text );
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ctry", xmlNamespace );
-        writer.WriteValue(Country.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static PostalAddress4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

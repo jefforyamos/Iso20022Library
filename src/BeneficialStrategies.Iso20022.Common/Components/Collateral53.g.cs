@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for each collateral account the report summary and the valuation of each piece of collateral.
 /// </summary>
+[IsoId("_zoKi8SgtEeyB747fKu7_rw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Collateral53
-     : IIsoXmlSerilizable<Collateral53>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Collateral53 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Collateral53( Summary3 reqReportSummary )
+    {
+        ReportSummary = reqReportSummary;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information about the collateral account, that is the identification, the type and optionally the name.
     /// </summary>
+    [IsoId("_0AdHISgtEeyB747fKu7_rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAccount3? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAccount3? AccountIdentification { get; init; } 
+    #else
+    public CollateralAccount3? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of collateral account for digital assets.
     /// </summary>
+    [IsoId("_21OOcyqWEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Chain Address Or Wallet")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; init; } 
+    #else
+    public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Summary of the collateral valuation.
     /// </summary>
+    [IsoId("_0AdHIygtEeyB747fKu7_rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Summary3 ReportSummary { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Summary3 ReportSummary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Summary3 ReportSummary { get; init; } 
+    #else
+    public Summary3 ReportSummary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
+    [IsoId("_0AdHJSgtEeyB747fKu7_rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Valuation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralValuation13? CollateralValuation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralValuation13? CollateralValuation { get; init; } 
+    #else
+    public CollateralValuation13? CollateralValuation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountIdentification is CollateralAccount3 AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockChainAddressOrWallet is BlockChainAddressWallet5 BlockChainAddressOrWalletValue)
-        {
-            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
-            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RptSummry", xmlNamespace );
-        ReportSummary.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CollateralValuation is CollateralValuation13 CollateralValuationValue)
-        {
-            writer.WriteStartElement(null, "CollValtn", xmlNamespace );
-            CollateralValuationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Collateral53 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

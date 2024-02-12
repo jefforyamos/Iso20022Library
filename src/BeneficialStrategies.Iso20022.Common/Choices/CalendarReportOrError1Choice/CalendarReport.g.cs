@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice;
-
-/// <summary>
-/// Provides the calendar information related to the system.
-/// </summary>
-public partial record CalendarReport : CalendarReportOrError1Choice_
-     , IIsoXmlSerilizable<CalendarReport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identification of the service or system for which the calendar information is provided.
+    /// Provides the calendar information related to the system.
     /// </summary>
-    public SystemAndCurrency1? Service { get; init; } 
-    /// <summary>
-    /// Requested information on the calendar or business error report when information has not been found.
-    /// </summary>
-    public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_dVcQ44m7Eeipw6hHPgB4Sw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calendar Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CalendarReport : CalendarReportOrError1Choice_
+    #else
+    public partial class CalendarReport : CalendarReportOrError1Choice_
+    #endif
     {
-        if (Service is SystemAndCurrency1 ServiceValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CalendarReport instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CalendarReport( CalendarOrBusinessError1Choice_ reqCalendarOrError )
         {
-            writer.WriteStartElement(null, "Svc", xmlNamespace );
-            ServiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            CalendarOrError = reqCalendarOrError;
         }
-        writer.WriteStartElement(null, "CalOrErr", xmlNamespace );
-        CalendarOrError.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new CalendarReport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of the service or system for which the calendar information is provided.
+        /// </summary>
+        [IsoId("_G00uIYm8Eeipw6hHPgB4Sw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Service")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemAndCurrency1? Service { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemAndCurrency1? Service { get; init; } 
+        #else
+        public SystemAndCurrency1? Service { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Requested information on the calendar or business error report when information has not been found.
+        /// </summary>
+        [IsoId("_dVcQ34m7Eeipw6hHPgB4Sw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Calendar Or Error")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+        #else
+        public CalendarOrBusinessError1Choice_ CalendarOrError { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

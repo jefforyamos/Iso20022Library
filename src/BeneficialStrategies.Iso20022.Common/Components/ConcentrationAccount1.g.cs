@@ -7,78 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Bank account used by a central counterparty to concentrate cash funds before or after investment.
 /// </summary>
+[IsoId("_tnsvELIhEeaYqc4G3TTwhA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Concentration Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ConcentrationAccount1
-     : IIsoXmlSerilizable<ConcentrationAccount1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ConcentrationAccount1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ConcentrationAccount1( Flows1 reqInFlow,Flows1 reqOutFlow,AmountAndDirection102 reqEndOfDay,System.Decimal reqPeakCredit,System.Decimal reqPeakDebit,System.String reqLatePaymentConfirmation )
+    {
+        InFlow = reqInFlow;
+        OutFlow = reqOutFlow;
+        EndOfDay = reqEndOfDay;
+        PeakCredit = reqPeakCredit;
+        PeakDebit = reqPeakDebit;
+        LatePaymentConfirmation = reqLatePaymentConfirmation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates inflows into the account.
     /// </summary>
+    [IsoId("_zPbzoLIhEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("In Flow")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Flows1 InFlow { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Flows1 InFlow { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Flows1 InFlow { get; init; } 
+    #else
+    public Flows1 InFlow { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates outflows out of the account.
     /// </summary>
+    [IsoId("_0TkxMLIhEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Out Flow")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Flows1 OutFlow { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Flows1 OutFlow { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Flows1 OutFlow { get; init; } 
+    #else
+    public Flows1 OutFlow { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates end of day cash balance on the account.
     /// </summary>
+    [IsoId("_1ym0QBXoEeejf-cbr8l5qw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Of Day")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDay { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection102 EndOfDay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection102 EndOfDay { get; init; } 
+    #else
+    public AmountAndDirection102 EndOfDay { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates peak credit balance on the account.
     /// </summary>
+    [IsoId("_53fmABXoEeejf-cbr8l5qw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Peak Credit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakCredit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PeakCredit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PeakCredit { get; init; } 
+    #else
+    public System.Decimal PeakCredit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates peak debit balance on the account.
     /// </summary>
+    [IsoId("_-YlLkBXoEeejf-cbr8l5qw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Peak Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakDebit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PeakDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PeakDebit { get; init; } 
+    #else
+    public System.Decimal PeakDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of concentration account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
+    [IsoId("_Frc8QBXpEeejf-cbr8l5qw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Late Payment Confirmation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String LatePaymentConfirmation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String LatePaymentConfirmation { get; init; } 
+    #else
+    public System.String LatePaymentConfirmation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InFlow", xmlNamespace );
-        InFlow.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OutFlow", xmlNamespace );
-        OutFlow.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EndOfDay", xmlNamespace );
-        EndOfDay.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PeakCdt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakCredit)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PeakDbt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakDebit)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "LatePmtConf", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10NumericText(LatePaymentConfirmation)); // data type Max10NumericText System.String
-        writer.WriteEndElement();
-    }
-    public static ConcentrationAccount1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

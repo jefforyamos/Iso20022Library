@@ -7,92 +7,168 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the shipment date, the charges, the routing and the goods described in the transport document.
 /// </summary>
+[IsoId("_Eb4JodQtEeK0PPbKncCqzA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportDetails3
-     : IIsoXmlSerilizable<TransportDetails3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransportDetails3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransportDetails3( TransportMeans4 reqRoutingSummary,ShipmentDate1Choice_ reqShipmentDate )
+    {
+        RoutingSummary = reqRoutingSummary;
+        ShipmentDate = reqShipmentDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
+    [IsoId("_E3H7M9QtEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport Document Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public DocumentIdentification7? TransportDocumentReference { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _E3H7M9QtEeK0PPbKncCqzA
+    
     /// <summary>
     /// Goods that are transported.
     /// </summary>
+    [IsoId("_E3H7NdQtEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transported Goods")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TransportedGoods1? TransportedGoods { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _E3H7NdQtEeK0PPbKncCqzA
+    
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>
+    [IsoId("_E3H7N9QtEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Consignment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Consignment3? Consignment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Consignment3? Consignment { get; init; } 
+    #else
+    public Consignment3? Consignment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
+    [IsoId("_E3H7OdQtEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Routing Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransportMeans4 RoutingSummary { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransportMeans4 RoutingSummary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportMeans4 RoutingSummary { get; init; } 
+    #else
+    public TransportMeans4 RoutingSummary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Shipment date, actual or proposed.
     /// </summary>
+    [IsoId("_FewXQDAUEeOKib24wnHaFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShipmentDate1Choice_ ShipmentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ShipmentDate1Choice_ ShipmentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ShipmentDate1Choice_ ShipmentDate { get; init; } 
+    #else
+    public ShipmentDate1Choice_ ShipmentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
+    [IsoId("_E3H7QdQtEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Freight Charges")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge25? FreightCharges { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge25? FreightCharges { get; init; } 
+    #else
+    public Charge25? FreightCharges { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [IsoId("_E3H7P9QtEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incoterms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Incoterms4? Incoterms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Incoterms4? Incoterms { get; init; } 
+    #else
+    public Incoterms4? Incoterms { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize TransportDocumentReference, multiplicity Unknown
-        // Not sure how to serialize TransportedGoods, multiplicity Unknown
-        if (Consignment is Consignment3 ConsignmentValue)
-        {
-            writer.WriteStartElement(null, "Consgnmt", xmlNamespace );
-            ConsignmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RtgSummry", xmlNamespace );
-        RoutingSummary.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ShipmntDt", xmlNamespace );
-        ShipmentDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FreightCharges is Charge25 FreightChargesValue)
-        {
-            writer.WriteStartElement(null, "FrghtChrgs", xmlNamespace );
-            FreightChargesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Incoterms is Incoterms4 IncotermsValue)
-        {
-            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
-            IncotermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportDetails3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

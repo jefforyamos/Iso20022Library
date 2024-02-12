@@ -7,110 +7,202 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the reconciliation request.
 /// </summary>
+[IsoId("_hM43sYtxEeSLQutgI1Ulfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransaction11
-     : IIsoXmlSerilizable<ATMTransaction11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTransaction11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTransaction11( TransactionIdentifier1 reqTransactionIdentification,System.String reqReconciliationIdentification )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        ReconciliationIdentification = reqReconciliationIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of logical or physical operation on the ATM for which the counters are computed.
     /// </summary>
+    [IsoId("_Q0orUOhBEeSbwP3G-MV9YA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Operation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMOperation1Code? TypeOfOperation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMOperation1Code? TypeOfOperation { get; init; } 
+    #else
+    public ATMOperation1Code? TypeOfOperation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation transaction.
     /// </summary>
+    [IsoId("_7m03UOqREeSYnL2yvgmxmw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period.
     /// </summary>
+    [IsoId("_7j-qwItyEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReconciliationIdentification { get; init; } 
+    #else
+    public System.String ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
+    [IsoId("_hZja1YtxEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTotals1? ATMTotals { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMTotals1? ATMTotals { get; init; } 
+    #else
+    public ATMTotals1? ATMTotals { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information on the cassette of the ATM.
     /// </summary>
+    [IsoId("_hZja14txEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cassette")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCassette1? Cassette { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCassette1? Cassette { get; init; } 
+    #else
+    public ATMCassette1? Cassette { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction counters that are set to zero after a reconciliation with counter reinitialisation command.
     /// </summary>
+    [IsoId("_JH7X8ItzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTotals3? TransactionTotals { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMTotals3? TransactionTotals { get; init; } 
+    #else
+    public ATMTotals3? TransactionTotals { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of retained cards.
     /// </summary>
+    [IsoId("_zBBVwItzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Retained Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? RetainedCard { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RetainedCard { get; init; } 
+    #else
+    public System.UInt64? RetainedCard { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about reconciliation.
     /// </summary>
+    [IsoId("_3eiC4ItzEeSLQutgI1Ulfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Transaction Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalTransactionInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalTransactionInformation { get; init; } 
+    #else
+    public System.String? AdditionalTransactionInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TypeOfOperation is ATMOperation1Code TypeOfOperationValue)
-        {
-            writer.WriteStartElement(null, "TpOfOpr", xmlNamespace );
-            writer.WriteValue(TypeOfOperationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ATMTotals is ATMTotals1 ATMTotalsValue)
-        {
-            writer.WriteStartElement(null, "ATMTtls", xmlNamespace );
-            ATMTotalsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Cassette is ATMCassette1 CassetteValue)
-        {
-            writer.WriteStartElement(null, "Csstt", xmlNamespace );
-            CassetteValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionTotals is ATMTotals3 TransactionTotalsValue)
-        {
-            writer.WriteStartElement(null, "TxTtls", xmlNamespace );
-            TransactionTotalsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RetainedCard is IsoNumber RetainedCardValue)
-        {
-            writer.WriteStartElement(null, "RtndCard", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(RetainedCardValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AdditionalTransactionInformation is IsoMax140Text AdditionalTransactionInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlTxInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalTransactionInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransaction11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

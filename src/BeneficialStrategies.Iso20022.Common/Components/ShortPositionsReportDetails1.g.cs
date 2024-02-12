@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about short positions.
 /// </summary>
+[IsoId("_shPDYAx3EeazkbJaoKTIIw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Short Positions Report Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ShortPositionsReportDetails1
-     : IIsoXmlSerilizable<ShortPositionsReportDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ShortPositionsReportDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ShortPositionsReportDetails1( BranchAndFinancialInstitutionIdentification5 reqParticipantIdentification,CashAccount24 reqParticipantAccount,System.Decimal reqShortPositionAmount )
+    {
+        ParticipantIdentification = reqParticipantIdentification;
+        ParticipantAccount = reqParticipantAccount;
+        ShortPositionAmount = reqShortPositionAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of participant account.
     /// </summary>
+    [IsoId("_CJhacAx4EeazkbJaoKTIIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Participant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about participant account number.
     /// </summary>
+    [IsoId("_EJegAAx4EeazkbJaoKTIIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Participant Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 ParticipantAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount24 ParticipantAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24 ParticipantAccount { get; init; } 
+    #else
+    public CashAccount24 ParticipantAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about participant account balance.
     /// </summary>
+    [IsoId("_Hri4kAx4EeazkbJaoKTIIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Position Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ShortPositionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ShortPositionAmount { get; init; } 
+    #else
+    public System.Decimal ShortPositionAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PtcptId", xmlNamespace );
-        ParticipantIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PtcptAcct", xmlNamespace );
-        ParticipantAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ShrtPosAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ShortPositionAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static ShortPositionsReportDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

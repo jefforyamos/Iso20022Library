@@ -7,126 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of the package
 /// </summary>
+[IsoId("_l2yNwZF_EeukDPgU2BMkjQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Shipping Package")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ShippingPackage2
-     : IIsoXmlSerilizable<ShippingPackage2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the identification number for the packages being shipped and is also used for pickup number. 
     /// </summary>
+    [IsoId("_l8yIEZF_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracking Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TrackingNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TrackingNumber { get; init; } 
+    #else
+    public System.String? TrackingNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supplier or provider of the delivery services.
     /// </summary>
+    [IsoId("_l8yIE5F_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification260? Supplier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification260? Supplier { get; init; } 
+    #else
+    public PartyIdentification260? Supplier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the date the package is picked up.
     /// </summary>
+    [IsoId("_7Ip_kCbSEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pickup Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PickupDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PickupDate { get; init; } 
+    #else
+    public System.DateOnly? PickupDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the time the package is picked up.
     /// </summary>
+    [IsoId("_l8yIFZF_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pickup Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? PickupTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? PickupTime { get; init; } 
+    #else
+    public System.TimeOnly? PickupTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delivery information. 
     /// </summary>
+    [IsoId("_l8yIF5F_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryInformation4? Delivery { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryInformation4? Delivery { get; init; } 
+    #else
+    public DeliveryInformation4? Delivery { get; set; } 
+    #endif
+    
     /// <summary>
     /// Weight details.
     /// </summary>
+    [IsoId("_l8yIGZF_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Weight")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure2? Weight { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOfMeasure2? Weight { get; init; } 
+    #else
+    public UnitOfMeasure2? Weight { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the product details.
     /// </summary>
+    [IsoId("_l8yIG5F_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product7? Product { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Product7? Product { get; init; } 
+    #else
+    public Product7? Product { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [IsoId("_l8yIHZF_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InsuranceIndicator { get; init; } 
+    #else
+    public System.String? InsuranceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of insurance.
     /// </summary>
+    [IsoId("_l8yIH5F_EeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InsuranceAmount { get; init; } 
+    #else
+    public System.Decimal? InsuranceAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TrackingNumber is IsoMax70Text TrackingNumberValue)
-        {
-            writer.WriteStartElement(null, "TrckgNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(TrackingNumberValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Supplier is PartyIdentification260 SupplierValue)
-        {
-            writer.WriteStartElement(null, "Spplr", xmlNamespace );
-            SupplierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PickupDate is IsoISODate PickupDateValue)
-        {
-            writer.WriteStartElement(null, "PckpDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PickupDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PickupTime is IsoISOTime PickupTimeValue)
-        {
-            writer.WriteStartElement(null, "PckpTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(PickupTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (Delivery is DeliveryInformation4 DeliveryValue)
-        {
-            writer.WriteStartElement(null, "Dlvry", xmlNamespace );
-            DeliveryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Weight is UnitOfMeasure2 WeightValue)
-        {
-            writer.WriteStartElement(null, "Wght", xmlNamespace );
-            WeightValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Product is Product7 ProductValue)
-        {
-            writer.WriteStartElement(null, "Pdct", xmlNamespace );
-            ProductValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InsuranceAmount is IsoImpliedCurrencyAndAmount InsuranceAmountValue)
-        {
-            writer.WriteStartElement(null, "InsrncAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InsuranceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ShippingPackage2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

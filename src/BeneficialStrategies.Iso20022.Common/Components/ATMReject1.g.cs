@@ -7,84 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the reject of a message from an ATM or an ATM manager.
 /// </summary>
+[IsoId("_rjtNsIrFEeSRwL6n4K9igA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Reject")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMReject1
-     : IIsoXmlSerilizable<ATMReject1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMReject1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMReject1( RejectReason1Code reqRejectReason )
+    {
+        RejectReason = reqRejectReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the entity sending the reject message.
     /// </summary>
+    [IsoId("_80CtEIrFEeSRwL6n4K9igA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reject Initiator Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RejectInitiatorIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RejectInitiatorIdentification { get; init; } 
+    #else
+    public System.String? RejectInitiatorIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// High level information allowing the sender of a request or an advice to know the types of error, and handle them accordingly.
     /// </summary>
+    [IsoId("_CHSIUIrGEeSRwL6n4K9igA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reject Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectReason1Code RejectReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectReason1Code RejectReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectReason1Code RejectReason { get; init; } 
+    #else
+    public RejectReason1Code RejectReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the sending of a reject message in response to a request or an advice.
     /// For logging purpose, in order to allow further analysis, statistics and deferred processing on the success or the failure of the request processing.
     /// </summary>
+    [IsoId("_HEH1wIrGEeSRwL6n4K9igA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 500 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
+    [IsoId("_MCaUsIrGEeSRwL6n4K9igA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand1? Command { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommand1? Command { get; init; } 
+    #else
+    public ATMCommand1? Command { get; set; } 
+    #endif
+    
     /// <summary>
     /// Received message that has been rejected.
     /// </summary>
+    [IsoId("_QYLbEIrGEeSRwL6n4K9igA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message In Error")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? MessageInError { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? MessageInError { get; init; } 
+    #else
+    public System.Byte[]? MessageInError { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RejectInitiatorIdentification is IsoMax35Text RejectInitiatorIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RjctInitrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RejectInitiatorIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RjctRsn", xmlNamespace );
-        writer.WriteValue(RejectReason.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
-            writer.WriteEndElement();
-        }
-        if (Command is ATMCommand1 CommandValue)
-        {
-            writer.WriteStartElement(null, "Cmd", xmlNamespace );
-            CommandValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageInError is IsoMax100KBinary MessageInErrorValue)
-        {
-            writer.WriteStartElement(null, "MsgInErr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageInErrorValue)); // data type Max100KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMReject1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

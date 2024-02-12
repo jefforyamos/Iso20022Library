@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on a member.
 /// </summary>
+[IsoId("_tb1HSZlVEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Member Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MemberReturnCriteria1
-     : IIsoXmlSerilizable<MemberReturnCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the member name is requested.
     /// </summary>
+    [IsoId("_tj1zwZlVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? NameIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NameIndicator { get; init; } 
+    #else
+    public System.String? NameIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the member return address is requested.
     /// </summary>
+    [IsoId("_tj1zw5lVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Member Return Address Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? MemberReturnAddressIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MemberReturnAddressIndicator { get; init; } 
+    #else
+    public System.String? MemberReturnAddressIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the member account is requested.
     /// </summary>
+    [IsoId("_tj1zxZlVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountIndicator { get; init; } 
+    #else
+    public System.String? AccountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the member type is requested.
     /// </summary>
+    [IsoId("_tj1zx5lVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TypeIndicator { get; init; } 
+    #else
+    public System.String? TypeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the member status is requested.
     /// </summary>
+    [IsoId("_tj1zyZlVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatusIndicator { get; init; } 
+    #else
+    public System.String? StatusIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the contact references are requested.
     /// </summary>
+    [IsoId("_tj1zy5lVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Reference Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ContactReferenceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ContactReferenceIndicator { get; init; } 
+    #else
+    public System.String? ContactReferenceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the communication addresses are requested.
     /// </summary>
+    [IsoId("_tj1zzZlVEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Communication Address Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CommunicationAddressIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommunicationAddressIndicator { get; init; } 
+    #else
+    public System.String? CommunicationAddressIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NameIndicator is IsoRequestedIndicator NameIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NmInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NameIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MemberReturnAddressIndicator is IsoRequestedIndicator MemberReturnAddressIndicatorValue)
-        {
-            writer.WriteStartElement(null, "MmbRtrAdrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MemberReturnAddressIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AccountIndicator is IsoRequestedIndicator AccountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AcctInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TypeIndicator is IsoRequestedIndicator TypeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TpInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (StatusIndicator is IsoRequestedIndicator StatusIndicatorValue)
-        {
-            writer.WriteStartElement(null, "StsInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ContactReferenceIndicator is IsoRequestedIndicator ContactReferenceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtctRefInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ContactReferenceIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CommunicationAddressIndicator is IsoRequestedIndicator CommunicationAddressIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ComAdrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CommunicationAddressIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static MemberReturnCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

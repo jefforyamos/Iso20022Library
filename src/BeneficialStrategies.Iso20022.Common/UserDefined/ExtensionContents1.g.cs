@@ -8,34 +8,32 @@ using BeneficialStrategies.Iso20022.Components;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.UserDefined;
 
 /// <summary>
 /// Technical extension structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'. 
 /// The content of the extension MUST NOT be validated by the receiver (processContent=lax).
 /// </summary>
+[IsoId("_YWiyNdp-Ed-ak6NoX_4Aeg_-332034688")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Extension Contents")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExtensionContents1
-     : IIsoXmlSerilizable<ExtensionContents1>
 {
     #nullable enable
     
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-    }
-    public static ExtensionContents1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

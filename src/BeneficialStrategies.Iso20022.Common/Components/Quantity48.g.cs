@@ -7,73 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the quantity, account and other related information involved in a transaction.
 /// </summary>
+[IsoId("_G0mW4SqEEeyR9JrVGfaMKw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Quantity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Quantity48
-     : IIsoXmlSerilizable<Quantity48>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Quantity48 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Quantity48( FinancialInstrumentQuantity33Choice_ reqSettlementQuantity )
+    {
+        SettlementQuantity = reqSettlementQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [IsoId("_HNew8SqEEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity33Choice_ SettlementQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity33Choice_ SettlementQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity33Choice_ SettlementQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity33Choice_ SettlementQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
+    [IsoId("_HNew-SqEEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Denomination Choice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? DenominationChoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DenominationChoice { get; init; } 
+    #else
+    public System.String? DenominationChoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
+    [IsoId("_HNexASqEEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCertificate4? CertificateNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesCertificate4? CertificateNumber { get; init; } 
+    #else
+    public SecuritiesCertificate4? CertificateNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
+    [IsoId("_HNexCSqEEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityBreakdown62? QuantityBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityBreakdown62? QuantityBreakdown { get; init; } 
+    #else
+    public QuantityBreakdown62? QuantityBreakdown { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmQty", xmlNamespace );
-        SettlementQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DenominationChoice is IsoMax210Text DenominationChoiceValue)
-        {
-            writer.WriteStartElement(null, "DnmtnChc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(DenominationChoiceValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-        if (CertificateNumber is SecuritiesCertificate4 CertificateNumberValue)
-        {
-            writer.WriteStartElement(null, "CertNb", xmlNamespace );
-            CertificateNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QuantityBreakdown is QuantityBreakdown62 QuantityBreakdownValue)
-        {
-            writer.WriteStartElement(null, "QtyBrkdwn", xmlNamespace );
-            QuantityBreakdownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Quantity48 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

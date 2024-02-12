@@ -7,57 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason for the in repair status.
 /// </summary>
+[IsoId("_RR_KUNp-Ed-ak6NoX_4Aeg_1062766398")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("In Repair Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InRepairStatus3
-     : IIsoXmlSerilizable<InRepairStatus3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InRepairStatus3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InRepairStatus3( System.String reqReason,GenericIdentification1 reqDataSourceScheme,NoReasonCode reqNoSpecifiedReason )
+    {
+        Reason = reqReason;
+        DataSourceScheme = reqDataSourceScheme;
+        NoSpecifiedReason = reqNoSpecifiedReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason for the in-repair status.
     /// </summary>
+    [IsoId("_RR_KUdp-Ed-ak6NoX_4Aeg_1346286799")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Reason { get; init; } 
+    #else
+    public System.String Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary identification of the reason for the in-repair status.
     /// </summary>
+    [IsoId("_RR_KUtp-Ed-ak6NoX_4Aeg_1062766459")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Source Scheme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification1 DataSourceScheme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1 DataSourceScheme { get; init; } 
+    #else
+    public GenericIdentification1 DataSourceScheme { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [IsoId("_RR_KU9p-Ed-ak6NoX_4Aeg_1062766424")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("No Specified Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NoReasonCode NoSpecifiedReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NoReasonCode NoSpecifiedReason { get; init; } 
+    #else
+    public NoReasonCode NoSpecifiedReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(Reason)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
-        DataSourceScheme.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
-        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static InRepairStatus3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

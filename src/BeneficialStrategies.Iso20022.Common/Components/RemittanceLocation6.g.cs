@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the remittance advice.
 /// </summary>
+[IsoId("_9B7YUW4-EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Remittance Location")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RemittanceLocation6
-     : IIsoXmlSerilizable<RemittanceLocation6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the remittance information sent separately from the payment instruction, such as a remittance advice.
     /// </summary>
+    [IsoId("_9MDks24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remittance Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RemittanceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RemittanceIdentification { get; init; } 
+    #else
+    public System.String? RemittanceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method used to deliver the remittance advice information.
     /// </summary>
+    [IsoId("_9MDktW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remittance Location Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceLocationMethod2Code? RemittanceLocationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RemittanceLocationMethod2Code? RemittanceLocationMethod { get; init; } 
+    #else
+    public RemittanceLocationMethod2Code? RemittanceLocationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Electronic address to which an agent is to send the remittance information.
     /// </summary>
+    [IsoId("_9MDkt24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remittance Location Electronic Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? RemittanceLocationElectronicAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RemittanceLocationElectronicAddress { get; init; } 
+    #else
+    public System.String? RemittanceLocationElectronicAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Postal address to which an agent is to send the remittance information.
     /// </summary>
+    [IsoId("_9MDkuW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remittance Location Postal Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress16? RemittanceLocationPostalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress16? RemittanceLocationPostalAddress { get; init; } 
+    #else
+    public NameAndAddress16? RemittanceLocationPostalAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RemittanceIdentification is IsoMax35Text RemittanceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RmtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RemittanceIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RemittanceLocationMethod is RemittanceLocationMethod2Code RemittanceLocationMethodValue)
-        {
-            writer.WriteStartElement(null, "RmtLctnMtd", xmlNamespace );
-            writer.WriteValue(RemittanceLocationMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RemittanceLocationElectronicAddress is IsoMax2048Text RemittanceLocationElectronicAddressValue)
-        {
-            writer.WriteStartElement(null, "RmtLctnElctrncAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2048Text(RemittanceLocationElectronicAddressValue)); // data type Max2048Text System.String
-            writer.WriteEndElement();
-        }
-        if (RemittanceLocationPostalAddress is NameAndAddress16 RemittanceLocationPostalAddressValue)
-        {
-            writer.WriteStartElement(null, "RmtLctnPstlAdr", xmlNamespace );
-            RemittanceLocationPostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static RemittanceLocation6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

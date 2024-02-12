@@ -9,113 +9,206 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice;
-
-/// <summary>
-/// Specifies the different movements and places and their role in a multimodal conveyance of goods.
-/// </summary>
-public partial record MultimodalTransport : TransportMeans1Choice_
-     , IIsoXmlSerilizable<MultimodalTransport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Place from where the goods must leave.
+    /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
     /// </summary>
-    public AirportName1Choice_? DepartureAirport { get; init; } 
-    /// <summary>
-    /// Place where the goods must arrive.
-    /// </summary>
-    public AirportName1Choice_? DestinationAirport { get; init; } 
-    /// <summary>
-    /// Identifies the port where the goods are loaded on board the ship.
-    /// </summary>
-    public IsoMax35Text? PortOfLoading { get; init; } 
-    /// <summary>
-    /// Identifies the port where the goods are discharged.
-    /// </summary>
-    public IsoMax35Text? PortOfDischarge { get; init; } 
-    /// <summary>
-    /// Identifies the location where the goods are received for transportation.
-    /// </summary>
-    public IsoMax35Text? PlaceOfReceipt { get; init; } 
-    /// <summary>
-    /// Identifies the location of delivery of the goods.
-    /// </summary>
-    public IsoMax35Text? PlaceOfDelivery { get; init; } 
-    /// <summary>
-    /// Identifies the location where the goods are take in charge for transportation.
-    /// </summary>
-    public IsoMax35Text? TakingInCharge { get; init; } 
-    /// <summary>
-    /// Identifies the location of the final destination of the goods.
-    /// </summary>
-    public IsoMax35Text? PlaceOfFinalDestination { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_U7oxltp-Ed-ak6NoX_4Aeg_1541248006")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multimodal Transport")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record MultimodalTransport : TransportMeans1Choice_
+    #else
+    public partial class MultimodalTransport : TransportMeans1Choice_
+    #endif
     {
-        if (DepartureAirport is AirportName1Choice_ DepartureAirportValue)
-        {
-            writer.WriteStartElement(null, "DprtureAirprt", xmlNamespace );
-            DepartureAirportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DestinationAirport is AirportName1Choice_ DestinationAirportValue)
-        {
-            writer.WriteStartElement(null, "DstnAirprt", xmlNamespace );
-            DestinationAirportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PortOfLoading is IsoMax35Text PortOfLoadingValue)
-        {
-            writer.WriteStartElement(null, "PortOfLoadng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfLoadingValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PortOfDischarge is IsoMax35Text PortOfDischargeValue)
-        {
-            writer.WriteStartElement(null, "PortOfDschrge", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfDischargeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PlaceOfReceipt is IsoMax35Text PlaceOfReceiptValue)
-        {
-            writer.WriteStartElement(null, "PlcOfRct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfReceiptValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PlaceOfDelivery is IsoMax35Text PlaceOfDeliveryValue)
-        {
-            writer.WriteStartElement(null, "PlcOfDlvry", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfDeliveryValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TakingInCharge is IsoMax35Text TakingInChargeValue)
-        {
-            writer.WriteStartElement(null, "TakngInChrg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TakingInChargeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PlaceOfFinalDestination is IsoMax35Text PlaceOfFinalDestinationValue)
-        {
-            writer.WriteStartElement(null, "PlcOfFnlDstn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfFinalDestinationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new MultimodalTransport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Place from where the goods must leave.
+        /// </summary>
+        [IsoId("_U7C7t9p-Ed-ak6NoX_4Aeg_707023270")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Departure Airport")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AirportName1Choice_? DepartureAirport { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AirportName1Choice_? DepartureAirport { get; init; } 
+        #else
+        public AirportName1Choice_? DepartureAirport { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Place where the goods must arrive.
+        /// </summary>
+        [IsoId("_U7C7uNp-Ed-ak6NoX_4Aeg_696865440")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Destination Airport")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AirportName1Choice_? DestinationAirport { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AirportName1Choice_? DestinationAirport { get; init; } 
+        #else
+        public AirportName1Choice_? DestinationAirport { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the port where the goods are loaded on board the ship.
+        /// </summary>
+        [IsoId("_U7C7udp-Ed-ak6NoX_4Aeg_1824419961")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Port Of Loading")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? PortOfLoading { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PortOfLoading { get; init; } 
+        #else
+        public System.String? PortOfLoading { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the port where the goods are discharged.
+        /// </summary>
+        [IsoId("_U7C7utp-Ed-ak6NoX_4Aeg_1824419670")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Port Of Discharge")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? PortOfDischarge { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PortOfDischarge { get; init; } 
+        #else
+        public System.String? PortOfDischarge { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the location where the goods are received for transportation.
+        /// </summary>
+        [IsoId("_U7MssNp-Ed-ak6NoX_4Aeg_-2012481632")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Place Of Receipt")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? PlaceOfReceipt { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PlaceOfReceipt { get; init; } 
+        #else
+        public System.String? PlaceOfReceipt { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the location of delivery of the goods.
+        /// </summary>
+        [IsoId("_U7Mssdp-Ed-ak6NoX_4Aeg_-2012481657")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Place Of Delivery")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? PlaceOfDelivery { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PlaceOfDelivery { get; init; } 
+        #else
+        public System.String? PlaceOfDelivery { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the location where the goods are take in charge for transportation.
+        /// </summary>
+        [IsoId("_U7Msstp-Ed-ak6NoX_4Aeg_-1684632772")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Taking In Charge")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? TakingInCharge { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TakingInCharge { get; init; } 
+        #else
+        public System.String? TakingInCharge { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the location of the final destination of the goods.
+        /// </summary>
+        [IsoId("_U7Mss9p-Ed-ak6NoX_4Aeg_-1684632807")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Place Of Final Destination")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? PlaceOfFinalDestination { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PlaceOfFinalDestination { get; init; } 
+        #else
+        public System.String? PlaceOfFinalDestination { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

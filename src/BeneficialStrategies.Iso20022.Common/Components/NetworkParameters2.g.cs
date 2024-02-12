@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[IsoId("_xeuz0UeTEeODR7vDcYOqmg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Network Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NetworkParameters2
-     : IIsoXmlSerilizable<NetworkParameters2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NetworkParameters2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NetworkParameters2( System.String reqAddress )
+    {
+        Address = reqAddress;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// IP address or hostname.
     /// </summary>
+    [IsoId("_qiiBQEeUEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Address { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Address { get; init; } 
+    #else
+    public System.String Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Port number of the server, if the default port number is not used.
     /// </summary>
+    [IsoId("_c3emgEeUEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Port Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PortNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PortNumber { get; init; } 
+    #else
+    public System.UInt64? PortNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delay between two contacts of the server.
     /// </summary>
+    [IsoId("_QxlywEeUEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delay")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? Delay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? Delay { get; init; } 
+    #else
+    public System.TimeOnly? Delay { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Adr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Address)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (PortNumber is IsoNumber PortNumberValue)
-        {
-            writer.WriteStartElement(null, "PortNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(PortNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Delay is IsoISOTime DelayValue)
-        {
-            writer.WriteStartElement(null, "Dely", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(DelayValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static NetworkParameters2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

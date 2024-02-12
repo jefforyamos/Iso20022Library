@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency3Choice;
-
-/// <summary>
-/// Frequency expressed in tenor notation.
-/// </summary>
-public partial record Term : InterestRateFrequency3Choice_
-     , IIsoXmlSerilizable<Term>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unit for the rate basis.
+    /// Frequency expressed in tenor notation.
     /// </summary>
-    public Frequency13Code? Unit { get; init; } 
-    /// <summary>
-    /// Specifies the number of time units (as expressed by the payment frequency period) that detemines the frequency at which periodic payment dates occur.
-    /// </summary>
-    public IsoMax3Number? Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_7KQYoVfREeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Term")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Term : InterestRateFrequency3Choice_
+    #else
+    public partial class Term : InterestRateFrequency3Choice_
+    #endif
     {
-        if (Unit is Frequency13Code UnitValue)
-        {
-            writer.WriteStartElement(null, "Unit", xmlNamespace );
-            writer.WriteValue(UnitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Value is IsoMax3Number ValueValue)
-        {
-            writer.WriteStartElement(null, "Val", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Number(ValueValue)); // data type Max3Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static new Term Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unit for the rate basis.
+        /// </summary>
+        [IsoId("_7j19U1fREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Frequency13Code? Unit { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Frequency13Code? Unit { get; init; } 
+        #else
+        public Frequency13Code? Unit { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the number of time units (as expressed by the payment frequency period) that detemines the frequency at which periodic payment dates occur.
+        /// </summary>
+        [IsoId("_7j19VVfREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax3Number? Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? Value { get; init; } 
+        #else
+        public System.UInt64? Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

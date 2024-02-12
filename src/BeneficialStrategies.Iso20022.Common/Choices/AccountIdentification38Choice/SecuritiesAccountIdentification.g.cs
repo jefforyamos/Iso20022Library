@@ -9,60 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification38Choice;
-
-/// <summary>
-/// Unique identification of the securities account as assigned by the account servicer.
-/// </summary>
-public partial record SecuritiesAccountIdentification : AccountIdentification38Choice_
-     , IIsoXmlSerilizable<SecuritiesAccountIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification38Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unambiguous identification for the account between the account owner and the account servicer.
+    /// Unique identification of the securities account as assigned by the account servicer.
     /// </summary>
-    public required IsoMax35Text Identification { get; init; } 
-    /// <summary>
-    /// Specifies the type of securities account.
-    /// </summary>
-    public GenericIdentification30? Type { get; init; } 
-    /// <summary>
-    /// Description of the account.
-    /// </summary>
-    public IsoMax70Text? Name { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_mmlMgeF6EeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SecuritiesAccountIdentification : AccountIdentification38Choice_
+    #else
+    public partial class SecuritiesAccountIdentification : AccountIdentification38Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Type is GenericIdentification30 TypeValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a SecuritiesAccountIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public SecuritiesAccountIdentification( System.String reqIdentification )
         {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new SecuritiesAccountIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unambiguous identification for the account between the account owner and the account servicer.
+        /// </summary>
+        [IsoId("_T_JUK9p-Ed-ak6NoX_4Aeg_1862799235")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the type of securities account.
+        /// </summary>
+        [IsoId("_T_JULNp-Ed-ak6NoX_4Aeg_865726882")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public GenericIdentification30? Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification30? Type { get; init; } 
+        #else
+        public GenericIdentification30? Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Description of the account.
+        /// </summary>
+        [IsoId("_T_JULdp-Ed-ak6NoX_4Aeg_-54306770")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax70Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

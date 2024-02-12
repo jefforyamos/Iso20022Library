@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price.
 /// </summary>
+[IsoId("_12okUWp7EemmaZLSPtWX5A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Future")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Future4
-     : IIsoXmlSerilizable<Future4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
+    [IsoId("_2CcLsWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ContractSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ContractSize { get; init; } 
+    #else
+    public System.Decimal? ContractSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Predetermined price at which the holder of a Future will have to buy or sell the underlying instrument.
     /// </summary>
+    [IsoId("_2CcLs2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? ExercisePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price8? ExercisePrice { get; init; } 
+    #else
+    public Price8? ExercisePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which future contracts settle.
     /// </summary>
+    [IsoId("_2CcLtWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Future Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FutureDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? FutureDate { get; init; } 
+    #else
+    public System.DateTime? FutureDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the minimum ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
+    [IsoId("_2CcLt2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumSize { get; init; } 
+    #else
+    public System.Decimal? MinimumSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used to indicate the measurement unit of the underlying commodity on which the contract is based (for example, 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
+    [IsoId("_2CcLuWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure7Choice_? UnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOfMeasure7Choice_? UnitOfMeasure { get; init; } 
+    #else
+    public UnitOfMeasure7Choice_? UnitOfMeasure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used to indicate a time unit for the contract (for example days, weeks, months, etc.).
     /// </summary>
+    [IsoId("_2CcLwWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeUnit3Choice_? TimeUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TimeUnit3Choice_? TimeUnit { get; init; } 
+    #else
+    public TimeUnit3Choice_? TimeUnit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
+    [IsoId("_2CcLyWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Underlying Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
+    #else
+    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ContractSize is IsoBaseOneRate ContractSizeValue)
-        {
-            writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ContractSizeValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExercisePrice is Price8 ExercisePriceValue)
-        {
-            writer.WriteStartElement(null, "ExrcPric", xmlNamespace );
-            ExercisePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FutureDate is IsoISODateTime FutureDateValue)
-        {
-            writer.WriteStartElement(null, "FutrDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(FutureDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (MinimumSize is IsoActiveCurrencyAndAmount MinimumSizeValue)
-        {
-            writer.WriteStartElement(null, "MinSz", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumSizeValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is UnitOfMeasure7Choice_ UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TimeUnit is TimeUnit3Choice_ TimeUnitValue)
-        {
-            writer.WriteStartElement(null, "TmUnit", xmlNamespace );
-            TimeUnitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalUnderlyingAttributes is UnderlyingAttributes4 AdditionalUnderlyingAttributesValue)
-        {
-            writer.WriteStartElement(null, "AddtlUndrlygAttrbts", xmlNamespace );
-            AdditionalUnderlyingAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Future4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

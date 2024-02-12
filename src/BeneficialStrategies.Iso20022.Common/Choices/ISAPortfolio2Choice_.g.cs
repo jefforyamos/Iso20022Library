@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice to provide additional portfolio information or individual savings account information (UK government scheme provided by UK based financial institutions only).
-/// </summary>
-[KnownType(typeof(ISAPortfolio2Choice.ISA))]
-[KnownType(typeof(ISAPortfolio2Choice.Portfolio))]
-public abstract partial record ISAPortfolio2Choice_ : IIsoXmlSerilizable<ISAPortfolio2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice to provide additional portfolio information or individual savings account information (UK government scheme provided by UK based financial institutions only).
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ISAPortfolio2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ISAPortfolio2Choice.ISA))]
+    [KnownType(typeof(ISAPortfolio2Choice.Portfolio))]
+    [IsoId("_3fnhckXfEeGY6MkiuzuPOA_858119227")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISA Portfolio 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ISAPortfolio2Choice_
+    #else
+    public abstract partial class ISAPortfolio2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISA" => ISAPortfolio2Choice.ISA.Deserialize(elementWithPayload),
-             "Prtfl" => ISAPortfolio2Choice.Portfolio.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ISAPortfolio2Choice choice.")
-        };
     }
 }

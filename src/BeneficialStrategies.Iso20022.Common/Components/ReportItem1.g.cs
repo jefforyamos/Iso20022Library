@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account details of the report item.
 /// </summary>
+[IsoId("_Xtn_QU1oEeSvz4A_x0ui8g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Item")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportItem1
-     : IIsoXmlSerilizable<ReportItem1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportItem1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportItem1( SecuritiesAccount19 reqAccountIdentification,HoldingAccountLevel1Code reqAccountLevel )
+    {
+        AccountIdentification = reqAccountIdentification;
+        AccountLevel = reqAccountLevel;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_xqlbEU1pEeSvz4A_x0ui8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    #else
+    public SecuritiesAccount19 AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Level of the safekeeping account or sub-account of the report item.
     /// </summary>
+    [IsoId("_Qv8mAE1pEeSvz4A_x0ui8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required HoldingAccountLevel1Code AccountLevel { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public HoldingAccountLevel1Code AccountLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HoldingAccountLevel1Code AccountLevel { get; init; } 
+    #else
+    public HoldingAccountLevel1Code AccountLevel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instrument identification of the report item.
     /// </summary>
+    [IsoId("_ia7aAU1pEeSvz4A_x0ui8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the report item.
     /// </summary>
+    [IsoId("_kotgMU1pEeSvz4A_x0ui8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ItemDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ItemDate { get; init; } 
+    #else
+    public System.DateOnly? ItemDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctId", xmlNamespace );
-        AccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctLvl", xmlNamespace );
-        writer.WriteValue(AccountLevel.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ItemDate is IsoISODate ItemDateValue)
-        {
-            writer.WriteStartElement(null, "ItmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ItemDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportItem1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

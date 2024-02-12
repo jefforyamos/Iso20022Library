@@ -7,93 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the securities settlement system used in a settlement process.
 /// </summary>
+[IsoId("_h-yqwR2yEeqF2P5v-Rtejg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Settlement System Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesSettlementSystemIdentification2
-     : IIsoXmlSerilizable<SecuritiesSettlementSystemIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesSettlementSystemIdentification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesSettlementSystemIdentification2( System.String reqSystemIdentification )
+    {
+        SystemIdentification = reqSystemIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the securities settlement system.
     /// </summary>
+    [IsoId("_iAmBkR2yEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SystemIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SystemIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SystemIdentification { get; init; } 
+    #else
+    public System.String SystemIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the securities settlement system.
     /// </summary>
+    [IsoId("_iAmBkx2yEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SystemName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SystemName { get; init; } 
+    #else
+    public System.String? SystemName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country code for the jurisdiction in which the CSD is established.
     /// </summary>
+    [IsoId("_iAmBlR2yEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Of Jurisdiction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfJurisdiction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CountryOfJurisdiction { get; init; } 
+    #else
+    public string? CountryOfJurisdiction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Corporate name of the CSD.
     /// </summary>
+    [IsoId("_iAmBlx2yEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CSD Legal Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CSDLegalName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CSDLegalName { get; init; } 
+    #else
+    public System.String? CSDLegalName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal entity identification of the CSD operating the securities settlement system.
     /// </summary>
+    [IsoId("_iAmBmR2yEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("LEI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LEI { get; init; } 
+    #else
+    public System.String? LEI { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party (such as a person or a team) responsible for the report sent by the CSD.
     /// </summary>
+    [IsoId("_iAmBmx2yEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact9? ResponsibleParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact9? ResponsibleParty { get; init; } 
+    #else
+    public Contact9? ResponsibleParty { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SysId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(SystemIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (SystemName is IsoMax140Text SystemNameValue)
-        {
-            writer.WriteStartElement(null, "SysNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(SystemNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (CountryOfJurisdiction is CountryCode CountryOfJurisdictionValue)
-        {
-            writer.WriteStartElement(null, "CtryOfJursdctn", xmlNamespace );
-            writer.WriteValue(CountryOfJurisdictionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CSDLegalName is IsoMax140Text CSDLegalNameValue)
-        {
-            writer.WriteStartElement(null, "CSDLglNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(CSDLegalNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (LEI is IsoLEIIdentifier LEIValue)
-        {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (ResponsibleParty is Contact9 ResponsiblePartyValue)
-        {
-            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
-            ResponsiblePartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesSettlementSystemIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

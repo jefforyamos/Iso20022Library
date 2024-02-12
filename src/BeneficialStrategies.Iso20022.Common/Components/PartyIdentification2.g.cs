@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of an entity involved in an activity.
 /// </summary>
+[IsoId("_PXWpodp-Ed-ak6NoX_4Aeg_2084212157")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyIdentification2
-     : IIsoXmlSerilizable<PartyIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyIdentification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyIdentification2( PartyIdentification12Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
+    [IsoId("_PXWpotp-Ed-ak6NoX_4Aeg_-2032636467")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification12Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification12Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification12Choice_ Identification { get; init; } 
+    #else
+    public PartyIdentification12Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [IsoId("_PXWpo9p-Ed-ak6NoX_4Aeg_1970373091")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlternatePartyIdentification2? AlternateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlternatePartyIdentification2? AlternateIdentification { get; init; } 
+    #else
+    public AlternatePartyIdentification2? AlternateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the instruction was processed by the specified party.
     /// </summary>
+    [IsoId("_PXWppNp-Ed-ak6NoX_4Aeg_1265258476")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? ProcessingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
+    [IsoId("_PXWppdp-Ed-ak6NoX_4Aeg_268186123")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProcessingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProcessingIdentification { get; init; } 
+    #else
+    public System.String? ProcessingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
+    [IsoId("_PXWpptp-Ed-ak6NoX_4Aeg_-728886230")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyTextInformation1? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyTextInformation1? AdditionalInformation { get; init; } 
+    #else
+    public PartyTextInformation1? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AlternateIdentification is AlternatePartyIdentification2 AlternateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
-            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingDate is DateAndDateTimeChoice_ ProcessingDateValue)
-        {
-            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
-            ProcessingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is PartyTextInformation1 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

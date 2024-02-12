@@ -7,56 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics on derivatives submitted for reconciliation per counterparty pair.
 /// </summary>
+[IsoId("_cHKG8VovEe23K4GXSpBSeg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reconciliation Counterparty Pair Statistics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReconciliationCounterpartyPairStatistics6
-     : IIsoXmlSerilizable<ReconciliationCounterpartyPairStatistics6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReconciliationCounterpartyPairStatistics6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReconciliationCounterpartyPairStatistics6( CounterpartyData91 reqCounterpartyIdentification,System.UInt64 reqTotalNumberOfTransactions )
+    {
+        CounterpartyIdentification = reqCounterpartyIdentification;
+        TotalNumberOfTransactions = reqTotalNumberOfTransactions;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [IsoId("_cIzswVovEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData91 CounterpartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CounterpartyData91 CounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyData91 CounterpartyIdentification { get; init; } 
+    #else
+    public CounterpartyData91 CounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of all reports per status on derivatives submitted for reconciliation per counterparty pair.
     /// </summary>
+    [IsoId("_cIzsw1ovEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfTransactions { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 TotalNumberOfTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 TotalNumberOfTransactions { get; init; } 
+    #else
+    public System.UInt64 TotalNumberOfTransactions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data on transaction requiring reconciliation or pairing. 
     /// </summary>
+    [IsoId("_cIzsxVovEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Report")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public ReconciliationReport14? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _cIzsxVovEe23K4GXSpBSeg
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-        CounterpartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTransactions)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        // Not sure how to serialize ReconciliationReport, multiplicity Unknown
-    }
-    public static ReconciliationCounterpartyPairStatistics6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unique identifier of an account as assigned by the account servicer.
-/// </summary>
-[KnownType(typeof(AccountIdentification3Choice.IBAN))]
-[KnownType(typeof(AccountIdentification3Choice.BBAN))]
-[KnownType(typeof(AccountIdentification3Choice.UPIC))]
-[KnownType(typeof(AccountIdentification3Choice.ProprietaryAccount))]
-public abstract partial record AccountIdentification3Choice_ : IIsoXmlSerilizable<AccountIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unique identifier of an account as assigned by the account servicer.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountIdentification3Choice.IBAN))]
+    [KnownType(typeof(AccountIdentification3Choice.BBAN))]
+    [KnownType(typeof(AccountIdentification3Choice.UPIC))]
+    [KnownType(typeof(AccountIdentification3Choice.ProprietaryAccount))]
+    [IsoId("_PdnCpdp-Ed-ak6NoX_4Aeg_637192562")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountIdentification3Choice_
+    #else
+    public abstract partial class AccountIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IBAN" => AccountIdentification3Choice.IBAN.Deserialize(elementWithPayload),
-             "BBAN" => AccountIdentification3Choice.BBAN.Deserialize(elementWithPayload),
-             "UPIC" => AccountIdentification3Choice.UPIC.Deserialize(elementWithPayload),
-             "PrtryAcct" => AccountIdentification3Choice.ProprietaryAccount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountIdentification3Choice choice.")
-        };
     }
 }

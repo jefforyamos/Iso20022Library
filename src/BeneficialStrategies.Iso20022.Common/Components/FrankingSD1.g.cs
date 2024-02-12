@@ -7,123 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Franking details.
 /// </summary>
+[IsoId("_UFK5bW99EeKuY41pq1-dog")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Franking SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FrankingSD1
-     : IIsoXmlSerilizable<FrankingSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FrankingSD1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FrankingSD1( FrankingClass1Code reqFrankingClass )
+    {
+        FrankingClass = reqFrankingClass;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance.
     /// </summary>
+    [IsoId("_UFK5em99EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend / Distribution kind where the franking information apples to.
     /// </summary>
+    [IsoId("_UFK5lW99EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Franking Class")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FrankingClass1Code FrankingClass { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FrankingClass1Code FrankingClass { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FrankingClass1Code FrankingClass { get; init; } 
+    #else
+    public FrankingClass1Code FrankingClass { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator if the dividend is fully franked.
     /// </summary>
+    [IsoId("_UFK5f299EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fully Franked Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FullyFrankedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FullyFrankedIndicator { get; init; } 
+    #else
+    public System.String? FullyFrankedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of dividend that is franked.
     /// </summary>
+    [IsoId("_UFK5i299EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Franked Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? FrankedPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FrankedPercentage { get; init; } 
+    #else
+    public System.Decimal? FrankedPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of dividend that is unfranked.
     /// </summary>
+    [IsoId("_DSjMV7YsEeKtMMQEG6I5fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unfranked Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? UnfrankedPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnfrankedPercentage { get; init; } 
+    #else
+    public System.Decimal? UnfrankedPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// The corporate tax rate for the for franking credit of the dividend.
     /// </summary>
+    [IsoId("_UFK5kG99EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Tax Rate For Franking Credit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CorporateTaxRateForFrankingCredit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CorporateTaxRateForFrankingCredit { get; init; } 
+    #else
+    public System.Decimal? CorporateTaxRateForFrankingCredit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cents amount of the dividend which has been franked at 30%.
     /// </summary>
+    [IsoId("_UFK5cG99EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Franked Amount Per Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FrankedAmountPerSecurity { get; init; } 
+    #else
+    public System.Decimal? FrankedAmountPerSecurity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the dividend which has been unfranked.|
     /// </summary>
+    [IsoId("_UFK5dW99EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unfranked Amount Per Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnfrankedAmountPerSecurity { get; init; } 
+    #else
+    public System.Decimal? UnfrankedAmountPerSecurity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Conduit foreign income (CFI) amount related to the corporate action.
     /// </summary>
+    [IsoId("_UFK5hG99EeKuY41pq1-dog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conduit Foreign Income Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ConduitForeignIncomeAmount { get; init; } 
+    #else
+    public System.Decimal? ConduitForeignIncomeAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FrnkgClss", xmlNamespace );
-        writer.WriteValue(FrankingClass.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (FullyFrankedIndicator is IsoYesNoIndicator FullyFrankedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FullyFrnkdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FullyFrankedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FrankedPercentage is IsoPercentageRate FrankedPercentageValue)
-        {
-            writer.WriteStartElement(null, "FrnkdPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FrankedPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnfrankedPercentage is IsoPercentageRate UnfrankedPercentageValue)
-        {
-            writer.WriteStartElement(null, "UfrnkdPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UnfrankedPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CorporateTaxRateForFrankingCredit is IsoPercentageRate CorporateTaxRateForFrankingCreditValue)
-        {
-            writer.WriteStartElement(null, "CorpTaxRateForFrnkgCdt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CorporateTaxRateForFrankingCreditValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FrankedAmountPerSecurity is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount FrankedAmountPerSecurityValue)
-        {
-            writer.WriteStartElement(null, "FrnkdAmtPerScty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(FrankedAmountPerSecurityValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnfrankedAmountPerSecurity is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount UnfrankedAmountPerSecurityValue)
-        {
-            writer.WriteStartElement(null, "UfrnkdAmtPerScty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(UnfrankedAmountPerSecurityValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ConduitForeignIncomeAmount is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount ConduitForeignIncomeAmountValue)
-        {
-            writer.WriteStartElement(null, "CndtFrgnIncmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(ConduitForeignIncomeAmountValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static FrankingSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

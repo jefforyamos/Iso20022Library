@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Method of payment for the remittance of the CSD or the NCB to the invoicing party.
-/// </summary>
-[KnownType(typeof(PaymentMethod1Choice.Code))]
-[KnownType(typeof(PaymentMethod1Choice.Proprietary))]
-public abstract partial record PaymentMethod1Choice_ : IIsoXmlSerilizable<PaymentMethod1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Method of payment for the remittance of the CSD or the NCB to the invoicing party.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PaymentMethod1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PaymentMethod1Choice.Code))]
+    [KnownType(typeof(PaymentMethod1Choice.Proprietary))]
+    [IsoId("_jFLkUu5NEeCisYr99QEiWA_-1587075302")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Method 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PaymentMethod1Choice_
+    #else
+    public abstract partial class PaymentMethod1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => PaymentMethod1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => PaymentMethod1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PaymentMethod1Choice choice.")
-        };
     }
 }

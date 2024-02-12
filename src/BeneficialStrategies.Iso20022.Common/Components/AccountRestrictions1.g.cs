@@ -7,106 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Restrictions that may be applied to an account or investment plan.
 /// </summary>
+[IsoId("_F1IoQCFiEeW9XJWqfgXIIA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Restrictions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountRestrictions1
-     : IIsoXmlSerilizable<AccountRestrictions1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Restrictions and/or limitations on the account or account party.
     /// </summary>
+    [IsoId("_OkFVYCFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limitation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Limitation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Limitation { get; init; } 
+    #else
+    public System.String? Limitation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information.
     /// </summary>
+    [IsoId("_VAAP8CFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information or instructions for the by-passing of validations in the account registration process.
     /// </summary>
+    [IsoId("_ZUWaACFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Validation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AccountValidation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountValidation { get; init; } 
+    #else
+    public System.String? AccountValidation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type or identification of the restriction.
     /// </summary>
+    [IsoId("_cQ4ckCFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Type { get; init; } 
+    #else
+    public System.String? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regulator that may have to be informed about restrictions or limitations on the account or account party.
     /// </summary>
+    [IsoId("_d1dNsCFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regulator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification70Choice_? Regulator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification70Choice_? Regulator { get; init; } 
+    #else
+    public PartyIdentification70Choice_? Regulator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the restriction.
     /// </summary>
+    [IsoId("_eyT3gCFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RestrictionStatus1Choice_? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RestrictionStatus1Choice_? Status { get; init; } 
+    #else
+    public RestrictionStatus1Choice_? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period of the restriction.
     /// </summary>
+    [IsoId("_foKhcCFiEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails1? Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriodDetails1? Period { get; init; } 
+    #else
+    public DateTimePeriodDetails1? Period { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Limitation is IsoMax350Text LimitationValue)
-        {
-            writer.WriteStartElement(null, "Lmttn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(LimitationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountValidation is IsoMax350Text AccountValidationValue)
-        {
-            writer.WriteStartElement(null, "AcctVldtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AccountValidationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is IsoMax35Text TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Regulator is PartyIdentification70Choice_ RegulatorValue)
-        {
-            writer.WriteStartElement(null, "Rgltr", xmlNamespace );
-            RegulatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Status is RestrictionStatus1Choice_ StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            StatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Period is DateTimePeriodDetails1 PeriodValue)
-        {
-            writer.WriteStartElement(null, "Prd", xmlNamespace );
-            PeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountRestrictions1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

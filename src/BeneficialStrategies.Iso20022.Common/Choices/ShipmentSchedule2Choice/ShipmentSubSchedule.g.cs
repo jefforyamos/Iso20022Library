@@ -9,60 +9,107 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ShipmentSchedule2Choice;
-
-/// <summary>
-/// Specifies a shipment schedule, ie, quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
-/// </summary>
-public partial record ShipmentSubSchedule : ShipmentSchedule2Choice_
-     , IIsoXmlSerilizable<ShipmentSubSchedule>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ShipmentSchedule2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Sub quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
+    /// Specifies a shipment schedule, ie, quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
     /// </summary>
-    public required IsoDecimalNumber SubQuantityValue { get; init; } 
-    /// <summary>
-    /// Earliest date whereby the goods must be shipped.
-    /// </summary>
-    public IsoISODate? EarliestShipmentDate { get; init; } 
-    /// <summary>
-    /// Latest date whereby the goods must be shipped.
-    /// </summary>
-    public IsoISODate? LatestShipmentDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_0ZWmk-fHEeKNfc-Rw_dPYg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipment Sub Schedule")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ShipmentSubSchedule : ShipmentSchedule2Choice_
+    #else
+    public partial class ShipmentSubSchedule : ShipmentSchedule2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SubQtyVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(SubQuantityValue)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-        if (EarliestShipmentDate is IsoISODate EarliestShipmentDateValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ShipmentSubSchedule instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ShipmentSubSchedule( System.UInt64 reqSubQuantityValue )
         {
-            writer.WriteStartElement(null, "EarlstShipmntDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestShipmentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
+            SubQuantityValue = reqSubQuantityValue;
         }
-        if (LatestShipmentDate is IsoISODate LatestShipmentDateValue)
-        {
-            writer.WriteStartElement(null, "LatstShipmntDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(LatestShipmentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static new ShipmentSubSchedule Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Sub quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
+        /// </summary>
+        [IsoId("_Sp5_htp-Ed-ak6NoX_4Aeg_-1202382015")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sub Quantity Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoDecimalNumber SubQuantityValue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 SubQuantityValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 SubQuantityValue { get; init; } 
+        #else
+        public System.UInt64 SubQuantityValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Earliest date whereby the goods must be shipped.
+        /// </summary>
+        [IsoId("_Sp5_h9p-Ed-ak6NoX_4Aeg_-876378095")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Earliest Shipment Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? EarliestShipmentDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? EarliestShipmentDate { get; init; } 
+        #else
+        public System.DateOnly? EarliestShipmentDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Latest date whereby the goods must be shipped.
+        /// </summary>
+        [IsoId("_SqDwgNp-Ed-ak6NoX_4Aeg_-1202381938")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Latest Shipment Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? LatestShipmentDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? LatestShipmentDate { get; init; } 
+        #else
+        public System.DateOnly? LatestShipmentDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choice;
-
-/// <summary>
-/// Indicates whether or not the referred item is a possible duplicate of a previous instruction or entry.
-/// </summary>
-public partial record PossibleDuplicateInstruction : UnableToApplyJustification3Choice_
-     , IIsoXmlSerilizable<PossibleDuplicateInstruction>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// A flag indicating a True or False value.
+    /// Indicates whether or not the referred item is a possible duplicate of a previous instruction or entry.
     /// </summary>
-    public required IsoTrueFalseIndicator Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_S_E3F0goEeaGKYpLDboHPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Possible Duplicate Instruction")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PossibleDuplicateInstruction : UnableToApplyJustification3Choice_
+    #else
+    public partial class PossibleDuplicateInstruction : UnableToApplyJustification3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PssblDplctInstr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Value)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static new PossibleDuplicateInstruction Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a PossibleDuplicateInstruction instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public PossibleDuplicateInstruction( System.String reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// A flag indicating a True or False value.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoTrueFalseIndicator Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

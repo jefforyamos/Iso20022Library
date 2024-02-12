@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides acceptance status of the holding item.
-/// </summary>
-[KnownType(typeof(ReportItemStatus1Choice.Accepted))]
-[KnownType(typeof(ReportItemStatus1Choice.AcceptedWithException))]
-[KnownType(typeof(ReportItemStatus1Choice.Rejected))]
-public abstract partial record ReportItemStatus1Choice_ : IIsoXmlSerilizable<ReportItemStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides acceptance status of the holding item.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReportItemStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReportItemStatus1Choice.Accepted))]
+    [KnownType(typeof(ReportItemStatus1Choice.AcceptedWithException))]
+    [KnownType(typeof(ReportItemStatus1Choice.Rejected))]
+    [IsoId("_0w3vwb3QEeO2FLWuu_JIqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Item Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReportItemStatus1Choice_
+    #else
+    public abstract partial class ReportItemStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Accptd" => ReportItemStatus1Choice.Accepted.Deserialize(elementWithPayload),
-             "AccptdWthXcptn" => ReportItemStatus1Choice.AcceptedWithException.Deserialize(elementWithPayload),
-             "Rjctd" => ReportItemStatus1Choice.Rejected.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReportItemStatus1Choice choice.")
-        };
     }
 }

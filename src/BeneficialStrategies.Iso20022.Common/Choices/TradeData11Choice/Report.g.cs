@@ -9,55 +9,88 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeData11Choice;
-
-/// <summary>
-/// Information concerning the reporting at transaction level.
-/// </summary>
-public partial record Report : TradeData11Choice_
-     , IIsoXmlSerilizable<Report>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeData11Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Information about accepted and rejected reports and the reasons of rejection.
+    /// Information concerning the reporting at transaction level.
     /// </summary>
-    public DetailedReportStatistics5? ReportStatistics { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _R_kY3u3tEemV1LTEADuPBQ
-    /// <summary>
-    /// Information about accepted and rejected transactions and the reasons of rejection.
-    /// </summary>
-    public DetailedTransactionStatistics10? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _R_kY3-3tEemV1LTEADuPBQ
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_BO3n864UEemB_csI4yyKLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Report : TradeData11Choice_
+    #else
+    public partial class Report : TradeData11Choice_
+    #endif
     {
-        // Not sure how to serialize ReportStatistics, multiplicity Unknown
-        // Not sure how to serialize TransactionStatistics, multiplicity Unknown
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Report Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Information about accepted and rejected reports and the reasons of rejection.
+        /// </summary>
+        [IsoId("_R_kY3u3tEemV1LTEADuPBQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Report Statistics")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public DetailedReportStatistics5? ReportStatistics { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _R_kY3u3tEemV1LTEADuPBQ
+        
+        /// <summary>
+        /// Information about accepted and rejected transactions and the reasons of rejection.
+        /// </summary>
+        [IsoId("_R_kY3-3tEemV1LTEADuPBQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Statistics")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public DetailedTransactionStatistics10? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _R_kY3-3tEemV1LTEADuPBQ
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_R_kY3e3tEemV1LTEADuPBQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

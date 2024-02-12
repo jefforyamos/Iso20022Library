@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the account that is impacted or not by the standing instruction.
 /// </summary>
+[IsoId("_QUmVCNp-Ed-ak6NoX_4Aeg_1997970663")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Included Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IncludedAccount1
-     : IIsoXmlSerilizable<IncludedAccount1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IncludedAccount1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IncludedAccount1( System.String reqSecuritiesAccountIdentification,System.String reqIncludedIndicator )
+    {
+        SecuritiesAccountIdentification = reqSecuritiesAccountIdentification;
+        IncludedIndicator = reqIncludedIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
+    [IsoId("_QUwGANp-Ed-ak6NoX_4Aeg_-2068886946")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SecuritiesAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SecuritiesAccountIdentification { get; init; } 
+    #else
+    public System.String SecuritiesAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account is impacted or not by the standing instruction.||Yes = The account is impacted by the standing instruction.|No = The account is not impacted by the standing instruction.
     /// </summary>
+    [IsoId("_QUwGAdp-Ed-ak6NoX_4Aeg_-2068886937")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Included Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator IncludedIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IncludedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IncludedIndicator { get; init; } 
+    #else
+    public System.String IncludedIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesAccountIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InclInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(IncludedIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static IncludedAccount1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

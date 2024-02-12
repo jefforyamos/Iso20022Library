@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare related energy derivatives attributes.
 /// </summary>
+[IsoId("_YR3eIVo0Ee23K4GXSpBSeg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compare Energy Delivery Attribute")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CompareEnergyDeliveryAttribute1
-     : IIsoXmlSerilizable<CompareEnergyDeliveryAttribute1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the delivery intervals are matching or not.
     /// </summary>
+    [IsoId("_YTTokVo0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Delivery Interval")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTimePeriod2? EnergyDeliveryInterval { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareTimePeriod2? EnergyDeliveryInterval { get; init; } 
+    #else
+    public CompareTimePeriod2? EnergyDeliveryInterval { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the delivery start date and end date are matching or not.
     /// </summary>
+    [IsoId("_YTTok1o0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDatePeriod2? EnergyDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDatePeriod2? EnergyDate { get; init; } 
+    #else
+    public CompareDatePeriod2? EnergyDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the energy durations are matching or not.
     /// </summary>
+    [IsoId("_YTTolVo0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDurationType1? EnergyDuration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDurationType1? EnergyDuration { get; init; } 
+    #else
+    public CompareDurationType1? EnergyDuration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the week days are matching or not.
     /// </summary>
+    [IsoId("_YTTol1o0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Week Day")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareWeekDay1? EnergyWeekDay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareWeekDay1? EnergyWeekDay { get; init; } 
+    #else
+    public CompareWeekDay1? EnergyWeekDay { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the delivery capacity are matching or not.
     /// </summary>
+    [IsoId("_YTTomVo0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Delivery Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareLongFraction19DecimalNumber1? EnergyDeliveryCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareLongFraction19DecimalNumber1? EnergyDeliveryCapacity { get; init; } 
+    #else
+    public CompareLongFraction19DecimalNumber1? EnergyDeliveryCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the energy quantity units are matching or not.
     /// </summary>
+    [IsoId("_YTTom1o0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Quantity Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareEnergyQuantityUnit1? EnergyQuantityUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareEnergyQuantityUnit1? EnergyQuantityUnit { get; init; } 
+    #else
+    public CompareEnergyQuantityUnit1? EnergyQuantityUnit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the price time interval quantity are matching or not.
     /// </summary>
+    [IsoId("_YTTonVo0Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy Price Time Interval Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? EnergyPriceTimeIntervalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareAmountAndDirection3? EnergyPriceTimeIntervalQuantity { get; init; } 
+    #else
+    public CompareAmountAndDirection3? EnergyPriceTimeIntervalQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EnergyDeliveryInterval is CompareTimePeriod2 EnergyDeliveryIntervalValue)
-        {
-            writer.WriteStartElement(null, "NrgyDlvryIntrvl", xmlNamespace );
-            EnergyDeliveryIntervalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnergyDate is CompareDatePeriod2 EnergyDateValue)
-        {
-            writer.WriteStartElement(null, "NrgyDt", xmlNamespace );
-            EnergyDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnergyDuration is CompareDurationType1 EnergyDurationValue)
-        {
-            writer.WriteStartElement(null, "NrgyDrtn", xmlNamespace );
-            EnergyDurationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnergyWeekDay is CompareWeekDay1 EnergyWeekDayValue)
-        {
-            writer.WriteStartElement(null, "NrgyWkDay", xmlNamespace );
-            EnergyWeekDayValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnergyDeliveryCapacity is CompareLongFraction19DecimalNumber1 EnergyDeliveryCapacityValue)
-        {
-            writer.WriteStartElement(null, "NrgyDlvryCpcty", xmlNamespace );
-            EnergyDeliveryCapacityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnergyQuantityUnit is CompareEnergyQuantityUnit1 EnergyQuantityUnitValue)
-        {
-            writer.WriteStartElement(null, "NrgyQtyUnit", xmlNamespace );
-            EnergyQuantityUnitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnergyPriceTimeIntervalQuantity is CompareAmountAndDirection3 EnergyPriceTimeIntervalQuantityValue)
-        {
-            writer.WriteStartElement(null, "NrgyPricTmIntrvlQty", xmlNamespace );
-            EnergyPriceTimeIntervalQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CompareEnergyDeliveryAttribute1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

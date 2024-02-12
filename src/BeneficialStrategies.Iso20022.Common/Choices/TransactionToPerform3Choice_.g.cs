@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Content of the Batch Request message.
-/// </summary>
-[KnownType(typeof(TransactionToPerform3Choice.PaymentRequest))]
-[KnownType(typeof(TransactionToPerform3Choice.LoyaltyRequest))]
-[KnownType(typeof(TransactionToPerform3Choice.ReversalRequest))]
-public abstract partial record TransactionToPerform3Choice_ : IIsoXmlSerilizable<TransactionToPerform3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Content of the Batch Request message.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionToPerform3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionToPerform3Choice.PaymentRequest))]
+    [KnownType(typeof(TransactionToPerform3Choice.LoyaltyRequest))]
+    [KnownType(typeof(TransactionToPerform3Choice.ReversalRequest))]
+    [IsoId("_xOWDUS8QEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction To Perform 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionToPerform3Choice_
+    #else
+    public abstract partial class TransactionToPerform3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PmtReq" => TransactionToPerform3Choice.PaymentRequest.Deserialize(elementWithPayload),
-             "LltyReq" => TransactionToPerform3Choice.LoyaltyRequest.Deserialize(elementWithPayload),
-             "RvslReq" => TransactionToPerform3Choice.ReversalRequest.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionToPerform3Choice choice.")
-        };
     }
 }

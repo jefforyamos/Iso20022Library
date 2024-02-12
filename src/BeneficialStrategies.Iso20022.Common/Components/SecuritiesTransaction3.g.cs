@@ -7,39 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the reported transaction.
 /// </summary>
+[IsoId("_R8SRQZifEe2f7NHvXATP5g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesTransaction3
-     : IIsoXmlSerilizable<SecuritiesTransaction3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesTransaction3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesTransaction3( System.DateTime reqTradeDate,RegulatoryTradingCapacity1Code reqTradingCapacity,FinancialInstrumentQuantity25Choice_ reqQuantity,SecuritiesTransactionPrice22Choice_ reqPrice,System.String reqTradeVenue )
+    {
+        TradeDate = reqTradeDate;
+        TradingCapacity = reqTradingCapacity;
+        Quantity = reqQuantity;
+        Price = reqPrice;
+        TradeVenue = reqTradeVenue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [IsoId("_R9dV8ZifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TradeDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime TradeDate { get; init; } 
+    #else
+    public System.DateTime TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication of whether the transaction results from the reporting firm carrying out matched principal trading or dealing on own account under the local regulation, or where the transaction does not result from the reporting firm carrying out matched principal trading or dealing on own account, the field shall indicate that the transaction was carried out under any other capacity.
     /// </summary>
+    [IsoId("_R9dV9ZifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegulatoryTradingCapacity1Code TradingCapacity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RegulatoryTradingCapacity1Code TradingCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RegulatoryTradingCapacity1Code TradingCapacity { get; init; } 
+    #else
+    public RegulatoryTradingCapacity1Code TradingCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of units of the financial instrument, or the number of derivative contracts in the transaction.
     /// </summary>
+    [IsoId("_R9dV95ifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity25Choice_ Quantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity25Choice_ Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity25Choice_ Quantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity25Choice_ Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of token units of a tokenised financial instrument.
     /// </summary>
+    [IsoId("_IvEBUKOjEe2UDKy7o9_HIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Token Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DigitalTokenAmount2? DigitalTokenQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DigitalTokenAmount2? DigitalTokenQuantity { get; init; } 
+    #else
+    public DigitalTokenAmount2? DigitalTokenQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates as to whether an increase or a decrease of notional of derivative contracts has taken place.
     /// </summary>
+    [IsoId("_R9dV-ZifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivative Notional Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VariationType1Code? DerivativeNotionalChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VariationType1Code? DerivativeNotionalChange { get; init; } 
+    #else
+    public VariationType1Code? DerivativeNotionalChange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Traded price of the transaction excluding, where applicable, commission and accrued interest.
     /// In the case of option contracts, it is the premium of the derivative contract per underlying security or index point.
@@ -49,11 +156,41 @@ public partial record SecuritiesTransaction3
     /// Where price reported in monetary terms, it shall be provided in the major currency unit.
     /// Where price is not applicable the field should be left blank.
     /// </summary>
+    [IsoId("_R9dV-5ifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTransactionPrice22Choice_ Price { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesTransactionPrice22Choice_ Price { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionPrice22Choice_ Price { get; init; } 
+    #else
+    public SecuritiesTransactionPrice22Choice_ Price { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net amount of the transaction means the cash amount which is paid by the buyer of the debt instrument upon the settlement of the transaction.
     /// </summary>
+    [IsoId("_R9dV_ZifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? NetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetAmount { get; init; } 
+    #else
+    public System.Decimal? NetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the venue where the transaction was executed.
     /// Usage: 
@@ -61,103 +198,108 @@ public partial record SecuritiesTransaction3
     /// Use MIC code ‘XOFF’ for financial instruments admitted to trading or traded on a trading venue, where the transaction on that financial instrument is not executed on a MiFID trading venue, SI or non-EU organised trading platform, or where an investment firm does not know it is trading with another investment firm acting as an SI.
     /// Use MIC code ‘XXXX’ for financial instruments that are not admitted to trading or traded on a trading venue or for which no request for admission has been made and that are not traded on an non-EU organised trading platform but where the underlying is admitted to trading or traded on a trading venue.
     /// </summary>
+    [IsoId("_R9dV_5ifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMICIdentifier TradeVenue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TradeVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TradeVenue { get; init; } 
+    #else
+    public System.String TradeVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the branch of the investment firm whose market membership was used to execute the transaction.
     /// TBC with item 46.
     /// </summary>
+    [IsoId("_R9dWAZifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Of Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfBranch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CountryOfBranch { get; init; } 
+    #else
+    public string? CountryOfBranch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of any up-front payment in basis points of notional received or paid by the seller.
     /// Where the seller receives the up-front payment, the value populated is positive. Where the seller pays the up-front payment, the value populated is negative.
     /// For increase or decrease in notional derivative contracts, the number shall reflect the absolute value of the change and shall be expressed as a positive number.
     /// </summary>
+    [IsoId("_R9dWA5ifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Up Front Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? UpFrontPayment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? UpFrontPayment { get; init; } 
+    #else
+    public AmountAndDirection53? UpFrontPayment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Common matching identification when executed on a trade place.
     /// Usage: Must be present when a trade venue has been provided.
     /// </summary>
+    [IsoId("_R9dWBZifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Place Matching Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? TradePlaceMatchingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradePlaceMatchingIdentification { get; init; } 
+    #else
+    public System.String? TradePlaceMatchingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification, internal to the reporting party to identify all the reports related to the same execution of a combination of financial instruments. The code must be unique for the reporting party for the group of reports for the execution.
     /// Usage:
     /// Field only applies when the instrument is complex.
     /// </summary>
+    [IsoId("_R9dWB5ifEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Complex Trade Component Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ComplexTradeComponentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ComplexTradeComponentIdentification { get; init; } 
+    #else
+    public System.String? ComplexTradeComponentIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TradDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(TradeDate)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
-        writer.WriteValue(TradingCapacity.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        Quantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DigitalTokenQuantity is DigitalTokenAmount2 DigitalTokenQuantityValue)
-        {
-            writer.WriteStartElement(null, "DgtlTknQty", xmlNamespace );
-            DigitalTokenQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DerivativeNotionalChange is VariationType1Code DerivativeNotionalChangeValue)
-        {
-            writer.WriteStartElement(null, "DerivNtnlChng", xmlNamespace );
-            writer.WriteValue(DerivativeNotionalChangeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Pric", xmlNamespace );
-        Price.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (NetAmount is IsoImpliedCurrencyAndAmount NetAmountValue)
-        {
-            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(NetAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TradVn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradeVenue)); // data type MICIdentifier System.String
-        writer.WriteEndElement();
-        if (CountryOfBranch is CountryCode CountryOfBranchValue)
-        {
-            writer.WriteStartElement(null, "CtryOfBrnch", xmlNamespace );
-            writer.WriteValue(CountryOfBranchValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UpFrontPayment is AmountAndDirection53 UpFrontPaymentValue)
-        {
-            writer.WriteStartElement(null, "UpFrntPmt", xmlNamespace );
-            UpFrontPaymentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradePlaceMatchingIdentification is IsoMax52Text TradePlaceMatchingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TradPlcMtchgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(TradePlaceMatchingIdentificationValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (ComplexTradeComponentIdentification is IsoMax35Text ComplexTradeComponentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmplxTradCmpntId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ComplexTradeComponentIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesTransaction3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

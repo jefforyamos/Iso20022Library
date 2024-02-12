@@ -9,47 +9,87 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Quantity14Choice;
-
-/// <summary>
-/// Total quantity of securities to be settled.
-/// </summary>
-public partial record Unit : Quantity14Choice_
-     , IIsoXmlSerilizable<Unit>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Quantity14Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Quantity expressed as a number, for example, a number of shares.
+    /// Total quantity of securities to be settled.
     /// </summary>
-    public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
-    /// <summary>
-    /// Information about the units to be transferred.
-    /// </summary>
-    public ValueList<Unit5> UnitDetails { get; init; } = [];
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QYSGhRgKEeKqWJINzXcn5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Unit : Quantity14Choice_
+    #else
+    public partial class Unit : Quantity14Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
-        TotalUnitsNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UnitDtls", xmlNamespace );
-        UnitDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Unit Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Unit instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Unit( FinancialInstrumentQuantity1 reqTotalUnitsNumber )
+        {
+            TotalUnitsNumber = reqTotalUnitsNumber;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Quantity expressed as a number, for example, a number of shares.
+        /// </summary>
+        [IsoId("_jQnpABgLEeKqWJINzXcn5g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Total Units Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+        #else
+        public FinancialInstrumentQuantity1 TotalUnitsNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information about the units to be transferred.
+        /// </summary>
+        [IsoId("_swUdoBgLEeKqWJINzXcn5g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(2)]
+        #endif
+        public ValueList<Unit5> UnitDetails { get; init; } = new ValueList<Unit5>(){};
+        
+        
+        #nullable disable
+        
     }
 }

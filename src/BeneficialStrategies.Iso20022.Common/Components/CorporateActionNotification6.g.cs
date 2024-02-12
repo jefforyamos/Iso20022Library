@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Corporate action event notification status and contents.
 /// </summary>
+[IsoId("_WoeoYZmtEeWLs7cvLxlyAg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Notification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNotification6
-     : IIsoXmlSerilizable<CorporateActionNotification6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionNotification6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionNotification6( CorporateActionNotificationType1Code reqNotificationType,CorporateActionProcessingStatus6Choice_ reqProcessingStatus )
+    {
+        NotificationType = reqNotificationType;
+        ProcessingStatus = reqProcessingStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of notification.
     /// </summary>
+    [IsoId("_W9mj05mtEeWLs7cvLxlyAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionNotificationType1Code NotificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionNotificationType1Code NotificationType { get; init; } 
+    #else
+    public CorporateActionNotificationType1Code NotificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
+    [IsoId("_W9mj25mtEeWLs7cvLxlyAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
+    #else
+    public CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the eligible balance is final except for a voluntary corporate action event where it can represent the current eligible balance when communicated before expiration date of that event.
     /// </summary>
+    [IsoId("_W9mj45mtEeWLs7cvLxlyAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligible Balance Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EligibleBalanceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EligibleBalanceIndicator { get; init; } 
+    #else
+    public System.String? EligibleBalanceIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NtfctnTp", xmlNamespace );
-        writer.WriteValue(NotificationType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
-        ProcessingStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EligibleBalanceIndicator is IsoYesNoIndicator EligibleBalanceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ElgblBalInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EligibleBalanceIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNotification6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

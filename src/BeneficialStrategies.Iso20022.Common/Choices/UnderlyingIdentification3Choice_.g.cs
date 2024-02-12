@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Details of the underlying of a security transaction.
-/// </summary>
-[KnownType(typeof(UnderlyingIdentification3Choice.Swap))]
-[KnownType(typeof(UnderlyingIdentification3Choice.Other))]
-public abstract partial record UnderlyingIdentification3Choice_ : IIsoXmlSerilizable<UnderlyingIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Details of the underlying of a security transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnderlyingIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnderlyingIdentification3Choice.Swap))]
+    [KnownType(typeof(UnderlyingIdentification3Choice.Other))]
+    [IsoId("_1tAh1Z3DEeuwmdq0KtnICg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnderlyingIdentification3Choice_
+    #else
+    public abstract partial class UnderlyingIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Swp" => UnderlyingIdentification3Choice.Swap.Deserialize(elementWithPayload),
-             "Othr" => UnderlyingIdentification3Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnderlyingIdentification3Choice choice.")
-        };
     }
 }

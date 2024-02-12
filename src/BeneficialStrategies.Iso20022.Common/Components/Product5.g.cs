@@ -7,83 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Product to purchase.
 /// </summary>
+[IsoId("_lPknoZVaEeWuuIjj4l7kpg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Product")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Product5
-     : IIsoXmlSerilizable<Product5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Product5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Product5( System.String reqProductCode )
+    {
+        ProductCode = reqProductCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Product code of the item.
     /// </summary>
+    [IsoId("_lbSIY5VaEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text ProductCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ProductCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ProductCode { get; init; } 
+    #else
+    public System.String ProductCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
+    [IsoId("_lbSIZZVaEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Product Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalProductCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalProductCode { get; init; } 
+    #else
+    public System.String? AdditionalProductCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount limit for the product.
     /// </summary>
+    [IsoId("_lbSIb5VaEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Limit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? AmountLimit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AmountLimit { get; init; } 
+    #else
+    public System.Decimal? AmountLimit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity limit for the product.
     /// </summary>
+    [IsoId("_lbSIaZVaEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Limit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? QuantityLimit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? QuantityLimit { get; init; } 
+    #else
+    public System.UInt64? QuantityLimit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [IsoId("_lbSIZ5VaEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure6Code? UnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOfMeasure6Code? UnitOfMeasure { get; init; } 
+    #else
+    public UnitOfMeasure6Code? UnitOfMeasure { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PdctCd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductCode)); // data type Max70Text System.String
-        writer.WriteEndElement();
-        if (AdditionalProductCode is IsoMax70Text AdditionalProductCodeValue)
-        {
-            writer.WriteStartElement(null, "AddtlPdctCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalProductCodeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AmountLimit is IsoImpliedCurrencyAndAmount AmountLimitValue)
-        {
-            writer.WriteStartElement(null, "AmtLmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountLimitValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (QuantityLimit is IsoDecimalNumber QuantityLimitValue)
-        {
-            writer.WriteStartElement(null, "QtyLmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(QuantityLimitValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is UnitOfMeasure6Code UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Product5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

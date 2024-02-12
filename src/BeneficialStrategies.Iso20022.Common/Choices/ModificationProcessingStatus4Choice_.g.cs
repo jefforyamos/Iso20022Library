@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the processing status.
-/// </summary>
-[KnownType(typeof(ModificationProcessingStatus4Choice.AcknowledgedAccepted))]
-[KnownType(typeof(ModificationProcessingStatus4Choice.PendingProcessing))]
-[KnownType(typeof(ModificationProcessingStatus4Choice.Denied))]
-[KnownType(typeof(ModificationProcessingStatus4Choice.Rejected))]
-[KnownType(typeof(ModificationProcessingStatus4Choice.Repaired))]
-[KnownType(typeof(ModificationProcessingStatus4Choice.Modified))]
-[KnownType(typeof(ModificationProcessingStatus4Choice.Proprietary))]
-public abstract partial record ModificationProcessingStatus4Choice_ : IIsoXmlSerilizable<ModificationProcessingStatus4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the processing status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ModificationProcessingStatus4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ModificationProcessingStatus4Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(ModificationProcessingStatus4Choice.PendingProcessing))]
+    [KnownType(typeof(ModificationProcessingStatus4Choice.Denied))]
+    [KnownType(typeof(ModificationProcessingStatus4Choice.Rejected))]
+    [KnownType(typeof(ModificationProcessingStatus4Choice.Repaired))]
+    [KnownType(typeof(ModificationProcessingStatus4Choice.Modified))]
+    [KnownType(typeof(ModificationProcessingStatus4Choice.Proprietary))]
+    [IsoId("_gUOMsVhgEeS8HfHHd4stCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Processing Status 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ModificationProcessingStatus4Choice_
+    #else
+    public abstract partial class ModificationProcessingStatus4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AckdAccptd" => ModificationProcessingStatus4Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "PdgPrcg" => ModificationProcessingStatus4Choice.PendingProcessing.Deserialize(elementWithPayload),
-             "Dnd" => ModificationProcessingStatus4Choice.Denied.Deserialize(elementWithPayload),
-             "Rjctd" => ModificationProcessingStatus4Choice.Rejected.Deserialize(elementWithPayload),
-             "Rprd" => ModificationProcessingStatus4Choice.Repaired.Deserialize(elementWithPayload),
-             "Modfd" => ModificationProcessingStatus4Choice.Modified.Deserialize(elementWithPayload),
-             "Prtry" => ModificationProcessingStatus4Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ModificationProcessingStatus4Choice choice.")
-        };
     }
 }

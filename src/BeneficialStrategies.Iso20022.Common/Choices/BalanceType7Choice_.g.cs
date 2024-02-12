@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the balance type.
-/// </summary>
-[KnownType(typeof(BalanceType7Choice.Code))]
-[KnownType(typeof(BalanceType7Choice.Proprietary))]
-[KnownType(typeof(BalanceType7Choice.Account))]
-public abstract partial record BalanceType7Choice_ : IIsoXmlSerilizable<BalanceType7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the balance type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static BalanceType7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(BalanceType7Choice.Code))]
+    [KnownType(typeof(BalanceType7Choice.Proprietary))]
+    [KnownType(typeof(BalanceType7Choice.Account))]
+    [IsoId("_nAhTV_NBEeCuA5Tr22BnwA_51741931")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Type 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record BalanceType7Choice_
+    #else
+    public abstract partial class BalanceType7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => BalanceType7Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => BalanceType7Choice.Proprietary.Deserialize(elementWithPayload),
-             "Acct" => BalanceType7Choice.Account.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid BalanceType7Choice choice.")
-        };
     }
 }

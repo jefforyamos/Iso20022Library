@@ -7,107 +7,182 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of check as payment instrument.
 /// </summary>
+[IsoId("_grZ50NkJEeiojJsa6FYyew")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Check")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Check1
-     : IIsoXmlSerilizable<Check1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the institution (bank) issuing the check.
     /// </summary>
+    [IsoId("_wrMXUNkJEeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BankIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BankIdentification { get; init; } 
+    #else
+    public System.String? BankIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the account linked to the check.
     /// </summary>
+    [IsoId("_qyELUNkKEeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountNumber { get; init; } 
+    #else
+    public System.String? AccountNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the check.
     /// </summary>
+    [IsoId("_0LCs4NkKEeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CheckNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CheckNumber { get; init; } 
+    #else
+    public System.String? CheckNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Check guarantee card number.
     /// The human readable number from the Check Guarantee Card that is presented during the check tendering process.
     /// </summary>
+    [IsoId("_Aq0nUNkLEeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Card Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CheckCardNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CheckCardNumber { get; init; } 
+    #else
+    public System.String? CheckCardNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Track Data of the check to digitally identify the data.
     /// </summary>
+    [IsoId("_AS8dYNkMEeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Track Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackData2? CheckTrackData2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackData2? CheckTrackData2 { get; init; } 
+    #else
+    public TrackData2? CheckTrackData2 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the check (personal or professional).
     /// </summary>
+    [IsoId("_DJ9mQNtbEeipuvJHTHIw9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CheckType1Code? CheckType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CheckType1Code? CheckType { get; init; } 
+    #else
+    public CheckType1Code? CheckType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the check.
     /// </summary>
+    [IsoId("_H-b-4NkLEeiojJsa6FYyew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 3 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Country { get; init; } 
+    #else
+    public System.String? Country { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BankIdentification is IsoMax35Text BankIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BkId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BankIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountNumber is IsoMax35Text AccountNumberValue)
-        {
-            writer.WriteStartElement(null, "AcctNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CheckNumber is IsoMax35Text CheckNumberValue)
-        {
-            writer.WriteStartElement(null, "ChckNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CheckCardNumber is IsoMax35Text CheckCardNumberValue)
-        {
-            writer.WriteStartElement(null, "ChckCardNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckCardNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CheckTrackData2 is TrackData2 CheckTrackData2Value)
-        {
-            writer.WriteStartElement(null, "ChckTrckData2", xmlNamespace );
-            CheckTrackData2Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CheckType is CheckType1Code CheckTypeValue)
-        {
-            writer.WriteStartElement(null, "ChckTp", xmlNamespace );
-            writer.WriteValue(CheckTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Country is IsoMax3Text CountryValue)
-        {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Text(CountryValue)); // data type Max3Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Check1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

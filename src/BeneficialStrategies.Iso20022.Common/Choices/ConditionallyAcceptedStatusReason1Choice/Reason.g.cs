@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReason1Choice;
-
-/// <summary>
-/// Reason for the conditionally accepted status.
-/// </summary>
-public partial record Reason : ConditionallyAcceptedStatusReason1Choice_
-     , IIsoXmlSerilizable<Reason>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReason1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies the reason for a conditionally accepted status.
+    /// Reason for the conditionally accepted status.
     /// </summary>
-    public required ConditionallyAcceptedStatusReason3Code Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RgmOEdp-Ed-ak6NoX_4Aeg_-317806380")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reason : ConditionallyAcceptedStatusReason1Choice_
+    #else
+    public partial class Reason : ConditionallyAcceptedStatusReason1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new Reason Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Reason instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Reason( ConditionallyAcceptedStatusReason3Code reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies the reason for a conditionally accepted status.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ConditionallyAcceptedStatusReason3Code Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ConditionallyAcceptedStatusReason3Code Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ConditionallyAcceptedStatusReason3Code Value { get; init; } 
+        #else
+        public ConditionallyAcceptedStatusReason3Code Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

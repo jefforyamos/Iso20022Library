@@ -7,17 +7,44 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the securities index request operations for national competent authorities.
 /// </summary>
+[IsoId("_00E_kL3kEeWvRsMSLyTf-A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Index Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesIndexReport1
-     : IIsoXmlSerilizable<SecuritiesIndexReport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesIndexReport1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesIndexReport1( FinancialInstrument46Choice_ reqIndex )
+    {
+        Index = reqIndex;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,57 +52,81 @@ public partial record SecuritiesIndexReport1
     /// Usage:
     /// This identification will be used in the status advice sent back.
     /// </summary>
+    [IsoId("_M8By8b7VEeW_FPJ0tzugkw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country code of the entity that wishes to express an interest in receiving transaction reports for the requested indexes.
     /// </summary>
+    [IsoId("_K91sAL3lEeWvRsMSLyTf-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requesting Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? RequestingEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestingEntity { get; init; } 
+    #else
+    public string? RequestingEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details the index that is being requested.
     /// </summary>
+    [IsoId("_5eLhwL3lEeWvRsMSLyTf-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument46Choice_ Index { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrument46Choice_ Index { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument46Choice_ Index { get; init; } 
+    #else
+    public FinancialInstrument46Choice_ Index { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when the national competent authority last expressed its interest in this index.
     /// </summary>
+    [IsoId("_mAsbEr31EeWvRsMSLyTf-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ValidityPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_? ValidityPeriod { get; init; } 
+    #else
+    public Period4Choice_? ValidityPeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RequestingEntity is CountryCode RequestingEntityValue)
-        {
-            writer.WriteStartElement(null, "RqstngNtty", xmlNamespace );
-            writer.WriteValue(RequestingEntityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Indx", xmlNamespace );
-        Index.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ValidityPeriod is Period4Choice_ ValidityPeriodValue)
-        {
-            writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
-            ValidityPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesIndexReport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reference to a message.
-/// </summary>
-[KnownType(typeof(LinkedMessage6Choice.PreviousReference))]
-[KnownType(typeof(LinkedMessage6Choice.OtherReference))]
-[KnownType(typeof(LinkedMessage6Choice.RelatedReference))]
-public abstract partial record LinkedMessage6Choice_ : IIsoXmlSerilizable<LinkedMessage6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reference to a message.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static LinkedMessage6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(LinkedMessage6Choice.PreviousReference))]
+    [KnownType(typeof(LinkedMessage6Choice.OtherReference))]
+    [KnownType(typeof(LinkedMessage6Choice.RelatedReference))]
+    [IsoId("_2mW56TWhEe2OzdGcZrUAEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked Message 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record LinkedMessage6Choice_
+    #else
+    public abstract partial class LinkedMessage6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PrvsRef" => LinkedMessage6Choice.PreviousReference.Deserialize(elementWithPayload),
-             "OthrRef" => LinkedMessage6Choice.OtherReference.Deserialize(elementWithPayload),
-             "RltdRef" => LinkedMessage6Choice.RelatedReference.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid LinkedMessage6Choice choice.")
-        };
     }
 }

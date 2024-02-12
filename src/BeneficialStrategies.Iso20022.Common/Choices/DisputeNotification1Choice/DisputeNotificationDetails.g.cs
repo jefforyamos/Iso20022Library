@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice;
-
-/// <summary>
-/// Provides the dispute notification details for the variation margin and optionaly the segregated independent amount.
-/// </summary>
-public partial record DisputeNotificationDetails : DisputeNotification1Choice_
-     , IIsoXmlSerilizable<DisputeNotificationDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides the dispute notification details for the variation margin.
+    /// Provides the dispute notification details for the variation margin and optionaly the segregated independent amount.
     /// </summary>
-    public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
-    /// <summary>
-    /// Provides the dispute notification details for the segregated independent amount.
-    /// </summary>
-    public SegregatedIndependentAmountDispute1? SegregatedIndependentAmountDispute { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QmU-M9p-Ed-ak6NoX_4Aeg_-1470616414")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dispute Notification Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DisputeNotificationDetails : DisputeNotification1Choice_
+    #else
+    public partial class DisputeNotificationDetails : DisputeNotification1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "VartnMrgnDspt", xmlNamespace );
-        VariationMarginDispute.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SegregatedIndependentAmountDispute is SegregatedIndependentAmountDispute1 SegregatedIndependentAmountDisputeValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DisputeNotificationDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DisputeNotificationDetails( VariationMarginDispute1 reqVariationMarginDispute )
         {
-            writer.WriteStartElement(null, "SgrtdIndpdntAmtDspt", xmlNamespace );
-            SegregatedIndependentAmountDisputeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            VariationMarginDispute = reqVariationMarginDispute;
         }
-    }
-    public static new DisputeNotificationDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides the dispute notification details for the variation margin.
+        /// </summary>
+        [IsoId("_UllpFdp-Ed-ak6NoX_4Aeg_-641718307")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variation Margin Dispute")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public VariationMarginDispute1 VariationMarginDispute { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public VariationMarginDispute1 VariationMarginDispute { get; init; } 
+        #else
+        public VariationMarginDispute1 VariationMarginDispute { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the dispute notification details for the segregated independent amount.
+        /// </summary>
+        [IsoId("_UllpFtp-Ed-ak6NoX_4Aeg_1091176533")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Segregated Independent Amount Dispute")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SegregatedIndependentAmountDispute1? SegregatedIndependentAmountDispute { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SegregatedIndependentAmountDispute1? SegregatedIndependentAmountDispute { get; init; } 
+        #else
+        public SegregatedIndependentAmountDispute1? SegregatedIndependentAmountDispute { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

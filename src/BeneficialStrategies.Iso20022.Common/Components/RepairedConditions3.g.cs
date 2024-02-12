@@ -7,50 +7,72 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Charge or commission of the original individual order details that have been repaired so that the order can be accepted.
 /// </summary>
+[IsoId("_RLb2ZNp-Ed-ak6NoX_4Aeg_-1888312620")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Repaired Conditions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RepairedConditions3
-     : IIsoXmlSerilizable<RepairedConditions3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Modified value of the charge applied on the order (the charge in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
-    public ValueList<Charge19> RepairedCharge { get; init; } = [];
+    [IsoId("_RLb2Zdp-Ed-ak6NoX_4Aeg_-1888312329")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<Charge19> RepairedCharge { get; init; } = new ValueList<Charge19>(){};
+    
     /// <summary>
     /// Modified value of the commission applied on the order (the commission in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
-    public ValueList<Commission11> RepairedCommission { get; init; } = [];
+    [IsoId("_RLb2Ztp-Ed-ak6NoX_4Aeg_-1888312610")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Commission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<Commission11> RepairedCommission { get; init; } = new ValueList<Commission11>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RprdChrg", xmlNamespace );
-        RepairedCharge.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RprdComssn", xmlNamespace );
-        RepairedCommission.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static RepairedConditions3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

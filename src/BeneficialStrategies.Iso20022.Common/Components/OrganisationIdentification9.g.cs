@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
+[IsoId("_Jswv4RBBEeGyZLI6olyk-Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Organisation Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OrganisationIdentification9
-     : IIsoXmlSerilizable<OrganisationIdentification9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Code allocated to an institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [IsoId("_Jswv4xBBEeGyZLI6olyk-Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Any BIC")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? AnyBIC { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AnyBIC { get; init; } 
+    #else
+    public System.String? AnyBIC { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
     /// </summary>
+    [IsoId("_Jswv5xBBEeGyZLI6olyk-Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericOrganisationIdentification2? Other { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericOrganisationIdentification2? Other { get; init; } 
+    #else
+    public GenericOrganisationIdentification2? Other { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AnyBIC is IsoAnyBICIdentifier AnyBICValue)
-        {
-            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(AnyBICValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Other is GenericOrganisationIdentification2 OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            OtherValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OrganisationIdentification9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

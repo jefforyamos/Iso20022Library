@@ -7,167 +7,275 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[IsoId("_n9i-QYX-EemxIqbaFEE8-w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentEnvironment73
-     : IIsoXmlSerilizable<CardPaymentEnvironment73>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [IsoId("_oH7pUYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer9? Acquirer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Acquirer9? Acquirer { get; init; } 
+    #else
+    public Acquirer9? Acquirer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Merchant performing the card payment transaction.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
+    [IsoId("_oH7pU4X-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation32? Merchant { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation32? Merchant { get; init; } 
+    #else
+    public Organisation32? Merchant { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [IsoId("_oH7pVYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction9? POI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteraction9? POI { get; init; } 
+    #else
+    public PointOfInteraction9? POI { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [IsoId("_oH7pV4X-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCard28? Card { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCard28? Card { get; init; } 
+    #else
+    public PaymentCard28? Card { get; set; } 
+    #endif
+    
     /// <summary>
     /// Check Payment instrument.
     /// </summary>
+    [IsoId("_oH7pWYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Check1? Check { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Check1? Check { get; init; } 
+    #else
+    public Check1? Check { get; set; } 
+    #endif
+    
     /// <summary>
     /// Store value account payment instrument.
     /// </summary>
+    [IsoId("_oH7pW4X-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stored Value Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueAccount1? StoredValueAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueAccount1? StoredValueAccount { get; init; } 
+    #else
+    public StoredValueAccount1? StoredValueAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Store value account associated to the payment.
     /// </summary>
+    [IsoId("_oH7pXYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyAccount1? LoyaltyAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyAccount1? LoyaltyAccount { get; init; } 
+    #else
+    public LoyaltyAccount1? LoyaltyAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Device used by the customer to perform the payment transaction.
     /// </summary>
+    [IsoId("_oH7pX4X-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Device")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerDevice1? CustomerDevice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerDevice1? CustomerDevice { get; init; } 
+    #else
+    public CustomerDevice1? CustomerDevice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
+    [IsoId("_oH7pYYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Wallet")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerDevice1? Wallet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerDevice1? Wallet { get; init; } 
+    #else
+    public CustomerDevice1? Wallet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [IsoId("_oH7pY4X-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Token")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentToken4? PaymentToken { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentToken4? PaymentToken { get; init; } 
+    #else
+    public CardPaymentToken4? PaymentToken { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cardholder involved in the card payment.
     /// </summary>
+    [IsoId("_oH7pZYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cardholder14? Cardholder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Cardholder14? Cardholder { get; init; } 
+    #else
+    public Cardholder14? Cardholder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Replacement of the message element Cardholder by a digital envelope using a cryptographic key.
     /// </summary>
+    [IsoId("_oH7pZ4X-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Cardholder Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType17? ProtectedCardholderData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType17? ProtectedCardholderData { get; init; } 
+    #else
+    public ContentInformationType17? ProtectedCardholderData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sale Retailer Environment for this message.
     /// </summary>
+    [IsoId("_oH7paYX-EemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerSaleEnvironment2? SaleEnvironment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerSaleEnvironment2? SaleEnvironment { get; init; } 
+    #else
+    public RetailerSaleEnvironment2? SaleEnvironment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Acquirer is Acquirer9 AcquirerValue)
-        {
-            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
-            AcquirerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Merchant is Organisation32 MerchantValue)
-        {
-            writer.WriteStartElement(null, "Mrchnt", xmlNamespace );
-            MerchantValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POI is PointOfInteraction9 POIValue)
-        {
-            writer.WriteStartElement(null, "POI", xmlNamespace );
-            POIValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Card is PaymentCard28 CardValue)
-        {
-            writer.WriteStartElement(null, "Card", xmlNamespace );
-            CardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Check is Check1 CheckValue)
-        {
-            writer.WriteStartElement(null, "Chck", xmlNamespace );
-            CheckValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StoredValueAccount is StoredValueAccount1 StoredValueAccountValue)
-        {
-            writer.WriteStartElement(null, "StordValAcct", xmlNamespace );
-            StoredValueAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoyaltyAccount is LoyaltyAccount1 LoyaltyAccountValue)
-        {
-            writer.WriteStartElement(null, "LltyAcct", xmlNamespace );
-            LoyaltyAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustomerDevice is CustomerDevice1 CustomerDeviceValue)
-        {
-            writer.WriteStartElement(null, "CstmrDvc", xmlNamespace );
-            CustomerDeviceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Wallet is CustomerDevice1 WalletValue)
-        {
-            writer.WriteStartElement(null, "Wllt", xmlNamespace );
-            WalletValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentToken is CardPaymentToken4 PaymentTokenValue)
-        {
-            writer.WriteStartElement(null, "PmtTkn", xmlNamespace );
-            PaymentTokenValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Cardholder is Cardholder14 CardholderValue)
-        {
-            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
-            CardholderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProtectedCardholderData is ContentInformationType17 ProtectedCardholderDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdCrdhldrData", xmlNamespace );
-            ProtectedCardholderDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SaleEnvironment is RetailerSaleEnvironment2 SaleEnvironmentValue)
-        {
-            writer.WriteStartElement(null, "SaleEnvt", xmlNamespace );
-            SaleEnvironmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentEnvironment73 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a master agreement.
 /// </summary>
+[IsoId("_Dv7RIbRDEemPBPgZjF7-nQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Master Agreement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MasterAgreement6
-     : IIsoXmlSerilizable<MasterAgreement6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MasterAgreement6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MasterAgreement6( AgreementType1Choice_ reqType )
+    {
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Classification of a master agreement.
     /// </summary>
+    [IsoId("_D0jScbRDEemPBPgZjF7-nQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreementType1Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AgreementType1Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreementType1Choice_ Type { get; init; } 
+    #else
+    public AgreementType1Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade.
     /// </summary>
+    [IsoId("_D0jSc7RDEemPBPgZjF7-nQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 50 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Version { get; init; } 
+    #else
+    public System.String? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information specifying the other type of the master agreement.
     /// </summary>
+    [IsoId("_D0jSdbRDEemPBPgZjF7-nQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Master Agreement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherMasterAgreementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherMasterAgreementDetails { get; init; } 
+    #else
+    public System.String? OtherMasterAgreementDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Version is IsoMax50Text VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax50Text(VersionValue)); // data type Max50Text System.String
-            writer.WriteEndElement();
-        }
-        if (OtherMasterAgreementDetails is IsoMax350Text OtherMasterAgreementDetailsValue)
-        {
-            writer.WriteStartElement(null, "OthrMstrAgrmtDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherMasterAgreementDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static MasterAgreement6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

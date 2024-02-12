@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the repair reason.
-/// </summary>
-[KnownType(typeof(RepairReason19Choice.Code))]
-[KnownType(typeof(RepairReason19Choice.Proprietary))]
-public abstract partial record RepairReason19Choice_ : IIsoXmlSerilizable<RepairReason19Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the repair reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RepairReason19Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RepairReason19Choice.Code))]
+    [KnownType(typeof(RepairReason19Choice.Proprietary))]
+    [IsoId("_g_M0Wwd3Ee2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repair Reason 19 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RepairReason19Choice_
+    #else
+    public abstract partial class RepairReason19Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => RepairReason19Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => RepairReason19Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RepairReason19Choice choice.")
-        };
     }
 }

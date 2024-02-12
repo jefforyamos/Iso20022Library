@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines the type of action to be performed in the request.
-/// </summary>
-[KnownType(typeof(RequestType2Choice.PaymentControl))]
-[KnownType(typeof(RequestType2Choice.Enquiry))]
-[KnownType(typeof(RequestType2Choice.Proprietary))]
-public abstract partial record RequestType2Choice_ : IIsoXmlSerilizable<RequestType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines the type of action to be performed in the request.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RequestType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RequestType2Choice.PaymentControl))]
+    [KnownType(typeof(RequestType2Choice.Enquiry))]
+    [KnownType(typeof(RequestType2Choice.Proprietary))]
+    [IsoId("_76G8cqMgEeCJ6YNENx4h-w_-156360077")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RequestType2Choice_
+    #else
+    public abstract partial class RequestType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PmtCtrl" => RequestType2Choice.PaymentControl.Deserialize(elementWithPayload),
-             "Enqry" => RequestType2Choice.Enquiry.Deserialize(elementWithPayload),
-             "Prtry" => RequestType2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RequestType2Choice choice.")
-        };
     }
 }

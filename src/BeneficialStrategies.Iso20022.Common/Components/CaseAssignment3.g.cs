@@ -7,64 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Represents the assignment of a case to a party.
 /// </summary>
+[IsoId("_sbKvolkyEeGeoaLUQk__nA_1583838951")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Case Assignment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CaseAssignment3
-     : IIsoXmlSerilizable<CaseAssignment3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CaseAssignment3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CaseAssignment3( System.String reqIdentification,Party12Choice_ reqAssigner,Party12Choice_ reqAssignee,System.DateTime reqCreationDateTime )
+    {
+        Identification = reqIdentification;
+        Assigner = reqAssigner;
+        Assignee = reqAssignee;
+        CreationDateTime = reqCreationDateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Uniquely identifies the case assignment.
     /// </summary>
+    [IsoId("_sbUgoFkyEeGeoaLUQk__nA_-799871475")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party who assigns the case. |Usage: This is also the sender of the message.
     /// </summary>
+    [IsoId("_sbUgoVkyEeGeoaLUQk__nA_-939529464")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assigner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party12Choice_ Assigner { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Party12Choice_ Assigner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party12Choice_ Assigner { get; init; } 
+    #else
+    public Party12Choice_ Assigner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to which the case is assigned.|Usage: This is also the receiver of the message.
     /// </summary>
+    [IsoId("_sbdqkFkyEeGeoaLUQk__nA_1652158858")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assignee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party12Choice_ Assignee { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Party12Choice_ Assignee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party12Choice_ Assignee { get; init; } 
+    #else
+    public Party12Choice_ Assignee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the assignment was created.
     /// </summary>
+    [IsoId("_sbnbkFkyEeGeoaLUQk__nA_1928127455")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CreationDateTime { get; init; } 
+    #else
+    public System.DateTime CreationDateTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Assgnr", xmlNamespace );
-        Assigner.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Assgne", xmlNamespace );
-        Assignee.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static CaseAssignment3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

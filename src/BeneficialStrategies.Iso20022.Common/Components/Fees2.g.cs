@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[IsoId("_vdmqUZEKEem-9Y6mq5ZH3Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fees")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Fees2
-     : IIsoXmlSerilizable<Fees2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [IsoId("_vyvM05EKEem-9Y6mq5ZH3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commercial Agreement Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommercialAgreementReference { get; init; } 
+    #else
+    public System.String? CommercialAgreementReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
+    [IsoId("_vyvM1ZEKEem-9Y6mq5ZH3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Fee7? IndividualFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Fee7? IndividualFee { get; init; } 
+    #else
+    public Fee7? IndividualFee { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
-        {
-            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (IndividualFee is Fee7 IndividualFeeValue)
-        {
-            writer.WriteStartElement(null, "IndvFee", xmlNamespace );
-            IndividualFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Fees2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

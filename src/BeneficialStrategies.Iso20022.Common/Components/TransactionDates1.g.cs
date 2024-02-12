@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements identifying the dates related to the underlying transactions.
 /// </summary>
+[IsoId("_RUrR99p-Ed-ak6NoX_4Aeg_1881477218")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Dates")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionDates1
-     : IIsoXmlSerilizable<TransactionDates1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent (debtor's agent in case of a credit transfer, creditor's agent in case of a direct debit). This means - amongst others - that the account servicing agent has received the payment order and has applied checks as eg, authorisation, availability of funds.
     /// </summary>
+    [IsoId("_RUrR-Np-Ed-ak6NoX_4Aeg_-1547227036")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acceptance Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? AcceptanceDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? AcceptanceDateTime { get; init; } 
+    #else
+    public System.DateTime? AcceptanceDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the trade was executed.
     /// </summary>
+    [IsoId("_RU0b4Np-Ed-ak6NoX_4Aeg_-963564510")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TradeDate { get; init; } 
+    #else
+    public System.DateOnly? TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [IsoId("_RU0b4dp-Ed-ak6NoX_4Aeg_-2022842250")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterbankSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InterbankSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? InterbankSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Start date of the underlying transaction, such as a treasury transaction, an investment plan.
     /// </summary>
+    [IsoId("_RU0b4tp-Ed-ak6NoX_4Aeg_-287547761")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? StartDate { get; init; } 
+    #else
+    public System.DateOnly? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// End date of the underlying transaction, such as a treasury transaction, an investment plan.
     /// </summary>
+    [IsoId("_RU0b49p-Ed-ak6NoX_4Aeg_-287547743")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EndDate { get; init; } 
+    #else
+    public System.DateOnly? EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the underlying transaction.
     /// </summary>
+    [IsoId("_RU0b5Np-Ed-ak6NoX_4Aeg_-1175050973")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TransactionDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? TransactionDateTime { get; init; } 
+    #else
+    public System.DateTime? TransactionDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary date related to the underlying transaction.
     /// </summary>
+    [IsoId("_RU0b5dp-Ed-ak6NoX_4Aeg_768963176")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryDate1? Proprietary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProprietaryDate1? Proprietary { get; init; } 
+    #else
+    public ProprietaryDate1? Proprietary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AcceptanceDateTime is IsoISODateTime AcceptanceDateTimeValue)
-        {
-            writer.WriteStartElement(null, "AccptncDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(AcceptanceDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (TradeDate is IsoISODate TradeDateValue)
-        {
-            writer.WriteStartElement(null, "TradDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (StartDate is IsoISODate StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (EndDate is IsoISODate EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TransactionDateTime is IsoISODateTime TransactionDateTimeValue)
-        {
-            writer.WriteStartElement(null, "TxDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (Proprietary is ProprietaryDate1 ProprietaryValue)
-        {
-            writer.WriteStartElement(null, "Prtry", xmlNamespace );
-            ProprietaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionDates1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

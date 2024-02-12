@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to commodities and related fields used as a collateral.
 /// </summary>
+[IsoId("_MMF1181VEem4K5qLxnWwMA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Commodity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Commodity20
-     : IIsoXmlSerilizable<Commodity20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details on commodities assignments to sectors.
     /// </summary>
+    [IsoId("_MR5i4c1VEem4K5qLxnWwMA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassCommodity5Choice_? Classification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClassCommodity5Choice_? Classification { get; init; } 
+    #else
+    public AssetClassCommodity5Choice_? Classification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of the commodity.
     /// </summary>
+    [IsoId("_MR5i481VEem4K5qLxnWwMA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity17? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity17? Quantity { get; init; } 
+    #else
+    public Quantity17? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price of unit of asset or collateral component, including accrued interest for interest-bearing securities, used to value the commodity .
     /// </summary>
+    [IsoId("_MR5i5c1VEem4K5qLxnWwMA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
+    #else
+    public SecuritiesTransactionPrice11Choice_? UnitPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [IsoId("_MR5i581VEem4K5qLxnWwMA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketValue { get; init; } 
+    #else
+    public System.Decimal? MarketValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Classification is AssetClassCommodity5Choice_ ClassificationValue)
-        {
-            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
-            ClassificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Quantity is Quantity17 QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is SecuritiesTransactionPrice11Choice_ UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketValue is IsoActiveOrHistoricCurrencyAndAmount MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static Commodity20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Nature or use of the account.
-/// </summary>
-[KnownType(typeof(TrackerParty2Choice.OrganisationIdentification))]
-[KnownType(typeof(TrackerParty2Choice.PrivateIdentification))]
-[KnownType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification))]
-public abstract partial record TrackerParty2Choice_ : IIsoXmlSerilizable<TrackerParty2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Nature or use of the account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TrackerParty2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TrackerParty2Choice.OrganisationIdentification))]
+    [KnownType(typeof(TrackerParty2Choice.PrivateIdentification))]
+    [KnownType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification))]
+    [IsoId("_dWHWv2OTEeq5Ar_w98FvsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Party 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TrackerParty2Choice_
+    #else
+    public abstract partial class TrackerParty2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgId" => TrackerParty2Choice.OrganisationIdentification.Deserialize(elementWithPayload),
-             "PrvtId" => TrackerParty2Choice.PrivateIdentification.Deserialize(elementWithPayload),
-             "FinInstnId" => TrackerParty2Choice.FinancialInstitutionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TrackerParty2Choice choice.")
-        };
     }
 }

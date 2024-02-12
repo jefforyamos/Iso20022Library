@@ -7,103 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the status of a trade in a central settlement system.
 /// </summary>
+[IsoId("_Q7Ma8dp-Ed-ak6NoX_4Aeg_-931990425")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeStatus1
-     : IIsoXmlSerilizable<TradeStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeStatus1( System.String reqMatchingSystemUniqueReference )
+    {
+        MatchingSystemUniqueReference = reqMatchingSystemUniqueReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether a trade is alleged or not.
     /// </summary>
+    [IsoId("_Q7Ma8tp-Ed-ak6NoX_4Aeg_2061891848")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alleged Trade")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AllegedTrade { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AllegedTrade { get; init; } 
+    #else
+    public System.String? AllegedTrade { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the unique identification assigned to a trade by a central matching system.
     /// </summary>
+    [IsoId("_Q7Ma89p-Ed-ak6NoX_4Aeg_2043342151")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching System Unique Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MatchingSystemUniqueReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MatchingSystemUniqueReference { get; init; } 
+    #else
+    public System.String MatchingSystemUniqueReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of a trade.
     /// </summary>
+    [IsoId("_Q7Ma9Np-Ed-ak6NoX_4Aeg_809836093")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeStatus1Code? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeStatus1Code? Status { get; init; } 
+    #else
+    public TradeStatus1Code? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
+    [IsoId("_Q7Ma9dp-Ed-ak6NoX_4Aeg_1685557048")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExtendedStatus { get; init; } 
+    #else
+    public System.String? ExtendedStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information on the status of a trade in a central system.
     /// </summary>
+    [IsoId("_Q7Ma9tp-Ed-ak6NoX_4Aeg_824610615")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? StatusSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatusSubType { get; init; } 
+    #else
+    public System.String? StatusSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time at which a status was assigned.
     /// </summary>
+    [IsoId("_Q7Ma99p-Ed-ak6NoX_4Aeg_1765636507")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StatusTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? StatusTime { get; init; } 
+    #else
+    public System.DateTime? StatusTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party which assigned a status to a treasury trade.
     /// </summary>
+    [IsoId("_Q7Ma-Np-Ed-ak6NoX_4Aeg_1712995906")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatusOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatusOriginator { get; init; } 
+    #else
+    public System.String? StatusOriginator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AllegedTrade is IsoYesNoIndicator AllegedTradeValue)
-        {
-            writer.WriteStartElement(null, "AllgdTrad", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllegedTradeValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Status is TradeStatus1Code StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            writer.WriteValue(StatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExtendedStatus is IsoExtended350Code ExtendedStatusValue)
-        {
-            writer.WriteStartElement(null, "XtndedSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedStatusValue)); // data type Extended350Code System.String
-            writer.WriteEndElement();
-        }
-        if (StatusSubType is IsoMax70Text StatusSubTypeValue)
-        {
-            writer.WriteStartElement(null, "StsSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(StatusSubTypeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (StatusTime is IsoISODateTime StatusTimeValue)
-        {
-            writer.WriteStartElement(null, "StsTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (StatusOriginator is IsoMax35Text StatusOriginatorValue)
-        {
-            writer.WriteStartElement(null, "StsOrgtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusOriginatorValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

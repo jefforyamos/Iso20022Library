@@ -7,136 +7,254 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Login Request message.
 /// </summary>
+[IsoId("_0j084N6HEeiwsev40qZGEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Login Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LoginRequest1
-     : IIsoXmlSerilizable<LoginRequest1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LoginRequest1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LoginRequest1( System.DateTime reqLoginDateTime,string reqCashierLanguage )
+    {
+        LoginDateTime = reqLoginDateTime;
+        CashierLanguage = reqCashierLanguage;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and Time of Login.
     /// </summary>
+    [IsoId("_-tvzMN6HEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Login Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime LoginDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime LoginDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime LoginDateTime { get; init; } 
+    #else
+    public System.DateTime LoginDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the software of the Sale System which manages the Sale to POI protocol.
     /// </summary>
+    [IsoId("_I-ylMN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Software")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public PointOfInteractionComponent9? SaleSoftware { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _I-ylMN6IEeiwsev40qZGEQ
+    
     /// <summary>
     /// Information related to the software and hardware feature of the Sale Terminal.
     /// </summary>
+    [IsoId("_LrNvMN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Terminal Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleTerminalData1? SaleTerminalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SaleTerminalData1? SaleTerminalData { get; init; } 
+    #else
+    public SaleTerminalData1? SaleTerminalData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Training mode.
     /// </summary>
+    [IsoId("_jD8wMN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Training Mode Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TrainingModeFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TrainingModeFlag { get; init; } 
+    #else
+    public System.String? TrainingModeFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the cashier.
     /// </summary>
+    [IsoId("_mX07wN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cashier Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashierIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashierIdentification { get; init; } 
+    #else
+    public System.String? CashierIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language of the cashier.
     /// </summary>
+    [IsoId("_olK9EN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cashier Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LanguageCode CashierLanguage { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string CashierLanguage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string CashierLanguage { get; init; } 
+    #else
+    public string CashierLanguage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Shift number of the cashier.
     /// </summary>
+    [IsoId("_r0RWUN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shift Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? ShiftNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ShiftNumber { get; init; } 
+    #else
+    public System.String? ShiftNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
     /// </summary>
+    [IsoId("_uR85sN6IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Token Requested Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleTokenScope1Code? TokenRequestedType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SaleTokenScope1Code? TokenRequestedType { get; init; } 
+    #else
+    public SaleTokenScope1Code? TokenRequestedType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of customer orders that must be sent in response message.
     /// </summary>
+    [IsoId("_B_s2sN6JEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Order Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerOrderRequest1Code? CustomerOrderRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerOrderRequest1Code? CustomerOrderRequest { get; init; } 
+    #else
+    public CustomerOrderRequest1Code? CustomerOrderRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// POI Terminal identification.
     /// </summary>
+    [IsoId("_cGnVMN6JEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentIdentification1? POIIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponentIdentification1? POIIdentification { get; init; } 
+    #else
+    public PointOfInteractionComponentIdentification1? POIIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Default group identification for transaction consolidation (Totals).
     /// </summary>
+    [IsoId("_fMrHMN6JEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Totals Group Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TotalsGroupIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TotalsGroupIdentification { get; init; } 
+    #else
+    public System.String? TotalsGroupIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LgnDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(LoginDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        // Not sure how to serialize SaleSoftware, multiplicity Unknown
-        if (SaleTerminalData is SaleTerminalData1 SaleTerminalDataValue)
-        {
-            writer.WriteStartElement(null, "SaleTermnlData", xmlNamespace );
-            SaleTerminalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TrainingModeFlag is IsoTrueFalseIndicator TrainingModeFlagValue)
-        {
-            writer.WriteStartElement(null, "TrngMdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TrainingModeFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CashierIdentification is IsoMax35Text CashierIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CshrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashierIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CshrLang", xmlNamespace );
-        writer.WriteValue(CashierLanguage.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ShiftNumber is IsoMax2NumericText ShiftNumberValue)
-        {
-            writer.WriteStartElement(null, "ShftNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(ShiftNumberValue)); // data type Max2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TokenRequestedType is SaleTokenScope1Code TokenRequestedTypeValue)
-        {
-            writer.WriteStartElement(null, "TknReqdTp", xmlNamespace );
-            writer.WriteValue(TokenRequestedTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CustomerOrderRequest is CustomerOrderRequest1Code CustomerOrderRequestValue)
-        {
-            writer.WriteStartElement(null, "CstmrOrdrReq", xmlNamespace );
-            writer.WriteValue(CustomerOrderRequestValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (POIIdentification is PointOfInteractionComponentIdentification1 POIIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIId", xmlNamespace );
-            POIIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalsGroupIdentification is IsoMax35Text TotalsGroupIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TtlsGrpId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TotalsGroupIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static LoginRequest1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,133 +9,227 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError5Choice;
-
-/// <summary>
-/// Requested information on the account.
-/// </summary>
-public partial record Account : AccountOrBusinessError5Choice_
-     , IIsoXmlSerilizable<Account>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
+    /// Requested information on the account.
     /// </summary>
-    public IsoMax70Text? Name { get; init; } 
-    /// <summary>
-    /// Specifies the nature, or use, of the cash account.
-    /// </summary>
-    public CashAccountType2Choice_? Type { get; init; } 
-    /// <summary>
-    /// Specifies the currency of the cash account.
-    /// </summary>
-    public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
-    /// <summary>
-    /// Specifies an alternate assumed name for the identification of the account. 
-    /// </summary>
-    public ProxyAccountIdentification1? Proxy { get; init; } 
-    /// <summary>
-    /// Maximum amount value applied to or by a participant versus a set of counterparts. The multilateral system is taken into account by the transaction administrator to contain the risk in the system.|With the help of the multilateral limit, the direct participant restricts the use of liquidity when clearing payments with all other direct participants for whom no bilateral limit was set.
-    /// </summary>
-    public Limit5? CurrentMultilateralLimit { get; init; } 
-    /// <summary>
-    /// Owner of the account which is being queried.
-    /// </summary>
-    public PartyIdentification135? Owner { get; init; } 
-    /// <summary>
-    /// Servicer of the account which is being queried.
-    /// </summary>
-    public BranchAndFinancialInstitutionIdentification6? Servicer { get; init; } 
-    /// <summary>
-    /// Balance is calculated with regard to many members in the system.
-    /// </summary>
-    public CashBalance13? MultilateralBalance { get; init; } 
-    /// <summary>
-    /// Limit fixed by a party A with regard to a specific counterparty B and corresponding to the maximum amount of traffic that party A may send to party B. The bilateral limit can be expressed as a debit limit or a credit limit. |With the help of a bilateral limit, the direct participant restricts the use of liquidity when clearing payments with another direct participant.
-    /// </summary>
-    public BilateralLimit3? CurrentBilateralLimit { get; init; } 
-    /// <summary>
-    /// Instruction given by a party that has explicit authority to instruct a debit on the account, that is either the debtor or originating party, to the debtor agent, to process liquidity transfers at specified intervals during an implicit or explicit period of time. A standing order is given once and is valid for an open or closed period of time.
-    /// </summary>
-    public StandingOrder9? StandingOrder { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_fFDdUdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Account : AccountOrBusinessError5Choice_
+    #else
+    public partial class Account : AccountOrBusinessError5Choice_
+    #endif
     {
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is CashAccountType2Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Proxy is ProxyAccountIdentification1 ProxyValue)
-        {
-            writer.WriteStartElement(null, "Prxy", xmlNamespace );
-            ProxyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrentMultilateralLimit is Limit5 CurrentMultilateralLimitValue)
-        {
-            writer.WriteStartElement(null, "CurMulLmt", xmlNamespace );
-            CurrentMultilateralLimitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Owner is PartyIdentification135 OwnerValue)
-        {
-            writer.WriteStartElement(null, "Ownr", xmlNamespace );
-            OwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Servicer is BranchAndFinancialInstitutionIdentification6 ServicerValue)
-        {
-            writer.WriteStartElement(null, "Svcr", xmlNamespace );
-            ServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MultilateralBalance is CashBalance13 MultilateralBalanceValue)
-        {
-            writer.WriteStartElement(null, "MulBal", xmlNamespace );
-            MultilateralBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrentBilateralLimit is BilateralLimit3 CurrentBilateralLimitValue)
-        {
-            writer.WriteStartElement(null, "CurBilLmt", xmlNamespace );
-            CurrentBilateralLimitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandingOrder is StandingOrder9 StandingOrderValue)
-        {
-            writer.WriteStartElement(null, "StgOrdr", xmlNamespace );
-            StandingOrderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Account Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
+        /// </summary>
+        [IsoId("_fGg149cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax70Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the nature, or use, of the cash account.
+        /// </summary>
+        [IsoId("_fGg15dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashAccountType2Choice_? Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccountType2Choice_? Type { get; init; } 
+        #else
+        public CashAccountType2Choice_? Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the currency of the cash account.
+        /// </summary>
+        [IsoId("_fGg159cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? Currency { get; init; } 
+        #else
+        public string? Currency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies an alternate assumed name for the identification of the account. 
+        /// </summary>
+        [IsoId("_fGg16dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Proxy")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ProxyAccountIdentification1? Proxy { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProxyAccountIdentification1? Proxy { get; init; } 
+        #else
+        public ProxyAccountIdentification1? Proxy { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Maximum amount value applied to or by a participant versus a set of counterparts. The multilateral system is taken into account by the transaction administrator to contain the risk in the system.|With the help of the multilateral limit, the direct participant restricts the use of liquidity when clearing payments with all other direct participants for whom no bilateral limit was set.
+        /// </summary>
+        [IsoId("_fGg169cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Current Multilateral Limit")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Limit5? CurrentMultilateralLimit { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Limit5? CurrentMultilateralLimit { get; init; } 
+        #else
+        public Limit5? CurrentMultilateralLimit { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Owner of the account which is being queried.
+        /// </summary>
+        [IsoId("_fGg17dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification135? Owner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification135? Owner { get; init; } 
+        #else
+        public PartyIdentification135? Owner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Servicer of the account which is being queried.
+        /// </summary>
+        [IsoId("_fGg179cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Servicer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BranchAndFinancialInstitutionIdentification6? Servicer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BranchAndFinancialInstitutionIdentification6? Servicer { get; init; } 
+        #else
+        public BranchAndFinancialInstitutionIdentification6? Servicer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Balance is calculated with regard to many members in the system.
+        /// </summary>
+        [IsoId("_fGg18dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Multilateral Balance")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashBalance13? MultilateralBalance { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashBalance13? MultilateralBalance { get; init; } 
+        #else
+        public CashBalance13? MultilateralBalance { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Limit fixed by a party A with regard to a specific counterparty B and corresponding to the maximum amount of traffic that party A may send to party B. The bilateral limit can be expressed as a debit limit or a credit limit. |With the help of a bilateral limit, the direct participant restricts the use of liquidity when clearing payments with another direct participant.
+        /// </summary>
+        [IsoId("_fGg189cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Current Bilateral Limit")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BilateralLimit3? CurrentBilateralLimit { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BilateralLimit3? CurrentBilateralLimit { get; init; } 
+        #else
+        public BilateralLimit3? CurrentBilateralLimit { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Instruction given by a party that has explicit authority to instruct a debit on the account, that is either the debtor or originating party, to the debtor agent, to process liquidity transfers at specified intervals during an implicit or explicit period of time. A standing order is given once and is valid for an open or closed period of time.
+        /// </summary>
+        [IsoId("_fGg19dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standing Order")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public StandingOrder9? StandingOrder { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public StandingOrder9? StandingOrder { get; init; } 
+        #else
+        public StandingOrder9? StandingOrder { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,99 +7,170 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reporting per financial instrument.
 /// </summary>
+[IsoId("_jmOUcdByEeihG9bKfarOOA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentDetails32
-     : IIsoXmlSerilizable<FinancialInstrumentDetails32>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialInstrumentDetails32 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialInstrumentDetails32( SecurityIdentification19 reqFinancialInstrumentIdentification )
+    {
+        FinancialInstrumentIdentification = reqFinancialInstrumentIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [IsoId("_j37IYdByEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Elements characterising an investment funds financial instrument.
     /// </summary>
+    [IsoId("_Qq5w8ddkEeispNOuywCdbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Funds Financial Instrument Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument72? InvestmentFundsFinancialInstrumentAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument72? InvestmentFundsFinancialInstrumentAttributes { get; init; } 
+    #else
+    public FinancialInstrument72? InvestmentFundsFinancialInstrumentAttributes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information regarding the price of the instrument.
     /// </summary>
+    [IsoId("_j37IZdByEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceInformation21? PriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceInformation21? PriceDetails { get; init; } 
+    #else
+    public PriceInformation21? PriceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [IsoId("_j37IadByEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafeKeepingPlace3? SafekeepingPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafeKeepingPlace3? SafekeepingPlace { get; init; } 
+    #else
+    public SafeKeepingPlace3? SafekeepingPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
+    [IsoId("_j37IbdByEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OpeningBalance3? OpeningBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OpeningBalance3? OpeningBalance { get; init; } 
+    #else
+    public OpeningBalance3? OpeningBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
+    [IsoId("_j37IcdByEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClosingBalance3? ClosingBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClosingBalance3? ClosingBalance { get; init; } 
+    #else
+    public ClosingBalance3? ClosingBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction details.
     /// </summary>
+    [IsoId("_j37IddByEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public Transaction69? Transaction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _j37IddByEeihG9bKfarOOA
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (InvestmentFundsFinancialInstrumentAttributes is FinancialInstrument72 InvestmentFundsFinancialInstrumentAttributesValue)
-        {
-            writer.WriteStartElement(null, "InvstmtFndsFinInstrmAttrbts", xmlNamespace );
-            InvestmentFundsFinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceDetails is PriceInformation21 PriceDetailsValue)
-        {
-            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
-            PriceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingPlace is SafeKeepingPlace3 SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OpeningBalance is OpeningBalance3 OpeningBalanceValue)
-        {
-            writer.WriteStartElement(null, "OpngBal", xmlNamespace );
-            OpeningBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosingBalance is ClosingBalance3 ClosingBalanceValue)
-        {
-            writer.WriteStartElement(null, "ClsgBal", xmlNamespace );
-            ClosingBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Transaction, multiplicity Unknown
-    }
-    public static FinancialInstrumentDetails32 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

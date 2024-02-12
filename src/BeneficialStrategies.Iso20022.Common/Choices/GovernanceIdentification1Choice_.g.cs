@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the governance rules.
-/// </summary>
-[KnownType(typeof(GovernanceIdentification1Choice.Code))]
-[KnownType(typeof(GovernanceIdentification1Choice.Proprietary))]
-public abstract partial record GovernanceIdentification1Choice_ : IIsoXmlSerilizable<GovernanceIdentification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the governance rules.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static GovernanceIdentification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(GovernanceIdentification1Choice.Code))]
+    [KnownType(typeof(GovernanceIdentification1Choice.Proprietary))]
+    [IsoId("_929T0HltEeG7BsjMvd1mEw_-112960495")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Governance Identification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record GovernanceIdentification1Choice_
+    #else
+    public abstract partial class GovernanceIdentification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => GovernanceIdentification1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => GovernanceIdentification1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid GovernanceIdentification1Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the activation details which is referenced.
-/// </summary>
-[KnownType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification))]
-[KnownType(typeof(OriginalActivation2Choice.OriginalActivationData))]
-public abstract partial record OriginalActivation2Choice_ : IIsoXmlSerilizable<OriginalActivation2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the activation details which is referenced.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OriginalActivation2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification))]
+    [KnownType(typeof(OriginalActivation2Choice.OriginalActivationData))]
+    [IsoId("_UNr4PeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Activation 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OriginalActivation2Choice_
+    #else
+    public abstract partial class OriginalActivation2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgnlDbtrId" => OriginalActivation2Choice.OriginalDebtorIdentification.Deserialize(elementWithPayload),
-             "OrgnlActvtnData" => OriginalActivation2Choice.OriginalActivationData.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OriginalActivation2Choice choice.")
-        };
     }
 }

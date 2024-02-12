@@ -7,82 +7,125 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Transaction Report Request message.
 /// </summary>
+[IsoId("_wej3AN6PEeiwsev40qZGEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Transaction Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportTransactionRequest1
-     : IIsoXmlSerilizable<ReportTransactionRequest1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Eligibility parameters for a transaction to be part of transaction report.
     /// </summary>
+    [IsoId("_4eXmMN6PEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Search Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public SearchCriteria1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _4eXmMN6PEeiwsev40qZGEQ
+    
     /// <summary>
     /// Indicates the ordering in which the resulting transaction reports should be returned.
     /// </summary>
+    [IsoId("_sN1MMN6QEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Search Output Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SearchOutputOrder1? SearchOutputOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SearchOutputOrder1? SearchOutputOrder { get; init; } 
+    #else
+    public SearchOutputOrder1? SearchOutputOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the order used for the criteria.
     /// </summary>
+    [IsoId("_OLrKsN6REeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Descending Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DescendingOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DescendingOrder { get; init; } 
+    #else
+    public System.String? DescendingOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index of the first transaction matching the search criteria.
     /// </summary>
+    [IsoId("_RUyQsN6REeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? BlockStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? BlockStart { get; init; } 
+    #else
+    public System.UInt64? BlockStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index of the last transaction matching the search criteria.
     /// </summary>
+    [IsoId("_WEN0QN6REeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Stop")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? BlockStop { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? BlockStop { get; init; } 
+    #else
+    public System.UInt64? BlockStop { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize SearchCriteria, multiplicity Unknown
-        if (SearchOutputOrder is SearchOutputOrder1 SearchOutputOrderValue)
-        {
-            writer.WriteStartElement(null, "SchOutptOrdr", xmlNamespace );
-            SearchOutputOrderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DescendingOrder is IsoTrueFalseIndicator DescendingOrderValue)
-        {
-            writer.WriteStartElement(null, "DscndgOrdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DescendingOrderValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BlockStart is IsoPositiveNumber BlockStartValue)
-        {
-            writer.WriteStartElement(null, "BlckStart", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStartValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (BlockStop is IsoPositiveNumber BlockStopValue)
-        {
-            writer.WriteStartElement(null, "BlckStop", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStopValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportTransactionRequest1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

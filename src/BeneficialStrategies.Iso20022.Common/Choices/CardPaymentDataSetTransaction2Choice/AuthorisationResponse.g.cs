@@ -9,71 +9,155 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction2Choice;
-
-/// <summary>
-/// Card payment transaction including an authorisation response.
-/// </summary>
-public partial record AuthorisationResponse : CardPaymentDataSetTransaction2Choice_
-     , IIsoXmlSerilizable<AuthorisationResponse>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Sequential counter of the transaction.
+    /// Card payment transaction including an authorisation response.
     /// </summary>
-    public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
-    /// <summary>
-    /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
-    /// </summary>
-    public Traceability1? Traceability { get; init; } 
-    /// <summary>
-    /// Data related to the environment of the card payment transaction.
-    /// </summary>
-    public required CardPaymentEnvironment28 Environment { get; init; } 
-    /// <summary>
-    /// Card payment transaction authorisation result.
-    /// </summary>
-    public required CardPaymentTransaction32 Transaction { get; init; } 
-    /// <summary>
-    /// Response to the authorisation request from the acquirer.
-    /// </summary>
-    public required CardPaymentTransaction24 TransactionResponse { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RPup9zKQEeOqyZqt0rCZLg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Response")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AuthorisationResponse : CardPaymentDataSetTransaction2Choice_
+    #else
+    public partial class AuthorisationResponse : CardPaymentDataSetTransaction2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TxSeqCntr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(TransactionSequenceCounter)); // data type Max9NumericText System.String
-        writer.WriteEndElement();
-        if (Traceability is Traceability1 TraceabilityValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AuthorisationResponse instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AuthorisationResponse( System.String reqTransactionSequenceCounter,CardPaymentEnvironment28 reqEnvironment,CardPaymentTransaction32 reqTransaction,CardPaymentTransaction24 reqTransactionResponse )
         {
-            writer.WriteStartElement(null, "Tracblt", xmlNamespace );
-            TraceabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            TransactionSequenceCounter = reqTransactionSequenceCounter;
+            Environment = reqEnvironment;
+            Transaction = reqTransaction;
+            TransactionResponse = reqTransactionResponse;
         }
-        writer.WriteStartElement(null, "Envt", xmlNamespace );
-        Environment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tx", xmlNamespace );
-        Transaction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
-        TransactionResponse.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new AuthorisationResponse Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Sequential counter of the transaction.
+        /// </summary>
+        [IsoId("_6ht2YTKOEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Sequence Counter")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String TransactionSequenceCounter { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String TransactionSequenceCounter { get; init; } 
+        #else
+        public System.String TransactionSequenceCounter { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
+        /// </summary>
+        [IsoId("_6ht2YzKOEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Traceability")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Traceability1? Traceability { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Traceability1? Traceability { get; init; } 
+        #else
+        public Traceability1? Traceability { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data related to the environment of the card payment transaction.
+        /// </summary>
+        [IsoId("_6ht2ZTKOEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Environment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CardPaymentEnvironment28 Environment { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CardPaymentEnvironment28 Environment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentEnvironment28 Environment { get; init; } 
+        #else
+        public CardPaymentEnvironment28 Environment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Card payment transaction authorisation result.
+        /// </summary>
+        [IsoId("_6ht2ZzKOEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CardPaymentTransaction32 Transaction { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CardPaymentTransaction32 Transaction { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentTransaction32 Transaction { get; init; } 
+        #else
+        public CardPaymentTransaction32 Transaction { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Response to the authorisation request from the acquirer.
+        /// </summary>
+        [IsoId("_6ht2aTKOEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Response")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CardPaymentTransaction24 TransactionResponse { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CardPaymentTransaction24 TransactionResponse { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentTransaction24 TransactionResponse { get; init; } 
+        #else
+        public CardPaymentTransaction24 TransactionResponse { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

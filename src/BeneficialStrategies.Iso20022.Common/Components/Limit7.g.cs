@@ -7,113 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the limits.
 /// </summary>
+[IsoId("_Rf2uJZlhEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Limit")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Limit7
-     : IIsoXmlSerilizable<Limit7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Limit7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Limit7( Amount2Choice_ reqAmount )
+    {
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [IsoId("_Rt38AZlhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2Choice_ Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount2Choice_ Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2Choice_ Amount { get; init; } 
+    #else
+    public Amount2Choice_ Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
+    [IsoId("_Rt38A5lhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode? CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the limit, such as enabled or disabled.
     /// </summary>
+    [IsoId("_Rt38BZlhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitStatus1Code? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LimitStatus1Code? Status { get; init; } 
+    #else
+    public LimitStatus1Code? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
+    [IsoId("_Rt38B5lhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? StartDateTime { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? StartDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
+    [IsoId("_Rt38CZlhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2Choice_? UsedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2Choice_? UsedAmount { get; init; } 
+    #else
+    public Amount2Choice_? UsedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the used amount of the limit is a debit amount or a credit amount.
     /// </summary>
+    [IsoId("_Rt38C5lhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Amount Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? UsedAmountCreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode? UsedAmountCreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode? UsedAmountCreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
+    [IsoId("_Rt38DZlhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? UsedPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UsedPercentage { get; init; } 
+    #else
+    public System.Decimal? UsedPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
+    [IsoId("_Rt38D5lhEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2Choice_? RemainingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2Choice_? RemainingAmount { get; init; } 
+    #else
+    public Amount2Choice_? RemainingAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        Amount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Status is LimitStatus1Code StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            writer.WriteValue(StatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (StartDateTime is DateAndDateTime2Choice_ StartDateTimeValue)
-        {
-            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
-            StartDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UsedAmount is Amount2Choice_ UsedAmountValue)
-        {
-            writer.WriteStartElement(null, "UsdAmt", xmlNamespace );
-            UsedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UsedAmountCreditDebitIndicator is CreditDebitCode UsedAmountCreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "UsdAmtCdtDbtInd", xmlNamespace );
-            writer.WriteValue(UsedAmountCreditDebitIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UsedPercentage is IsoPercentageRate UsedPercentageValue)
-        {
-            writer.WriteStartElement(null, "UsdPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UsedPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RemainingAmount is Amount2Choice_ RemainingAmountValue)
-        {
-            writer.WriteStartElement(null, "RmngAmt", xmlNamespace );
-            RemainingAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Limit7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the allegement status.
-/// </summary>
-[KnownType(typeof(AllegementStatus1Choice.Code))]
-[KnownType(typeof(AllegementStatus1Choice.Proprietary))]
-public abstract partial record AllegementStatus1Choice_ : IIsoXmlSerilizable<AllegementStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the allegement status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AllegementStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AllegementStatus1Choice.Code))]
+    [KnownType(typeof(AllegementStatus1Choice.Proprietary))]
+    [IsoId("_UakE0dp-Ed-ak6NoX_4Aeg_618404541")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allegement Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AllegementStatus1Choice_
+    #else
+    public abstract partial class AllegementStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AllegementStatus1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AllegementStatus1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AllegementStatus1Choice choice.")
-        };
     }
 }

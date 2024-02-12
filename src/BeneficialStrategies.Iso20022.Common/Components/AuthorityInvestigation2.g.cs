@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the requested authority investigation information details.
 /// </summary>
+[IsoId("_zIYkA01JEeGAs6v-iSb2RQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Authority Investigation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AuthorityInvestigation2
-     : IIsoXmlSerilizable<AuthorityInvestigation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AuthorityInvestigation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AuthorityInvestigation2( AuthorityRequestType1 reqType,InvestigatedParties1Choice_ reqInvestigatedRoles )
+    {
+        Type = reqType;
+        InvestigatedRoles = reqInvestigatedRoles;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the type requested information as a code.
     /// </summary>
+    [IsoId("_1ur36E1JEeGAs6v-iSb2RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthorityRequestType1 Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AuthorityRequestType1 Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthorityRequestType1 Type { get; init; } 
+    #else
+    public AuthorityRequestType1 Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the roles the customer plays in the requested information.
     /// </summary>
+    [IsoId("_sGeWoU1AEeGAs6v-iSb2RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investigated Roles")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
+    #else
+    public InvestigatedParties1Choice_ InvestigatedRoles { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the additional investigated parties.
     /// </summary>
+    [IsoId("_80akgU1JEeGAs6v-iSb2RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Investigated Parties")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; init; } 
+    #else
+    public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
+    [IsoId("_6sOI8U1JEeGAs6v-iSb2RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 500 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InvstgtdRoles", xmlNamespace );
-        InvestigatedRoles.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInvestigatedParties is InvestigatedParties1Choice_ AdditionalInvestigatedPartiesValue)
-        {
-            writer.WriteStartElement(null, "AddtlInvstgtdPties", xmlNamespace );
-            AdditionalInvestigatedPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AuthorityInvestigation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

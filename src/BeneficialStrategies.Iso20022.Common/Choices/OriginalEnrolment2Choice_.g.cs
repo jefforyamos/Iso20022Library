@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the enrolment details which is referenced.
-/// </summary>
-[KnownType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification))]
-[KnownType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData))]
-public abstract partial record OriginalEnrolment2Choice_ : IIsoXmlSerilizable<OriginalEnrolment2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the enrolment details which is referenced.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OriginalEnrolment2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification))]
+    [KnownType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData))]
+    [IsoId("_UX7ZV-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Enrolment 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OriginalEnrolment2Choice_
+    #else
+    public abstract partial class OriginalEnrolment2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgnlCdtrId" => OriginalEnrolment2Choice.OriginalCreditorIdentification.Deserialize(elementWithPayload),
-             "OrgnlEnrlmntData" => OriginalEnrolment2Choice.OriginalEnrolmentData.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OriginalEnrolment2Choice choice.")
-        };
     }
 }

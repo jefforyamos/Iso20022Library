@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the mandate to be cancelled.
 /// </summary>
+[IsoId("_tlX48lkyEeGeoaLUQk__nA_1031601865")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mandate Cancellation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MandateCancellation2
-     : IIsoXmlSerilizable<MandateCancellation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MandateCancellation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MandateCancellation2( PaymentCancellationReason1 reqCancellationReason,OriginalMandate2Choice_ reqOriginalMandate )
+    {
+        CancellationReason = reqCancellationReason;
+        OriginalMandate = reqOriginalMandate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [IsoId("_tlX481kyEeGeoaLUQk__nA_-257428226")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
+    #else
+    public OriginalMessageInformation1? OriginalMessageInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
+    [IsoId("_tlX49FkyEeGeoaLUQk__nA_503336927")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCancellationReason1 CancellationReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentCancellationReason1 CancellationReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCancellationReason1 CancellationReason { get; init; } 
+    #else
+    public PaymentCancellationReason1 CancellationReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [IsoId("_tlhp8FkyEeGeoaLUQk__nA_33260517")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Mandate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OriginalMandate2Choice_ OriginalMandate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMandate2Choice_ OriginalMandate { get; init; } 
+    #else
+    public OriginalMandate2Choice_ OriginalMandate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalMessageInformation is OriginalMessageInformation1 OriginalMessageInformationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMsgInf", xmlNamespace );
-            OriginalMessageInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
-        CancellationReason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrgnlMndt", xmlNamespace );
-        OriginalMandate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static MandateCancellation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

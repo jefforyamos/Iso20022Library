@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods.
 /// </summary>
+[IsoId("_TfjOGdp-Ed-ak6NoX_4Aeg_-1268934712")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPeriod2
-     : IIsoXmlSerilizable<CorporateActionPeriod2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period during which the assented line is available.
     /// </summary>
+    [IsoId("_Tfs_ENp-Ed-ak6NoX_4Aeg_251714713")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assented Line Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? AssentedLinePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? AssentedLinePeriod { get; init; } 
+    #else
+    public Period1? AssentedLinePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
+    [IsoId("_Tfs_Edp-Ed-ak6NoX_4Aeg_205021481")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? ActionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? ActionPeriod { get; init; } 
+    #else
+    public Period1? ActionPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the privilege is not available, eg, this can happen whenever a meeting takes place or whenever a coupon payment is due.
     /// </summary>
+    [IsoId("_Tfs_Etp-Ed-ak6NoX_4Aeg_-1027220303")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Privilege Suspension Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? PrivilegeSuspensionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? PrivilegeSuspensionPeriod { get; init; } 
+    #else
+    public Period1? PrivilegeSuspensionPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, eg, consolidation of equity or splitting of equity.
     /// </summary>
+    [IsoId("_Tfs_E9p-Ed-ak6NoX_4Aeg_-954261746")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parallel Trading Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? ParallelTradingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? ParallelTradingPeriod { get; init; } 
+    #else
+    public Period1? ParallelTradingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period (last day included) during which an account owner can surrender or sell securities to the issuer and receive the sale proceeds.
     /// </summary>
+    [IsoId("_Tfs_FNp-Ed-ak6NoX_4Aeg_-910856320")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sell Thru Issuer Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? SellThruIssuerPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? SellThruIssuerPeriod { get; init; } 
+    #else
+    public Period1? SellThruIssuerPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the shareholder can revoke, change or withdraw its instruction.
     /// </summary>
+    [IsoId("_Tfs_Fdp-Ed-ak6NoX_4Aeg_-868373428")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Revocability Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? RevocabilityPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? RevocabilityPeriod { get; init; } 
+    #else
+    public Period1? RevocabilityPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the price of a security is determined (for outturn securities).
     /// </summary>
+    [IsoId("_Tfs_Ftp-Ed-ak6NoX_4Aeg_-823779950")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Calculation Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? PriceCalculationPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? PriceCalculationPeriod { get; init; } 
+    #else
+    public Period1? PriceCalculationPeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AssentedLinePeriod is Period1 AssentedLinePeriodValue)
-        {
-            writer.WriteStartElement(null, "AssntdLinePrd", xmlNamespace );
-            AssentedLinePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActionPeriod is Period1 ActionPeriodValue)
-        {
-            writer.WriteStartElement(null, "ActnPrd", xmlNamespace );
-            ActionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrivilegeSuspensionPeriod is Period1 PrivilegeSuspensionPeriodValue)
-        {
-            writer.WriteStartElement(null, "PrvlgSspnsnPrd", xmlNamespace );
-            PrivilegeSuspensionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ParallelTradingPeriod is Period1 ParallelTradingPeriodValue)
-        {
-            writer.WriteStartElement(null, "ParllTradgPrd", xmlNamespace );
-            ParallelTradingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SellThruIssuerPeriod is Period1 SellThruIssuerPeriodValue)
-        {
-            writer.WriteStartElement(null, "SellThruIssrPrd", xmlNamespace );
-            SellThruIssuerPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RevocabilityPeriod is Period1 RevocabilityPeriodValue)
-        {
-            writer.WriteStartElement(null, "RvcbltyPrd", xmlNamespace );
-            RevocabilityPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceCalculationPeriod is Period1 PriceCalculationPeriodValue)
-        {
-            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
-            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionPeriod2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status is rejected.
 /// </summary>
+[IsoId("_U3BXUtp-Ed-ak6NoX_4Aeg_1285193408")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rejected Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RejectedStatus4
-     : IIsoXmlSerilizable<RejectedStatus4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RejectedStatus4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RejectedStatus4( RejectedStatusReason4 reqReason,GenericIdentification1 reqDataSourceScheme )
+    {
+        Reason = reqReason;
+        DataSourceScheme = reqDataSourceScheme;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason for a rejected status.
     /// </summary>
+    [IsoId("_U3BXU9p-Ed-ak6NoX_4Aeg_1285193486")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatusReason4 Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectedStatusReason4 Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectedStatusReason4 Reason { get; init; } 
+    #else
+    public RejectedStatusReason4 Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary identification for a reason of a rejected status in the report.
     /// </summary>
+    [IsoId("_U3BXVNp-Ed-ak6NoX_4Aeg_1285193451")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Source Scheme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification1 DataSourceScheme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1 DataSourceScheme { get; init; } 
+    #else
+    public GenericIdentification1 DataSourceScheme { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
-        DataSourceScheme.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static RejectedStatus4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

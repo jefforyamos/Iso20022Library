@@ -7,131 +7,262 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement of the journal entries for all activities related to the registered currency control contract.
 /// </summary>
+[IsoId("_TYk8IW49EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Contract Registration Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ContractRegistrationStatement2
-     : IIsoXmlSerilizable<ContractRegistrationStatement2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ContractRegistrationStatement2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ContractRegistrationStatement2( TradeParty5 reqReportingParty,BranchAndFinancialInstitutionIdentification6 reqRegistrationAgent,ReportingPeriod4 reqReportingPeriod,RegisteredContract8 reqRegisteredContract,System.Decimal reqTotalContractTurnoverSum )
+    {
+        ReportingParty = reqReportingParty;
+        RegistrationAgent = reqRegistrationAgent;
+        ReportingPeriod = reqReportingPeriod;
+        RegisteredContract = reqRegisteredContract;
+        TotalContractTurnoverSum = reqTotalContractTurnoverSum;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the contract registration statement.
     /// </summary>
+    [IsoId("_TitIgW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatementIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatementIdentification { get; init; } 
+    #else
+    public System.String? StatementIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
+    [IsoId("_TitIg249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty5 ReportingParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeParty5 ReportingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty5 ReportingParty { get; init; } 
+    #else
+    public TradeParty5 ReportingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
+    [IsoId("_TitIhW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the period for which the statement is provided.
     /// </summary>
+    [IsoId("_TitIh249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingPeriod4 ReportingPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReportingPeriod4 ReportingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingPeriod4 ReportingPeriod { get; init; } 
+    #else
+    public ReportingPeriod4 ReportingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Registered currency control contract.
     /// </summary>
+    [IsoId("_TitIiW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registered Contract")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegisteredContract8 RegisteredContract { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RegisteredContract8 RegisteredContract { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RegisteredContract8 RegisteredContract { get; init; } 
+    #else
+    public RegisteredContract8 RegisteredContract { get; set; } 
+    #endif
+    
     /// <summary>
     /// Journal of the transactions recorded under the registered currency control contract.
     /// </summary>
+    [IsoId("_TitIi249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Journal")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionCertificate3? TransactionJournal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionCertificate3? TransactionJournal { get; init; } 
+    #else
+    public TransactionCertificate3? TransactionJournal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Journal of the supporting documents recorded under the registered currency control contract.
     /// </summary>
+    [IsoId("_TitIjW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supporting Document Journal")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupportingDocument2? SupportingDocumentJournal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupportingDocument2? SupportingDocumentJournal { get; init; } 
+    #else
+    public SupportingDocument2? SupportingDocumentJournal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Journal of additional supporting documents recorded under the registered currency control contract.
     /// </summary>
+    [IsoId("_TitIj249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Supporting Document Journal")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupportingDocument2? AdditionalSupportingDocumentJournal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupportingDocument2? AdditionalSupportingDocumentJournal { get; init; } 
+    #else
+    public SupportingDocument2? AdditionalSupportingDocumentJournal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details on the currency control rule against which has been violated.
     /// </summary>
+    [IsoId("_TitIkW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regulatory Rule Validation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? RegulatoryRuleValidation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericValidationRuleIdentification1? RegulatoryRuleValidation { get; init; } 
+    #else
+    public GenericValidationRuleIdentification1? RegulatoryRuleValidation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total turn over amount recorded under the currency control contract for the amount of all.
     /// </summary>
+    [IsoId("_TitIk249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Contract Turnover Sum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalContractTurnoverSum { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalContractTurnoverSum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalContractTurnoverSum { get; init; } 
+    #else
+    public System.Decimal TotalContractTurnoverSum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_TitIlW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StatementIdentification is IsoMax35Text StatementIdentificationValue)
-        {
-            writer.WriteStartElement(null, "StmtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RptgPty", xmlNamespace );
-        ReportingParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RegnAgt", xmlNamespace );
-        RegistrationAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
-        ReportingPeriod.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RegdCtrct", xmlNamespace );
-        RegisteredContract.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TransactionJournal is TransactionCertificate3 TransactionJournalValue)
-        {
-            writer.WriteStartElement(null, "TxJrnl", xmlNamespace );
-            TransactionJournalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupportingDocumentJournal is SupportingDocument2 SupportingDocumentJournalValue)
-        {
-            writer.WriteStartElement(null, "SpprtgDocJrnl", xmlNamespace );
-            SupportingDocumentJournalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalSupportingDocumentJournal is SupportingDocument2 AdditionalSupportingDocumentJournalValue)
-        {
-            writer.WriteStartElement(null, "AddtlSpprtgDocJrnl", xmlNamespace );
-            AdditionalSupportingDocumentJournalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RegulatoryRuleValidation is GenericValidationRuleIdentification1 RegulatoryRuleValidationValue)
-        {
-            writer.WriteStartElement(null, "RgltryRuleVldtn", xmlNamespace );
-            RegulatoryRuleValidationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlCtrctTrnvrSum", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalContractTurnoverSum)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ContractRegistrationStatement2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,50 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines proprietary reason to reject a transaction.
 /// </summary>
+[IsoId("_hJmDMdEdEei798TPbKJMuw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Proprietary Status Justification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProprietaryStatusJustification2
-     : IIsoXmlSerilizable<ProprietaryStatusJustification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProprietaryStatusJustification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProprietaryStatusJustification2( System.String reqProprietaryStatusReason,System.String reqReason )
+    {
+        ProprietaryStatusReason = reqProprietaryStatusReason;
+        Reason = reqReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the reason why the system has rejected the transaction.
     /// </summary>
+    [IsoId("_hU5UQdEdEei798TPbKJMuw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ProprietaryStatusReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ProprietaryStatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ProprietaryStatusReason { get; init; } 
+    #else
+    public System.String ProprietaryStatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information about the reason why the  system has rejected the transaction.
     /// </summary>
+    [IsoId("_hU5UQ9EdEei798TPbKJMuw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Reason { get; init; } 
+    #else
+    public System.String Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrtryStsRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProprietaryStatusReason)); // data type Max4AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Reason)); // data type Max256Text System.String
-        writer.WriteEndElement();
-    }
-    public static ProprietaryStatusJustification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

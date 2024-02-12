@@ -7,107 +7,211 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[IsoId("_QCHd4tp-Ed-ak6NoX_4Aeg_-1362353308")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Individual Person")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IndividualPerson8
-     : IIsoXmlSerilizable<IndividualPerson8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IndividualPerson8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IndividualPerson8( System.String reqName,System.String reqGivenName,PostalAddress1 reqIndividualInvestorAddress )
+    {
+        Name = reqName;
+        GivenName = reqGivenName;
+        IndividualInvestorAddress = reqIndividualInvestorAddress;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [IsoId("_QCHd49p-Ed-ak6NoX_4Aeg_-1362352862")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Name { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Name { get; init; } 
+    #else
+    public System.String Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// First name of a person.
     /// </summary>
+    [IsoId("_QCHd5Np-Ed-ak6NoX_4Aeg_-1362350362")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Given Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text GivenName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String GivenName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String GivenName { get; init; } 
+    #else
+    public System.String GivenName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [IsoId("_QCHd5dp-Ed-ak6NoX_4Aeg_-1354042162")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Prefix")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NamePrefix1Code? NamePrefix { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NamePrefix1Code? NamePrefix { get; init; } 
+    #else
+    public NamePrefix1Code? NamePrefix { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about a person that follows a person's name, for example, qualification such as Doctor of Philosophy (PhD).
     /// </summary>
+    [IsoId("_QCHd5tp-Ed-ak6NoX_4Aeg_-1354041990")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Suffix")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NameSuffix { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NameSuffix { get; init; } 
+    #else
+    public System.String? NameSuffix { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
+    [IsoId("_QCHd59p-Ed-ak6NoX_4Aeg_-1354041947")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenderCode? Gender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenderCode? Gender { get; init; } 
+    #else
+    public GenderCode? Gender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [IsoId("_QCRO4Np-Ed-ak6NoX_4Aeg_-1354041887")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Birth Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BirthDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BirthDate { get; init; } 
+    #else
+    public System.DateOnly? BirthDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
+    [IsoId("_QCRO4dp-Ed-ak6NoX_4Aeg_-1354041515")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Social Security Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SocialSecurityNumber { get; init; } 
+    #else
+    public System.String? SocialSecurityNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Postal address of a party.
     /// </summary>
+    [IsoId("_QCRO4tp-Ed-ak6NoX_4Aeg_349983267")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Investor Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PostalAddress1 IndividualInvestorAddress { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PostalAddress1 IndividualInvestorAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress1 IndividualInvestorAddress { get; init; } 
+    #else
+    public PostalAddress1 IndividualInvestorAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Nm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "GvnNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenName)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (NamePrefix is NamePrefix1Code NamePrefixValue)
-        {
-            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
-            writer.WriteValue(NamePrefixValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NameSuffix is IsoMax35Text NameSuffixValue)
-        {
-            writer.WriteStartElement(null, "NmSfx", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameSuffixValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Gender is GenderCode GenderValue)
-        {
-            writer.WriteStartElement(null, "Gndr", xmlNamespace );
-            writer.WriteValue(GenderValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BirthDate is IsoISODate BirthDateValue)
-        {
-            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SocialSecurityNumber is IsoMax35Text SocialSecurityNumberValue)
-        {
-            writer.WriteStartElement(null, "SclSctyNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SocialSecurityNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IndvInvstrAdr", xmlNamespace );
-        IndividualInvestorAddress.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static IndividualPerson8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,87 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[IsoId("_tBTCIUGVEeWqy4niLuXETA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashOption45
-     : IIsoXmlSerilizable<CashOption45>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashOption45 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashOption45( CreditDebitCode reqCreditDebitIndicator,DateAndDateTimeChoice_ reqPostingDate,System.Decimal reqPostingAmount )
+    {
+        CreditDebitIndicator = reqCreditDebitIndicator;
+        PostingDate = reqPostingDate;
+        PostingAmount = reqPostingAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the value is a debit or credit.
     /// </summary>
+    [IsoId("_tOr940GVEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
+    [IsoId("_tOr960GVEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account8Choice_? Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account8Choice_? Account { get; init; } 
+    #else
+    public Account8Choice_? Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account.
     /// </summary>
+    [IsoId("_tOr980GVEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ PostingDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ PostingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ PostingDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ PostingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account that was initially communicated in the confirmation.
     /// </summary>
+    [IsoId("_tOr9-0GVEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Posting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? OriginalPostingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? OriginalPostingDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? OriginalPostingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
+    [IsoId("_tOr9_UGVEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? ValueDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that is to be/was posted to the account.
     /// </summary>
+    [IsoId("_tOr-BUGVEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posting Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PostingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PostingAmount { get; init; } 
+    #else
+    public System.Decimal PostingAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Account is Account8Choice_ AccountValue)
-        {
-            writer.WriteStartElement(null, "Acct", xmlNamespace );
-            AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PstngDt", xmlNamespace );
-        PostingDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OriginalPostingDate is DateAndDateTimeChoice_ OriginalPostingDateValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPstngDt", xmlNamespace );
-            OriginalPostingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is DateAndDateTimeChoice_ ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            ValueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PstngAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PostingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static CashOption45 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

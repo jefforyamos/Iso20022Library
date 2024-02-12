@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice;
-
-/// <summary>
-/// Whether the Securities Financing Transaction was concluded on a domestic trading venue or a foregin trading venue.
-/// </summary>
-public partial record OnVenue : TradingVenueType1Choice_
-     , IIsoXmlSerilizable<OnVenue>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies a code for a trade market.
+    /// Whether the Securities Financing Transaction was concluded on a domestic trading venue or a foregin trading venue.
     /// </summary>
-    public required TradeMarket2Code Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_upJw4Hy7Eeu1BeE84IrnAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Venue")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OnVenue : TradingVenueType1Choice_
+    #else
+    public partial class OnVenue : TradingVenueType1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "OnVn", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new OnVenue Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OnVenue instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OnVenue( TradeMarket2Code reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies a code for a trade market.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required TradeMarket2Code Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public TradeMarket2Code Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TradeMarket2Code Value { get; init; } 
+        #else
+        public TradeMarket2Code Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

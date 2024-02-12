@@ -9,54 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
-
-/// <summary>
-/// Indicates that the investment was made in an unsecured deposit at a commercial deposit taking institution.
-/// </summary>
-public partial record UnsecuredCashDeposit : Investment1Choice_
-     , IIsoXmlSerilizable<UnsecuredCashDeposit>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date on which the deposit matures.
+    /// Indicates that the investment was made in an unsecured deposit at a commercial deposit taking institution.
     /// </summary>
-    public required IsoISODate MaturityDate { get; init; } 
-    /// <summary>
-    /// Specifies the value of the deposit.
-    /// </summary>
-    public required IsoActiveCurrencyAndAmount Value { get; init; } 
-    /// <summary>
-    /// Identifies the legal entity that takes the deposit.
-    /// </summary>
-    public required IsoLEIIdentifier CounterpartyIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_8csFMLJUEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unsecured Cash Deposit")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record UnsecuredCashDeposit : Investment1Choice_
+    #else
+    public partial class UnsecuredCashDeposit : Investment1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Value)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(CounterpartyIdentification)); // data type LEIIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static new UnsecuredCashDeposit Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a UnsecuredCashDeposit instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public UnsecuredCashDeposit( System.DateOnly reqMaturityDate,System.Decimal reqValue,System.String reqCounterpartyIdentification )
+        {
+            MaturityDate = reqMaturityDate;
+            Value = reqValue;
+            CounterpartyIdentification = reqCounterpartyIdentification;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date on which the deposit matures.
+        /// </summary>
+        [IsoId("_H_pLALJVEeaYqc4G3TTwhA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Maturity Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate MaturityDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly MaturityDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly MaturityDate { get; init; } 
+        #else
+        public System.DateOnly MaturityDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the value of the deposit.
+        /// </summary>
+        [IsoId("_LYG7oLJVEeaYqc4G3TTwhA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAndAmount Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Value { get; init; } 
+        #else
+        public System.Decimal Value { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the legal entity that takes the deposit.
+        /// </summary>
+        [IsoId("_N0LVcLJVEeaYqc4G3TTwhA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoLEIIdentifier CounterpartyIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String CounterpartyIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String CounterpartyIdentification { get; init; } 
+        #else
+        public System.String CounterpartyIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

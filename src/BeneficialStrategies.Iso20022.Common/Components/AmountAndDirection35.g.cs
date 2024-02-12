@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Resulting debit or credit amount of the netted amounts for all debit and credit entries.
 /// </summary>
+[IsoId("_mK6yUSmjEeKdFJmzhTDOvQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amount And Direction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmountAndDirection35
-     : IIsoXmlSerilizable<AmountAndDirection35>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AmountAndDirection35 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AmountAndDirection35( System.UInt64 reqAmount,CreditDebitCode reqCreditDebitIndicator )
+    {
+        Amount = reqAmount;
+        CreditDebitIndicator = reqCreditDebitIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Resulting amount of the netted amounts for all debit and credit entries.
     /// </summary>
+    [IsoId("_mgrm8SmjEeKdFJmzhTDOvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNonNegativeDecimalNumber Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Amount { get; init; } 
+    #else
+    public System.UInt64 Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the amount is a credit or a debit amount.
     /// </summary>
+    [IsoId("_mgrm9SmjEeKdFJmzhTDOvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNonNegativeDecimalNumber(Amount)); // data type NonNegativeDecimalNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static AmountAndDirection35 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

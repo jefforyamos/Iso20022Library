@@ -7,66 +7,50 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status for the processing.
-/// </summary>
-[KnownType(typeof(ProcessingStatus17Choice.AcknowledgedAccepted))]
-[KnownType(typeof(ProcessingStatus17Choice.AlreadyMatchedAndAffirmed))]
-[KnownType(typeof(ProcessingStatus17Choice.DefaultAction))]
-[KnownType(typeof(ProcessingStatus17Choice.Done))]
-[KnownType(typeof(ProcessingStatus17Choice.ForcedRejection))]
-[KnownType(typeof(ProcessingStatus17Choice.FullyExecutedConfirmationSent))]
-[KnownType(typeof(ProcessingStatus17Choice.Future))]
-[KnownType(typeof(ProcessingStatus17Choice.Generated))]
-[KnownType(typeof(ProcessingStatus17Choice.InRepair))]
-[KnownType(typeof(ProcessingStatus17Choice.NoInstruction))]
-[KnownType(typeof(ProcessingStatus17Choice.OpenOrder))]
-[KnownType(typeof(ProcessingStatus17Choice.PendingProcessing))]
-[KnownType(typeof(ProcessingStatus17Choice.ReceivedAtIntermediary))]
-[KnownType(typeof(ProcessingStatus17Choice.Rejected))]
-[KnownType(typeof(ProcessingStatus17Choice.SettlementInstructionSent))]
-[KnownType(typeof(ProcessingStatus17Choice.StandingInstruction))]
-[KnownType(typeof(ProcessingStatus17Choice.TradingSuspendedByStockExchange))]
-[KnownType(typeof(ProcessingStatus17Choice.Treated))]
-[KnownType(typeof(ProcessingStatus17Choice.ProprietaryStatus))]
-public abstract partial record ProcessingStatus17Choice_ : IIsoXmlSerilizable<ProcessingStatus17Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status for the processing.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProcessingStatus17Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProcessingStatus17Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(ProcessingStatus17Choice.AlreadyMatchedAndAffirmed))]
+    [KnownType(typeof(ProcessingStatus17Choice.DefaultAction))]
+    [KnownType(typeof(ProcessingStatus17Choice.Done))]
+    [KnownType(typeof(ProcessingStatus17Choice.ForcedRejection))]
+    [KnownType(typeof(ProcessingStatus17Choice.FullyExecutedConfirmationSent))]
+    [KnownType(typeof(ProcessingStatus17Choice.Future))]
+    [KnownType(typeof(ProcessingStatus17Choice.Generated))]
+    [KnownType(typeof(ProcessingStatus17Choice.InRepair))]
+    [KnownType(typeof(ProcessingStatus17Choice.NoInstruction))]
+    [KnownType(typeof(ProcessingStatus17Choice.OpenOrder))]
+    [KnownType(typeof(ProcessingStatus17Choice.PendingProcessing))]
+    [KnownType(typeof(ProcessingStatus17Choice.ReceivedAtIntermediary))]
+    [KnownType(typeof(ProcessingStatus17Choice.Rejected))]
+    [KnownType(typeof(ProcessingStatus17Choice.SettlementInstructionSent))]
+    [KnownType(typeof(ProcessingStatus17Choice.StandingInstruction))]
+    [KnownType(typeof(ProcessingStatus17Choice.TradingSuspendedByStockExchange))]
+    [KnownType(typeof(ProcessingStatus17Choice.Treated))]
+    [KnownType(typeof(ProcessingStatus17Choice.ProprietaryStatus))]
+    [IsoId("_A42wEtokEeC60axPepSq7g_1414128802")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status 17 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProcessingStatus17Choice_
+    #else
+    public abstract partial class ProcessingStatus17Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AckdAccptd" => ProcessingStatus17Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "AlrdyMtchdAndAffrmd" => ProcessingStatus17Choice.AlreadyMatchedAndAffirmed.Deserialize(elementWithPayload),
-             "DfltActn" => ProcessingStatus17Choice.DefaultAction.Deserialize(elementWithPayload),
-             "Done" => ProcessingStatus17Choice.Done.Deserialize(elementWithPayload),
-             "ForcdRjctn" => ProcessingStatus17Choice.ForcedRejection.Deserialize(elementWithPayload),
-             "FullyExctdConfSnt" => ProcessingStatus17Choice.FullyExecutedConfirmationSent.Deserialize(elementWithPayload),
-             "Futr" => ProcessingStatus17Choice.Future.Deserialize(elementWithPayload),
-             "Gnrtd" => ProcessingStatus17Choice.Generated.Deserialize(elementWithPayload),
-             "InRpr" => ProcessingStatus17Choice.InRepair.Deserialize(elementWithPayload),
-             "NoInstr" => ProcessingStatus17Choice.NoInstruction.Deserialize(elementWithPayload),
-             "OpnOrdr" => ProcessingStatus17Choice.OpenOrder.Deserialize(elementWithPayload),
-             "PdgPrcg" => ProcessingStatus17Choice.PendingProcessing.Deserialize(elementWithPayload),
-             "RcvdAtIntrmy" => ProcessingStatus17Choice.ReceivedAtIntermediary.Deserialize(elementWithPayload),
-             "Rjctd" => ProcessingStatus17Choice.Rejected.Deserialize(elementWithPayload),
-             "SttlmInstrSnt" => ProcessingStatus17Choice.SettlementInstructionSent.Deserialize(elementWithPayload),
-             "StgInstr" => ProcessingStatus17Choice.StandingInstruction.Deserialize(elementWithPayload),
-             "TradgSspdByStockXchg" => ProcessingStatus17Choice.TradingSuspendedByStockExchange.Deserialize(elementWithPayload),
-             "Trtd" => ProcessingStatus17Choice.Treated.Deserialize(elementWithPayload),
-             "PrtrySts" => ProcessingStatus17Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProcessingStatus17Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Used to report between the securities reference data or an operational error.
-/// </summary>
-[KnownType(typeof(SecuritiesAuditTrailOrOperationalError4Choice.SecuritiesAuditTrailReport))]
-[KnownType(typeof(SecuritiesAuditTrailOrOperationalError4Choice.OperationalError))]
-public abstract partial record SecuritiesAuditTrailOrOperationalError4Choice_ : IIsoXmlSerilizable<SecuritiesAuditTrailOrOperationalError4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Used to report between the securities reference data or an operational error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesAuditTrailOrOperationalError4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesAuditTrailOrOperationalError4Choice.SecuritiesAuditTrailReport))]
+    [KnownType(typeof(SecuritiesAuditTrailOrOperationalError4Choice.OperationalError))]
+    [IsoId("_PrBR8ZJKEeuAlLVx8pyt3w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Audit Trail Or Operational Error 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesAuditTrailOrOperationalError4Choice_
+    #else
+    public abstract partial class SecuritiesAuditTrailOrOperationalError4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesAudtTrlRpt" => SecuritiesAuditTrailOrOperationalError4Choice.SecuritiesAuditTrailReport.Deserialize(elementWithPayload),
-             "OprlErr" => SecuritiesAuditTrailOrOperationalError4Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesAuditTrailOrOperationalError4Choice choice.")
-        };
     }
 }

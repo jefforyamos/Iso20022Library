@@ -9,33 +9,44 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus1Choice;
-
-/// <summary>
-/// Provides status information related to a pending instruction.
-/// </summary>
-public partial record Pending : InstructionProcessingStatus1Choice_
-     , IIsoXmlSerilizable<Pending>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus1Choice
 {
-    #nullable enable
-    
-    
-    #nullable disable
-    
-    
     /// <summary>
-    /// Used to format the various primative types during serialization.
+    /// Provides status information related to a pending instruction.
     /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Qy_hM9p-Ed-ak6NoX_4Aeg_1776400132")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Pending : InstructionProcessingStatus1Choice_
+    #else
+    public partial class Pending : InstructionProcessingStatus1Choice_
+    #endif
     {
-    }
-    public static new Pending Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,46 +7,40 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for a processing status.
-/// </summary>
-[KnownType(typeof(ProcessingStatus77Choice.AcknowledgedAccepted))]
-[KnownType(typeof(ProcessingStatus77Choice.PendingProcessing))]
-[KnownType(typeof(ProcessingStatus77Choice.Rejected))]
-[KnownType(typeof(ProcessingStatus77Choice.Repair))]
-[KnownType(typeof(ProcessingStatus77Choice.Cancelled))]
-[KnownType(typeof(ProcessingStatus77Choice.PendingCancellation))]
-[KnownType(typeof(ProcessingStatus77Choice.Proprietary))]
-[KnownType(typeof(ProcessingStatus77Choice.CancellationRequested))]
-[KnownType(typeof(ProcessingStatus77Choice.ModificationRequested))]
-public abstract partial record ProcessingStatus77Choice_ : IIsoXmlSerilizable<ProcessingStatus77Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for a processing status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProcessingStatus77Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProcessingStatus77Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(ProcessingStatus77Choice.PendingProcessing))]
+    [KnownType(typeof(ProcessingStatus77Choice.Rejected))]
+    [KnownType(typeof(ProcessingStatus77Choice.Repair))]
+    [KnownType(typeof(ProcessingStatus77Choice.Cancelled))]
+    [KnownType(typeof(ProcessingStatus77Choice.PendingCancellation))]
+    [KnownType(typeof(ProcessingStatus77Choice.Proprietary))]
+    [KnownType(typeof(ProcessingStatus77Choice.CancellationRequested))]
+    [KnownType(typeof(ProcessingStatus77Choice.ModificationRequested))]
+    [IsoId("_AYE5i_fZEeiNZp_PtLohLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status 77 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProcessingStatus77Choice_
+    #else
+    public abstract partial class ProcessingStatus77Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AckdAccptd" => ProcessingStatus77Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "PdgPrcg" => ProcessingStatus77Choice.PendingProcessing.Deserialize(elementWithPayload),
-             "Rjctd" => ProcessingStatus77Choice.Rejected.Deserialize(elementWithPayload),
-             "Rpr" => ProcessingStatus77Choice.Repair.Deserialize(elementWithPayload),
-             "Canc" => ProcessingStatus77Choice.Cancelled.Deserialize(elementWithPayload),
-             "PdgCxl" => ProcessingStatus77Choice.PendingCancellation.Deserialize(elementWithPayload),
-             "Prtry" => ProcessingStatus77Choice.Proprietary.Deserialize(elementWithPayload),
-             "CxlReqd" => ProcessingStatus77Choice.CancellationRequested.Deserialize(elementWithPayload),
-             "ModReqd" => ProcessingStatus77Choice.ModificationRequested.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProcessingStatus77Choice choice.")
-        };
     }
 }

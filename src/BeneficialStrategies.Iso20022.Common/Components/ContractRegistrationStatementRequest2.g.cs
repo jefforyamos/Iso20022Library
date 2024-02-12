@@ -7,91 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the statement requested elements.
 /// </summary>
+[IsoId("_Nl-rYW49EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Contract Registration Statement Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ContractRegistrationStatementRequest2
-     : IIsoXmlSerilizable<ContractRegistrationStatementRequest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ContractRegistrationStatementRequest2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ContractRegistrationStatementRequest2( System.String reqStatementRequestIdentification,ReportingPeriod4 reqReportingPeriod,TradeParty5 reqReportingParty,BranchAndFinancialInstitutionIdentification6 reqRegistrationAgent,System.String reqRegisteredContractIdentification )
+    {
+        StatementRequestIdentification = reqStatementRequestIdentification;
+        ReportingPeriod = reqReportingPeriod;
+        ReportingParty = reqReportingParty;
+        RegistrationAgent = reqRegistrationAgent;
+        RegisteredContractIdentification = reqRegisteredContractIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the contract registration statement request.
     /// </summary>
+    [IsoId("_NvhB4W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text StatementRequestIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String StatementRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String StatementRequestIdentification { get; init; } 
+    #else
+    public System.String StatementRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the period for which the statement is requested.
     /// </summary>
+    [IsoId("_NvhB4249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingPeriod4 ReportingPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReportingPeriod4 ReportingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingPeriod4 ReportingPeriod { get; init; } 
+    #else
+    public ReportingPeriod4 ReportingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
+    [IsoId("_NvhB5W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty5 ReportingParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeParty5 ReportingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty5 ReportingParty { get; init; } 
+    #else
+    public TradeParty5 ReportingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
+    [IsoId("_NvhB5249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the requested registered contract.
     /// </summary>
+    [IsoId("_NvhB6W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registered Contract Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RegisteredContractIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RegisteredContractIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RegisteredContractIdentification { get; init; } 
+    #else
+    public System.String RegisteredContractIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria to be returned in the statement in response to the request.
     /// </summary>
+    [IsoId("_NvhB8W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractRegistrationStatementCriteria1? ReturnCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContractRegistrationStatementCriteria1? ReturnCriteria { get; init; } 
+    #else
+    public ContractRegistrationStatementCriteria1? ReturnCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_NvhB8249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "StmtReqId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementRequestIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
-        ReportingPeriod.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptgPty", xmlNamespace );
-        ReportingParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RegnAgt", xmlNamespace );
-        RegistrationAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RegdCtrctId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RegisteredContractIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ReturnCriteria is ContractRegistrationStatementCriteria1 ReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
-            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ContractRegistrationStatementRequest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

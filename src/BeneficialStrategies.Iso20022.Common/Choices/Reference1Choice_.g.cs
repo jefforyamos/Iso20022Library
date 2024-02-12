@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the identification of the MarginCallRequest message, the MarginCallResponse message, the CollateralProposal message, the CollateralProposalResponse message, the CollateralSubstitutionRequest message or the MarginCallDisputeNotification message.
-/// </summary>
-[KnownType(typeof(Reference1Choice.MarginCallRequestIdentification))]
-[KnownType(typeof(Reference1Choice.MarginCallResponseIdentification))]
-[KnownType(typeof(Reference1Choice.CollateralProposalIdentification))]
-[KnownType(typeof(Reference1Choice.CollateralProposalResponseIdentification))]
-[KnownType(typeof(Reference1Choice.DisputeNotificationIdentification))]
-[KnownType(typeof(Reference1Choice.CollateralSubstitutionRequestIdentification))]
-public abstract partial record Reference1Choice_ : IIsoXmlSerilizable<Reference1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the identification of the MarginCallRequest message, the MarginCallResponse message, the CollateralProposal message, the CollateralProposalResponse message, the CollateralSubstitutionRequest message or the MarginCallDisputeNotification message.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Reference1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Reference1Choice.MarginCallRequestIdentification))]
+    [KnownType(typeof(Reference1Choice.MarginCallResponseIdentification))]
+    [KnownType(typeof(Reference1Choice.CollateralProposalIdentification))]
+    [KnownType(typeof(Reference1Choice.CollateralProposalResponseIdentification))]
+    [KnownType(typeof(Reference1Choice.DisputeNotificationIdentification))]
+    [KnownType(typeof(Reference1Choice.CollateralSubstitutionRequestIdentification))]
+    [IsoId("_QmxqItp-Ed-ak6NoX_4Aeg_261203016")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Reference1Choice_
+    #else
+    public abstract partial class Reference1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MrgnCallReqId" => Reference1Choice.MarginCallRequestIdentification.Deserialize(elementWithPayload),
-             "MrgnCallRspnId" => Reference1Choice.MarginCallResponseIdentification.Deserialize(elementWithPayload),
-             "CollPrpslId" => Reference1Choice.CollateralProposalIdentification.Deserialize(elementWithPayload),
-             "CollPrpslRspnId" => Reference1Choice.CollateralProposalResponseIdentification.Deserialize(elementWithPayload),
-             "DsptNtfctnId" => Reference1Choice.DisputeNotificationIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnReqId" => Reference1Choice.CollateralSubstitutionRequestIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Reference1Choice choice.")
-        };
     }
 }

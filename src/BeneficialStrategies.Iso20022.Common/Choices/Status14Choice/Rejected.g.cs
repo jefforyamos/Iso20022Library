@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Status14Choice;
-
-/// <summary>
-/// Status of the order is rejected.
-/// </summary>
-public partial record Rejected : Status14Choice_
-     , IIsoXmlSerilizable<Rejected>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Status14Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reason for the rejected status.
+    /// Status of the order is rejected.
     /// </summary>
-    public required RejectedReason4Choice_ Reason { get; init; } 
-    /// <summary>
-    /// Additional information about the rejected status reason.
-    /// </summary>
-    public IsoMax350Text? AdditionalReasonInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Hri4Mx6rEeODgY9qxg6TFA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Rejected : Status14Choice_
+    #else
+    public partial class Rejected : Status14Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalReasonInformation is IsoMax350Text AdditionalReasonInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Rejected instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Rejected( RejectedReason4Choice_ reqReason )
         {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalReasonInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
+            Reason = reqReason;
         }
-    }
-    public static new Rejected Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reason for the rejected status.
+        /// </summary>
+        [IsoId("_w8B4ESP0EeO-CsDf20Q5hg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required RejectedReason4Choice_ Reason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public RejectedReason4Choice_ Reason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RejectedReason4Choice_ Reason { get; init; } 
+        #else
+        public RejectedReason4Choice_ Reason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the rejected status reason.
+        /// </summary>
+        [IsoId("_w8B4GSP0EeO-CsDf20Q5hg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Reason Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? AdditionalReasonInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalReasonInformation { get; init; } 
+        #else
+        public System.String? AdditionalReasonInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

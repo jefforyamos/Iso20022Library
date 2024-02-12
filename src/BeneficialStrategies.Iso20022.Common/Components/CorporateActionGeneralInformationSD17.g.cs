@@ -7,67 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
+[IsoId("_d7b0IaIREeS6IulNYwkZBg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action General Information SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionGeneralInformationSD17
-     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionGeneralInformationSD17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionGeneralInformationSD17( System.String reqPlaceAndName,SecurityIdentification15 reqSecurityIdentification,System.String reqSafekeepingAccount )
+    {
+        PlaceAndName = reqPlaceAndName;
+        SecurityIdentification = reqSecurityIdentification;
+        SafekeepingAccount = reqSafekeepingAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_eFsjYaIREeS6IulNYwkZBg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [IsoId("_eFsjY6IREeS6IulNYwkZBg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification15 SecurityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification15 SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification15 SecurityIdentification { get; init; } 
+    #else
+    public SecurityIdentification15 SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [IsoId("_eFsjcaIREeS6IulNYwkZBg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SafekeepingAccount { get; init; } 
+    #else
+    public System.String SafekeepingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
+    [IsoId("_eFsjf6IREeS6IulNYwkZBg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unallocated Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedDetailsSD3? UnallocatedDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionUnallocatedDetailsSD3? UnallocatedDetails { get; init; } 
+    #else
+    public CorporateActionUnallocatedDetailsSD3? UnallocatedDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SctyId", xmlNamespace );
-        SecurityIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(SafekeepingAccount)); // data type RestrictedFINXMax35Text System.String
-        writer.WriteEndElement();
-        if (UnallocatedDetails is CorporateActionUnallocatedDetailsSD3 UnallocatedDetailsValue)
-        {
-            writer.WriteStartElement(null, "UallctdDtls", xmlNamespace );
-            UnallocatedDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionGeneralInformationSD17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

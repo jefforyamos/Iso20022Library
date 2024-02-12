@@ -7,101 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[IsoId("_SghaDtp-Ed-ak6NoX_4Aeg_1019608774")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("PEPISA Transfer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PEPISATransfer8
-     : IIsoXmlSerilizable<PEPISATransfer8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PEPISATransfer8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PEPISATransfer8( System.String reqTransferIdentification,System.String reqResidualCashIndicator,ISAYearsOfIssue1 reqISA,PreviousYearChoice_ reqPEP,Portfolio1 reqPortfolio )
+    {
+        TransferIdentification = reqTransferIdentification;
+        ResidualCashIndicator = reqResidualCashIndicator;
+        ISA = reqISA;
+        PEP = reqPEP;
+        Portfolio = reqPortfolio;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [IsoId("_SghaD9p-Ed-ak6NoX_4Aeg_1019608793")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MasterReference { get; init; } 
+    #else
+    public System.String? MasterReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
+    [IsoId("_Sgqj8Np-Ed-ak6NoX_4Aeg_1019608827")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransferIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransferIdentification { get; init; } 
+    #else
+    public System.String TransferIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Sgqj8dp-Ed-ak6NoX_4Aeg_2023477547")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CancellationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CancellationReference { get; init; } 
+    #else
+    public System.String? CancellationReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
+    [IsoId("_Sgqj8tp-Ed-ak6NoX_4Aeg_1019609117")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Residual Cash Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ResidualCashIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ResidualCashIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ResidualCashIndicator { get; init; } 
+    #else
+    public System.String ResidualCashIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. |The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
+    [IsoId("_Sgqj89p-Ed-ak6NoX_4Aeg_1019609179")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISA")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISAYearsOfIssue1 ISA { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ISAYearsOfIssue1 ISA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ISAYearsOfIssue1 ISA { get; init; } 
+    #else
+    public ISAYearsOfIssue1 ISA { get; set; } 
+    #endif
+    
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. ||The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
+    [IsoId("_Sgqj9Np-Ed-ak6NoX_4Aeg_1019609333")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PEP")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreviousYearChoice_ PEP { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PreviousYearChoice_ PEP { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PreviousYearChoice_ PEP { get; init; } 
+    #else
+    public PreviousYearChoice_ PEP { get; set; } 
+    #endif
+    
     /// <summary>
     /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
+    [IsoId("_Sgqj9dp-Ed-ak6NoX_4Aeg_1019609291")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Portfolio1 Portfolio { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Portfolio1 Portfolio { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Portfolio1 Portfolio { get; init; } 
+    #else
+    public Portfolio1 Portfolio { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying assets for the PEP, ISA or portfolio.
     /// </summary>
+    [IsoId("_Sgqj9tp-Ed-ak6NoX_4Aeg_1019609231")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Asset For Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument11? FinancialInstrumentAssetForTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument11? FinancialInstrumentAssetForTransfer { get; init; } 
+    #else
+    public FinancialInstrument11? FinancialInstrumentAssetForTransfer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
-        {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
-        {
-            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RsdlCshInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ResidualCashIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ISA", xmlNamespace );
-        ISA.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PEP", xmlNamespace );
-        PEP.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Prtfl", xmlNamespace );
-        Portfolio.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FinancialInstrumentAssetForTransfer is FinancialInstrument11 FinancialInstrumentAssetForTransferValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmAsstForTrf", xmlNamespace );
-            FinancialInstrumentAssetForTransferValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PEPISATransfer8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

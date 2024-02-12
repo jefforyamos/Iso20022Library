@@ -9,60 +9,107 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
-
-/// <summary>
-/// Securities settlement chain parties, accounts and other details.
-/// </summary>
-public partial record SecuritiesDetails : SecuritiesOrCash1Choice_
-     , IIsoXmlSerilizable<SecuritiesDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Parties through which settlement is to take place.
+    /// Securities settlement chain parties, accounts and other details.
     /// </summary>
-    public required SettlementParties32 StandingSettlementParties { get; init; } 
-    /// <summary>
-    /// Identifier needed for settlement purposes. This identifier could be, for example, an identifier that identifies an institution or agent at a CDS or ICSD (Depository Trust Clearing Corporation (DTC) Institution ID or DTC Agent ID). It could also be a local tax identification number or an ‘investor identification’, as mandated by local market practice.
-    /// </summary>
-    public GenericIdentification49? LocalMarketIdentification { get; init; } 
-    /// <summary>
-    /// Registration information required for settlement. For some markets, for example, Spain (Iberclear) registration details are mandatory and should be part of the SSI. In some cases, the name of the institution is different than what's provided in the BIC Directory. If this is the case, the name should be provided.
-    /// </summary>
-    public PartyIdentification99Choice_? RegistrationDetails { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_v5oPQDchEeOA3chqL9a4Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SecuritiesDetails : SecuritiesOrCash1Choice_
+    #else
+    public partial class SecuritiesDetails : SecuritiesOrCash1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "StgSttlmPties", xmlNamespace );
-        StandingSettlementParties.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LocalMarketIdentification is GenericIdentification49 LocalMarketIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a SecuritiesDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public SecuritiesDetails( SettlementParties32 reqStandingSettlementParties )
         {
-            writer.WriteStartElement(null, "LclMktId", xmlNamespace );
-            LocalMarketIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            StandingSettlementParties = reqStandingSettlementParties;
         }
-        if (RegistrationDetails is PartyIdentification99Choice_ RegistrationDetailsValue)
-        {
-            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
-            RegistrationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new SecuritiesDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Parties through which settlement is to take place.
+        /// </summary>
+        [IsoId("_-Rf3QTciEeOKPpUjhHfcCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standing Settlement Parties")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SettlementParties32 StandingSettlementParties { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SettlementParties32 StandingSettlementParties { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementParties32 StandingSettlementParties { get; init; } 
+        #else
+        public SettlementParties32 StandingSettlementParties { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifier needed for settlement purposes. This identifier could be, for example, an identifier that identifies an institution or agent at a CDS or ICSD (Depository Trust Clearing Corporation (DTC) Institution ID or DTC Agent ID). It could also be a local tax identification number or an ‘investor identification’, as mandated by local market practice.
+        /// </summary>
+        [IsoId("_HjKEoNQiEeKvJeoOII0e7w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Local Market Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public GenericIdentification49? LocalMarketIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification49? LocalMarketIdentification { get; init; } 
+        #else
+        public GenericIdentification49? LocalMarketIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Registration information required for settlement. For some markets, for example, Spain (Iberclear) registration details are mandatory and should be part of the SSI. In some cases, the name of the institution is different than what's provided in the BIC Directory. If this is the case, the name should be provided.
+        /// </summary>
+        [IsoId("_XT29QNQiEeKvJeoOII0e7w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Registration Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification99Choice_? RegistrationDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification99Choice_? RegistrationDetails { get; init; } 
+        #else
+        public PartyIdentification99Choice_? RegistrationDetails { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

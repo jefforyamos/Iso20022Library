@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the settlement transaction conditions.
-/// </summary>
-[KnownType(typeof(SettlementTransactionCondition18Choice.Code))]
-[KnownType(typeof(SettlementTransactionCondition18Choice.Proprietary))]
-public abstract partial record SettlementTransactionCondition18Choice_ : IIsoXmlSerilizable<SettlementTransactionCondition18Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the settlement transaction conditions.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementTransactionCondition18Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementTransactionCondition18Choice.Code))]
+    [KnownType(typeof(SettlementTransactionCondition18Choice.Proprietary))]
+    [IsoId("_rSNc0Tw0EeW3QqUkIQtIUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Transaction Condition 18 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementTransactionCondition18Choice_
+    #else
+    public abstract partial class SettlementTransactionCondition18Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SettlementTransactionCondition18Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SettlementTransactionCondition18Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementTransactionCondition18Choice choice.")
-        };
     }
 }

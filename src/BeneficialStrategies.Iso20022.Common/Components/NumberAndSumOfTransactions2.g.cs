@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing the total sum of entries.
 /// </summary>
+[IsoId("_Q7fV4dp-Ed-ak6NoX_4Aeg_321425004")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Number And Sum Of Transactions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NumberAndSumOfTransactions2
-     : IIsoXmlSerilizable<NumberAndSumOfTransactions2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of individual entries included in the report.
     /// </summary>
+    [IsoId("_Q7fV4tp-Ed-ak6NoX_4Aeg_321425036")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Entries")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NumberOfEntries { get; init; } 
+    #else
+    public System.String? NumberOfEntries { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
+    [IsoId("_Q7fV49p-Ed-ak6NoX_4Aeg_322345029")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Sum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Sum { get; init; } 
+    #else
+    public System.UInt64? Sum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Resulting amount of the netted amounts for all debit and credit entries.
     /// </summary>
+    [IsoId("_Q7fV5Np-Ed-ak6NoX_4Aeg_191865338")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Net Entry Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalNetEntryAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNetEntryAmount { get; init; } 
+    #else
+    public System.UInt64? TotalNetEntryAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the total net entry amount is a credit or a debit amount.
     /// </summary>
+    [IsoId("_Q7fV5dp-Ed-ak6NoX_4Aeg_191865339")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode? CreditDebitIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NumberOfEntries is IsoMax15NumericText NumberOfEntriesValue)
-        {
-            writer.WriteStartElement(null, "NbOfNtries", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfEntriesValue)); // data type Max15NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Sum is IsoDecimalNumber SumValue)
-        {
-            writer.WriteStartElement(null, "Sum", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(SumValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalNetEntryAmount is IsoDecimalNumber TotalNetEntryAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlNetNtryAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalNetEntryAmountValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static NumberAndSumOfTransactions2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

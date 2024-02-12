@@ -7,166 +7,274 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
+[IsoId("_YMcpnwasEe2phaVG0lYKTw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Confirmation Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ConfirmationParties9
-     : IIsoXmlSerilizable<ConfirmationParties9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that identifies the underlying investor.
     /// </summary>
+    [IsoId("_YfhWgQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount220? Investor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount220? Investor { get; init; } 
+    #else
+    public PartyIdentificationAndAccount220? Investor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_YfhWlQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails12? Buyer { get; init; } 
+    #else
+    public ConfirmationPartyDetails12? Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that has applied, met specific requirements, and received a monetary or securities loan from a lender. The party initiating the request signs a promissory note agreeing to pay the lien holder back during a specified timeframe for the entire loan amount plus any additional fees. The borrower is legally responsible for repayment of the loan and is subject to any penalties for not repaying the loan back based on the lending terms agreed upon.
     /// </summary>
+    [IsoId("_YfhWlwasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Borrower")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Borrower { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails12? Borrower { get; init; } 
+    #else
+    public ConfirmationPartyDetails12? Borrower { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_YfhWmQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails12? Seller { get; init; } 
+    #else
+    public ConfirmationPartyDetails12? Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// A private, public or institutional entity which makes funds available to others to borrow.
     /// </summary>
+    [IsoId("_YfhWmwasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Lender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails12? Lender { get; init; } 
+    #else
+    public ConfirmationPartyDetails12? Lender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Brokerage firm which is the commissioned broker in a multi-broker trade.
     /// </summary>
+    [IsoId("_YfhWnQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Broker Of Credit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails14? BrokerOfCredit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails14? BrokerOfCredit { get; init; } 
+    #else
+    public ConfirmationPartyDetails14? BrokerOfCredit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Broker or other intermediary with the closest association with the investor.
     /// </summary>
+    [IsoId("_YfhWnwasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Introducing Firm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails14? IntroducingFirm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails14? IntroducingFirm { get; init; } 
+    #else
+    public ConfirmationPartyDetails14? IntroducingFirm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Brokerage firm assigned to take credit on the trade from the step-out brokerage firm.
     /// </summary>
+    [IsoId("_YfhWoQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Step In Firm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? StepInFirm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails11? StepInFirm { get; init; } 
+    #else
+    public ConfirmationPartyDetails11? StepInFirm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Brokerage firm that executes an order, but gives other firms credit and some of the commission for the trade.
     /// </summary>
+    [IsoId("_YfhWowasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Step Out Firm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? StepOutFirm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails11? StepOutFirm { get; init; } 
+    #else
+    public ConfirmationPartyDetails11? StepOutFirm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party, also know as take up broker, that settles security transactions from another broker for a fee.
     /// </summary>
+    [IsoId("_YfhWpQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Firm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails16? ClearingFirm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails16? ClearingFirm { get; init; } 
+    #else
+    public ConfirmationPartyDetails16? ClearingFirm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party responsible for executing an order (for example, an executing or give-up broker). Usually a commission is charged to the client for executing an order.
     /// </summary>
+    [IsoId("_YfhWpwasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Executing Broker")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails16? ExecutingBroker { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails16? ExecutingBroker { get; init; } 
+    #else
+    public ConfirmationPartyDetails16? ExecutingBroker { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
     /// </summary>
+    [IsoId("_YfhWqQasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Affirming Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails14? AffirmingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails14? AffirmingParty { get; init; } 
+    #else
+    public ConfirmationPartyDetails14? AffirmingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party involved in a legal proceeding, agreement, or other transaction.
     /// </summary>
+    [IsoId("_YfhWqwasEe2phaVG0lYKTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Beneficiary Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails14? TradeBeneficiaryParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConfirmationPartyDetails14? TradeBeneficiaryParty { get; init; } 
+    #else
+    public ConfirmationPartyDetails14? TradeBeneficiaryParty { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Investor is PartyIdentificationAndAccount220 InvestorValue)
-        {
-            writer.WriteStartElement(null, "Invstr", xmlNamespace );
-            InvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Buyer is ConfirmationPartyDetails12 BuyerValue)
-        {
-            writer.WriteStartElement(null, "Buyr", xmlNamespace );
-            BuyerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Borrower is ConfirmationPartyDetails12 BorrowerValue)
-        {
-            writer.WriteStartElement(null, "Brrwr", xmlNamespace );
-            BorrowerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Seller is ConfirmationPartyDetails12 SellerValue)
-        {
-            writer.WriteStartElement(null, "Sellr", xmlNamespace );
-            SellerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Lender is ConfirmationPartyDetails12 LenderValue)
-        {
-            writer.WriteStartElement(null, "Lndr", xmlNamespace );
-            LenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BrokerOfCredit is ConfirmationPartyDetails14 BrokerOfCreditValue)
-        {
-            writer.WriteStartElement(null, "BrkrOfCdt", xmlNamespace );
-            BrokerOfCreditValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntroducingFirm is ConfirmationPartyDetails14 IntroducingFirmValue)
-        {
-            writer.WriteStartElement(null, "IntrdcgFirm", xmlNamespace );
-            IntroducingFirmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StepInFirm is ConfirmationPartyDetails11 StepInFirmValue)
-        {
-            writer.WriteStartElement(null, "StepInFirm", xmlNamespace );
-            StepInFirmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StepOutFirm is ConfirmationPartyDetails11 StepOutFirmValue)
-        {
-            writer.WriteStartElement(null, "StepOutFirm", xmlNamespace );
-            StepOutFirmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingFirm is ConfirmationPartyDetails16 ClearingFirmValue)
-        {
-            writer.WriteStartElement(null, "ClrFirm", xmlNamespace );
-            ClearingFirmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExecutingBroker is ConfirmationPartyDetails16 ExecutingBrokerValue)
-        {
-            writer.WriteStartElement(null, "ExctgBrkr", xmlNamespace );
-            ExecutingBrokerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AffirmingParty is ConfirmationPartyDetails14 AffirmingPartyValue)
-        {
-            writer.WriteStartElement(null, "AffrmgPty", xmlNamespace );
-            AffirmingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeBeneficiaryParty is ConfirmationPartyDetails14 TradeBeneficiaryPartyValue)
-        {
-            writer.WriteStartElement(null, "TradBnfcryPty", xmlNamespace );
-            TradeBeneficiaryPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ConfirmationParties9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

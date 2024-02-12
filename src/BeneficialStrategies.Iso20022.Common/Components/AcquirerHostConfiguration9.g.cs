@@ -7,73 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer configuration parameters for a host.
 /// </summary>
+[IsoId("_gVgvgVFLEeyApZmLzm74zA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acquirer Host Configuration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcquirerHostConfiguration9
-     : IIsoXmlSerilizable<AcquirerHostConfiguration9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AcquirerHostConfiguration9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AcquirerHostConfiguration9( System.String reqHostIdentification )
+    {
+        HostIdentification = reqHostIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a host.
     /// </summary>
+    [IsoId("_gcAZEVFLEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text HostIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String HostIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String HostIdentification { get; init; } 
+    #else
+    public System.String HostIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
+    [IsoId("_gcAZE1FLEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message To Send")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageFunction43Code? MessageToSend { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageFunction43Code? MessageToSend { get; init; } 
+    #else
+    public MessageFunction43Code? MessageToSend { get; set; } 
+    #endif
+    
     /// <summary>
     /// Protocol version to use when using these parameters.
     /// </summary>
+    [IsoId("_gcAZFVFLEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protocol Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ProtocolVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProtocolVersion { get; init; } 
+    #else
+    public System.String? ProtocolVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
+    [IsoId("_5Pb2cFFLEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Externally Type Supported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? ExternallyTypeSupported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExternallyTypeSupported { get; init; } 
+    #else
+    public System.String? ExternallyTypeSupported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "HstId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (MessageToSend is MessageFunction43Code MessageToSendValue)
-        {
-            writer.WriteStartElement(null, "MsgToSnd", xmlNamespace );
-            writer.WriteValue(MessageToSendValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ProtocolVersion is IsoMax8Text ProtocolVersionValue)
-        {
-            writer.WriteStartElement(null, "PrtcolVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8Text(ProtocolVersionValue)); // data type Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExternallyTypeSupported is IsoMax1025Text ExternallyTypeSupportedValue)
-        {
-            writer.WriteStartElement(null, "XtrnlyTpSpprtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ExternallyTypeSupportedValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AcquirerHostConfiguration9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

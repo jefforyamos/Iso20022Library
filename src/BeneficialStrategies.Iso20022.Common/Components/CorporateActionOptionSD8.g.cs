@@ -7,84 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
+[IsoId("_St-LoV2oEeOb__BffbPEig")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Option SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionOptionSD8
-     : IIsoXmlSerilizable<CorporateActionOptionSD8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionOptionSD8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionOptionSD8( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_TITXMV2oEeOb__BffbPEig")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
+    [IsoId("_TITXM12oEeOb__BffbPEig")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Option Features")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
+    #else
+    public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the option is declared as default by the issuer / offeror, and will be treated as default by the issuer / offeror if no elections is made.
     /// </summary>
+    [IsoId("_TITXO12oEeOb__BffbPEig")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Default Option Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DefaultOptionFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DefaultOptionFlag { get; init; } 
+    #else
+    public System.String? DefaultOptionFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 CAIN instructions for this event.
     /// </summary>
+    [IsoId("_TITXSV2oEeOb__BffbPEig")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Optional Dividend Supplementary Data Required Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
+    #else
+    public System.String? OptionalDividendSupplementaryDataRequiredFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy records. The number algorhithm is as follows: Department ID (1:1), Activity Type (2:3), Cusip Country Code (5:2), Cusip (7:9), Record Date (15:8), Payable Date (22:8), Sequence Number (29:3), RDP Issue Type (31:1). 
     /// USAGE RULE: this sequence can be populated /extended to event details, option details or a movement, depending on sequence number coordinality to an event.
     /// </summary>
+    [IsoId("_C-YHQXh4EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("RDP Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RDPReferenceNumber { get; init; } 
+    #else
+    public System.String? RDPReferenceNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (ExtendedOptionFeatures is ExtendedOptionFeature1Code ExtendedOptionFeaturesValue)
-        {
-            writer.WriteStartElement(null, "XtndedOptnFeatrs", xmlNamespace );
-            writer.WriteValue(ExtendedOptionFeaturesValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DefaultOptionFlag is IsoYesNoIndicator DefaultOptionFlagValue)
-        {
-            writer.WriteStartElement(null, "DfltOptnFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DefaultOptionFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (OptionalDividendSupplementaryDataRequiredFlag is IsoYesNoIndicator OptionalDividendSupplementaryDataRequiredFlagValue)
-        {
-            writer.WriteStartElement(null, "OptnlDvddSplmtryDataReqrdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OptionalDividendSupplementaryDataRequiredFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RDPReferenceNumber is IsoExact32AlphaNumericText RDPReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "RDPRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact32AlphaNumericText(RDPReferenceNumberValue)); // data type Exact32AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionOptionSD8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

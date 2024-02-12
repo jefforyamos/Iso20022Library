@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the status of allocation of collateral to cover the instruction.
-/// </summary>
-[KnownType(typeof(AllocationStatus1Choice.FullyAllocated))]
-[KnownType(typeof(AllocationStatus1Choice.PartiallyAllocated))]
-[KnownType(typeof(AllocationStatus1Choice.Proprietary))]
-public abstract partial record AllocationStatus1Choice_ : IIsoXmlSerilizable<AllocationStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the status of allocation of collateral to cover the instruction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AllocationStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AllocationStatus1Choice.FullyAllocated))]
+    [KnownType(typeof(AllocationStatus1Choice.PartiallyAllocated))]
+    [KnownType(typeof(AllocationStatus1Choice.Proprietary))]
+    [IsoId("_D01G0N_-EeiVRbNQx5-Vhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allocation Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AllocationStatus1Choice_
+    #else
+    public abstract partial class AllocationStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FullyAllctd" => AllocationStatus1Choice.FullyAllocated.Deserialize(elementWithPayload),
-             "PrtlyAllctd" => AllocationStatus1Choice.PartiallyAllocated.Deserialize(elementWithPayload),
-             "Prtry" => AllocationStatus1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AllocationStatus1Choice choice.")
-        };
     }
 }

@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
+[IsoId("_1x58kcnTEeWpf-ImB_F2gQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Instrument Description")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityInstrumentDescription11
-     : IIsoXmlSerilizable<SecurityInstrumentDescription11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecurityInstrumentDescription11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecurityInstrumentDescription11( System.String reqFullName,System.String reqClassificationType )
+    {
+        FullName = reqFullName;
+        ClassificationType = reqClassificationType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [IsoId("_2J6z8cnTEeWpf-ImB_F2gQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Full name or description of the financial instrument.
     /// </summary>
+    [IsoId("_2J6z88nTEeWpf-ImB_F2gQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text FullName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FullName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FullName { get; init; } 
+    #else
+    public System.String FullName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO classification of financial instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
+    [IsoId("_2J6z98nTEeWpf-ImB_F2gQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCFIOct2015Identifier ClassificationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ClassificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ClassificationType { get; init; } 
+    #else
+    public System.String ClassificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [IsoId("_2J6z-8nTEeWpf-ImB_F2gQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notional Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? NotionalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? NotionalCurrency { get; init; } 
+    #else
+    public string? NotionalCurrency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoISINOct2015Identifier IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentificationValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FullNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(FullName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationType)); // data type CFIOct2015Identifier System.String
-        writer.WriteEndElement();
-        if (NotionalCurrency is ActiveOrHistoricCurrencyCode NotionalCurrencyValue)
-        {
-            writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
-            writer.WriteValue(NotionalCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityInstrumentDescription11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

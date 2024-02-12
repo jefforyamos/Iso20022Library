@@ -7,76 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about the entity involved in the tax paid or to be paid.
 /// </summary>
+[IsoId("_PdBMwdp-Ed-ak6NoX_4Aeg_920823246")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Party")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxParty2
-     : IIsoXmlSerilizable<TaxParty2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Tax identification number of the debtor.
     /// </summary>
+    [IsoId("_PdBMwtp-Ed-ak6NoX_4Aeg_920823361")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TaxIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxIdentification { get; init; } 
+    #else
+    public System.String? TaxIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [IsoId("_PdBMw9p-Ed-ak6NoX_4Aeg_920823300")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RegistrationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RegistrationIdentification { get; init; } 
+    #else
+    public System.String? RegistrationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of tax payer.
     /// </summary>
+    [IsoId("_PdBMxNp-Ed-ak6NoX_4Aeg_920823277")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TaxType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxType { get; init; } 
+    #else
+    public System.String? TaxType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the authorised tax paying party.
     /// </summary>
+    [IsoId("_PdBMxdp-Ed-ak6NoX_4Aeg_-137944593")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxAuthorisation1? Authorisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxAuthorisation1? Authorisation { get; init; } 
+    #else
+    public TaxAuthorisation1? Authorisation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TaxIdentification is IsoMax35Text TaxIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TaxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RegistrationIdentification is IsoMax35Text RegistrationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RegnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxType is IsoMax35Text TaxTypeValue)
-        {
-            writer.WriteStartElement(null, "TaxTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Authorisation is TaxAuthorisation1 AuthorisationValue)
-        {
-            writer.WriteStartElement(null, "Authstn", xmlNamespace );
-            AuthorisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxParty2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

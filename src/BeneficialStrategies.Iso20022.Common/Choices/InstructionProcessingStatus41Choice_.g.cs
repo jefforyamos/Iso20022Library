@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different instruction processing statuses.
-/// </summary>
-[KnownType(typeof(InstructionProcessingStatus41Choice.Accepted))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.Cancelled))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.AcceptedForFurtherProcessing))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.Rejected))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.Pending))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.PendingCancellation))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.Covered))]
-[KnownType(typeof(InstructionProcessingStatus41Choice.Uncovered))]
-public abstract partial record InstructionProcessingStatus41Choice_ : IIsoXmlSerilizable<InstructionProcessingStatus41Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different instruction processing statuses.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InstructionProcessingStatus41Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InstructionProcessingStatus41Choice.Accepted))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.Cancelled))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.AcceptedForFurtherProcessing))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.Rejected))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.Pending))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.PendingCancellation))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.Covered))]
+    [KnownType(typeof(InstructionProcessingStatus41Choice.Uncovered))]
+    [IsoId("_4FWsSe6KEeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Processing Status 41 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InstructionProcessingStatus41Choice_
+    #else
+    public abstract partial class InstructionProcessingStatus41Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Accptd" => InstructionProcessingStatus41Choice.Accepted.Deserialize(elementWithPayload),
-             "Canc" => InstructionProcessingStatus41Choice.Cancelled.Deserialize(elementWithPayload),
-             "AccptdForFrthrPrcg" => InstructionProcessingStatus41Choice.AcceptedForFurtherProcessing.Deserialize(elementWithPayload),
-             "Rjctd" => InstructionProcessingStatus41Choice.Rejected.Deserialize(elementWithPayload),
-             "Pdg" => InstructionProcessingStatus41Choice.Pending.Deserialize(elementWithPayload),
-             "PdgCxl" => InstructionProcessingStatus41Choice.PendingCancellation.Deserialize(elementWithPayload),
-             "Cvrd" => InstructionProcessingStatus41Choice.Covered.Deserialize(elementWithPayload),
-             "Ucvrd" => InstructionProcessingStatus41Choice.Uncovered.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InstructionProcessingStatus41Choice choice.")
-        };
     }
 }

@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Distinct pool of financial instruments managed by a single investment policy. May or may not be part of an umbrella fund.The pool is issued in at least one investment fund class.
 /// </summary>
+[IsoId("_CQR_IQN1Ee2-vqzwMUAewg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundIdentification5
-     : IIsoXmlSerilizable<FundIdentification5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FundIdentification5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FundIdentification5( PartyIdentification60 reqFundIdentification )
+    {
+        FundIdentification = reqFundIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the investment fund.
     /// </summary>
+    [IsoId("_CV2bowN1Ee2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification60 FundIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification60 FundIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification60 FundIdentification { get; init; } 
+    #else
+    public PartyIdentification60 FundIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the account of the fund held with the custodian.
     /// </summary>
+    [IsoId("_CV2bpQN1Ee2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification With Custodian")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentificationWithCustodian { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountIdentificationWithCustodian { get; init; } 
+    #else
+    public System.String? AccountIdentificationWithCustodian { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the custodian which services the account of the fund.
     /// </summary>
+    [IsoId("_CV2bpwN1Ee2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Custodian Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? CustodianIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification242Choice_? CustodianIdentification { get; init; } 
+    #else
+    public PartyIdentification242Choice_? CustodianIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FndId", xmlNamespace );
-        FundIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountIdentificationWithCustodian is IsoMax35Text AccountIdentificationWithCustodianValue)
-        {
-            writer.WriteStartElement(null, "AcctIdWthCtdn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationWithCustodianValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CustodianIdentification is PartyIdentification242Choice_ CustodianIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtdnId", xmlNamespace );
-            CustodianIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundIdentification5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,54 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification234Choice;
-
-/// <summary>
-/// Individual local country specific identification of the owner agreed between the account servicer and account owner.
-/// </summary>
-public partial record IndividualOwnerIdentification : PartyIdentification234Choice_
-     , IIsoXmlSerilizable<IndividualOwnerIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification234Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the type of alternate identification of the party identified.
+    /// Individual local country specific identification of the owner agreed between the account servicer and account owner.
     /// </summary>
-    public required IdentificationType42Choice_ IdentificationType { get; init; } 
-    /// <summary>
-    /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
-    /// </summary>
-    public required CountryCode Country { get; init; } 
-    /// <summary>
-    /// Alternate identification for a party.
-    /// </summary>
-    public required IsoMax35Text AlternateIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_F-iyOR9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Owner Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record IndividualOwnerIdentification : PartyIdentification234Choice_
+    #else
+    public partial class IndividualOwnerIdentification : PartyIdentification234Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "IdTp", xmlNamespace );
-        IdentificationType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ctry", xmlNamespace );
-        writer.WriteValue(Country.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AltrnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static new IndividualOwnerIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a IndividualOwnerIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public IndividualOwnerIdentification( IdentificationType42Choice_ reqIdentificationType,string reqCountry,System.String reqAlternateIdentification )
+        {
+            IdentificationType = reqIdentificationType;
+            Country = reqCountry;
+            AlternateIdentification = reqAlternateIdentification;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the type of alternate identification of the party identified.
+        /// </summary>
+        [IsoId("_BbMrdR5gEeWE3PufGMdJ3w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IdentificationType42Choice_ IdentificationType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public IdentificationType42Choice_ IdentificationType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public IdentificationType42Choice_ IdentificationType { get; init; } 
+        #else
+        public IdentificationType42Choice_ IdentificationType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
+        /// </summary>
+        [IsoId("_BbMrfR5gEeWE3PufGMdJ3w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Country")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CountryCode Country { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string Country { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string Country { get; init; } 
+        #else
+        public string Country { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Alternate identification for a party.
+        /// </summary>
+        [IsoId("_BbMrhR5gEeWE3PufGMdJ3w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Alternate Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text AlternateIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String AlternateIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String AlternateIdentification { get; init; } 
+        #else
+        public System.String AlternateIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

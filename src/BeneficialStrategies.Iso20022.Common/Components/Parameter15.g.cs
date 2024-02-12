@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
+[IsoId("_G4BX4S_JEeugIJ3Gvoevmg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Parameter15
-     : IIsoXmlSerilizable<Parameter15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [IsoId("_HC81gS_JEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm16Code? DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Algorithm16Code? DigestAlgorithm { get; init; } 
+    #else
+    public Algorithm16Code? DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
+    [IsoId("_HC81gy_JEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mask Generator Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification12? MaskGeneratorAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification12? MaskGeneratorAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification12? MaskGeneratorAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Length of the salt to include in the signature.
     /// </summary>
+    [IsoId("_HC81hS_JEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Salt Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SaltLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SaltLength { get; init; } 
+    #else
+    public System.UInt64? SaltLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Trailer field number.
     /// </summary>
+    [IsoId("_HC81hy_JEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trailer Field")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TrailerField { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TrailerField { get; init; } 
+    #else
+    public System.UInt64? TrailerField { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the Elliptic Curve according to the OID notation.
     /// </summary>
+    [IsoId("_WPWHMC_JEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("OID Curve Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? OIDCurveName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OIDCurveName { get; init; } 
+    #else
+    public System.String? OIDCurveName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DigestAlgorithm is Algorithm16Code DigestAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MaskGeneratorAlgorithm is AlgorithmIdentification12 MaskGeneratorAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
-            MaskGeneratorAlgorithmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SaltLength is IsoNumber SaltLengthValue)
-        {
-            writer.WriteStartElement(null, "SaltLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SaltLengthValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TrailerField is IsoNumber TrailerFieldValue)
-        {
-            writer.WriteStartElement(null, "TrlrFld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TrailerFieldValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OIDCurveName is IsoMax140Text OIDCurveNameValue)
-        {
-            writer.WriteStartElement(null, "OIDCrvNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(OIDCurveNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Parameter15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

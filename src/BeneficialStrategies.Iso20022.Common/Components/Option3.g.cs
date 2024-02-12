@@ -7,105 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
+[IsoId("_TLSOQNp-Ed-ak6NoX_4Aeg_-1226899977")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Option3
-     : IIsoXmlSerilizable<Option3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Option3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Option3( AmountsAndValueDate2 reqOptionAmounts,AgreedRate1 reqStrikePrice,OptionStyle2Code reqExerciseStyle,System.DateTime reqExpiryDateAndTime,System.String reqExpiryLocation,SettlementType1Code reqSettlementType,PremiumAmount2 reqPremium )
+    {
+        OptionAmounts = reqOptionAmounts;
+        StrikePrice = reqStrikePrice;
+        ExerciseStyle = reqExerciseStyle;
+        ExpiryDateAndTime = reqExpiryDateAndTime;
+        ExpiryLocation = reqExpiryLocation;
+        SettlementType = reqSettlementType;
+        Premium = reqPremium;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
+    [IsoId("_TLSOQdp-Ed-ak6NoX_4Aeg_-1226899590")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate2 OptionAmounts { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountsAndValueDate2 OptionAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountsAndValueDate2 OptionAmounts { get; init; } 
+    #else
+    public AmountsAndValueDate2 OptionAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
+    [IsoId("_TLSOQtp-Ed-ak6NoX_4Aeg_-1226899555")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate1 StrikePrice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AgreedRate1 StrikePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreedRate1 StrikePrice { get; init; } 
+    #else
+    public AgreedRate1 StrikePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines how an option can be exercised.
     /// </summary>
+    [IsoId("_TLSOQ9p-Ed-ak6NoX_4Aeg_-1226899975")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionStyle2Code ExerciseStyle { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionStyle2Code ExerciseStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle2Code ExerciseStyle { get; init; } 
+    #else
+    public OptionStyle2Code ExerciseStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// First date on which an american option can be exercised.
     /// </summary>
+    [IsoId("_TLSORNp-Ed-ak6NoX_4Aeg_-1226899694")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earliest Exercise Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EarliestExerciseDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EarliestExerciseDate { get; init; } 
+    #else
+    public System.DateOnly? EarliestExerciseDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a privilege (eg, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
+    [IsoId("_TLSORdp-Ed-ak6NoX_4Aeg_-1226899676")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime ExpiryDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime ExpiryDateAndTime { get; init; } 
+    #else
+    public System.DateTime ExpiryDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
+    [IsoId("_TLSORtp-Ed-ak6NoX_4Aeg_-1226899651")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExpiryLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExpiryLocation { get; init; } 
+    #else
+    public System.String ExpiryLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
+    [IsoId("_TLSOR9p-Ed-ak6NoX_4Aeg_-1226899634")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementType1Code SettlementType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementType1Code SettlementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementType1Code SettlementType { get; init; } 
+    #else
+    public SettlementType1Code SettlementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free format text that may contain information on the option.
     /// </summary>
+    [IsoId("_TLSOSNp-Ed-ak6NoX_4Aeg_-1226899616")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Option Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalOptionInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalOptionInformation { get; init; } 
+    #else
+    public System.String? AdditionalOptionInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
+    [IsoId("_TLb_QNp-Ed-ak6NoX_4Aeg_-1197044330")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PremiumAmount2 Premium { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PremiumAmount2 Premium { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PremiumAmount2 Premium { get; init; } 
+    #else
+    public PremiumAmount2 Premium { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OptnAmts", xmlNamespace );
-        OptionAmounts.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StrkPric", xmlNamespace );
-        StrikePrice.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ExrcStyle", xmlNamespace );
-        writer.WriteValue(ExerciseStyle.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (EarliestExerciseDate is IsoISODate EarliestExerciseDateValue)
-        {
-            writer.WriteStartElement(null, "EarlstExrcDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestExerciseDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XpryDtAndTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpiryDateAndTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpryLctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ExpiryLocation)); // data type Max4AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
-        writer.WriteValue(SettlementType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalOptionInformation is IsoMax140Text AdditionalOptionInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlOptnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalOptionInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Prm", xmlNamespace );
-        Premium.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Option3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

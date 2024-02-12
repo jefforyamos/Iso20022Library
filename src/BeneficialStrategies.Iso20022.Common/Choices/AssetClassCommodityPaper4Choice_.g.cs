@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines commodity attributes of a derivative where the type is paper.
-/// </summary>
-[KnownType(typeof(AssetClassCommodityPaper4Choice.ContainerBoard))]
-[KnownType(typeof(AssetClassCommodityPaper4Choice.Newsprint))]
-[KnownType(typeof(AssetClassCommodityPaper4Choice.Pulp))]
-[KnownType(typeof(AssetClassCommodityPaper4Choice.RecoveredPaper))]
-[KnownType(typeof(AssetClassCommodityPaper4Choice.Other))]
-public abstract partial record AssetClassCommodityPaper4Choice_ : IIsoXmlSerilizable<AssetClassCommodityPaper4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines commodity attributes of a derivative where the type is paper.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassCommodityPaper4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassCommodityPaper4Choice.ContainerBoard))]
+    [KnownType(typeof(AssetClassCommodityPaper4Choice.Newsprint))]
+    [KnownType(typeof(AssetClassCommodityPaper4Choice.Pulp))]
+    [KnownType(typeof(AssetClassCommodityPaper4Choice.RecoveredPaper))]
+    [KnownType(typeof(AssetClassCommodityPaper4Choice.Other))]
+    [IsoId("_Frp24RZaEe2QNcZTDeoKnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Commodity Paper 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassCommodityPaper4Choice_
+    #else
+    public abstract partial class AssetClassCommodityPaper4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CntnrBrd" => AssetClassCommodityPaper4Choice.ContainerBoard.Deserialize(elementWithPayload),
-             "Nwsprnt" => AssetClassCommodityPaper4Choice.Newsprint.Deserialize(elementWithPayload),
-             "Pulp" => AssetClassCommodityPaper4Choice.Pulp.Deserialize(elementWithPayload),
-             "RcvrdPpr" => AssetClassCommodityPaper4Choice.RecoveredPaper.Deserialize(elementWithPayload),
-             "Othr" => AssetClassCommodityPaper4Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassCommodityPaper4Choice choice.")
-        };
     }
 }

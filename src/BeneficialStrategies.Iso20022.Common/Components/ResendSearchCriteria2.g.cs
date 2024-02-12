@@ -7,94 +7,167 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria to extract the message(s) which should be resent.
 /// </summary>
+[IsoId("_Q6TwEZb7Eee4htziCyV8eA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Resend Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ResendSearchCriteria2
-     : IIsoXmlSerilizable<ResendSearchCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ResendSearchCriteria2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ResendSearchCriteria2( PartyIdentification136 reqRecipient )
+    {
+        Recipient = reqRecipient;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date of the business day of the requested messages the resend function is used for.
     /// </summary>
+    [IsoId("_RDPCkZb7Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BusinessDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BusinessDate { get; init; } 
+    #else
+    public System.DateOnly? BusinessDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Independent counter for message sequence, which is available once per party technical address.|Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
+    [IsoId("_RDPCk5b7Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SequenceNumber { get; init; } 
+    #else
+    public System.String? SequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Independent counter for a range of message sequences, which are available once per party technical address.
     /// Specifies the range of identification sequence numbers for a specific couple sender/receiver.
     /// </summary>
+    [IsoId("_UsXFYJb7Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SequenceRange1Choice_? SequenceRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SequenceRange1Choice_? SequenceRange { get; init; } 
+    #else
+    public SequenceRange1Choice_? SequenceRange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguously identifies the original bsiness message, which was delivered by the business sender.
     /// </summary>
+    [IsoId("_RDPClZb7Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Name Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalMessageNameIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalMessageNameIdentification { get; init; } 
+    #else
+    public System.String? OriginalMessageNameIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// String of characters that uniquely identifies the file, which was delivered by the sender.
     /// </summary>
+    [IsoId("_RDPCl5b7Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("File Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FileReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FileReference { get; init; } 
+    #else
+    public System.String? FileReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification to unambiguously identify the recipient of the report message.
     /// </summary>
+    [IsoId("_RDPCmZb7Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 Recipient { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification136 Recipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136 Recipient { get; init; } 
+    #else
+    public PartyIdentification136 Recipient { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BusinessDate is IsoISODate BusinessDateValue)
-        {
-            writer.WriteStartElement(null, "BizDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BusinessDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SequenceNumber is IsoMax35Text SequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SequenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SequenceRange is SequenceRange1Choice_ SequenceRangeValue)
-        {
-            writer.WriteStartElement(null, "SeqRg", xmlNamespace );
-            SequenceRangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalMessageNameIdentification is IsoMax35Text OriginalMessageNameIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FileReference is IsoMax35Text FileReferenceValue)
-        {
-            writer.WriteStartElement(null, "FileRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FileReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
-        Recipient.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ResendSearchCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

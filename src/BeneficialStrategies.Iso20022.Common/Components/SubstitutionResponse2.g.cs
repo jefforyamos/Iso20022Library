@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the collateral substitution response.
 /// </summary>
+[IsoId("_E7FbAStJEeyOa655cLd-DQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Substitution Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SubstitutionResponse2
-     : IIsoXmlSerilizable<SubstitutionResponse2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SubstitutionResponse2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SubstitutionResponse2( Status4Code reqResponseType )
+    {
+        ResponseType = reqResponseType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates if the substitution request was accepted or rejected.
     /// </summary>
+    [IsoId("_FS7TRStJEeyOa655cLd-DQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status4Code ResponseType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Status4Code ResponseType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Status4Code ResponseType { get; init; } 
+    #else
+    public Status4Code ResponseType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details about the accepted collateral substitution.
     /// </summary>
+    [IsoId("_FS7TRytJEeyOa655cLd-DQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Substitution Acceptance Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralSubstitutionResponse1? CollateralSubstitutionAcceptanceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralSubstitutionResponse1? CollateralSubstitutionAcceptanceDetails { get; init; } 
+    #else
+    public CollateralSubstitutionResponse1? CollateralSubstitutionAcceptanceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details about the rejected collateral substitution.
     /// </summary>
+    [IsoId("_FS7TSStJEeyOa655cLd-DQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Substitution Rejection Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralSubstitutionResponse3? CollateralSubstitutionRejectionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralSubstitutionResponse3? CollateralSubstitutionRejectionDetails { get; init; } 
+    #else
+    public CollateralSubstitutionResponse3? CollateralSubstitutionRejectionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RspnTp", xmlNamespace );
-        writer.WriteValue(ResponseType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (CollateralSubstitutionAcceptanceDetails is CollateralSubstitutionResponse1 CollateralSubstitutionAcceptanceDetailsValue)
-        {
-            writer.WriteStartElement(null, "CollSbstitnAccptncDtls", xmlNamespace );
-            CollateralSubstitutionAcceptanceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralSubstitutionRejectionDetails is CollateralSubstitutionResponse3 CollateralSubstitutionRejectionDetailsValue)
-        {
-            writer.WriteStartElement(null, "CollSbstitnRjctnDtls", xmlNamespace );
-            CollateralSubstitutionRejectionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SubstitutionResponse2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

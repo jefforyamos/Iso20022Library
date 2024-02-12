@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines how the CSD is linked to the security.
-/// </summary>
-[KnownType(typeof(IssuerOrInvestor1Choice.IssuerCSD))]
-[KnownType(typeof(IssuerOrInvestor1Choice.InvestorCSD))]
-public abstract partial record IssuerOrInvestor1Choice_ : IIsoXmlSerilizable<IssuerOrInvestor1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines how the CSD is linked to the security.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IssuerOrInvestor1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IssuerOrInvestor1Choice.IssuerCSD))]
+    [KnownType(typeof(IssuerOrInvestor1Choice.InvestorCSD))]
+    [IsoId("_hh_UoWliEeGaMcKyqKNRfQ_1655812261")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Or Investor 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IssuerOrInvestor1Choice_
+    #else
+    public abstract partial class IssuerOrInvestor1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IssrCSD" => IssuerOrInvestor1Choice.IssuerCSD.Deserialize(elementWithPayload),
-             "InvstrCSD" => IssuerOrInvestor1Choice.InvestorCSD.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IssuerOrInvestor1Choice choice.")
-        };
     }
 }

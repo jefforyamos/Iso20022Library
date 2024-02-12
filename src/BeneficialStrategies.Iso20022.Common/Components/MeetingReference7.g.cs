@@ -7,87 +7,164 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a meeting.
 /// </summary>
+[IsoId("_uG79UVuPEeSmO6RkXg92Lg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Meeting Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MeetingReference7
-     : IIsoXmlSerilizable<MeetingReference7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MeetingReference7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MeetingReference7( System.DateTime reqMeetingDateAndTime,MeetingType3Code reqType )
+    {
+        MeetingDateAndTime = reqMeetingDateAndTime;
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification assigned to the general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
+    [IsoId("_ujNpo1uPEeSmO6RkXg92Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Meeting Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MeetingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MeetingIdentification { get; init; } 
+    #else
+    public System.String? MeetingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification assigned to the meeting by the issuer. It must be unique for the issuer.
     /// </summary>
+    [IsoId("_ujNppVuPEeSmO6RkXg92Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Meeting Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuerMeetingIdentification { get; init; } 
+    #else
+    public System.String? IssuerMeetingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
+    [IsoId("_ujNpp1uPEeSmO6RkXg92Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Meeting Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime MeetingDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime MeetingDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime MeetingDateAndTime { get; init; } 
+    #else
+    public System.DateTime MeetingDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of meeting for which instructions are sent.
     /// </summary>
+    [IsoId("_ujNpqVuPEeSmO6RkXg92Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingType3Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MeetingType3Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MeetingType3Code Type { get; init; } 
+    #else
+    public MeetingType3Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
+    [IsoId("_ujNpq1uPEeSmO6RkXg92Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingTypeClassification1Choice_? Classification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MeetingTypeClassification1Choice_? Classification { get; init; } 
+    #else
+    public MeetingTypeClassification1Choice_? Classification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    public ValueList<PostalAddress1> Location { get; init; } = [];
+    [IsoId("_ujNprVuPEeSmO6RkXg92Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    public ValueList<PostalAddress1> Location { get; init; } = new ValueList<PostalAddress1>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MeetingIdentification is IsoMax35Text MeetingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MtgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (IssuerMeetingIdentification is IsoMax35Text IssuerMeetingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IssrMtgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerMeetingIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MtgDtAndTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(MeetingDateAndTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Classification is MeetingTypeClassification1Choice_ ClassificationValue)
-        {
-            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
-            ClassificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Lctn", xmlNamespace );
-        Location.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static MeetingReference7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

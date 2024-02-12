@@ -7,86 +7,161 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Service provider parameters of the point of interaction (POI).
 /// </summary>
+[IsoId("_iGGCMDAKEeugIJ3Gvoevmg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Service Provider Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ServiceProviderParameters1
-     : IIsoXmlSerilizable<ServiceProviderParameters1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ServiceProviderParameters1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ServiceProviderParameters1( TerminalManagementAction3Code reqActionType,System.String reqVersion )
+    {
+        ActionType = reqActionType;
+        Version = reqVersion;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [IsoId("__fYQYTAKEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #else
+    public TerminalManagementAction3Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the service provider.
     /// </summary>
+    [IsoId("_DUcdcTALEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Provider Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public GenericIdentification176? ServiceProviderIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _DUcdcTALEeugIJ3Gvoevmg
+    
     /// <summary>
     /// Version of the service provider parameters.
     /// </summary>
+    [IsoId("_Pbpf0zALEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of payment application relevant for this service provider.
     /// </summary>
+    [IsoId("_Pbpf1DALEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ApplicationIdentification { get; init; } 
+    #else
+    public System.String? ApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Service provider host configuration.
     /// </summary>
+    [IsoId("_Pbpf1TALEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerHostConfiguration8? Host { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcquirerHostConfiguration8? Host { get; init; } 
+    #else
+    public AcquirerHostConfiguration8? Host { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of non financial action supported by the Service Provider.
     /// </summary>
+    [IsoId("_may8IDALEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Financial Action Supported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonFinancialRequestType1Code? NonFinancialActionSupported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NonFinancialRequestType1Code? NonFinancialActionSupported { get; init; } 
+    #else
+    public NonFinancialRequestType1Code? NonFinancialActionSupported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        // Not sure how to serialize ServiceProviderIdentification, multiplicity Unknown
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        if (ApplicationIdentification is IsoMax35Text ApplicationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ApplId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Host is AcquirerHostConfiguration8 HostValue)
-        {
-            writer.WriteStartElement(null, "Hst", xmlNamespace );
-            HostValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NonFinancialActionSupported is NonFinancialRequestType1Code NonFinancialActionSupportedValue)
-        {
-            writer.WriteStartElement(null, "NonFinActnSpprtd", xmlNamespace );
-            writer.WriteValue(NonFinancialActionSupportedValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static ServiceProviderParameters1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

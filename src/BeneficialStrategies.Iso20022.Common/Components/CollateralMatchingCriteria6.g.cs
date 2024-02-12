@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a collateral.
 /// </summary>
+[IsoId("_A0ExqcK3EeuFNp8LZAnorg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Matching Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralMatchingCriteria6
-     : IIsoXmlSerilizable<CollateralMatchingCriteria6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [IsoId("_A1bcg8K3EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Uncollateralised Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? UncollateralisedFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareTrueFalseIndicator3? UncollateralisedFlag { get; init; } 
+    #else
+    public CompareTrueFalseIndicator3? UncollateralisedFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [IsoId("_A1bchcK3EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Exposure Collateralisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? NetExposureCollateralisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareTrueFalseIndicator3? NetExposureCollateralisationIndicator { get; init; } 
+    #else
+    public CompareTrueFalseIndicator3? NetExposureCollateralisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [IsoId("_A1bch8K3EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? CollateralValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDate3? CollateralValueDate { get; init; } 
+    #else
+    public CompareDate3? CollateralValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the component type is matching or not.
     /// </summary>
+    [IsoId("_A1bcicK3EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityCommodityCash4? AssetType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityCommodityCash4? AssetType { get; init; } 
+    #else
+    public SecurityCommodityCash4? AssetType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as security identification are matching or not.
     /// </summary>
+    [IsoId("_A1bci8K3EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareSecurityIdentification4? BasketIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareSecurityIdentification4? BasketIdentifier { get; init; } 
+    #else
+    public CompareSecurityIdentification4? BasketIdentifier { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (UncollateralisedFlag is CompareTrueFalseIndicator3 UncollateralisedFlagValue)
-        {
-            writer.WriteStartElement(null, "UncollsdFlg", xmlNamespace );
-            UncollateralisedFlagValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetExposureCollateralisationIndicator is CompareTrueFalseIndicator3 NetExposureCollateralisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
-            NetExposureCollateralisationIndicatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralValueDate is CompareDate3 CollateralValueDateValue)
-        {
-            writer.WriteStartElement(null, "CollValDt", xmlNamespace );
-            CollateralValueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AssetType is SecurityCommodityCash4 AssetTypeValue)
-        {
-            writer.WriteStartElement(null, "AsstTp", xmlNamespace );
-            AssetTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BasketIdentifier is CompareSecurityIdentification4 BasketIdentifierValue)
-        {
-            writer.WriteStartElement(null, "BsktIdr", xmlNamespace );
-            BasketIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralMatchingCriteria6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

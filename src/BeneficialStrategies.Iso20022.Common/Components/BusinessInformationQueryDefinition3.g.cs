@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the query criteria.
 /// </summary>
+[IsoId("_1NvnkZlZEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Business Information Query Definition")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BusinessInformationQueryDefinition3
-     : IIsoXmlSerilizable<BusinessInformationQueryDefinition3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [IsoId("_1VwUE5lZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QueryType2Code? QueryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QueryType2Code? QueryType { get; init; } 
+    #else
+    public QueryType2Code? QueryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the general business information query criteria.
     /// </summary>
+    [IsoId("_1VwUFZlZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Business Information Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralBusinessInformationCriteriaDefinition1Choice_? GeneralBusinessInformationCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GeneralBusinessInformationCriteriaDefinition1Choice_? GeneralBusinessInformationCriteria { get; init; } 
+    #else
+    public GeneralBusinessInformationCriteriaDefinition1Choice_? GeneralBusinessInformationCriteria { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (QueryType is QueryType2Code QueryTypeValue)
-        {
-            writer.WriteStartElement(null, "QryTp", xmlNamespace );
-            writer.WriteValue(QueryTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (GeneralBusinessInformationCriteria is GeneralBusinessInformationCriteriaDefinition1Choice_ GeneralBusinessInformationCriteriaValue)
-        {
-            writer.WriteStartElement(null, "GnlBizInfCrit", xmlNamespace );
-            GeneralBusinessInformationCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BusinessInformationQueryDefinition3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

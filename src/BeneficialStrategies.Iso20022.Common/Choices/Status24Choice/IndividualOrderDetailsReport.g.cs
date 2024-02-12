@@ -9,134 +9,267 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
-
-/// <summary>
-/// Status report details of an individual order.
-/// </summary>
-public partial record IndividualOrderDetailsReport : Status24Choice_
-     , IIsoXmlSerilizable<IndividualOrderDetailsReport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Status24Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reference assigned to a set of orders or trades in order to link them together.
+    /// Status report details of an individual order.
     /// </summary>
-    public IsoMax35Text? MasterReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
-    /// </summary>
-    public required IsoMax35Text OrderReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
-    /// </summary>
-    public IsoMax35Text? ClientReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
-    /// </summary>
-    public IsoMax35Text? DealReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier for the order cancellation, as assigned by the instructing party.
-    /// </summary>
-    public IsoMax35Text? CancellationReference { get; init; } 
-    /// <summary>
-    /// Status of the individual order.
-    /// </summary>
-    public required OrderStatus5Choice_ OrderStatus { get; init; } 
-    /// <summary>
-    /// Elements from the original individual order that have been repaired so that the order can be accepted.
-    /// </summary>
-    public ValueList<Fee3> RepairedFee { get; init; } = [];
-    /// <summary>
-    /// Party that initiates the status of the order.
-    /// </summary>
-    public PartyIdentification113? StatusInitiator { get; init; } 
-    /// <summary>
-    /// Order data.
-    /// </summary>
-    public FundOrderData5? OrderData { get; init; } 
-    /// <summary>
-    /// Expected execution information.
-    /// </summary>
-    public ExpectedExecutionDetails4? NewDetails { get; init; } 
-    /// <summary>
-    /// Information about gating and hold back of redemption proceeds.
-    /// </summary>
-    public HoldBackInformation3? GatingOrHoldBackDetails { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_bpQwZEHPEeazV4RAqPV71g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Order Details Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record IndividualOrderDetailsReport : Status24Choice_
+    #else
+    public partial class IndividualOrderDetailsReport : Status24Choice_
+    #endif
     {
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a IndividualOrderDetailsReport instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public IndividualOrderDetailsReport( System.String reqOrderReference,OrderStatus5Choice_ reqOrderStatus )
         {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            OrderReference = reqOrderReference;
+            OrderStatus = reqOrderStatus;
         }
-        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ClientReference is IsoMax35Text ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DealReference is IsoMax35Text DealReferenceValue)
-        {
-            writer.WriteStartElement(null, "DealRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
-        {
-            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrdrSts", xmlNamespace );
-        OrderStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RprdFee", xmlNamespace );
-        RepairedFee.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (StatusInitiator is PartyIdentification113 StatusInitiatorValue)
-        {
-            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
-            StatusInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OrderData is FundOrderData5 OrderDataValue)
-        {
-            writer.WriteStartElement(null, "OrdrData", xmlNamespace );
-            OrderDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewDetails is ExpectedExecutionDetails4 NewDetailsValue)
-        {
-            writer.WriteStartElement(null, "NewDtls", xmlNamespace );
-            NewDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GatingOrHoldBackDetails is HoldBackInformation3 GatingOrHoldBackDetailsValue)
-        {
-            writer.WriteStartElement(null, "GtgOrHldBckDtls", xmlNamespace );
-            GatingOrHoldBackDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new IndividualOrderDetailsReport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reference assigned to a set of orders or trades in order to link them together.
+        /// </summary>
+        [IsoId("_JSDihTbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Master Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? MasterReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? MasterReference { get; init; } 
+        #else
+        public System.String? MasterReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
+        /// </summary>
+        [IsoId("_JSDihzbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Order Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text OrderReference { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String OrderReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String OrderReference { get; init; } 
+        #else
+        public System.String OrderReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
+        /// </summary>
+        [IsoId("_JSDiiTbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Client Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? ClientReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ClientReference { get; init; } 
+        #else
+        public System.String? ClientReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
+        /// </summary>
+        [IsoId("_JSDiizbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Deal Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? DealReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? DealReference { get; init; } 
+        #else
+        public System.String? DealReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for the order cancellation, as assigned by the instructing party.
+        /// </summary>
+        [IsoId("_JSDijTbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cancellation Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? CancellationReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CancellationReference { get; init; } 
+        #else
+        public System.String? CancellationReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Status of the individual order.
+        /// </summary>
+        [IsoId("_Sop2EEHQEeazV4RAqPV71g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Order Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required OrderStatus5Choice_ OrderStatus { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public OrderStatus5Choice_ OrderStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OrderStatus5Choice_ OrderStatus { get; init; } 
+        #else
+        public OrderStatus5Choice_ OrderStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Elements from the original individual order that have been repaired so that the order can be accepted.
+        /// </summary>
+        [IsoId("_zyjlwTk2EeapUO0vUIo9Xw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Repaired Fee")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(10)]
+        #endif
+        public ValueList<Fee3> RepairedFee { get; init; } = new ValueList<Fee3>(){};
+        
+        /// <summary>
+        /// Party that initiates the status of the order.
+        /// </summary>
+        [IsoId("_xvSL8UjYEeaUN5TdQqhvNQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Status Initiator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification113? StatusInitiator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification113? StatusInitiator { get; init; } 
+        #else
+        public PartyIdentification113? StatusInitiator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Order data.
+        /// </summary>
+        [IsoId("_JSDioTbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Order Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FundOrderData5? OrderData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FundOrderData5? OrderData { get; init; } 
+        #else
+        public FundOrderData5? OrderData { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Expected execution information.
+        /// </summary>
+        [IsoId("_JSDiozbtEead9bDRE_1DAQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ExpectedExecutionDetails4? NewDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ExpectedExecutionDetails4? NewDetails { get; init; } 
+        #else
+        public ExpectedExecutionDetails4? NewDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information about gating and hold back of redemption proceeds.
+        /// </summary>
+        [IsoId("_gd_YcUgWEea9YuSvQGoi-w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Gating Or Hold Back Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public HoldBackInformation3? GatingOrHoldBackDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public HoldBackInformation3? GatingOrHoldBackDetails { get; init; } 
+        #else
+        public HoldBackInformation3? GatingOrHoldBackDetails { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

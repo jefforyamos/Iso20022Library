@@ -7,84 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the card payment transaction.
 /// </summary>
+[IsoId("_TF_lZwEcEeCQm6a_G2yO_w_-912290278")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentEnvironment6
-     : IIsoXmlSerilizable<CardPaymentEnvironment6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentEnvironment6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentEnvironment6( PaymentCard3 reqCard )
+    {
+        Card = reqCard;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [IsoId("_TF_laAEcEeCQm6a_G2yO_w_-440182318")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer1? Acquirer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Acquirer1? Acquirer { get; init; } 
+    #else
+    public Acquirer1? Acquirer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Merchant performing the transaction.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
+    [IsoId("_TF_laQEcEeCQm6a_G2yO_w_-1818865261")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation5? Merchant { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation5? Merchant { get; init; } 
+    #else
+    public Organisation5? Merchant { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [IsoId("_TF_lagEcEeCQm6a_G2yO_w_1586282777")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction1? POI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteraction1? POI { get; init; } 
+    #else
+    public PointOfInteraction1? POI { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [IsoId("_TF_lawEcEeCQm6a_G2yO_w_856227117")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCard3 Card { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentCard3 Card { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCard3 Card { get; init; } 
+    #else
+    public PaymentCard3 Card { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cardholder involved in the card payment.
     /// </summary>
+    [IsoId("_TF_lbAEcEeCQm6a_G2yO_w_343677043")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cardholder2? Cardholder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Cardholder2? Cardholder { get; init; } 
+    #else
+    public Cardholder2? Cardholder { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Acquirer is Acquirer1 AcquirerValue)
-        {
-            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
-            AcquirerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Merchant is Organisation5 MerchantValue)
-        {
-            writer.WriteStartElement(null, "Mrchnt", xmlNamespace );
-            MerchantValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POI is PointOfInteraction1 POIValue)
-        {
-            writer.WriteStartElement(null, "POI", xmlNamespace );
-            POIValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Card", xmlNamespace );
-        Card.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Cardholder is Cardholder2 CardholderValue)
-        {
-            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
-            CardholderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentEnvironment6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

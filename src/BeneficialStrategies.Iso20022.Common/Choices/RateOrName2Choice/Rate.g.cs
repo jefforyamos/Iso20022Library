@@ -9,47 +9,85 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice;
-
-/// <summary>
-/// Pricing expressed as a rate.
-/// </summary>
-public partial record Rate : RateOrName2Choice_
-     , IIsoXmlSerilizable<Rate>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indicates the sign of the rate.
+    /// Pricing expressed as a rate.
     /// </summary>
-    public IsoPlusOrMinusIndicator? Sign { get; init; } 
-    public required IsoPercentageRate Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_XO3Yd9p-Ed-ak6NoX_4Aeg_1588721411")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Rate : RateOrName2Choice_
+    #else
+    public partial class Rate : RateOrName2Choice_
+    #endif
     {
-        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Rate instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Rate( System.Decimal reqValue )
         {
-            writer.WriteStartElement(null, "Sgn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
-            writer.WriteEndElement();
+            Value = reqValue;
         }
-        writer.WriteStartElement(null, "Rate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Value)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-    }
-    public static new Rate Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indicates the sign of the rate.
+        /// </summary>
+        [IsoId("_Q-xTYNp-Ed-ak6NoX_4Aeg_-1215412849")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sign")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPlusOrMinusIndicator? Sign { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Sign { get; init; } 
+        #else
+        public System.String? Sign { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoPercentageRate Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Value { get; init; } 
+        #else
+        public System.Decimal Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

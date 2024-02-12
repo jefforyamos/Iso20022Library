@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code or proprietary code to specify the reason why the instruction or cancellation request is cancelled.
-/// </summary>
-[KnownType(typeof(CancelledReason11Choice.Code))]
-[KnownType(typeof(CancelledReason11Choice.Proprietary))]
-public abstract partial record CancelledReason11Choice_ : IIsoXmlSerilizable<CancelledReason11Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code or proprietary code to specify the reason why the instruction or cancellation request is cancelled.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CancelledReason11Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CancelledReason11Choice.Code))]
+    [KnownType(typeof(CancelledReason11Choice.Proprietary))]
+    [IsoId("_cgnRw5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancelled Reason 11 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CancelledReason11Choice_
+    #else
+    public abstract partial class CancelledReason11Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => CancelledReason11Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => CancelledReason11Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CancelledReason11Choice choice.")
-        };
     }
 }

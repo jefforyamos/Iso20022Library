@@ -9,49 +9,78 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CurrencyCriteria1Choice;
-
-/// <summary>
-/// Defines the criteria based on which the information is extracted.
-/// </summary>
-public partial record NewCriteria : CurrencyCriteria1Choice_
-     , IIsoXmlSerilizable<NewCriteria>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CurrencyCriteria1Choice
 {
-    #nullable enable
-    
-    /// <summary>
-    /// Name of the query defined by the search criteria and return criteria.
-    /// </summary>
-    public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public CurrencySourceTarget1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _71C2QqMgEeCJ6YNENx4h-w_-294471871
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_705FR6MgEeCJ6YNENx4h-w_-1083355191")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Criteria")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NewCriteria : CurrencyCriteria1Choice_
+    #else
+    public partial class NewCriteria : CurrencyCriteria1Choice_
+    #endif
     {
-        if (NewQueryName is IsoMax35Text NewQueryNameValue)
-        {
-            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize SearchCriteria, multiplicity Unknown
-    }
-    public static new NewCriteria Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name of the query defined by the search criteria and return criteria.
+        /// </summary>
+        [IsoId("_71C2QaMgEeCJ6YNENx4h-w_1369254414")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New Query Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? NewQueryName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? NewQueryName { get; init; } 
+        #else
+        public System.String? NewQueryName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Defines the criteria based on which the information is extracted.
+        /// </summary>
+        [IsoId("_71C2QqMgEeCJ6YNENx4h-w_-294471871")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Search Criteria")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public CurrencySourceTarget1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _71C2QqMgEeCJ6YNENx4h-w_-294471871
+        
+        
+        #nullable disable
+        
     }
 }

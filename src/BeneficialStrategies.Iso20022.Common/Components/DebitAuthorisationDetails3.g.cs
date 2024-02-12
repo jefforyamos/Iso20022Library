@@ -7,73 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the reason for requesting a debit authorisation as well as the amount of the requested debit.
 /// </summary>
+[IsoId("_T9pfUNp-Ed-ak6NoX_4Aeg_-1625876802")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Debit Authorisation Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DebitAuthorisationDetails3
-     : IIsoXmlSerilizable<DebitAuthorisationDetails3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DebitAuthorisationDetails3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DebitAuthorisationDetails3( CancellationReason2Choice_ reqCancellationReason )
+    {
+        CancellationReason = reqCancellationReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
+    [IsoId("_T9pfUdp-Ed-ak6NoX_4Aeg_787900949")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationReason2Choice_ CancellationReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CancellationReason2Choice_ CancellationReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationReason2Choice_ CancellationReason { get; init; } 
+    #else
+    public CancellationReason2Choice_ CancellationReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money requested for debit authorisation.
     /// </summary>
+    [IsoId("_T9pfUtp-Ed-ak6NoX_4Aeg_-1625876493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount To Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AmountToDebit { get; init; } 
+    #else
+    public System.Decimal? AmountToDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
+    [IsoId("_T9pfU9p-Ed-ak6NoX_4Aeg_-1625876462")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date To Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDateToDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValueDateToDebit { get; init; } 
+    #else
+    public System.DateOnly? ValueDateToDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
+    [IsoId("_T9pfVNp-Ed-ak6NoX_4Aeg_-444152130")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Cancellation Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalCancellationReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalCancellationReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalCancellationReasonInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
-        CancellationReason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AmountToDebit is IsoActiveOrHistoricCurrencyAndAmount AmountToDebitValue)
-        {
-            writer.WriteStartElement(null, "AmtToDbt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountToDebitValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ValueDateToDebit is IsoISODate ValueDateToDebitValue)
-        {
-            writer.WriteStartElement(null, "ValDtToDbt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateToDebitValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AdditionalCancellationReasonInformation is IsoMax105Text AdditionalCancellationReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlCxlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalCancellationReasonInformationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DebitAuthorisationDetails3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

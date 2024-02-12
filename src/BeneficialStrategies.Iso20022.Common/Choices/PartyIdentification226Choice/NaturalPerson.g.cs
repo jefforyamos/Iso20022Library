@@ -9,57 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification226Choice;
-
-/// <summary>
-/// Private person.
-/// </summary>
-public partial record NaturalPerson : PartyIdentification226Choice_
-     , IIsoXmlSerilizable<NaturalPerson>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification226Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name and address of the party.
+    /// Private person.
     /// </summary>
-    public required PersonName1 NameAndAddress { get; init; } 
-    /// <summary>
-    /// Address for electronic mail (e-mail).
-    /// </summary>
-    public IsoMax256Text? EmailAddress { get; init; } 
-    /// <summary>
-    /// Natural person local identification and type.
-    /// </summary>
-    public required NaturalPersonIdentification1 Identification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_nbVCNa-kEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Natural Person")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NaturalPerson : PartyIdentification226Choice_
+    #else
+    public partial class NaturalPerson : PartyIdentification226Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
-        NameAndAddress.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a NaturalPerson instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public NaturalPerson( PersonName1 reqNameAndAddress,NaturalPersonIdentification1 reqIdentification )
         {
-            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
+            NameAndAddress = reqNameAndAddress;
+            Identification = reqIdentification;
         }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new NaturalPerson Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name and address of the party.
+        /// </summary>
+        [IsoId("_e_o11a-EEemJ1NnLPsTFaw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name And Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PersonName1 NameAndAddress { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PersonName1 NameAndAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PersonName1 NameAndAddress { get; init; } 
+        #else
+        public PersonName1 NameAndAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Address for electronic mail (e-mail).
+        /// </summary>
+        [IsoId("_oP6HUa-EEemJ1NnLPsTFaw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Email Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax256Text? EmailAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EmailAddress { get; init; } 
+        #else
+        public System.String? EmailAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Natural person local identification and type.
+        /// </summary>
+        [IsoId("_e_o11K-EEemJ1NnLPsTFaw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required NaturalPersonIdentification1 Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public NaturalPersonIdentification1 Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NaturalPersonIdentification1 Identification { get; init; } 
+        #else
+        public NaturalPersonIdentification1 Identification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

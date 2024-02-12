@@ -9,70 +9,137 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Cancellation2Choice;
-
-/// <summary>
-/// Reference of the transfer to be cancelled.
-/// </summary>
-public partial record Reference : Cancellation2Choice_
-     , IIsoXmlSerilizable<Reference>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Cancellation2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
+    /// Reference of the transfer to be cancelled.
     /// </summary>
-    public IsoMax35Text? MasterReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
-    /// </summary>
-    public required IsoMax35Text TransferReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
-    /// </summary>
-    public IsoMax35Text? ClientReference { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
-    /// </summary>
-    public IsoMax35Text? CancellationReference { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_OFsU1Rg2EeK-_89we2b-bA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reference : Cancellation2Choice_
+    #else
+    public partial class Reference : Cancellation2Choice_
+    #endif
     {
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Reference instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Reference( System.String reqTransferReference )
         {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            TransferReference = reqTransferReference;
         }
-        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ClientReference is IsoMax35Text ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
-        {
-            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Reference Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
+        /// </summary>
+        [IsoId("_SwUJgNp-Ed-ak6NoX_4Aeg_-1571572721")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Master Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? MasterReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? MasterReference { get; init; } 
+        #else
+        public System.String? MasterReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
+        /// </summary>
+        [IsoId("_SwUJgdp-Ed-ak6NoX_4Aeg_-838136033")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transfer Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text TransferReference { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String TransferReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String TransferReference { get; init; } 
+        #else
+        public System.String TransferReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
+        /// </summary>
+        [IsoId("_SwUJgtp-Ed-ak6NoX_4Aeg_-838136016")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Client Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? ClientReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ClientReference { get; init; } 
+        #else
+        public System.String? ClientReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
+        /// </summary>
+        [IsoId("_SwUJg9p-Ed-ak6NoX_4Aeg_-838135973")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cancellation Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? CancellationReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CancellationReference { get; init; } 
+        #else
+        public System.String? CancellationReference { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

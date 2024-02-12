@@ -7,83 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
+[IsoId("_Fw2qQQvUEeKzJ69IWwzB9Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cardholder Authentication")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardholderAuthentication3
-     : IIsoXmlSerilizable<CardholderAuthentication3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardholderAuthentication3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardholderAuthentication3( AuthenticationMethod2Code reqAuthenticationMethod )
+    {
+        AuthenticationMethod = reqAuthenticationMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Method used to authenticate a cardholder.
     /// </summary>
+    [IsoId("_F8AxYQvUEeKzJ69IWwzB9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationMethod2Code AuthenticationMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AuthenticationMethod2Code AuthenticationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthenticationMethod2Code AuthenticationMethod { get; init; } 
+    #else
+    public AuthenticationMethod2Code AuthenticationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity or object in charge of verifying the cardholder authenticity.
     /// </summary>
+    [IsoId("_F8AxZQvUEeKzJ69IWwzB9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthenticationEntity1Code? AuthenticationEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthenticationEntity1Code? AuthenticationEntity { get; init; } 
+    #else
+    public AuthenticationEntity1Code? AuthenticationEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value used to authenticate the cardholder.
     /// </summary>
+    [IsoId("_F8AxaQvUEeKzJ69IWwzB9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 40 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax40Text? AuthenticationValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthenticationValue { get; init; } 
+    #else
+    public System.String? AuthenticationValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
+    [IsoId("_F8AxbQvUEeKzJ69IWwzB9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder On Line PIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN2? CardholderOnLinePIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OnLinePIN2? CardholderOnLinePIN { get; init; } 
+    #else
+    public OnLinePIN2? CardholderOnLinePIN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies in electronic commerce transactions whether customer authentication is supported and data is available.
     /// </summary>
+    [IsoId("_F8AxcQvUEeKzJ69IWwzB9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Collection Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AuthenticationCollectionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthenticationCollectionIndicator { get; init; } 
+    #else
+    public System.String? AuthenticationCollectionIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AuthntcnMtd", xmlNamespace );
-        writer.WriteValue(AuthenticationMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AuthenticationEntity is AuthenticationEntity1Code AuthenticationEntityValue)
-        {
-            writer.WriteStartElement(null, "AuthntcnNtty", xmlNamespace );
-            writer.WriteValue(AuthenticationEntityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AuthenticationValue is IsoMax40Text AuthenticationValueValue)
-        {
-            writer.WriteStartElement(null, "AuthntcnVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax40Text(AuthenticationValueValue)); // data type Max40Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardholderOnLinePIN is OnLinePIN2 CardholderOnLinePINValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrOnLinePIN", xmlNamespace );
-            CardholderOnLinePINValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AuthenticationCollectionIndicator is IsoMax35Text AuthenticationCollectionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AuthntcnColltnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AuthenticationCollectionIndicatorValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CardholderAuthentication3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

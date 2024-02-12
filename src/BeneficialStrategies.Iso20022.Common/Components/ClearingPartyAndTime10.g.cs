@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the central counterparty clearing time.
 /// </summary>
+[IsoId("_Bemz9-xYEemioJdkOVFBdw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Clearing Party And Time")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ClearingPartyAndTime10
-     : IIsoXmlSerilizable<ClearingPartyAndTime10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates that the contract is intended to be cleared.
     /// </summary>
+    [IsoId("_9bAboexXEemioJdkOVFBdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NoReasonCode? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NoReasonCode? Reason { get; init; } 
+    #else
+    public NoReasonCode? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
+    [IsoId("_BpsCk-xYEemioJdkOVFBdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CCP")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification10Choice_? CCP { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification10Choice_? CCP { get; init; } 
+    #else
+    public OrganisationIdentification10Choice_? CCP { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>
+    [IsoId("_BpsClexYEemioJdkOVFBdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ClearingDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ClearingDateTime { get; init; } 
+    #else
+    public System.DateTime? ClearingDateTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Reason is NoReasonCode ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(ReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CCP is OrganisationIdentification10Choice_ CCPValue)
-        {
-            writer.WriteStartElement(null, "CCP", xmlNamespace );
-            CCPValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static ClearingPartyAndTime10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

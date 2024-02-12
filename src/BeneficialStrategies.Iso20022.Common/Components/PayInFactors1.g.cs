@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Factors used in the calculation of the pay in schedule.
 /// </summary>
+[IsoId("_S3PXsAEcEeCQm6a_G2yO_w_-1038379529")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Pay In Factors")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PayInFactors1
-     : IIsoXmlSerilizable<PayInFactors1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PayInFactors1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PayInFactors1( System.Decimal reqAggregateShortPositionLimit )
+    {
+        AggregateShortPositionLimit = reqAggregateShortPositionLimit;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Maximum allowed sum of short positions in all currencies, converted to base currency, during settlement.
     /// </summary>
+    [IsoId("_S3PXsQEcEeCQm6a_G2yO_w_-1671491994")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Aggregate Short Position Limit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal AggregateShortPositionLimit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal AggregateShortPositionLimit { get; init; } 
+    #else
+    public System.Decimal AggregateShortPositionLimit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency specific pay-in factors.
     /// </summary>
+    [IsoId("_S3PXsgEcEeCQm6a_G2yO_w_1288597221")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Factors")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public CurrencyFactors1? CurrencyFactors { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _S3PXsgEcEeCQm6a_G2yO_w_1288597221
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AggtShrtPosLmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AggregateShortPositionLimit)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        // Not sure how to serialize CurrencyFactors, multiplicity Unknown
-    }
-    public static PayInFactors1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

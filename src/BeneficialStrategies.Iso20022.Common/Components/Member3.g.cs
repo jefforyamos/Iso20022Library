@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the members of a system.
 /// </summary>
+[IsoId("_FD6i8ZlCEee-Zps0fZQaFQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Member")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Member3
-     : IIsoXmlSerilizable<Member3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, eg, returns or rejects.
     /// </summary>
+    [IsoId("_FMsEcZlCEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Member Return Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MemberIdentification2Choice_? MemberReturnAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MemberIdentification2Choice_? MemberReturnAddress { get; init; } 
+    #else
+    public MemberIdentification2Choice_? MemberReturnAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>
+    [IsoId("_FMsEc5lCEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentificationAndAddress1? ContactReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactIdentificationAndAddress1? ContactReference { get; init; } 
+    #else
+    public ContactIdentificationAndAddress1? ContactReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>
+    [IsoId("_FMsEdZlCEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Communication Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress8? CommunicationAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationAddress8? CommunicationAddress { get; init; } 
+    #else
+    public CommunicationAddress8? CommunicationAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MemberReturnAddress is MemberIdentification2Choice_ MemberReturnAddressValue)
-        {
-            writer.WriteStartElement(null, "MmbRtrAdr", xmlNamespace );
-            MemberReturnAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContactReference is ContactIdentificationAndAddress1 ContactReferenceValue)
-        {
-            writer.WriteStartElement(null, "CtctRef", xmlNamespace );
-            ContactReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommunicationAddress is CommunicationAddress8 CommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "ComAdr", xmlNamespace );
-            CommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Member3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

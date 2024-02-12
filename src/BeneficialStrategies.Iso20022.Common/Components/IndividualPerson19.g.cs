@@ -7,203 +7,364 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[IsoId("_Q5lmoQ2hEeSNWNtJlXOAhg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Individual Person")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IndividualPerson19
-     : IIsoXmlSerilizable<IndividualPerson19>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IndividualPerson19 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IndividualPerson19( IndividualPersonNameLong1 reqCurrentName )
+    {
+        CurrentName = reqCurrentName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Current name used.
     /// </summary>
+    [IsoId("_VymukA2iEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IndividualPersonNameLong1 CurrentName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public IndividualPersonNameLong1 CurrentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPersonNameLong1 CurrentName { get; init; } 
+    #else
+    public IndividualPersonNameLong1 CurrentName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous name used.
     /// </summary>
+    [IsoId("_YcDdEA2iEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPersonNameLong1? PreviousName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPersonNameLong1? PreviousName { get; init; } 
+    #else
+    public IndividualPersonNameLong1? PreviousName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
+    [IsoId("_7GGPsA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Gender1Code? Gender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Gender1Code? Gender { get; init; } 
+    #else
+    public Gender1Code? Gender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language in which a person communicates.
     /// </summary>
+    [IsoId("_33wEYA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? Language { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Language { get; init; } 
+    #else
+    public string? Language { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [IsoId("_YFl6UA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Birth Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BirthDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BirthDate { get; init; } 
+    #else
+    public System.DateOnly? BirthDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country where a person was born.
     /// </summary>
+    [IsoId("_egpSMA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CountryOfBirth { get; init; } 
+    #else
+    public string? CountryOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Province where a person was born.
     /// </summary>
+    [IsoId("_0zEycA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Province Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProvinceOfBirth { get; init; } 
+    #else
+    public System.String? ProvinceOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// City where a person was born.
     /// </summary>
+    [IsoId("_xeCJQA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("City Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CityOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CityOfBirth { get; init; } 
+    #else
+    public System.String? CityOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of taxation of an individual person.
     /// </summary>
+    [IsoId("_uMHskA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxation Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? TaxationCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? TaxationCountry { get; init; } 
+    #else
+    public string? TaxationCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country and residential status of an individual, for example, non-pernament resident.
     /// </summary>
+    [IsoId("_bUYxkA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country And Residential Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
+    #else
+    public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Government identification for its citizens.
     /// </summary>
+    [IsoId("__URgUA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Social Security Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SocialSecurityNumber { get; init; } 
+    #else
+    public System.String? SocialSecurityNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [IsoId("_iY9AgA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Postal Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? PostalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress6? PostalAddress { get; init; } 
+    #else
+    public PostalAddress6? PostalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about a citizen.
     /// </summary>
+    [IsoId("_nKO-MA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Citizenship Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CitizenshipInformation1? CitizenshipInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CitizenshipInformation1? CitizenshipInformation { get; init; } 
+    #else
+    public CitizenshipInformation1? CitizenshipInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address for the primary contact.
     /// </summary>
+    [IsoId("_Lp9DkA2iEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Communication Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
+    #else
+    public CommunicationAddress3? PrimaryCommunicationAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Communication device number or electronic address used for communication to an alternate address.
     /// </summary>
+    [IsoId("_DnWfEA2iEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Communication Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
+    #else
+    public CommunicationAddress3? SecondaryCommunicationAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of identification.
     /// </summary>
+    [IsoId("_IQcxIA2iEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification44? OtherIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification44? OtherIdentification { get; init; } 
+    #else
+    public GenericIdentification44? OtherIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additonal information required for the account switch.
     /// </summary>
+    [IsoId("_qrxLQA2hEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransferInstruction1? OtherDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferInstruction1? OtherDetails { get; init; } 
+    #else
+    public TransferInstruction1? OtherDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CurNm", xmlNamespace );
-        CurrentName.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviousName is IndividualPersonNameLong1 PreviousNameValue)
-        {
-            writer.WriteStartElement(null, "PrvsNm", xmlNamespace );
-            PreviousNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Gender is Gender1Code GenderValue)
-        {
-            writer.WriteStartElement(null, "Gndr", xmlNamespace );
-            writer.WriteValue(GenderValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Language is LanguageCode LanguageValue)
-        {
-            writer.WriteStartElement(null, "Lang", xmlNamespace );
-            writer.WriteValue(LanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BirthDate is IsoISODate BirthDateValue)
-        {
-            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CountryOfBirth is CountryCode CountryOfBirthValue)
-        {
-            writer.WriteStartElement(null, "CtryOfBirth", xmlNamespace );
-            writer.WriteValue(CountryOfBirthValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ProvinceOfBirth is IsoMax35Text ProvinceOfBirthValue)
-        {
-            writer.WriteStartElement(null, "PrvcOfBirth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProvinceOfBirthValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CityOfBirth is IsoMax35Text CityOfBirthValue)
-        {
-            writer.WriteStartElement(null, "CityOfBirth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CityOfBirthValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxationCountry is CountryCode TaxationCountryValue)
-        {
-            writer.WriteStartElement(null, "TaxtnCtry", xmlNamespace );
-            writer.WriteValue(TaxationCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CountryAndResidentialStatus is CountryAndResidentialStatusType1 CountryAndResidentialStatusValue)
-        {
-            writer.WriteStartElement(null, "CtryAndResdtlSts", xmlNamespace );
-            CountryAndResidentialStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SocialSecurityNumber is IsoMax35Text SocialSecurityNumberValue)
-        {
-            writer.WriteStartElement(null, "SclSctyNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SocialSecurityNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PostalAddress is PostalAddress6 PostalAddressValue)
-        {
-            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-            PostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CitizenshipInformation is CitizenshipInformation1 CitizenshipInformationValue)
-        {
-            writer.WriteStartElement(null, "CtznshInf", xmlNamespace );
-            CitizenshipInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrimaryCommunicationAddress is CommunicationAddress3 PrimaryCommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
-            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondaryCommunicationAddress is CommunicationAddress3 SecondaryCommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
-            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherIdentification is GenericIdentification44 OtherIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OthrId", xmlNamespace );
-            OtherIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherDetails is TransferInstruction1 OtherDetailsValue)
-        {
-            writer.WriteStartElement(null, "OthrDtls", xmlNamespace );
-            OtherDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static IndividualPerson19 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

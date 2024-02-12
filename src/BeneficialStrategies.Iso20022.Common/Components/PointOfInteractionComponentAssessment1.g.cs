@@ -7,76 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Assessments for the component of the point of interaction.
 /// </summary>
+[IsoId("_0nUakAyQEeKa_56Jbsi1RQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Point Of Interaction Component Assessment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PointOfInteractionComponentAssessment1
-     : IIsoXmlSerilizable<PointOfInteractionComponentAssessment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PointOfInteractionComponentAssessment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PointOfInteractionComponentAssessment1( POIComponentAssessment1Code reqType,System.String reqNumber )
+    {
+        Type = reqType;
+        Number = reqNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of assessment of the component.
     /// </summary>
+    [IsoId("_Buco4AyREeKa_56Jbsi1RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required POIComponentAssessment1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public POIComponentAssessment1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public POIComponentAssessment1Code Type { get; init; } 
+    #else
+    public POIComponentAssessment1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Body which has delivered the assessment.
     /// </summary>
-    public IsoMax35Text? Assigner { get; init;  } // Warning: Don't know multiplicity.
+    [IsoId("_L3GT4AyREeKa_56Jbsi1RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assigner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    public System.String? Assigner { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _L3GT4AyREeKa_56Jbsi1RQ
+    
     /// <summary>
     /// Date when the assessment has been delivered.
     /// </summary>
+    [IsoId("_TwUS4AyREeKa_56Jbsi1RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DeliveryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DeliveryDate { get; init; } 
+    #else
+    public System.DateTime? DeliveryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when the assessment will expire.
     /// </summary>
+    [IsoId("_cJlD4AyREeKa_56Jbsi1RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ExpirationDate { get; init; } 
+    #else
+    public System.DateTime? ExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique assessment number for the component.
     /// </summary>
+    [IsoId("_jKL_4AyREeKa_56Jbsi1RQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Number { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Number { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Number { get; init; } 
+    #else
+    public System.String Number { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        // Not sure how to serialize Assigner, multiplicity Unknown
-        if (DeliveryDate is IsoISODateTime DeliveryDateValue)
-        {
-            writer.WriteStartElement(null, "DlvryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeliveryDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ExpirationDate is IsoISODateTime ExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpirationDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Nb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Number)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static PointOfInteractionComponentAssessment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

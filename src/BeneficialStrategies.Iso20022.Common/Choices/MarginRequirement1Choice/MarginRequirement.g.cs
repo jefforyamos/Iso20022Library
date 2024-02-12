@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice;
-
-/// <summary>
-/// Provides details about the margin requirements for the variation margin and optionally the segregated independent amount.
-/// </summary>
-public partial record MarginRequirement : MarginRequirement1Choice_
-     , IIsoXmlSerilizable<MarginRequirement>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides details about the margin requirements for the variation margin.
+    /// Provides details about the margin requirements for the variation margin and optionally the segregated independent amount.
     /// </summary>
-    public required MarginRequirement1 VariationMarginRequirement { get; init; } 
-    /// <summary>
-    /// Provides details about the margin requirements for the segregated independent amount.
-    /// </summary>
-    public MarginRequirement1? SegregatedIndependentAmountRequirement { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QmogMNp-Ed-ak6NoX_4Aeg_202428352")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Requirement")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record MarginRequirement : MarginRequirement1Choice_
+    #else
+    public partial class MarginRequirement : MarginRequirement1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "VartnMrgnRqrmnt", xmlNamespace );
-        VariationMarginRequirement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SegregatedIndependentAmountRequirement is MarginRequirement1 SegregatedIndependentAmountRequirementValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a MarginRequirement instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public MarginRequirement( MarginRequirement1 reqVariationMarginRequirement )
         {
-            writer.WriteStartElement(null, "SgrtdIndpdntAmtRqrmnt", xmlNamespace );
-            SegregatedIndependentAmountRequirementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            VariationMarginRequirement = reqVariationMarginRequirement;
         }
-    }
-    public static new MarginRequirement Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides details about the margin requirements for the variation margin.
+        /// </summary>
+        [IsoId("_Ul4kBNp-Ed-ak6NoX_4Aeg_-362986859")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variation Margin Requirement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required MarginRequirement1 VariationMarginRequirement { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public MarginRequirement1 VariationMarginRequirement { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MarginRequirement1 VariationMarginRequirement { get; init; } 
+        #else
+        public MarginRequirement1 VariationMarginRequirement { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides details about the margin requirements for the segregated independent amount.
+        /// </summary>
+        [IsoId("_Ul4kBdp-Ed-ak6NoX_4Aeg_-1666534406")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Segregated Independent Amount Requirement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MarginRequirement1? SegregatedIndependentAmountRequirement { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MarginRequirement1? SegregatedIndependentAmountRequirement { get; init; } 
+        #else
+        public MarginRequirement1? SegregatedIndependentAmountRequirement { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different instrument identification schemes.
-/// </summary>
-[KnownType(typeof(InstrumentIdentification1Choice.ISIN))]
-[KnownType(typeof(InstrumentIdentification1Choice.AlternativeInstrumentIdentification))]
-[KnownType(typeof(InstrumentIdentification1Choice.UniqueProductIdentifier))]
-[KnownType(typeof(InstrumentIdentification1Choice.OtherIdentification))]
-public abstract partial record InstrumentIdentification1Choice_ : IIsoXmlSerilizable<InstrumentIdentification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different instrument identification schemes.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InstrumentIdentification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InstrumentIdentification1Choice.ISIN))]
+    [KnownType(typeof(InstrumentIdentification1Choice.AlternativeInstrumentIdentification))]
+    [KnownType(typeof(InstrumentIdentification1Choice.UniqueProductIdentifier))]
+    [KnownType(typeof(InstrumentIdentification1Choice.OtherIdentification))]
+    [IsoId("_vWHmMAbSEeqrW7Meu5r3kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instrument Identification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InstrumentIdentification1Choice_
+    #else
+    public abstract partial class InstrumentIdentification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => InstrumentIdentification1Choice.ISIN.Deserialize(elementWithPayload),
-             "AltrntvInstrmId" => InstrumentIdentification1Choice.AlternativeInstrumentIdentification.Deserialize(elementWithPayload),
-             "UnqPdctIdr" => InstrumentIdentification1Choice.UniqueProductIdentifier.Deserialize(elementWithPayload),
-             "OthrId" => InstrumentIdentification1Choice.OtherIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InstrumentIdentification1Choice choice.")
-        };
     }
 }

@@ -7,74 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
+[IsoId("_S3i5sgEcEeCQm6a_G2yO_w_1955726096")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportData3
-     : IIsoXmlSerilizable<ReportData3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportData3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportData3( System.String reqMessageIdentification,System.DateOnly reqValueDate,System.DateTime reqDateAndTimeStamp,Entry2Code reqType )
+    {
+        MessageIdentification = reqMessageIdentification;
+        ValueDate = reqValueDate;
+        DateAndTimeStamp = reqDateAndTimeStamp;
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the report as assigned by the sender.
     /// </summary>
+    [IsoId("_S3i5swEcEeCQm6a_G2yO_w_1841887030")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value date for which the pay-in schedule is generated.
     /// </summary>
+    [IsoId("_S3i5tAEcEeCQm6a_G2yO_w_958653743")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ValueDate { get; init; } 
+    #else
+    public System.DateOnly ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
+    [IsoId("_S3i5tQEcEeCQm6a_G2yO_w_844814677")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime DateAndTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime DateAndTimeStamp { get; init; } 
+    #else
+    public System.DateTime DateAndTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of pay-in schedule.
     /// </summary>
+    [IsoId("_S3i5tgEcEeCQm6a_G2yO_w_-1725885432")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Entry2Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Entry2Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Entry2Code Type { get; init; } 
+    #else
+    public Entry2Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the settlement session to which the report applies. The first session of the day is 1.
     /// </summary>
+    [IsoId("_S3i5twEcEeCQm6a_G2yO_w_-952737875")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Session")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SettlementSession { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SettlementSession { get; init; } 
+    #else
+    public System.UInt64? SettlementSession { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DtAndTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SettlementSession is IsoNumber SettlementSessionValue)
-        {
-            writer.WriteStartElement(null, "SttlmSsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SettlementSessionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportData3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

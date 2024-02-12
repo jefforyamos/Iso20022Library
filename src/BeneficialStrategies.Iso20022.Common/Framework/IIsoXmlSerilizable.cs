@@ -4,6 +4,8 @@ using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Framework;
 
+#if DECLARE_INTERNALSERIALIZATION
+
 /// <summary>
 /// Denotes the container as being self-serializable in a ISO20022-compliant syntax.
 /// </summary>
@@ -41,3 +43,5 @@ public interface IIsoXmlAsyncSerilizable<TSelf> : Iso20022Certified<TSelf>
     /// <returns></returns>
     static abstract Task<TSelf> DeserializeAsync(XmlReader reader);
 }
+
+#endif

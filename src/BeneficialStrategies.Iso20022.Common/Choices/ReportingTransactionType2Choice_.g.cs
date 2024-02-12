@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a new or a cancellation transaction.
-/// </summary>
-[KnownType(typeof(ReportingTransactionType2Choice.New))]
-[KnownType(typeof(ReportingTransactionType2Choice.Cancellation))]
-[KnownType(typeof(ReportingTransactionType2Choice.SupplementaryData))]
-public abstract partial record ReportingTransactionType2Choice_ : IIsoXmlSerilizable<ReportingTransactionType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a new or a cancellation transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReportingTransactionType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReportingTransactionType2Choice.New))]
+    [KnownType(typeof(ReportingTransactionType2Choice.Cancellation))]
+    [KnownType(typeof(ReportingTransactionType2Choice.SupplementaryData))]
+    [IsoId("_W2U3kZ26Eeuwmdq0KtnICg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Transaction Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReportingTransactionType2Choice_
+    #else
+    public abstract partial class ReportingTransactionType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "New" => ReportingTransactionType2Choice.New.Deserialize(elementWithPayload),
-             "Cxl" => ReportingTransactionType2Choice.Cancellation.Deserialize(elementWithPayload),
-             "SplmtryData" => ReportingTransactionType2Choice.SupplementaryData.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReportingTransactionType2Choice choice.")
-        };
     }
 }

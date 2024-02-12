@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contents of an UndertakingAmendmentResponse message.
 /// </summary>
+[IsoId("_98n283ltEeG7BsjMvd1mEw_1014525589")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking Amendment Response Message")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UndertakingAmendmentResponseMessage1
-     : IIsoXmlSerilizable<UndertakingAmendmentResponseMessage1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UndertakingAmendmentResponseMessage1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UndertakingAmendmentResponseMessage1( Amendment7 reqUndertakingAmendmentResponseDetails )
+    {
+        UndertakingAmendmentResponseDetails = reqUndertakingAmendmentResponseDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details of the proposed amendment response.
     /// </summary>
+    [IsoId("_98xA4XltEeG7BsjMvd1mEw_-1912411864")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Amendment Response Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
+    #else
+    public Amendment7 UndertakingAmendmentResponseDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature of the response.
     /// </summary>
+    [IsoId("_ASLHQ387EeGx884K2iQOLg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyAndSignature2? DigitalSignature { get; init; } 
+    #else
+    public PartyAndSignature2? DigitalSignature { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UdrtkgAmdmntRspnDtls", xmlNamespace );
-        UndertakingAmendmentResponseDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
-        {
-            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
-            DigitalSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static UndertakingAmendmentResponseMessage1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

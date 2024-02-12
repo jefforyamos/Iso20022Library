@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides reason for rejection and/or additional information if required.
 /// </summary>
+[IsoId("_Q7yQ1Np-Ed-ak6NoX_4Aeg_1144843079")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rejection Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RejectionReason4
-     : IIsoXmlSerilizable<RejectionReason4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RejectionReason4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RejectionReason4( RejectionReason3Code reqReasonCode )
+    {
+        ReasonCode = reqReasonCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Detailed description of the rejection reason.
     /// </summary>
+    [IsoId("_Q7yQ1dp-Ed-ak6NoX_4Aeg_1178093094")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason3Code ReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectionReason3Code ReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectionReason3Code ReasonCode { get; init; } 
+    #else
+    public RejectionReason3Code ReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the rejection and meant to allow for the precise identification of the rejection reason.
     /// </summary>
+    [IsoId("_Q7yQ1tp-Ed-ak6NoX_4Aeg_1216879611")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RsnCd", xmlNamespace );
-        writer.WriteValue(ReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RejectionReason4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,74 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about the outstanding derivatives for which no valuation or outdated valuation has been reported.
 /// </summary>
+[IsoId("_x2ECMVyGEe24CqbZJK5XxA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Missing Valuations Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MissingValuationsData2
-     : IIsoXmlSerilizable<MissingValuationsData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MissingValuationsData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MissingValuationsData2( CounterpartyData92 reqCounterpartyIdentification,System.UInt64 reqNumberOfOutstandingDerivatives,System.UInt64 reqNumberOfOutstandingDerivativesWithNoValuation,System.UInt64 reqNumberOfOutstandingDerivativesWithOutdatedValuation )
+    {
+        CounterpartyIdentification = reqCounterpartyIdentification;
+        NumberOfOutstandingDerivatives = reqNumberOfOutstandingDerivatives;
+        NumberOfOutstandingDerivativesWithNoValuation = reqNumberOfOutstandingDerivativesWithNoValuation;
+        NumberOfOutstandingDerivativesWithOutdatedValuation = reqNumberOfOutstandingDerivativesWithOutdatedValuation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [IsoId("_x24hkVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CounterpartyData92 CounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyData92 CounterpartyIdentification { get; init; } 
+    #else
+    public CounterpartyData92 CounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of outstanding derivatives. 
     /// </summary>
+    [IsoId("_x24hk1yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Outstanding Derivatives")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
+    #else
+    public System.UInt64 NumberOfOutstandingDerivatives { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of outstanding derivatives for which valuation amount was never reported.
     /// </summary>
+    [IsoId("_x24hlVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Outstanding Derivatives With No Valuation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+    #else
+    public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of outstanding derivatives with outdated valuation.
     /// </summary>
+    [IsoId("_x24hl1yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Outstanding Derivatives With Outdated Valuation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+    #else
+    public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of missing valuations per transaction.
     /// </summary>
+    [IsoId("_x24hmVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MissingValuationsTransactionData2? TransactionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MissingValuationsTransactionData2? TransactionDetails { get; init; } 
+    #else
+    public MissingValuationsTransactionData2? TransactionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-        CounterpartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfOutsdngDerivs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivatives)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthNoValtn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithNoValuation)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthOutdtdValtn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithOutdatedValuation)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (TransactionDetails is MissingValuationsTransactionData2 TransactionDetailsValue)
-        {
-            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
-            TransactionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MissingValuationsData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

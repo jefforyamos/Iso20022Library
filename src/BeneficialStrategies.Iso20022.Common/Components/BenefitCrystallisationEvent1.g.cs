@@ -7,96 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the realisation of benefits taken from a pension.
 /// </summary>
+[IsoId("_N2Aj4LToEeiWMOV-LTfmAw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Benefit Crystallisation Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BenefitCrystallisationEvent1
-     : IIsoXmlSerilizable<BenefitCrystallisationEvent1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of crystallisation event.
     /// </summary>
+    [IsoId("_UiBv9LToEeiWMOV-LTfmAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DrawdownEventType1Choice_? EventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DrawdownEventType1Choice_? EventType { get; init; } 
+    #else
+    public DrawdownEventType1Choice_? EventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of the crystallisation event.
     /// </summary>
+    [IsoId("_UiBv87ToEeiWMOV-LTfmAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? EventNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventNumber { get; init; } 
+    #else
+    public System.String? EventNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the crystallisation event was triggered. 
     /// </summary>
+    [IsoId("_UiBv8LToEeiWMOV-LTfmAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EventDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EventDate { get; init; } 
+    #else
+    public System.DateOnly? EventDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the crystallisation event.
     /// </summary>
+    [IsoId("_UiBv8bToEeiWMOV-LTfmAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Crystallisation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? CrystallisationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CrystallisationAmount { get; init; } 
+    #else
+    public System.Decimal? CrystallisationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of allowance used for the benefit crystallisation event.
     /// </summary>
+    [IsoId("_UiBv8rToEeiWMOV-LTfmAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Of Allowance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfAllowance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PercentageOfAllowance { get; init; } 
+    #else
+    public System.Decimal? PercentageOfAllowance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the benefit crystallisation event.
     /// </summary>
+    [IsoId("_UiBv9bToEeiWMOV-LTfmAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EventType is DrawdownEventType1Choice_ EventTypeValue)
-        {
-            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
-            EventTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EventNumber is IsoMax35Text EventNumberValue)
-        {
-            writer.WriteStartElement(null, "EvtNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(EventNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (EventDate is IsoISODate EventDateValue)
-        {
-            writer.WriteStartElement(null, "EvtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EventDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CrystallisationAmount is IsoActiveCurrencyAnd13DecimalAmount CrystallisationAmountValue)
-        {
-            writer.WriteStartElement(null, "CrstllstnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CrystallisationAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PercentageOfAllowance is IsoPercentageRate PercentageOfAllowanceValue)
-        {
-            writer.WriteStartElement(null, "PctgOfAllwnc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfAllowanceValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BenefitCrystallisationEvent1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,104 +7,69 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Message to be sent in a batch transfer as a record.
-/// </summary>
-[KnownType(typeof(RecordMessage1Choice.AddendumInitiation))]
-[KnownType(typeof(RecordMessage1Choice.AddendumResponse))]
-[KnownType(typeof(RecordMessage1Choice.Amendment))]
-[KnownType(typeof(RecordMessage1Choice.AuthorisationInitiation))]
-[KnownType(typeof(RecordMessage1Choice.AuthorisationResponse))]
-[KnownType(typeof(RecordMessage1Choice.CardManagementInitiation))]
-[KnownType(typeof(RecordMessage1Choice.CardManagementResponse))]
-[KnownType(typeof(RecordMessage1Choice.ChargeBackInitiation))]
-[KnownType(typeof(RecordMessage1Choice.ChargeBackResponse))]
-[KnownType(typeof(RecordMessage1Choice.Error))]
-[KnownType(typeof(RecordMessage1Choice.FeeCollectionInitiation))]
-[KnownType(typeof(RecordMessage1Choice.FeeCollectionResponse))]
-[KnownType(typeof(RecordMessage1Choice.FileActionInitiation))]
-[KnownType(typeof(RecordMessage1Choice.FileActionResponse))]
-[KnownType(typeof(RecordMessage1Choice.FinancialInitiation))]
-[KnownType(typeof(RecordMessage1Choice.FinancialResponse))]
-[KnownType(typeof(RecordMessage1Choice.FraudDispositionInitiation))]
-[KnownType(typeof(RecordMessage1Choice.FraudDispositionResponse))]
-[KnownType(typeof(RecordMessage1Choice.FraudReportingInitiation))]
-[KnownType(typeof(RecordMessage1Choice.FraudReportingResponse))]
-[KnownType(typeof(RecordMessage1Choice.InquiryInitiation))]
-[KnownType(typeof(RecordMessage1Choice.InquiryResponse))]
-[KnownType(typeof(RecordMessage1Choice.KeyExchangeInitiation))]
-[KnownType(typeof(RecordMessage1Choice.KeyExchangeResponse))]
-[KnownType(typeof(RecordMessage1Choice.NetworkManagementInitiation))]
-[KnownType(typeof(RecordMessage1Choice.NetworkManagementResponse))]
-[KnownType(typeof(RecordMessage1Choice.ReconciliationInitiation))]
-[KnownType(typeof(RecordMessage1Choice.ReconciliationResponse))]
-[KnownType(typeof(RecordMessage1Choice.RetrievalInitiation))]
-[KnownType(typeof(RecordMessage1Choice.RetrievalResponse))]
-[KnownType(typeof(RecordMessage1Choice.RetrievalFulfilmentInitiation))]
-[KnownType(typeof(RecordMessage1Choice.RetrievalFulfilmentResponse))]
-[KnownType(typeof(RecordMessage1Choice.ReversalInitiation))]
-[KnownType(typeof(RecordMessage1Choice.ReversalResponse))]
-[KnownType(typeof(RecordMessage1Choice.SettlementReportingInitiation))]
-[KnownType(typeof(RecordMessage1Choice.SettlementReportingResponse))]
-[KnownType(typeof(RecordMessage1Choice.VerificationInitiation))]
-[KnownType(typeof(RecordMessage1Choice.VerificationResponse))]
-public abstract partial record RecordMessage1Choice_ : IIsoXmlSerilizable<RecordMessage1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Message to be sent in a batch transfer as a record.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RecordMessage1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RecordMessage1Choice.AddendumInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.AddendumResponse))]
+    [KnownType(typeof(RecordMessage1Choice.Amendment))]
+    [KnownType(typeof(RecordMessage1Choice.AuthorisationInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.AuthorisationResponse))]
+    [KnownType(typeof(RecordMessage1Choice.CardManagementInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.CardManagementResponse))]
+    [KnownType(typeof(RecordMessage1Choice.ChargeBackInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.ChargeBackResponse))]
+    [KnownType(typeof(RecordMessage1Choice.Error))]
+    [KnownType(typeof(RecordMessage1Choice.FeeCollectionInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.FeeCollectionResponse))]
+    [KnownType(typeof(RecordMessage1Choice.FileActionInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.FileActionResponse))]
+    [KnownType(typeof(RecordMessage1Choice.FinancialInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.FinancialResponse))]
+    [KnownType(typeof(RecordMessage1Choice.FraudDispositionInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.FraudDispositionResponse))]
+    [KnownType(typeof(RecordMessage1Choice.FraudReportingInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.FraudReportingResponse))]
+    [KnownType(typeof(RecordMessage1Choice.InquiryInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.InquiryResponse))]
+    [KnownType(typeof(RecordMessage1Choice.KeyExchangeInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.KeyExchangeResponse))]
+    [KnownType(typeof(RecordMessage1Choice.NetworkManagementInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.NetworkManagementResponse))]
+    [KnownType(typeof(RecordMessage1Choice.ReconciliationInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.ReconciliationResponse))]
+    [KnownType(typeof(RecordMessage1Choice.RetrievalInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.RetrievalResponse))]
+    [KnownType(typeof(RecordMessage1Choice.RetrievalFulfilmentInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.RetrievalFulfilmentResponse))]
+    [KnownType(typeof(RecordMessage1Choice.ReversalInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.ReversalResponse))]
+    [KnownType(typeof(RecordMessage1Choice.SettlementReportingInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.SettlementReportingResponse))]
+    [KnownType(typeof(RecordMessage1Choice.VerificationInitiation))]
+    [KnownType(typeof(RecordMessage1Choice.VerificationResponse))]
+    [IsoId("_F2jDAFZVEeen1vB4iz5SyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record Message 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RecordMessage1Choice_
+    #else
+    public abstract partial class RecordMessage1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AdddmInitn" => RecordMessage1Choice.AddendumInitiation.Deserialize(elementWithPayload),
-             "AdddmRspn" => RecordMessage1Choice.AddendumResponse.Deserialize(elementWithPayload),
-             "Amdmnt" => RecordMessage1Choice.Amendment.Deserialize(elementWithPayload),
-             "AuthstnInitn" => RecordMessage1Choice.AuthorisationInitiation.Deserialize(elementWithPayload),
-             "AuthstnRspn" => RecordMessage1Choice.AuthorisationResponse.Deserialize(elementWithPayload),
-             "CardMgmtInitn" => RecordMessage1Choice.CardManagementInitiation.Deserialize(elementWithPayload),
-             "CardMgmtRspn" => RecordMessage1Choice.CardManagementResponse.Deserialize(elementWithPayload),
-             "ChrgBckInitn" => RecordMessage1Choice.ChargeBackInitiation.Deserialize(elementWithPayload),
-             "ChrgBckRspn" => RecordMessage1Choice.ChargeBackResponse.Deserialize(elementWithPayload),
-             "Err" => RecordMessage1Choice.Error.Deserialize(elementWithPayload),
-             "FeeColltnInitn" => RecordMessage1Choice.FeeCollectionInitiation.Deserialize(elementWithPayload),
-             "FeeColltnRspn" => RecordMessage1Choice.FeeCollectionResponse.Deserialize(elementWithPayload),
-             "FileActnInitn" => RecordMessage1Choice.FileActionInitiation.Deserialize(elementWithPayload),
-             "FileActnRspn" => RecordMessage1Choice.FileActionResponse.Deserialize(elementWithPayload),
-             "FinInitn" => RecordMessage1Choice.FinancialInitiation.Deserialize(elementWithPayload),
-             "FinRspn" => RecordMessage1Choice.FinancialResponse.Deserialize(elementWithPayload),
-             "FrdDspstnInitn" => RecordMessage1Choice.FraudDispositionInitiation.Deserialize(elementWithPayload),
-             "FrdDspstnRspn" => RecordMessage1Choice.FraudDispositionResponse.Deserialize(elementWithPayload),
-             "FrdRptgInitn" => RecordMessage1Choice.FraudReportingInitiation.Deserialize(elementWithPayload),
-             "FrdRptgRspn" => RecordMessage1Choice.FraudReportingResponse.Deserialize(elementWithPayload),
-             "NqryInitn" => RecordMessage1Choice.InquiryInitiation.Deserialize(elementWithPayload),
-             "NqryRspn" => RecordMessage1Choice.InquiryResponse.Deserialize(elementWithPayload),
-             "KeyXchgInitn" => RecordMessage1Choice.KeyExchangeInitiation.Deserialize(elementWithPayload),
-             "KeyXchgRspn" => RecordMessage1Choice.KeyExchangeResponse.Deserialize(elementWithPayload),
-             "NtwkMgmtInitn" => RecordMessage1Choice.NetworkManagementInitiation.Deserialize(elementWithPayload),
-             "NtwkMgmtRspn" => RecordMessage1Choice.NetworkManagementResponse.Deserialize(elementWithPayload),
-             "RcncltnInitn" => RecordMessage1Choice.ReconciliationInitiation.Deserialize(elementWithPayload),
-             "RcncltnRspn" => RecordMessage1Choice.ReconciliationResponse.Deserialize(elementWithPayload),
-             "RtrvlInitn" => RecordMessage1Choice.RetrievalInitiation.Deserialize(elementWithPayload),
-             "RtrvlRspn" => RecordMessage1Choice.RetrievalResponse.Deserialize(elementWithPayload),
-             "RtrvlFlfmtInitn" => RecordMessage1Choice.RetrievalFulfilmentInitiation.Deserialize(elementWithPayload),
-             "RtrvlFlfmtRspn" => RecordMessage1Choice.RetrievalFulfilmentResponse.Deserialize(elementWithPayload),
-             "RvslInitn" => RecordMessage1Choice.ReversalInitiation.Deserialize(elementWithPayload),
-             "RvslRspn" => RecordMessage1Choice.ReversalResponse.Deserialize(elementWithPayload),
-             "SttlmRptgInitn" => RecordMessage1Choice.SettlementReportingInitiation.Deserialize(elementWithPayload),
-             "SttlmRptgRspn" => RecordMessage1Choice.SettlementReportingResponse.Deserialize(elementWithPayload),
-             "VrfctnInitn" => RecordMessage1Choice.VerificationInitiation.Deserialize(elementWithPayload),
-             "VrfctnRspn" => RecordMessage1Choice.VerificationResponse.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RecordMessage1Choice choice.")
-        };
     }
 }

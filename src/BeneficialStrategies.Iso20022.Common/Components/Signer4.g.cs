@@ -7,87 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity who has signed the data and its digital signature.
 /// </summary>
+[IsoId("_gThY8dtbEee9e6xduATmQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Signer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Signer4
-     : IIsoXmlSerilizable<Signer4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Signer4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Signer4( AlgorithmIdentification21 reqDigestAlgorithm,AlgorithmIdentification20 reqSignatureAlgorithm,System.Byte[] reqSignature )
+    {
+        DigestAlgorithm = reqDigestAlgorithm;
+        SignatureAlgorithm = reqSignatureAlgorithm;
+        Signature = reqSignature;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the Cryptographic Message Syntax (CMS) data structure.
     /// </summary>
+    [IsoId("_gc2UEdtbEee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the entity who has signed the data.
     /// </summary>
+    [IsoId("_gc2UE9tbEee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Recipient5Choice_? SignerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Recipient5Choice_? SignerIdentification { get; init; } 
+    #else
+    public Recipient5Choice_? SignerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
+    [IsoId("_gc2UFdtbEee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification21 DigestAlgorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AlgorithmIdentification21 DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification21 DigestAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification21 DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collection of attributes that are signed.
     /// </summary>
+    [IsoId("_T-zv0N9dEeeNt9bWIs54cw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signed Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericInformation1? SignedAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericInformation1? SignedAttributes { get; init; } 
+    #else
+    public GenericInformation1? SignedAttributes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cryptographic digital signature algorithm.
     /// </summary>
+    [IsoId("_gc2UF9tbEee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification20 SignatureAlgorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AlgorithmIdentification20 SignatureAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification20 SignatureAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification20 SignatureAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature.
     /// </summary>
+    [IsoId("_gc2UGdtbEee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3000Binary Signature { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] Signature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] Signature { get; init; } 
+    #else
+    public System.Byte[] Signature { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (SignerIdentification is Recipient5Choice_ SignerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SgnrId", xmlNamespace );
-            SignerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-        DigestAlgorithm.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SignedAttributes is GenericInformation1 SignedAttributesValue)
-        {
-            writer.WriteStartElement(null, "SgndAttrbts", xmlNamespace );
-            SignedAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SgntrAlgo", xmlNamespace );
-        SignatureAlgorithm.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sgntr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax3000Binary(Signature)); // data type Max3000Binary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static Signer4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

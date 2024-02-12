@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the rejection reason of an individual element.
 /// </summary>
+[IsoId("_RJy3pdp-Ed-ak6NoX_4Aeg_2106998089")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rejected Element")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RejectedElement1
-     : IIsoXmlSerilizable<RejectedElement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RejectedElement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RejectedElement1( System.UInt64 reqElementSequenceNumber,System.String reqIndividualRejectionReason )
+    {
+        ElementSequenceNumber = reqElementSequenceNumber;
+        IndividualRejectionReason = reqIndividualRejectionReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sequence number that allows to easily identify the element that is rejected.
     /// </summary>
+    [IsoId("_RJy3ptp-Ed-ak6NoX_4Aeg_-1803784041")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Element Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ElementSequenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ElementSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ElementSequenceNumber { get; init; } 
+    #else
+    public System.UInt64 ElementSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for rejecting an individual element.
     /// </summary>
+    [IsoId("_RJy3p9p-Ed-ak6NoX_4Aeg_1481340627")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Rejection Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text IndividualRejectionReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IndividualRejectionReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IndividualRejectionReason { get; init; } 
+    #else
+    public System.String IndividualRejectionReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ElmtSeqNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(ElementSequenceNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IndvRjctnRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(IndividualRejectionReason)); // data type Max140Text System.String
-        writer.WriteEndElement();
-    }
-    public static RejectedElement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

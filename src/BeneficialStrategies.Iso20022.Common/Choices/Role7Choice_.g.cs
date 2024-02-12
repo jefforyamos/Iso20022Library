@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for a party role.
-/// </summary>
-[KnownType(typeof(Role7Choice.Code))]
-[KnownType(typeof(Role7Choice.Proprietary))]
-[KnownType(typeof(Role7Choice.Text))]
-public abstract partial record Role7Choice_ : IIsoXmlSerilizable<Role7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for a party role.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Role7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Role7Choice.Code))]
+    [KnownType(typeof(Role7Choice.Proprietary))]
+    [KnownType(typeof(Role7Choice.Text))]
+    [IsoId("_5WyhAZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Role 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Role7Choice_
+    #else
+    public abstract partial class Role7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => Role7Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => Role7Choice.Proprietary.Deserialize(elementWithPayload),
-             "Txt" => Role7Choice.Text.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Role7Choice choice.")
-        };
     }
 }

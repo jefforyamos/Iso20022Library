@@ -7,67 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the vote methods to be used.
 /// </summary>
+[IsoId("_usSbdxrmEeyhRdHRjakS2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Vote Methods")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VoteMethods4
-     : IIsoXmlSerilizable<VoteMethods4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Network address through which a voting party can cast its vote via a structured message.
     /// </summary>
-    public SimpleValueList<IsoAnyBICDec2014Identifier> VoteThroughNetwork { get; init; } = [];
+    [IsoId("_vBAHExrmEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote Through Network")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    public SimpleValueList<System.String> VoteThroughNetwork { get; init; } = new SimpleValueList<System.String>(){};
+    
     /// <summary>
     /// Address where the voting ballot can be sent.
     /// </summary>
+    [IsoId("_vBAHFRrmEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote By Mail")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MailAddress1? VoteByMail { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MailAddress1? VoteByMail { get; init; } 
+    #else
+    public MailAddress1? VoteByMail { get; set; } 
+    #endif
+    
     /// <summary>
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
-    public ValueList<CommunicationAddress12> ElectronicVote { get; init; } = [];
+    [IsoId("_vBAHFxrmEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Vote")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    public ValueList<CommunicationAddress12> ElectronicVote { get; init; } = new ValueList<CommunicationAddress12>(){};
+    
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
-    public SimpleValueList<IsoMax35Text> VoteByTelephone { get; init; } = [];
+    [IsoId("_vBAHGRrmEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote By Telephone")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> VoteByTelephone { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "VoteThrghNtwk", xmlNamespace );
-        VoteThroughNetwork.Serialize(writer, xmlNamespace, "AnyBICDec2014Identifier", SerializationFormatter.IsoAnyBICDec2014Identifier );
-        writer.WriteEndElement();
-        if (VoteByMail is MailAddress1 VoteByMailValue)
-        {
-            writer.WriteStartElement(null, "VoteByMail", xmlNamespace );
-            VoteByMailValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ElctrncVote", xmlNamespace );
-        ElectronicVote.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VoteByTel", xmlNamespace );
-        VoteByTelephone.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
-        writer.WriteEndElement();
-    }
-    public static VoteMethods4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

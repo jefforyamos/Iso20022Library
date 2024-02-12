@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies whether the transaction is on hold/blocked/frozen.
 /// </summary>
+[IsoId("_yW7v0TqfEeWyoP0PbocV1Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Hold Indicator")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record HoldIndicator6
-     : IIsoXmlSerilizable<HoldIndicator6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a HoldIndicator6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public HoldIndicator6( System.String reqIndicator )
+    {
+        Indicator = reqIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
+    [IsoId("_y3EocTqfEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Indicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Indicator { get; init; } 
+    #else
+    public System.String Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason of the registration status.
     /// </summary>
+    [IsoId("_y3EoczqfEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegistrationReason5? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RegistrationReason5? Reason { get; init; } 
+    #else
+    public RegistrationReason5? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ind", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Indicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Reason is RegistrationReason5 ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static HoldIndicator6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

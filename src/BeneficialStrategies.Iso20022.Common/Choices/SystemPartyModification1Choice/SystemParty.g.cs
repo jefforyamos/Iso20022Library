@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
-
-/// <summary>
-/// Specifies the party reference data, as assigned by the system.
-/// </summary>
-public partial record SystemParty : SystemPartyModification1Choice_
-     , IIsoXmlSerilizable<SystemParty>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the opening date of the party.
+    /// Specifies the party reference data, as assigned by the system.
     /// </summary>
-    public IsoISODate? OpeningDate { get; init; } 
-    /// <summary>
-    /// Specifies the closing date of the party.
-    /// </summary>
-    public IsoISODate? ClosingDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_kouatO5NEeCisYr99QEiWA_769363521")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Party")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SystemParty : SystemPartyModification1Choice_
+    #else
+    public partial class SystemParty : SystemPartyModification1Choice_
+    #endif
     {
-        if (OpeningDate is IsoISODate OpeningDateValue)
-        {
-            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ClosingDate is IsoISODate ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static new SystemParty Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the opening date of the party.
+        /// </summary>
+        [IsoId("_kmC6Iu5NEeCisYr99QEiWA_1131494895")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Opening Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? OpeningDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? OpeningDate { get; init; } 
+        #else
+        public System.DateOnly? OpeningDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the closing date of the party.
+        /// </summary>
+        [IsoId("_kmC6I-5NEeCisYr99QEiWA_-586504225")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Closing Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ClosingDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ClosingDate { get; init; } 
+        #else
+        public System.DateOnly? ClosingDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

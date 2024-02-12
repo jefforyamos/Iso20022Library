@@ -7,52 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the data for the pending intra-balance movements.
 /// </summary>
+[IsoId("_Ys-BmzneEem7JZMuWtwtsg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Balance Pending")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraBalancePending5
-     : IIsoXmlSerilizable<IntraBalancePending5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
+    [IsoId("_Y3sq0zneEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status And Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingStatusAndReason2? StatusAndReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PendingStatusAndReason2? StatusAndReason { get; init; } 
+    #else
+    public PendingStatusAndReason2? StatusAndReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
+    [IsoId("_Y3sq1TneEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Movement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public IntraBalancePending6? Movement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Y3sq1TneEem7JZMuWtwtsg
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StatusAndReason is PendingStatusAndReason2 StatusAndReasonValue)
-        {
-            writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
-            StatusAndReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Movement, multiplicity Unknown
-    }
-    public static IntraBalancePending5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

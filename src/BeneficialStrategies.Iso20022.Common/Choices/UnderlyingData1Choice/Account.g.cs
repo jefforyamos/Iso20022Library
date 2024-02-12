@@ -9,83 +9,137 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UnderlyingData1Choice;
-
-/// <summary>
-/// Reference details on the underlying account.
-/// </summary>
-public partial record Account : UnderlyingData1Choice_
-     , IIsoXmlSerilizable<Account>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UnderlyingData1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+    /// Reference details on the underlying account.
     /// </summary>
-    public AccountIdentification4Choice_? Identification { get; init; } 
-    /// <summary>
-    /// Specifies the nature, or use of the account.
-    /// </summary>
-    public CashAccountType2Choice_? Type { get; init; } 
-    /// <summary>
-    /// Identification of the currency in which the account is held. ||Usage: Currency should only be used in case one and the same account number covers several currencies|and the initiating party needs to identify which currency needs to be used for settlement on the account.
-    /// </summary>
-    public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
-    /// <summary>
-    /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.||Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
-    /// </summary>
-    public IsoMax70Text? Name { get; init; } 
-    /// <summary>
-    /// Specifies an alternate assumed name for the identification of the account. 
-    /// </summary>
-    public ProxyAccountIdentification1? Proxy { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_CXmpZlRtEe23M4WgERMsYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Account : UnderlyingData1Choice_
+    #else
+    public partial class Account : UnderlyingData1Choice_
+    #endif
     {
-        if (Identification is AccountIdentification4Choice_ IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Type is CashAccountType2Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Proxy is ProxyAccountIdentification1 ProxyValue)
-        {
-            writer.WriteStartElement(null, "Prxy", xmlNamespace );
-            ProxyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Account Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+        /// </summary>
+        [IsoId("_awzZ49cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AccountIdentification4Choice_? Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountIdentification4Choice_? Identification { get; init; } 
+        #else
+        public AccountIdentification4Choice_? Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the nature, or use of the account.
+        /// </summary>
+        [IsoId("_awzZ5dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashAccountType2Choice_? Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccountType2Choice_? Type { get; init; } 
+        #else
+        public CashAccountType2Choice_? Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the currency in which the account is held. ||Usage: Currency should only be used in case one and the same account number covers several currencies|and the initiating party needs to identify which currency needs to be used for settlement on the account.
+        /// </summary>
+        [IsoId("_awzZ59cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? Currency { get; init; } 
+        #else
+        public string? Currency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.||Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
+        /// </summary>
+        [IsoId("_awzZ6dcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax70Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies an alternate assumed name for the identification of the account. 
+        /// </summary>
+        [IsoId("_awzZ69cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Proxy")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ProxyAccountIdentification1? Proxy { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProxyAccountIdentification1? Proxy { get; init; } 
+        #else
+        public ProxyAccountIdentification1? Proxy { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

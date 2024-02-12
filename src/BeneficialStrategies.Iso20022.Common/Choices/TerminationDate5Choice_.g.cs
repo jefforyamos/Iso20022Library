@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the termination date.
-/// </summary>
-[KnownType(typeof(TerminationDate5Choice.Date))]
-[KnownType(typeof(TerminationDate5Choice.Code))]
-public abstract partial record TerminationDate5Choice_ : IIsoXmlSerilizable<TerminationDate5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the termination date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TerminationDate5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TerminationDate5Choice.Date))]
+    [KnownType(typeof(TerminationDate5Choice.Code))]
+    [IsoId("_5mw3n5NLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Termination Date 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TerminationDate5Choice_
+    #else
+    public abstract partial class TerminationDate5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => TerminationDate5Choice.Date.Deserialize(elementWithPayload),
-             "Cd" => TerminationDate5Choice.Code.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TerminationDate5Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Element is a choice between a known portfolio code and a code applicable when the code is unknown.
-/// </summary>
-[KnownType(typeof(PortfolioCode3Choice.Code))]
-[KnownType(typeof(PortfolioCode3Choice.NoPortfolio))]
-public abstract partial record PortfolioCode3Choice_ : IIsoXmlSerilizable<PortfolioCode3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Element is a choice between a known portfolio code and a code applicable when the code is unknown.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PortfolioCode3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PortfolioCode3Choice.Code))]
+    [KnownType(typeof(PortfolioCode3Choice.NoPortfolio))]
+    [IsoId("_WMQcEVzGEeyTL-yEabFeNg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio Code 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PortfolioCode3Choice_
+    #else
+    public abstract partial class PortfolioCode3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => PortfolioCode3Choice.Code.Deserialize(elementWithPayload),
-             "NoPrtfl" => PortfolioCode3Choice.NoPortfolio.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PortfolioCode3Choice choice.")
-        };
     }
 }

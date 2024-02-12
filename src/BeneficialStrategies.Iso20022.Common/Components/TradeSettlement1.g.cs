@@ -7,303 +7,544 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trade settlement details for this invoice which involves the payment of an outstanding debt, account, or charge.
 /// </summary>
+[IsoId("_TB-BBQEcEeCQm6a_G2yO_w_1181239925")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Settlement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeSettlement1
-     : IIsoXmlSerilizable<TradeSettlement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeSettlement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeSettlement1( SettlementMonetarySummation1 reqMonetarySummation )
+    {
+        MonetarySummation = reqMonetarySummation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Monetary value that is an exact amount due and payable, such as the amount due to the creditor.
     /// </summary>
+    [IsoId("_TB-BBgEcEeCQm6a_G2yO_w_-689724916")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Payable Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? DuePayableAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DuePayableAmount { get; init; } 
+    #else
+    public System.Decimal? DuePayableAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous reference assigned by the creditor.
     /// </summary>
+    [IsoId("_TB-BBwEcEeCQm6a_G2yO_w_1023225472")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorReferenceInformation2? CreditorReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditorReferenceInformation2? CreditorReference { get; init; } 
+    #else
+    public CreditorReferenceInformation2? CreditorReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for a payment transaction, as assigned by the originator. The payment transaction reference is used for reconciliation or to link tasks relating to the payment transaction.
     /// </summary>
+    [IsoId("_TB-BCAEcEeCQm6a_G2yO_w_-2064443525")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PaymentReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentReference { get; init; } 
+    #else
+    public System.String? PaymentReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code specifying the currency of the invoice.
     /// </summary>
+    [IsoId("_TB-BCQEcEeCQm6a_G2yO_w_-478697738")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Currency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? InvoiceCurrencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? InvoiceCurrencyCode { get; init; } 
+    #else
+    public string? InvoiceCurrencyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Organization issuing the invoice.
     /// </summary>
+    [IsoId("_TB-BCgEcEeCQm6a_G2yO_w_-961467990")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? Invoicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? Invoicer { get; init; } 
+    #else
+    public TradeParty1? Invoicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to whom the invoice was issued.
     /// </summary>
+    [IsoId("_TB-BCwEcEeCQm6a_G2yO_w_-1680552563")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoicee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? Invoicee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? Invoicee { get; init; } 
+    #else
+    public TradeParty1? Invoicee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party specified to receive payment for the invoice.
     /// </summary>
+    [IsoId("_TB-BDAEcEeCQm6a_G2yO_w_1939932871")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? Payee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? Payee { get; init; } 
+    #else
+    public TradeParty1? Payee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party specified to initiate payment for the invoice.
     /// </summary>
+    [IsoId("_TB-BDQEcEeCQm6a_G2yO_w_1023227159")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? Payer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? Payer { get; init; } 
+    #else
+    public TradeParty1? Payer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency exchange applicable to a tax.
     /// </summary>
+    [IsoId("_TB-BDgEcEeCQm6a_G2yO_w_-274122909")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Currency Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyReference2? TaxCurrencyExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyReference2? TaxCurrencyExchange { get; init; } 
+    #else
+    public CurrencyReference2? TaxCurrencyExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency exchange applicable to the invoice.
     /// </summary>
+    [IsoId("_TB-BDwEcEeCQm6a_G2yO_w_490805177")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Currency Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyReference2? InvoiceCurrencyExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyReference2? InvoiceCurrencyExchange { get; init; } 
+    #else
+    public CurrencyReference2? InvoiceCurrencyExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency exchange applicable to the payment.
     /// </summary>
+    [IsoId("_TB-BEAEcEeCQm6a_G2yO_w_-204302663")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Currency Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyReference2? PaymentCurrencyExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyReference2? PaymentCurrencyExchange { get; init; } 
+    #else
+    public CurrencyReference2? PaymentCurrencyExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Means of payment (for example, credit transfer, cheque, money order, or credit card) specified to initiate payment of the invoice.
     /// </summary>
+    [IsoId("_TB-BEQEcEeCQm6a_G2yO_w_776679773")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Means")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentMeans1? PaymentMeans { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentMeans1? PaymentMeans { get; init; } 
+    #else
+    public PaymentMeans1? PaymentMeans { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
+    [IsoId("_TB-BEgEcEeCQm6a_G2yO_w_-417754292")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTax1? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTax1? Tax { get; init; } 
+    #else
+    public SettlementTax1? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the applicable billing period.
     /// </summary>
+    [IsoId("_TB-BEwEcEeCQm6a_G2yO_w_104018694")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? BillingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? BillingPeriod { get; init; } 
+    #else
+    public Period1? BillingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Allowance or charge specified.
     /// </summary>
+    [IsoId("_TCHyAAEcEeCQm6a_G2yO_w_-1971858521")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowance Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementAllowanceCharge1? AllowanceCharge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementAllowanceCharge1? AllowanceCharge { get; init; } 
+    #else
+    public SettlementAllowanceCharge1? AllowanceCharge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax subtotal calculated.
     /// </summary>
+    [IsoId("_TCHyAQEcEeCQm6a_G2yO_w_1581027470")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Total Calculated Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementSubTotalCalculatedTax1? SubTotalCalculatedTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementSubTotalCalculatedTax1? SubTotalCalculatedTax { get; init; } 
+    #else
+    public SettlementSubTotalCalculatedTax1? SubTotalCalculatedTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Logistics service charge specified.
     /// </summary>
+    [IsoId("_TCHyAgEcEeCQm6a_G2yO_w_885870949")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Logistics Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargesDetails2? LogisticsCharge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargesDetails2? LogisticsCharge { get; init; } 
+    #else
+    public ChargesDetails2? LogisticsCharge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment terms.
     /// </summary>
+    [IsoId("_TCHyAwEcEeCQm6a_G2yO_w_2019362636")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Terms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTerms3? PaymentTerms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTerms3? PaymentTerms { get; init; } 
+    #else
+    public PaymentTerms3? PaymentTerms { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary totals specified for the invoice.
     /// </summary>
+    [IsoId("_TCHyBAEcEeCQm6a_G2yO_w_217295424")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monetary Summation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementMonetarySummation1 MonetarySummation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementMonetarySummation1 MonetarySummation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementMonetarySummation1 MonetarySummation { get; init; } 
+    #else
+    public SettlementMonetarySummation1 MonetarySummation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial adjustment specified.
     /// </summary>
+    [IsoId("_TCHyBQEcEeCQm6a_G2yO_w_1706467980")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjustment Amount And Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentAdjustment2? AdjustmentAmountAndReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentAdjustment2? AdjustmentAmountAndReason { get; init; } 
+    #else
+    public DocumentAdjustment2? AdjustmentAmountAndReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Invoice document referenced.
     /// </summary>
+    [IsoId("_TCHyBgEcEeCQm6a_G2yO_w_-2028248160")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Referenced Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? InvoiceReferencedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? InvoiceReferencedDocument { get; init; } 
+    #else
+    public DocumentIdentification22? InvoiceReferencedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Pro-forma invoice document referenced.
     /// </summary>
+    [IsoId("_TCHyBwEcEeCQm6a_G2yO_w_-1896368987")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proforma Invoice Referenced Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? ProformaInvoiceReferencedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? ProformaInvoiceReferencedDocument { get; init; } 
+    #else
+    public DocumentIdentification22? ProformaInvoiceReferencedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Letter of credit document referenced.
     /// </summary>
+    [IsoId("_TCHyCAEcEeCQm6a_G2yO_w_2146357070")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Letter Of Credit Referenced Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification7? LetterOfCreditReferencedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification7? LetterOfCreditReferencedDocument { get; init; } 
+    #else
+    public DocumentIdentification7? LetterOfCreditReferencedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial card specified. The card is used to represent a financial account for the purpose of payment settlement.
     /// </summary>
+    [IsoId("_TCHyCQEcEeCQm6a_G2yO_w_316575445")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialCard1? FinancialCard { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialCard1? FinancialCard { get; init; } 
+    #else
+    public FinancialCard1? FinancialCard { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
+    [IsoId("_TCHyCgEcEeCQm6a_G2yO_w_180570420")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Accounting Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountingAccount1? PurchaseAccountingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountingAccount1? PurchaseAccountingAccount { get; init; } 
+    #else
+    public AccountingAccount1? PurchaseAccountingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Factoring list document referenced.
     /// </summary>
+    [IsoId("_TCHyCwEcEeCQm6a_G2yO_w_-1864555444")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Factoring List Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? IssuerFactoringListIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuerFactoringListIdentification { get; init; } 
+    #else
+    public System.String? IssuerFactoringListIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Factoring agreement document referenced.
     /// </summary>
+    [IsoId("_TCHyDAEcEeCQm6a_G2yO_w_-626725410")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Factoring Agreement Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? IssuerFactoringAgreementIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuerFactoringAgreementIdentification { get; init; } 
+    #else
+    public System.String? IssuerFactoringAgreementIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DuePayableAmount is IsoCurrencyAndAmount DuePayableAmountValue)
-        {
-            writer.WriteStartElement(null, "DuePyblAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DuePayableAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CreditorReference is CreditorReferenceInformation2 CreditorReferenceValue)
-        {
-            writer.WriteStartElement(null, "CdtrRef", xmlNamespace );
-            CreditorReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentReference is IsoMax35Text PaymentReferenceValue)
-        {
-            writer.WriteStartElement(null, "PmtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InvoiceCurrencyCode is CurrencyCode InvoiceCurrencyCodeValue)
-        {
-            writer.WriteStartElement(null, "InvcCcyCd", xmlNamespace );
-            writer.WriteValue(InvoiceCurrencyCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Invoicer is TradeParty1 InvoicerValue)
-        {
-            writer.WriteStartElement(null, "Invcr", xmlNamespace );
-            InvoicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Invoicee is TradeParty1 InvoiceeValue)
-        {
-            writer.WriteStartElement(null, "Invcee", xmlNamespace );
-            InvoiceeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Payee is TradeParty1 PayeeValue)
-        {
-            writer.WriteStartElement(null, "Pyee", xmlNamespace );
-            PayeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Payer is TradeParty1 PayerValue)
-        {
-            writer.WriteStartElement(null, "Pyer", xmlNamespace );
-            PayerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxCurrencyExchange is CurrencyReference2 TaxCurrencyExchangeValue)
-        {
-            writer.WriteStartElement(null, "TaxCcyXchg", xmlNamespace );
-            TaxCurrencyExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvoiceCurrencyExchange is CurrencyReference2 InvoiceCurrencyExchangeValue)
-        {
-            writer.WriteStartElement(null, "InvcCcyXchg", xmlNamespace );
-            InvoiceCurrencyExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentCurrencyExchange is CurrencyReference2 PaymentCurrencyExchangeValue)
-        {
-            writer.WriteStartElement(null, "PmtCcyXchg", xmlNamespace );
-            PaymentCurrencyExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentMeans is PaymentMeans1 PaymentMeansValue)
-        {
-            writer.WriteStartElement(null, "PmtMeans", xmlNamespace );
-            PaymentMeansValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Tax is SettlementTax1 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BillingPeriod is Period1 BillingPeriodValue)
-        {
-            writer.WriteStartElement(null, "BllgPrd", xmlNamespace );
-            BillingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AllowanceCharge is SettlementAllowanceCharge1 AllowanceChargeValue)
-        {
-            writer.WriteStartElement(null, "AllwncChrg", xmlNamespace );
-            AllowanceChargeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubTotalCalculatedTax is SettlementSubTotalCalculatedTax1 SubTotalCalculatedTaxValue)
-        {
-            writer.WriteStartElement(null, "SubTtlClctdTax", xmlNamespace );
-            SubTotalCalculatedTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LogisticsCharge is ChargesDetails2 LogisticsChargeValue)
-        {
-            writer.WriteStartElement(null, "LogstcsChrg", xmlNamespace );
-            LogisticsChargeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentTerms is PaymentTerms3 PaymentTermsValue)
-        {
-            writer.WriteStartElement(null, "PmtTerms", xmlNamespace );
-            PaymentTermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MntrySummtn", xmlNamespace );
-        MonetarySummation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdjustmentAmountAndReason is DocumentAdjustment2 AdjustmentAmountAndReasonValue)
-        {
-            writer.WriteStartElement(null, "AdjstmntAmtAndRsn", xmlNamespace );
-            AdjustmentAmountAndReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvoiceReferencedDocument is DocumentIdentification22 InvoiceReferencedDocumentValue)
-        {
-            writer.WriteStartElement(null, "InvcRefdDoc", xmlNamespace );
-            InvoiceReferencedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProformaInvoiceReferencedDocument is DocumentIdentification22 ProformaInvoiceReferencedDocumentValue)
-        {
-            writer.WriteStartElement(null, "ProfrmInvcRefdDoc", xmlNamespace );
-            ProformaInvoiceReferencedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LetterOfCreditReferencedDocument is DocumentIdentification7 LetterOfCreditReferencedDocumentValue)
-        {
-            writer.WriteStartElement(null, "LttrOfCdtRefdDoc", xmlNamespace );
-            LetterOfCreditReferencedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialCard is FinancialCard1 FinancialCardValue)
-        {
-            writer.WriteStartElement(null, "FinCard", xmlNamespace );
-            FinancialCardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PurchaseAccountingAccount is AccountingAccount1 PurchaseAccountingAccountValue)
-        {
-            writer.WriteStartElement(null, "PurchsAcctgAcct", xmlNamespace );
-            PurchaseAccountingAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssuerFactoringListIdentification is IsoMax35Text IssuerFactoringListIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IssrFactrgListId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerFactoringListIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (IssuerFactoringAgreementIdentification is IsoMax35Text IssuerFactoringAgreementIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IssrFactrgAgrmtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerFactoringAgreementIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeSettlement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

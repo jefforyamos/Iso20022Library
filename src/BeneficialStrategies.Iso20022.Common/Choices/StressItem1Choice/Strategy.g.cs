@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice;
-
-/// <summary>
-/// Assumed stress move for a set of financial instruments defined by a common trading strategy.
-/// </summary>
-public partial record Strategy : StressItem1Choice_
-     , IIsoXmlSerilizable<Strategy>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identifier for the strategy.
+    /// Assumed stress move for a set of financial instruments defined by a common trading strategy.
     /// </summary>
-    public required IsoMax35Text Identification { get; init; } 
-    /// <summary>
-    /// Assumed stress move of the associated stress item under the scenario.
-    /// </summary>
-    public required StressSize1Choice_ StressSize { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_u_O2MKswEeayv9XxdmMwKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strategy")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Strategy : StressItem1Choice_
+    #else
+    public partial class Strategy : StressItem1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StrssSz", xmlNamespace );
-        StressSize.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Strategy Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Strategy instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Strategy( System.String reqIdentification,StressSize1Choice_ reqStressSize )
+        {
+            Identification = reqIdentification;
+            StressSize = reqStressSize;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identifier for the strategy.
+        /// </summary>
+        [IsoId("_y-9zcKs2Eeayv9XxdmMwKQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Assumed stress move of the associated stress item under the scenario.
+        /// </summary>
+        [IsoId("_2XufAKs2Eeayv9XxdmMwKQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Stress Size")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required StressSize1Choice_ StressSize { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public StressSize1Choice_ StressSize { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public StressSize1Choice_ StressSize { get; init; } 
+        #else
+        public StressSize1Choice_ StressSize { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

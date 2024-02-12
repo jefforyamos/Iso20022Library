@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ranges of values in which an amount is considered valid or a specified amount value which has to be matched or unmatched to be valid.
-/// </summary>
-[KnownType(typeof(ImpliedCurrencyAmountRange1Choice.FromAmount))]
-[KnownType(typeof(ImpliedCurrencyAmountRange1Choice.ToAmount))]
-[KnownType(typeof(ImpliedCurrencyAmountRange1Choice.FromToAmount))]
-[KnownType(typeof(ImpliedCurrencyAmountRange1Choice.EqualAmount))]
-[KnownType(typeof(ImpliedCurrencyAmountRange1Choice.NotEqualAmount))]
-public abstract partial record ImpliedCurrencyAmountRange1Choice_ : IIsoXmlSerilizable<ImpliedCurrencyAmountRange1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ranges of values in which an amount is considered valid or a specified amount value which has to be matched or unmatched to be valid.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ImpliedCurrencyAmountRange1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ImpliedCurrencyAmountRange1Choice.FromAmount))]
+    [KnownType(typeof(ImpliedCurrencyAmountRange1Choice.ToAmount))]
+    [KnownType(typeof(ImpliedCurrencyAmountRange1Choice.FromToAmount))]
+    [KnownType(typeof(ImpliedCurrencyAmountRange1Choice.EqualAmount))]
+    [KnownType(typeof(ImpliedCurrencyAmountRange1Choice.NotEqualAmount))]
+    [IsoId("_O3sLVZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Implied Currency Amount Range 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ImpliedCurrencyAmountRange1Choice_
+    #else
+    public abstract partial class ImpliedCurrencyAmountRange1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FrAmt" => ImpliedCurrencyAmountRange1Choice.FromAmount.Deserialize(elementWithPayload),
-             "ToAmt" => ImpliedCurrencyAmountRange1Choice.ToAmount.Deserialize(elementWithPayload),
-             "FrToAmt" => ImpliedCurrencyAmountRange1Choice.FromToAmount.Deserialize(elementWithPayload),
-             "EQAmt" => ImpliedCurrencyAmountRange1Choice.EqualAmount.Deserialize(elementWithPayload),
-             "NEQAmt" => ImpliedCurrencyAmountRange1Choice.NotEqualAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ImpliedCurrencyAmountRange1Choice choice.")
-        };
     }
 }

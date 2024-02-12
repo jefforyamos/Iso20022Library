@@ -7,87 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of a maintenance command performed by the ATM.
 /// </summary>
+[IsoId("_srliUYryEeSvuOJS0mmL0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Command")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMCommand2
-     : IIsoXmlSerilizable<ATMCommand2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMCommand2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMCommand2( ATMCommand2Code reqType,System.DateTime reqProcessedDateTime,TerminalManagementActionResult2Code reqResult )
+    {
+        Type = reqType;
+        ProcessedDateTime = reqProcessedDateTime;
+        Result = reqResult;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
+    [IsoId("_s5gpkYryEeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCommand2Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMCommand2Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommand2Code Type { get; init; } 
+    #else
+    public ATMCommand2Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date time on which the command has been requested to be performed.
     /// </summary>
+    [IsoId("_s5gplYryEeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Required Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RequiredDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? RequiredDateTime { get; init; } 
+    #else
+    public System.DateTime? RequiredDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date time on which the command has been performed.
     /// </summary>
+    [IsoId("_YjsNsIr3EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processed Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ProcessedDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime ProcessedDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime ProcessedDateTime { get; init; } 
+    #else
+    public System.DateTime ProcessedDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [IsoId("_s5gpl4ryEeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommandIdentification1? CommandIdentification { get; init; } 
+    #else
+    public ATMCommandIdentification1? CommandIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Final result of the processed command at the ATM.
     /// </summary>
+    [IsoId("_4feN0Ir3EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementActionResult2Code Result { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementActionResult2Code Result { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementActionResult2Code Result { get; init; } 
+    #else
+    public TerminalManagementActionResult2Code Result { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information on the failure to be logged for further examination.
     /// </summary>
+    [IsoId("_-cdJoIr3EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Error Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalErrorInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalErrorInformation { get; init; } 
+    #else
+    public System.String? AdditionalErrorInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (RequiredDateTime is IsoISODateTime RequiredDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ReqrdDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(RequiredDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PrcdDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ProcessedDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (CommandIdentification is ATMCommandIdentification1 CommandIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmdId", xmlNamespace );
-            CommandIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Rslt", xmlNamespace );
-        writer.WriteValue(Result.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalErrorInformation is IsoMax140Text AdditionalErrorInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlErrInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalErrorInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMCommand2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

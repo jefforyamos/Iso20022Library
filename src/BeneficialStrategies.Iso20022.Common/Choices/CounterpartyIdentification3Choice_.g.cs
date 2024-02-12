@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the identification of the reporting agent counterparty.
-/// </summary>
-[KnownType(typeof(CounterpartyIdentification3Choice.LEI))]
-[KnownType(typeof(CounterpartyIdentification3Choice.SectorAndLocation))]
-[KnownType(typeof(CounterpartyIdentification3Choice.NameAndLocation))]
-public abstract partial record CounterpartyIdentification3Choice_ : IIsoXmlSerilizable<CounterpartyIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the identification of the reporting agent counterparty.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CounterpartyIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CounterpartyIdentification3Choice.LEI))]
+    [KnownType(typeof(CounterpartyIdentification3Choice.SectorAndLocation))]
+    [KnownType(typeof(CounterpartyIdentification3Choice.NameAndLocation))]
+    [IsoId("_Zo-9QcEcEea7jLfvGi1PDw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CounterpartyIdentification3Choice_
+    #else
+    public abstract partial class CounterpartyIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "LEI" => CounterpartyIdentification3Choice.LEI.Deserialize(elementWithPayload),
-             "SctrAndLctn" => CounterpartyIdentification3Choice.SectorAndLocation.Deserialize(elementWithPayload),
-             "NmAndLctn" => CounterpartyIdentification3Choice.NameAndLocation.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CounterpartyIdentification3Choice choice.")
-        };
     }
 }

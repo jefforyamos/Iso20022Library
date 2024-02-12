@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
-
-/// <summary>
-/// Details specific for Equity derivatives.
-/// </summary>
-public partial record Equity : Derivative3Choice_
-     , IIsoXmlSerilizable<Equity>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Underlying type of the equity derivative.
+    /// Details specific for Equity derivatives.
     /// </summary>
-    public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
-    /// <summary>
-    /// Return parameter for the equity derivative.
-    /// </summary>
-    public EquityReturnParameter1Code? Parameter { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_xH-zZye0Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equity")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Equity : Derivative3Choice_
+    #else
+    public partial class Equity : Derivative3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
-        UnderlyingType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Parameter is EquityReturnParameter1Code ParameterValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Equity instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Equity( EquityDerivative3Choice_ reqUnderlyingType )
         {
-            writer.WriteStartElement(null, "Param", xmlNamespace );
-            writer.WriteValue(ParameterValue.ToString()); // Enum value
-            writer.WriteEndElement();
+            UnderlyingType = reqUnderlyingType;
         }
-    }
-    public static new Equity Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Underlying type of the equity derivative.
+        /// </summary>
+        [IsoId("_PeXW0WlNEeaLAKoEUNsD9g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Underlying Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public EquityDerivative3Choice_ UnderlyingType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public EquityDerivative3Choice_ UnderlyingType { get; init; } 
+        #else
+        public EquityDerivative3Choice_ UnderlyingType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Return parameter for the equity derivative.
+        /// </summary>
+        [IsoId("_PeXW02lNEeaLAKoEUNsD9g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Parameter")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public EquityReturnParameter1Code? Parameter { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public EquityReturnParameter1Code? Parameter { get; init; } 
+        #else
+        public EquityReturnParameter1Code? Parameter { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

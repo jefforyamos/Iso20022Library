@@ -7,153 +7,274 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the transfer instruction.
 /// </summary>
+[IsoId("_STWoEdvdEeqxGfKJubfhIw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Message And Business Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MessageAndBusinessReference13
-     : IIsoXmlSerilizable<MessageAndBusinessReference13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MessageAndBusinessReference13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MessageAndBusinessReference13( System.String reqTransferReference )
+    {
+        TransferReference = reqTransferReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to the message or communication that was previously sent.
     /// </summary>
+    [IsoId("_Spi6gdvdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public References68Choice_? Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public References68Choice_? Reference { get; init; } 
+    #else
+    public References68Choice_? Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of request required.
     /// </summary>
+    [IsoId("_thRx8NvdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfRequest1Choice_? TypeOfRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfRequest1Choice_? TypeOfRequest { get; init; } 
+    #else
+    public TypeOfRequest1Choice_? TypeOfRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [IsoId("_Spi6g9vdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MasterReference { get; init; } 
+    #else
+    public System.String? MasterReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Spi6hdvdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransferReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransferReference { get; init; } 
+    #else
+    public System.String TransferReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [IsoId("_Spi6h9vdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? ClientReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference10? ClientReference { get; init; } 
+    #else
+    public AdditionalReference10? ClientReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Spi6idvdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CancellationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CancellationReference { get; init; } 
+    #else
+    public System.String? CancellationReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the asset.
     /// </summary>
+    [IsoId("_BoGWAdx9EeqKxsvOxFQHKA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument63Choice_? Instrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument63Choice_? Instrument { get; init; } 
+    #else
+    public FinancialInstrument63Choice_? Instrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment account information of the transfer for which the status or information is requested.
     /// </summary>
+    [IsoId("_Spi6i9vdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account33? InvestmentAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account33? InvestmentAccountDetails { get; init; } 
+    #else
+    public Account33? InvestmentAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
+    [IsoId("_Zy7pAXdiEeuvip1zrZRWzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Intermediary48? IntermediaryInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Intermediary48? IntermediaryInformation { get; init; } 
+    #else
+    public Intermediary48? IntermediaryInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the query.
     /// </summary>
+    [IsoId("_MGY6EdveEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation25? QueryInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation25? QueryInformation { get; init; } 
+    #else
+    public AdditionalInformation25? QueryInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that issues the request message.
     /// </summary>
+    [IsoId("_J_KUondqEeuvip1zrZRWzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? RequestIssuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification139? RequestIssuer { get; init; } 
+    #else
+    public PartyIdentification139? RequestIssuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that receives the request message.
     /// </summary>
+    [IsoId("_J_K7sHdqEeuvip1zrZRWzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? RequestRecipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification139? RequestRecipient { get; init; } 
+    #else
+    public PartyIdentification139? RequestRecipient { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Reference is References68Choice_ ReferenceValue)
-        {
-            writer.WriteStartElement(null, "Ref", xmlNamespace );
-            ReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TypeOfRequest is TypeOfRequest1Choice_ TypeOfRequestValue)
-        {
-            writer.WriteStartElement(null, "TpOfReq", xmlNamespace );
-            TypeOfRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
-        {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ClientReference is AdditionalReference10 ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            ClientReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
-        {
-            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Instrument is FinancialInstrument63Choice_ InstrumentValue)
-        {
-            writer.WriteStartElement(null, "Instrm", xmlNamespace );
-            InstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentAccountDetails is Account33 InvestmentAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
-            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryInformation is Intermediary48 IntermediaryInformationValue)
-        {
-            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
-            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QueryInformation is AdditionalInformation25 QueryInformationValue)
-        {
-            writer.WriteStartElement(null, "QryInf", xmlNamespace );
-            QueryInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestIssuer is PartyIdentification139 RequestIssuerValue)
-        {
-            writer.WriteStartElement(null, "ReqIssr", xmlNamespace );
-            RequestIssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestRecipient is PartyIdentification139 RequestRecipientValue)
-        {
-            writer.WriteStartElement(null, "ReqRcpt", xmlNamespace );
-            RequestRecipientValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MessageAndBusinessReference13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

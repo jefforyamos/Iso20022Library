@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Element containing all information needed for a card initiating direct debit.
 /// </summary>
+[IsoId("_sk2rwNprEeearpaEPXv9UA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Direct Debit")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardDirectDebit1
-     : IIsoXmlSerilizable<CardDirectDebit1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardDirectDebit1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardDirectDebit1( Creditor3 reqCreditorIdentification,MandateRelatedInformation13 reqMandateRelatedInformation )
+    {
+        CreditorIdentification = reqCreditorIdentification;
+        MandateRelatedInformation = reqMandateRelatedInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information related to the debtor.
     /// </summary>
+    [IsoId("_8npZ8NprEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Debtor3? DebtorIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Debtor3? DebtorIdentification { get; init; } 
+    #else
+    public Debtor3? DebtorIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the creditor.
     /// </summary>
+    [IsoId("_Gz814NpsEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Creditor3 CreditorIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Creditor3 CreditorIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Creditor3 CreditorIdentification { get; init; } 
+    #else
+    public Creditor3 CreditorIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides further details of the mandate signed between the creditor and the debtor.
     /// </summary>
+    [IsoId("_OPR_ANpsEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Related Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
+    #else
+    public MandateRelatedInformation13 MandateRelatedInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DebtorIdentification is Debtor3 DebtorIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DbtrId", xmlNamespace );
-            DebtorIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CdtrId", xmlNamespace );
-        CreditorIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MndtRltdInf", xmlNamespace );
-        MandateRelatedInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CardDirectDebit1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

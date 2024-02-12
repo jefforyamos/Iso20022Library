@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a fixed date and a recurring date.
-/// </summary>
-[KnownType(typeof(FixedOrRecurrentDate1Choice.FixedDate))]
-[KnownType(typeof(FixedOrRecurrentDate1Choice.RecurrentDate))]
-public abstract partial record FixedOrRecurrentDate1Choice_ : IIsoXmlSerilizable<FixedOrRecurrentDate1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a fixed date and a recurring date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FixedOrRecurrentDate1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FixedOrRecurrentDate1Choice.FixedDate))]
+    [KnownType(typeof(FixedOrRecurrentDate1Choice.RecurrentDate))]
+    [IsoId("_98LLBnltEeG7BsjMvd1mEw_-980384765")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fixed Or Recurrent Date 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FixedOrRecurrentDate1Choice_
+    #else
+    public abstract partial class FixedOrRecurrentDate1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FxdDt" => FixedOrRecurrentDate1Choice.FixedDate.Deserialize(elementWithPayload),
-             "RcrntDt" => FixedOrRecurrentDate1Choice.RecurrentDate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FixedOrRecurrentDate1Choice choice.")
-        };
     }
 }

@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary information about the sale
 /// </summary>
+[IsoId("_rYJ6FvJoEeiJn9rM2Znz2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sale Summary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SaleSummary1
-     : IIsoXmlSerilizable<SaleSummary1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_rYJ6G_JoEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains loyalty programme information. 
     /// </summary>
+    [IsoId("_WbrOMPJqEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Programme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
+    #else
+    public LoyaltyProgramme2? LoyaltyProgramme { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains adjustment details of the transaction (for example, percentage, adjustment amount, etc.).
     /// </summary>
+    [IsoId("_rYJ6GfJoEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjustment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Adjustment9? Adjustment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Adjustment9? Adjustment { get; init; } 
+    #else
+    public Adjustment9? Adjustment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LoyaltyProgramme is LoyaltyProgramme2 LoyaltyProgrammeValue)
-        {
-            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
-            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Adjustment is Adjustment9 AdjustmentValue)
-        {
-            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
-            AdjustmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SaleSummary1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

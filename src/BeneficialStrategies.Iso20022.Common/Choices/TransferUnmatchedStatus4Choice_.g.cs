@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reason for the unmatched status.
-/// </summary>
-[KnownType(typeof(TransferUnmatchedStatus4Choice.NoSpecifiedReason))]
-[KnownType(typeof(TransferUnmatchedStatus4Choice.Reason))]
-[KnownType(typeof(TransferUnmatchedStatus4Choice.ExtendedReason))]
-[KnownType(typeof(TransferUnmatchedStatus4Choice.DataSourceScheme))]
-public abstract partial record TransferUnmatchedStatus4Choice_ : IIsoXmlSerilizable<TransferUnmatchedStatus4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reason for the unmatched status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransferUnmatchedStatus4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransferUnmatchedStatus4Choice.NoSpecifiedReason))]
+    [KnownType(typeof(TransferUnmatchedStatus4Choice.Reason))]
+    [KnownType(typeof(TransferUnmatchedStatus4Choice.ExtendedReason))]
+    [KnownType(typeof(TransferUnmatchedStatus4Choice.DataSourceScheme))]
+    [IsoId("_knN1kZM5EemKz5EOjv82iQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Unmatched Status 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransferUnmatchedStatus4Choice_
+    #else
+    public abstract partial class TransferUnmatchedStatus4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => TransferUnmatchedStatus4Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => TransferUnmatchedStatus4Choice.Reason.Deserialize(elementWithPayload),
-             "XtndedRsn" => TransferUnmatchedStatus4Choice.ExtendedReason.Deserialize(elementWithPayload),
-             "DataSrcSchme" => TransferUnmatchedStatus4Choice.DataSourceScheme.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransferUnmatchedStatus4Choice choice.")
-        };
     }
 }

@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice;
-
-/// <summary>
-/// Content of the Payment Request message.
-/// </summary>
-public partial record PaymentRequest : TransactionToPerform2Choice_
-     , IIsoXmlSerilizable<PaymentRequest>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Data associated with the Transaction.
+    /// Content of the Payment Request message.
     /// </summary>
-    public CardPaymentTransaction100? PaymentTransaction { get; init; } 
-    /// <summary>
-    /// Data linked to card loyalty during payment.
-    /// </summary>
-    public LoyaltyRequestData2? LoyaltyData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_ro9DwQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Request")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PaymentRequest : TransactionToPerform2Choice_
+    #else
+    public partial class PaymentRequest : TransactionToPerform2Choice_
+    #endif
     {
-        if (PaymentTransaction is CardPaymentTransaction100 PaymentTransactionValue)
-        {
-            writer.WriteStartElement(null, "PmtTx", xmlNamespace );
-            PaymentTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoyaltyData is LoyaltyRequestData2 LoyaltyDataValue)
-        {
-            writer.WriteStartElement(null, "LltyData", xmlNamespace );
-            LoyaltyDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new PaymentRequest Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Data associated with the Transaction.
+        /// </summary>
+        [IsoId("_ioFMMQ1HEeqjM-rxn3HuXQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment Transaction")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CardPaymentTransaction100? PaymentTransaction { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentTransaction100? PaymentTransaction { get; init; } 
+        #else
+        public CardPaymentTransaction100? PaymentTransaction { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data linked to card loyalty during payment.
+        /// </summary>
+        [IsoId("_ioFMMw1HEeqjM-rxn3HuXQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Loyalty Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public LoyaltyRequestData2? LoyaltyData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LoyaltyRequestData2? LoyaltyData { get; init; } 
+        #else
+        public LoyaltyRequestData2? LoyaltyData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

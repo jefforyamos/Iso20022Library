@@ -7,72 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details an individuation of the classification type of the financial instrument.
 /// </summary>
+[IsoId("_NHRMYX5xEeasY4u9QTizPQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Instrument Classification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesInstrumentClassification2
-     : IIsoXmlSerilizable<SecuritiesInstrumentClassification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesInstrumentClassification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesInstrumentClassification2( System.String reqIdentifier,Period4Choice_ reqValidityPeriod )
+    {
+        Identifier = reqIdentifier;
+        ValidityPeriod = reqValidityPeriod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifier of the financial instrument classification type code.
     /// </summary>
+    [IsoId("_NP5j8X5xEeasY4u9QTizPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCFIOct2015Identifier Identifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identifier { get; init; } 
+    #else
+    public System.String Identifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modification status for the record compared to the previous report.
     /// </summary>
+    [IsoId("_NP5j835xEeasY4u9QTizPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? Modification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Modification1Code? Modification { get; init; } 
+    #else
+    public Modification1Code? Modification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details the validity of the specific record.
     /// Usage:
     /// Within MiFIR, the FromDate is populated while the instrument is valid. From Date To Date is only populated when the record is being invalidated.
     /// </summary>
+    [IsoId("_NP5j9X5xEeasY4u9QTizPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ValidityPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Period4Choice_ ValidityPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_ ValidityPeriod { get; init; } 
+    #else
+    public Period4Choice_ ValidityPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>
+    [IsoId("_NP5j935xEeasY4u9QTizPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Updated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LastUpdated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? LastUpdated { get; init; } 
+    #else
+    public System.DateOnly? LastUpdated { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Idr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(Identifier)); // data type CFIOct2015Identifier System.String
-        writer.WriteEndElement();
-        if (Modification is Modification1Code ModificationValue)
-        {
-            writer.WriteStartElement(null, "Mod", xmlNamespace );
-            writer.WriteValue(ModificationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
-        ValidityPeriod.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LastUpdated is IsoISODate LastUpdatedValue)
-        {
-            writer.WriteStartElement(null, "LastUpdtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(LastUpdatedValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesInstrumentClassification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

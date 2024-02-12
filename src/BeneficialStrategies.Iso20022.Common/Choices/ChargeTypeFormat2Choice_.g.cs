@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Type of charge expressed either in free format or in structured or free form.
-/// </summary>
-[KnownType(typeof(ChargeTypeFormat2Choice.Unstructured))]
-[KnownType(typeof(ChargeTypeFormat2Choice.Structured))]
-public abstract partial record ChargeTypeFormat2Choice_ : IIsoXmlSerilizable<ChargeTypeFormat2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Type of charge expressed either in free format or in structured or free form.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ChargeTypeFormat2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ChargeTypeFormat2Choice.Unstructured))]
+    [KnownType(typeof(ChargeTypeFormat2Choice.Structured))]
+    [IsoId("_UyQMF9p-Ed-ak6NoX_4Aeg_1822769667")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Type Format 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ChargeTypeFormat2Choice_
+    #else
+    public abstract partial class ChargeTypeFormat2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ustrd" => ChargeTypeFormat2Choice.Unstructured.Deserialize(elementWithPayload),
-             "Strd" => ChargeTypeFormat2Choice.Structured.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ChargeTypeFormat2Choice choice.")
-        };
     }
 }

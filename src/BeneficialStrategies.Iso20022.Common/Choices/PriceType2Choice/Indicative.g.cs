@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PriceType2Choice;
-
-/// <summary>
-/// Estimated price, for valuation purposes.
-/// </summary>
-public partial record Indicative : PriceType2Choice_
-     , IIsoXmlSerilizable<Indicative>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PriceType2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specification of the price type.
+    /// Estimated price, for valuation purposes.
     /// </summary>
-    public required YieldedOrValueType1Choice_ Type { get; init; } 
-    /// <summary>
-    /// Value of the price, for example, as a currency and value.
-    /// </summary>
-    public required PriceRateOrAmount1Choice_ Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_XLcRB9p-Ed-ak6NoX_4Aeg_-1042385228")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indicative")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Indicative : PriceType2Choice_
+    #else
+    public partial class Indicative : PriceType2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Indicative Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Indicative instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Indicative( YieldedOrValueType1Choice_ reqType,PriceRateOrAmount1Choice_ reqValue )
+        {
+            Type = reqType;
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specification of the price type.
+        /// </summary>
+        [IsoId("_WimvZdp-Ed-ak6NoX_4Aeg_-1813914755")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required YieldedOrValueType1Choice_ Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public YieldedOrValueType1Choice_ Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public YieldedOrValueType1Choice_ Type { get; init; } 
+        #else
+        public YieldedOrValueType1Choice_ Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the price, for example, as a currency and value.
+        /// </summary>
+        [IsoId("_WimvZtp-Ed-ak6NoX_4Aeg_373068769")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PriceRateOrAmount1Choice_ Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PriceRateOrAmount1Choice_ Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PriceRateOrAmount1Choice_ Value { get; init; } 
+        #else
+        public PriceRateOrAmount1Choice_ Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

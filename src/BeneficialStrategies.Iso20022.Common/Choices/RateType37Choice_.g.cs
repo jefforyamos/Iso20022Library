@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code or proprietary code to specify a rate type.
-/// </summary>
-[KnownType(typeof(RateType37Choice.Code))]
-[KnownType(typeof(RateType37Choice.Proprietary))]
-public abstract partial record RateType37Choice_ : IIsoXmlSerilizable<RateType37Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code or proprietary code to specify a rate type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RateType37Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RateType37Choice.Code))]
+    [KnownType(typeof(RateType37Choice.Proprietary))]
+    [IsoId("_IvM8wUELEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Type 37 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RateType37Choice_
+    #else
+    public abstract partial class RateType37Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => RateType37Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => RateType37Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RateType37Choice choice.")
-        };
     }
 }

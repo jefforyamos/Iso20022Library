@@ -7,97 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the conditions under which the order/trade is to be settled.
 /// </summary>
+[IsoId("_yYMhXZw2EeazcsnODTksnQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Type And Additional Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionTypeAndAdditionalParameters20
-     : IIsoXmlSerilizable<TransactionTypeAndAdditionalParameters20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionTypeAndAdditionalParameters20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionTypeAndAdditionalParameters20( System.String reqAccountOwnerTransactionIdentification,SecuritiesFinancingTransactionType2Code reqSecuritiesFinancingTransactionType,DeliveryReceiptType2Code reqPayment )
+    {
+        AccountOwnerTransactionIdentification = reqAccountOwnerTransactionIdentification;
+        SecuritiesFinancingTransactionType = reqSecuritiesFinancingTransactionType;
+        Payment = reqPayment;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction (unique per piece of collateral) as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [IsoId("_yYMhX5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text AccountOwnerTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AccountOwnerTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AccountOwnerTransactionIdentification { get; init; } 
+    #else
+    public System.String AccountOwnerTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the transaction (unique per piece of collateral) as known by the account servicer.
     /// </summary>
+    [IsoId("_yYMhZ5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? AccountServicerTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountServicerTransactionIdentification { get; init; } 
+    #else
+    public System.String? AccountServicerTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of securities financing transaction, that is, repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing.
     /// </summary>
+    [IsoId("_yYMhb5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Financing Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesFinancingTransactionType2Code SecuritiesFinancingTransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesFinancingTransactionType2Code SecuritiesFinancingTransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesFinancingTransactionType2Code SecuritiesFinancingTransactionType { get; init; } 
+    #else
+    public SecuritiesFinancingTransactionType2Code SecuritiesFinancingTransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [IsoId("_yYMhd5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveryReceiptType2Code Payment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DeliveryReceiptType2Code Payment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryReceiptType2Code Payment { get; init; } 
+    #else
+    public DeliveryReceiptType2Code Payment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the type of securities financing modification requested.
     /// </summary>
+    [IsoId("_yYMhf5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RepurchaseType31Choice_? ModificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RepurchaseType31Choice_? ModificationType { get; init; } 
+    #else
+    public RepurchaseType31Choice_? ModificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [IsoId("_yYMhh5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? CommonIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommonIdentification { get; init; } 
+    #else
+    public System.String? CommonIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [IsoId("_yYMhj5w2EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pool Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? PoolIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PoolIdentification { get; init; } 
+    #else
+    public System.String? PoolIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(AccountOwnerTransactionIdentification)); // data type RestrictedFINXMax16Text System.String
-        writer.WriteEndElement();
-        if (AccountServicerTransactionIdentification is IsoRestrictedFINXMax16Text AccountServicerTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(AccountServicerTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SctiesFincgTxTp", xmlNamespace );
-        writer.WriteValue(SecuritiesFinancingTransactionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Pmt", xmlNamespace );
-        writer.WriteValue(Payment.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ModificationType is RepurchaseType31Choice_ ModificationTypeValue)
-        {
-            writer.WriteStartElement(null, "ModTp", xmlNamespace );
-            ModificationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommonIdentification is IsoRestrictedFINXMax16Text CommonIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmonId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(CommonIdentificationValue)); // data type RestrictedFINXMax16Text System.String
-            writer.WriteEndElement();
-        }
-        if (PoolIdentification is IsoRestrictedFINXMax16Text PoolIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PoolId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(PoolIdentificationValue)); // data type RestrictedFINXMax16Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionTypeAndAdditionalParameters20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

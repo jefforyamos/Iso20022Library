@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Maximum amount allowed over a specific period of time.
 /// </summary>
+[IsoId("_Qotj09p-Ed-ak6NoX_4Aeg_540897")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Maximum Amount By Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MaximumAmountByPeriod1
-     : IIsoXmlSerilizable<MaximumAmountByPeriod1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MaximumAmountByPeriod1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MaximumAmountByPeriod1( System.Decimal reqMaximumAmount,System.String reqNumberOfDays )
+    {
+        MaximumAmount = reqMaximumAmount;
+        NumberOfDays = reqNumberOfDays;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
+    [IsoId("_Qotj1Np-Ed-ak6NoX_4Aeg_-998319567")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MaximumAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal MaximumAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal MaximumAmount { get; init; } 
+    #else
+    public System.Decimal MaximumAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period specified as a number of days.
     /// </summary>
+    [IsoId("_Qotj1dp-Ed-ak6NoX_4Aeg_1020263959")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText NumberOfDays { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NumberOfDays { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NumberOfDays { get; init; } 
+    #else
+    public System.String NumberOfDays { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(NumberOfDays)); // data type Max3NumericText System.String
-        writer.WriteEndElement();
-    }
-    public static MaximumAmountByPeriod1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

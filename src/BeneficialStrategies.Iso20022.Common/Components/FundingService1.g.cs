@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Funds related service such as a payment or a transfer related to the transaction.
 /// </summary>
+[IsoId("_FtqT8EUWEeea-M6VZkEPUw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Funding Service")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundingService1
-     : IIsoXmlSerilizable<FundingService1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Funding service details.
     /// </summary>
+    [IsoId("_-V_tYEUWEeea-M6VZkEPUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Funding Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransferService1? FundingService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferService1? FundingService { get; init; } 
+    #else
+    public TransferService1? FundingService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Source of funding.
     /// </summary>
+    [IsoId("_FMXIQEUXEeea-M6VZkEPUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Funding Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundingSource2? FundingSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundingSource2? FundingSource { get; init; } 
+    #else
+    public FundingSource2? FundingSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for claiming funds.
     /// </summary>
+    [IsoId("_1WYNYBcUEeiM-L8iKEr4sw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Claim Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClaimInformation1? ClaimInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClaimInformation1? ClaimInformation { get; init; } 
+    #else
+    public ClaimInformation1? ClaimInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FundingService is TransferService1 FundingServiceValue)
-        {
-            writer.WriteStartElement(null, "FndgSvc", xmlNamespace );
-            FundingServiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FundingSource is FundingSource2 FundingSourceValue)
-        {
-            writer.WriteStartElement(null, "FndgSrc", xmlNamespace );
-            FundingSourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClaimInformation is ClaimInformation1 ClaimInformationValue)
-        {
-            writer.WriteStartElement(null, "ClmInf", xmlNamespace );
-            ClaimInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundingService1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

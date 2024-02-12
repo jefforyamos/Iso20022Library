@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other amount in clearing record data.
 /// </summary>
+[IsoId("_rSQAQFBGEeedyPuM0kK2EQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherAmount2
-     : IIsoXmlSerilizable<OtherAmount2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OtherAmount2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OtherAmount2( System.UInt64 reqClearingCount,Amount14 reqClearingAmount )
+    {
+        ClearingCount = reqClearingCount;
+        ClearingAmount = reqClearingAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of other amounts involved in clearing.
     /// </summary>
+    [IsoId("__aYMIFBGEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ClearingCount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ClearingCount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ClearingCount { get; init; } 
+    #else
+    public System.UInt64 ClearingCount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of clearing.
     /// </summary>
+    [IsoId("_DD7swFBHEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount14 ClearingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount14 ClearingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount14 ClearingAmount { get; init; } 
+    #else
+    public Amount14 ClearingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interchange fee.
     /// </summary>
+    [IsoId("_JfieQFBHEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interchange Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount14? InterchangeFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount14? InterchangeFee { get; init; } 
+    #else
+    public Amount14? InterchangeFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent fee.
     /// </summary>
+    [IsoId("_PGyaoFBHEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount14? AgentFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount14? AgentFee { get; init; } 
+    #else
+    public Amount14? AgentFee { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ClrCnt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(ClearingCount)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClrAmt", xmlNamespace );
-        ClearingAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (InterchangeFee is Amount14 InterchangeFeeValue)
-        {
-            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
-            InterchangeFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgentFee is Amount14 AgentFeeValue)
-        {
-            writer.WriteStartElement(null, "AgtFee", xmlNamespace );
-            AgentFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherAmount2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

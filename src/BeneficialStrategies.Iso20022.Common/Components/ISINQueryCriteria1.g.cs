@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the product through ISIN.
 /// </summary>
+[IsoId("_ZSH2YJNkEeytjZlcgApf6A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ISIN Query Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ISINQueryCriteria1
-     : IIsoXmlSerilizable<ISINQueryCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
+    [IsoId("_kIBo8JNkEeytjZlcgApf6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? Identifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identifier { get; init; } 
+    #else
+    public System.String? Identifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>
+    [IsoId("_2ud_oJNkEeytjZlcgApf6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Not Reported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotReported1Code? NotReported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NotReported1Code? NotReported { get; init; } 
+    #else
+    public NotReported1Code? NotReported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identifier is IsoISINOct2015Identifier IdentifierValue)
-        {
-            writer.WriteStartElement(null, "Idr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentifierValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (NotReported is NotReported1Code NotReportedValue)
-        {
-            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
-            writer.WriteValue(NotReportedValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static ISINQueryCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

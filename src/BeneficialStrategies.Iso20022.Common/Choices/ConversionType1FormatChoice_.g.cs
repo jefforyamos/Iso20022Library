@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats to express the type of conversion.
-/// </summary>
-[KnownType(typeof(ConversionType1FormatChoice.Code))]
-[KnownType(typeof(ConversionType1FormatChoice.Proprietary))]
-public abstract partial record ConversionType1FormatChoice_ : IIsoXmlSerilizable<ConversionType1FormatChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats to express the type of conversion.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ConversionType1FormatChoice_ Deserialize(XElement element)
+    [KnownType(typeof(ConversionType1FormatChoice.Code))]
+    [KnownType(typeof(ConversionType1FormatChoice.Proprietary))]
+    [IsoId("_Rl9PMNp-Ed-ak6NoX_4Aeg_-1506659145")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conversion Type 1 Format Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ConversionType1FormatChoice_
+    #else
+    public abstract partial class ConversionType1FormatChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ConversionType1FormatChoice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ConversionType1FormatChoice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ConversionType1FormatChoice choice.")
-        };
     }
 }

@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[IsoId("_UMGyGdp-Ed-ak6NoX_4Aeg_804947111")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Narrative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNarrative3
-     : IIsoXmlSerilizable<CorporateActionNarrative3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
+    [IsoId("_UMGyGtp-Ed-ak6NoX_4Aeg_1018863277")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offeror")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation3? Offeror { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation3? Offeror { get; init; } 
+    #else
+    public UpdatedAdditionalInformation3? Offeror { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the new name of a company following a name change.
     /// </summary>
+    [IsoId("_UMGyG9p-Ed-ak6NoX_4Aeg_1284571115")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Company Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation3? NewCompanyName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation3? NewCompanyName { get; init; } 
+    #else
+    public UpdatedAdditionalInformation3? NewCompanyName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
+    [IsoId("_UMQjENp-Ed-ak6NoX_4Aeg_399242966")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("URL Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedURLlnformation? URLAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedURLlnformation? URLAddress { get; init; } 
+    #else
+    public UpdatedURLlnformation? URLAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Offeror is UpdatedAdditionalInformation3 OfferorValue)
-        {
-            writer.WriteStartElement(null, "Offerr", xmlNamespace );
-            OfferorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewCompanyName is UpdatedAdditionalInformation3 NewCompanyNameValue)
-        {
-            writer.WriteStartElement(null, "NewCpnyNm", xmlNamespace );
-            NewCompanyNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (URLAddress is UpdatedURLlnformation URLAddressValue)
-        {
-            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
-            URLAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNarrative3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

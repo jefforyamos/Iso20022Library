@@ -7,78 +7,167 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
+[IsoId("_SB0r1Np-Ed-ak6NoX_4Aeg_-865361430")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Instrument")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentInstrument8
-     : IIsoXmlSerilizable<PaymentInstrument8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentInstrument8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentInstrument8( string reqSettlementCurrency,PaymentCard2 reqPaymentCardDetails,DirectDebitMandate4 reqDirectDebitDetails,System.String reqCheque,System.String reqBankersDraft )
+    {
+        SettlementCurrency = reqSettlementCurrency;
+        PaymentCardDetails = reqPaymentCardDetails;
+        DirectDebitDetails = reqDirectDebitDetails;
+        Cheque = reqCheque;
+        BankersDraft = reqBankersDraft;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [IsoId("_SB0r1dp-Ed-ak6NoX_4Aeg_-865361290")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string SettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string SettlementCurrency { get; init; } 
+    #else
+    public string SettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash account to debit for the payment of a subscription or of a savings plan to an investment fund.
     /// </summary>
-    public ValueList<CashAccount4> CashAccountDetails { get; init; } = [];
+    [IsoId("_SB0r1tp-Ed-ak6NoX_4Aeg_-865360952")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(3)]
+    #endif
+    public ValueList<CashAccount4> CashAccountDetails { get; init; } = new ValueList<CashAccount4>(){};
+    
     /// <summary>
     /// Settlement instructions for a payment by card.
     /// </summary>
+    [IsoId("_SB0r19p-Ed-ak6NoX_4Aeg_-864440809")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Card Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCard2 PaymentCardDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentCard2 PaymentCardDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCard2 PaymentCardDetails { get; init; } 
+    #else
+    public PaymentCard2 PaymentCardDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Settlement instructions for a payment by direct debit.
     /// </summary>
+    [IsoId("_SB0r2Np-Ed-ak6NoX_4Aeg_-865360858")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Direct Debit Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DirectDebitMandate4 DirectDebitDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DirectDebitMandate4 DirectDebitDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DirectDebitMandate4 DirectDebitDetails { get; init; } 
+    #else
+    public DirectDebitMandate4 DirectDebitDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the payment is done via cheque.
     /// </summary>
+    [IsoId("_SB0r2dp-Ed-ak6NoX_4Aeg_-865361256")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Cheque { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Cheque { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Cheque { get; init; } 
+    #else
+    public System.String Cheque { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the payment is done via draft.
     /// </summary>
+    [IsoId("_SB0r2tp-Ed-ak6NoX_4Aeg_-816417172")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bankers Draft")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator BankersDraft { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String BankersDraft { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String BankersDraft { get; init; } 
+    #else
+    public System.String BankersDraft { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
-        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CshAcctDtls", xmlNamespace );
-        CashAccountDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtCardDtls", xmlNamespace );
-        PaymentCardDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DrctDbtDtls", xmlNamespace );
-        DirectDebitDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Chq", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Cheque)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BkrsDrft", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BankersDraft)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static PaymentInstrument8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

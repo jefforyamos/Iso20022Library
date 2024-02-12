@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional cover details for the claim non receipt.
 /// </summary>
+[IsoId("_dOHw4dcZEeqRFcf2R4bPBw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Missing Cover")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MissingCover5
-     : IIsoXmlSerilizable<MissingCover5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MissingCover5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MissingCover5( System.String reqMissingCoverIndicator )
+    {
+        MissingCoverIndicator = reqMissingCoverIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
+    [IsoId("_dQdTMdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Missing Cover Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MissingCoverIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MissingCoverIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MissingCoverIndicator { get; init; } 
+    #else
+    public System.String MissingCoverIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements provided to update incorrect settlement information for the cover related to the received payment instruction.
     /// </summary>
+    [IsoId("_dQdTM9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cover Correction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementInstruction13? CoverCorrection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInstruction13? CoverCorrection { get; init; } 
+    #else
+    public SettlementInstruction13? CoverCorrection { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MssngCoverInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MissingCoverIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (CoverCorrection is SettlementInstruction13 CoverCorrectionValue)
-        {
-            writer.WriteStartElement(null, "CoverCrrctn", xmlNamespace );
-            CoverCorrectionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MissingCover5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

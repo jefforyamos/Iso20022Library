@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Product to purchase.
 /// </summary>
+[IsoId("_9iyJUJVZEeWuuIjj4l7kpg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Product")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Product4
-     : IIsoXmlSerilizable<Product4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Product4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Product4( System.String reqProductCode )
+    {
+        ProductCode = reqProductCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Product code.
     /// </summary>
+    [IsoId("_-YPKo5VZEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text ProductCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ProductCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ProductCode { get; init; } 
+    #else
+    public System.String ProductCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
+    [IsoId("_-YPKpZVZEeWuuIjj4l7kpg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Product Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalProductCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalProductCode { get; init; } 
+    #else
+    public System.String? AdditionalProductCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PdctCd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductCode)); // data type Max70Text System.String
-        writer.WriteEndElement();
-        if (AdditionalProductCode is IsoMax70Text AdditionalProductCodeValue)
-        {
-            writer.WriteStartElement(null, "AddtlPdctCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalProductCodeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Product4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

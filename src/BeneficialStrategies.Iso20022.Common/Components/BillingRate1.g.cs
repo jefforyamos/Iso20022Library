@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the billing rate.
 /// </summary>
+[IsoId("_6QGNppqlEeGSON8vddiWzQ_1919554496")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Billing Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BillingRate1
-     : IIsoXmlSerilizable<BillingRate1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BillingRate1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BillingRate1( BillingRateIdentification1Choice_ reqIdentification,System.Decimal reqValue )
+    {
+        Identification = reqIdentification;
+        Value = reqValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the type of rate or factor.
     /// </summary>
+    [IsoId("_6QP-oJqlEeGSON8vddiWzQ_-585660341")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingRateIdentification1Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BillingRateIdentification1Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BillingRateIdentification1Choice_ Identification { get; init; } 
+    #else
+    public BillingRateIdentification1Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the rate or factor identified in the rate identification.
     /// </summary>
+    [IsoId("_6QP-oZqlEeGSON8vddiWzQ_-1751808782")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Value { get; init; } 
+    #else
+    public System.Decimal Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days in the statement period. ||Usage: Used along with DaysInYear for time dependent per annum rate value.
     /// </summary>
+    [IsoId("_6QP-opqlEeGSON8vddiWzQ_-1641402761")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Days In Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DaysInPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? DaysInPeriod { get; init; } 
+    #else
+    public System.UInt64? DaysInPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days in the year.||Usage: Used along with DaysInPeriod for time dependent per annum rate value.
     /// </summary>
+    [IsoId("_6QP-o5qlEeGSON8vddiWzQ_-1276728980")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Days In Year")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DaysInYear { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? DaysInYear { get; init; } 
+    #else
+    public System.UInt64? DaysInYear { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Value)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        if (DaysInPeriod is IsoNumber DaysInPeriodValue)
-        {
-            writer.WriteStartElement(null, "DaysInPrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(DaysInPeriodValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (DaysInYear is IsoNumber DaysInYearValue)
-        {
-            writer.WriteStartElement(null, "DaysInYr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(DaysInYearValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static BillingRate1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

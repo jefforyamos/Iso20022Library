@@ -7,196 +7,334 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Invoice related to a vehicle rental service.
 /// </summary>
+[IsoId("_lhcpkayfEeuupt0UCH5uiw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Vehicle Rental Invoice")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VehicleRentalInvoice2
-     : IIsoXmlSerilizable<VehicleRentalInvoice2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates that the cardholder failed to pick up the vehicle and was therefore charged a no-show fee; vehicle was not actually rented. 
     /// </summary>
+    [IsoId("_llnX4ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("No Show Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NoShowIndicator { get; init; } 
+    #else
+    public System.String? NoShowIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that an adjustment was made to a vehicle rental charge (for example, additional charges added). 
     /// </summary>
+    [IsoId("_llnX46yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjusted Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AdjustedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdjustedIndicator { get; init; } 
+    #else
+    public System.String? AdjustedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Location to which vehicle was returned.
     /// </summary>
+    [IsoId("_llnX5ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? ReturnLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address2? ReturnLocation { get; init; } 
+    #else
+    public Address2? ReturnLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup date.
     /// </summary>
+    [IsoId("_llnX56yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Out Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CheckOutDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CheckOutDate { get; init; } 
+    #else
+    public System.DateOnly? CheckOutDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup time.
     /// </summary>
+    [IsoId("_llnX6ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Out Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? CheckOutTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? CheckOutTime { get; init; } 
+    #else
+    public System.TimeOnly? CheckOutTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when the vehicle was returned to the rental agency.
     /// </summary>
+    [IsoId("_llnX66yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check In Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CheckInDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CheckInDate { get; init; } 
+    #else
+    public System.DateOnly? CheckInDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time when the vehicle was returned to the rental agency.
     /// </summary>
+    [IsoId("_llnX7ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check In Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? CheckInTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? CheckInTime { get; init; } 
+    #else
+    public System.TimeOnly? CheckInTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Duration of rental in days.
     /// </summary>
+    [IsoId("_llnX76yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? Duration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Duration { get; init; } 
+    #else
+    public System.String? Duration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of the vehicle class invoiced to the renter regardless of the class of vehicle actually provided. 
     /// </summary>
+    [IsoId("_llnX8ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Class Invoiced")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle4? VehicleClassInvoiced { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Vehicle4? VehicleClassInvoiced { get; init; } 
+    #else
+    public Vehicle4? VehicleClassInvoiced { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of the vehicle class of the vehicle actually provided to the renter at the time of vehicle pick-up. This may be an upgrade class of vehicle, above that invoiced to the renter. 
     /// </summary>
+    [IsoId("_llnX86yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Class Provided")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle4? VehicleClassProvided { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Vehicle4? VehicleClassProvided { get; init; } 
+    #else
+    public Vehicle4? VehicleClassProvided { get; set; } 
+    #endif
+    
     /// <summary>
     /// Distance travelled during vehicle rental.
     /// </summary>
+    [IsoId("_llnX9ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Travel Distance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Distance1? TravelDistance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Distance1? TravelDistance { get; init; } 
+    #else
+    public Distance1? TravelDistance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Vehicle rental charge.
     /// </summary>
+    [IsoId("_llnX96yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rental Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RentalRate1? RentalCharge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RentalRate1? RentalCharge { get; init; } 
+    #else
+    public RentalRate1? RentalCharge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_llnX-ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [IsoId("_llnX-6yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InsuranceIndicator { get; init; } 
+    #else
+    public System.String? InsuranceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
+    [IsoId("_llnX_ayfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount18? AdditionalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount18? AdditionalAmount { get; init; } 
+    #else
+    public Amount18? AdditionalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
+    [IsoId("_llnX_6yfEeuupt0UCH5uiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax39? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax39? Tax { get; init; } 
+    #else
+    public Tax39? Tax { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NoShowIndicator is IsoTrueFalseIndicator NoShowIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NoShowInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NoShowIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdjustedIndicator is IsoTrueFalseIndicator AdjustedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AdjstdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AdjustedIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReturnLocation is Address2 ReturnLocationValue)
-        {
-            writer.WriteStartElement(null, "RtrLctn", xmlNamespace );
-            ReturnLocationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CheckOutDate is IsoISODate CheckOutDateValue)
-        {
-            writer.WriteStartElement(null, "ChckOutDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CheckOutDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CheckOutTime is IsoISOTime CheckOutTimeValue)
-        {
-            writer.WriteStartElement(null, "ChckOutTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(CheckOutTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (CheckInDate is IsoISODate CheckInDateValue)
-        {
-            writer.WriteStartElement(null, "ChckInDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CheckInDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CheckInTime is IsoISOTime CheckInTimeValue)
-        {
-            writer.WriteStartElement(null, "ChckInTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(CheckInTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (Duration is IsoMax4NumericText DurationValue)
-        {
-            writer.WriteStartElement(null, "Drtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(DurationValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (VehicleClassInvoiced is Vehicle4 VehicleClassInvoicedValue)
-        {
-            writer.WriteStartElement(null, "VhclClssInvcd", xmlNamespace );
-            VehicleClassInvoicedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VehicleClassProvided is Vehicle4 VehicleClassProvidedValue)
-        {
-            writer.WriteStartElement(null, "VhclClssPrvdd", xmlNamespace );
-            VehicleClassProvidedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TravelDistance is Distance1 TravelDistanceValue)
-        {
-            writer.WriteStartElement(null, "TrvlDstnc", xmlNamespace );
-            TravelDistanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RentalCharge is RentalRate1 RentalChargeValue)
-        {
-            writer.WriteStartElement(null, "RntlChrg", xmlNamespace );
-            RentalChargeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalAmount is Amount18 AdditionalAmountValue)
-        {
-            writer.WriteStartElement(null, "AddtlAmt", xmlNamespace );
-            AdditionalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Tax is Tax39 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static VehicleRentalInvoice2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

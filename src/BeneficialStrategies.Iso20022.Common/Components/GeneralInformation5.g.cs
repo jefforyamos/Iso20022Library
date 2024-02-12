@@ -7,166 +7,286 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information concerning the negotiation process leading to a treasury trade.
 /// </summary>
+[IsoId("_KAWoEZUVEea7vKctaoIyEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("General Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GeneralInformation5
-     : IIsoXmlSerilizable<GeneralInformation5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the trade is a block or single trade.
     /// </summary>
+    [IsoId("_KNwx8ZUVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BlockIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BlockIndicator { get; init; } 
+    #else
+    public System.String? BlockIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to a preceding transaction, for example, an option or swap.
     /// </summary>
+    [IsoId("_KNwx85UVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Trade Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RelatedTradeReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RelatedTradeReference { get; init; } 
+    #else
+    public System.String? RelatedTradeReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method used by the trading parties to negotiate and/or execute a deal.
     /// </summary>
+    [IsoId("_KNwx9ZUVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dealing Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Trading1MethodCode? DealingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Trading1MethodCode? DealingMethod { get; init; } 
+    #else
+    public Trading1MethodCode? DealingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the broker which arranged the deal between the trading side and the counterparty side or, when two money brokers are involved, between the trading side and the other money broker.
     /// </summary>
+    [IsoId("_KNwx95UVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Broker Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? BrokerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? BrokerIdentification { get; init; } 
+    #else
+    public PartyIdentification73Choice_? BrokerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Counterparty's reference for the trade.
     /// </summary>
+    [IsoId("_KNwx-ZUVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CounterpartyReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterpartyReference { get; init; } 
+    #else
+    public System.String? CounterpartyReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Brokerage fee for a broker confirmation.
     /// </summary>
+    [IsoId("_KNwx-5UVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Brokers Commission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? BrokersCommission { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? BrokersCommission { get; init; } 
+    #else
+    public System.Decimal? BrokersCommission { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies additional information for the receiver and applies to the whole message.
     /// </summary>
+    [IsoId("_KNwx_ZUVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender To Receiver Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? SenderToReceiverInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderToReceiverInformation { get; init; } 
+    #else
+    public System.String? SenderToReceiverInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the branch at the trading side with which the deal was done.
     /// </summary>
+    [IsoId("_KNwx_5UVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dealing Branch Trading Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? DealingBranchTradingSide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? DealingBranchTradingSide { get; init; } 
+    #else
+    public PartyIdentification73Choice_? DealingBranchTradingSide { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the branch at the counterparty side with which the deal was done.
     /// </summary>
+    [IsoId("_KNwyAZUVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dealing Branch Counterparty Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? DealingBranchCounterpartySide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? DealingBranchCounterpartySide { get; init; } 
+    #else
+    public PartyIdentification73Choice_? DealingBranchCounterpartySide { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the name and/or electronic address of the receiver of the message who may be contacted for any queries concerning this trade.
     /// </summary>
+    [IsoId("_KNwyA5UVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactInformation1? ContactInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactInformation1? ContactInformation { get; init; } 
+    #else
+    public ContactInformation1? ContactInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type, date and version of the agreement used in a trade.
     /// </summary>
+    [IsoId("_VTM1UJUVEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreementConditions1? AgreementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreementConditions1? AgreementDetails { get; init; } 
+    #else
+    public AgreementConditions1? AgreementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the year of definitions of the agreement.
     /// </summary>
+    [IsoId("_k1X30JUXEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Definitions Year")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYear? DefinitionsYear { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16? DefinitionsYear { get; init; } 
+    #else
+    public System.UInt16? DefinitionsYear { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies a reference applied to the trade instruction by a broker.
     /// </summary>
+    [IsoId("_ntBk8JUYEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Brokers Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BrokersReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BrokersReference { get; init; } 
+    #else
+    public System.String? BrokersReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BlockIndicator is IsoYesNoIndicator BlockIndicatorValue)
-        {
-            writer.WriteStartElement(null, "BlckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BlockIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RelatedTradeReference is IsoMax35Text RelatedTradeReferenceValue)
-        {
-            writer.WriteStartElement(null, "RltdTradRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedTradeReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DealingMethod is Trading1MethodCode DealingMethodValue)
-        {
-            writer.WriteStartElement(null, "DealgMtd", xmlNamespace );
-            writer.WriteValue(DealingMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BrokerIdentification is PartyIdentification73Choice_ BrokerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BrkrId", xmlNamespace );
-            BrokerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CounterpartyReference is IsoMax35Text CounterpartyReferenceValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (BrokersCommission is IsoActiveCurrencyAndAmount BrokersCommissionValue)
-        {
-            writer.WriteStartElement(null, "BrkrsComssn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BrokersCommissionValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SenderToReceiverInformation is IsoMax210Text SenderToReceiverInformationValue)
-        {
-            writer.WriteStartElement(null, "SndrToRcvrInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(SenderToReceiverInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-        if (DealingBranchTradingSide is PartyIdentification73Choice_ DealingBranchTradingSideValue)
-        {
-            writer.WriteStartElement(null, "DealgBrnchTradgSd", xmlNamespace );
-            DealingBranchTradingSideValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DealingBranchCounterpartySide is PartyIdentification73Choice_ DealingBranchCounterpartySideValue)
-        {
-            writer.WriteStartElement(null, "DealgBrnchCtrPtySd", xmlNamespace );
-            DealingBranchCounterpartySideValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContactInformation is ContactInformation1 ContactInformationValue)
-        {
-            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
-            ContactInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgreementDetails is AgreementConditions1 AgreementDetailsValue)
-        {
-            writer.WriteStartElement(null, "AgrmtDtls", xmlNamespace );
-            AgreementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DefinitionsYear is IsoISOYear DefinitionsYearValue)
-        {
-            writer.WriteStartElement(null, "DefsYr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOYear(DefinitionsYearValue)); // data type ISOYear System.UInt16
-            writer.WriteEndElement();
-        }
-        if (BrokersReference is IsoMax35Text BrokersReferenceValue)
-        {
-            writer.WriteStartElement(null, "BrkrsRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BrokersReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static GeneralInformation5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

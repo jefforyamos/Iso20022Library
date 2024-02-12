@@ -7,76 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Profile of the customer with the allowed services and restrictions.
 /// </summary>
+[IsoId("_el4xkYqzEeSIDtZ76p6McQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Customer Profile")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMCustomerProfile3
-     : IIsoXmlSerilizable<ATMCustomerProfile3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference of the customer profile.
     /// </summary>
+    [IsoId("_eyuTsYqzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Profile Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProfileReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProfileReference { get; init; } 
+    #else
+    public System.String? ProfileReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the customer for the bank.
     /// </summary>
+    [IsoId("_eyuTs4qzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CustomerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerIdentification { get; init; } 
+    #else
+    public System.String? CustomerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the customer's profile in plaintext.
     /// </summary>
+    [IsoId("_4iZ98IqzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Profile Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ProfileDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProfileDescription { get; init; } 
+    #else
+    public System.String? ProfileDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Services allowed for the customer's profile.
     /// </summary>
+    [IsoId("_ShKmAIq0EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed Services")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMService7? AllowedServices { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMService7? AllowedServices { get; init; } 
+    #else
+    public ATMService7? AllowedServices { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProfileReference is IsoMax35Text ProfileReferenceValue)
-        {
-            writer.WriteStartElement(null, "PrflRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProfileReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProfileDescription is IsoMax70Text ProfileDescriptionValue)
-        {
-            writer.WriteStartElement(null, "PrflDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProfileDescriptionValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AllowedServices is ATMService7 AllowedServicesValue)
-        {
-            writer.WriteStartElement(null, "AllwdSvcs", xmlNamespace );
-            AllowedServicesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMCustomerProfile3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

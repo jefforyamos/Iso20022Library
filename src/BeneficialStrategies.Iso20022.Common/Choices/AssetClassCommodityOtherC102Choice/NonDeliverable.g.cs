@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityOtherC102Choice;
-
-/// <summary>
-/// Other C10 non-deliverable commodity derivative.
-/// </summary>
-public partial record NonDeliverable : AssetClassCommodityOtherC102Choice_
-     , IIsoXmlSerilizable<NonDeliverable>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityOtherC102Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
+    /// Other C10 non-deliverable commodity derivative.
     /// </summary>
-    public required AssetClassProductType11Code BaseProduct { get; init; } 
-    /// <summary>
-    /// Sub-product for the underlying asset class.
-    /// </summary>
-    public AssetClassSubProductType48Code? SubProduct { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_lcXQU3vyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Deliverable")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NonDeliverable : AssetClassCommodityOtherC102Choice_
+    #else
+    public partial class NonDeliverable : AssetClassCommodityOtherC102Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
-        writer.WriteValue(BaseProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SubProduct is AssetClassSubProductType48Code SubProductValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a NonDeliverable instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public NonDeliverable( AssetClassProductType11Code reqBaseProduct )
         {
-            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
-            writer.WriteValue(SubProductValue.ToString()); // Enum value
-            writer.WriteEndElement();
+            BaseProduct = reqBaseProduct;
         }
-    }
-    public static new NonDeliverable Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
+        /// </summary>
+        [IsoId("_llSi0XvyEeanCNPcMT7sSg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Base Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AssetClassProductType11Code BaseProduct { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AssetClassProductType11Code BaseProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassProductType11Code BaseProduct { get; init; } 
+        #else
+        public AssetClassProductType11Code BaseProduct { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sub-product for the underlying asset class.
+        /// </summary>
+        [IsoId("_llTJ4XvyEeanCNPcMT7sSg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sub Product")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AssetClassSubProductType48Code? SubProduct { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AssetClassSubProductType48Code? SubProduct { get; init; } 
+        #else
+        public AssetClassSubProductType48Code? SubProduct { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

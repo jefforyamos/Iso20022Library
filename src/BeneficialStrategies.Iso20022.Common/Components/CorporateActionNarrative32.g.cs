@@ -7,76 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the information to comply with.
 /// </summary>
+[IsoId("_r9krMWOKEeW4z96Yfj3Wng")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Narrative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNarrative32
-     : IIsoXmlSerilizable<CorporateActionNarrative32>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or Sophisticated Investor Letter (SIL) to be provided.
     /// </summary>
+    [IsoId("_sRzOwWOKEeW4z96Yfj3Wng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information To Comply With")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InformationToComplyWith { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InformationToComplyWith { get; init; } 
+    #else
+    public System.String? InformationToComplyWith { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information on the delivery details of the outturned (derived) securities. This narrative is only to be used in case the securities are not eligible at the agent/custodian, and may not be used for settlement instructions.
     /// </summary>
+    [IsoId("_sR8_xmOKEeW4z96Yfj3Wng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? DeliveryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeliveryDetails { get; init; } 
+    #else
+    public System.String? DeliveryDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional details pertaining to foreign exchange instructions.
     /// </summary>
+    [IsoId("_sR8_zmOKEeW4z96Yfj3Wng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Instructions Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ForeignExchangeInstructionsAdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ForeignExchangeInstructionsAdditionalInformation { get; init; } 
+    #else
+    public System.String? ForeignExchangeInstructionsAdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
+    [IsoId("_sR8_3mOKEeW4z96Yfj3Wng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InstructionAdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionAdditionalInformation { get; init; } 
+    #else
+    public System.String? InstructionAdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InformationToComplyWith is IsoMax350Text InformationToComplyWithValue)
-        {
-            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationToComplyWithValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeliveryDetails is IsoMax350Text DeliveryDetailsValue)
-        {
-            writer.WriteStartElement(null, "DlvryDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(DeliveryDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (ForeignExchangeInstructionsAdditionalInformation is IsoMax350Text ForeignExchangeInstructionsAdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "FXInstrsAddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ForeignExchangeInstructionsAdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionAdditionalInformation is IsoMax350Text InstructionAdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "InstrAddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionAdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNarrative32 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

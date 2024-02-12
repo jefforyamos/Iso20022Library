@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information required for distribution in the German market.
 /// </summary>
+[IsoId("_Z1vAIM2rEeuAE-cYsQdwHQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Product Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalProductInformation1
-     : IIsoXmlSerilizable<AdditionalProductInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Category of fund product.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
+    [IsoId("_1fDskM2rEeuAE-cYsQdwHQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ESG Category German Fund Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGCategoryGermanFundMarket1Code? ESGCategoryGermanFundMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ESGCategoryGermanFundMarket1Code? ESGCategoryGermanFundMarket { get; init; } 
+    #else
+    public ESGCategoryGermanFundMarket1Code? ESGCategoryGermanFundMarket { get; set; } 
+    #endif
+    
     /// <summary>
     /// Category of structured securities product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
+    [IsoId("_5mXgMM2rEeuAE-cYsQdwHQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ESG Category German Structured Securities Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGCategoryGermanStructuredSecuritiesMarket1Code? ESGCategoryGermanStructuredSecuritiesMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ESGCategoryGermanStructuredSecuritiesMarket1Code? ESGCategoryGermanStructuredSecuritiesMarket { get; init; } 
+    #else
+    public ESGCategoryGermanStructuredSecuritiesMarket1Code? ESGCategoryGermanStructuredSecuritiesMarket { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the focus will be Environmental, Social or Governance.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09010.
     /// </summary>
+    [IsoId("_8e2wQM2rEeuAE-cYsQdwHQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ESG Focus")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGFocus1Code? ESGFocus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ESGFocus1Code? ESGFocus { get; init; } 
+    #else
+    public ESGFocus1Code? ESGFocus { get; set; } 
+    #endif
+    
     /// <summary>
     /// ESG label or standard of a product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09020.
     /// </summary>
+    [IsoId("_D4f3UM2sEeuAE-cYsQdwHQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ESG Label Or Standard")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGLabelOrStandard1Code? ESGLabelOrStandard { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ESGLabelOrStandard1Code? ESGLabelOrStandard { get; init; } 
+    #else
+    public ESGLabelOrStandard1Code? ESGLabelOrStandard { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ESGCategoryGermanFundMarket is ESGCategoryGermanFundMarket1Code ESGCategoryGermanFundMarketValue)
-        {
-            writer.WriteStartElement(null, "ESGCtgyGrmnFndMkt", xmlNamespace );
-            writer.WriteValue(ESGCategoryGermanFundMarketValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ESGCategoryGermanStructuredSecuritiesMarket is ESGCategoryGermanStructuredSecuritiesMarket1Code ESGCategoryGermanStructuredSecuritiesMarketValue)
-        {
-            writer.WriteStartElement(null, "ESGCtgyGrmnStrdSctiesMkt", xmlNamespace );
-            writer.WriteValue(ESGCategoryGermanStructuredSecuritiesMarketValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ESGFocus is ESGFocus1Code ESGFocusValue)
-        {
-            writer.WriteStartElement(null, "ESGFcs", xmlNamespace );
-            writer.WriteValue(ESGFocusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ESGLabelOrStandard is ESGLabelOrStandard1Code ESGLabelOrStandardValue)
-        {
-            writer.WriteStartElement(null, "ESGLablOrStd", xmlNamespace );
-            writer.WriteValue(ESGLabelOrStandardValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalProductInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

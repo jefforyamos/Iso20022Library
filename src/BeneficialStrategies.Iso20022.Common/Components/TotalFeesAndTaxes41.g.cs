@@ -7,96 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[IsoId("_XiLKcW1bEeiqaPNRWUnGNA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Fees And Taxes")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalFeesAndTaxes41
-     : IIsoXmlSerilizable<TotalFeesAndTaxes41>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total amount of overhead applied to the transaction that impacts the settlement amount.
     /// </summary>
+    [IsoId("_XzIXlW1bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Overhead Applied")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalOverheadApplied { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalOverheadApplied { get; init; } 
+    #else
+    public System.Decimal? TotalOverheadApplied { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of fees (charge/commissions) applied to the transaction that impacts the settlement amount.
     /// </summary>
+    [IsoId("_XzIXl21bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalFees { get; init; } 
+    #else
+    public System.Decimal? TotalFees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of taxes applied to the transaction that impacts the settlement amount.
     /// </summary>
+    [IsoId("_XzIXmW1bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Taxes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalTaxes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalTaxes { get; init; } 
+    #else
+    public System.Decimal? TotalTaxes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [IsoId("_XzIXm21bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commercial Agreement Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommercialAgreementReference { get; init; } 
+    #else
+    public System.String? CommercialAgreementReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
+    [IsoId("_XzIXnW1bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Fee5? IndividualFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Fee5? IndividualFee { get; init; } 
+    #else
+    public Fee5? IndividualFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Individual tax.
     /// </summary>
+    [IsoId("_XzIXn21bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax35? IndividualTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax35? IndividualTax { get; init; } 
+    #else
+    public Tax35? IndividualTax { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalOverheadApplied is IsoActiveCurrencyAndAmount TotalOverheadAppliedValue)
-        {
-            writer.WriteStartElement(null, "TtlOvrhdApld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalOverheadAppliedValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalFees is IsoActiveCurrencyAndAmount TotalFeesValue)
-        {
-            writer.WriteStartElement(null, "TtlFees", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalFeesValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalTaxes is IsoActiveCurrencyAndAmount TotalTaxesValue)
-        {
-            writer.WriteStartElement(null, "TtlTaxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTaxesValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
-        {
-            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (IndividualFee is Fee5 IndividualFeeValue)
-        {
-            writer.WriteStartElement(null, "IndvFee", xmlNamespace );
-            IndividualFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IndividualTax is Tax35 IndividualTaxValue)
-        {
-            writer.WriteStartElement(null, "IndvTax", xmlNamespace );
-            IndividualTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalFeesAndTaxes41 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,88 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report of the breakdown of the components for the capital requirement for central counterparty.
 /// </summary>
+[IsoId("_ltqioLIfEeaYqc4G3TTwhA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Capital Requirement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CapitalRequirement1
-     : IIsoXmlSerilizable<CapitalRequirement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CapitalRequirement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CapitalRequirement1( System.Decimal reqWindingDownOrRestructuringRisk,System.Decimal reqOperationalAndLegalRisk,System.Decimal reqCreditRisk,System.Decimal reqCounterPartyRisk,System.Decimal reqMarketRisk,System.Decimal reqBusinessRisk )
+    {
+        WindingDownOrRestructuringRisk = reqWindingDownOrRestructuringRisk;
+        OperationalAndLegalRisk = reqOperationalAndLegalRisk;
+        CreditRisk = reqCreditRisk;
+        CounterPartyRisk = reqCounterPartyRisk;
+        MarketRisk = reqMarketRisk;
+        BusinessRisk = reqBusinessRisk;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the capital necessary to cover the winding down or restructuring of activities.
     /// </summary>
+    [IsoId("_xYZEYLIfEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Winding Down Or Restructuring Risk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal WindingDownOrRestructuringRisk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal WindingDownOrRestructuringRisk { get; init; } 
+    #else
+    public System.Decimal WindingDownOrRestructuringRisk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the capital necessary to cover the overall operational and legal risks.
     /// </summary>
+    [IsoId("_5dimkLIfEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Operational And Legal Risk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal OperationalAndLegalRisk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal OperationalAndLegalRisk { get; init; } 
+    #else
+    public System.Decimal OperationalAndLegalRisk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the capital necessary to cover credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
+    [IsoId("_9K1-wLIfEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Risk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CreditRisk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CreditRisk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CreditRisk { get; init; } 
+    #else
+    public System.Decimal CreditRisk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the capital necessary to cover counterparty credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
+    [IsoId("_Bn5Y4LIgEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counter Party Risk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CounterPartyRisk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CounterPartyRisk { get; init; } 
+    #else
+    public System.Decimal CounterPartyRisk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the capital necessary to cover counterparty market risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
+    [IsoId("_ELG8gLIgEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Risk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MarketRisk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal MarketRisk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal MarketRisk { get; init; } 
+    #else
+    public System.Decimal MarketRisk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the capital necessary to cover business risk.
     /// </summary>
+    [IsoId("_GmI0gLIgEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Risk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount BusinessRisk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal BusinessRisk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal BusinessRisk { get; init; } 
+    #else
+    public System.Decimal BusinessRisk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the percentage above 100 percent of the CCP’s required capital requiring notification to the CCP’s National Competent Authority threshold.
     /// </summary>
+    [IsoId("_bslp0LIgEeaYqc4G3TTwhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Buffer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? NotificationBuffer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NotificationBuffer { get; init; } 
+    #else
+    public System.Decimal? NotificationBuffer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "WndgDwnOrRstrgRsk", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(WindingDownOrRestructuringRisk)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OprlAndLglRsk", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OperationalAndLegalRisk)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CdtRsk", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CreditRisk)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CntrPtyRsk", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CounterPartyRisk)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MktRsk", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MarketRisk)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BizRsk", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BusinessRisk)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (NotificationBuffer is IsoBaseOneRate NotificationBufferValue)
-        {
-            writer.WriteStartElement(null, "NtfctnBffr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(NotificationBufferValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CapitalRequirement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

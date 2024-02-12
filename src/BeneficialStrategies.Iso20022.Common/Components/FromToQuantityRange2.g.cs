@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Range of quantities.
 /// </summary>
+[IsoId("_mmgB2UD5EeW1yage4PQ__A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("From To Quantity Range")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FromToQuantityRange2
-     : IIsoXmlSerilizable<FromToQuantityRange2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FromToQuantityRange2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FromToQuantityRange2( System.UInt64 reqFromQuantity,System.UInt64 reqToQuantity )
+    {
+        FromQuantity = reqFromQuantity;
+        ToQuantity = reqToQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Lower boundary of a range of quantity values.
     /// </summary>
+    [IsoId("_mxuaYUD5EeW1yage4PQ__A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber FromQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 FromQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 FromQuantity { get; init; } 
+    #else
+    public System.UInt64 FromQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Upper boundary of a range of quantity values.
     /// </summary>
+    [IsoId("_mxuaY0D5EeW1yage4PQ__A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("To Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber ToQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ToQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ToQuantity { get; init; } 
+    #else
+    public System.UInt64 ToQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FrQty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(FromQuantity)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ToQty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ToQuantity)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static FromToQuantityRange2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

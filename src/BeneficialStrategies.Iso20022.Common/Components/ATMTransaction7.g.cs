@@ -7,130 +7,232 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Inquiry information for the transaction.
 /// </summary>
+[IsoId("_ALqDwYqzEeSIDtZ76p6McQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransaction7
-     : IIsoXmlSerilizable<ATMTransaction7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTransaction7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTransaction7( TransactionIdentifier1 reqTransactionIdentification,ResponseType3 reqTransactionResponse )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        TransactionResponse = reqTransactionResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [IsoId("_AYBr04qzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the inquiry service.
     /// </summary>
+    [IsoId("_VhPFwCvLEeW-qbryg71zJw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType3 TransactionResponse { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType3 TransactionResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType3 TransactionResponse { get; init; } 
+    #else
+    public ResponseType3 TransactionResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
+    [IsoId("_cRUScCvLEeW-qbryg71zJw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action5? Action { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Action5? Action { get; init; } 
+    #else
+    public Action5? Action { get; set; } 
+    #endif
+    
     /// <summary>
     /// Profile of the customer with the allowed services and restrictions.
     /// </summary>
+    [IsoId("_nPPNAIqzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Service Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCustomerProfile3? CustomerServiceProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCustomerProfile3? CustomerServiceProfile { get; init; } 
+    #else
+    public ATMCustomerProfile3? CustomerServiceProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dynamic currency conversion result.
     /// </summary>
+    [IsoId("_AYBr34qzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Conversion")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion3? CurrencyConversion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyConversion3? CurrencyConversion { get; init; } 
+    #else
+    public CurrencyConversion3? CurrencyConversion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account information associated to the customer.
     /// </summary>
+    [IsoId("_AYBr14qzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccount6? AccountInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAccount6? AccountInformation { get; init; } 
+    #else
+    public CardAccount6? AccountInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Statement information of an account.
     /// </summary>
+    [IsoId("_8fQUYIq7EeSHjtO_wHA7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Statement Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMAccountStatement1? AccountStatementData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMAccountStatement1? AccountStatementData { get; init; } 
+    #else
+    public ATMAccountStatement1? AccountStatementData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
     /// </summary>
+    [IsoId("_dE4GQIq9EeSHjtO_wHA7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion5? CurrencyExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyConversion5? CurrencyExchange { get; init; } 
+    #else
+    public CurrencyConversion5? CurrencyExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [IsoId("_AYBr54qzEeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Related Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ICCRelatedData { get; init; } 
+    #else
+    public System.Byte[]? ICCRelatedData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
+    [IsoId("_G4SFEIq5EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand1? Command { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommand1? Command { get; init; } 
+    #else
+    public ATMCommand1? Command { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
-        TransactionResponse.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Action is Action5 ActionValue)
-        {
-            writer.WriteStartElement(null, "Actn", xmlNamespace );
-            ActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustomerServiceProfile is ATMCustomerProfile3 CustomerServiceProfileValue)
-        {
-            writer.WriteStartElement(null, "CstmrSvcPrfl", xmlNamespace );
-            CustomerServiceProfileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrencyConversion is CurrencyConversion3 CurrencyConversionValue)
-        {
-            writer.WriteStartElement(null, "CcyConvs", xmlNamespace );
-            CurrencyConversionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountInformation is CardAccount6 AccountInformationValue)
-        {
-            writer.WriteStartElement(null, "AcctInf", xmlNamespace );
-            AccountInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountStatementData is ATMAccountStatement1 AccountStatementDataValue)
-        {
-            writer.WriteStartElement(null, "AcctStmtData", xmlNamespace );
-            AccountStatementDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrencyExchange is CurrencyConversion5 CurrencyExchangeValue)
-        {
-            writer.WriteStartElement(null, "CcyXchg", xmlNamespace );
-            CurrencyExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
-        {
-            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Command is ATMCommand1 CommandValue)
-        {
-            writer.WriteStartElement(null, "Cmd", xmlNamespace );
-            CommandValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransaction7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

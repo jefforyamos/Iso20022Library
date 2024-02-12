@@ -9,67 +9,128 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice;
-
-/// <summary>
-/// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
-/// </summary>
-public partial record SchedulePeriod : QuantityOrTerm1Choice_
-     , IIsoXmlSerilizable<SchedulePeriod>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Number of units of the financial instrument, that is, the nominal value.
+    /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
     /// </summary>
-    public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
-    /// <summary>
-    /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
-    /// </summary>
-    public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
-    /// <summary>
-    /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
-    /// </summary>
-    public required IsoISODate UnadjustedEffectiveDate { get; init; } 
-    /// <summary>
-    /// Indicates the end date agreed in the derivative transaction without adjustment.
-    /// </summary>
-    public IsoISODate? UnadjustedEndDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_fbqi0SJDEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Schedule Period")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SchedulePeriod : QuantityOrTerm1Choice_
+    #else
+    public partial class SchedulePeriod : QuantityOrTerm1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(Quantity)); // data type LongFraction19DecimalNumber System.UInt64
-        writer.WriteEndElement();
-        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a SchedulePeriod instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public SchedulePeriod( System.UInt64 reqQuantity,System.DateOnly reqUnadjustedEffectiveDate )
         {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Quantity = reqQuantity;
+            UnadjustedEffectiveDate = reqUnadjustedEffectiveDate;
         }
-        writer.WriteStartElement(null, "UadjstdFctvDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEffectiveDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (UnadjustedEndDate is IsoISODate UnadjustedEndDateValue)
-        {
-            writer.WriteStartElement(null, "UadjstdEndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static new SchedulePeriod Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Number of units of the financial instrument, that is, the nominal value.
+        /// </summary>
+        [IsoId("_-ZlMgSJDEe2zWP9pqvmqdw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quantity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 Quantity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 Quantity { get; init; } 
+        #else
+        public System.UInt64 Quantity { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
+        /// </summary>
+        [IsoId("_Cw9ccSJEEe2zWP9pqvmqdw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit Of Measure")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
+        #else
+        public UnitOfMeasure8Choice_? UnitOfMeasure { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
+        /// </summary>
+        [IsoId("_2INzQSJDEe2zWP9pqvmqdw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unadjusted Effective Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate UnadjustedEffectiveDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly UnadjustedEffectiveDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly UnadjustedEffectiveDate { get; init; } 
+        #else
+        public System.DateOnly UnadjustedEffectiveDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the end date agreed in the derivative transaction without adjustment.
+        /// </summary>
+        [IsoId("_2INzQyJDEe2zWP9pqvmqdw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unadjusted End Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? UnadjustedEndDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? UnadjustedEndDate { get; init; } 
+        #else
+        public System.DateOnly? UnadjustedEndDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

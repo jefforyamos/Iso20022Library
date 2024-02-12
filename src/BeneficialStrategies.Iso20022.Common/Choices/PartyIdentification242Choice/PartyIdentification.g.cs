@@ -9,93 +9,161 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice;
-
-/// <summary>
-/// Party Identification specified as a list of values per element.
-/// </summary>
-public partial record PartyIdentification : PartyIdentification242Choice_
-     , IIsoXmlSerilizable<PartyIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identification of the party expressed as the party's name.
+    /// Party Identification specified as a list of values per element.
     /// </summary>
-    public IsoMax34Text? PartyName { get; init; } 
-    /// <summary>
-    /// Identification of the party expressed as a BIC and an optional alternative identifier.
-    /// </summary>
-    public PartyIdentification265? AnyBIC { get; init; } 
-    /// <summary>
-    /// Provides the party's account number.
-    /// </summary>
-    public IsoMax34Text? AccountNumber { get; init; } 
-    /// <summary>
-    /// Provides the party's address.
-    /// </summary>
-    public IsoMax105Text? Address { get; init; } 
-    /// <summary>
-    /// Choice of a clearing system identifier.
-    /// </summary>
-    public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
-    /// <summary>
-    /// Provides the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
-    /// </summary>
-    public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_BXmqtwN1Ee2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PartyIdentification : PartyIdentification242Choice_
+    #else
+    public partial class PartyIdentification : PartyIdentification242Choice_
+    #endif
     {
-        if (PartyName is IsoMax34Text PartyNameValue)
-        {
-            writer.WriteStartElement(null, "PtyNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax34Text(PartyNameValue)); // data type Max34Text System.String
-            writer.WriteEndElement();
-        }
-        if (AnyBIC is PartyIdentification265 AnyBICValue)
-        {
-            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
-            AnyBICValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountNumber is IsoMax34Text AccountNumberValue)
-        {
-            writer.WriteStartElement(null, "AcctNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax34Text(AccountNumberValue)); // data type Max34Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is IsoMax105Text AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AddressValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingSystemIdentification is ClearingSystemIdentification2Choice_ ClearingSystemIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrSysId", xmlNamespace );
-            ClearingSystemIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
-        {
-            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new PartyIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of the party expressed as the party's name.
+        /// </summary>
+        [IsoId("_BjNdwwN1Ee2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Party Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 34 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax34Text? PartyName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PartyName { get; init; } 
+        #else
+        public System.String? PartyName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the party expressed as a BIC and an optional alternative identifier.
+        /// </summary>
+        [IsoId("_BjNdxQN1Ee2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Any BIC")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification265? AnyBIC { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification265? AnyBIC { get; init; } 
+        #else
+        public PartyIdentification265? AnyBIC { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the party's account number.
+        /// </summary>
+        [IsoId("_BjNdxwN1Ee2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 34 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax34Text? AccountNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AccountNumber { get; init; } 
+        #else
+        public System.String? AccountNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the party's address.
+        /// </summary>
+        [IsoId("_BjNdyQN1Ee2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax105Text? Address { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Address { get; init; } 
+        #else
+        public System.String? Address { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Choice of a clearing system identifier.
+        /// </summary>
+        [IsoId("_BjNdywN1Ee2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Clearing System Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
+        #else
+        public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
+        /// </summary>
+        [IsoId("_BjNdzQN1Ee2-vqzwMUAewg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Legal Entity Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LegalEntityIdentifier { get; init; } 
+        #else
+        public System.String? LegalEntityIdentifier { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

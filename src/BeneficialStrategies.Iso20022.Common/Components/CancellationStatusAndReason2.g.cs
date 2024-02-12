@@ -7,111 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of a transfer cancellation instruction and the reason for the status.
 /// </summary>
+[IsoId("_SxzXTNp-Ed-ak6NoX_4Aeg_195934515")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cancellation Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CancellationStatusAndReason2
-     : IIsoXmlSerilizable<CancellationStatusAndReason2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CancellationStatusAndReason2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CancellationStatusAndReason2( System.String reqTransferReference,TransferCancellationStatus2 reqStatus,TransferCancellationRejectedStatus1 reqRejected,TransferCancellationCompleteStatusAndReason1 reqComplete,TransferCancellationPendingStatus1 reqPending )
+    {
+        TransferReference = reqTransferReference;
+        Status = reqStatus;
+        Rejected = reqRejected;
+        Complete = reqComplete;
+        Pending = reqPending;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [IsoId("_SxzXTdp-Ed-ak6NoX_4Aeg_272585936")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MasterReference { get; init; } 
+    #else
+    public System.String? MasterReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of a transfer, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_SxzXTtp-Ed-ak6NoX_4Aeg_272585953")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransferReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransferReference { get; init; } 
+    #else
+    public System.String TransferReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [IsoId("_SxzXT9p-Ed-ak6NoX_4Aeg_272585988")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientReference { get; init; } 
+    #else
+    public System.String? ClientReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Sx9IQNp-Ed-ak6NoX_4Aeg_272586223")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CancellationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CancellationReference { get; init; } 
+    #else
+    public System.String? CancellationReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the transfer cancellation is accepted or sent to next party.
     /// </summary>
+    [IsoId("_Sx9IQdp-Ed-ak6NoX_4Aeg_197781106")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationStatus2 Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransferCancellationStatus2 Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferCancellationStatus2 Status { get; init; } 
+    #else
+    public TransferCancellationStatus2 Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the transfer cancellation is rejected.
     /// </summary>
+    [IsoId("_Sx9IQtp-Ed-ak6NoX_4Aeg_195934569")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationRejectedStatus1 Rejected { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransferCancellationRejectedStatus1 Rejected { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferCancellationRejectedStatus1 Rejected { get; init; } 
+    #else
+    public TransferCancellationRejectedStatus1 Rejected { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
     /// </summary>
+    [IsoId("_Sx9IQ9p-Ed-ak6NoX_4Aeg_195934611")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Complete")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationCompleteStatusAndReason1 Complete { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransferCancellationCompleteStatusAndReason1 Complete { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferCancellationCompleteStatusAndReason1 Complete { get; init; } 
+    #else
+    public TransferCancellationCompleteStatusAndReason1 Complete { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the transfer cancellation is pending.
     /// </summary>
+    [IsoId("_Sx9IRNp-Ed-ak6NoX_4Aeg_-95318640")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationPendingStatus1 Pending { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransferCancellationPendingStatus1 Pending { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferCancellationPendingStatus1 Pending { get; init; } 
+    #else
+    public TransferCancellationPendingStatus1 Pending { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [IsoId("_Sx9IRdp-Ed-ak6NoX_4Aeg_195934518")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
+    #else
+    public PartyIdentification2Choice_? StatusInitiator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
-        {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ClientReference is IsoMax35Text ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
-        {
-            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        Status.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
-        Rejected.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cmplt", xmlNamespace );
-        Complete.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Pdg", xmlNamespace );
-        Pending.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
-        {
-            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
-            StatusInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CancellationStatusAndReason2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

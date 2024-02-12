@@ -7,426 +7,751 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the CA event.
 /// </summary>
+[IsoId("_TdKoc9p-Ed-ak6NoX_4Aeg_281523718")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateAction2
-     : IIsoXmlSerilizable<CorporateAction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
+    [IsoId("_TdKodNp-Ed-ak6NoX_4Aeg_-642508316")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Stage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventStage1FormatChoice_? EventStage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventStage1FormatChoice_? EventStage { get; init; } 
+    #else
+    public CorporateActionEventStage1FormatChoice_? EventStage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the option that will be selected by default if no instruction is provided by account owner.
     /// </summary>
+    [IsoId("_TdKoddp-Ed-ak6NoX_4Aeg_2061150383")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Default Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption1FormatChoice_? DefaultOptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption1FormatChoice_? DefaultOptionType { get; init; } 
+    #else
+    public CorporateActionOption1FormatChoice_? DefaultOptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the option number that will be selected by default if no instruction is provided by account owner.
     /// </summary>
+    [IsoId("_TdKodtp-Ed-ak6NoX_4Aeg_205464242")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Default Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? DefaultOptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DefaultOptionNumber { get; init; } 
+    #else
+    public System.String? DefaultOptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// The method of calculation of drawings and partial redemptions.
     /// </summary>
+    [IsoId("_TdKod9p-Ed-ak6NoX_4Aeg_1573530587")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionCalculationMethod1FormatChoice_? CalculationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionCalculationMethod1FormatChoice_? CalculationMethod { get; init; } 
+    #else
+    public CorporateActionCalculationMethod1FormatChoice_? CalculationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
+    [IsoId("_TdKoeNp-Ed-ak6NoX_4Aeg_-40172049")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Back End Odd Lot Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmountOrCode1Choice_? BackEndOddLotSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmountOrCode1Choice_? BackEndOddLotSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmountOrCode1Choice_? BackEndOddLotSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
+    [IsoId("_TdKoedp-Ed-ak6NoX_4Aeg_464307")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Front End Odd Lot Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmountOrCode1Choice_? FrontEndOddLotSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmountOrCode1Choice_? FrontEndOddLotSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmountOrCode1Choice_? FrontEndOddLotSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_TdUZcNp-Ed-ak6NoX_4Aeg_790074264")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_TdUZcdp-Ed-ak6NoX_4Aeg_790074356")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Multiple Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
+    [IsoId("_TdUZctp-Ed-ak6NoX_4Aeg_-1821980355")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incremental Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? IncrementalDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? IncrementalDenomination { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? IncrementalDenomination { get; set; } 
+    #endif
+    
     /// <summary>
     /// New Denomination of the equity following, eg, an increase or decrease in nominal value.
     /// </summary>
+    [IsoId("_TdUZc9p-Ed-ak6NoX_4Aeg_727102664")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Denomination Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
+    [IsoId("_TdUZdNp-Ed-ak6NoX_4Aeg_597714776")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Board Lot Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
+    [IsoId("_TdUZddp-Ed-ak6NoX_4Aeg_1203810691")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Quantity Sought")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmountOrCode1Choice_? SecuritiesQuantitySought { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmountOrCode1Choice_? SecuritiesQuantitySought { get; init; } 
+    #else
+    public UnitOrFaceAmountOrCode1Choice_? SecuritiesQuantitySought { get; set; } 
+    #endif
+    
     /// <summary>
     /// The minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
+    [IsoId("_TdUZdtp-Ed-ak6NoX_4Aeg_-1375919680")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? BaseDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? BaseDenomination { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? BaseDenomination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of change announced.
     /// </summary>
+    [IsoId("_TdUZd9p-Ed-ak6NoX_4Aeg_-1796992526")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Change Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionChangeType1FormatChoice_? ChangeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionChangeType1FormatChoice_? ChangeType { get; init; } 
+    #else
+    public CorporateActionChangeType1FormatChoice_? ChangeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
+    [IsoId("_TdUZeNp-Ed-ak6NoX_4Aeg_-1408191238")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offer Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OfferType1FormatChoice_? OfferType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OfferType1FormatChoice_? OfferType { get; init; } 
+    #else
+    public OfferType1FormatChoice_? OfferType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is restrictions apply to the CA event or not.||Yes = There is restrictions.|No = There is no restrictions.
     /// </summary>
+    [IsoId("_TdUZedp-Ed-ak6NoX_4Aeg_-1393415357")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restriction Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RestrictionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RestrictionIndicator { get; init; } 
+    #else
+    public System.String? RestrictionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the issuer will allow the agent to accept partial elections. It is to allow split voting over options. It allows the client to elect more than one option to be selected per designated holding.
     /// </summary>
+    [IsoId("_TddjYNp-Ed-ak6NoX_4Aeg_-1367556347")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Partial Election Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PartialElectionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PartialElectionIndicator { get; init; } 
+    #else
+    public System.String? PartialElectionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the effect on the holdings of electing a Corporate Action option.
     /// </summary>
+    [IsoId("_TddjYdp-Ed-ak6NoX_4Aeg_-1279821801")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Election Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ElectionMovementType1FormatChoice_? ElectionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ElectionMovementType1FormatChoice_? ElectionType { get; init; } 
+    #else
+    public ElectionMovementType1FormatChoice_? ElectionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [IsoId("_TddjYtp-Ed-ak6NoX_4Aeg_1254927257")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lottery Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LotteryType1FormatChoice_? LotteryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LotteryType1FormatChoice_? LotteryType { get; init; } 
+    #else
+    public LotteryType1FormatChoice_? LotteryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
+    [IsoId("_TddjY9p-Ed-ak6NoX_4Aeg_1284479557")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification13? IncomeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification13? IncomeType { get; init; } 
+    #else
+    public GenericIdentification13? IncomeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
+    [IsoId("_TddjZNp-Ed-ak6NoX_4Aeg_-1508514745")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionFrequencyType1FormatChoice_? DividendType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionFrequencyType1FormatChoice_? DividendType { get; init; } 
+    #else
+    public CorporateActionFrequencyType1FormatChoice_? DividendType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
+    [IsoId("_TddjZdp-Ed-ak6NoX_4Aeg_727102756")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediate Securities Distribution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
+    #else
+    public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of the coupon attached/associated with a security.
     /// </summary>
+    [IsoId("_TddjZtp-Ed-ak6NoX_4Aeg_-1756777381")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Coupon Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? CouponNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CouponNumber { get; init; } 
+    #else
+    public System.String? CouponNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
+    [IsoId("_TddjZ9p-Ed-ak6NoX_4Aeg_1584193884")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Accrued Number Of Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? InterestAccruedNumberOfDays { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? InterestAccruedNumberOfDays { get; init; } 
+    #else
+    public System.UInt64? InterestAccruedNumberOfDays { get; set; } 
+    #endif
+    
     /// <summary>
     /// New denomination currency of the inancial instrument.
     /// </summary>
+    [IsoId("_TddjaNp-Ed-ak6NoX_4Aeg_727102641")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Denomination Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? NewDenominationCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? NewDenominationCurrency { get; init; } 
+    #else
+    public string? NewDenominationCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the dates related to a CA event.
     /// </summary>
+    [IsoId("_Tddjadp-Ed-ak6NoX_4Aeg_-1094455556")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate2? DateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDate2? DateDetails { get; init; } 
+    #else
+    public CorporateActionDate2? DateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the prices related to a CA event.
     /// </summary>
+    [IsoId("_TdnUYNp-Ed-ak6NoX_4Aeg_-915572886")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPrice2? PriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPrice2? PriceDetails { get; init; } 
+    #else
+    public CorporateActionPrice2? PriceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the periods related to a CA event.
     /// </summary>
+    [IsoId("_TdnUYdp-Ed-ak6NoX_4Aeg_1204048727")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPeriod1? PeriodDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPeriod1? PeriodDetails { get; init; } 
+    #else
+    public CorporateActionPeriod1? PeriodDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about rates and amounts related to a CA event.
     /// </summary>
+    [IsoId("_TdnUYtp-Ed-ak6NoX_4Aeg_-1412132684")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate And Amount Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRate1? RateAndAmountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionRate1? RateAndAmountDetails { get; init; } 
+    #else
+    public CorporateActionRate1? RateAndAmountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information.
     /// </summary>
+    [IsoId("_TdnUY9p-Ed-ak6NoX_4Aeg_-1469079005")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; init; } 
+    #else
+    public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether certification is required from the account owner.
     /// </summary>
+    [IsoId("_TdnUZNp-Ed-ak6NoX_4Aeg_991134143")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Required Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CertificationRequiredIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificationRequiredIndicator { get; init; } 
+    #else
+    public System.String? CertificationRequiredIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
+    [IsoId("_TdnUZdp-Ed-ak6NoX_4Aeg_2027718544")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
+    #else
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
+    [IsoId("_TdnUZtp-Ed-ak6NoX_4Aeg_-1262193495")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Capital Gain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUCapitalGain2Code? CapitalGain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EUCapitalGain2Code? CapitalGain { get; init; } 
+    #else
+    public EUCapitalGain2Code? CapitalGain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the financial instrument calculates the taxable income per dividend/taxable income per share.
     /// </summary>
+    [IsoId("_TdnUZ9p-Ed-ak6NoX_4Aeg_-1974567544")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxable Income Per Share Calculated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
+    #else
+    public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; set; } 
+    #endif
+    
     /// <summary>
     /// New companys place of incorporation.
     /// </summary>
+    [IsoId("_TdnUaNp-Ed-ak6NoX_4Aeg_715065943")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Place Of Incorporation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? NewPlaceOfIncorporation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NewPlaceOfIncorporation { get; init; } 
+    #else
+    public System.String? NewPlaceOfIncorporation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
+    [IsoId("_TdnUadp-Ed-ak6NoX_4Aeg_-1307180145")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Renounceable Entitlement Status Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RenounceableStatus1FormatChoice_? RenounceableEntitlementStatusType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RenounceableStatus1FormatChoice_? RenounceableEntitlementStatusType { get; init; } 
+    #else
+    public RenounceableStatus1FormatChoice_? RenounceableEntitlementStatusType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the conversion type of an instrument.
     /// </summary>
+    [IsoId("_TdxFYNp-Ed-ak6NoX_4Aeg_-1393990716")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conversion Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConversionType1FormatChoice_? ConversionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConversionType1FormatChoice_? ConversionType { get; init; } 
+    #else
+    public ConversionType1FormatChoice_? ConversionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether redemption charges apply.
     /// </summary>
+    [IsoId("_TdxFYdp-Ed-ak6NoX_4Aeg_1075177055")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Charges Applied Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RedemptionChargesAppliedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RedemptionChargesAppliedIndicator { get; init; } 
+    #else
+    public System.String? RedemptionChargesAppliedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.
     /// </summary>
+    [IsoId("_TdxFYtp-Ed-ak6NoX_4Aeg_1643717254")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Distribution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionType1FormatChoice_? DistributionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionType1FormatChoice_? DistributionType { get; init; } 
+    #else
+    public DistributionType1FormatChoice_? DistributionType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EventStage is CorporateActionEventStage1FormatChoice_ EventStageValue)
-        {
-            writer.WriteStartElement(null, "EvtStag", xmlNamespace );
-            EventStageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DefaultOptionType is CorporateActionOption1FormatChoice_ DefaultOptionTypeValue)
-        {
-            writer.WriteStartElement(null, "DfltOptnTp", xmlNamespace );
-            DefaultOptionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DefaultOptionNumber is IsoExact3NumericText DefaultOptionNumberValue)
-        {
-            writer.WriteStartElement(null, "DfltOptnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(DefaultOptionNumberValue)); // data type Exact3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CalculationMethod is CorporateActionCalculationMethod1FormatChoice_ CalculationMethodValue)
-        {
-            writer.WriteStartElement(null, "ClctnMtd", xmlNamespace );
-            CalculationMethodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BackEndOddLotSecuritiesQuantity is UnitOrFaceAmountOrCode1Choice_ BackEndOddLotSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "BckEndOddLotSctiesQty", xmlNamespace );
-            BackEndOddLotSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FrontEndOddLotSecuritiesQuantity is UnitOrFaceAmountOrCode1Choice_ FrontEndOddLotSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "FrntEndOddLotSctiesQty", xmlNamespace );
-            FrontEndOddLotSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableSecuritiesQuantity is UnitOrFaceAmount1Choice_ MinimumExercisableSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblSctiesQty", xmlNamespace );
-            MinimumExercisableSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableMultipleSecuritiesQuantity is UnitOrFaceAmount1Choice_ MinimumExercisableMultipleSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblMltplSctiesQty", xmlNamespace );
-            MinimumExercisableMultipleSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncrementalDenomination is UnitOrFaceAmount1Choice_ IncrementalDenominationValue)
-        {
-            writer.WriteStartElement(null, "IncrmtlDnmtn", xmlNamespace );
-            IncrementalDenominationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewDenominationSecuritiesQuantity is UnitOrFaceAmount1Choice_ NewDenominationSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewDnmtnSctiesQty", xmlNamespace );
-            NewDenominationSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewBoardLotSecuritiesQuantity is UnitOrFaceAmount1Choice_ NewBoardLotSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewBrdLotSctiesQty", xmlNamespace );
-            NewBoardLotSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesQuantitySought is UnitOrFaceAmountOrCode1Choice_ SecuritiesQuantitySoughtValue)
-        {
-            writer.WriteStartElement(null, "SctiesQtySght", xmlNamespace );
-            SecuritiesQuantitySoughtValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BaseDenomination is UnitOrFaceAmount1Choice_ BaseDenominationValue)
-        {
-            writer.WriteStartElement(null, "BaseDnmtn", xmlNamespace );
-            BaseDenominationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChangeType is CorporateActionChangeType1FormatChoice_ ChangeTypeValue)
-        {
-            writer.WriteStartElement(null, "ChngTp", xmlNamespace );
-            ChangeTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OfferType is OfferType1FormatChoice_ OfferTypeValue)
-        {
-            writer.WriteStartElement(null, "OfferTp", xmlNamespace );
-            OfferTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RestrictionIndicator is IsoYesNoIndicator RestrictionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RstrctnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RestrictionIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PartialElectionIndicator is IsoYesNoIndicator PartialElectionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtlElctnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PartialElectionIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ElectionType is ElectionMovementType1FormatChoice_ ElectionTypeValue)
-        {
-            writer.WriteStartElement(null, "ElctnTp", xmlNamespace );
-            ElectionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LotteryType is LotteryType1FormatChoice_ LotteryTypeValue)
-        {
-            writer.WriteStartElement(null, "LtryTp", xmlNamespace );
-            LotteryTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncomeType is GenericIdentification13 IncomeTypeValue)
-        {
-            writer.WriteStartElement(null, "IncmTp", xmlNamespace );
-            IncomeTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DividendType is CorporateActionFrequencyType1FormatChoice_ DividendTypeValue)
-        {
-            writer.WriteStartElement(null, "DvddTp", xmlNamespace );
-            DividendTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediateSecuritiesDistributionType is IntermediateSecurityDistributionType1FormatChoice_ IntermediateSecuritiesDistributionTypeValue)
-        {
-            writer.WriteStartElement(null, "IntrmdtSctiesDstrbtnTp", xmlNamespace );
-            IntermediateSecuritiesDistributionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CouponNumber is IsoMax3NumericText CouponNumberValue)
-        {
-            writer.WriteStartElement(null, "CpnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(CouponNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (InterestAccruedNumberOfDays is IsoNumber InterestAccruedNumberOfDaysValue)
-        {
-            writer.WriteStartElement(null, "IntrstAcrdNbOfDays", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(InterestAccruedNumberOfDaysValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (NewDenominationCurrency is ActiveCurrencyCode NewDenominationCurrencyValue)
-        {
-            writer.WriteStartElement(null, "NewDnmtnCcy", xmlNamespace );
-            writer.WriteValue(NewDenominationCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DateDetails is CorporateActionDate2 DateDetailsValue)
-        {
-            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
-            DateDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceDetails is CorporateActionPrice2 PriceDetailsValue)
-        {
-            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
-            PriceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PeriodDetails is CorporateActionPeriod1 PeriodDetailsValue)
-        {
-            writer.WriteStartElement(null, "PrdDtls", xmlNamespace );
-            PeriodDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RateAndAmountDetails is CorporateActionRate1 RateAndAmountDetailsValue)
-        {
-            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
-            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CorporateActionAdditionalInformation is CorporateActionNarrative1 CorporateActionAdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "CorpActnAddtlInf", xmlNamespace );
-            CorporateActionAdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CertificationRequiredIndicator is IsoYesNoIndicator CertificationRequiredIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CertfctnReqrdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationRequiredIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CertificationType is BeneficiaryCertificationType1FormatChoice_ CertificationTypeValue)
-        {
-            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
-            CertificationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CapitalGain is EUCapitalGain2Code CapitalGainValue)
-        {
-            writer.WriteStartElement(null, "CptlGn", xmlNamespace );
-            writer.WriteValue(CapitalGainValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculated2Code TaxableIncomePerShareCalculatedValue)
-        {
-            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
-            writer.WriteValue(TaxableIncomePerShareCalculatedValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NewPlaceOfIncorporation is IsoMax70Text NewPlaceOfIncorporationValue)
-        {
-            writer.WriteStartElement(null, "NewPlcOfIncorprtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NewPlaceOfIncorporationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (RenounceableEntitlementStatusType is RenounceableStatus1FormatChoice_ RenounceableEntitlementStatusTypeValue)
-        {
-            writer.WriteStartElement(null, "RnncblEntitlmntStsTp", xmlNamespace );
-            RenounceableEntitlementStatusTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConversionType is ConversionType1FormatChoice_ ConversionTypeValue)
-        {
-            writer.WriteStartElement(null, "ConvsTp", xmlNamespace );
-            ConversionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RedemptionChargesAppliedIndicator is IsoYesNoIndicator RedemptionChargesAppliedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RedChrgsApldInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RedemptionChargesAppliedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DistributionType is DistributionType1FormatChoice_ DistributionTypeValue)
-        {
-            writer.WriteStartElement(null, "DstrbtnTp", xmlNamespace );
-            DistributionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateAction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

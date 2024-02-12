@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the reason of the cancellation request.
 /// </summary>
+[IsoId("_fzdu8cDQEeic67MXUoeXWA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Cancellation Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentCancellationReason5
-     : IIsoXmlSerilizable<PaymentCancellationReason5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that issues the cancellation request.
     /// </summary>
+    [IsoId("_f_Xc88DQEeic67MXUoeXWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? Originator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification135? Originator { get; init; } 
+    #else
+    public PartyIdentification135? Originator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the cancellation.
     /// </summary>
+    [IsoId("_f_Xc9cDQEeic67MXUoeXWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationReason33Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationReason33Choice_? Reason { get; init; } 
+    #else
+    public CancellationReason33Choice_? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
+    [IsoId("_f_Xc98DQEeic67MXUoeXWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Originator is PartyIdentification135 OriginatorValue)
-        {
-            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
-            OriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reason is CancellationReason33Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax105Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalInformationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentCancellationReason5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

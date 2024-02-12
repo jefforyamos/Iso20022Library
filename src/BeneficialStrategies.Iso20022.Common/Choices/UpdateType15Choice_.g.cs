@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the update information.
-/// </summary>
-[KnownType(typeof(UpdateType15Choice.Code))]
-[KnownType(typeof(UpdateType15Choice.Proprietary))]
-public abstract partial record UpdateType15Choice_ : IIsoXmlSerilizable<UpdateType15Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the update information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UpdateType15Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UpdateType15Choice.Code))]
+    [KnownType(typeof(UpdateType15Choice.Proprietary))]
+    [IsoId("_XMoFcTeQEeWm5uvLSn0jEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Type 15 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UpdateType15Choice_
+    #else
+    public abstract partial class UpdateType15Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => UpdateType15Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => UpdateType15Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UpdateType15Choice choice.")
-        };
     }
 }

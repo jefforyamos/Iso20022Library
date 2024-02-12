@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice structure allowing a credit default swap derivative to be defined.
-/// </summary>
-[KnownType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap))]
-[KnownType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex))]
-[KnownType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative))]
-[KnownType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative))]
-public abstract partial record CreditDefaultSwapsDerivative4Choice_ : IIsoXmlSerilizable<CreditDefaultSwapsDerivative4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice structure allowing a credit default swap derivative to be defined.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CreditDefaultSwapsDerivative4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap))]
+    [KnownType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex))]
+    [KnownType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative))]
+    [KnownType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative))]
+    [IsoId("_xH_acSe0Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Default Swaps Derivative 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CreditDefaultSwapsDerivative4Choice_
+    #else
+    public abstract partial class CreditDefaultSwapsDerivative4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SnglNmCdtDfltSwp" => CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap.Deserialize(elementWithPayload),
-             "CdtDfltSwpIndx" => CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex.Deserialize(elementWithPayload),
-             "SnglNmCdtDfltSwpDeriv" => CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative.Deserialize(elementWithPayload),
-             "CdtDfltSwpIndxDeriv" => CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CreditDefaultSwapsDerivative4Choice choice.")
-        };
     }
 }

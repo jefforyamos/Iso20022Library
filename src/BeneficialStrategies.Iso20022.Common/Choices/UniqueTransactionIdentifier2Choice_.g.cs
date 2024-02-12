@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Element is a choice between a standard identifier and a proprietary code.
-/// </summary>
-[KnownType(typeof(UniqueTransactionIdentifier2Choice.UniqueTransactionIdentifier))]
-[KnownType(typeof(UniqueTransactionIdentifier2Choice.Proprietary))]
-public abstract partial record UniqueTransactionIdentifier2Choice_ : IIsoXmlSerilizable<UniqueTransactionIdentifier2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Element is a choice between a standard identifier and a proprietary code.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UniqueTransactionIdentifier2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UniqueTransactionIdentifier2Choice.UniqueTransactionIdentifier))]
+    [KnownType(typeof(UniqueTransactionIdentifier2Choice.Proprietary))]
+    [IsoId("_ctnq8SyFEe2xAdY9t5fB3g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unique Transaction Identifier 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UniqueTransactionIdentifier2Choice_
+    #else
+    public abstract partial class UniqueTransactionIdentifier2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "UnqTxIdr" => UniqueTransactionIdentifier2Choice.UniqueTransactionIdentifier.Deserialize(elementWithPayload),
-             "Prtry" => UniqueTransactionIdentifier2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UniqueTransactionIdentifier2Choice choice.")
-        };
     }
 }

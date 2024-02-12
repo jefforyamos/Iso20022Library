@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a matching system unique identification or the related reference.
-/// </summary>
-[KnownType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference))]
-[KnownType(typeof(MatchingSystemReference1Choice.RelatedReference))]
-public abstract partial record MatchingSystemReference1Choice_ : IIsoXmlSerilizable<MatchingSystemReference1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a matching system unique identification or the related reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MatchingSystemReference1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference))]
+    [KnownType(typeof(MatchingSystemReference1Choice.RelatedReference))]
+    [IsoId("_i-a184ufEeKYr_965Eh8aQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching System Reference 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MatchingSystemReference1Choice_
+    #else
+    public abstract partial class MatchingSystemReference1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MtchgSysUnqRef" => MatchingSystemReference1Choice.MatchingSystemUniqueReference.Deserialize(elementWithPayload),
-             "RltdRef" => MatchingSystemReference1Choice.RelatedReference.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MatchingSystemReference1Choice choice.")
-        };
     }
 }

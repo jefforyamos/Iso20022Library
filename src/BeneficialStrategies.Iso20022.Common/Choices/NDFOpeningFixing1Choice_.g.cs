@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of providing the opening conditions or fixing conditions for an NDF instruction.
-/// </summary>
-[KnownType(typeof(NDFOpeningFixing1Choice.OpeningConditions))]
-[KnownType(typeof(NDFOpeningFixing1Choice.OpeningConfirmationReference))]
-public abstract partial record NDFOpeningFixing1Choice_ : IIsoXmlSerilizable<NDFOpeningFixing1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of providing the opening conditions or fixing conditions for an NDF instruction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NDFOpeningFixing1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConditions))]
+    [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConfirmationReference))]
+    [IsoId("_1koBMJUIEeak6e8_Fc5fQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("NDF Opening Fixing 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NDFOpeningFixing1Choice_
+    #else
+    public abstract partial class NDFOpeningFixing1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OpngConds" => NDFOpeningFixing1Choice.OpeningConditions.Deserialize(elementWithPayload),
-             "OpngConfRef" => NDFOpeningFixing1Choice.OpeningConfirmationReference.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NDFOpeningFixing1Choice choice.")
-        };
     }
 }

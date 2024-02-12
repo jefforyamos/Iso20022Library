@@ -7,107 +7,202 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the collateral that will be substituted.
 /// </summary>
+[IsoId("_WKR_ESqSEeyR9JrVGfaMKw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Substitution")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralSubstitution8
-     : IIsoXmlSerilizable<CollateralSubstitution8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralSubstitution8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralSubstitution8( CollateralSubstitutionSequence1Code reqCollateralSubstitutionSequence,System.Decimal reqSubstitutionRequirement,CollateralSubstitutionType1Code reqCollateralSubstitutionType )
+    {
+        CollateralSubstitutionSequence = reqCollateralSubstitutionSequence;
+        SubstitutionRequirement = reqSubstitutionRequirement;
+        CollateralSubstitutionType = reqCollateralSubstitutionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the collateral substitution request is new or updated.
     /// </summary>
+    [IsoId("_Wh-tYyqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Substitution Sequence")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
+    #else
+    public CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash value of the requested collateral substitution transfer in the base currency.
     /// </summary>
+    [IsoId("_Wh-tZSqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Substitution Requirement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal SubstitutionRequirement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal SubstitutionRequirement { get; init; } 
+    #else
+    public System.Decimal SubstitutionRequirement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the collateral that is substituted was posted against the variation margin or the independent amount.
     /// </summary>
+    [IsoId("_Wh-tZyqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Substitution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
+    #else
+    public CollateralSubstitutionType1Code CollateralSubstitutionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the standard settlement instructions.
     /// </summary>
+    [IsoId("_Wh-taSqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standard Settlement Instructions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? StandardSettlementInstructions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StandardSettlementInstructions { get; init; } 
+    #else
+    public System.String? StandardSettlementInstructions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collateral type is securities.
     /// </summary>
+    [IsoId("_Wh-tayqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCollateral12? SecuritiesCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesCollateral12? SecuritiesCollateral { get; init; } 
+    #else
+    public SecuritiesCollateral12? SecuritiesCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collateral type is cash.
     /// </summary>
+    [IsoId("_Wh-tbSqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCollateral3? CashCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashCollateral3? CashCollateral { get; init; } 
+    #else
+    public CashCollateral3? CashCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collateral type is other than securities or cash for example letter of credit.
     /// </summary>
+    [IsoId("_Wh-tbyqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherCollateral9? OtherCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherCollateral9? OtherCollateral { get; init; } 
+    #else
+    public OtherCollateral9? OtherCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the identification of previously sent and/or received message(s), in case of updated substitution request.
     /// </summary>
+    [IsoId("_Wh-tcSqSEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked References")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference17? LinkedReferences { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Reference17? LinkedReferences { get; init; } 
+    #else
+    public Reference17? LinkedReferences { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CollSbstitnSeq", xmlNamespace );
-        writer.WriteValue(CollateralSubstitutionSequence.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SbstitnRqrmnt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SubstitutionRequirement)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollSbstitnTp", xmlNamespace );
-        writer.WriteValue(CollateralSubstitutionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (StandardSettlementInstructions is IsoMax140Text StandardSettlementInstructionsValue)
-        {
-            writer.WriteStartElement(null, "StdSttlmInstrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(StandardSettlementInstructionsValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesCollateral is SecuritiesCollateral12 SecuritiesCollateralValue)
-        {
-            writer.WriteStartElement(null, "SctiesColl", xmlNamespace );
-            SecuritiesCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashCollateral is CashCollateral3 CashCollateralValue)
-        {
-            writer.WriteStartElement(null, "CshColl", xmlNamespace );
-            CashCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCollateral is OtherCollateral9 OtherCollateralValue)
-        {
-            writer.WriteStartElement(null, "OthrColl", xmlNamespace );
-            OtherCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LinkedReferences is Reference17 LinkedReferencesValue)
-        {
-            writer.WriteStartElement(null, "LkdRefs", xmlNamespace );
-            LinkedReferencesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralSubstitution8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

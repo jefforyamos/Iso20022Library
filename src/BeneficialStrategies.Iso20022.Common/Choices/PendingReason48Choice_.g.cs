@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code and a proprietary code to specify the reason why the instruction/event has a pending status.
-/// </summary>
-[KnownType(typeof(PendingReason48Choice.Code))]
-[KnownType(typeof(PendingReason48Choice.Proprietary))]
-public abstract partial record PendingReason48Choice_ : IIsoXmlSerilizable<PendingReason48Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code and a proprietary code to specify the reason why the instruction/event has a pending status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PendingReason48Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PendingReason48Choice.Code))]
+    [KnownType(typeof(PendingReason48Choice.Proprietary))]
+    [IsoId("_SfAJ04lsEeavwKddCbm3hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Reason 48 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PendingReason48Choice_
+    #else
+    public abstract partial class PendingReason48Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => PendingReason48Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => PendingReason48Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PendingReason48Choice choice.")
-        };
     }
 }

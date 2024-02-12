@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification4Choice;
-
-/// <summary>
-/// Canadian Payments Association Routing Number - identifies Canadian financial institutions on the Canadian national clearing system.
-/// </summary>
-public partial record CanadianPaymentsAssociationRoutingNumberIdentification : ClearingSystemMemberIdentification4Choice_
-     , IIsoXmlSerilizable<CanadianPaymentsAssociationRoutingNumberIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Canadian Payments Association Routing Number. Identifies Canadian financial institutions on the Canadian national clearing system.
+    /// Canadian Payments Association Routing Number - identifies Canadian financial institutions on the Canadian national clearing system.
     /// </summary>
-    public required IsoCanadianPaymentsARNIdentifier Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_VwSCd7NIEeejueAciesPMA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Canadian Payments Association Routing Number Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CanadianPaymentsAssociationRoutingNumberIdentification : ClearingSystemMemberIdentification4Choice_
+    #else
+    public partial class CanadianPaymentsAssociationRoutingNumberIdentification : ClearingSystemMemberIdentification4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CACPA", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCanadianPaymentsARNIdentifier(Value)); // data type CanadianPaymentsARNIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static new CanadianPaymentsAssociationRoutingNumberIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CanadianPaymentsAssociationRoutingNumberIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CanadianPaymentsAssociationRoutingNumberIdentification( System.String reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Canadian Payments Association Routing Number. Identifies Canadian financial institutions on the Canadian national clearing system.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoCanadianPaymentsARNIdentifier Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

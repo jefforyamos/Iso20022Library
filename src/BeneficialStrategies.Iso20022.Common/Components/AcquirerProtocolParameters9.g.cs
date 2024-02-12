@@ -7,223 +7,416 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
+[IsoId("_CegvYY36EeWRwov1g9WL_A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acquirer Protocol Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcquirerProtocolParameters9
-     : IIsoXmlSerilizable<AcquirerProtocolParameters9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AcquirerProtocolParameters9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AcquirerProtocolParameters9( TerminalManagementAction3Code reqActionType,System.String reqVersion,System.String reqProtectCardData )
+    {
+        ActionType = reqActionType;
+        Version = reqVersion;
+        ProtectCardData = reqProtectCardData;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [IsoId("_hBoTcI36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #else
+    public TerminalManagementAction3Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the acquirer using this protocol.
     /// </summary>
+    [IsoId("_CpYioY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public GenericIdentification53? AcquirerIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _CpYioY36EeWRwov1g9WL_A
+    
     /// <summary>
     /// Version of the acquirer protocol parameters.
     /// </summary>
+    [IsoId("_CpYio436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the payment application, user of the acquirer protocol.
     /// </summary>
+    [IsoId("_CpYipY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ApplicationIdentification { get; init; } 
+    #else
+    public System.String? ApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acquirer host configuration.
     /// </summary>
+    [IsoId("_CpYip436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerHostConfiguration3? Host { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcquirerHostConfiguration3? Host { get; init; } 
+    #else
+    public AcquirerHostConfiguration3? Host { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an online authorisation.
     /// </summary>
+    [IsoId("_CpYiqY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Line Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters8? OnLineTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcquirerProtocolParameters8? OnLineTransaction { get; init; } 
+    #else
+    public AcquirerProtocolParameters8? OnLineTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an offline authorisation.
     /// </summary>
+    [IsoId("_CpYiq436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Off Line Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters8? OffLineTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcquirerProtocolParameters8? OffLineTransaction { get; init; } 
+    #else
+    public AcquirerProtocolParameters8? OffLineTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters of reconciliation exchanges.
     /// </summary>
+    [IsoId("_CpYirY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeConfiguration6? ReconciliationExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeConfiguration6? ReconciliationExchange { get; init; } 
+    #else
+    public ExchangeConfiguration6? ReconciliationExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the reconciliation period is assigned by the acquirer instead of the acceptor.
     /// </summary>
+    [IsoId("_CpYir436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation By Acquirer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReconciliationByAcquirer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationByAcquirer { get; init; } 
+    #else
+    public System.String? ReconciliationByAcquirer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the reconciliation total amounts are computed per currency.
     /// </summary>
+    [IsoId("_CpYisY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Totals Per Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TotalsPerCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TotalsPerCurrency { get; init; } 
+    #else
+    public System.String? TotalsPerCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that totals in reconciliation or batch must be split per group of points of interaction and card product profiles when these information are present in the transactions.
     /// </summary>
+    [IsoId("_CpYis436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Split Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SplitTotals { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SplitTotals { get; init; } 
+    #else
+    public System.String? SplitTotals { get; set; } 
+    #endif
+    
     /// <summary>
     /// After an error in a totals of the Reconciliation, the POI sends transactions in error in the BatchTransfer messages.
     /// </summary>
+    [IsoId("_8yJ0EI36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Error")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReconciliationError { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationError { get; init; } 
+    #else
+    public System.String? ReconciliationError { get; set; } 
+    #endif
+    
     /// <summary>
     /// True if the POI must send card data (protected or plain card data) in the AcceptorCompletionAdvice message following an authorisation exchange.
     /// </summary>
+    [IsoId("_CpYitY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Data Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardDataVerification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardDataVerification { get; init; } 
+    #else
+    public System.String? CardDataVerification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Send a cancellation advice for offline transactions not yet captured.
     /// </summary>
+    [IsoId("_CpYit436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notify Off Line Cancellation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NotifyOffLineCancellation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NotifyOffLineCancellation { get; init; } 
+    #else
+    public System.String? NotifyOffLineCancellation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Types of transaction to include in the batch.
     /// </summary>
+    [IsoId("_CpYiuY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Batch Transfer Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BatchTransactionType1Code? BatchTransferContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BatchTransactionType1Code? BatchTransferContent { get; init; } 
+    #else
+    public BatchTransactionType1Code? BatchTransferContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// BatchTransfer are exchanged per file transfer protocol rather than per message.
     /// </summary>
+    [IsoId("_CpYiu436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("File Transfer Batch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FileTransferBatch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FileTransferBatch { get; init; } 
+    #else
+    public System.String? FileTransferBatch { get; set; } 
+    #endif
+    
     /// <summary>
     /// BatchTransfer are authenticated by digital signature rather than a MAC (Message Authentication Code).
     /// </summary>
+    [IsoId("_CpYivY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Batch Digital Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BatchDigitalSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BatchDigitalSignature { get; init; } 
+    #else
+    public System.String? BatchDigitalSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
+    [IsoId("_CpYiv436EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageItemCondition1? MessageItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageItemCondition1? MessageItem { get; init; } 
+    #else
+    public MessageItemCondition1? MessageItem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator to require protection of sensitive card data in messages.
     /// </summary>
+    [IsoId("_CpYiwY36EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ProtectCardData { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ProtectCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ProtectCardData { get; init; } 
+    #else
+    public System.String ProtectCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// A security trailer is mandatory in the messages.
     /// </summary>
+    [IsoId("_9CGpsI38EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandatory Security Trailer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MandatorySecurityTrailer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MandatorySecurityTrailer { get; init; } 
+    #else
+    public System.String? MandatorySecurityTrailer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        // Not sure how to serialize AcquirerIdentification, multiplicity Unknown
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        if (ApplicationIdentification is IsoMax35Text ApplicationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ApplId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Host is AcquirerHostConfiguration3 HostValue)
-        {
-            writer.WriteStartElement(null, "Hst", xmlNamespace );
-            HostValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OnLineTransaction is AcquirerProtocolParameters8 OnLineTransactionValue)
-        {
-            writer.WriteStartElement(null, "OnLineTx", xmlNamespace );
-            OnLineTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OffLineTransaction is AcquirerProtocolParameters8 OffLineTransactionValue)
-        {
-            writer.WriteStartElement(null, "OffLineTx", xmlNamespace );
-            OffLineTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationExchange is ExchangeConfiguration6 ReconciliationExchangeValue)
-        {
-            writer.WriteStartElement(null, "RcncltnXchg", xmlNamespace );
-            ReconciliationExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationByAcquirer is IsoTrueFalseIndicator ReconciliationByAcquirerValue)
-        {
-            writer.WriteStartElement(null, "RcncltnByAcqrr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReconciliationByAcquirerValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TotalsPerCurrency is IsoTrueFalseIndicator TotalsPerCurrencyValue)
-        {
-            writer.WriteStartElement(null, "TtlsPerCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TotalsPerCurrencyValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SplitTotals is IsoTrueFalseIndicator SplitTotalsValue)
-        {
-            writer.WriteStartElement(null, "SpltTtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SplitTotalsValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReconciliationError is IsoTrueFalseIndicator ReconciliationErrorValue)
-        {
-            writer.WriteStartElement(null, "RcncltnErr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReconciliationErrorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CardDataVerification is IsoTrueFalseIndicator CardDataVerificationValue)
-        {
-            writer.WriteStartElement(null, "CardDataVrfctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardDataVerificationValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (NotifyOffLineCancellation is IsoTrueFalseIndicator NotifyOffLineCancellationValue)
-        {
-            writer.WriteStartElement(null, "NtfyOffLineCxl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NotifyOffLineCancellationValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BatchTransferContent is BatchTransactionType1Code BatchTransferContentValue)
-        {
-            writer.WriteStartElement(null, "BtchTrfCntt", xmlNamespace );
-            writer.WriteValue(BatchTransferContentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FileTransferBatch is IsoTrueFalseIndicator FileTransferBatchValue)
-        {
-            writer.WriteStartElement(null, "FileTrfBtch", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FileTransferBatchValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BatchDigitalSignature is IsoTrueFalseIndicator BatchDigitalSignatureValue)
-        {
-            writer.WriteStartElement(null, "BtchDgtlSgntr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BatchDigitalSignatureValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MessageItem is MessageItemCondition1 MessageItemValue)
-        {
-            writer.WriteStartElement(null, "MsgItm", xmlNamespace );
-            MessageItemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PrtctCardData", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ProtectCardData)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (MandatorySecurityTrailer is IsoTrueFalseIndicator MandatorySecurityTrailerValue)
-        {
-            writer.WriteStartElement(null, "MndtrySctyTrlr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MandatorySecurityTrailerValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AcquirerProtocolParameters9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

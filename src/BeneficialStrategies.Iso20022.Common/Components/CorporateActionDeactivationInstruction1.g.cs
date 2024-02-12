@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the deactivation.
 /// </summary>
+[IsoId("_UJuMddp-Ed-ak6NoX_4Aeg_-1685692105")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Deactivation Instruction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDeactivationInstruction1
-     : IIsoXmlSerilizable<CorporateActionDeactivationInstruction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionDeactivationInstruction1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionDeactivationInstruction1( System.DateTime reqDeactivationDateAndTime )
+    {
+        DeactivationDateAndTime = reqDeactivationDateAndTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time at which the CSD must deactivate the corporate action event or the option.
     /// </summary>
+    [IsoId("_UJuMdtp-Ed-ak6NoX_4Aeg_1692268967")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deactivation Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DeactivationDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime DeactivationDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime DeactivationDateAndTime { get; init; } 
+    #else
+    public System.DateTime DeactivationDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the option, when the deactivation instruction applies at the level of a corporate action option.
     /// </summary>
+    [IsoId("_UJuMd9p-Ed-ak6NoX_4Aeg_972006480")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption2? OptionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption2? OptionDetails { get; init; } 
+    #else
+    public CorporateActionOption2? OptionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DeactvtnDtAndTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(DeactivationDateAndTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (OptionDetails is CorporateActionOption2 OptionDetailsValue)
-        {
-            writer.WriteStartElement(null, "OptnDtls", xmlNamespace );
-            OptionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDeactivationInstruction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

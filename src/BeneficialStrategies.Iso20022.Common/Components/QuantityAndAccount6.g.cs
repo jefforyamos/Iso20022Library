@@ -7,120 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the quantity, account and other related information involved in a transaction.
 /// </summary>
+[IsoId("_UbTrv9p-Ed-ak6NoX_4Aeg_1619096303")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Quantity And Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record QuantityAndAccount6
-     : IIsoXmlSerilizable<QuantityAndAccount6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a QuantityAndAccount6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public QuantityAndAccount6( Quantity6Choice_ reqSettledQuantity,SecuritiesAccount13 reqSafekeepingAccount )
+    {
+        SettledQuantity = reqSettledQuantity;
+        SafekeepingAccount = reqSafekeepingAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
+    [IsoId("_Ubc1oNp-Ed-ak6NoX_4Aeg_383753548")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity6Choice_ SettledQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Quantity6Choice_ SettledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity6Choice_ SettledQuantity { get; init; } 
+    #else
+    public Quantity6Choice_ SettledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
+    [IsoId("_Ubc1odp-Ed-ak6NoX_4Aeg_1619096948")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previously Settled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
+    [IsoId("_Ubc1otp-Ed-ak6NoX_4Aeg_1619096905")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining To Be Settled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
+    [IsoId("_Ubc1o9p-Ed-ak6NoX_4Aeg_1764919041")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previously Settled Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection5? PreviouslySettledAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection5? PreviouslySettledAmount { get; init; } 
+    #else
+    public AmountAndDirection5? PreviouslySettledAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money remaining to be settled.
     /// </summary>
+    [IsoId("_Ubc1pNp-Ed-ak6NoX_4Aeg_1622699680")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining To Be Settled Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection5? RemainingToBeSettledAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection5? RemainingToBeSettledAmount { get; init; } 
+    #else
+    public AmountAndDirection5? RemainingToBeSettledAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [IsoId("_Ubc1pdp-Ed-ak6NoX_4Aeg_1619096750")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
+    #else
+    public PartyIdentification13Choice_? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [IsoId("_Ubc1ptp-Ed-ak6NoX_4Aeg_1619097260")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesAccount13 SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount13 SafekeepingAccount { get; init; } 
+    #else
+    public SecuritiesAccount13 SafekeepingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [IsoId("_Ubc1p9p-Ed-ak6NoX_4Aeg_1619096329")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
+    #else
+    public CashAccountIdentification5Choice_? CashAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [IsoId("_Ubc1qNp-Ed-ak6NoX_4Aeg_144007370")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
+    #else
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttldQty", xmlNamespace );
-        SettledQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviouslySettledQuantity is FinancialInstrumentQuantity1Choice_ PreviouslySettledQuantityValue)
-        {
-            writer.WriteStartElement(null, "PrevslySttldQty", xmlNamespace );
-            PreviouslySettledQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemainingToBeSettledQuantity is FinancialInstrumentQuantity1Choice_ RemainingToBeSettledQuantityValue)
-        {
-            writer.WriteStartElement(null, "RmngToBeSttldQty", xmlNamespace );
-            RemainingToBeSettledQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviouslySettledAmount is AmountAndDirection5 PreviouslySettledAmountValue)
-        {
-            writer.WriteStartElement(null, "PrevslySttldAmt", xmlNamespace );
-            PreviouslySettledAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemainingToBeSettledAmount is AmountAndDirection5 RemainingToBeSettledAmountValue)
-        {
-            writer.WriteStartElement(null, "RmngToBeSttldAmt", xmlNamespace );
-            RemainingToBeSettledAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-        SafekeepingAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
-        {
-            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-            CashAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingPlace is SafekeepingPlaceFormat3Choice_ SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static QuantityAndAccount6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

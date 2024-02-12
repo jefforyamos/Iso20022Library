@@ -7,186 +7,310 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of price and information about the price.
 /// </summary>
+[IsoId("__ayE0TAiEeOUGqA1wUwNLA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Prices")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherPrices2
-     : IIsoXmlSerilizable<OtherPrices2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the maximum price.
     /// </summary>
+    [IsoId("__yuqwTAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Maximum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? Maximum { get; init; } 
+    #else
+    public Price4? Maximum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the transaction price.
     /// </summary>
+    [IsoId("__yuqwzAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? Transaction { get; init; } 
+    #else
+    public Price4? Transaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market price including or excluding the broker's commission.
     /// </summary>
+    [IsoId("__yuqxTAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Broker Commission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? MarketBrokerCommission { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? MarketBrokerCommission { get; init; } 
+    #else
+    public Price4? MarketBrokerCommission { get; set; } 
+    #endif
+    
     /// <summary>
     /// In case of an order to buy, the price that the broker paid on the market plus the broker's commission.
     /// </summary>
+    [IsoId("__yuqxzAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Marked Up")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? MarkedUp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? MarkedUp { get; init; } 
+    #else
+    public Price4? MarkedUp { get; set; } 
+    #endif
+    
     /// <summary>
     /// In case of an order to sell, the price the broker receives in the market minus the broker's commission.
     /// </summary>
+    [IsoId("__yuqyTAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Marked Down")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? MarkedDown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? MarkedDown { get; init; } 
+    #else
+    public Price4? MarkedDown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price is net to the disclosed client.
     /// </summary>
+    [IsoId("__yuqyzAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Disclosed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NetDisclosed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? NetDisclosed { get; init; } 
+    #else
+    public Price4? NetDisclosed { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price is net to the client undisclosed (used in the UK market).
     /// </summary>
+    [IsoId("__yuqzTAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Undisclosed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NetUndisclosed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? NetUndisclosed { get; init; } 
+    #else
+    public Price4? NetUndisclosed { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price is notional gross (used in the UK market).
     /// </summary>
+    [IsoId("__yuqzzAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notional Gross")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NotionalGross { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? NotionalGross { get; init; } 
+    #else
+    public Price4? NotionalGross { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price is weighted average price of the benchmark prices at the time of each partial fill.
     /// </summary>
+    [IsoId("__yuq0TAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Benchmark Weighted Average")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? BenchmarkWeightedAverage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? BenchmarkWeightedAverage { get; init; } 
+    #else
+    public Price4? BenchmarkWeightedAverage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price is weighted average price of all market executions during the completion of the order.
     /// </summary>
+    [IsoId("__yuq0zAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("All Markets Weighted Average")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? AllMarketsWeightedAverage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? AllMarketsWeightedAverage { get; init; } 
+    #else
+    public Price4? AllMarketsWeightedAverage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price is a benchmark price relating to the current partial fills (eg, last trade tick from market).
     /// </summary>
+    [IsoId("__yuq1TAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Benchmark")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Benchmark { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? Benchmark { get; init; } 
+    #else
+    public Price4? Benchmark { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of price that is not defined explicitly.
     /// </summary>
+    [IsoId("__yuq1zAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? OtherPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? OtherPrice { get; init; } 
+    #else
+    public Price4? OtherPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price of securities representing a particular market or a portion of it.
     /// </summary>
+    [IsoId("__yuq2TAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? IndexPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? IndexPrice { get; init; } 
+    #else
+    public Price4? IndexPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price used to differentiate from price on a confirmation of a marked up or marked down principal trade.
     /// </summary>
+    [IsoId("__yuq2zAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reported Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? ReportedPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? ReportedPrice { get; init; } 
+    #else
+    public Price4? ReportedPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price of reference of the concerned financial instrument.
     /// </summary>
+    [IsoId("__yuq3TAiEeOUGqA1wUwNLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceInformation11? ReferencePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceInformation11? ReferencePrice { get; init; } 
+    #else
+    public PriceInformation11? ReferencePrice { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Maximum is Price4 MaximumValue)
-        {
-            writer.WriteStartElement(null, "Max", xmlNamespace );
-            MaximumValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Transaction is Price4 TransactionValue)
-        {
-            writer.WriteStartElement(null, "Tx", xmlNamespace );
-            TransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketBrokerCommission is Price4 MarketBrokerCommissionValue)
-        {
-            writer.WriteStartElement(null, "MktBrkrComssn", xmlNamespace );
-            MarketBrokerCommissionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarkedUp is Price4 MarkedUpValue)
-        {
-            writer.WriteStartElement(null, "MrkdUp", xmlNamespace );
-            MarkedUpValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarkedDown is Price4 MarkedDownValue)
-        {
-            writer.WriteStartElement(null, "MrkdDwn", xmlNamespace );
-            MarkedDownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetDisclosed is Price4 NetDisclosedValue)
-        {
-            writer.WriteStartElement(null, "NetDscld", xmlNamespace );
-            NetDisclosedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetUndisclosed is Price4 NetUndisclosedValue)
-        {
-            writer.WriteStartElement(null, "NetUdscld", xmlNamespace );
-            NetUndisclosedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NotionalGross is Price4 NotionalGrossValue)
-        {
-            writer.WriteStartElement(null, "NtnlGrss", xmlNamespace );
-            NotionalGrossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BenchmarkWeightedAverage is Price4 BenchmarkWeightedAverageValue)
-        {
-            writer.WriteStartElement(null, "BchmkWghtdAvrg", xmlNamespace );
-            BenchmarkWeightedAverageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AllMarketsWeightedAverage is Price4 AllMarketsWeightedAverageValue)
-        {
-            writer.WriteStartElement(null, "AllMktsWghtdAvrg", xmlNamespace );
-            AllMarketsWeightedAverageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Benchmark is Price4 BenchmarkValue)
-        {
-            writer.WriteStartElement(null, "Bchmk", xmlNamespace );
-            BenchmarkValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherPrice is Price4 OtherPriceValue)
-        {
-            writer.WriteStartElement(null, "OthrPric", xmlNamespace );
-            OtherPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IndexPrice is Price4 IndexPriceValue)
-        {
-            writer.WriteStartElement(null, "IndxPric", xmlNamespace );
-            IndexPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportedPrice is Price4 ReportedPriceValue)
-        {
-            writer.WriteStartElement(null, "RptdPric", xmlNamespace );
-            ReportedPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferencePrice is PriceInformation11 ReferencePriceValue)
-        {
-            writer.WriteStartElement(null, "RefPric", xmlNamespace );
-            ReferencePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherPrices2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

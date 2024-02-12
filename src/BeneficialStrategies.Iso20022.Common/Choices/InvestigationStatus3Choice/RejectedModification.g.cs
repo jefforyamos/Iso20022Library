@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice;
-
-/// <summary>
-/// Reason for the rejection of a modification request, in a coded form.
-/// </summary>
-public partial record RejectedModification : InvestigationStatus3Choice_
-     , IIsoXmlSerilizable<RejectedModification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies the reason for rejecting a modification reject.
+    /// Reason for the rejection of a modification request, in a coded form.
     /// </summary>
-    public required ModificationRejection2Code Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_tx5SA1kyEeGeoaLUQk__nA_-1756023474")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Modification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record RejectedModification : InvestigationStatus3Choice_
+    #else
+    public partial class RejectedModification : InvestigationStatus3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RjctdMod", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new RejectedModification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a RejectedModification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public RejectedModification( ModificationRejection2Code reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies the reason for rejecting a modification reject.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ModificationRejection2Code Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ModificationRejection2Code Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ModificationRejection2Code Value { get; init; } 
+        #else
+        public ModificationRejection2Code Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

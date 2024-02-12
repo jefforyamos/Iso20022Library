@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the trading capacity of the party.
-/// </summary>
-[KnownType(typeof(TradeOriginator1Choice.Code))]
-[KnownType(typeof(TradeOriginator1Choice.Proprietary))]
-public abstract partial record TradeOriginator1Choice_ : IIsoXmlSerilizable<TradeOriginator1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the trading capacity of the party.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeOriginator1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeOriginator1Choice.Code))]
+    [KnownType(typeof(TradeOriginator1Choice.Proprietary))]
+    [IsoId("_QsvINNp-Ed-ak6NoX_4Aeg_-1081021298")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Originator 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeOriginator1Choice_
+    #else
+    public abstract partial class TradeOriginator1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TradeOriginator1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TradeOriginator1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeOriginator1Choice choice.")
-        };
     }
 }

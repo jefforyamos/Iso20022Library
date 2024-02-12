@@ -7,146 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[IsoId("_gX0DsRcCEeyroI8qKgB7Mg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Narrative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNarrative52
-     : IIsoXmlSerilizable<CorporateActionNarrative52>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
+    [IsoId("_gtIMYxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Text")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? AdditionalText { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? AdditionalText { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? AdditionalText { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
+    [IsoId("_gtIMaxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Narrative Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? NarrativeVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? NarrativeVersion { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? NarrativeVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
+    [IsoId("_gtIMcxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? InformationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? InformationConditions { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? InformationConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
+    [IsoId("_gtIMexcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information To Comply With")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? InformationToComplyWith { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? InformationToComplyWith { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? InformationToComplyWith { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
+    [IsoId("_gtIMgxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxation Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? TaxationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? TaxationConditions { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? TaxationConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides a disclaimer relative to the information provided in the message. It may be ignored for automated processing.
     /// </summary>
+    [IsoId("_gtIMixcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Disclaimer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? Disclaimer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? Disclaimer { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? Disclaimer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [IsoId("_gtIMkxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Contact Narrative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? PartyContactNarrative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? PartyContactNarrative { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? PartyContactNarrative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
+    [IsoId("_gtIMmxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? RegistrationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? RegistrationDetails { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? RegistrationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information on the basket or index underlying a security, for example a warrant.
     /// </summary>
+    [IsoId("_gtIMoxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket Or Index Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? BasketOrIndexInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? BasketOrIndexInformation { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? BasketOrIndexInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
+    [IsoId("_gtIMqxcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? CertificationBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? CertificationBreakdown { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? CertificationBreakdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information from the account servicer or a service provider solely intended for the next immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
+    [IsoId("_dlTf0RcCEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Text For Next Intermediary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation1? ProcessingTextForNextIntermediary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedAdditionalInformation1? ProcessingTextForNextIntermediary { get; init; } 
+    #else
+    public UpdatedAdditionalInformation1? ProcessingTextForNextIntermediary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AdditionalText is UpdatedAdditionalInformation1 AdditionalTextValue)
-        {
-            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
-            AdditionalTextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NarrativeVersion is UpdatedAdditionalInformation1 NarrativeVersionValue)
-        {
-            writer.WriteStartElement(null, "NrrtvVrsn", xmlNamespace );
-            NarrativeVersionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InformationConditions is UpdatedAdditionalInformation1 InformationConditionsValue)
-        {
-            writer.WriteStartElement(null, "InfConds", xmlNamespace );
-            InformationConditionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InformationToComplyWith is UpdatedAdditionalInformation1 InformationToComplyWithValue)
-        {
-            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
-            InformationToComplyWithValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxationConditions is UpdatedAdditionalInformation1 TaxationConditionsValue)
-        {
-            writer.WriteStartElement(null, "TaxtnConds", xmlNamespace );
-            TaxationConditionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Disclaimer is UpdatedAdditionalInformation1 DisclaimerValue)
-        {
-            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
-            DisclaimerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PartyContactNarrative is UpdatedAdditionalInformation1 PartyContactNarrativeValue)
-        {
-            writer.WriteStartElement(null, "PtyCtctNrrtv", xmlNamespace );
-            PartyContactNarrativeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RegistrationDetails is UpdatedAdditionalInformation1 RegistrationDetailsValue)
-        {
-            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
-            RegistrationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BasketOrIndexInformation is UpdatedAdditionalInformation1 BasketOrIndexInformationValue)
-        {
-            writer.WriteStartElement(null, "BsktOrIndxInf", xmlNamespace );
-            BasketOrIndexInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CertificationBreakdown is UpdatedAdditionalInformation1 CertificationBreakdownValue)
-        {
-            writer.WriteStartElement(null, "CertfctnBrkdwn", xmlNamespace );
-            CertificationBreakdownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingTextForNextIntermediary is UpdatedAdditionalInformation1 ProcessingTextForNextIntermediaryValue)
-        {
-            writer.WriteStartElement(null, "PrcgTxtForNxtIntrmy", xmlNamespace );
-            ProcessingTextForNextIntermediaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNarrative52 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

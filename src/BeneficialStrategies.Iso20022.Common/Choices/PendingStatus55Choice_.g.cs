@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a reason and no reason for the general meeting instruction processing pending status.
-/// </summary>
-[KnownType(typeof(PendingStatus55Choice.NoSpecifiedReason))]
-[KnownType(typeof(PendingStatus55Choice.Reason))]
-public abstract partial record PendingStatus55Choice_ : IIsoXmlSerilizable<PendingStatus55Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a reason and no reason for the general meeting instruction processing pending status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PendingStatus55Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PendingStatus55Choice.NoSpecifiedReason))]
+    [KnownType(typeof(PendingStatus55Choice.Reason))]
+    [IsoId("_Tfp1KbKdEemux5trsZcCpw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Status 55 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PendingStatus55Choice_
+    #else
+    public abstract partial class PendingStatus55Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => PendingStatus55Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => PendingStatus55Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PendingStatus55Choice choice.")
-        };
     }
 }

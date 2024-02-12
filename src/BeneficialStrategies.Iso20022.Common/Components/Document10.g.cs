@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a document.
 /// </summary>
+[IsoId("_96YbSXltEeG7BsjMvd1mEw_-172031402")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Document")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Document10
-     : IIsoXmlSerilizable<Document10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Document10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Document10( UndertakingDocumentType2Choice_ reqDocumentType )
+    {
+        DocumentType = reqDocumentType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of document.
     /// </summary>
+    [IsoId("_96YbSnltEeG7BsjMvd1mEw_-1696622720")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingDocumentType2Choice_ DocumentType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingDocumentType2Choice_ DocumentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingDocumentType2Choice_ DocumentType { get; init; } 
+    #else
+    public UndertakingDocumentType2Choice_ DocumentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Channel through which the document should be presented.
     /// </summary>
+    [IsoId("_96iMQHltEeG7BsjMvd1mEw_1601272223")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Presentation Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Channel1Choice_? PresentationChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Channel1Choice_? PresentationChannel { get; init; } 
+    #else
+    public Channel1Choice_? PresentationChannel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Format of the document.
     /// </summary>
+    [IsoId("_96iMQXltEeG7BsjMvd1mEw_681238571")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentFormat1Choice_? DocumentFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentFormat1Choice_? DocumentFormat { get; init; } 
+    #else
+    public DocumentFormat1Choice_? DocumentFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication whether the document may be a copy of the original document.
     /// </summary>
+    [IsoId("_96iMQnltEeG7BsjMvd1mEw_1954061068")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Copy Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CopyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CopyIndicator { get; init; } 
+    #else
+    public System.String? CopyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication whether the document must be signed.
     /// </summary>
+    [IsoId("_96iMQ3ltEeG7BsjMvd1mEw_1042190213")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signed Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SignedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SignedIndicator { get; init; } 
+    #else
+    public System.String? SignedIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DocTp", xmlNamespace );
-        DocumentType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PresentationChannel is Channel1Choice_ PresentationChannelValue)
-        {
-            writer.WriteStartElement(null, "PresntnChanl", xmlNamespace );
-            PresentationChannelValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DocumentFormat is DocumentFormat1Choice_ DocumentFormatValue)
-        {
-            writer.WriteStartElement(null, "DocFrmt", xmlNamespace );
-            DocumentFormatValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CopyIndicator is IsoYesNoIndicator CopyIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CpyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CopyIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SignedIndicator is IsoYesNoIndicator SignedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SgndInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Document10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

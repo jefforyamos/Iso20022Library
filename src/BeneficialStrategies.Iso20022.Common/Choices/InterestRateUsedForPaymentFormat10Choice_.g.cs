@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an amount or a rate or an unspecified rate.
-/// </summary>
-[KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.Rate))]
-[KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.Amount))]
-[KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus))]
-[KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate))]
-public abstract partial record InterestRateUsedForPaymentFormat10Choice_ : IIsoXmlSerilizable<InterestRateUsedForPaymentFormat10Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an amount or a rate or an unspecified rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InterestRateUsedForPaymentFormat10Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.Rate))]
+    [KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.Amount))]
+    [KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus))]
+    [KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate))]
+    [IsoId("_cteBw5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate Used For Payment Format 10 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InterestRateUsedForPaymentFormat10Choice_
+    #else
+    public abstract partial class InterestRateUsedForPaymentFormat10Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rate" => InterestRateUsedForPaymentFormat10Choice.Rate.Deserialize(elementWithPayload),
-             "Amt" => InterestRateUsedForPaymentFormat10Choice.Amount.Deserialize(elementWithPayload),
-             "RateTpAndAmtAndRateSts" => InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InterestRateUsedForPaymentFormat10Choice choice.")
-        };
     }
 }

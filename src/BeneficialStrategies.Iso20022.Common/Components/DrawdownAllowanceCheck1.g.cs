@@ -7,17 +7,37 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Drawdown allowance check. For pensions that have a lifetime allowance, a check is made of the maximum value of benefits that may be taken from the pension without incurring a special tax. (This check or 'event' is known as the benefit crystallisation event in the UK market.)
 /// </summary>
+[IsoId("_6Oo4kLGuEeirN-C08vro8Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Drawdown Allowance Check")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DrawdownAllowanceCheck1
-     : IIsoXmlSerilizable<DrawdownAllowanceCheck1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,40 +45,43 @@ public partial record DrawdownAllowanceCheck1
     /// If the Benefit Crystallised Event (BCE ) is other than 1 and 6 then the BCEIndicator must contain the value "true'.
     /// If the Benefit Crystallised Event (BCE ) is 1 or 6 then the BCEIndicator must contain the value false'.
     /// </summary>
+    [IsoId("_Y6dFoLGvEeirN-C08vro8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("BCE Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BCEIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BCEIndicator { get; init; } 
+    #else
+    public System.String? BCEIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Species information about the drawdown allowance check.
     /// </summary>
+    [IsoId("_cZUZMLGvEeirN-C08vro8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? CheckInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CheckInformation { get; init; } 
+    #else
+    public System.String? CheckInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BCEIndicator is IsoYesNoIndicator BCEIndicatorValue)
-        {
-            writer.WriteStartElement(null, "BCEInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BCEIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CheckInformation is IsoMax350Text CheckInformationValue)
-        {
-            writer.WriteStartElement(null, "ChckInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(CheckInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DrawdownAllowanceCheck1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

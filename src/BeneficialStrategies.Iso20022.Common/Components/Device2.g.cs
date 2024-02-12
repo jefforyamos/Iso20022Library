@@ -7,156 +7,283 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the customer device.
 /// </summary>
+[IsoId("_HWMLUYKvEeu4svNQ5N-l6w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Device2
-     : IIsoXmlSerilizable<Device2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Manufacturer of the device.
     /// </summary>
+    [IsoId("_2JR5oJfGEeuBSOvOJYhcGw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Manufacturer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Manufacturer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Manufacturer { get; init; } 
+    #else
+    public System.String? Manufacturer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Manufacturer's identification of the model.
     /// </summary>
+    [IsoId("_GQ2aIJfHEeuBSOvOJYhcGw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Manufacturer Model Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ManufacturerModelIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ManufacturerModelIdentification { get; init; } 
+    #else
+    public System.String? ManufacturerModelIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of customer device.
     /// </summary>
+    [IsoId("_HcUogYKvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerDeviceType2Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerDeviceType2Code? Type { get; init; } 
+    #else
+    public CustomerDeviceType2Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of customer device in free text.
     /// </summary>
+    [IsoId("_HcUog4KvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherType { get; init; } 
+    #else
+    public System.String? OtherType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Preferred language set on the device
     /// </summary>
+    [IsoId("_HcUohYKvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? Language { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Language { get; init; } 
+    #else
+    public string? Language { get; set; } 
+    #endif
+    
     /// <summary>
     /// Phone number associated with the device.
     /// </summary>
+    [IsoId("_HcUoh4KvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Phone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? PhoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PhoneNumber { get; init; } 
+    #else
+    public System.String? PhoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Geographical location of the device.
     /// </summary>
+    [IsoId("_HcUoiYKvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Geographic Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 27 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GeographicLocation { get; init; } 
+    #else
+    public System.String? GeographicLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the location.
     /// </summary>
+    [IsoId("_xfLaoJfJEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCountryCode? LocationCountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LocationCountryCode { get; init; } 
+    #else
+    public string? LocationCountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Internet Protocol address associated with the device.
     /// </summary>
+    [IsoId("_HcUoi4KvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("IP Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? IPAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IPAddress { get; init; } 
+    #else
+    public System.String? IPAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Electronic mail address associated with the device.
     /// </summary>
+    [IsoId("_HcUojYKvEeu4svNQ5N-l6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Email")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Email { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Email { get; init; } 
+    #else
+    public System.String? Email { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer's name of the device.
     /// </summary>
+    [IsoId("_AyfzsJfKEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Device Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 100 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? DeviceName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeviceName { get; init; } 
+    #else
+    public System.String? DeviceName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer assigned device name, normalized.
     /// </summary>
+    [IsoId("_158gUJfKEeuqNYk2TG3bTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Device Name Normalized")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 100 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? DeviceNameNormalized { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeviceNameNormalized { get; init; } 
+    #else
+    public System.String? DeviceNameNormalized { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Manufacturer is IsoMax70Text ManufacturerValue)
-        {
-            writer.WriteStartElement(null, "Manfctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ManufacturerValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ManufacturerModelIdentification is IsoMax70Text ManufacturerModelIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ManfctrMdlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ManufacturerModelIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is CustomerDeviceType2Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherType is IsoMax35Text OtherTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Language is LanguageCode LanguageValue)
-        {
-            writer.WriteStartElement(null, "Lang", xmlNamespace );
-            writer.WriteValue(LanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (GeographicLocation is IsoGeographicPointInDecimalDegrees GeographicLocationValue)
-        {
-            writer.WriteStartElement(null, "GeogcLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoGeographicPointInDecimalDegrees(GeographicLocationValue)); // data type GeographicPointInDecimalDegrees System.String
-            writer.WriteEndElement();
-        }
-        if (LocationCountryCode is ISO3NumericCountryCode LocationCountryCodeValue)
-        {
-            writer.WriteStartElement(null, "LctnCtryCd", xmlNamespace );
-            writer.WriteValue(LocationCountryCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (IPAddress is IsoMax70Text IPAddressValue)
-        {
-            writer.WriteStartElement(null, "IPAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(IPAddressValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Email is IsoMax256Text EmailValue)
-        {
-            writer.WriteStartElement(null, "Email", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeviceName is IsoMax100Text DeviceNameValue)
-        {
-            writer.WriteStartElement(null, "DvcNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100Text(DeviceNameValue)); // data type Max100Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeviceNameNormalized is IsoMax100Text DeviceNameNormalizedValue)
-        {
-            writer.WriteStartElement(null, "DvcNmNrmlzd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100Text(DeviceNameNormalizedValue)); // data type Max100Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Device2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

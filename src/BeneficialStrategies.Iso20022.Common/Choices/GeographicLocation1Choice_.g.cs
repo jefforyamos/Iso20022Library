@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Geographic location of the ATM specified by geographic coordinates or UTM coordinates.
-/// </summary>
-[KnownType(typeof(GeographicLocation1Choice.GeographicCoordinates))]
-[KnownType(typeof(GeographicLocation1Choice.UTMCoordinates))]
-public abstract partial record GeographicLocation1Choice_ : IIsoXmlSerilizable<GeographicLocation1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Geographic location of the ATM specified by geographic coordinates or UTM coordinates.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static GeographicLocation1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(GeographicLocation1Choice.GeographicCoordinates))]
+    [KnownType(typeof(GeographicLocation1Choice.UTMCoordinates))]
+    [IsoId("_4klZMIn4EeShMpas3885ww")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Geographic Location 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record GeographicLocation1Choice_
+    #else
+    public abstract partial class GeographicLocation1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "GeogcCordints" => GeographicLocation1Choice.GeographicCoordinates.Deserialize(elementWithPayload),
-             "UTMCordints" => GeographicLocation1Choice.UTMCoordinates.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid GeographicLocation1Choice choice.")
-        };
     }
 }

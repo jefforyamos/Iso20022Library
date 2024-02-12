@@ -7,71 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the comparison between the currently established baseline elements and the proposed ones.
 /// </summary>
+[IsoId("_k2l3k-5NEeCisYr99QEiWA_603606073")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Account Reference Data Change")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashAccountReferenceDataChange1
-     : IIsoXmlSerilizable<CashAccountReferenceDataChange1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashAccountReferenceDataChange1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashAccountReferenceDataChange1( CashAccount24 reqCashAccountIdentification,System.String reqFieldName,System.String reqOldFieldValue,System.String reqNewFieldValue,System.DateTime reqOperationTimeStamp )
+    {
+        CashAccountIdentification = reqCashAccountIdentification;
+        FieldName = reqFieldName;
+        OldFieldValue = reqOldFieldValue;
+        NewFieldValue = reqNewFieldValue;
+        OperationTimeStamp = reqOperationTimeStamp;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the cash account for which the changes are listed in the advice.
     /// </summary>
+    [IsoId("_k2l3lO5NEeCisYr99QEiWA_70533986")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 CashAccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount24 CashAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24 CashAccountIdentification { get; init; } 
+    #else
+    public CashAccount24 CashAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the element, as specified in the short tag name for the field in the message.
     /// </summary>
+    [IsoId("_k2vBgO5NEeCisYr99QEiWA_489767007")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Field Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text FieldName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FieldName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FieldName { get; init; } 
+    #else
+    public System.String FieldName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the related field before the change was applied.
     /// </summary>
+    [IsoId("_k2vBge5NEeCisYr99QEiWA_-1504377699")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Old Field Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text OldFieldValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OldFieldValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OldFieldValue { get; init; } 
+    #else
+    public System.String OldFieldValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the related field after the change was applied.
     /// </summary>
+    [IsoId("_k2vBgu5NEeCisYr99QEiWA_-158428075")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Field Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text NewFieldValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NewFieldValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NewFieldValue { get; init; } 
+    #else
+    public System.String NewFieldValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the timestamp of the operation.
     /// </summary>
+    [IsoId("_k2vBg-5NEeCisYr99QEiWA_-393466280")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Operation Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime OperationTimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime OperationTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime OperationTimeStamp { get; init; } 
+    #else
+    public System.DateTime OperationTimeStamp { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CshAcctId", xmlNamespace );
-        CashAccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FldNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(FieldName)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OdFldVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(OldFieldValue)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NewFldVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(NewFieldValue)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OprTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(OperationTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static CashAccountReferenceDataChange1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

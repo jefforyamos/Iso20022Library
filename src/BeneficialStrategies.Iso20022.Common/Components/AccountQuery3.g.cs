@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specification of the query criteria.
 /// </summary>
+[IsoId("_PTgkR249EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Query")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountQuery3
-     : IIsoXmlSerilizable<AccountQuery3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [IsoId("_PhEfE249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QueryType2Code? QueryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QueryType2Code? QueryType { get; init; } 
+    #else
+    public QueryType2Code? QueryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the account query criteria.
     /// </summary>
+    [IsoId("_PhEfFW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountCriteria3Choice_? AccountCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountCriteria3Choice_? AccountCriteria { get; init; } 
+    #else
+    public AccountCriteria3Choice_? AccountCriteria { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (QueryType is QueryType2Code QueryTypeValue)
-        {
-            writer.WriteStartElement(null, "QryTp", xmlNamespace );
-            writer.WriteValue(QueryTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AccountCriteria is AccountCriteria3Choice_ AccountCriteriaValue)
-        {
-            writer.WriteStartElement(null, "AcctCrit", xmlNamespace );
-            AccountCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountQuery3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

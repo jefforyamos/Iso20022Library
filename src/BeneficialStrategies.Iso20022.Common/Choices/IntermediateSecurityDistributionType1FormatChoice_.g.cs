@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats to express the type of intermediate security distribution.
-/// </summary>
-[KnownType(typeof(IntermediateSecurityDistributionType1FormatChoice.Code))]
-[KnownType(typeof(IntermediateSecurityDistributionType1FormatChoice.Proprietary))]
-public abstract partial record IntermediateSecurityDistributionType1FormatChoice_ : IIsoXmlSerilizable<IntermediateSecurityDistributionType1FormatChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats to express the type of intermediate security distribution.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IntermediateSecurityDistributionType1FormatChoice_ Deserialize(XElement element)
+    [KnownType(typeof(IntermediateSecurityDistributionType1FormatChoice.Code))]
+    [KnownType(typeof(IntermediateSecurityDistributionType1FormatChoice.Proprietary))]
+    [IsoId("_Rms2Etp-Ed-ak6NoX_4Aeg_-820578542")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediate Security Distribution Type 1 Format Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IntermediateSecurityDistributionType1FormatChoice_
+    #else
+    public abstract partial class IntermediateSecurityDistributionType1FormatChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => IntermediateSecurityDistributionType1FormatChoice.Code.Deserialize(elementWithPayload),
-             "Prtry" => IntermediateSecurityDistributionType1FormatChoice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IntermediateSecurityDistributionType1FormatChoice choice.")
-        };
     }
 }

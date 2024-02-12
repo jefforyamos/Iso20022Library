@@ -7,84 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the processing of the transaction.
 /// </summary>
+[IsoId("_lsmvER1NEey8XKHwKquEQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Processing Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProcessingResult19
-     : IIsoXmlSerilizable<ProcessingResult19>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProcessingResult19 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProcessingResult19( ResultData10 reqResultData )
+    {
+        ResultData = reqResultData;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information about the entity that provides the response.
     /// </summary>
+    [IsoId("_MXGhcCFVEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApprovalEntity2? ResponseSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ApprovalEntity2? ResponseSource { get; init; } 
+    #else
+    public ApprovalEntity2? ResponseSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the processing.
     /// </summary>
+    [IsoId("_lyq60R1NEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResultData10 ResultData { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResultData10 ResultData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResultData10 ResultData { get; init; } 
+    #else
+    public ResultData10 ResultData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Error detail information
     /// </summary>
+    [IsoId("_R-g14CFVEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Error Detail")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ErrorDetails2? ErrorDetail { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ErrorDetails2? ErrorDetail { get; init; } 
+    #else
+    public ErrorDetails2? ErrorDetail { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
+    [IsoId("_lyq60x1NEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Result Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData7? OriginalResultData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResultData7? OriginalResultData { get; init; } 
+    #else
+    public ResultData7? OriginalResultData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
+    [IsoId("_lyq61R1NEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation30? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation30? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation30? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ResponseSource is ApprovalEntity2 ResponseSourceValue)
-        {
-            writer.WriteStartElement(null, "RspnSrc", xmlNamespace );
-            ResponseSourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RsltData", xmlNamespace );
-        ResultData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ErrorDetail is ErrorDetails2 ErrorDetailValue)
-        {
-            writer.WriteStartElement(null, "ErrDtl", xmlNamespace );
-            ErrorDetailValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalResultData is ResultData7 OriginalResultDataValue)
-        {
-            writer.WriteStartElement(null, "OrgnlRsltData", xmlNamespace );
-            OriginalResultDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation30 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ProcessingResult19 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

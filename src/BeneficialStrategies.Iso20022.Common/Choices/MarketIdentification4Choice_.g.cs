@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of market identification.
-/// </summary>
-[KnownType(typeof(MarketIdentification4Choice.MarketIdentifierCode))]
-[KnownType(typeof(MarketIdentification4Choice.Description))]
-public abstract partial record MarketIdentification4Choice_ : IIsoXmlSerilizable<MarketIdentification4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of market identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MarketIdentification4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MarketIdentification4Choice.MarketIdentifierCode))]
+    [KnownType(typeof(MarketIdentification4Choice.Description))]
+    [IsoId("_04BcYQk_EeGQpPnjvNlciw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Identification 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MarketIdentification4Choice_
+    #else
+    public abstract partial class MarketIdentification4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MktIdrCd" => MarketIdentification4Choice.MarketIdentifierCode.Deserialize(elementWithPayload),
-             "Desc" => MarketIdentification4Choice.Description.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MarketIdentification4Choice choice.")
-        };
     }
 }

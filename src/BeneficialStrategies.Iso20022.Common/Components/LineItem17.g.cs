@@ -7,346 +7,601 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
 /// </summary>
+[IsoId("__nQDseWlEeevU7McUP3D1w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Line Item")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LineItem17
-     : IIsoXmlSerilizable<LineItem17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// The unique identification of this invoice line item.
     /// </summary>
+    [IsoId("__wBlMeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Something that is produced and sold as the result of an industrial process.
     /// </summary>
+    [IsoId("__wBlM-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeProduct3? TradeProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeProduct3? TradeProduct { get; init; } 
+    #else
+    public TradeProduct3? TradeProduct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Purchase order reference assigned by the buyer related to the provision of products and/or services for this line item.
     /// </summary>
+    [IsoId("__wBlNeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer Order Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification23? BuyerOrderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification23? BuyerOrderIdentification { get; init; } 
+    #else
+    public DocumentIdentification23? BuyerOrderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contract reference related to the provision of products and/or services for this line item.
     /// </summary>
+    [IsoId("__wBlN-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? ContractIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? ContractIdentification { get; init; } 
+    #else
+    public DocumentIdentification22? ContractIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
+    [IsoId("__wBlOeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Accounting Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountingAccount1? PurchaseAccountingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountingAccount1? PurchaseAccountingAccount { get; init; } 
+    #else
+    public AccountingAccount1? PurchaseAccountingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("__wBlO-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? NetPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetPrice { get; init; } 
+    #else
+    public System.Decimal? NetPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity and conversion factor on which the net price is based for this line item product and/or service.
     /// </summary>
+    [IsoId("__wBlPeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Price Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? NetPriceQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? NetPriceQuantity { get; init; } 
+    #else
+    public Quantity16? NetPriceQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Allowance or charge applied to the net price.
     /// </summary>
+    [IsoId("__wBlP-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Price Allowance Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItemAllowanceCharge3? NetPriceAllowanceCharge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LineItemAllowanceCharge3? NetPriceAllowanceCharge { get; init; } 
+    #else
+    public LineItemAllowanceCharge3? NetPriceAllowanceCharge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net weight of the product.
     /// </summary>
+    [IsoId("__wBlQeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Weight")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? NetWeight { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? NetWeight { get; init; } 
+    #else
+    public Quantity16? NetWeight { get; set; } 
+    #endif
+    
     /// <summary>
     /// Gross price of the product and/or service.
     /// </summary>
+    [IsoId("__wBlQ-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? GrossPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? GrossPrice { get; init; } 
+    #else
+    public System.Decimal? GrossPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity and conversion factor on which the gross price is based for this line item product and/or service.
     /// </summary>
+    [IsoId("__wBlReWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Price Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? GrossPriceQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? GrossPriceQuantity { get; init; } 
+    #else
+    public Quantity16? GrossPriceQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Gross weight of the product.
     /// </summary>
+    [IsoId("__wBlR-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Weight")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? GrossWeight { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? GrossWeight { get; init; } 
+    #else
+    public Quantity16? GrossWeight { get; set; } 
+    #endif
+    
     /// <summary>
     /// Logistics service charge for this line item.
     /// </summary>
+    [IsoId("__wBlSeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Logistics Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargesDetails4? LogisticsCharge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargesDetails4? LogisticsCharge { get; init; } 
+    #else
+    public ChargesDetails4? LogisticsCharge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
+    [IsoId("__wBlS-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItemTax1? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LineItemTax1? Tax { get; init; } 
+    #else
+    public LineItemTax1? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Allowance or charge specified for this line item.
     /// </summary>
+    [IsoId("__wBlTeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowance Charge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItemAllowanceCharge3? AllowanceCharge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LineItemAllowanceCharge3? AllowanceCharge { get; init; } 
+    #else
+    public LineItemAllowanceCharge3? AllowanceCharge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
     /// </summary>
+    [IsoId("__wBlT-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Adjustment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Adjustment6? FinancialAdjustment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Adjustment6? FinancialAdjustment { get; init; } 
+    #else
+    public Adjustment6? FinancialAdjustment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity billed for this line item.
     /// </summary>
+    [IsoId("__wBlUeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billed Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? BilledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? BilledQuantity { get; init; } 
+    #else
+    public Quantity16? BilledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of product packages delivered.
     /// </summary>
+    [IsoId("__wBlU-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Package Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? PackageQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PackageQuantity { get; init; } 
+    #else
+    public System.UInt64? PackageQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of units per package in this line item for a supply chain trade delivery.
     /// </summary>
+    [IsoId("__wBlVeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Per Package Unit Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? PerPackageUnitQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? PerPackageUnitQuantity { get; init; } 
+    #else
+    public Quantity16? PerPackageUnitQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Physical packaging of the product.
     /// </summary>
+    [IsoId("__wBlV-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Packaging")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Packaging1? Packaging { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Packaging1? Packaging { get; init; } 
+    #else
+    public Packaging1? Packaging { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity that is free of charge for this line item.
     /// </summary>
+    [IsoId("__wBlWeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Free Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? ChargeFreeQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? ChargeFreeQuantity { get; init; } 
+    #else
+    public Quantity16? ChargeFreeQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity value on which the quantity measurement started for a line item. For instance the start amount of a meter reading for an electricity supplier.
     /// </summary>
+    [IsoId("__wBlW-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Measure Quantity Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? MeasureQuantityStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? MeasureQuantityStart { get; init; } 
+    #else
+    public Quantity16? MeasureQuantityStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity value on which the quantity measurement ended for a line item. For instance the end amount of a meter reading for an electricity supplier.
     /// </summary>
+    [IsoId("__wBlXeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Measure Quantity End")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? MeasureQuantityEnd { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity16? MeasureQuantityEnd { get; init; } 
+    #else
+    public Quantity16? MeasureQuantityEnd { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which the clock time measure started for a line item.
     /// </summary>
+    [IsoId("__wBlX-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Measure Date Time Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? MeasureDateTimeStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? MeasureDateTimeStart { get; init; } 
+    #else
+    public System.DateTime? MeasureDateTimeStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which the clock time measure ended for a line item.
     /// </summary>
+    [IsoId("__wBlYeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Measure Date Time End")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? MeasureDateTimeEnd { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? MeasureDateTimeEnd { get; init; } 
+    #else
+    public System.DateTime? MeasureDateTimeEnd { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to whom the goods must be delivered in the end.
     /// </summary>
+    [IsoId("__wBlY-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ship To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? ShipTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty4? ShipTo { get; init; } 
+    #else
+    public TradeParty4? ShipTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [IsoId("__wBlZeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incoterms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Incoterms3? Incoterms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Incoterms3? Incoterms { get; init; } 
+    #else
+    public Incoterms3? Incoterms { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual delivery date/time of the products and/or services for this line item.
     /// </summary>
+    [IsoId("__wBlZ-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DeliveryDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DeliveryDateTime { get; init; } 
+    #else
+    public System.DateTime? DeliveryDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delivery note related to the delivery of the products and/or services for this line item.
     /// </summary>
+    [IsoId("__wBlaeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Note Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? DeliveryNoteIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? DeliveryNoteIdentification { get; init; } 
+    #else
+    public DocumentIdentification22? DeliveryNoteIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary totals for this line item.
     /// </summary>
+    [IsoId("__wBla-WlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monetary Summation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItemMonetarySummation1? MonetarySummation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LineItemMonetarySummation1? MonetarySummation { get; init; } 
+    #else
+    public LineItemMonetarySummation1? MonetarySummation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Note included in this line item.
     /// </summary>
+    [IsoId("__wBlbeWlEeevU7McUP3D1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Included Note")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation1? IncludedNote { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation1? IncludedNote { get; init; } 
+    #else
+    public AdditionalInformation1? IncludedNote { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradeProduct is TradeProduct3 TradeProductValue)
-        {
-            writer.WriteStartElement(null, "TradPdct", xmlNamespace );
-            TradeProductValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BuyerOrderIdentification is DocumentIdentification23 BuyerOrderIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BuyrOrdrId", xmlNamespace );
-            BuyerOrderIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractIdentification is DocumentIdentification22 ContractIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrctId", xmlNamespace );
-            ContractIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PurchaseAccountingAccount is AccountingAccount1 PurchaseAccountingAccountValue)
-        {
-            writer.WriteStartElement(null, "PurchsAcctgAcct", xmlNamespace );
-            PurchaseAccountingAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetPrice is IsoCurrencyAndAmount NetPriceValue)
-        {
-            writer.WriteStartElement(null, "NetPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetPriceValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NetPriceQuantity is Quantity16 NetPriceQuantityValue)
-        {
-            writer.WriteStartElement(null, "NetPricQty", xmlNamespace );
-            NetPriceQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetPriceAllowanceCharge is LineItemAllowanceCharge3 NetPriceAllowanceChargeValue)
-        {
-            writer.WriteStartElement(null, "NetPricAllwncChrg", xmlNamespace );
-            NetPriceAllowanceChargeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetWeight is Quantity16 NetWeightValue)
-        {
-            writer.WriteStartElement(null, "NetWght", xmlNamespace );
-            NetWeightValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GrossPrice is IsoCurrencyAndAmount GrossPriceValue)
-        {
-            writer.WriteStartElement(null, "GrssPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(GrossPriceValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (GrossPriceQuantity is Quantity16 GrossPriceQuantityValue)
-        {
-            writer.WriteStartElement(null, "GrssPricQty", xmlNamespace );
-            GrossPriceQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GrossWeight is Quantity16 GrossWeightValue)
-        {
-            writer.WriteStartElement(null, "GrssWght", xmlNamespace );
-            GrossWeightValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LogisticsCharge is ChargesDetails4 LogisticsChargeValue)
-        {
-            writer.WriteStartElement(null, "LogstcsChrg", xmlNamespace );
-            LogisticsChargeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Tax is LineItemTax1 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AllowanceCharge is LineItemAllowanceCharge3 AllowanceChargeValue)
-        {
-            writer.WriteStartElement(null, "AllwncChrg", xmlNamespace );
-            AllowanceChargeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialAdjustment is Adjustment6 FinancialAdjustmentValue)
-        {
-            writer.WriteStartElement(null, "FinAdjstmnt", xmlNamespace );
-            FinancialAdjustmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BilledQuantity is Quantity16 BilledQuantityValue)
-        {
-            writer.WriteStartElement(null, "BlldQty", xmlNamespace );
-            BilledQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PackageQuantity is IsoDecimalNumber PackageQuantityValue)
-        {
-            writer.WriteStartElement(null, "PackgQty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PackageQuantityValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PerPackageUnitQuantity is Quantity16 PerPackageUnitQuantityValue)
-        {
-            writer.WriteStartElement(null, "PerPackgUnitQty", xmlNamespace );
-            PerPackageUnitQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Packaging is Packaging1 PackagingValue)
-        {
-            writer.WriteStartElement(null, "Packgng", xmlNamespace );
-            PackagingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargeFreeQuantity is Quantity16 ChargeFreeQuantityValue)
-        {
-            writer.WriteStartElement(null, "ChrgFreeQty", xmlNamespace );
-            ChargeFreeQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MeasureQuantityStart is Quantity16 MeasureQuantityStartValue)
-        {
-            writer.WriteStartElement(null, "MeasrQtyStart", xmlNamespace );
-            MeasureQuantityStartValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MeasureQuantityEnd is Quantity16 MeasureQuantityEndValue)
-        {
-            writer.WriteStartElement(null, "MeasrQtyEnd", xmlNamespace );
-            MeasureQuantityEndValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MeasureDateTimeStart is IsoISODateTime MeasureDateTimeStartValue)
-        {
-            writer.WriteStartElement(null, "MeasrDtTmStart", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(MeasureDateTimeStartValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (MeasureDateTimeEnd is IsoISODateTime MeasureDateTimeEndValue)
-        {
-            writer.WriteStartElement(null, "MeasrDtTmEnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(MeasureDateTimeEndValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ShipTo is TradeParty4 ShipToValue)
-        {
-            writer.WriteStartElement(null, "ShipTo", xmlNamespace );
-            ShipToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Incoterms is Incoterms3 IncotermsValue)
-        {
-            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
-            IncotermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryDateTime is IsoISODateTime DeliveryDateTimeValue)
-        {
-            writer.WriteStartElement(null, "DlvryDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeliveryDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (DeliveryNoteIdentification is DocumentIdentification22 DeliveryNoteIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DlvryNoteId", xmlNamespace );
-            DeliveryNoteIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MonetarySummation is LineItemMonetarySummation1 MonetarySummationValue)
-        {
-            writer.WriteStartElement(null, "MntrySummtn", xmlNamespace );
-            MonetarySummationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncludedNote is AdditionalInformation1 IncludedNoteValue)
-        {
-            writer.WriteStartElement(null, "InclNote", xmlNamespace );
-            IncludedNoteValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LineItem17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

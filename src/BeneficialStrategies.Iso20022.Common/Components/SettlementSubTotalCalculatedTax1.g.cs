@@ -7,96 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the subtotal calculated tax applicable for this settlement.
 /// </summary>
+[IsoId("_S0j3JQEcEeCQm6a_G2yO_w_-1391363136")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Sub Total Calculated Tax")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementSubTotalCalculatedTax1
-     : IIsoXmlSerilizable<SettlementSubTotalCalculatedTax1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [IsoId("_S0j3JgEcEeCQm6a_G2yO_w_894669063")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? TypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TypeCode { get; init; } 
+    #else
+    public System.String? TypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference used to identify the nature of tax levied, such as Value Added Tax (VAT).
     /// </summary>
+    [IsoId("_S0j3JwEcEeCQm6a_G2yO_w_-604171621")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? CategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CategoryCode { get; init; } 
+    #else
+    public System.String? CategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
+    [IsoId("_S0j3KAEcEeCQm6a_G2yO_w_1356444979")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculated Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CalculatedAmount { get; init; } 
+    #else
+    public System.Decimal? CalculatedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
+    [IsoId("_S0j3KQEcEeCQm6a_G2yO_w_-878123317")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? BasisAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? BasisAmount { get; init; } 
+    #else
+    public System.Decimal? BasisAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
+    [IsoId("_S0j3KgEcEeCQm6a_G2yO_w_-1188081468")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculated Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CalculatedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CalculatedRate { get; init; } 
+    #else
+    public System.Decimal? CalculatedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for a tax exemption.
     /// </summary>
+    [IsoId("_S0j3KwEcEeCQm6a_G2yO_w_-1889469346")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exemption Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxExemptionReason1? ExemptionReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxExemptionReason1? ExemptionReason { get; init; } 
+    #else
+    public TaxExemptionReason1? ExemptionReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TypeCode is IsoMax4Text TypeCodeValue)
-        {
-            writer.WriteStartElement(null, "TpCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(TypeCodeValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (CategoryCode is IsoMax4Text CategoryCodeValue)
-        {
-            writer.WriteStartElement(null, "CtgyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(CategoryCodeValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (CalculatedAmount is IsoCurrencyAndAmount CalculatedAmountValue)
-        {
-            writer.WriteStartElement(null, "ClctdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CalculatedAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (BasisAmount is IsoCurrencyAndAmount BasisAmountValue)
-        {
-            writer.WriteStartElement(null, "BsisAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(BasisAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CalculatedRate is IsoPercentageRate CalculatedRateValue)
-        {
-            writer.WriteStartElement(null, "ClctdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculatedRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExemptionReason is TaxExemptionReason1 ExemptionReasonValue)
-        {
-            writer.WriteStartElement(null, "XmptnRsn", xmlNamespace );
-            ExemptionReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementSubTotalCalculatedTax1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the unique transaction identifier (UTI) that was created at the time a transaction was first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime and optionally, the prior unique transaction identifier (PUTI). These identifiers can also be known as the Unique Swap Identifier (USI) or the Prior Unique Swap Identifier (PUSI).
 /// </summary>
+[IsoId("_GeUUQ4JkEeKmtdhZXgREOQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unique Transaction Identifier")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UniqueTransactionIdentifier1
-     : IIsoXmlSerilizable<UniqueTransactionIdentifier1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UniqueTransactionIdentifier1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UniqueTransactionIdentifier1( System.String reqUniqueTransactionIdentifier )
+    {
+        UniqueTransactionIdentifier = reqUniqueTransactionIdentifier;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime. This identifier can also be known as the Unique Swap Identifier (USI).
     /// </summary>
+    [IsoId("_NCP7UIJkEeKmtdhZXgREOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unique Transaction Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text UniqueTransactionIdentifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String UniqueTransactionIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String UniqueTransactionIdentifier { get; init; } 
+    #else
+    public System.String UniqueTransactionIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Prior unique transaction identifier specifies the previous unique transaction identifier (UTI) that was created at the time the transaction was executed. This identifier can also be known as the Prior Unique Swap Identifier (PUSI).
     /// </summary>
+    [IsoId("_PVnsIIJkEeKmtdhZXgREOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Prior Unique Transaction Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? PriorUniqueTransactionIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PriorUniqueTransactionIdentifier { get; init; } 
+    #else
+    public System.String? PriorUniqueTransactionIdentifier { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax105Text(UniqueTransactionIdentifier)); // data type Max105Text System.String
-        writer.WriteEndElement();
-        if (PriorUniqueTransactionIdentifier is IsoMax105Text PriorUniqueTransactionIdentifierValue)
-        {
-            writer.WriteStartElement(null, "PrrUnqTxIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(PriorUniqueTransactionIdentifierValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static UniqueTransactionIdentifier1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

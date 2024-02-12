@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instruction for a change to an account status and reason for the change.
 /// </summary>
+[IsoId("_et6_QHi5EeaRm5xIK6nGuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Status Update Instruction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountStatusUpdateInstruction1
-     : IIsoXmlSerilizable<AccountStatusUpdateInstruction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountStatusUpdateInstruction1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountStatusUpdateInstruction1( AccountStatusUpdateInstruction1Choice_ reqUpdateInstruction )
+    {
+        UpdateInstruction = reqUpdateInstruction;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of status change instructed for the account status.
     /// </summary>
+    [IsoId("_mJ2lUHi5EeaRm5xIK6nGuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Instruction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
+    #else
+    public AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the instruction to change the account status.
     /// </summary>
+    [IsoId("_Z0gj0Hi6EeaRm5xIK6nGuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Instruction Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountStatusUpdateInstructionReason1Choice_? UpdateInstructionReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountStatusUpdateInstructionReason1Choice_? UpdateInstructionReason { get; init; } 
+    #else
+    public AccountStatusUpdateInstructionReason1Choice_? UpdateInstructionReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UpdInstr", xmlNamespace );
-        UpdateInstruction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UpdateInstructionReason is AccountStatusUpdateInstructionReason1Choice_ UpdateInstructionReasonValue)
-        {
-            writer.WriteStartElement(null, "UpdInstrRsn", xmlNamespace );
-            UpdateInstructionReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountStatusUpdateInstruction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

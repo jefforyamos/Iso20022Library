@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare for a MIC identifier.
 /// </summary>
+[IsoId("_VwtkgdSZEemZdYGWu384Zw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compare MIC Identifier")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CompareMICIdentifier2
-     : IIsoXmlSerilizable<CompareMICIdentifier2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [IsoId("_V1kPUdSZEemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? Value1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Value1 { get; init; } 
+    #else
+    public System.String? Value1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [IsoId("_V1kPU9SZEemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? Value2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Value2 { get; init; } 
+    #else
+    public System.String? Value2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Value1 is IsoMICIdentifier Value1Value)
-        {
-            writer.WriteStartElement(null, "Val1", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Value1Value)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Value2 is IsoMICIdentifier Value2Value)
-        {
-            writer.WriteStartElement(null, "Val2", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Value2Value)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CompareMICIdentifier2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

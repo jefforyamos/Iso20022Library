@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
+[IsoId("_VYjXEtp-Ed-ak6NoX_4Aeg_1604186994")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTransaction18
-     : IIsoXmlSerilizable<PaymentTransaction18>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentTransaction18 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentTransaction18( PaymentInstrument7Choice_ reqPaymentInstrument )
+    {
+        PaymentInstrument = reqPaymentInstrument;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money to be transferred between the debtor and creditor before bank transaction charges.
     /// </summary>
+    [IsoId("_VYjXE9p-Ed-ak6NoX_4Aeg_1604187037")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SettlementAmount { get; init; } 
+    #else
+    public System.Decimal? SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the first agent expects the cash to be available to the final agent.
     /// </summary>
+    [IsoId("_VYjXFNp-Ed-ak6NoX_4Aeg_1604187133")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SettlementDate { get; init; } 
+    #else
+    public System.DateOnly? SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Choice between types of payment instrument, ie, cheque, credit transfer or investment account.
     /// </summary>
+    [IsoId("_VYjXFdp-Ed-ak6NoX_4Aeg_-1396931773")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstrument7Choice_ PaymentInstrument { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentInstrument7Choice_ PaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument7Choice_ PaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument7Choice_ PaymentInstrument { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SettlementDate is IsoISODate SettlementDateValue)
-        {
-            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
-        PaymentInstrument.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static PaymentTransaction18 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

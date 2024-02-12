@@ -7,146 +7,253 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
+[IsoId("_QbmU4dp-Ed-ak6NoX_4Aeg_-1212009635")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cheque")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Cheque5
-     : IIsoXmlSerilizable<Cheque5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of cheque to be issued by the first agent.
     /// </summary>
+    [IsoId("_QbmU4tp-Ed-ak6NoX_4Aeg_-1211088283")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChequeType2Code? ChequeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChequeType2Code? ChequeType { get; init; } 
+    #else
+    public ChequeType2Code? ChequeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the cheque number.
     /// </summary>
+    [IsoId("_QbmU49p-Ed-ak6NoX_4Aeg_-1211088128")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ChequeNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ChequeNumber { get; init; } 
+    #else
+    public System.String? ChequeNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that ordered the issuance of the cheque.
     /// </summary>
+    [IsoId("_QbmU5Np-Ed-ak6NoX_4Aeg_-1210162253")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress3? ChequeFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress3? ChequeFrom { get; init; } 
+    #else
+    public NameAndAddress3? ChequeFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the delivery method of the cheque by the debtor's agent.
     /// </summary>
+    [IsoId("_QbmU5dp-Ed-ak6NoX_4Aeg_302562708")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; init; } 
+    #else
+    public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party to whom the debtor's agent should send the cheque.
     /// </summary>
+    [IsoId("_QbmU5tp-Ed-ak6NoX_4Aeg_-1210162582")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliver To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress3? DeliverTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress3? DeliverTo { get; init; } 
+    #else
+    public NameAndAddress3? DeliverTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.
     /// </summary>
+    [IsoId("_QbmU59p-Ed-ak6NoX_4Aeg_-1210165061")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority2Code? InstructionPriority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Priority2Code? InstructionPriority { get; init; } 
+    #else
+    public Priority2Code? InstructionPriority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when the draft becomes payable and the debtor's account is debited.
     /// </summary>
+    [IsoId("_QbmU6Np-Ed-ak6NoX_4Aeg_-1210164546")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ChequeMaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ChequeMaturityDate { get; init; } 
+    #else
+    public System.DateOnly? ChequeMaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code agreed between the initiating party and the debtor's agent, that specifies the cheque layout, company logo and digitised signature to be used to print the cheque.
     /// </summary>
+    [IsoId("_QbmU6dp-Ed-ak6NoX_4Aeg_-1210163728")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Forms Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FormsCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FormsCode { get; init; } 
+    #else
+    public System.String? FormsCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information that needs to be printed on a cheque, used by the payer to add miscellaneous information.
     /// </summary>
+    [IsoId("_QbwF4Np-Ed-ak6NoX_4Aeg_-1210163572")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Memo Field")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MemoField { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MemoField { get; init; } 
+    #else
+    public System.String? MemoField { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regional area in which the cheque can be cleared, when a country has no nation-wide cheque clearing organisation.
     /// </summary>
+    [IsoId("_QbwF4dp-Ed-ak6NoX_4Aeg_-1210162797")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regional Clearing Zone")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RegionalClearingZone { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RegionalClearingZone { get; init; } 
+    #else
+    public System.String? RegionalClearingZone { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the print location of the cheque.
     /// </summary>
+    [IsoId("_QbwF4tp-Ed-ak6NoX_4Aeg_-196138042")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Print Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PrintLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PrintLocation { get; init; } 
+    #else
+    public System.String? PrintLocation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ChequeType is ChequeType2Code ChequeTypeValue)
-        {
-            writer.WriteStartElement(null, "ChqTp", xmlNamespace );
-            writer.WriteValue(ChequeTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ChequeNumber is IsoMax35Text ChequeNumberValue)
-        {
-            writer.WriteStartElement(null, "ChqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ChequeNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ChequeFrom is NameAndAddress3 ChequeFromValue)
-        {
-            writer.WriteStartElement(null, "ChqFr", xmlNamespace );
-            ChequeFromValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryMethod is ChequeDeliveryMethod1Choice_ DeliveryMethodValue)
-        {
-            writer.WriteStartElement(null, "DlvryMtd", xmlNamespace );
-            DeliveryMethodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliverTo is NameAndAddress3 DeliverToValue)
-        {
-            writer.WriteStartElement(null, "DlvrTo", xmlNamespace );
-            DeliverToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionPriority is Priority2Code InstructionPriorityValue)
-        {
-            writer.WriteStartElement(null, "InstrPrty", xmlNamespace );
-            writer.WriteValue(InstructionPriorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ChequeMaturityDate is IsoISODate ChequeMaturityDateValue)
-        {
-            writer.WriteStartElement(null, "ChqMtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ChequeMaturityDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (FormsCode is IsoMax35Text FormsCodeValue)
-        {
-            writer.WriteStartElement(null, "FrmsCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FormsCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MemoField is IsoMax35Text MemoFieldValue)
-        {
-            writer.WriteStartElement(null, "MemoFld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MemoFieldValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RegionalClearingZone is IsoMax35Text RegionalClearingZoneValue)
-        {
-            writer.WriteStartElement(null, "RgnlClrZone", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegionalClearingZoneValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PrintLocation is IsoMax35Text PrintLocationValue)
-        {
-            writer.WriteStartElement(null, "PrtLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PrintLocationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Cheque5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

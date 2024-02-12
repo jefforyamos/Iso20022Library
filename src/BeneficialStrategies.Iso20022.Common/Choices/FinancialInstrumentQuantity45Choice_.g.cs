@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for the quantity of security.
-/// </summary>
-[KnownType(typeof(FinancialInstrumentQuantity45Choice.Unit))]
-[KnownType(typeof(FinancialInstrumentQuantity45Choice.FaceAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity45Choice.DigitalTokenUnit))]
-public abstract partial record FinancialInstrumentQuantity45Choice_ : IIsoXmlSerilizable<FinancialInstrumentQuantity45Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for the quantity of security.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrumentQuantity45Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrumentQuantity45Choice.Unit))]
+    [KnownType(typeof(FinancialInstrumentQuantity45Choice.FaceAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity45Choice.DigitalTokenUnit))]
+    [IsoId("_wn3tETQ_Ee2id-MjcNoBdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Quantity 45 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrumentQuantity45Choice_
+    #else
+    public abstract partial class FinancialInstrumentQuantity45Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Unit" => FinancialInstrumentQuantity45Choice.Unit.Deserialize(elementWithPayload),
-             "FaceAmt" => FinancialInstrumentQuantity45Choice.FaceAmount.Deserialize(elementWithPayload),
-             "DgtlTknUnit" => FinancialInstrumentQuantity45Choice.DigitalTokenUnit.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrumentQuantity45Choice choice.")
-        };
     }
 }

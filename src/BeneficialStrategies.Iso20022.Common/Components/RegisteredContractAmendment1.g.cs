@@ -7,80 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amendment details and reason related to the registered contract.
 /// </summary>
+[IsoId("__zlVIdL3EeSDLevdaFPXHw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Registered Contract Amendment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RegisteredContractAmendment1
-     : IIsoXmlSerilizable<RegisteredContractAmendment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RegisteredContractAmendment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RegisteredContractAmendment1( System.DateOnly reqAmendmentDate,DocumentIdentification28 reqDocument )
+    {
+        AmendmentDate = reqAmendmentDate;
+        Document = reqDocument;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date of the amendment of the registered contract.
     /// </summary>
+    [IsoId("_OtXz4NL4EeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amendment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate AmendmentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly AmendmentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly AmendmentDate { get; init; } 
+    #else
+    public System.DateOnly AmendmentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference of the amendment document.
     /// </summary>
+    [IsoId("_jCKiwNL4EeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification28 Document { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification28 Document { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification28 Document { get; init; } 
+    #else
+    public DocumentIdentification28 Document { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date from which the amendment is applicable.
     /// </summary>
+    [IsoId("_y1JvktOWEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? StartDate { get; init; } 
+    #else
+    public System.DateOnly? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the amendment.
     /// </summary>
+    [IsoId("_4nTUYtOWEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amendment Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AmendmentReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AmendmentReason { get; init; } 
+    #else
+    public System.String? AmendmentReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the amendment.
     /// </summary>
+    [IsoId("_CikDoNOXEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AmdmntDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(AmendmentDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Doc", xmlNamespace );
-        Document.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (StartDate is IsoISODate StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AmendmentReason is IsoMax35Text AmendmentReasonValue)
-        {
-            writer.WriteStartElement(null, "AmdmntRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendmentReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RegisteredContractAmendment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

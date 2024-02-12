@@ -9,43 +9,70 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource3Choice;
-
-/// <summary>
-/// Unique and unambiguous identification source, as assigned via a pre-determined code list.
-/// </summary>
-public partial record Code : IdentificationSource3Choice_
-     , IIsoXmlSerilizable<Code>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies the external financial instrument identification type scheme name code in the format of character string with a maximum length of 4 characters.
-    /// The list of valid codes is an external code list published separately.
-    /// External code sets can be downloaded from www.iso20022.org.
+    /// Unique and unambiguous identification source, as assigned via a pre-determined code list.
     /// </summary>
-    public required ExternalFinancialInstrumentIdentificationType1Code Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QmU-MNp-Ed-ak6NoX_4Aeg_-1238582323")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Code : IdentificationSource3Choice_
+    #else
+    public partial class Code : IdentificationSource3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new Code Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Code instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Code( ExternalFinancialInstrumentIdentificationType1Code reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies the external financial instrument identification type scheme name code in the format of character string with a maximum length of 4 characters.
+        /// The list of valid codes is an external code list published separately.
+        /// External code sets can be downloaded from www.iso20022.org.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ExternalFinancialInstrumentIdentificationType1Code Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ExternalFinancialInstrumentIdentificationType1Code Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ExternalFinancialInstrumentIdentificationType1Code Value { get; init; } 
+        #else
+        public ExternalFinancialInstrumentIdentificationType1Code Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,106 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deal amount details.
 /// </summary>
+[IsoId("_gX5CYMLYEei34K_Q744LyA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralAmount12
-     : IIsoXmlSerilizable<CollateralAmount12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of the principal. 
     /// </summary>
+    [IsoId("_7TuWsMLYEei34K_Q744LyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection49? Transaction { get; init; } 
+    #else
+    public AmountAndDirection49? Transaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of principal plus interests at termination.
     /// </summary>
+    [IsoId("_NttwUMLaEei34K_Q744LyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Termination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? Termination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection49? Termination { get; init; } 
+    #else
+    public AmountAndDirection49? Termination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the accrued interest on the value of the principal trade, in the currency of the principal trade.
     /// </summary>
+    [IsoId("_xVWwMHDLEemW9qhOy0scyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accrued")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? Accrued { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection49? Accrued { get; init; } 
+    #else
+    public AmountAndDirection49? Accrued { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the interest calculation method is simple or compounding.
     /// </summary>
+    [IsoId("_3mDFwI9uEeqMo4JxiuZGSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Compound Simple Accrual Calculation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CalculationMethod1Code? CompoundSimpleAccrualCalculation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CalculationMethod1Code? CompoundSimpleAccrualCalculation { get; init; } 
+    #else
+    public CalculationMethod1Code? CompoundSimpleAccrualCalculation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies when the accrued interest is paid.
     /// </summary>
+    [IsoId("_IWwX8I9xEeqMo4JxiuZGSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency38Choice_? PaymentFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency38Choice_? PaymentFrequency { get; init; } 
+    #else
+    public Frequency38Choice_? PaymentFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days after the accrual payment is due.
     /// </summary>
+    [IsoId("_pznJQI9xEeqMo4JxiuZGSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Payment Delay")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? InterestPaymentDelay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterestPaymentDelay { get; init; } 
+    #else
+    public System.String? InterestPaymentDelay { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of collateral offered or sought. 
     /// </summary>
+    [IsoId("_Ya5a4Y96EeqMo4JxiuZGSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Sought")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? ValueSought { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection49? ValueSought { get; init; } 
+    #else
+    public AmountAndDirection49? ValueSought { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Transaction is AmountAndDirection49 TransactionValue)
-        {
-            writer.WriteStartElement(null, "Tx", xmlNamespace );
-            TransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Termination is AmountAndDirection49 TerminationValue)
-        {
-            writer.WriteStartElement(null, "Termntn", xmlNamespace );
-            TerminationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Accrued is AmountAndDirection49 AccruedValue)
-        {
-            writer.WriteStartElement(null, "Acrd", xmlNamespace );
-            AccruedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CompoundSimpleAccrualCalculation is CalculationMethod1Code CompoundSimpleAccrualCalculationValue)
-        {
-            writer.WriteStartElement(null, "CmpndSmplAcrlClctn", xmlNamespace );
-            writer.WriteValue(CompoundSimpleAccrualCalculationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PaymentFrequency is Frequency38Choice_ PaymentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
-            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterestPaymentDelay is IsoMax3NumericText InterestPaymentDelayValue)
-        {
-            writer.WriteStartElement(null, "IntrstPmtDely", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(InterestPaymentDelayValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ValueSought is AmountAndDirection49 ValueSoughtValue)
-        {
-            writer.WriteStartElement(null, "ValSght", xmlNamespace );
-            ValueSoughtValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralAmount12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

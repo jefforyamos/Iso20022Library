@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related specifically to counterparty.
 /// </summary>
+[IsoId("_4j8ct7HYEemRPNDOvJwndA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Counterparty Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CounterpartyData77
-     : IIsoXmlSerilizable<CounterpartyData77>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CounterpartyData77 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CounterpartyData77( CounterpartyIdentification4 reqReportingCounterparty,CounterpartyIdentification2 reqOtherCounterparty )
+    {
+        ReportingCounterparty = reqReportingCounterparty;
+        OtherCounterparty = reqOtherCounterparty;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
+    [IsoId("_4nrGIbHYEemRPNDOvJwndA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyIdentification4 ReportingCounterparty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CounterpartyIdentification4 ReportingCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyIdentification4 ReportingCounterparty { get; init; } 
+    #else
+    public CounterpartyIdentification4 ReportingCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
+    [IsoId("_4nrGI7HYEemRPNDOvJwndA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyIdentification2 OtherCounterparty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CounterpartyIdentification2 OtherCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyIdentification2 OtherCounterparty { get; init; } 
+    #else
+    public CounterpartyIdentification2 OtherCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// In the case where a financial counterparty is responsible for reporting on behalf of the other counterparty, the unique code identifying that counterparty. In the case where a management company is responsible for reporting on behalf of an Undertaking for Collective Investment in Transferable Securities (UCITS), the unique code identifying that management company. In the case where an Alternative Investment Fund Manager (AIFM) is responsible for reporting on behalf of an Alternative Investment Fund (AIF), the unique code identifying that AIFM.
     /// </summary>
+    [IsoId("_4nrGJbHYEemRPNDOvJwndA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entity Responsible For Report")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? EntityResponsibleForReport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification9Choice_? EntityResponsibleForReport { get; init; } 
+    #else
+    public OrganisationIdentification9Choice_? EntityResponsibleForReport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information on the other parties.
     /// </summary>
+    [IsoId("_4nrGJ7HYEemRPNDOvJwndA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Party Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionCounterpartyData8? OtherPartyData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionCounterpartyData8? OtherPartyData { get; init; } 
+    #else
+    public TransactionCounterpartyData8? OtherPartyData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
-        ReportingCounterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
-        OtherCounterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EntityResponsibleForReport is OrganisationIdentification9Choice_ EntityResponsibleForReportValue)
-        {
-            writer.WriteStartElement(null, "NttyRspnsblForRpt", xmlNamespace );
-            EntityResponsibleForReportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherPartyData is TransactionCounterpartyData8 OtherPartyDataValue)
-        {
-            writer.WriteStartElement(null, "OthrPtyData", xmlNamespace );
-            OtherPartyDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CounterpartyData77 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

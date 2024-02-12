@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies a choice between an absolute rate and a percentage rate. 
-/// </summary>
-[KnownType(typeof(ExchangeRateOrPercentage1Choice.Rate))]
-[KnownType(typeof(ExchangeRateOrPercentage1Choice.Percentage))]
-public abstract partial record ExchangeRateOrPercentage1Choice_ : IIsoXmlSerilizable<ExchangeRateOrPercentage1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies a choice between an absolute rate and a percentage rate. 
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ExchangeRateOrPercentage1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ExchangeRateOrPercentage1Choice.Rate))]
+    [KnownType(typeof(ExchangeRateOrPercentage1Choice.Percentage))]
+    [IsoId("_lW_QMNfvEeqoweZZxm4TPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Or Percentage 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ExchangeRateOrPercentage1Choice_
+    #else
+    public abstract partial class ExchangeRateOrPercentage1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rate" => ExchangeRateOrPercentage1Choice.Rate.Deserialize(elementWithPayload),
-             "Pctg" => ExchangeRateOrPercentage1Choice.Percentage.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ExchangeRateOrPercentage1Choice choice.")
-        };
     }
 }

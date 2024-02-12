@@ -7,66 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the most common data field that has not passed the validation rule.
 /// </summary>
+[IsoId("_NeaEeVfdEeqZr5K1Woax-g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Top Reasons For Rejections")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TopReasonsForRejections2
-     : IIsoXmlSerilizable<TopReasonsForRejections2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for all derivatives.
     /// </summary>
+    [IsoId("_N1g84VfdEeqZr5K1Woax-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("All")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? All { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? All { get; init; } 
+    #else
+    public System.String? All { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for derivatives which have been reported as new.
     /// </summary>
+    [IsoId("_N1g841fdEeqZr5K1Woax-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? New { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? New { get; init; } 
+    #else
+    public System.String? New { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for derivatives which have been reported as modification.
     /// </summary>
+    [IsoId("_N1g85VfdEeqZr5K1Woax-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Modification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Modification { get; init; } 
+    #else
+    public System.String? Modification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (All is IsoMax35Text AllValue)
-        {
-            writer.WriteStartElement(null, "All", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AllValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (New is IsoMax35Text NewValue)
-        {
-            writer.WriteStartElement(null, "New", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Modification is IsoMax35Text ModificationValue)
-        {
-            writer.WriteStartElement(null, "Mod", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TopReasonsForRejections2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

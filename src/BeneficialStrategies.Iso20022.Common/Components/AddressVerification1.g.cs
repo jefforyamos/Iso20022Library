@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric characters of the cardholder's address for verification.
 /// </summary>
+[IsoId("_SqbqxgEcEeCQm6a_G2yO_w_1267025270")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Address Verification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AddressVerification1
-     : IIsoXmlSerilizable<AddressVerification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Numeric characters from the cardholder's address excluding the postal code (that is street number).
     /// </summary>
+    [IsoId("_SqbqxwEcEeCQm6a_G2yO_w_-502786467")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address Digits")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? AddressDigits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AddressDigits { get; init; } 
+    #else
+    public System.String? AddressDigits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Numeric characters from the cardholder's postal code.
     /// </summary>
+    [IsoId("_SqbqyAEcEeCQm6a_G2yO_w_-1460020434")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Postal Code Digits")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? PostalCodeDigits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PostalCodeDigits { get; init; } 
+    #else
+    public System.String? PostalCodeDigits { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AddressDigits is IsoMax5NumericText AddressDigitsValue)
-        {
-            writer.WriteStartElement(null, "AdrDgts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(AddressDigitsValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (PostalCodeDigits is IsoMax5NumericText PostalCodeDigitsValue)
-        {
-            writer.WriteStartElement(null, "PstlCdDgts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(PostalCodeDigitsValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AddressVerification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

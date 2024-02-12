@@ -7,103 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action date details.
 /// </summary>
+[IsoId("_1ePnUzL3EeKU9IrkkToqcw_1659480407")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDateSD4
-     : IIsoXmlSerilizable<CorporateActionDateSD4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionDateSD4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionDateSD4( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1ePnVDL3EeKU9IrkkToqcw_662408054")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which accounting for due bills starts and associated tracking begins.
     /// </summary>
+    [IsoId("_1ePnVTL3EeKU9IrkkToqcw_-568372746")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interim Accounting Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterimAccountingStartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InterimAccountingStartDate { get; init; } 
+    #else
+    public System.DateOnly? InterimAccountingStartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the event security is no longer listed on the exchange.
     /// </summary>
+    [IsoId("_1ePnVjL3EeKU9IrkkToqcw_-868959552")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delisting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DelistingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DelistingDate { get; init; } 
+    #else
+    public System.DateOnly? DelistingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which a holder can exercise warrants.
     /// </summary>
+    [IsoId("_1eZYUDL3EeKU9IrkkToqcw_608195982")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Period Begin Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExercisePeriodBeginDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExercisePeriodBeginDate { get; init; } 
+    #else
+    public System.DateOnly? ExercisePeriodBeginDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which a holder listed as a member of the claimant group in a lawsuit may object to the proposed solution.
     /// </summary>
+    [IsoId("_1eZYUTL3EeKU9IrkkToqcw_757336184")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Objection Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ObjectionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ObjectionDate { get; init; } 
+    #else
+    public System.DateOnly? ObjectionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which claimants may exclude themselves from an ongoing class action lawsuit.
     /// </summary>
+    [IsoId("_1eZYUjL3EeKU9IrkkToqcw_526220081")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exclusion Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExclusionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExclusionDate { get; init; } 
+    #else
+    public System.DateOnly? ExclusionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which a holder must file claim forms to become a member of the claimant group in a lawsuit.
     /// </summary>
+    [IsoId("_1eZYUzL3EeKU9IrkkToqcw_338802594")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proof Of Claim Filing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ProofOfClaimFilingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ProofOfClaimFilingDate { get; init; } 
+    #else
+    public System.DateOnly? ProofOfClaimFilingDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (InterimAccountingStartDate is IsoISODate InterimAccountingStartDateValue)
-        {
-            writer.WriteStartElement(null, "IntrmAcctgStartDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InterimAccountingStartDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DelistingDate is IsoISODate DelistingDateValue)
-        {
-            writer.WriteStartElement(null, "DlistgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DelistingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ExercisePeriodBeginDate is IsoISODate ExercisePeriodBeginDateValue)
-        {
-            writer.WriteStartElement(null, "ExrcPrdBegnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExercisePeriodBeginDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ObjectionDate is IsoISODate ObjectionDateValue)
-        {
-            writer.WriteStartElement(null, "ObjctnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ObjectionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ExclusionDate is IsoISODate ExclusionDateValue)
-        {
-            writer.WriteStartElement(null, "ExclsnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExclusionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ProofOfClaimFilingDate is IsoISODate ProofOfClaimFilingDateValue)
-        {
-            writer.WriteStartElement(null, "ProofOfClmFilgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ProofOfClaimFilingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDateSD4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

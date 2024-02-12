@@ -7,107 +7,198 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the payment transaction related to the underlying cover payment.
 /// </summary>
+[IsoId("_IEdxMD72EeiJbZ2wCAV0-w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cover Payment Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CoverPaymentEvent1
-     : IIsoXmlSerilizable<CoverPaymentEvent1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CoverPaymentEvent1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CoverPaymentEvent1( PaymentStatus5 reqTransactionStatus,System.DateTime reqInitiationTime,System.DateTime reqLastUpdateTime )
+    {
+        TransactionStatus = reqTransactionStatus;
+        InitiationTime = reqInitiationTime;
+        LastUpdateTime = reqLastUpdateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [IsoId("_hx708T72EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentStatus5 TransactionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentStatus5 TransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentStatus5 TransactionStatus { get; init; } 
+    #else
+    public PaymentStatus5 TransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_3QZFIT73EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Debtor { get; init; } 
+    #else
+    public System.String? Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
+    [IsoId("_8jCDcT73EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public PaymentEvent2? Agent { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _8jCDcT73EeiJbZ2wCAV0-w
+    
     /// <summary>
     /// Identifies the party to which an amount of money is due.
     /// </summary>
+    [IsoId("_FjBAwT75EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Creditor { get; init; } 
+    #else
+    public System.String? Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time at which the message enters the Gpi system.
     /// </summary>
+    [IsoId("_SCO6gT75EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiation Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime InitiationTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime InitiationTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime InitiationTime { get; init; } 
+    #else
+    public System.DateTime InitiationTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time are based on the creation date of the status confirmation containing a final status ACSC.
     /// </summary>
+    [IsoId("_TPcUgT75EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Completion Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CompletionTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CompletionTime { get; init; } 
+    #else
+    public System.DateTime? CompletionTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage:
     /// This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [IsoId("_VKfr8T75EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InstructedAmount { get; init; } 
+    #else
+    public System.Decimal? InstructedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the last date and time at which the status of this transaction was updated.
     /// </summary>
+    [IsoId("_YgUYQT75EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Update Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime LastUpdateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime LastUpdateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime LastUpdateTime { get; init; } 
+    #else
+    public System.DateTime LastUpdateTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        TransactionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Debtor is IsoAnyBICIdentifier DebtorValue)
-        {
-            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Agent, multiplicity Unknown
-        if (Creditor is IsoAnyBICIdentifier CreditorValue)
-        {
-            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InitnTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiationTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (CompletionTime is IsoISODateTime CompletionTimeValue)
-        {
-            writer.WriteStartElement(null, "CmpltnTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CompletionTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (InstructedAmount is IsoActiveOrHistoricCurrencyAndAmount InstructedAmountValue)
-        {
-            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "LastUpdTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(LastUpdateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static CoverPaymentEvent1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

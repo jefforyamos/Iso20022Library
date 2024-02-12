@@ -7,62 +7,92 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
+[IsoId("_St7j49p-Ed-ak6NoX_4Aeg_1854659956")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport By Air")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportByAir3
-     : IIsoXmlSerilizable<TransportByAir3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
+    [IsoId("_St7j5Np-Ed-ak6NoX_4Aeg_1854660080")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Departure Airport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AirportName1Choice_? DepartureAirport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AirportName1Choice_? DepartureAirport { get; init; } 
+    #else
+    public AirportName1Choice_? DepartureAirport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
+    [IsoId("_St7j5dp-Ed-ak6NoX_4Aeg_1854660141")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination Airport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public AirportName1Choice_? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _St7j5dp-Ed-ak6NoX_4Aeg_1854660141
+    
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [IsoId("_St7j5tp-Ed-ak6NoX_4Aeg_1854659987")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Air Carrier Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AirCarrierName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AirCarrierName { get; init; } 
+    #else
+    public System.String? AirCarrierName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DepartureAirport is AirportName1Choice_ DepartureAirportValue)
-        {
-            writer.WriteStartElement(null, "DprtureAirprt", xmlNamespace );
-            DepartureAirportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize DestinationAirport, multiplicity Unknown
-        if (AirCarrierName is IsoMax35Text AirCarrierNameValue)
-        {
-            writer.WriteStartElement(null, "AirCrrierNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AirCarrierNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportByAir3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the unique codes identifying the portfolio.
-/// </summary>
-[KnownType(typeof(CollateralPortfolioCode5Choice.Portfolio))]
-[KnownType(typeof(CollateralPortfolioCode5Choice.MarginPortfolioCode))]
-public abstract partial record CollateralPortfolioCode5Choice_ : IIsoXmlSerilizable<CollateralPortfolioCode5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the unique codes identifying the portfolio.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CollateralPortfolioCode5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CollateralPortfolioCode5Choice.Portfolio))]
+    [KnownType(typeof(CollateralPortfolioCode5Choice.MarginPortfolioCode))]
+    [IsoId("_YwE-cTIDEe2fXedS_ucFOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Portfolio Code 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CollateralPortfolioCode5Choice_
+    #else
+    public abstract partial class CollateralPortfolioCode5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Prtfl" => CollateralPortfolioCode5Choice.Portfolio.Deserialize(elementWithPayload),
-             "MrgnPrtflCd" => CollateralPortfolioCode5Choice.MarginPortfolioCode.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CollateralPortfolioCode5Choice choice.")
-        };
     }
 }

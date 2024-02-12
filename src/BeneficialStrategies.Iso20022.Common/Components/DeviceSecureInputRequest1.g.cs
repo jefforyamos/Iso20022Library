@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Request a secure input for a PIN.
 /// </summary>
+[IsoId("_3JHpsN6_Eeiwsev40qZGEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Secure Input Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeviceSecureInputRequest1
-     : IIsoXmlSerilizable<DeviceSecureInputRequest1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeviceSecureInputRequest1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeviceSecureInputRequest1( PINRequestType1Code reqPINRequestType )
+    {
+        PINRequestType = reqPINRequestType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of PIN Service.
     /// </summary>
+    [IsoId("_8Mh5MN6_Eeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PINRequestType1Code PINRequestType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PINRequestType1Code PINRequestType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PINRequestType1Code PINRequestType { get; init; } 
+    #else
+    public PINRequestType1Code PINRequestType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify the PIN verification method and keys.
     /// </summary>
+    [IsoId("_cVahMN7AEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Verification Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PINVerificationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PINVerificationMethod { get; init; } 
+    #else
+    public System.String? PINVerificationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
+    [IsoId("_g-MqMN7AEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Waiting Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumWaitingTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumWaitingTime { get; init; } 
+    #else
+    public System.UInt64? MaximumWaitingTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates, when the user press a key, if a beep has to be generated.
     /// </summary>
+    [IsoId("_kD4BsN7AEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beep Key Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BeepKeyFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BeepKeyFlag { get; init; } 
+    #else
+    public System.String? BeepKeyFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Enciphered PIN and related information.
     /// </summary>
+    [IsoId("_m3xssN7AEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder PIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN6? CardholderPIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OnLinePIN6? CardholderPIN { get; init; } 
+    #else
+    public OnLinePIN6? CardholderPIN { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PINReqTp", xmlNamespace );
-        writer.WriteValue(PINRequestType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (PINVerificationMethod is IsoMax35Text PINVerificationMethodValue)
-        {
-            writer.WriteStartElement(null, "PINVrfctnMtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PINVerificationMethodValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MaximumWaitingTime is IsoNumber MaximumWaitingTimeValue)
-        {
-            writer.WriteStartElement(null, "MaxWtgTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumWaitingTimeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (BeepKeyFlag is IsoTrueFalseIndicator BeepKeyFlagValue)
-        {
-            writer.WriteStartElement(null, "BeepKeyFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BeepKeyFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CardholderPIN is OnLinePIN6 CardholderPINValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrPIN", xmlNamespace );
-            CardholderPINValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DeviceSecureInputRequest1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

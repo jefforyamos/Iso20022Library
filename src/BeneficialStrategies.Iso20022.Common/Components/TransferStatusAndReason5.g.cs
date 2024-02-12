@@ -7,140 +7,259 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
+[IsoId("_FjDpwYfuEeevKP8c-ilVhA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transfer Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransferStatusAndReason5
-     : IIsoXmlSerilizable<TransferStatusAndReason5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransferStatusAndReason5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransferStatusAndReason5( System.String reqTransferReference,TransferStatus2Choice_ reqTransferStatus )
+    {
+        TransferReference = reqTransferReference;
+        TransferStatus = reqTransferStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [IsoId("_Fzt784fuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MasterReference { get; init; } 
+    #else
+    public System.String? MasterReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Fzt79YfuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransferReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransferReference { get; init; } 
+    #else
+    public System.String TransferReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [IsoId("_Fzt794fuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference7? ClientReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference7? ClientReference { get; init; } 
+    #else
+    public AdditionalReference7? ClientReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Fzt7-YfuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CancellationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CancellationReference { get; init; } 
+    #else
+    public System.String? CancellationReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
+    [IsoId("_Fzt7-4fuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferStatus2Choice_ TransferStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransferStatus2Choice_ TransferStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransferStatus2Choice_ TransferStatus { get; init; } 
+    #else
+    public TransferStatus2Choice_ TransferStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
+    [IsoId("_Fzt7_YfuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TradeDate { get; init; } 
+    #else
+    public System.DateOnly? TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the document, for example, the application form, was sent.
     /// </summary>
+    [IsoId("_Fzt7_4fuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Send Out Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SendOutDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SendOutDate { get; init; } 
+    #else
+    public System.DateOnly? SendOutDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of units to be transferred.
     /// </summary>
+    [IsoId("_2k8swYmPEeeJpL7HBafurA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalUnitsNumber { get; init; } 
+    #else
+    public System.UInt64? TotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Weighted average price of the units in the account. The AveragePrice may also be known as the average acquisition price.
     /// </summary>
+    [IsoId("_Tr7C8YmQEeeJpL7HBafurA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AveragePrice { get; init; } 
+    #else
+    public System.Decimal? AveragePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
+    [IsoId("_B1vy8ImNEeeJpL7HBafurA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Unit8? UnitsDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Unit8? UnitsDetails { get; init; } 
+    #else
+    public Unit8? UnitsDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [IsoId("_Fzt8AYfuEeevKP8c-ilVhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification113? StatusInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification113? StatusInitiator { get; init; } 
+    #else
+    public PartyIdentification113? StatusInitiator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
-        {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ClientReference is AdditionalReference7 ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            ClientReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
-        {
-            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfSts", xmlNamespace );
-        TransferStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TradeDate is IsoISODate TradeDateValue)
-        {
-            writer.WriteStartElement(null, "TradDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SendOutDate is IsoISODate SendOutDateValue)
-        {
-            writer.WriteStartElement(null, "SndOutDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SendOutDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TotalUnitsNumber is IsoDecimalNumber TotalUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalUnitsNumberValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AveragePrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AveragePriceValue)
-        {
-            writer.WriteStartElement(null, "AvrgPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AveragePriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnitsDetails is Unit8 UnitsDetailsValue)
-        {
-            writer.WriteStartElement(null, "UnitsDtls", xmlNamespace );
-            UnitsDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StatusInitiator is PartyIdentification113 StatusInitiatorValue)
-        {
-            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
-            StatusInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransferStatusAndReason5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

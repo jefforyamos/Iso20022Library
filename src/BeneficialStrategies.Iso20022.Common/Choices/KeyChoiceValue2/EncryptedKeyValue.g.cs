@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
-
-/// <summary>
-/// Encrypted value of the cryptographic key.
-/// </summary>
-public partial record EncryptedKeyValue : KeyChoiceValue2_
-     , IIsoXmlSerilizable<EncryptedKeyValue>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of data protection.
+    /// Encrypted value of the cryptographic key.
     /// </summary>
-    public required ContentType2Code ContentType { get; init; } 
-    /// <summary>
-    /// Data protection by encryption or by a digital envelope, with an encryption key.
-    /// </summary>
-    public required EnvelopedData4 EnvelopedData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_FjgS0bTqEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encrypted Key Value")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record EncryptedKeyValue : KeyChoiceValue2_
+    #else
+    public partial class EncryptedKeyValue : KeyChoiceValue2_
+    #endif
     {
-        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
-        writer.WriteValue(ContentType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EnvlpdData", xmlNamespace );
-        EnvelopedData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new EncryptedKeyValue Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a EncryptedKeyValue instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public EncryptedKeyValue( ContentType2Code reqContentType,EnvelopedData4 reqEnvelopedData )
+        {
+            ContentType = reqContentType;
+            EnvelopedData = reqEnvelopedData;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of data protection.
+        /// </summary>
+        [IsoId("_Us-c0WizEeS87LmvcA55sg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Content Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ContentType2Code ContentType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ContentType2Code ContentType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ContentType2Code ContentType { get; init; } 
+        #else
+        public ContentType2Code ContentType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data protection by encryption or by a digital envelope, with an encryption key.
+        /// </summary>
+        [IsoId("_Us-c02izEeS87LmvcA55sg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Enveloped Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required EnvelopedData4 EnvelopedData { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public EnvelopedData4 EnvelopedData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public EnvelopedData4 EnvelopedData { get; init; } 
+        #else
+        public EnvelopedData4 EnvelopedData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

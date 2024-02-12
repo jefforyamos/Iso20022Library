@@ -9,44 +9,94 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification6Choice;
-
-/// <summary>
-/// Identification of the payment instruction by its position in a queue managed by the clearing agent.
-/// </summary>
-public partial record QueueIdentification : PaymentIdentification6Choice_
-     , IIsoXmlSerilizable<QueueIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification6Choice
 {
-    #nullable enable
-    
-    public required IsoMax16Text Value { get; init; } 
     /// <summary>
-    /// Position of the payment instruction within the identified queue.
+    /// Identification of the payment instruction by its position in a queue managed by the clearing agent.
     /// </summary>
-    public required IsoMax16Text PositionInQueue { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Aghbk24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Queue Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record QueueIdentification : PaymentIdentification6Choice_
+    #else
+    public partial class QueueIdentification : PaymentIdentification6Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "QId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax16Text(Value)); // data type Max16Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PosInQ", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax16Text(PositionInQueue)); // data type Max16Text System.String
-        writer.WriteEndElement();
-    }
-    public static new QueueIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a QueueIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public QueueIdentification( System.String reqValue,System.String reqPositionInQueue )
+        {
+            Value = reqValue;
+            PositionInQueue = reqPositionInQueue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of the payment queue where the payment instruction resides.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax16Text Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Position of the payment instruction within the identified queue.
+        /// </summary>
+        [IsoId("_X8kio5lQEee-Zps0fZQaFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Position In Queue")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax16Text PositionInQueue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String PositionInQueue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String PositionInQueue { get; init; } 
+        #else
+        public System.String PositionInQueue { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

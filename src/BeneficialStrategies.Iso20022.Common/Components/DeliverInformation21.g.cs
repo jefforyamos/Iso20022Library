@@ -7,75 +7,291 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[IsoId("_MbYlEZEHEem7fvtoGpNpow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Deliver Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeliverInformation21
-     : IIsoXmlSerilizable<DeliverInformation21>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that delivers (transferor) securities to the receiving agent (transferee).
     /// </summary>
+    [IsoId("_MwNlmZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transferor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? Transferor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification139? Transferor { get; init; } 
+    #else
+    public PartyIdentification139? Transferor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account from which the securities are to be delivered.
     /// </summary>
+    [IsoId("_MwNlm5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transferor Registered Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account31? TransferorRegisteredAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account31? TransferorRegisteredAccount { get; init; } 
+    #else
+    public Account31? TransferorRegisteredAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
+    [IsoId("_MwNlnZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Intermediary43? IntermediaryInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Intermediary43? IntermediaryInformation { get; init; } 
+    #else
+    public Intermediary43? IntermediaryInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Form, that is, ownership, of the security, that is, registered or bearer.
     /// </summary>
+    [IsoId("_A2ytkrHiEem4X-SfagDa8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Form")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FormOfSecurity1Code? SecuritiesForm { get; init; } 
+    #else
+    public FormOfSecurity1Code? SecuritiesForm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether a security exists only as an electronic record, that is, there is no physical document representing the security.
     /// </summary>
+    [IsoId("_A2ytk7HiEem4X-SfagDa8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dematerialised Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DematerialisedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DematerialisedIndicator { get; init; } 
+    #else
+    public System.String? DematerialisedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [IsoId("_lJvHNpGhEem-9Y6mq5ZH3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Preference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncomePreference2Code? IncomePreference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IncomePreference2Code? IncomePreference { get; init; } 
+    #else
+    public IncomePreference2Code? IncomePreference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Beneficial owner or its designated agent certifies that it complies with any holding or investment restrictions or requirements of the fund.
     /// </summary>
+    [IsoId("_lJvHN5GhEem-9Y6mq5ZH3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary Certification Completion")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryCertificationCompletion1Code? BeneficiaryCertificationCompletion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BeneficiaryCertificationCompletion1Code? BeneficiaryCertificationCompletion { get; init; } 
+    #else
+    public BeneficiaryCertificationCompletion1Code? BeneficiaryCertificationCompletion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date to be used as the trade date when securities are settled through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [IsoId("_RUh5YZM4EemKz5EOjv82iQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RequestedTradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? RequestedTradeDate { get; init; } 
+    #else
+    public System.DateOnly? RequestedTradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [IsoId("_MwNln5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RequestedSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? RequestedSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? RequestedSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of money paid/to be paid or received in exchange for the financial instrument.
     /// </summary>
+    [IsoId("_MwNloZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SettlementAmount { get; init; } 
+    #else
+    public System.Decimal? SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the settlement amount includes the stamp duty amount.
     /// </summary>
+    [IsoId("_MwNlo5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stamp Duty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StampDutyType2Code? StampDuty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StampDutyType2Code? StampDuty { get; init; } 
+    #else
+    public StampDutyType2Code? StampDuty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deal amount.
     /// </summary>
+    [IsoId("_MwNlpZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetAmount { get; init; } 
+    #else
+    public System.Decimal? NetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fee related to the transfer of the financial instrument.
     /// </summary>
+    [IsoId("_MwNlp5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Fees2? Fees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Fees2? Fees { get; init; } 
+    #else
+    public Fees2? Fees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax related to the transfer of the financial instrument.
     /// </summary>
+    [IsoId("_MwNlqZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax38? IndividualTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax38? IndividualTax { get; init; } 
+    #else
+    public Tax38? IndividualTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// How the exchange rate is expressed determines which currency is the Unit Currency and Quoted Currency. If the amounts concerned are EUR 1000 and USD 1300, the exchange rate may be expressed as per either of the following examples:
@@ -88,154 +304,94 @@ public partial record DeliverInformation21
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
+    [IsoId("_MwNlq5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ForeignExchangeTerms37? ForeignExchangeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ForeignExchangeTerms37? ForeignExchangeDetails { get; init; } 
+    #else
+    public ForeignExchangeTerms37? ForeignExchangeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [IsoId("_MwNlrZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Parties Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundSettlementParameters15? SettlementPartiesDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundSettlementParameters15? SettlementPartiesDetails { get; init; } 
+    #else
+    public FundSettlementParameters15? SettlementPartiesDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [IsoId("_MwNlr5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PhysicalTransferType1Code? PhysicalTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PhysicalTransferType1Code? PhysicalTransfer { get; init; } 
+    #else
+    public PhysicalTransferType1Code? PhysicalTransfer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
+    [IsoId("_MwNlsZEHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Transfer Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
+    #else
+    public DeliveryParameters4? PhysicalTransferDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [IsoId("_MwNls5EHEem7fvtoGpNpow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? ClientReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference10? ClientReference { get; init; } 
+    #else
+    public AdditionalReference10? ClientReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Transferor is PartyIdentification139 TransferorValue)
-        {
-            writer.WriteStartElement(null, "Trfr", xmlNamespace );
-            TransferorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransferorRegisteredAccount is Account31 TransferorRegisteredAccountValue)
-        {
-            writer.WriteStartElement(null, "TrfrRegdAcct", xmlNamespace );
-            TransferorRegisteredAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryInformation is Intermediary43 IntermediaryInformationValue)
-        {
-            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
-            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesForm is FormOfSecurity1Code SecuritiesFormValue)
-        {
-            writer.WriteStartElement(null, "SctiesForm", xmlNamespace );
-            writer.WriteValue(SecuritiesFormValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DematerialisedIndicator is IsoYesNoIndicator DematerialisedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DmtrlsdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DematerialisedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (IncomePreference is IncomePreference2Code IncomePreferenceValue)
-        {
-            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
-            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BeneficiaryCertificationCompletion is BeneficiaryCertificationCompletion1Code BeneficiaryCertificationCompletionValue)
-        {
-            writer.WriteStartElement(null, "BnfcryCertfctnCmpltn", xmlNamespace );
-            writer.WriteValue(BeneficiaryCertificationCompletionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RequestedTradeDate is IsoISODate RequestedTradeDateValue)
-        {
-            writer.WriteStartElement(null, "ReqdTradDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedTradeDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (RequestedSettlementDate is IsoISODate RequestedSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "ReqdSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (StampDuty is StampDutyType2Code StampDutyValue)
-        {
-            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
-            writer.WriteValue(StampDutyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NetAmount is IsoActiveCurrencyAndAmount NetAmountValue)
-        {
-            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Fees is Fees2 FeesValue)
-        {
-            writer.WriteStartElement(null, "Fees", xmlNamespace );
-            FeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IndividualTax is Tax38 IndividualTaxValue)
-        {
-            writer.WriteStartElement(null, "IndvTax", xmlNamespace );
-            IndividualTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ForeignExchangeDetails is ForeignExchangeTerms37 ForeignExchangeDetailsValue)
-        {
-            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
-            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementPartiesDetails is FundSettlementParameters15 SettlementPartiesDetailsValue)
-        {
-            writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
-            SettlementPartiesDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PhysicalTransfer is PhysicalTransferType1Code PhysicalTransferValue)
-        {
-            writer.WriteStartElement(null, "PhysTrf", xmlNamespace );
-            writer.WriteValue(PhysicalTransferValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PhysicalTransferDetails is DeliveryParameters4 PhysicalTransferDetailsValue)
-        {
-            writer.WriteStartElement(null, "PhysTrfDtls", xmlNamespace );
-            PhysicalTransferDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClientReference is AdditionalReference10 ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            ClientReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DeliverInformation21 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

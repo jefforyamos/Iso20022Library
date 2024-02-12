@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide details of the interest that applies to the account at a particular moment in time.
 /// </summary>
+[IsoId("_SRxMVdp-Ed-ak6NoX_4Aeg_-1871894733")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Interest")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountInterest2
-     : IIsoXmlSerilizable<AccountInterest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of interest.
     /// </summary>
+    [IsoId("_SRxMVtp-Ed-ak6NoX_4Aeg_-1871894658")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestType1Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestType1Choice_? Type { get; init; } 
+    #else
+    public InterestType1Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to qualify the interest rate.
     /// </summary>
+    [IsoId("_SRxMV9p-Ed-ak6NoX_4Aeg_-1871894610")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Rate3? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Rate3? Rate { get; init; } 
+    #else
+    public Rate3? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of time between a start date and an end date for the calculation of the interest.
     /// </summary>
+    [IsoId("_SRxMWNp-Ed-ak6NoX_4Aeg_-1871894548")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails? FromToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriodDetails? FromToDate { get; init; } 
+    #else
+    public DateTimePeriodDetails? FromToDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the interest.
     /// </summary>
+    [IsoId("_SR69UNp-Ed-ak6NoX_4Aeg_-1871894724")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reason { get; init; } 
+    #else
+    public System.String? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is InterestType1Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Rate is Rate3 RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            RateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FromToDate is DateTimePeriodDetails FromToDateValue)
-        {
-            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
-            FromToDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reason is IsoMax35Text ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountInterest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

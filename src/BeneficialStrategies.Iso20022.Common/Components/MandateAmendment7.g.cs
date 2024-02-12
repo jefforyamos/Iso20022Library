@@ -7,77 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the mandate to be amended and gives details of the new mandate.
 /// </summary>
+[IsoId("_eSRVgdcZEeqRFcf2R4bPBw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mandate Amendment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MandateAmendment7
-     : IIsoXmlSerilizable<MandateAmendment7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MandateAmendment7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MandateAmendment7( MandateAmendmentReason2 reqAmendmentReason,Mandate18 reqMandate,OriginalMandate9Choice_ reqOriginalMandate )
+    {
+        AmendmentReason = reqAmendmentReason;
+        Mandate = reqMandate;
+        OriginalMandate = reqOriginalMandate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [IsoId("_eToncdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
+    #else
+    public OriginalMessageInformation1? OriginalMessageInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the amendment reason.
     /// </summary>
+    [IsoId("_eTonc9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amendment Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateAmendmentReason2 AmendmentReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MandateAmendmentReason2 AmendmentReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateAmendmentReason2 AmendmentReason { get; init; } 
+    #else
+    public MandateAmendmentReason2 AmendmentReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the amended mandate data.
     /// </summary>
+    [IsoId("_eTonddcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Mandate18 Mandate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Mandate18 Mandate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Mandate18 Mandate { get; init; } 
+    #else
+    public Mandate18 Mandate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [IsoId("_eTond9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Mandate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate9Choice_ OriginalMandate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OriginalMandate9Choice_ OriginalMandate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMandate9Choice_ OriginalMandate { get; init; } 
+    #else
+    public OriginalMandate9Choice_ OriginalMandate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_eTonedcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalMessageInformation is OriginalMessageInformation1 OriginalMessageInformationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMsgInf", xmlNamespace );
-            OriginalMessageInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AmdmntRsn", xmlNamespace );
-        AmendmentReason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Mndt", xmlNamespace );
-        Mandate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrgnlMndt", xmlNamespace );
-        OriginalMandate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MandateAmendment7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

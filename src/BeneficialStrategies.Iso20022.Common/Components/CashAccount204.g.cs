@@ -7,150 +7,268 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[IsoId("_yDPZ4ZS6EemqYPWMBuVawg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashAccount204
-     : IIsoXmlSerilizable<CashAccount204>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashAccount204 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashAccount204( string reqSettlementCurrency,AccountIdentificationAndName5 reqIdentification )
+    {
+        SettlementCurrency = reqSettlementCurrency;
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [IsoId("_yW4HkZS6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string SettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string SettlementCurrency { get; init; } 
+    #else
+    public string SettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_yW4Hk5S6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentificationAndName5 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountIdentificationAndName5 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentificationAndName5 Identification { get; init; } 
+    #else
+    public AccountIdentificationAndName5 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [IsoId("_yW4HlZS6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125Choice_? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification125Choice_? AccountOwner { get; init; } 
+    #else
+    public PartyIdentification125Choice_? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_yW4Hl5S6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification11Choice_? AccountServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstitutionIdentification11Choice_? AccountServicer { get; init; } 
+    #else
+    public FinancialInstitutionIdentification11Choice_? AccountServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
+    [IsoId("_yW4HmZS6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchData4? AccountServicerBranch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchData4? AccountServicerBranch { get; init; } 
+    #else
+    public BranchData4? AccountServicerBranch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
+    [IsoId("_yW4Hm5S6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner Other Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification82? AccountOwnerOtherIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification82? AccountOwnerOtherIdentification { get; init; } 
+    #else
+    public GenericIdentification82? AccountOwnerOtherIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of account.
     /// </summary>
+    [IsoId("_yW4HnZS6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountType2Choice_? InvestmentAccountType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountType2Choice_? InvestmentAccountType { get; init; } 
+    #else
+    public AccountType2Choice_? InvestmentAccountType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the account is for credits or debits.
     /// </summary>
+    [IsoId("_yW4Hn5S6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebit3Code? CreditDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebit3Code? CreditDebit { get; init; } 
+    #else
+    public CreditDebit3Code? CreditDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of transaction for which the cash account is specified.
     /// </summary>
+    [IsoId("_yW4HoZS6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Instruction Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementInstructionReason1Choice_? SettlementInstructionReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInstructionReason1Choice_? SettlementInstructionReason { get; init; } 
+    #else
+    public SettlementInstructionReason1Choice_? SettlementInstructionReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Purpose of the cash account.
     /// </summary>
+    [IsoId("_yW4Ho5S6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountType3Choice_? CashAccountPurpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountType3Choice_? CashAccountPurpose { get; init; } 
+    #else
+    public CashAccountType3Choice_? CashAccountPurpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the account is the primary or secondary account if there are two accounts for the same purpose.
     /// </summary>
+    [IsoId("_yW4HpZS6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Designation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountDesignation1Choice_? CashAccountDesignation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountDesignation1Choice_? CashAccountDesignation { get; init; } 
+    #else
+    public AccountDesignation1Choice_? CashAccountDesignation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>
+    [IsoId("_yW4Hp5S6EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DividendPercentage { get; init; } 
+    #else
+    public System.Decimal? DividendPercentage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
-        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountOwner is PartyIdentification125Choice_ AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountServicer is FinancialInstitutionIdentification11Choice_ AccountServicerValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
-            AccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountServicerBranch is BranchData4 AccountServicerBranchValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcrBrnch", xmlNamespace );
-            AccountServicerBranchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountOwnerOtherIdentification is GenericIdentification82 AccountOwnerOtherIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnrOthrId", xmlNamespace );
-            AccountOwnerOtherIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentAccountType is AccountType2Choice_ InvestmentAccountTypeValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctTp", xmlNamespace );
-            InvestmentAccountTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditDebit is CreditDebit3Code CreditDebitValue)
-        {
-            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
-            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SettlementInstructionReason is SettlementInstructionReason1Choice_ SettlementInstructionReasonValue)
-        {
-            writer.WriteStartElement(null, "SttlmInstrRsn", xmlNamespace );
-            SettlementInstructionReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountPurpose is CashAccountType3Choice_ CashAccountPurposeValue)
-        {
-            writer.WriteStartElement(null, "CshAcctPurp", xmlNamespace );
-            CashAccountPurposeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountDesignation is AccountDesignation1Choice_ CashAccountDesignationValue)
-        {
-            writer.WriteStartElement(null, "CshAcctDsgnt", xmlNamespace );
-            CashAccountDesignationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DividendPercentage is IsoPercentageBoundedRate DividendPercentageValue)
-        {
-            writer.WriteStartElement(null, "DvddPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageBoundedRate(DividendPercentageValue)); // data type PercentageBoundedRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CashAccount204 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

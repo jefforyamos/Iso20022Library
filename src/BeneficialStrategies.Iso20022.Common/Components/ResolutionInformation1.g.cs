@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the return or reversal expected by the party that initiated the initial payment instruction after a cancellation or modification request.
 /// </summary>
+[IsoId("_QJIE2tp-Ed-ak6NoX_4Aeg_-774810951")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Resolution Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ResolutionInformation1
-     : IIsoXmlSerilizable<ResolutionInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [IsoId("_QJIE29p-Ed-ak6NoX_4Aeg_-774810949")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InterbankSettlementAmount { get; init; } 
+    #else
+    public System.Decimal? InterbankSettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [IsoId("_QJROwNp-Ed-ak6NoX_4Aeg_-774810920")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterbankSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InterbankSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? InterbankSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
+    [IsoId("_QJROwdp-Ed-ak6NoX_4Aeg_-774810890")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingChannel2Code? ClearingChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingChannel2Code? ClearingChannel { get; init; } 
+    #else
+    public ClearingChannel2Code? ClearingChannel { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InterbankSettlementAmount is IsoActiveOrHistoricCurrencyAndAmount InterbankSettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InterbankSettlementAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ClearingChannel is ClearingChannel2Code ClearingChannelValue)
-        {
-            writer.WriteStartElement(null, "ClrChanl", xmlNamespace );
-            writer.WriteValue(ClearingChannelValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static ResolutionInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

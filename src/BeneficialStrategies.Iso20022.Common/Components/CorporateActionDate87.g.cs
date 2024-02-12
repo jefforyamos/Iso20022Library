@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
+[IsoId("_qpF07zQKEe2o-K1dwNg8Gg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDate87
-     : IIsoXmlSerilizable<CorporateActionDate87>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionDate87 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionDate87( System.DateOnly reqPostingDate )
+    {
+        PostingDate = reqPostingDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date/time of the posting (credit or debit) to the account.
     /// </summary>
+    [IsoId("_rA7s0TQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PostingDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly PostingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly PostingDate { get; init; } 
+    #else
+    public System.DateOnly PostingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
+    [IsoId("_rA7s2TQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValueDate { get; init; } 
+    #else
+    public System.DateOnly? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
+    [IsoId("_rA7s4TQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Rate Fixing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ForeignExchangeRateFixingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? ForeignExchangeRateFixingDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? ForeignExchangeRateFixingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which a payment can be made, for example, if the payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
+    [IsoId("_rA7s6TQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earliest Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EarliestPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EarliestPaymentDate { get; init; } 
+    #else
+    public System.DateOnly? EarliestPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the distribution is due to take place (cash and/or securities).
     /// </summary>
+    [IsoId("_rA7s8TQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PaymentDate { get; init; } 
+    #else
+    public System.DateOnly? PaymentDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PstngDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(PostingDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (ValueDate is IsoISODate ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ForeignExchangeRateFixingDate is DateAndDateTime2Choice_ ForeignExchangeRateFixingDateValue)
-        {
-            writer.WriteStartElement(null, "FXRateFxgDt", xmlNamespace );
-            ForeignExchangeRateFixingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarliestPaymentDate is IsoISODate EarliestPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestPaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PaymentDate is IsoISODate PaymentDateValue)
-        {
-            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDate87 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

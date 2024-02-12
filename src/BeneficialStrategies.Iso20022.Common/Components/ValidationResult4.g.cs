@@ -7,63 +7,128 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed description of the differences.
 /// </summary>
+[IsoId("_UsvZ8dp-Ed-ak6NoX_4Aeg_-1609439696")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Validation Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ValidationResult4
-     : IIsoXmlSerilizable<ValidationResult4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ValidationResult4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ValidationResult4( System.UInt64 reqSequenceNumber,System.String reqRuleIdentification,System.String reqRuleDescription )
+    {
+        SequenceNumber = reqSequenceNumber;
+        RuleIdentification = reqRuleIdentification;
+        RuleDescription = reqRuleDescription;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sequential number assigned to the mismatch.
     /// </summary>
+    [IsoId("_UsvZ8tp-Ed-ak6NoX_4Aeg_-1609439419")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SequenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 SequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 SequenceNumber { get; init; } 
+    #else
+    public System.UInt64 SequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Coded identification of the matching rule that is violated by the contents of each baseline.
     /// </summary>
+    [IsoId("_UsvZ89p-Ed-ak6NoX_4Aeg_-1609439460")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rule Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RuleIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RuleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RuleIdentification { get; init; } 
+    #else
+    public System.String RuleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed description of the rule.
     /// </summary>
+    [IsoId("_UsvZ9Np-Ed-ak6NoX_4Aeg_-1609439436")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rule Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text RuleDescription { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RuleDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RuleDescription { get; init; } 
+    #else
+    public System.String RuleDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the element that creates the mismatch.
     /// </summary>
+    [IsoId("_UsvZ9dp-Ed-ak6NoX_4Aeg_-1609439383")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mis Matched Element")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public ElementIdentification1? MisMatchedElement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UsvZ9dp-Ed-ak6NoX_4Aeg_-1609439383
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RuleId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RuleIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RuleDesc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(RuleDescription)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize MisMatchedElement, multiplicity Unknown
-    }
-    public static ValidationResult4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

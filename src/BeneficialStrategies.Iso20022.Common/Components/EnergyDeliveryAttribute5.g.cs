@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to energy derivatives attributes.
 /// </summary>
+[IsoId("_b-3nqZjgEeqkLZLH6DK3UQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Energy Delivery Attribute")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EnergyDeliveryAttribute5
-     : IIsoXmlSerilizable<EnergyDeliveryAttribute5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Time interval for each block or shape.
     /// </summary>
+    [IsoId("_b_ddgZjgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Interval")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? DeliveryInterval { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? DeliveryInterval { get; init; } 
+    #else
+    public System.TimeOnly? DeliveryInterval { get; set; } 
+    #endif
+    
     /// <summary>
     /// Definition of delivery start datetime and end datetime.
     /// </summary>
+    [IsoId("_b_ddg5jgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? DeliveryPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1? DeliveryPeriod { get; init; } 
+    #else
+    public DateTimePeriod1? DeliveryPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Start time and end time for each block or shape.
     /// </summary>
+    [IsoId("_b_ddhZjgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimePeriodDetails1? DeliveryTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TimePeriodDetails1? DeliveryTime { get; init; } 
+    #else
+    public TimePeriodDetails1? DeliveryTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Duration of the delivery period.
     /// </summary>
+    [IsoId("_b_ddh5jgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DurationType1Code? Duration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DurationType1Code? Duration { get; init; } 
+    #else
+    public DurationType1Code? Duration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Days of the week of the delivery.
     /// </summary>
+    [IsoId("_b_ddiZjgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Week Day")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WeekDay3Code? WeekDay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public WeekDay3Code? WeekDay { get; init; } 
+    #else
+    public WeekDay3Code? WeekDay { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delivery capacity for each delivery interval specified.
     /// </summary>
+    [IsoId("_b_ddi5jgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity47Choice_? DeliveryCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity47Choice_? DeliveryCapacity { get; init; } 
+    #else
+    public Quantity47Choice_? DeliveryCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Daily or hourly quantity in MWh or kWh/d which corresponds to the underlying commodity.
     /// </summary>
+    [IsoId("_b_ddjZjgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnergyQuantityUnit2Choice_? QuantityUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EnergyQuantityUnit2Choice_? QuantityUnit { get; init; } 
+    #else
+    public EnergyQuantityUnit2Choice_? QuantityUnit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if applicable the price per quantity per delivery time interval.
     /// </summary>
+    [IsoId("_b_ddj5jgEeqkLZLH6DK3UQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Time Interval Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLongFraction19DecimalNumber? PriceTimeIntervalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PriceTimeIntervalQuantity { get; init; } 
+    #else
+    public System.UInt64? PriceTimeIntervalQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DeliveryInterval is IsoISOTime DeliveryIntervalValue)
-        {
-            writer.WriteStartElement(null, "DlvryIntrvl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(DeliveryIntervalValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (DeliveryPeriod is DateTimePeriod1 DeliveryPeriodValue)
-        {
-            writer.WriteStartElement(null, "DlvryPrd", xmlNamespace );
-            DeliveryPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryTime is TimePeriodDetails1 DeliveryTimeValue)
-        {
-            writer.WriteStartElement(null, "DlvryTm", xmlNamespace );
-            DeliveryTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Duration is DurationType1Code DurationValue)
-        {
-            writer.WriteStartElement(null, "Drtn", xmlNamespace );
-            writer.WriteValue(DurationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (WeekDay is WeekDay3Code WeekDayValue)
-        {
-            writer.WriteStartElement(null, "WkDay", xmlNamespace );
-            writer.WriteValue(WeekDayValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DeliveryCapacity is Quantity47Choice_ DeliveryCapacityValue)
-        {
-            writer.WriteStartElement(null, "DlvryCpcty", xmlNamespace );
-            DeliveryCapacityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QuantityUnit is EnergyQuantityUnit2Choice_ QuantityUnitValue)
-        {
-            writer.WriteStartElement(null, "QtyUnit", xmlNamespace );
-            QuantityUnitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceTimeIntervalQuantity is IsoLongFraction19DecimalNumber PriceTimeIntervalQuantityValue)
-        {
-            writer.WriteStartElement(null, "PricTmIntrvlQty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(PriceTimeIntervalQuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static EnergyDeliveryAttribute5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

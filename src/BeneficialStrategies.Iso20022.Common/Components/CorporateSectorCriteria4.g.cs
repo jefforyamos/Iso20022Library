@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Taxonomy for financial and non financial counterparties.
 /// </summary>
+[IsoId("_S3Jkcc4AEeigHZFdShPUJQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Sector Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateSectorCriteria4
-     : IIsoXmlSerilizable<CorporateSectorCriteria4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
+    [IsoId("_TA-14c4AEeigHZFdShPUJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution Sector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialPartySectorType2Code? FinancialInstitutionSector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialPartySectorType2Code? FinancialInstitutionSector { get; init; } 
+    #else
+    public FinancialPartySectorType2Code? FinancialInstitutionSector { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
+    [IsoId("_TA-1484AEeigHZFdShPUJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Financial Institution Sector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNACEDomainIdentifier? NonFinancialInstitutionSector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NonFinancialInstitutionSector { get; init; } 
+    #else
+    public System.String? NonFinancialInstitutionSector { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
+    [IsoId("_JebR0M4REeigHZFdShPUJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Not Reported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotReported1Code? NotReported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NotReported1Code? NotReported { get; init; } 
+    #else
+    public NotReported1Code? NotReported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FinancialInstitutionSector is FinancialPartySectorType2Code FinancialInstitutionSectorValue)
-        {
-            writer.WriteStartElement(null, "FISctr", xmlNamespace );
-            writer.WriteValue(FinancialInstitutionSectorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NonFinancialInstitutionSector is IsoNACEDomainIdentifier NonFinancialInstitutionSectorValue)
-        {
-            writer.WriteStartElement(null, "NFISctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNACEDomainIdentifier(NonFinancialInstitutionSectorValue)); // data type NACEDomainIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (NotReported is NotReported1Code NotReportedValue)
-        {
-            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
-            writer.WriteValue(NotReportedValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateSectorCriteria4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

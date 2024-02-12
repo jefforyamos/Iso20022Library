@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides details on the reported trade transactions.
-/// </summary>
-[KnownType(typeof(TradeReport22Choice.New))]
-[KnownType(typeof(TradeReport22Choice.Modification))]
-[KnownType(typeof(TradeReport22Choice.Error))]
-[KnownType(typeof(TradeReport22Choice.EarlyTermination))]
-[KnownType(typeof(TradeReport22Choice.PositionComponent))]
-[KnownType(typeof(TradeReport22Choice.CollateralUpdate))]
-[KnownType(typeof(TradeReport22Choice.Correction))]
-[KnownType(typeof(TradeReport22Choice.ValuationUpdate))]
-public abstract partial record TradeReport22Choice_ : IIsoXmlSerilizable<TradeReport22Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides details on the reported trade transactions.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeReport22Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeReport22Choice.New))]
+    [KnownType(typeof(TradeReport22Choice.Modification))]
+    [KnownType(typeof(TradeReport22Choice.Error))]
+    [KnownType(typeof(TradeReport22Choice.EarlyTermination))]
+    [KnownType(typeof(TradeReport22Choice.PositionComponent))]
+    [KnownType(typeof(TradeReport22Choice.CollateralUpdate))]
+    [KnownType(typeof(TradeReport22Choice.Correction))]
+    [KnownType(typeof(TradeReport22Choice.ValuationUpdate))]
+    [IsoId("_ztk1Ncg3EeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Report 22 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeReport22Choice_
+    #else
+    public abstract partial class TradeReport22Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "New" => TradeReport22Choice.New.Deserialize(elementWithPayload),
-             "Mod" => TradeReport22Choice.Modification.Deserialize(elementWithPayload),
-             "Err" => TradeReport22Choice.Error.Deserialize(elementWithPayload),
-             "EarlyTermntn" => TradeReport22Choice.EarlyTermination.Deserialize(elementWithPayload),
-             "PosCmpnt" => TradeReport22Choice.PositionComponent.Deserialize(elementWithPayload),
-             "CollUpd" => TradeReport22Choice.CollateralUpdate.Deserialize(elementWithPayload),
-             "Crrctn" => TradeReport22Choice.Correction.Deserialize(elementWithPayload),
-             "ValtnUpd" => TradeReport22Choice.ValuationUpdate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeReport22Choice choice.")
-        };
     }
 }

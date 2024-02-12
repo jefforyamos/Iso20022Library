@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the generated reason.
-/// </summary>
-[KnownType(typeof(GeneratedReasons5Choice.Code))]
-[KnownType(typeof(GeneratedReasons5Choice.Proprietary))]
-public abstract partial record GeneratedReasons5Choice_ : IIsoXmlSerilizable<GeneratedReasons5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the generated reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static GeneratedReasons5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(GeneratedReasons5Choice.Code))]
+    [KnownType(typeof(GeneratedReasons5Choice.Proprietary))]
+    [IsoId("_N9GsgTqeEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Generated Reasons 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record GeneratedReasons5Choice_
+    #else
+    public abstract partial class GeneratedReasons5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => GeneratedReasons5Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => GeneratedReasons5Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid GeneratedReasons5Choice choice.")
-        };
     }
 }

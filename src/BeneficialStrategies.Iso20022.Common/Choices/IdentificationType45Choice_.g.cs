@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a code and a data source scheme to specify the type of natural person identification.
-/// </summary>
-[KnownType(typeof(IdentificationType45Choice.Code))]
-[KnownType(typeof(IdentificationType45Choice.Proprietary))]
-public abstract partial record IdentificationType45Choice_ : IIsoXmlSerilizable<IdentificationType45Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a code and a data source scheme to specify the type of natural person identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IdentificationType45Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IdentificationType45Choice.Code))]
+    [KnownType(typeof(IdentificationType45Choice.Proprietary))]
+    [IsoId("_ql4v0Id6EemJ1cSJJmVYRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Type 45 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IdentificationType45Choice_
+    #else
+    public abstract partial class IdentificationType45Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => IdentificationType45Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => IdentificationType45Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IdentificationType45Choice choice.")
-        };
     }
 }

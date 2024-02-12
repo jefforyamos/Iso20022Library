@@ -7,93 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[IsoId("_BViM4XbeEe2_x8sH-8RFVw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerHeader8
-     : IIsoXmlSerilizable<TrackerHeader8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TrackerHeader8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TrackerHeader8( System.String reqMessageIdentification )
+    {
+        MessageIdentification = reqMessageIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the tracker informing party and sent by the tracker to unambiguously identify the message.
     /// </summary>
+    [IsoId("_Be6LUXbeEe2_x8sH-8RFVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [IsoId("_Be6LU3beEe2_x8sH-8RFVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CreationDateTime { get; init; } 
+    #else
+    public System.DateTime? CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of individual transactions contained in the message.
     /// </summary>
+    [IsoId("_Be6LVXbeEe2_x8sH-8RFVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NumberOfTransactions { get; init; } 
+    #else
+    public System.String? NumberOfTransactions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that provides information on the status and related details of an investigation.
     /// </summary>
+    [IsoId("_Be6LV3beEe2_x8sH-8RFVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Informing Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
+    #else
+    public TrackerPartyIdentification2? TrackerInformingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that is updated on the status and related details of an investigation.
     /// </summary>
+    [IsoId("_Be6LWXbeEe2_x8sH-8RFVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Informed Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
+    #else
+    public TrackerPartyIdentification2? TrackerInformedParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agreement under which or rules under which the request should be processed.
     /// </summary>
+    [IsoId("_Be6LXXbeEe2_x8sH-8RFVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ServiceLevel8Choice_? ServiceLevel { get; init; } 
+    #else
+    public ServiceLevel8Choice_? ServiceLevel { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
-        {
-            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TrackerInformingParty is TrackerPartyIdentification2 TrackerInformingPartyValue)
-        {
-            writer.WriteStartElement(null, "TrckrInfrmgPty", xmlNamespace );
-            TrackerInformingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TrackerInformedParty is TrackerPartyIdentification2 TrackerInformedPartyValue)
-        {
-            writer.WriteStartElement(null, "TrckrInfrmdPty", xmlNamespace );
-            TrackerInformedPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ServiceLevel is ServiceLevel8Choice_ ServiceLevelValue)
-        {
-            writer.WriteStartElement(null, "SvcLvl", xmlNamespace );
-            ServiceLevelValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TrackerHeader8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

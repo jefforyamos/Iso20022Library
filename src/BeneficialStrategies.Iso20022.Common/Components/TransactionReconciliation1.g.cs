@@ -7,76 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reconciliation transaction between an acceptor and an acquirer.
 /// </summary>
+[IsoId("_TGcRVgEcEeCQm6a_G2yO_w_744459004")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Reconciliation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionReconciliation1
-     : IIsoXmlSerilizable<TransactionReconciliation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionReconciliation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionReconciliation1( TransactionIdentifier1 reqReconciliationTransactionIdentification,System.String reqReconciliationIdentification )
+    {
+        ReconciliationTransactionIdentification = reqReconciliationTransactionIdentification;
+        ReconciliationIdentification = reqReconciliationIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates if the transaction requires a closure of the reconciliation period.
     /// </summary>
+    [IsoId("_TGcRVwEcEeCQm6a_G2yO_w_-121603655")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Close Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ClosePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClosePeriod { get; init; } 
+    #else
+    public System.String? ClosePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of a reconciliation transaction.
     /// </summary>
+    [IsoId("_TGcRWAEcEeCQm6a_G2yO_w_-1610367733")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 ReconciliationTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentifier1 ReconciliationTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1 ReconciliationTransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1 ReconciliationTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
+    [IsoId("_TGcRWQEcEeCQm6a_G2yO_w_-1053540175")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReconciliationIdentification { get; init; } 
+    #else
+    public System.String ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction totals during the reconciliation period for a certain type of transaction.
     /// </summary>
+    [IsoId("_TGcRWgEcEeCQm6a_G2yO_w_1177771040")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TransactionTotals1? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _TGcRWgEcEeCQm6a_G2yO_w_1177771040
+    
     /// <summary>
     /// Additional information related to the reconciliation transaction.
     /// </summary>
+    [IsoId("_TGcRWwEcEeCQm6a_G2yO_w_961666325")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Transaction Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalTransactionData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalTransactionData { get; init; } 
+    #else
+    public System.String? AdditionalTransactionData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ClosePeriod is IsoTrueFalseIndicator ClosePeriodValue)
-        {
-            writer.WriteStartElement(null, "ClsPrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClosePeriodValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RcncltnTxId", xmlNamespace );
-        ReconciliationTransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize TransactionTotals, multiplicity Unknown
-        if (AdditionalTransactionData is IsoMax70Text AdditionalTransactionDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlTxData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalTransactionDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionReconciliation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

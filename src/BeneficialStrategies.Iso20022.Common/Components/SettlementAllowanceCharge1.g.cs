@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a pricing component, such as a service, promotion, allowance or charge, for this trade settlement.
 /// </summary>
+[IsoId("_S0Q8SgEcEeCQm6a_G2yO_w_1558181804")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Allowance Charge")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementAllowanceCharge1
-     : IIsoXmlSerilizable<SettlementAllowanceCharge1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
+    [IsoId("_S0Q8SwEcEeCQm6a_G2yO_w_23404513")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowance Charge Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AllowanceChargeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AllowanceChargeIndicator { get; init; } 
+    #else
+    public System.String? AllowanceChargeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual monetary amount specified for the allowance or charge.
     /// </summary>
+    [IsoId("_S0Q8TAEcEeCQm6a_G2yO_w_-2142675469")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ActualAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ActualAmount { get; init; } 
+    #else
+    public System.Decimal? ActualAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason, expressed as text, for this allowance or charge.
     /// </summary>
+    [IsoId("_S0Q8TQEcEeCQm6a_G2yO_w_1081608763")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DiscountOrChargeType1Choice_? Reason { get; init; } 
+    #else
+    public DiscountOrChargeType1Choice_? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AllowanceChargeIndicator is IsoYesNoIndicator AllowanceChargeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AllwncChrgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllowanceChargeIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ActualAmount is IsoCurrencyAndAmount ActualAmountValue)
-        {
-            writer.WriteStartElement(null, "ActlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ActualAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Reason is DiscountOrChargeType1Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementAllowanceCharge1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

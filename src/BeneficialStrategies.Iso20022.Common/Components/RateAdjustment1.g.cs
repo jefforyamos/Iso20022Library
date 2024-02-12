@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the rate adjustments as determined by the rate schedule.
 /// </summary>
+[IsoId("_D6Df4CDwEeahCJeThTBhHA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rate Adjustment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RateAdjustment1
-     : IIsoXmlSerilizable<RateAdjustment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RateAdjustment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RateAdjustment1( System.Decimal reqRate,System.DateOnly reqAdjustmentDate )
+    {
+        Rate = reqRate;
+        AdjustmentDate = reqAdjustmentDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the rate as determined by the rate schedule.
     /// </summary>
+    [IsoId("_J3YZ8CDwEeahCJeThTBhHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Rate { get; init; } 
+    #else
+    public System.Decimal Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies date as of which the rate is effective.
     /// </summary>
+    [IsoId("_OaFwICDwEeahCJeThTBhHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjustment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate AdjustmentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly AdjustmentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly AdjustmentDate { get; init; } 
+    #else
+    public System.DateOnly AdjustmentDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AdjstmntDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(AdjustmentDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-    }
-    public static RateAdjustment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

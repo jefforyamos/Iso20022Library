@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for a type of request.
-/// </summary>
-[KnownType(typeof(TypeOfRequest1Choice.Code))]
-[KnownType(typeof(TypeOfRequest1Choice.Proprietary))]
-public abstract partial record TypeOfRequest1Choice_ : IIsoXmlSerilizable<TypeOfRequest1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for a type of request.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TypeOfRequest1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TypeOfRequest1Choice.Code))]
+    [KnownType(typeof(TypeOfRequest1Choice.Proprietary))]
+    [IsoId("_wZdgANvdEeqxGfKJubfhIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Request 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TypeOfRequest1Choice_
+    #else
+    public abstract partial class TypeOfRequest1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TypeOfRequest1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TypeOfRequest1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TypeOfRequest1Choice choice.")
-        };
     }
 }

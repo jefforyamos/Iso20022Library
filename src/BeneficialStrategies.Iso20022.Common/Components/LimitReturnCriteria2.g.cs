@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on limit.
 /// </summary>
+[IsoId("_76joYqMgEeCJ6YNENx4h-w_915944242")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Limit Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LimitReturnCriteria2
-     : IIsoXmlSerilizable<LimitReturnCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the limit start date time is requested.
     /// </summary>
+    [IsoId("_76joY6MgEeCJ6YNENx4h-w_1532338031")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date Time Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? StartDateTimeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StartDateTimeIndicator { get; init; } 
+    #else
+    public System.String? StartDateTimeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the limit status is requested.
     /// </summary>
+    [IsoId("_76joZKMgEeCJ6YNENx4h-w_2002414441")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatusIndicator { get; init; } 
+    #else
+    public System.String? StatusIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the limit used amount is requested.
     /// </summary>
+    [IsoId("_76joZaMgEeCJ6YNENx4h-w_-611823697")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Amount Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? UsedAmountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UsedAmountIndicator { get; init; } 
+    #else
+    public System.String? UsedAmountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the limit used percentage is requested.
     /// </summary>
+    [IsoId("_76joZqMgEeCJ6YNENx4h-w_1711979106")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Percentage Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? UsedPercentageIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UsedPercentageIndicator { get; init; } 
+    #else
+    public System.String? UsedPercentageIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StartDateTimeIndicator is IsoRequestedIndicator StartDateTimeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "StartDtTmInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StartDateTimeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (StatusIndicator is IsoRequestedIndicator StatusIndicatorValue)
-        {
-            writer.WriteStartElement(null, "StsInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (UsedAmountIndicator is IsoRequestedIndicator UsedAmountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "UsdAmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(UsedAmountIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (UsedPercentageIndicator is IsoRequestedIndicator UsedPercentageIndicatorValue)
-        {
-            writer.WriteStartElement(null, "UsdPctgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(UsedPercentageIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static LimitReturnCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

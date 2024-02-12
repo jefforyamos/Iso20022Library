@@ -7,57 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a point of interaction.
 /// </summary>
+[IsoId("_9wj-QI4UEeW6h7rGyYlyTg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Point Of Interaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PointOfInteraction6
-     : IIsoXmlSerilizable<PointOfInteraction6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PointOfInteraction6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PointOfInteraction6( System.String reqManufacturerIdentifier,System.String reqModel,System.String reqSerialNumber )
+    {
+        ManufacturerIdentifier = reqManufacturerIdentifier;
+        Model = reqModel;
+        SerialNumber = reqSerialNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifier of the terminal manufacturer.
     /// </summary>
+    [IsoId("_ISnAsI4VEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Manufacturer Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ManufacturerIdentifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ManufacturerIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ManufacturerIdentifier { get; init; } 
+    #else
+    public System.String ManufacturerIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of the terminal model.
     /// </summary>
+    [IsoId("_K-fYII4VEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Model")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Model { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Model { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Model { get; init; } 
+    #else
+    public System.String Model { get; set; } 
+    #endif
+    
     /// <summary>
     /// Serial number of the terminal manufacturer.
     /// </summary>
+    [IsoId("_N5OD4I4VEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Serial Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SerialNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SerialNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SerialNumber { get; init; } 
+    #else
+    public System.String SerialNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ManfctrIdr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ManufacturerIdentifier)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Mdl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Model)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SrlNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static PointOfInteraction6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

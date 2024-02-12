@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action quantities.
 /// </summary>
+[IsoId("_TZS1ENp-Ed-ak6NoX_4Aeg_-702995284")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Quantity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionQuantity1
-     : IIsoXmlSerilizable<CorporateActionQuantity1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_TZS1Edp-Ed-ak6NoX_4Aeg_-812699025")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_TZS1Etp-Ed-ak6NoX_4Aeg_-812699008")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Multiple Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of securities the offeror is requesting to complete the event.
     /// </summary>
+    [IsoId("_TZS1E9p-Ed-ak6NoX_4Aeg_1509465310")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity2Choice_? MaximumQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity2Choice_? MaximumQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity2Choice_? MaximumQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
+    [IsoId("_TZS1FNp-Ed-ak6NoX_4Aeg_-812698965")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Quantity Sought")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity2Choice_? MinimumQuantitySought { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity2Choice_? MinimumQuantitySought { get; init; } 
+    #else
+    public FinancialInstrumentQuantity2Choice_? MinimumQuantitySought { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
+    [IsoId("_TZS1Fdp-Ed-ak6NoX_4Aeg_-812698895")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Board Lot Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
+    [IsoId("_TZS1Ftp-Ed-ak6NoX_4Aeg_-812698930")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Denomination Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
+    [IsoId("_TZS1F9p-Ed-ak6NoX_4Aeg_-2143037580")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? BaseDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? BaseDenomination { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? BaseDenomination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
+    [IsoId("_TZS1GNp-Ed-ak6NoX_4Aeg_-1831811120")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incremental Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? IncrementalDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? IncrementalDenomination { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? IncrementalDenomination { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MinimumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblQty", xmlNamespace );
-            MinimumExercisableQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableMultipleQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableMultipleQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblMltplQty", xmlNamespace );
-            MinimumExercisableMultipleQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaximumQuantity is FinancialInstrumentQuantity2Choice_ MaximumQuantityValue)
-        {
-            writer.WriteStartElement(null, "MaxQty", xmlNamespace );
-            MaximumQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumQuantitySought is FinancialInstrumentQuantity2Choice_ MinimumQuantitySoughtValue)
-        {
-            writer.WriteStartElement(null, "MinQtySght", xmlNamespace );
-            MinimumQuantitySoughtValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewBoardLotQuantity is FinancialInstrumentQuantity1Choice_ NewBoardLotQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewBrdLotQty", xmlNamespace );
-            NewBoardLotQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewDenominationQuantity is FinancialInstrumentQuantity1Choice_ NewDenominationQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewDnmtnQty", xmlNamespace );
-            NewDenominationQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BaseDenomination is FinancialInstrumentQuantity1Choice_ BaseDenominationValue)
-        {
-            writer.WriteStartElement(null, "BaseDnmtn", xmlNamespace );
-            BaseDenominationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncrementalDenomination is FinancialInstrumentQuantity1Choice_ IncrementalDenominationValue)
-        {
-            writer.WriteStartElement(null, "IncrmtlDnmtn", xmlNamespace );
-            IncrementalDenominationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionQuantity1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

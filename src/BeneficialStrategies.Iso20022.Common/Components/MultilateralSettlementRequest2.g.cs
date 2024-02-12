@@ -7,104 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details specific to the individual settlement instruction(s) included in the message.
 /// </summary>
+[IsoId("_I5-6EQcZEeyTDbUIoCmuCw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Multilateral Settlement Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MultilateralSettlementRequest2
-     : IIsoXmlSerilizable<MultilateralSettlementRequest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MultilateralSettlementRequest2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MultilateralSettlementRequest2( System.String reqInstructionIdentification )
+    {
+        InstructionIdentification = reqInstructionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the instructing agent, and sent to the market infrastructure to unambiguously identify the instruction.
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing agent and the market infrastructure to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
+    [IsoId("_I-zvsQcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InstructionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructionIdentification { get; init; } 
+    #else
+    public System.String InstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator of the urgency or order of importance that the instructing agent would like the market infrastructure to apply to the processing of the instruction.
     /// Usage: Market practice or bilateral agreement should specify how this element should be used. If this element is not populated and there is no market guidance or bilateral agreement, the priority will be considered as 'Normal'.
     /// </summary>
+    [IsoId("_I-zvswcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority3Code? InstructionPriority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Priority3Code? InstructionPriority { get; init; } 
+    #else
+    public Priority3Code? InstructionPriority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the requested settlement time(s) of the instruction.
     /// </summary>
+    [IsoId("_I-zvtwcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Time Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTimeRequest2? SettlementTimeRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTimeRequest2? SettlementTimeRequest { get; init; } 
+    #else
+    public SettlementTimeRequest2? SettlementTimeRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator of the urgency or order of importance that the instructing agent would like the market infrastructure to apply to the processing of the settlement instruction.
     /// Usage: Market practice or bilateral agreement should specify how this element should be used. If this element is not populated and there is no market guidance or bilateral agreement, the priority will be considered as 'Normal'.
     /// </summary>
+    [IsoId("_I-zvuQcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority3Code? SettlementPriority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Priority3Code? SettlementPriority { get; init; } 
+    #else
+    public Priority3Code? SettlementPriority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the settlement cycle in the settlement service.
     /// Usage: The SettlementCycle is used to differentiate this multilateral settlement from other multilateral settlements where more than one occurs within a given time period.
     /// </summary>
+    [IsoId("_I-zvuwcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Cycle")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SettlementCycle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementCycle { get; init; } 
+    #else
+    public System.String? SettlementCycle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator of the number of movement records contained in an individual settlement request.
     /// </summary>
+    [IsoId("_I-zvvQcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Movement Records")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfMovementRecords { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfMovementRecords { get; init; } 
+    #else
+    public System.UInt64? NumberOfMovementRecords { get; set; } 
+    #endif
+    
     /// <summary>
     /// Credit or debit transaction contained in an individual settlement request.
     /// Usage: Number of occurrences of MovementRecord shall always be even.
     /// </summary>
+    [IsoId("_I-zvvwcZEeyTDbUIoCmuCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Movement Record")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public MovementRecord1? MovementRecord { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _I-zvvwcZEeyTDbUIoCmuCw
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (InstructionPriority is Priority3Code InstructionPriorityValue)
-        {
-            writer.WriteStartElement(null, "InstrPrty", xmlNamespace );
-            writer.WriteValue(InstructionPriorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SettlementTimeRequest is SettlementTimeRequest2 SettlementTimeRequestValue)
-        {
-            writer.WriteStartElement(null, "SttlmTmReq", xmlNamespace );
-            SettlementTimeRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementPriority is Priority3Code SettlementPriorityValue)
-        {
-            writer.WriteStartElement(null, "SttlmPrty", xmlNamespace );
-            writer.WriteValue(SettlementPriorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SettlementCycle is IsoMax35Text SettlementCycleValue)
-        {
-            writer.WriteStartElement(null, "SttlmCycl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SettlementCycleValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (NumberOfMovementRecords is IsoNumber NumberOfMovementRecordsValue)
-        {
-            writer.WriteStartElement(null, "NbOfMvmntRcrds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMovementRecordsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize MovementRecord, multiplicity Unknown
-    }
-    public static MultilateralSettlementRequest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

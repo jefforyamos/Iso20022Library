@@ -9,84 +9,141 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountModification1Choice;
-
-/// <summary>
-/// Account to or from which a securities entry is made.
-/// </summary>
-public partial record SystemSecuritiesAccount : SecuritiesAccountModification1Choice_
-     , IIsoXmlSerilizable<SystemSecuritiesAccount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountModification1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Legal closing date for the securities account.
+    /// Account to or from which a securities entry is made.
     /// </summary>
-    public IsoISODate? ClosingDate { get; init; } 
-    /// <summary>
-    /// Meaning when true: Account is in Hold status.
-    /// Meaning when false: Account is in Release status.
-    /// </summary>
-    public IsoTrueFalseIndicator? HoldIndicator { get; init; } 
-    /// <summary>
-    /// Specifies whether the securities account can hold a negative position in a security.
-    /// </summary>
-    public IsoYesNoIndicator? NegativePosition { get; init; } 
-    /// <summary>
-    /// Specifies information to identify securities accounts where allocation instructions are posted.
-    /// </summary>
-    public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
-    /// <summary>
-    /// Defines how the price is applied to the securities account.
-    /// </summary>
-    public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_hjLna2liEeGaMcKyqKNRfQ_1200956850")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Securities Account")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SystemSecuritiesAccount : SecuritiesAccountModification1Choice_
+    #else
+    public partial class SystemSecuritiesAccount : SecuritiesAccountModification1Choice_
+    #endif
     {
-        if (ClosingDate is IsoISODate ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (HoldIndicator is IsoTrueFalseIndicator HoldIndicatorValue)
-        {
-            writer.WriteStartElement(null, "HldInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HoldIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (NegativePosition is IsoYesNoIndicator NegativePositionValue)
-        {
-            writer.WriteStartElement(null, "NegPos", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NegativePositionValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EndInvestorFlag is IsoExact4AlphaNumericText EndInvestorFlagValue)
-        {
-            writer.WriteStartElement(null, "EndInvstrFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(EndInvestorFlagValue)); // data type Exact4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (PricingScheme is IsoExact4AlphaNumericText PricingSchemeValue)
-        {
-            writer.WriteStartElement(null, "PricgSchme", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(PricingSchemeValue)); // data type Exact4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new SystemSecuritiesAccount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Legal closing date for the securities account.
+        /// </summary>
+        [IsoId("_hi4shmliEeGaMcKyqKNRfQ_-1276235554")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Closing Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ClosingDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ClosingDate { get; init; } 
+        #else
+        public System.DateOnly? ClosingDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Meaning when true: Account is in Hold status.
+        /// Meaning when false: Account is in Release status.
+        /// </summary>
+        [IsoId("_hi4sh2liEeGaMcKyqKNRfQ_-553977920")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Hold Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoTrueFalseIndicator? HoldIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? HoldIndicator { get; init; } 
+        #else
+        public System.String? HoldIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the securities account can hold a negative position in a security.
+        /// </summary>
+        [IsoId("_hjB2YGliEeGaMcKyqKNRfQ_-1625982979")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Negative Position")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? NegativePosition { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? NegativePosition { get; init; } 
+        #else
+        public System.String? NegativePosition { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies information to identify securities accounts where allocation instructions are posted.
+        /// </summary>
+        [IsoId("_hjB2YWliEeGaMcKyqKNRfQ_1482724284")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("End Investor Flag")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EndInvestorFlag { get; init; } 
+        #else
+        public System.String? EndInvestorFlag { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Defines how the price is applied to the securities account.
+        /// </summary>
+        [IsoId("_hjB2YmliEeGaMcKyqKNRfQ_-694614118")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Pricing Scheme")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PricingScheme { get; init; } 
+        #else
+        public System.String? PricingScheme { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,92 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the received margin or collateral of the transaction.
 /// </summary>
+[IsoId("_lgGRIYmKEeybbN9emGqfiw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Received Margin Or Collateral")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReceivedMarginOrCollateral6
-     : IIsoXmlSerilizable<ReceivedMarginOrCollateral6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value of the initial margin received by the reporting counterparty from the other counterparty.
     /// Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// </summary>
+    [IsoId("_lhNEYYmKEeybbN9emGqfiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin Received Pre Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginReceivedPreHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InitialMarginReceivedPreHaircut { get; init; } 
+    #else
+    public System.Decimal? InitialMarginReceivedPreHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the initial margin received by the reporting counterparty from the other counterparty.
     /// Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
+    [IsoId("_lhNEY4mKEeybbN9emGqfiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin Received Post Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginReceivedPostHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InitialMarginReceivedPostHaircut { get; init; } 
+    #else
+    public System.Decimal? InitialMarginReceivedPostHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the variation margin received, including cash settled, by the reporting counterparty from the other counterparty. 
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// </summary>
+    [IsoId("_lhNEZYmKEeybbN9emGqfiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Received Pre Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginReceivedPreHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? VariationMarginReceivedPreHaircut { get; init; } 
+    #else
+    public System.Decimal? VariationMarginReceivedPreHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the variation margin received, including cash settled, by the reporting counterparty from the other counterparty. 
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
+    [IsoId("_lhNEZ4mKEeybbN9emGqfiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Received Post Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginReceivedPostHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? VariationMarginReceivedPostHaircut { get; init; } 
+    #else
+    public System.Decimal? VariationMarginReceivedPostHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of collateral received in excess of the required collateral.
     /// </summary>
+    [IsoId("_lhNEaYmKEeybbN9emGqfiw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Excess Collateral Received")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralReceived { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExcessCollateralReceived { get; init; } 
+    #else
+    public System.Decimal? ExcessCollateralReceived { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InitialMarginReceivedPreHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount InitialMarginReceivedPreHaircutValue)
-        {
-            writer.WriteStartElement(null, "InitlMrgnRcvdPreHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(InitialMarginReceivedPreHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InitialMarginReceivedPostHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount InitialMarginReceivedPostHaircutValue)
-        {
-            writer.WriteStartElement(null, "InitlMrgnRcvdPstHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(InitialMarginReceivedPostHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (VariationMarginReceivedPreHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount VariationMarginReceivedPreHaircutValue)
-        {
-            writer.WriteStartElement(null, "VartnMrgnRcvdPreHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(VariationMarginReceivedPreHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (VariationMarginReceivedPostHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount VariationMarginReceivedPostHaircutValue)
-        {
-            writer.WriteStartElement(null, "VartnMrgnRcvdPstHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(VariationMarginReceivedPostHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExcessCollateralReceived is IsoActiveOrHistoricCurrencyAnd20DecimalAmount ExcessCollateralReceivedValue)
-        {
-            writer.WriteStartElement(null, "XcssCollRcvd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(ExcessCollateralReceivedValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ReceivedMarginOrCollateral6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

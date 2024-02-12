@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rates.
 /// </summary>
+[IsoId("_Tf2JBdp-Ed-ak6NoX_4Aeg_-1452767156")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionRate1
-     : IIsoXmlSerilizable<CorporateActionRate1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Annual rate of a financial instrument.
     /// </summary>
+    [IsoId("_Tf2JBtp-Ed-ak6NoX_4Aeg_-2054958770")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat1Choice_? Interest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat1Choice_? Interest { get; init; } 
+    #else
+    public RateAndAmountFormat1Choice_? Interest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
+    [IsoId("_Tf2JB9p-Ed-ak6NoX_4Aeg_-1563128851")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? RelatedIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat1Choice_? RelatedIndex { get; init; } 
+    #else
+    public RateFormat1Choice_? RelatedIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
+    [IsoId("_Tf2JCNp-Ed-ak6NoX_4Aeg_-2024233567")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Sought")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? PercentageSought { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat1Choice_? PercentageSought { get; init; } 
+    #else
+    public RateFormat1Choice_? PercentageSought { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
+    [IsoId("_Tf_6ANp-Ed-ak6NoX_4Aeg_-613289454")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvestment Discount To Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? ReinvestmentDiscountToMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat1Choice_? ReinvestmentDiscountToMarket { get; init; } 
+    #else
+    public RateFormat1Choice_? ReinvestmentDiscountToMarket { get; set; } 
+    #endif
+    
     /// <summary>
     /// Margin allowed over or under a given rate.
     /// </summary>
+    [IsoId("_Tf_6Adp-Ed-ak6NoX_4Aeg_377917731")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? Spread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat1Choice_? Spread { get; init; } 
+    #else
+    public RateFormat1Choice_? Spread { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
+    [IsoId("_Tf_6Atp-Ed-ak6NoX_4Aeg_440695672")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid Interval")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndRateFormat3Choice_? BidInterval { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndRateFormat3Choice_? BidInterval { get; init; } 
+    #else
+    public AmountAndRateFormat3Choice_? BidInterval { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [IsoId("_Tf_6A9p-Ed-ak6NoX_4Aeg_-733274509")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat1Choice_? Charges { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat1Choice_? Charges { get; init; } 
+    #else
+    public RateAndAmountFormat1Choice_? Charges { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Interest is RateAndAmountFormat1Choice_ InterestValue)
-        {
-            writer.WriteStartElement(null, "Intrst", xmlNamespace );
-            InterestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RelatedIndex is RateFormat1Choice_ RelatedIndexValue)
-        {
-            writer.WriteStartElement(null, "RltdIndx", xmlNamespace );
-            RelatedIndexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PercentageSought is RateFormat1Choice_ PercentageSoughtValue)
-        {
-            writer.WriteStartElement(null, "PctgSght", xmlNamespace );
-            PercentageSoughtValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReinvestmentDiscountToMarket is RateFormat1Choice_ ReinvestmentDiscountToMarketValue)
-        {
-            writer.WriteStartElement(null, "RinvstmtDscntToMkt", xmlNamespace );
-            ReinvestmentDiscountToMarketValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Spread is RateFormat1Choice_ SpreadValue)
-        {
-            writer.WriteStartElement(null, "Sprd", xmlNamespace );
-            SpreadValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BidInterval is AmountAndRateFormat3Choice_ BidIntervalValue)
-        {
-            writer.WriteStartElement(null, "BidIntrvl", xmlNamespace );
-            BidIntervalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Charges is RateAndAmountFormat1Choice_ ChargesValue)
-        {
-            writer.WriteStartElement(null, "Chrgs", xmlNamespace );
-            ChargesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionRate1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

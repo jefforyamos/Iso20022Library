@@ -7,60 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a key encryption key (KEK), using previously distributed symmetric key.
 /// </summary>
+[IsoId("_Sw1NuwEcEeCQm6a_G2yO_w_607012210")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("KEK Identifier")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record KEKIdentifier1
-     : IIsoXmlSerilizable<KEKIdentifier1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a KEKIdentifier1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public KEKIdentifier1( System.String reqKeyIdentification,System.String reqKeyVersion )
+    {
+        KeyIdentification = reqKeyIdentification;
+        KeyVersion = reqKeyVersion;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
+    [IsoId("_Sw1NvAEcEeCQm6a_G2yO_w_-1402944648")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text KeyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String KeyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String KeyIdentification { get; init; } 
+    #else
+    public System.String KeyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [IsoId("_Sw1NvQEcEeCQm6a_G2yO_w_-792542720")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact10Text KeyVersion { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String KeyVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String KeyVersion { get; init; } 
+    #else
+    public System.String KeyVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification used for derivation of a unique key from a master key provided for the data protection.
     /// </summary>
+    [IsoId("_Sw1NvgEcEeCQm6a_G2yO_w_-1001700130")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin5Max16Binary? DerivationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? DerivationIdentification { get; init; } 
+    #else
+    public System.Byte[]? DerivationIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "KeyId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyIdentification)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "KeyVrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact10Text(KeyVersion)); // data type Exact10Text System.String
-        writer.WriteEndElement();
-        if (DerivationIdentification is IsoMin5Max16Binary DerivationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DerivtnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin5Max16Binary(DerivationIdentificationValue)); // data type Min5Max16Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static KEKIdentifier1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

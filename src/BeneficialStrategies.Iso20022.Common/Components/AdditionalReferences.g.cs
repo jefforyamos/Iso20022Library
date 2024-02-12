@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business reference(s) to one or more relevant messages previously sent by other parties, or by the same party issuing this message.
 /// </summary>
+[IsoId("_Rca4sNp-Ed-ak6NoX_4Aeg_-583688066")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional References")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalReferences
-     : IIsoXmlSerilizable<AdditionalReferences>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AdditionalReferences instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AdditionalReferences( System.String reqReference )
+    {
+        Reference = reqReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unambiguous reference to a previous message having a business relevance with this message.
     /// </summary>
+    [IsoId("_Rca4sdp-Ed-ak6NoX_4Aeg_-470092785")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Reference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Reference { get; init; } 
+    #else
+    public System.String Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the message which contained the given additional reference as its message reference.
     /// </summary>
+    [IsoId("_Rca4stp-Ed-ak6NoX_4Aeg_200384123")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageName { get; init; } 
+    #else
+    public System.String? MessageName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that initially assigned the given additional reference.
     /// </summary>
+    [IsoId("_Rca4s9p-Ed-ak6NoX_4Aeg_421105069")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification? ReferenceIssuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification? ReferenceIssuer { get; init; } 
+    #else
+    public PartyIdentification? ReferenceIssuer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ref", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (MessageName is IsoMax35Text MessageNameValue)
-        {
-            writer.WriteStartElement(null, "MsgNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReferenceIssuer is PartyIdentification ReferenceIssuerValue)
-        {
-            writer.WriteStartElement(null, "RefIssr", xmlNamespace );
-            ReferenceIssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalReferences Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

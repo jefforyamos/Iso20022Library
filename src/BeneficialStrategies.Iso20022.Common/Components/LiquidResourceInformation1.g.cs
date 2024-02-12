@@ -7,91 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the liquid resources.
 /// </summary>
+[IsoId("_nNjvsESrEemM8-DVOYzdVQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Liquid Resource Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LiquidResourceInformation1
-     : IIsoXmlSerilizable<LiquidResourceInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LiquidResourceInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LiquidResourceInformation1( AmountAndDirection102 reqLiquidResourceValue,System.String reqSecured,System.String reqAssetEncumbered,System.String reqQualifyingResource,System.String reqAgencyArrangements )
+    {
+        LiquidResourceValue = reqLiquidResourceValue;
+        Secured = reqSecured;
+        AssetEncumbered = reqAssetEncumbered;
+        QualifyingResource = reqQualifyingResource;
+        AgencyArrangements = reqAgencyArrangements;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the facility provider.
     /// </summary>
+    [IsoId("_xUlDAESrEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counter Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CounterPartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterPartyIdentification { get; init; } 
+    #else
+    public System.String? CounterPartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of liquid resources available to meet liquid requirements.
     /// </summary>
+    [IsoId("_2i3s0ESrEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Liquid Resource Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 LiquidResourceValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection102 LiquidResourceValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection102 LiquidResourceValue { get; init; } 
+    #else
+    public AmountAndDirection102 LiquidResourceValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// The market value of the financial instruments being used to secure the facility.
     /// </summary>
+    [IsoId("_FuOcsESsEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection102? MarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection102? MarketValue { get; init; } 
+    #else
+    public AmountAndDirection102? MarketValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the facility is secured or not.
     /// </summary>
+    [IsoId("_VvbPcESsEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secured")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Secured { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Secured { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Secured { get; init; } 
+    #else
+    public System.String Secured { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instruments are encumbered or not. This includes where financial instruments must be pledged to secure liquidity facilities.
     /// </summary>
+    [IsoId("_bFJ-AESsEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Encumbered")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator AssetEncumbered { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AssetEncumbered { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AssetEncumbered { get; init; } 
+    #else
+    public System.String AssetEncumbered { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the available liquid resource counts towards the liquid requirements in the scenario or not.
     /// </summary>
+    [IsoId("_gVPXkESsEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Qualifying Resource")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator QualifyingResource { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String QualifyingResource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String QualifyingResource { get; init; } 
+    #else
+    public System.String QualifyingResource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the reliance on third party entities to settle payment obligations for the CCP or a clearing member. The article 32(4) of Commission Delegated Regulated 153/2013 includes a full list of third party entities which a CCP may have a liquidity exposure to. If the value is true, the portion of the liquid resource which is assumed to be unavailable due to a dependency on third party entities. If the value is false, the portion of the liquid resource which is assumed to be available as no dependency on third party entities.
     /// </summary>
+    [IsoId("_lPmYwESsEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agency Arrangements")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator AgencyArrangements { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AgencyArrangements { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AgencyArrangements { get; init; } 
+    #else
+    public System.String AgencyArrangements { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CounterPartyIdentification is IsoMax35Text CounterPartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CntrPtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterPartyIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "LqdRsrcVal", xmlNamespace );
-        LiquidResourceValue.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MarketValue is AmountAndDirection102 MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            MarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Scrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Secured)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AsstNcmbrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AssetEncumbered)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "QlfygRsrc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(QualifyingResource)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AgcyArrgmnts", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AgencyArrangements)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static LiquidResourceInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

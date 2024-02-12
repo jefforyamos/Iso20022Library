@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the acknowledgement reason.
-/// </summary>
-[KnownType(typeof(AcknowledgementReason2Choice.Code))]
-[KnownType(typeof(AcknowledgementReason2Choice.Proprietary))]
-public abstract partial record AcknowledgementReason2Choice_ : IIsoXmlSerilizable<AcknowledgementReason2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the acknowledgement reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AcknowledgementReason2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AcknowledgementReason2Choice.Code))]
+    [KnownType(typeof(AcknowledgementReason2Choice.Proprietary))]
+    [IsoId("_UXuzRNp-Ed-ak6NoX_4Aeg_2050241792")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acknowledgement Reason 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AcknowledgementReason2Choice_
+    #else
+    public abstract partial class AcknowledgementReason2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AcknowledgementReason2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AcknowledgementReason2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AcknowledgementReason2Choice choice.")
-        };
     }
 }

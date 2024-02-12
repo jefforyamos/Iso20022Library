@@ -7,183 +7,326 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action reorganisation instruction details.
 /// </summary>
+[IsoId("_iABhoecmEei5aPS232E3Mw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reorganisation Instruction SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReorganisationInstructionSD6
-     : IIsoXmlSerilizable<ReorganisationInstructionSD6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_imjWIecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
+    [IsoId("_imjWJecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15Text? TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionIdentification { get; init; } 
+    #else
+    public System.String? TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
+    [IsoId("_imjWJ-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionSequenceNumber { get; init; } 
+    #else
+    public System.String? TransactionSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the instruction.
     /// </summary>
+    [IsoId("_imjWK-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCInstructionStatus2Code? TransactionIdentificationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCInstructionStatus2Code? TransactionIdentificationStatus { get; init; } 
+    #else
+    public DTCInstructionStatus2Code? TransactionIdentificationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the protect instruction.
     /// </summary>
+    [IsoId("_imjWLecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCProtectInstructionStatus3Code? ProtectTransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCProtectInstructionStatus3Code? ProtectTransactionStatus { get; init; } 
+    #else
+    public DTCProtectInstructionStatus3Code? ProtectTransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is rejected.
     /// </summary>
-    public SimpleValueList<InstructionRejectionReason1Code> RejectionReason { get; init; } = [];
+    [IsoId("_imjWL-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejection Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(6)]
+    #endif
+    public SimpleValueList<InstructionRejectionReason1Code> RejectionReason { get; init; } = new SimpleValueList<InstructionRejectionReason1Code>(){};
+    
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
+    [IsoId("_imjWN-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Quantity Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesQuantitySD5? SecuritiesQuantityDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesQuantitySD5? SecuritiesQuantityDetails { get; init; } 
+    #else
+    public SecuritiesQuantitySD5? SecuritiesQuantityDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [IsoId("_imjWP-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Reference Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerReferenceIdentification { get; init; } 
+    #else
+    public System.String? CustomerReferenceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acknowledgement information relative to corporate action reorganisation instructions.
     /// </summary>
+    [IsoId("_imjWRecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acknowledgement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionAcknowledgementSD1? AcknowledgementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionAcknowledgementSD1? AcknowledgementDetails { get; init; } 
+    #else
+    public CorporateActionAcknowledgementSD1? AcknowledgementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party contact information for the given instruction; required for voluntary offer instruction transaction (VOIT), protect transaction (PROT) and protect on behalf of another participant transaction (PROP); not required for cover protect instructions like cover protect transaction (COVR), cover protect directly to agent transaction (COVA) and cover protect on behalf of another participant transaction (COVP).
     /// </summary>
+    [IsoId("_imjWQ-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Person")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification5? ContactPerson { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactIdentification5? ContactPerson { get; init; } 
+    #else
+    public ContactIdentification5? ContactPerson { get; set; } 
+    #endif
+    
     /// <summary>
     /// Warrant subscription amount entered by client when instructing on a warrant exercise instruction.
     /// </summary>
+    [IsoId("_imjWOecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Warrant Subscription Charge Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? WarrantSubscriptionChargeAmount { get; init; } 
+    #else
+    public System.Decimal? WarrantSubscriptionChargeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Certificate information for a given instruction.
     /// </summary>
+    [IsoId("_imjWPecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionCertificateSD1? Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionCertificateSD1? Certificate { get; init; } 
+    #else
+    public CorporateActionCertificateSD1? Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the transaction used by the transmitting party.
     /// </summary>
+    [IsoId("_imjWQecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("User Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 6 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6Text? UserReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UserReferenceNumber { get; init; } 
+    #else
+    public System.String? UserReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Beneficial owner information related to CD early redemption instructions.
     /// </summary>
+    [IsoId("_imjWR-cmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deceased Beneficial Owner Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeceasedStatusSD1? DeceasedBeneficialOwnerDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeceasedStatusSD1? DeceasedBeneficialOwnerDetails { get; init; } 
+    #else
+    public DeceasedStatusSD1? DeceasedBeneficialOwnerDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction record number for ATAM or ART system which may be causing pending status. Corresponds to ATP RBN number.
     /// </summary>
+    [IsoId("_imjWSecmEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Record Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumericText? TransactionRecordNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionRecordNumber { get; init; } 
+    #else
+    public System.String? TransactionRecordNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentification is IsoMax15Text TransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15Text(TransactionIdentificationValue)); // data type Max15Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionSequenceNumber is IsoMax3NumericText TransactionSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "TxSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionSequenceNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentificationStatus is DTCInstructionStatus2Code TransactionIdentificationStatusValue)
-        {
-            writer.WriteStartElement(null, "TxIdSts", xmlNamespace );
-            writer.WriteValue(TransactionIdentificationStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ProtectTransactionStatus is DTCProtectInstructionStatus3Code ProtectTransactionStatusValue)
-        {
-            writer.WriteStartElement(null, "PrtctTxSts", xmlNamespace );
-            writer.WriteValue(ProtectTransactionStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
-        writer.WriteValue(RejectionReason.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SecuritiesQuantityDetails is SecuritiesQuantitySD5 SecuritiesQuantityDetailsValue)
-        {
-            writer.WriteStartElement(null, "SctiesQtyDtls", xmlNamespace );
-            SecuritiesQuantityDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustomerReferenceIdentification is IsoMax30Text CustomerReferenceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax30Text(CustomerReferenceIdentificationValue)); // data type Max30Text System.String
-            writer.WriteEndElement();
-        }
-        if (AcknowledgementDetails is CorporateActionAcknowledgementSD1 AcknowledgementDetailsValue)
-        {
-            writer.WriteStartElement(null, "AckDtls", xmlNamespace );
-            AcknowledgementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContactPerson is ContactIdentification5 ContactPersonValue)
-        {
-            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
-            ContactPersonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WarrantSubscriptionChargeAmount is IsoRestrictedFINActiveCurrencyAndAmount WarrantSubscriptionChargeAmountValue)
-        {
-            writer.WriteStartElement(null, "WarrtSbcptChrgAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(WarrantSubscriptionChargeAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Certificate is CorporateActionCertificateSD1 CertificateValue)
-        {
-            writer.WriteStartElement(null, "Cert", xmlNamespace );
-            CertificateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UserReferenceNumber is IsoMax6Text UserReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "UsrRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6Text(UserReferenceNumberValue)); // data type Max6Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeceasedBeneficialOwnerDetails is DeceasedStatusSD1 DeceasedBeneficialOwnerDetailsValue)
-        {
-            writer.WriteStartElement(null, "DcsdBnfclOwnrDtls", xmlNamespace );
-            DeceasedBeneficialOwnerDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionRecordNumber is IsoMax10NumericText TransactionRecordNumberValue)
-        {
-            writer.WriteStartElement(null, "TxRcrdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(TransactionRecordNumberValue)); // data type Max10NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReorganisationInstructionSD6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

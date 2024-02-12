@@ -7,83 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and account details.
 /// </summary>
+[IsoId("_AOiAtdokEeC60axPepSq7g_544386642")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Identification And Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyIdentificationAndAccount77
-     : IIsoXmlSerilizable<PartyIdentificationAndAccount77>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyIdentificationAndAccount77 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyIdentificationAndAccount77( PartyIdentification32Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [IsoId("_AOiAttokEeC60axPepSq7g_430547576")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification32Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification32Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification32Choice_ Identification { get; init; } 
+    #else
+    public PartyIdentification32Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [IsoId("_AOiAt9okEeC60axPepSq7g_-566524777")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlternatePartyIdentification5? AlternateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlternatePartyIdentification5? AlternateIdentification { get; init; } 
+    #else
+    public AlternatePartyIdentification5? AlternateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [IsoId("_AOiAuNokEeC60axPepSq7g_-1563597130")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SafekeepingAccount { get; init; } 
+    #else
+    public System.String? SafekeepingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
+    [IsoId("_AOiAudokEeC60axPepSq7g_1734297813")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProcessingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProcessingIdentification { get; init; } 
+    #else
+    public System.String? ProcessingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information regarding the party.
     /// </summary>
+    [IsoId("_AOrxsNokEeC60axPepSq7g_737225460")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyTextInformation1? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyTextInformation1? AdditionalInformation { get; init; } 
+    #else
+    public PartyTextInformation1? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AlternateIdentification is AlternatePartyIdentification5 AlternateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
-            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingAccount is IsoMax35Text SafekeepingAccountValue)
-        {
-            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccountValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is PartyTextInformation1 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyIdentificationAndAccount77 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

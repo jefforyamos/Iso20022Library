@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reporting per financial instrument.
 /// </summary>
+[IsoId("_u0m2UeaVEd-q8fx_Zl_34A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentDetails6
-     : IIsoXmlSerilizable<FinancialInstrumentDetails6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialInstrumentDetails6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialInstrumentDetails6( SecurityIdentification14 reqFinancialInstrumentIdentification )
+    {
+        FinancialInstrumentIdentification = reqFinancialInstrumentIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [IsoId("_u0wAQeaVEd-q8fx_Zl_34A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification14 FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Elements characterising a financial instrument.
     /// </summary>
+    [IsoId("_u0wAQ-aVEd-q8fx_Zl_34A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributes21? FinancialInstrumentAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentAttributes21? FinancialInstrumentAttributes { get; init; } 
+    #else
+    public FinancialInstrumentAttributes21? FinancialInstrumentAttributes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the sub-balance.
     /// </summary>
+    [IsoId("_u0wAReaVEd-q8fx_Zl_34A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public IntraPositionDetails17? SubBalance { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _u0wAReaVEd-q8fx_Zl_34A
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes21 FinancialInstrumentAttributesValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
-            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize SubBalance, multiplicity Unknown
-    }
-    public static FinancialInstrumentDetails6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

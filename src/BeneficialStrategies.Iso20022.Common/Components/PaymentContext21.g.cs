@@ -7,123 +7,211 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment context in which the transaction is performed.
 /// </summary>
+[IsoId("_-VtOsbDHEeaW-9Sj0pzN5A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Context")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentContext21
-     : IIsoXmlSerilizable<PaymentContext21>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentContext21 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentContext21( CardDataReading5Code reqCardDataEntryMode )
+    {
+        CardDataEntryMode = reqCardDataEntryMode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the transaction has been initiated by a card physically present or not.
     /// </summary>
+    [IsoId("_-gTVIbDHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Present")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardPresent { get; init; } 
+    #else
+    public System.String? CardPresent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not.
     /// </summary>
+    [IsoId("_-gTVI7DHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder Present")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardholderPresent { get; init; } 
+    #else
+    public System.String? CardholderPresent { get; set; } 
+    #endif
+    
     /// <summary>
     /// On-line or off-line context of the transaction.
     /// </summary>
+    [IsoId("_-gTVJbDHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Line Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OnLineContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OnLineContext { get; init; } 
+    #else
+    public System.String? OnLineContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Human attendance at the POI (Point Of Interaction) location during the transaction.
     /// </summary>
+    [IsoId("_-gTVJ7DHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attendance Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttendanceContext1Code? AttendanceContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AttendanceContext1Code? AttendanceContext { get; init; } 
+    #else
+    public AttendanceContext1Code? AttendanceContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the environment of the transaction.
     /// </summary>
+    [IsoId("_-gTVKbDHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionEnvironment1Code? TransactionEnvironment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionEnvironment1Code? TransactionEnvironment { get; init; } 
+    #else
+    public TransactionEnvironment1Code? TransactionEnvironment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the type of the communication channels used by the cardholder to the acceptor system.
     /// </summary>
+    [IsoId("_-gTVK7DHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionChannel5Code? TransactionChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionChannel5Code? TransactionChannel { get; init; } 
+    #else
+    public TransactionChannel5Code? TransactionChannel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entry mode of the card data.
     /// </summary>
+    [IsoId("_-gTVLbDHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Data Entry Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading5Code CardDataEntryMode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardDataReading5Code CardDataEntryMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardDataReading5Code CardDataEntryMode { get; init; } 
+    #else
+    public CardDataReading5Code CardDataEntryMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator of a card entry mode fallback.
     /// </summary>
+    [IsoId("_-gTVL7DHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fallback Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardFallback1Code? FallbackIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardFallback1Code? FallbackIndicator { get; init; } 
+    #else
+    public CardFallback1Code? FallbackIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment options the card acceptor can support.
     /// </summary>
+    [IsoId("_-gTVMbDHEeaW-9Sj0pzN5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supported Option")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupportedPaymentOption1Code? SupportedOption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupportedPaymentOption1Code? SupportedOption { get; init; } 
+    #else
+    public SupportedPaymentOption1Code? SupportedOption { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CardPresent is IsoTrueFalseIndicator CardPresentValue)
-        {
-            writer.WriteStartElement(null, "CardPres", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardPresentValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CardholderPresent is IsoTrueFalseIndicator CardholderPresentValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrPres", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardholderPresentValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (OnLineContext is IsoTrueFalseIndicator OnLineContextValue)
-        {
-            writer.WriteStartElement(null, "OnLineCntxt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OnLineContextValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AttendanceContext is AttendanceContext1Code AttendanceContextValue)
-        {
-            writer.WriteStartElement(null, "AttndncCntxt", xmlNamespace );
-            writer.WriteValue(AttendanceContextValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TransactionEnvironment is TransactionEnvironment1Code TransactionEnvironmentValue)
-        {
-            writer.WriteStartElement(null, "TxEnvt", xmlNamespace );
-            writer.WriteValue(TransactionEnvironmentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TransactionChannel is TransactionChannel5Code TransactionChannelValue)
-        {
-            writer.WriteStartElement(null, "TxChanl", xmlNamespace );
-            writer.WriteValue(TransactionChannelValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CardDataNtryMd", xmlNamespace );
-        writer.WriteValue(CardDataEntryMode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (FallbackIndicator is CardFallback1Code FallbackIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FllbckInd", xmlNamespace );
-            writer.WriteValue(FallbackIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SupportedOption is SupportedPaymentOption1Code SupportedOptionValue)
-        {
-            writer.WriteStartElement(null, "SpprtdOptn", xmlNamespace );
-            writer.WriteValue(SupportedOptionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentContext21 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

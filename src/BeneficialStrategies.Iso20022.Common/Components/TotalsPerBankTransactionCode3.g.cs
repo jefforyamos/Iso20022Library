@@ -7,93 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide the total sum of entries per bank transaction code.
 /// </summary>
+[IsoId("_fajckSGyEeKjd4jizyIDGA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Totals Per Bank Transaction Code")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalsPerBankTransactionCode3
-     : IIsoXmlSerilizable<TotalsPerBankTransactionCode3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TotalsPerBankTransactionCode3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TotalsPerBankTransactionCode3( BankTransactionCodeStructure4 reqBankTransactionCode )
+    {
+        BankTransactionCode = reqBankTransactionCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of individual entries for the bank transaction code.
     /// </summary>
+    [IsoId("_fwKgOSGyEeKjd4jizyIDGA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Entries")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NumberOfEntries { get; init; } 
+    #else
+    public System.String? NumberOfEntries { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
+    [IsoId("_fwKgPSGyEeKjd4jizyIDGA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Sum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Sum { get; init; } 
+    #else
+    public System.UInt64? Sum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total debit or credit amount that is the result of the netted amounts for all debit and credit entries per bank transaction code.
     /// </summary>
+    [IsoId("_jL5xlimlEeKdFJmzhTDOvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Net Entry")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection35? TotalNetEntry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection35? TotalNetEntry { get; init; } 
+    #else
+    public AmountAndDirection35? TotalNetEntry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the bank transaction code is related to booked or forecast items.
     /// </summary>
+    [IsoId("_fwKgSSGyEeKjd4jizyIDGA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Forecast Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ForecastIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ForecastIndicator { get; init; } 
+    #else
+    public System.String? ForecastIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
+    [IsoId("_fwKgTSGyEeKjd4jizyIDGA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Transaction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
+    #else
+    public BankTransactionCodeStructure4 BankTransactionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
+    [IsoId("_fwKgUSGyEeKjd4jizyIDGA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Availability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalanceAvailability2? Availability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalanceAvailability2? Availability { get; init; } 
+    #else
+    public CashBalanceAvailability2? Availability { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NumberOfEntries is IsoMax15NumericText NumberOfEntriesValue)
-        {
-            writer.WriteStartElement(null, "NbOfNtries", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfEntriesValue)); // data type Max15NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Sum is IsoDecimalNumber SumValue)
-        {
-            writer.WriteStartElement(null, "Sum", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(SumValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalNetEntry is AmountAndDirection35 TotalNetEntryValue)
-        {
-            writer.WriteStartElement(null, "TtlNetNtry", xmlNamespace );
-            TotalNetEntryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ForecastIndicator is IsoTrueFalseIndicator ForecastIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FcstInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ForecastIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "BkTxCd", xmlNamespace );
-        BankTransactionCode.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Availability is CashBalanceAvailability2 AvailabilityValue)
-        {
-            writer.WriteStartElement(null, "Avlbty", xmlNamespace );
-            AvailabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalsPerBankTransactionCode3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Details of the loan used for financing the transaction.
-/// </summary>
-[KnownType(typeof(TransactionLoanData9Choice.RepurchaseTrade))]
-[KnownType(typeof(TransactionLoanData9Choice.BuySellBack))]
-[KnownType(typeof(TransactionLoanData9Choice.SecuritiesLending))]
-[KnownType(typeof(TransactionLoanData9Choice.MarginLending))]
-public abstract partial record TransactionLoanData9Choice_ : IIsoXmlSerilizable<TransactionLoanData9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Details of the loan used for financing the transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionLoanData9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionLoanData9Choice.RepurchaseTrade))]
+    [KnownType(typeof(TransactionLoanData9Choice.BuySellBack))]
+    [KnownType(typeof(TransactionLoanData9Choice.SecuritiesLending))]
+    [KnownType(typeof(TransactionLoanData9Choice.MarginLending))]
+    [IsoId("_Hg0sIKoMEemdLtwzt4CWxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Loan Data 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionLoanData9Choice_
+    #else
+    public abstract partial class TransactionLoanData9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RpTrad" => TransactionLoanData9Choice.RepurchaseTrade.Deserialize(elementWithPayload),
-             "BuySellBck" => TransactionLoanData9Choice.BuySellBack.Deserialize(elementWithPayload),
-             "SctiesLndg" => TransactionLoanData9Choice.SecuritiesLending.Deserialize(elementWithPayload),
-             "MrgnLndg" => TransactionLoanData9Choice.MarginLending.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionLoanData9Choice choice.")
-        };
     }
 }

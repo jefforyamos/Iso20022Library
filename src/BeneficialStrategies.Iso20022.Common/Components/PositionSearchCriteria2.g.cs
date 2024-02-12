@@ -7,103 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the securities account position query criteria.
 /// </summary>
+[IsoId("_3wfPkeGBEeWCAvUNsZ5u6g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSearchCriteria2
-     : IIsoXmlSerilizable<PositionSearchCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PositionSearchCriteria2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PositionSearchCriteria2( System.String reqReturnZeroPosition )
+    {
+        ReturnZeroPosition = reqReturnZeroPosition;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [IsoId("_38iukeGBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification100? AccountOwner { get; init; } 
+    #else
+    public PartyIdentification100? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_38iuk-GBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100? AccountServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification100? AccountServicer { get; init; } 
+    #else
+    public PartyIdentification100? AccountServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [IsoId("_38iuleGBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount2Choice_? SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount2Choice_? SafekeepingAccount { get; init; } 
+    #else
+    public SecuritiesAccount2Choice_? SafekeepingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-à-vis the issuer.
     /// </summary>
+    [IsoId("_38iul-GBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19? FinancialInstrument { get; init; } 
+    #else
+    public SecurityIdentification19? FinancialInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country where the security is issued.
     /// </summary>
+    [IsoId("_38iumeGBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Of Issue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfIssue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CountryOfIssue { get; init; } 
+    #else
+    public string? CountryOfIssue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines specific restriction characteristics for a securities position.
     /// </summary>
+    [IsoId("_38ium-GBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Balance Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesBalanceType7Choice_? SubBalanceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesBalanceType7Choice_? SubBalanceType { get; init; } 
+    #else
+    public SecuritiesBalanceType7Choice_? SubBalanceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Option to provide output zero position in the results.
     /// </summary>
+    [IsoId("_38iuneGBEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Zero Position")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ReturnZeroPosition { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReturnZeroPosition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReturnZeroPosition { get; init; } 
+    #else
+    public System.String ReturnZeroPosition { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountOwner is PartyIdentification100 AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountServicer is PartyIdentification100 AccountServicerValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
-            AccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingAccount is SecuritiesAccount2Choice_ SafekeepingAccountValue)
-        {
-            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrument is SecurityIdentification19 FinancialInstrumentValue)
-        {
-            writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
-            FinancialInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CountryOfIssue is CountryCode CountryOfIssueValue)
-        {
-            writer.WriteStartElement(null, "CtryOfIsse", xmlNamespace );
-            writer.WriteValue(CountryOfIssueValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SubBalanceType is SecuritiesBalanceType7Choice_ SubBalanceTypeValue)
-        {
-            writer.WriteStartElement(null, "SubBalTp", xmlNamespace );
-            SubBalanceTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RtrZeroPos", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReturnZeroPosition)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static PositionSearchCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

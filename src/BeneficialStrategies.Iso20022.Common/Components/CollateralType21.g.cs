@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information for the first side of the transaction on the type of collateral.
 /// </summary>
+[IsoId("_C8NGHcg5Eeu4ecZgAYuz5w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralType21
-     : IIsoXmlSerilizable<CollateralType21>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to securities and related fields used as a collateral.
     /// </summary>
+    [IsoId("_C9k_E8g5Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Security52? Security { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Security52? Security { get; init; } 
+    #else
+    public Security52? Security { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
+    [IsoId("_C9k_Fcg5Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountHaircutMargin1? Cash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountHaircutMargin1? Cash { get; init; } 
+    #else
+    public AmountHaircutMargin1? Cash { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to commodities and related fields used as a collateral.
     /// </summary>
+    [IsoId("_C9k_F8g5Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commodity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commodity43? Commodity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Commodity43? Commodity { get; init; } 
+    #else
+    public Commodity43? Commodity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Security is Security52 SecurityValue)
-        {
-            writer.WriteStartElement(null, "Scty", xmlNamespace );
-            SecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Cash is AmountHaircutMargin1 CashValue)
-        {
-            writer.WriteStartElement(null, "Csh", xmlNamespace );
-            CashValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Commodity is Commodity43 CommodityValue)
-        {
-            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
-            CommodityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralType21 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

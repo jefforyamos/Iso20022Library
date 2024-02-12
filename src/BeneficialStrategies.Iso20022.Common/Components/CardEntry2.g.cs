@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card transaction entry.
 /// </summary>
+[IsoId("_GZZGWWREEeSXi86_neFd1g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Entry")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardEntry2
-     : IIsoXmlSerilizable<CardEntry2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
     /// </summary>
+    [IsoId("_GmfHAWREEeSXi86_neFd1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCard4? Card { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCard4? Card { get; init; } 
+    #else
+    public PaymentCard4? Card { get; set; } 
+    #endif
+    
     /// <summary>
     /// Physical or logical card payment terminal containing software and hardware components.
     /// </summary>
+    [IsoId("_GmfHA2REEeSXi86_neFd1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction1? POI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteraction1? POI { get; init; } 
+    #else
+    public PointOfInteraction1? POI { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card entry details, based on card transaction aggregated data performed by the account servicer.
     /// </summary>
+    [IsoId("_GmfHBWREEeSXi86_neFd1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Aggregated Entry")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAggregated1? AggregatedEntry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAggregated1? AggregatedEntry { get; init; } 
+    #else
+    public CardAggregated1? AggregatedEntry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Prepaid account for the transfer or loading of an amount of money.
     /// </summary>
+    [IsoId("_VV2ecWREEeSXi86_neFd1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Paid Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? PrePaidAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? PrePaidAccount { get; init; } 
+    #else
+    public CashAccount24? PrePaidAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Card is PaymentCard4 CardValue)
-        {
-            writer.WriteStartElement(null, "Card", xmlNamespace );
-            CardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POI is PointOfInteraction1 POIValue)
-        {
-            writer.WriteStartElement(null, "POI", xmlNamespace );
-            POIValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AggregatedEntry is CardAggregated1 AggregatedEntryValue)
-        {
-            writer.WriteStartElement(null, "AggtdNtry", xmlNamespace );
-            AggregatedEntryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrePaidAccount is CashAccount24 PrePaidAccountValue)
-        {
-            writer.WriteStartElement(null, "PrePdAcct", xmlNamespace );
-            PrePaidAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardEntry2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

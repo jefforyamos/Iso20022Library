@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
+[IsoId("_zzAnETDrEey2N-DB7H7A5A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action General Information SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionGeneralInformationSD53
-     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD53>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_0IK-wTDrEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
+    [IsoId("_0IK-wzDrEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Group")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventGroup3Code? EventGroup { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventGroup3Code? EventGroup { get; init; } 
+    #else
+    public EventGroup3Code? EventGroup { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
+    [IsoId("_0IK-0zDrEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCCSubEventType10Code? SubEventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCCSubEventType10Code? SubEventType { get; init; } 
+    #else
+    public DTCCSubEventType10Code? SubEventType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (EventGroup is EventGroup3Code EventGroupValue)
-        {
-            writer.WriteStartElement(null, "EvtGrp", xmlNamespace );
-            writer.WriteValue(EventGroupValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SubEventType is DTCCSubEventType10Code SubEventTypeValue)
-        {
-            writer.WriteStartElement(null, "SubEvtTp", xmlNamespace );
-            writer.WriteValue(SubEventTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionGeneralInformationSD53 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentification8Choice;
-
-/// <summary>
-/// Instrument consists of multiple instruments.
-/// </summary>
-public partial record Basket : FinancialInstrumentIdentification8Choice_
-     , IIsoXmlSerilizable<Basket>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentification8Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
+    /// Instrument consists of multiple instruments.
     /// </summary>
-    public IsoISIN2021Identifier? ISIN { get; init; } 
-    /// <summary>
-    /// Index on which the financial instrument is based.
-    /// </summary>
-    public FinancialInstrument98? Index { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_26V3k53DEeuwmdq0KtnICg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Basket : FinancialInstrumentIdentification8Choice_
+    #else
+    public partial class Basket : FinancialInstrumentIdentification8Choice_
+    #endif
     {
-        if (ISIN is IsoISIN2021Identifier ISINValue)
-        {
-            writer.WriteStartElement(null, "ISIN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISIN2021Identifier(ISINValue)); // data type ISIN2021Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (Index is FinancialInstrument98 IndexValue)
-        {
-            writer.WriteStartElement(null, "Indx", xmlNamespace );
-            IndexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Basket Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
+        /// </summary>
+        [IsoId("_FvixQZ3EEeuwmdq0KtnICg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("ISIN")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISIN2021Identifier? ISIN { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ISIN { get; init; } 
+        #else
+        public System.String? ISIN { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Index on which the financial instrument is based.
+        /// </summary>
+        [IsoId("_FvixQ53EEeuwmdq0KtnICg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Index")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrument98? Index { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrument98? Index { get; init; } 
+        #else
+        public FinancialInstrument98? Index { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

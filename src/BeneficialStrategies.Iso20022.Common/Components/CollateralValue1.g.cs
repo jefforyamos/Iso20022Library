@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of the collateral reference data.
 /// </summary>
+[IsoId("_jAaZE-5NEeCisYr99QEiWA_851211093")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Value")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralValue1
-     : IIsoXmlSerilizable<CollateralValue1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralValue1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralValue1( System.String reqSecurityIdentification,System.DateOnly reqValuationDate,AmountOrCoefficientPrice1Choice_ reqValuationPrice )
+    {
+        SecurityIdentification = reqSecurityIdentification;
+        ValuationDate = reqValuationDate;
+        ValuationPrice = reqValuationPrice;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [IsoId("_jAaZFO5NEeCisYr99QEiWA_-548343837")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINIdentifier SecurityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SecurityIdentification { get; init; } 
+    #else
+    public System.String SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Valuation date for the price.
     /// </summary>
+    [IsoId("_jAkKEO5NEeCisYr99QEiWA_1592137702")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValuationDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ValuationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ValuationDate { get; init; } 
+    #else
+    public System.DateOnly ValuationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of the currency of the valuation.
     /// </summary>
+    [IsoId("_jAkKEe5NEeCisYr99QEiWA_-1467045805")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? ValuationCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ValuationCurrency { get; init; } 
+    #else
+    public string? ValuationCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of the price provided for the security.
     /// </summary>
+    [IsoId("_jAkKEu5NEeCisYr99QEiWA_2030771480")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
+    #else
+    public AmountOrCoefficientPrice1Choice_ ValuationPrice { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SctyId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINIdentifier(SecurityIdentification)); // data type ISINIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValuationDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (ValuationCurrency is ActiveCurrencyCode ValuationCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ValtnCcy", xmlNamespace );
-            writer.WriteValue(ValuationCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ValtnPric", xmlNamespace );
-        ValuationPrice.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CollateralValue1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

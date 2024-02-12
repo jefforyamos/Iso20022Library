@@ -7,150 +7,267 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further individual record details on the charges related to the payment transaction.
 /// </summary>
+[IsoId("_n3siQbt7Eeq_cfXrH83Rcw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Charges Record")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ChargesRecord5
-     : IIsoXmlSerilizable<ChargesRecord5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ChargesRecord5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ChargesRecord5( System.Decimal reqAmount )
+    {
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the charges record for reconciliation purpose.
     /// Usage: this identification shall be used as the end-to-end identification in the resulting message for the payment of the charges, to allow for automated reconciliation. 
     /// </summary>
+    [IsoId("_62YjACkaEeuBrrgCSpsocg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ChargesRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ChargesRecordIdentification { get; init; } 
+    #else
+    public System.String? ChargesRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the underlying transaction(s) to which the charges apply.
     /// </summary>
+    [IsoId("_YDA8oCkYEeuBrrgCSpsocg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TransactionReferences7? UnderlyingTransaction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _YDA8oCkYEeuBrrgCSpsocg
+    
     /// <summary>
     /// Amount of transaction charges to be paid by the charge bearer.
     /// </summary>
+    [IsoId("_n4aT8bt7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the charges amount is a credit or a debit amount. |Usage: A zero amount is considered to be a credit.
     /// </summary>
+    [IsoId("_n4aT87t7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode? CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the charges are or will be available.
     /// </summary>
+    [IsoId("_n4aT9bt7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the debtor agent of the initial transaction, if different from the charges account owner.
     /// </summary>
+    [IsoId("_n4aT-bt7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the account of the debtor agent of the initial transaction, when instructing agent is different from the charges account owner.
     /// </summary>
+    [IsoId("_7Rl5sbt8Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount40? DebtorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount40? DebtorAgentAccount { get; init; } 
+    #else
+    public CashAccount40? DebtorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent that services the charges account.
     /// </summary>
+    [IsoId("_n4aT_7t7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Account Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? ChargesAccountAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? ChargesAccountAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? ChargesAccountAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account of the agent that services the charges account.
     /// </summary>
+    [IsoId("_vKb6obt8Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Account Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount40? ChargesAccountAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount40? ChargesAccountAgentAccount { get; init; } 
+    #else
+    public CashAccount40? ChargesAccountAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
+    [IsoId("_n4aT97t7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeType3Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeType3Choice_? Type { get; init; } 
+    #else
+    public ChargeType3Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further information related to the processing of the payment adjustment instruction that may need to be acted upon by the next agent. 
     /// </summary>
+    [IsoId("_x72GISm4EeutWNGMV2XKIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction For Instructed Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionForInstructedAgent1? InstructionForInstructedAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstructionForInstructedAgent1? InstructionForInstructedAgent { get; init; } 
+    #else
+    public InstructionForInstructedAgent1? InstructionForInstructedAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
+    [IsoId("_n4aUAbt7Eeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ChargesRecordIdentification is IsoMax35Text ChargesRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ChrgsRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ChargesRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize UnderlyingTransaction, multiplicity Unknown
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ValueDate is DateAndDateTime2Choice_ ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            ValueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAgent is BranchAndFinancialInstitutionIdentification6 DebtorAgentValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-            DebtorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAgentAccount is CashAccount40 DebtorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
-            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargesAccountAgent is BranchAndFinancialInstitutionIdentification6 ChargesAccountAgentValue)
-        {
-            writer.WriteStartElement(null, "ChrgsAcctAgt", xmlNamespace );
-            ChargesAccountAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargesAccountAgentAccount is CashAccount40 ChargesAccountAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "ChrgsAcctAgtAcct", xmlNamespace );
-            ChargesAccountAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Type is ChargeType3Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionForInstructedAgent is InstructionForInstructedAgent1 InstructionForInstructedAgentValue)
-        {
-            writer.WriteStartElement(null, "InstrForInstdAgt", xmlNamespace );
-            InstructionForInstructedAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ChargesRecord5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

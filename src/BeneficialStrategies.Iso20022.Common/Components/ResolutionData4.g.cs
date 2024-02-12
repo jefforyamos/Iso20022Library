@@ -7,116 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies additional information as expected by the party that the investigation performs the expected actions for its resolution.
 /// </summary>
+[IsoId("_L1v_MRlbEe2Do_UtrNmb2g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Resolution Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ResolutionData4
-     : IIsoXmlSerilizable<ResolutionData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [IsoId("_L_GvgRlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End To End Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? EndToEndIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EndToEndIdentification { get; init; } 
+    #else
+    public System.String? EndToEndIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
     /// </summary>
+    [IsoId("_L_GvgxlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionIdentification { get; init; } 
+    #else
+    public System.String? TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
     /// </summary>
+    [IsoId("_L_GvhRlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("UETR")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoUUIDv4Identifier? UETR { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UETR { get; init; } 
+    #else
+    public System.String? UETR { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [IsoId("_L_GvhxlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InterbankSettlementAmount { get; init; } 
+    #else
+    public System.Decimal? InterbankSettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [IsoId("_L_GviRlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterbankSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InterbankSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? InterbankSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
+    [IsoId("_L_GvixlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingChannel2Code? ClearingChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingChannel2Code? ClearingChannel { get; init; } 
+    #else
+    public ClearingChannel2Code? ClearingChannel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the details of the compensation made due to the modification or cancellation of a previous payment.
     /// </summary>
+    [IsoId("_L_GvjRlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Compensation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Compensation4? Compensation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Compensation4? Compensation { get; init; } 
+    #else
+    public Compensation4? Compensation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
+    [IsoId("_fMDFgRlbEe2Do_UtrNmb2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charges13? ChargesInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charges13? ChargesInformation { get; init; } 
+    #else
+    public Charges13? ChargesInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
-        {
-            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (UETR is IsoUUIDv4Identifier UETRValue)
-        {
-            writer.WriteStartElement(null, "UETR", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementAmount is IsoActiveOrHistoricCurrencyAndAmount InterbankSettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InterbankSettlementAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ClearingChannel is ClearingChannel2Code ClearingChannelValue)
-        {
-            writer.WriteStartElement(null, "ClrChanl", xmlNamespace );
-            writer.WriteValue(ClearingChannelValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Compensation is Compensation4 CompensationValue)
-        {
-            writer.WriteStartElement(null, "Compstn", xmlNamespace );
-            CompensationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargesInformation is Charges13 ChargesInformationValue)
-        {
-            writer.WriteStartElement(null, "ChrgsInf", xmlNamespace );
-            ChargesInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ResolutionData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

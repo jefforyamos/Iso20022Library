@@ -7,80 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
+[IsoId("_awno0Yq2EeSIDtZ76p6McQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransactionAmounts3
-     : IIsoXmlSerilizable<ATMTransactionAmounts3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTransactionAmounts3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTransactionAmounts3( System.String reqType,string reqCurrency )
+    {
+        Type = reqType;
+        Currency = reqCurrency;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of limit.
     /// </summary>
+    [IsoId("_vxjE8Iq2EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Type { get; init; } 
+    #else
+    public System.String Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Label of the limit to display or print.
     /// </summary>
+    [IsoId("__7eV4Iq2EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Label")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Label { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Label { get; init; } 
+    #else
+    public System.String? Label { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the limit amount.
     /// </summary>
+    [IsoId("_a9CUMYq2EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode Currency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Currency { get; init; } 
+    #else
+    public string Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum amount value in the currency of the limit.
     /// </summary>
+    [IsoId("_a9CUNYq2EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum amount value in the currency of the limit.
     /// </summary>
+    [IsoId("_a9CUM4q2EeSIDtZ76p6McQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Label is IsoMax35Text LabelValue)
-        {
-            writer.WriteStartElement(null, "Labl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LabelValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Ccy", xmlNamespace );
-        writer.WriteValue(Currency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MinimumAmount is IsoImpliedCurrencyAndAmount MinimumAmountValue)
-        {
-            writer.WriteStartElement(null, "MinAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MaximumAmount is IsoImpliedCurrencyAndAmount MaximumAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransactionAmounts3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the central counterparty clearing time.
-/// </summary>
-[KnownType(typeof(ClearingPartyAndTime21Choice.Reason))]
-[KnownType(typeof(ClearingPartyAndTime21Choice.Details))]
-public abstract partial record ClearingPartyAndTime21Choice_ : IIsoXmlSerilizable<ClearingPartyAndTime21Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the central counterparty clearing time.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ClearingPartyAndTime21Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ClearingPartyAndTime21Choice.Reason))]
+    [KnownType(typeof(ClearingPartyAndTime21Choice.Details))]
+    [IsoId("_9znFoQtuEe2eQ-C-GTDpFA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Party And Time 21 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ClearingPartyAndTime21Choice_
+    #else
+    public abstract partial class ClearingPartyAndTime21Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rsn" => ClearingPartyAndTime21Choice.Reason.Deserialize(elementWithPayload),
-             "Dtls" => ClearingPartyAndTime21Choice.Details.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ClearingPartyAndTime21Choice choice.")
-        };
     }
 }

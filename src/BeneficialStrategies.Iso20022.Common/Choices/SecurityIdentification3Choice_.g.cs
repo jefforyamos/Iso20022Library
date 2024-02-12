@@ -7,58 +7,46 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for the identification of a financial instrument.
-/// </summary>
-[KnownType(typeof(SecurityIdentification3Choice.ISIN))]
-[KnownType(typeof(SecurityIdentification3Choice.SEDOL))]
-[KnownType(typeof(SecurityIdentification3Choice.CUSIP))]
-[KnownType(typeof(SecurityIdentification3Choice.RIC))]
-[KnownType(typeof(SecurityIdentification3Choice.TickerSymbol))]
-[KnownType(typeof(SecurityIdentification3Choice.Bloomberg))]
-[KnownType(typeof(SecurityIdentification3Choice.CTA))]
-[KnownType(typeof(SecurityIdentification3Choice.QUICK))]
-[KnownType(typeof(SecurityIdentification3Choice.Wertpapier))]
-[KnownType(typeof(SecurityIdentification3Choice.Dutch))]
-[KnownType(typeof(SecurityIdentification3Choice.Valoren))]
-[KnownType(typeof(SecurityIdentification3Choice.Sicovam))]
-[KnownType(typeof(SecurityIdentification3Choice.Belgian))]
-[KnownType(typeof(SecurityIdentification3Choice.Common))]
-[KnownType(typeof(SecurityIdentification3Choice.OtherProprietaryIdentification))]
-public abstract partial record SecurityIdentification3Choice_ : IIsoXmlSerilizable<SecurityIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for the identification of a financial instrument.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecurityIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecurityIdentification3Choice.ISIN))]
+    [KnownType(typeof(SecurityIdentification3Choice.SEDOL))]
+    [KnownType(typeof(SecurityIdentification3Choice.CUSIP))]
+    [KnownType(typeof(SecurityIdentification3Choice.RIC))]
+    [KnownType(typeof(SecurityIdentification3Choice.TickerSymbol))]
+    [KnownType(typeof(SecurityIdentification3Choice.Bloomberg))]
+    [KnownType(typeof(SecurityIdentification3Choice.CTA))]
+    [KnownType(typeof(SecurityIdentification3Choice.QUICK))]
+    [KnownType(typeof(SecurityIdentification3Choice.Wertpapier))]
+    [KnownType(typeof(SecurityIdentification3Choice.Dutch))]
+    [KnownType(typeof(SecurityIdentification3Choice.Valoren))]
+    [KnownType(typeof(SecurityIdentification3Choice.Sicovam))]
+    [KnownType(typeof(SecurityIdentification3Choice.Belgian))]
+    [KnownType(typeof(SecurityIdentification3Choice.Common))]
+    [KnownType(typeof(SecurityIdentification3Choice.OtherProprietaryIdentification))]
+    [IsoId("_QdiOmtp-Ed-ak6NoX_4Aeg_1063479184")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecurityIdentification3Choice_
+    #else
+    public abstract partial class SecurityIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => SecurityIdentification3Choice.ISIN.Deserialize(elementWithPayload),
-             "SEDOL" => SecurityIdentification3Choice.SEDOL.Deserialize(elementWithPayload),
-             "CUSIP" => SecurityIdentification3Choice.CUSIP.Deserialize(elementWithPayload),
-             "RIC" => SecurityIdentification3Choice.RIC.Deserialize(elementWithPayload),
-             "TckrSymb" => SecurityIdentification3Choice.TickerSymbol.Deserialize(elementWithPayload),
-             "Blmbrg" => SecurityIdentification3Choice.Bloomberg.Deserialize(elementWithPayload),
-             "CTA" => SecurityIdentification3Choice.CTA.Deserialize(elementWithPayload),
-             "QUICK" => SecurityIdentification3Choice.QUICK.Deserialize(elementWithPayload),
-             "Wrtppr" => SecurityIdentification3Choice.Wertpapier.Deserialize(elementWithPayload),
-             "Dtch" => SecurityIdentification3Choice.Dutch.Deserialize(elementWithPayload),
-             "Vlrn" => SecurityIdentification3Choice.Valoren.Deserialize(elementWithPayload),
-             "SCVM" => SecurityIdentification3Choice.Sicovam.Deserialize(elementWithPayload),
-             "Belgn" => SecurityIdentification3Choice.Belgian.Deserialize(elementWithPayload),
-             "Cmon" => SecurityIdentification3Choice.Common.Deserialize(elementWithPayload),
-             "OthrPrtryId" => SecurityIdentification3Choice.OtherProprietaryIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecurityIdentification3Choice choice.")
-        };
     }
 }

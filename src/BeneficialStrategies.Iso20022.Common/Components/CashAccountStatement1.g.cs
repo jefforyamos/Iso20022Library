@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides system date for all of the changes occurred for an entity.
 /// </summary>
+[IsoId("_k2l3kO5NEeCisYr99QEiWA_-1812697527")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Account Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashAccountStatement1
-     : IIsoXmlSerilizable<CashAccountStatement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashAccountStatement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashAccountStatement1( System.DateOnly reqSystemDate )
+    {
+        SystemDate = reqSystemDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date for which the statement is valid.
     /// </summary>
+    [IsoId("_k2l3ke5NEeCisYr99QEiWA_1470807263")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SystemDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly SystemDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly SystemDate { get; init; } 
+    #else
+    public System.DateOnly SystemDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the actual change occurred to the cash account.
     /// </summary>
+    [IsoId("_k2l3ku5NEeCisYr99QEiWA_1400190648")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountReferenceDataChange1? Change { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountReferenceDataChange1? Change { get; init; } 
+    #else
+    public CashAccountReferenceDataChange1? Change { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SysDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SystemDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (Change is CashAccountReferenceDataChange1 ChangeValue)
-        {
-            writer.WriteStartElement(null, "Chng", xmlNamespace );
-            ChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashAccountStatement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

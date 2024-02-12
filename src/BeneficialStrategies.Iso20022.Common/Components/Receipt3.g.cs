@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the request.
 /// </summary>
+[IsoId("_IC3ysW4-EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Receipt")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Receipt3
-     : IIsoXmlSerilizable<Receipt3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Receipt3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Receipt3( OriginalMessageAndIssuer1 reqOriginalMessageIdentification )
+    {
+        OriginalMessageIdentification = reqOriginalMessageIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the original request message.
     /// </summary>
+    [IsoId("_IMaJM24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
+    #else
+    public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the original transaction identification, when the request for which the receipt is generated is a payment transaction.
     /// </summary>
+    [IsoId("_IMaJNW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentIdentification6Choice_? OriginalPaymentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentIdentification6Choice_? OriginalPaymentIdentification { get; init; } 
+    #else
+    public PaymentIdentification6Choice_? OriginalPaymentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
+    [IsoId("_IMaJN24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Handling")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RequestHandling1? RequestHandling { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RequestHandling1? RequestHandling { get; init; } 
+    #else
+    public RequestHandling1? RequestHandling { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
-        OriginalMessageIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OriginalPaymentIdentification is PaymentIdentification6Choice_ OriginalPaymentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPmtId", xmlNamespace );
-            OriginalPaymentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestHandling is RequestHandling1 RequestHandlingValue)
-        {
-            writer.WriteStartElement(null, "ReqHdlg", xmlNamespace );
-            RequestHandlingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Receipt3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

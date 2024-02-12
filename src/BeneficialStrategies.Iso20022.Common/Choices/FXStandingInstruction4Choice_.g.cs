@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the forex standing instruction information.
-/// </summary>
-[KnownType(typeof(FXStandingInstruction4Choice.Indicator))]
-[KnownType(typeof(FXStandingInstruction4Choice.Proprietary))]
-public abstract partial record FXStandingInstruction4Choice_ : IIsoXmlSerilizable<FXStandingInstruction4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the forex standing instruction information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FXStandingInstruction4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FXStandingInstruction4Choice.Indicator))]
+    [KnownType(typeof(FXStandingInstruction4Choice.Proprietary))]
+    [IsoId("_aJUtUTtEEeWRTLSN0i0tng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("FX Standing Instruction 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FXStandingInstruction4Choice_
+    #else
+    public abstract partial class FXStandingInstruction4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ind" => FXStandingInstruction4Choice.Indicator.Deserialize(elementWithPayload),
-             "Prtry" => FXStandingInstruction4Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FXStandingInstruction4Choice choice.")
-        };
     }
 }

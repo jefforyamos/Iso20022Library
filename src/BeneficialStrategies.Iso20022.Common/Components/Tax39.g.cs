@@ -7,122 +7,225 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Description of tax.
 /// </summary>
+[IsoId("_75ERgSB_Eey8XKHwKquEQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Tax39
-     : IIsoXmlSerilizable<Tax39>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Tax39 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Tax39( AddendumTaxType2Code reqType,System.Decimal reqAmount )
+    {
+        Type = reqType;
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of tax.
     /// </summary>
+    [IsoId("_7_qowSB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddendumTaxType2Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AddendumTaxType2Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddendumTaxType2Code Type { get; init; } 
+    #else
+    public AddendumTaxType2Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of tax. Describes the type of tax when Other, Other National, Other Private or Other Taxes Type is selected. 
     /// </summary>
+    [IsoId("_7_qowyB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherType { get; init; } 
+    #else
+    public System.String? OtherType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the tax.
     /// </summary>
+    [IsoId("_7_qoxSB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exemption for this type of tax.
     /// True: Exemption of tax
     /// False: No exemption of tax
     /// </summary>
+    [IsoId("_7_qoxyB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Exemption")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TaxExemption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxExemption { get; init; } 
+    #else
+    public System.String? TaxExemption { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for tax exemption.
     /// </summary>
+    [IsoId("_7_qoySB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Exempt Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TaxExemptReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxExemptReason { get; init; } 
+    #else
+    public System.String? TaxExemptReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax amount.
     /// </summary>
+    [IsoId("_7_qoyyB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax rate applied on original amount.
     /// </summary>
+    [IsoId("_7_qozSB_Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicate whether the Tax amount is included in total transaction amount
     /// </summary>
+    [IsoId("_PQL3MCCAEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Included In Total Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? IncludedInTotalIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IncludedInTotalIndicator { get; init; } 
+    #else
+    public System.String? IncludedInTotalIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
+    [IsoId("_ZJllQCCAEey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebit3Code? CreditDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebit3Code? CreditDebit { get; init; } 
+    #else
+    public CreditDebit3Code? CreditDebit { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherType is IsoMax35Text OtherTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Description is IsoMax35Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DescriptionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxExemption is IsoTrueFalseIndicator TaxExemptionValue)
-        {
-            writer.WriteStartElement(null, "TaxXmptn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TaxExemptionValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TaxExemptReason is IsoMax35Text TaxExemptReasonValue)
-        {
-            writer.WriteStartElement(null, "TaxXmptRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxExemptReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (Rate is IsoPercentageRate RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (IncludedInTotalIndicator is IsoTrueFalseIndicator IncludedInTotalIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InclInTtlInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IncludedInTotalIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CreditDebit is CreditDebit3Code CreditDebitValue)
-        {
-            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
-            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Tax39 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

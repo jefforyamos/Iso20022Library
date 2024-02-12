@@ -9,98 +9,179 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusReport5Choice;
-
-/// <summary>
-/// Specifies data that has been cancelled since the previous report.
-/// </summary>
-public partial record CancelledRecord : SecuritiesReferenceDeltaStatusReport5Choice_
-     , IIsoXmlSerilizable<CancelledRecord>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusReport5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identifier of a record in a message used as part of error management and status advice message.
-    /// Usage:
-    /// This identification will be used in the status advice report sent back.
+    /// Specifies data that has been cancelled since the previous report.
     /// </summary>
-    public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
-    /// <summary>
-    /// Attributes and characteristics of the financial instrument.
-    /// </summary>
-    public required SecurityInstrumentDescription17 FinancialInstrumentGeneralAttributes { get; init; } 
-    /// <summary>
-    /// LEI of Issuer or trading venue operator.
-    /// </summary>
-    public IsoLEIIdentifier? Issuer { get; init; } 
-    /// <summary>
-    /// Traded venue related attributes.
-    /// </summary>
-    public TradingVenueAttributes2? TradingVenueRelatedAttributes { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _EO4YO0mXEeqmSrLQiFB8FA
-    /// <summary>
-    /// Attributes specific to debt instruments.
-    /// </summary>
-    public DebtInstrument2? DebtInstrumentAttributes { get; init; } 
-    /// <summary>
-    /// Attributes specific to derivative instruments.
-    /// </summary>
-    public DerivativeInstrument5? DerivativeInstrumentAttributes { get; init; } 
-    /// <summary>
-    /// Technical attributes.
-    /// </summary>
-    public RecordTechnicalData4? TechnicalAttributes { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_o1S5h6WvEeqZmriXpMtonA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancelled Record")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CancelledRecord : SecuritiesReferenceDeltaStatusReport5Choice_
+    #else
+    public partial class CancelledRecord : SecuritiesReferenceDeltaStatusReport5Choice_
+    #endif
     {
-        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CancelledRecord instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CancelledRecord( SecurityInstrumentDescription17 reqFinancialInstrumentGeneralAttributes )
         {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            FinancialInstrumentGeneralAttributes = reqFinancialInstrumentGeneralAttributes;
         }
-        writer.WriteStartElement(null, "FinInstrmGnlAttrbts", xmlNamespace );
-        FinancialInstrumentGeneralAttributes.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Issuer is IsoLEIIdentifier IssuerValue)
-        {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(IssuerValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize TradingVenueRelatedAttributes, multiplicity Unknown
-        if (DebtInstrumentAttributes is DebtInstrument2 DebtInstrumentAttributesValue)
-        {
-            writer.WriteStartElement(null, "DebtInstrmAttrbts", xmlNamespace );
-            DebtInstrumentAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DerivativeInstrumentAttributes is DerivativeInstrument5 DerivativeInstrumentAttributesValue)
-        {
-            writer.WriteStartElement(null, "DerivInstrmAttrbts", xmlNamespace );
-            DerivativeInstrumentAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TechnicalAttributes is RecordTechnicalData4 TechnicalAttributesValue)
-        {
-            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
-            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new CancelledRecord Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identifier of a record in a message used as part of error management and status advice message.
+        /// Usage:
+        /// This identification will be used in the status advice report sent back.
+        /// </summary>
+        [IsoId("_EO4YNUmXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Record Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TechnicalRecordIdentification { get; init; } 
+        #else
+        public System.String? TechnicalRecordIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Attributes and characteristics of the financial instrument.
+        /// </summary>
+        [IsoId("_EO4YN0mXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument General Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SecurityInstrumentDescription17 FinancialInstrumentGeneralAttributes { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SecurityInstrumentDescription17 FinancialInstrumentGeneralAttributes { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecurityInstrumentDescription17 FinancialInstrumentGeneralAttributes { get; init; } 
+        #else
+        public SecurityInstrumentDescription17 FinancialInstrumentGeneralAttributes { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// LEI of Issuer or trading venue operator.
+        /// </summary>
+        [IsoId("_EO4YOUmXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? Issuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Issuer { get; init; } 
+        #else
+        public System.String? Issuer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Traded venue related attributes.
+        /// </summary>
+        [IsoId("_EO4YO0mXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Trading Venue Related Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public TradingVenueAttributes2? TradingVenueRelatedAttributes { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _EO4YO0mXEeqmSrLQiFB8FA
+        
+        /// <summary>
+        /// Attributes specific to debt instruments.
+        /// </summary>
+        [IsoId("_EO4YPUmXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Debt Instrument Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DebtInstrument2? DebtInstrumentAttributes { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DebtInstrument2? DebtInstrumentAttributes { get; init; } 
+        #else
+        public DebtInstrument2? DebtInstrumentAttributes { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Attributes specific to derivative instruments.
+        /// </summary>
+        [IsoId("_EO4YP0mXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Derivative Instrument Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DerivativeInstrument5? DerivativeInstrumentAttributes { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DerivativeInstrument5? DerivativeInstrumentAttributes { get; init; } 
+        #else
+        public DerivativeInstrument5? DerivativeInstrumentAttributes { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Technical attributes.
+        /// </summary>
+        [IsoId("_EO4YQUmXEeqmSrLQiFB8FA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RecordTechnicalData4? TechnicalAttributes { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RecordTechnicalData4? TechnicalAttributes { get; init; } 
+        #else
+        public RecordTechnicalData4? TechnicalAttributes { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

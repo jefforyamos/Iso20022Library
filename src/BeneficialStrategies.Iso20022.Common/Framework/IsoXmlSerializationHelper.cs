@@ -4,6 +4,8 @@ using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Framework;
 
+#if DECLARE_INTERNALSERIALIZATION
+        
 /// <summary>
 /// Used to simplify frequently-repeated operations in serialization and deserialization.
 /// Leverages <seealso cref="XElement"/> so we can utilize linq to resolve property values without worrying about the exact ordering of elements. 
@@ -74,3 +76,5 @@ public static class IsoXmlSerializationHelper<TTypeToSerialize>
     public static Task WriteEndElementAsync(XmlWriter xmlWriter) => xmlWriter.WriteEndElementAsync();
 
 }
+
+#endif 

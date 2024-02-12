@@ -9,41 +9,68 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
-
-/// <summary>
-/// Indian Financial System Code - identifies Indian financial institutions on the Indian local clearing system.
-/// </summary>
-public partial record IndianFinancialSystemCode : ClearingSystemMemberIdentification2Choice_
-     , IIsoXmlSerilizable<IndianFinancialSystemCode>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Indian Financial System Code Identifier. Identifies Indian financial institutions on the Indian national clearing system.
+    /// Indian Financial System Code - identifies Indian financial institutions on the Indian local clearing system.
     /// </summary>
-    public required IsoIndianFinancialSystemCodeIdentifier Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_TDPFgtp-Ed-ak6NoX_4Aeg_2074902177")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indian Financial System Code")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record IndianFinancialSystemCode : ClearingSystemMemberIdentification2Choice_
+    #else
+    public partial class IndianFinancialSystemCode : ClearingSystemMemberIdentification2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "INIFSC", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoIndianFinancialSystemCodeIdentifier(Value)); // data type IndianFinancialSystemCodeIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static new IndianFinancialSystemCode Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a IndianFinancialSystemCode instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public IndianFinancialSystemCode( System.String reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Indian Financial System Code Identifier. Identifies Indian financial institutions on the Indian national clearing system.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoIndianFinancialSystemCodeIdentifier Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

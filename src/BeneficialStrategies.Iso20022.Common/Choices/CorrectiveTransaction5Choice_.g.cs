@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the corrective transaction on which the investigation is processed.
-/// </summary>
-[KnownType(typeof(CorrectiveTransaction5Choice.Initiation))]
-[KnownType(typeof(CorrectiveTransaction5Choice.Interbank))]
-public abstract partial record CorrectiveTransaction5Choice_ : IIsoXmlSerilizable<CorrectiveTransaction5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the corrective transaction on which the investigation is processed.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CorrectiveTransaction5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CorrectiveTransaction5Choice.Initiation))]
+    [KnownType(typeof(CorrectiveTransaction5Choice.Interbank))]
+    [IsoId("_tNTsINizEeq5MfBBxQig1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corrective Transaction 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CorrectiveTransaction5Choice_
+    #else
+    public abstract partial class CorrectiveTransaction5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Initn" => CorrectiveTransaction5Choice.Initiation.Deserialize(elementWithPayload),
-             "IntrBk" => CorrectiveTransaction5Choice.Interbank.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CorrectiveTransaction5Choice choice.")
-        };
     }
 }

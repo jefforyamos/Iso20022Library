@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration of the PIN online verification.
 /// </summary>
+[IsoId("_Xf8qAYr9EeSvuOJS0mmL0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Security Configuration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMSecurityConfiguration5
-     : IIsoXmlSerilizable<ATMSecurityConfiguration5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// PIN block format the security module is able to manage for online verification of the PIN.
     /// </summary>
+    [IsoId("_lihz8Ir9EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PINFormat4Code? PINFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PINFormat4Code? PINFormat { get; init; } 
+    #else
+    public PINFormat4Code? PINFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of digits the security module is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [IsoId("_5hgD0Ir9EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Length Capabilities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PINLengthCapabilities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PINLengthCapabilities { get; init; } 
+    #else
+    public System.UInt64? PINLengthCapabilities { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PINFormat is PINFormat4Code PINFormatValue)
-        {
-            writer.WriteStartElement(null, "PINFrmt", xmlNamespace );
-            writer.WriteValue(PINFormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PINLengthCapabilities is IsoNumber PINLengthCapabilitiesValue)
-        {
-            writer.WriteStartElement(null, "PINLngthCpblties", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilitiesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMSecurityConfiguration5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

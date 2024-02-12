@@ -7,73 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
+[IsoId("_QOMLCdp-Ed-ak6NoX_4Aeg_-1686201292")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intermediary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Intermediary11
-     : IIsoXmlSerilizable<Intermediary11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Intermediary11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Intermediary11( PartyIdentification2Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
+    [IsoId("_QOMLCtp-Ed-ak6NoX_4Aeg_-1686201162")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ Identification { get; init; } 
+    #else
+    public PartyIdentification2Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [IsoId("_QOMLC9p-Ed-ak6NoX_4Aeg_-1685280716")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account7? Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account7? Account { get; init; } 
+    #else
+    public Account7? Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [IsoId("_QOV8ANp-Ed-ak6NoX_4Aeg_-1686201085")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundRole2Code? Role { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentFundRole2Code? Role { get; init; } 
+    #else
+    public InvestmentFundRole2Code? Role { get; set; } 
+    #endif
+    
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [IsoId("_QOV8Adp-Ed-ak6NoX_4Aeg_-1686201067")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedRole { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExtendedRole { get; init; } 
+    #else
+    public System.String? ExtendedRole { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Account is Account7 AccountValue)
-        {
-            writer.WriteStartElement(null, "Acct", xmlNamespace );
-            AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Role is InvestmentFundRole2Code RoleValue)
-        {
-            writer.WriteStartElement(null, "Role", xmlNamespace );
-            writer.WriteValue(RoleValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExtendedRole is IsoExtended350Code ExtendedRoleValue)
-        {
-            writer.WriteStartElement(null, "XtndedRole", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedRoleValue)); // data type Extended350Code System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Intermediary11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

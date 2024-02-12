@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a location and codified form.
-/// </summary>
-[KnownType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation))]
-[KnownType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation))]
-public abstract partial record PlaceOrUnderConfirmationChoice1_ : IIsoXmlSerilizable<PlaceOrUnderConfirmationChoice1_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a location and codified form.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PlaceOrUnderConfirmationChoice1_ Deserialize(XElement element)
+    [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation))]
+    [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation))]
+    [IsoId("_97kuEnltEeG7BsjMvd1mEw_-1026438563")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Or Under Confirmation Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PlaceOrUnderConfirmationChoice1_
+    #else
+    public abstract partial class PlaceOrUnderConfirmationChoice1_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PlcOfPresntn" => PlaceOrUnderConfirmationChoice1.PlaceOfPresentation.Deserialize(elementWithPayload),
-             "PresntnUdrConf" => PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PlaceOrUnderConfirmationChoice1 choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the clearing system identification.
-/// </summary>
-[KnownType(typeof(ClearingSystemIdentification3Choice.Code))]
-[KnownType(typeof(ClearingSystemIdentification3Choice.Proprietary))]
-public abstract partial record ClearingSystemIdentification3Choice_ : IIsoXmlSerilizable<ClearingSystemIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the clearing system identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ClearingSystemIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ClearingSystemIdentification3Choice.Code))]
+    [KnownType(typeof(ClearingSystemIdentification3Choice.Proprietary))]
+    [IsoId("_TMVXJdp-Ed-ak6NoX_4Aeg_948374898")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing System Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ClearingSystemIdentification3Choice_
+    #else
+    public abstract partial class ClearingSystemIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ClearingSystemIdentification3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ClearingSystemIdentification3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ClearingSystemIdentification3Choice choice.")
-        };
     }
 }

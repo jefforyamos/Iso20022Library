@@ -7,97 +7,161 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the card transaction.
 /// </summary>
+[IsoId("_ONxHoY2mEeuPp4VyLQDHhg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionAmounts2
-     : IIsoXmlSerilizable<TransactionAmounts2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionAmounts2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionAmounts2( TransactionAmount1 reqTransactionAmount )
+    {
+        TransactionAmount = reqTransactionAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Qualifier or type of amount.
     /// ISO 8583:93/2003 bit 24
     /// </summary>
+    [IsoId("_OUlhUY2mEeuPp4VyLQDHhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Qualifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfAmount22Code? AmountQualifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfAmount22Code? AmountQualifier { get; init; } 
+    #else
+    public TypeOfAmount22Code? AmountQualifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual amount of the transaction.
     /// </summary>
+    [IsoId("_OUlhU42mEeuPp4VyLQDHhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionAmount1 TransactionAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionAmount1 TransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionAmount1 TransactionAmount { get; init; } 
+    #else
+    public TransactionAmount1 TransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Present when the cardholder billing currency differs from the transaction currency expressed in the amount of the transaction. It may be populated by the card scheme or an intermediary processor as normally the acceptor does not know the billing currency for which the cardholder will be debited.
     /// </summary>
+    [IsoId("_OUlhVY2mEeuPp4VyLQDHhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder Billing Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount15? CardholderBillingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount15? CardholderBillingAmount { get; init; } 
+    #else
+    public Amount15? CardholderBillingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
     /// </summary>
+    [IsoId("_OUlhV42mEeuPp4VyLQDHhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount15? ReconciliationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount15? ReconciliationAmount { get; init; } 
+    #else
+    public Amount15? ReconciliationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of some or all amounts in the transaction amount. 
     /// </summary>
+    [IsoId("_OUlhWY2mEeuPp4VyLQDHhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount22? DetailedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount22? DetailedAmount { get; init; } 
+    #else
+    public DetailedAmount22? DetailedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount related to the original transaction.
     /// ISO 8583:87 bit 95
     /// ISO 8583:93/2003 bit 30
     /// </summary>
+    [IsoId("_OUlhW42mEeuPp4VyLQDHhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Transaction Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalTransactionAmount2? OriginalTransactionAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalTransactionAmount2? OriginalTransactionAmounts { get; init; } 
+    #else
+    public OriginalTransactionAmount2? OriginalTransactionAmounts { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AmountQualifier is TypeOfAmount22Code AmountQualifierValue)
-        {
-            writer.WriteStartElement(null, "AmtQlfr", xmlNamespace );
-            writer.WriteValue(AmountQualifierValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxAmt", xmlNamespace );
-        TransactionAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CardholderBillingAmount is Amount15 CardholderBillingAmountValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrBllgAmt", xmlNamespace );
-            CardholderBillingAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationAmount is Amount15 ReconciliationAmountValue)
-        {
-            writer.WriteStartElement(null, "RcncltnAmt", xmlNamespace );
-            ReconciliationAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DetailedAmount is DetailedAmount22 DetailedAmountValue)
-        {
-            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
-            DetailedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalTransactionAmounts is OriginalTransactionAmount2 OriginalTransactionAmountsValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTxAmts", xmlNamespace );
-            OriginalTransactionAmountsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionAmounts2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

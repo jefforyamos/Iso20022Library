@@ -7,62 +7,114 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indetification of a cryptographic Key to use.
 /// </summary>
+[IsoId("_YcLFMSm1EeKIjpr--01h3Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cryptographic Key")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CryptographicKey3
-     : IIsoXmlSerilizable<CryptographicKey3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CryptographicKey3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CryptographicKey3( System.String reqIdentification,System.String reqVersion )
+    {
+        Identification = reqIdentification;
+        Version = reqVersion;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
+    [IsoId("_YoEzNSm1EeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional identification of the key.
     /// Usage
     /// For derived unique key per transaction (DUKPT) keys, the key serial number (KSN) with the 21 bits of the transaction counter set to zero.
     /// </summary>
+    [IsoId("_YoEzPCm1EeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AdditionalIdentification { get; init; } 
+    #else
+    public System.Byte[]? AdditionalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [IsoId("_YoEzQym1EeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact10Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(Identification)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        if (AdditionalIdentification is IsoMax35Binary AdditionalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AdditionalIdentificationValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact10Text(Version)); // data type Exact10Text System.String
-        writer.WriteEndElement();
-    }
-    public static CryptographicKey3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

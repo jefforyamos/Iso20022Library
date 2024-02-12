@@ -7,91 +7,161 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Query criteria on a trade transaction.
 /// </summary>
+[IsoId("_noB-MWE3Ee2S65ml6YCOtA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Query Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeQueryCriteria13
-     : IIsoXmlSerilizable<TradeQueryCriteria13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeQueryCriteria13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeQueryCriteria13( System.String reqTradeLifeCycleHistory,System.String reqOutstandingTradeIndicator )
+    {
+        TradeLifeCycleHistory = reqTradeLifeCycleHistory;
+        OutstandingTradeIndicator = reqOutstandingTradeIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Field to define whether the query response file will include all reports submitted for a trade [true]or only the current state of the trade [false].
     /// If false is selected, the reporting timestamp field cannot be used.
     /// </summary>
+    [IsoId("_np18E2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Life Cycle History")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator TradeLifeCycleHistory { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TradeLifeCycleHistory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TradeLifeCycleHistory { get; init; } 
+    #else
+    public System.String TradeLifeCycleHistory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Field to define whether if the query response file will include all trades or only the outstanding trades.
     /// </summary>
+    [IsoId("_np18FWE3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outstanding Trade Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator OutstandingTradeIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OutstandingTradeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OutstandingTradeIndicator { get; init; } 
+    #else
+    public System.String OutstandingTradeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Query criteria related to counterparties.
     /// </summary>
+    [IsoId("_np18F2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Party Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyQueryCriteria6? TradePartyCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyQueryCriteria6? TradePartyCriteria { get; init; } 
+    #else
+    public TradePartyQueryCriteria6? TradePartyCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the query criteria related to financial instruments.
     /// </summary>
+    [IsoId("_np18GWE3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeSecurityIdentificationQueryCriteria3? FinancialInstrumentCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeSecurityIdentificationQueryCriteria3? FinancialInstrumentCriteria { get; init; } 
+    #else
+    public TradeSecurityIdentificationQueryCriteria3? FinancialInstrumentCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Query criteria related to time values.
     /// </summary>
+    [IsoId("_np18G2E3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeDateTimeQueryCriteria5? TimeCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeDateTimeQueryCriteria5? TimeCriteria { get; init; } 
+    #else
+    public TradeDateTimeQueryCriteria5? TimeCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Query criteria related to other fields.
     /// </summary>
+    [IsoId("_np18HWE3Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeAdditionalQueryCriteria9? OtherCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeAdditionalQueryCriteria9? OtherCriteria { get; init; } 
+    #else
+    public TradeAdditionalQueryCriteria9? OtherCriteria { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TradLifeCyclHstry", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TradeLifeCycleHistory)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OutsdngTradInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutstandingTradeIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (TradePartyCriteria is TradePartyQueryCriteria6 TradePartyCriteriaValue)
-        {
-            writer.WriteStartElement(null, "TradPtyCrit", xmlNamespace );
-            TradePartyCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentCriteria is TradeSecurityIdentificationQueryCriteria3 FinancialInstrumentCriteriaValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmCrit", xmlNamespace );
-            FinancialInstrumentCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TimeCriteria is TradeDateTimeQueryCriteria5 TimeCriteriaValue)
-        {
-            writer.WriteStartElement(null, "TmCrit", xmlNamespace );
-            TimeCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCriteria is TradeAdditionalQueryCriteria9 OtherCriteriaValue)
-        {
-            writer.WriteStartElement(null, "OthrCrit", xmlNamespace );
-            OtherCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeQueryCriteria13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

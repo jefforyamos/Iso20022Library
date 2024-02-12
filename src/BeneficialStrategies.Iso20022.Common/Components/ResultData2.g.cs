@@ -7,84 +7,149 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of the processing.
 /// </summary>
+[IsoId("_xuSKMVAzEeedyPuM0kK2EQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Result Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ResultData2
-     : IIsoXmlSerilizable<ResultData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ResultData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ResultData2( System.String reqResultDetails )
+    {
+        ResultDetails = reqResultDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Generic result of the processing.
     /// </summary>
+    [IsoId("_x5IvUVAzEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Response6Code? Result { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Response6Code? Result { get; init; } 
+    #else
+    public Response6Code? Result { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of result of the processing.
     /// </summary>
+    [IsoId("_NR5awFA1EeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherResult { get; init; } 
+    #else
+    public System.String? OtherResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed results of the processing.
     /// ISO 8583:1987 bit 39, response code list
     /// </summary>
+    [IsoId("_x5IvU1AzEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact2AlphaNumericText ResultDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ResultDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ResultDetails { get; init; } 
+    #else
+    public System.String ResultDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other result details of the processing.
     /// </summary>
+    [IsoId("_x5IvVVAzEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Result Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherResultDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherResultDetails { get; init; } 
+    #else
+    public System.String? OtherResultDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional result information to be conveyed.
     /// </summary>
+    [IsoId("_x5IvV1AzEeedyPuM0kK2EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Result Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalResultInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalResultInformation { get; init; } 
+    #else
+    public AdditionalData1? AdditionalResultInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Result is Response6Code ResultValue)
-        {
-            writer.WriteStartElement(null, "Rslt", xmlNamespace );
-            writer.WriteValue(ResultValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherResult is IsoMax35Text OtherResultValue)
-        {
-            writer.WriteStartElement(null, "OthrRslt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherResultValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RsltDtls", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact2AlphaNumericText(ResultDetails)); // data type Exact2AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (OtherResultDetails is IsoMax35Text OtherResultDetailsValue)
-        {
-            writer.WriteStartElement(null, "OthrRsltDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherResultDetailsValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalResultInformation is AdditionalData1 AdditionalResultInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRsltInf", xmlNamespace );
-            AdditionalResultInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ResultData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

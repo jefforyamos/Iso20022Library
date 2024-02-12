@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Basic valuation details of a collateral position.
 /// </summary>
+[IsoId("_UAL1-dp-Ed-ak6NoX_4Aeg_-606746879")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Basic Collateral Valuation 1 Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BasicCollateralValuation1Details
-     : IIsoXmlSerilizable<BasicCollateralValuation1Details>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BasicCollateralValuation1Details instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BasicCollateralValuation1Details( System.Decimal reqValuationHaircut )
+    {
+        ValuationHaircut = reqValuationHaircut;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Haircut percentage applied to the market value of underlying assets used as collateral as a risk control measure. The institution valuating the collateral calculates the value of underlying assets based on its market value less a certain percentage (the haircut).
     /// </summary>
+    [IsoId("_UAL1-tp-Ed-ak6NoX_4Aeg_-606746854")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate ValuationHaircut { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ValuationHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ValuationHaircut { get; init; } 
+    #else
+    public System.Decimal ValuationHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the valuation haircut was calculated.
     /// </summary>
+    [IsoId("_UAVm8Np-Ed-ak6NoX_4Aeg_-606746837")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Haircut Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification15? HaircutSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification15? HaircutSource { get; init; } 
+    #else
+    public PartyIdentification15? HaircutSource { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ValtnHrcut", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(ValuationHaircut)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        if (HaircutSource is PartyIdentification15 HaircutSourceValue)
-        {
-            writer.WriteStartElement(null, "HrcutSrc", xmlNamespace );
-            HaircutSourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BasicCollateralValuation1Details Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

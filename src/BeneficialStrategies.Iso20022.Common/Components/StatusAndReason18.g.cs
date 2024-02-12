@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status and reason of an instructed order.
 /// </summary>
+[IsoId("_Dl-9wSRhEeO8sskhVI3IDA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatusAndReason18
-     : IIsoXmlSerilizable<StatusAndReason18>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StatusAndReason18 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StatusAndReason18( Status15Choice_ reqStatusAndReason )
+    {
+        StatusAndReason = reqStatusAndReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status and reason for the transaction.
     /// </summary>
+    [IsoId("_D9pPwyRhEeO8sskhVI3IDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status And Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status15Choice_ StatusAndReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Status15Choice_ StatusAndReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Status15Choice_ StatusAndReason { get; init; } 
+    #else
+    public Status15Choice_ StatusAndReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the transactions reported.
     /// </summary>
+    [IsoId("_D9pPyyRhEeO8sskhVI3IDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Transaction35? Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Transaction35? Transaction { get; init; } 
+    #else
+    public Transaction35? Transaction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
-        StatusAndReason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Transaction is Transaction35 TransactionValue)
-        {
-            writer.WriteStartElement(null, "Tx", xmlNamespace );
-            TransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static StatusAndReason18 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

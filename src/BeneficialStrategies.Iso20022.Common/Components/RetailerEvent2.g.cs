@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Retailer Event message.
 /// </summary>
+[IsoId("_MWeUsQ0uEeqUVL7sB4m7NA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Retailer Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RetailerEvent2
-     : IIsoXmlSerilizable<RetailerEvent2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RetailerEvent2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RetailerEvent2( System.DateTime reqEventTimeStamp,EventToNotify2Code reqEventToNotify )
+    {
+        EventTimeStamp = reqEventTimeStamp;
+        EventToNotify = reqEventToNotify;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time of the event.
     /// </summary>
+    [IsoId("_Mh790Q0uEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime EventTimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime EventTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime EventTimeStamp { get; init; } 
+    #else
+    public System.DateTime EventTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Event the POI notifies to the Sale System.
     /// </summary>
+    [IsoId("_Mh790w0uEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event To Notify")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventToNotify2Code EventToNotify { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EventToNotify2Code EventToNotify { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventToNotify2Code EventToNotify { get; init; } 
+    #else
+    public EventToNotify2Code EventToNotify { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context of the Event message.
     /// </summary>
+    [IsoId("_Mh791Q0uEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventContext2? EventContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventContext2? EventContext { get; init; } 
+    #else
+    public EventContext2? EventContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional Information according to the event type.
     /// </summary>
+    [IsoId("_Mh791w0uEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Event Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalEventInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalEventInformation { get; init; } 
+    #else
+    public System.String? AdditionalEventInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "EvtTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(EventTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EvtToNtfy", xmlNamespace );
-        writer.WriteValue(EventToNotify.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (EventContext is EventContext2 EventContextValue)
-        {
-            writer.WriteStartElement(null, "EvtCntxt", xmlNamespace );
-            EventContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalEventInformation is IsoMax1025Text AdditionalEventInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlEvtInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalEventInformationValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RetailerEvent2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

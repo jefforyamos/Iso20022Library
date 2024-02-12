@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status and reason of a transaction.
 /// </summary>
+[IsoId("_UVMcq9p-Ed-ak6NoX_4Aeg_107215174")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatusAndReason3
-     : IIsoXmlSerilizable<StatusAndReason3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the status of an instruction.
     /// </summary>
+    [IsoId("_UVWNoNp-Ed-ak6NoX_4Aeg_107215588")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus6Choice_? ProcessingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingStatus6Choice_? ProcessingStatus { get; init; } 
+    #else
+    public ProcessingStatus6Choice_? ProcessingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
+    [IsoId("_UVWNodp-Ed-ak6NoX_4Aeg_107216554")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Inferred Matching Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus2Choice_? InferredMatchingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MatchingStatus2Choice_? InferredMatchingStatus { get; init; } 
+    #else
+    public MatchingStatus2Choice_? InferredMatchingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
+    [IsoId("_UVWNotp-Ed-ak6NoX_4Aeg_107215666")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus2Choice_? MatchingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MatchingStatus2Choice_? MatchingStatus { get; init; } 
+    #else
+    public MatchingStatus2Choice_? MatchingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
+    [IsoId("_UVWNo9p-Ed-ak6NoX_4Aeg_107215992")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus2Choice_? SettlementStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementStatus2Choice_? SettlementStatus { get; init; } 
+    #else
+    public SettlementStatus2Choice_? SettlementStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProcessingStatus is ProcessingStatus6Choice_ ProcessingStatusValue)
-        {
-            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
-            ProcessingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InferredMatchingStatus is MatchingStatus2Choice_ InferredMatchingStatusValue)
-        {
-            writer.WriteStartElement(null, "IfrrdMtchgSts", xmlNamespace );
-            InferredMatchingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MatchingStatus is MatchingStatus2Choice_ MatchingStatusValue)
-        {
-            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
-            MatchingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementStatus is SettlementStatus2Choice_ SettlementStatusValue)
-        {
-            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
-            SettlementStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static StatusAndReason3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

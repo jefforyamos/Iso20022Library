@@ -7,116 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Hardware security module information, so called EPP for Encrypted PIN Pad.
 /// </summary>
+[IsoId("_jisRQYtMEeSxlKlAGYErFg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Equipment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMEquipment3
-     : IIsoXmlSerilizable<ATMEquipment3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// ATM Manufacturer.
     /// </summary>
+    [IsoId("_jvD5UYtMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Manufacturer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Manufacturer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Manufacturer { get; init; } 
+    #else
+    public System.String? Manufacturer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Model of ATM.
     /// </summary>
+    [IsoId("_jvD5U4tMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Model")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Model { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Model { get; init; } 
+    #else
+    public System.String? Model { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the device model.
     /// </summary>
+    [IsoId("_jvD5VYtMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Version { get; init; } 
+    #else
+    public System.String? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Serial number of the ATM.
     /// </summary>
+    [IsoId("_jvD5V4tMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Serial Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SerialNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SerialNumber { get; init; } 
+    #else
+    public System.String? SerialNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Signature of the serial number of the device. The signature may contain the serial number with the signature.
     /// </summary>
+    [IsoId("_XcPAUItNEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signed Serial Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType14? SignedSerialNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType14? SignedSerialNumber { get; init; } 
+    #else
+    public ContentInformationType14? SignedSerialNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provider of the firmware.
     /// </summary>
+    [IsoId("_jvD5WYtMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Firmware Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FirmwareProvider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FirmwareProvider { get; init; } 
+    #else
+    public System.String? FirmwareProvider { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the firmware.
     /// </summary>
+    [IsoId("_jvD5XYtMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Firmware Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FirmwareIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FirmwareIdentification { get; init; } 
+    #else
+    public System.String? FirmwareIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the firmware.
     /// </summary>
+    [IsoId("_jvD5X4tMEeSxlKlAGYErFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Firmware Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FirmwareVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FirmwareVersion { get; init; } 
+    #else
+    public System.String? FirmwareVersion { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Manufacturer is IsoMax35Text ManufacturerValue)
-        {
-            writer.WriteStartElement(null, "Manfctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ManufacturerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Model is IsoMax35Text ModelValue)
-        {
-            writer.WriteStartElement(null, "Mdl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModelValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Version is IsoMax35Text VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(VersionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SerialNumber is IsoMax35Text SerialNumberValue)
-        {
-            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SignedSerialNumber is ContentInformationType14 SignedSerialNumberValue)
-        {
-            writer.WriteStartElement(null, "SgndSrlNb", xmlNamespace );
-            SignedSerialNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FirmwareProvider is IsoMax35Text FirmwareProviderValue)
-        {
-            writer.WriteStartElement(null, "FrmwrPrvdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirmwareProviderValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FirmwareIdentification is IsoMax35Text FirmwareIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FrmwrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirmwareIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FirmwareVersion is IsoMax35Text FirmwareVersionValue)
-        {
-            writer.WriteStartElement(null, "FrmwrVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirmwareVersionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMEquipment3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

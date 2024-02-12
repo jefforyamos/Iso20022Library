@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the quote request.
 /// </summary>
+[IsoId("_Q_N_Udp-Ed-ak6NoX_4Aeg_1242651214")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Reference1
-     : IIsoXmlSerilizable<Reference1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference assigned by a sending party to unambiguously identify the request for quote.
     /// </summary>
+    [IsoId("_Q_N_Utp-Ed-ak6NoX_4Aeg_1327614016")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request For Quote Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RequestForQuoteRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RequestForQuoteRequestIdentification { get; init; } 
+    #else
+    public System.String? RequestForQuoteRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of the order as assigned by institution or by the intermediary with closest association with the investor.
     /// </summary>
+    [IsoId("_Q_N_U9p-Ed-ak6NoX_4Aeg_-1757819747")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Order Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientOrderIdentification { get; init; } 
+    #else
+    public System.String? ClientOrderIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RequestForQuoteRequestIdentification is IsoMax35Text RequestForQuoteRequestIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ReqForQtReqId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestForQuoteRequestIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClientOrderIdentification is IsoMax35Text ClientOrderIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntOrdrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientOrderIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Reference1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

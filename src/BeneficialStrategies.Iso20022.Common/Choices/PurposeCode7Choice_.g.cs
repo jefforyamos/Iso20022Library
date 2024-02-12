@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a code and or a data source scheme to determine the account type.
-/// </summary>
-[KnownType(typeof(PurposeCode7Choice.Code))]
-[KnownType(typeof(PurposeCode7Choice.Proprietary))]
-public abstract partial record PurposeCode7Choice_ : IIsoXmlSerilizable<PurposeCode7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a code and or a data source scheme to determine the account type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PurposeCode7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PurposeCode7Choice.Code))]
+    [KnownType(typeof(PurposeCode7Choice.Proprietary))]
+    [IsoId("_uim_UznaEeWV5sr121Fc8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purpose Code 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PurposeCode7Choice_
+    #else
+    public abstract partial class PurposeCode7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => PurposeCode7Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => PurposeCode7Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PurposeCode7Choice choice.")
-        };
     }
 }

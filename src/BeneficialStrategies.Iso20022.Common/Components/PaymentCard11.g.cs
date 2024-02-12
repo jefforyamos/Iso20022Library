@@ -7,136 +7,241 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment card performing the transaction.
 /// </summary>
+[IsoId("_o19lQWlsEeSGkpGpjm7tzg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Card")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentCard11
-     : IIsoXmlSerilizable<PaymentCard11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
+    [IsoId("_pCe-UWlsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType10? ProtectedCardData { get; init; } 
+    #else
+    public ContentInformationType10? ProtectedCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [IsoId("_pCe-U2lsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plain Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData9? PlainCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlainCardData9? PlainCardData { get; init; } 
+    #else
+    public PlainCardData9? PlainCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Masked PAN to be printed the payment receipts or displayed to the cardholder. Masked digits may be absent or replaced by another character as '*'.
     /// </summary>
+    [IsoId("_ImuoMGltEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Masked PAN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? MaskedPAN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MaskedPAN { get; init; } 
+    #else
+    public System.String? MaskedPAN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Bank identifier number of the issuer for routing purpose.
     /// </summary>
+    [IsoId("_pCe-VWlsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer BIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? IssuerBIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuerBIN { get; init; } 
+    #else
+    public System.String? IssuerBIN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
+    [IsoId("_pCe-V2lsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 3 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? CardCountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardCountryCode { get; init; } 
+    #else
+    public System.String? CardCountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
+    [IsoId("_pCe-WWlsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Currency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3AlphaNumericText? CardCurrencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardCurrencyCode { get; init; } 
+    #else
+    public System.String? CardCurrencyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines a category of cards related to the acceptance processing rules defined by the acquirer.
     /// </summary>
+    [IsoId("_pCe-W2lsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Product Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardProductProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardProductProfile { get; init; } 
+    #else
+    public System.String? CardProductProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [IsoId("_pCe-XWlsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Brand")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardBrand { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardBrand { get; init; } 
+    #else
+    public System.String? CardBrand { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of card product.
     /// </summary>
+    [IsoId("_Fmad0GtaEeSKOvNNYJQdoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Product Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProductType1Code? CardProductType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardProductType1Code? CardProductType { get; init; } 
+    #else
+    public CardProductType1Code? CardProductType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [IsoId("_pCe-X2lsEeSGkpGpjm7tzg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalCardData { get; init; } 
+    #else
+    public System.String? AdditionalCardData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProtectedCardData is ContentInformationType10 ProtectedCardDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
-            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlainCardData is PlainCardData9 PlainCardDataValue)
-        {
-            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
-            PlainCardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaskedPAN is IsoMax30Text MaskedPANValue)
-        {
-            writer.WriteStartElement(null, "MskdPAN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax30Text(MaskedPANValue)); // data type Max30Text System.String
-            writer.WriteEndElement();
-        }
-        if (IssuerBIN is IsoMax15NumericText IssuerBINValue)
-        {
-            writer.WriteStartElement(null, "IssrBIN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(IssuerBINValue)); // data type Max15NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CardCountryCode is IsoMax3Text CardCountryCodeValue)
-        {
-            writer.WriteStartElement(null, "CardCtryCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Text(CardCountryCodeValue)); // data type Max3Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardCurrencyCode is IsoExact3AlphaNumericText CardCurrencyCodeValue)
-        {
-            writer.WriteStartElement(null, "CardCcyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3AlphaNumericText(CardCurrencyCodeValue)); // data type Exact3AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CardProductProfile is IsoMax35Text CardProductProfileValue)
-        {
-            writer.WriteStartElement(null, "CardPdctPrfl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardProductProfileValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardBrand is IsoMax35Text CardBrandValue)
-        {
-            writer.WriteStartElement(null, "CardBrnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardBrandValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardProductType is CardProductType1Code CardProductTypeValue)
-        {
-            writer.WriteStartElement(null, "CardPdctTp", xmlNamespace );
-            writer.WriteValue(CardProductTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalCardData is IsoMax70Text AdditionalCardDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlCardData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalCardDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentCard11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

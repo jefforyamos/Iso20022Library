@@ -7,59 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aim of the non financial request.
 /// </summary>
+[IsoId("_pV2jMXJUEe299ZbWCkdR_w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Non Financial Request Content Component")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NonFinancialRequestContentComponent3
-     : IIsoXmlSerilizable<NonFinancialRequestContentComponent3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
+    [IsoId("_pdAUEXJUEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Financial Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public NonFinancialRequestType2Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _pdAUEXJUEe299ZbWCkdR_w
+    
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
+    [IsoId("_pdAUE3JUEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction124? Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentTransaction124? Transaction { get; init; } 
+    #else
+    public CardPaymentTransaction124? Transaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional elements requested to the ServiceProvider which are not linked to payment.
     /// </summary>
-    public ValueList<ExternallyDefinedData4> AdditionalRequest { get; init; } = [];
+    [IsoId("_1WM6MHJVEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(8)]
+    #endif
+    public ValueList<ExternallyDefinedData4> AdditionalRequest { get; init; } = new ValueList<ExternallyDefinedData4>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize NonFinancialRequestType, multiplicity Unknown
-        if (Transaction is CardPaymentTransaction124 TransactionValue)
-        {
-            writer.WriteStartElement(null, "Tx", xmlNamespace );
-            TransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlReq", xmlNamespace );
-        AdditionalRequest.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static NonFinancialRequestContentComponent3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

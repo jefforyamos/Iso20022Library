@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PendingOpeningStatusReason1Choice;
-
-/// <summary>
-/// Reason for the pending account opening status.
-/// </summary>
-public partial record Reason : PendingOpeningStatusReason1Choice_
-     , IIsoXmlSerilizable<Reason>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PendingOpeningStatusReason1Choice
 {
-    #nullable enable
-    
     /// <summary>
     /// Reason for the pending account opening status.
     /// </summary>
-    public required PendingOpeningStatusReason2Choice_ Code { get; init; } 
-    /// <summary>
-    /// Additional information about the reason for the pending account opening status.
-    /// </summary>
-    public IsoMax350Text? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_g7Miw2CJEeabZtzjEVWYCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reason : PendingOpeningStatusReason1Choice_
+    #else
+    public partial class Reason : PendingOpeningStatusReason1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        Code.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Reason instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Reason( PendingOpeningStatusReason2Choice_ reqCode )
         {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
+            Code = reqCode;
         }
-    }
-    public static new Reason Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reason for the pending account opening status.
+        /// </summary>
+        [IsoId("_nyhm8WCJEeabZtzjEVWYCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PendingOpeningStatusReason2Choice_ Code { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PendingOpeningStatusReason2Choice_ Code { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PendingOpeningStatusReason2Choice_ Code { get; init; } 
+        #else
+        public PendingOpeningStatusReason2Choice_ Code { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the reason for the pending account opening status.
+        /// </summary>
+        [IsoId("_nyhm82CJEeabZtzjEVWYCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalInformation { get; init; } 
+        #else
+        public System.String? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

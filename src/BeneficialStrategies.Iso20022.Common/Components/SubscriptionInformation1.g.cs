@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
+[IsoId("_R5oZItp-Ed-ak6NoX_4Aeg_376487239")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Subscription Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SubscriptionInformation1
-     : IIsoXmlSerilizable<SubscriptionInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SubscriptionInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SubscriptionInformation1( System.DateOnly reqDateOfFirstSubscription,System.Decimal reqTotalAmountYearToDate )
+    {
+        DateOfFirstSubscription = reqDateOfFirstSubscription;
+        TotalAmountYearToDate = reqTotalAmountYearToDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
+    [IsoId("_R5oZI9p-Ed-ak6NoX_4Aeg_376487265")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of First Subscription")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DateOfFirstSubscription { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly DateOfFirstSubscription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly DateOfFirstSubscription { get; init; } 
+    #else
+    public System.DateOnly DateOfFirstSubscription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount subscribed in the current tax year into equity (not including dividends).
     /// </summary>
+    [IsoId("_R5oZJNp-Ed-ak6NoX_4Aeg_376487316")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equity Component")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? EquityComponent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EquityComponent { get; init; } 
+    #else
+    public System.Decimal? EquityComponent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount subscribed in the current tax year into cash.
     /// </summary>
+    [IsoId("_R5oZJdp-Ed-ak6NoX_4Aeg_376487334")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Component")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashComponent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashComponent { get; init; } 
+    #else
+    public System.Decimal? CashComponent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount subscribed in the current tax year.
     /// </summary>
+    [IsoId("_R5oZJtp-Ed-ak6NoX_4Aeg_376487299")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount Year To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalAmountYearToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalAmountYearToDate { get; init; } 
+    #else
+    public System.Decimal TotalAmountYearToDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DtOfFrstSbcpt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(DateOfFirstSubscription)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (EquityComponent is IsoActiveCurrencyAndAmount EquityComponentValue)
-        {
-            writer.WriteStartElement(null, "EqtyCmpnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(EquityComponentValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashComponent is IsoActiveCurrencyAndAmount CashComponentValue)
-        {
-            writer.WriteStartElement(null, "CshCmpnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashComponentValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlAmtYrToDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountYearToDate)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static SubscriptionInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,106 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Room details
 /// </summary>
+[IsoId("_kVNgxfcTEeiW-auGnDPZIw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Lodging Room")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LodgingRoom1
-     : IIsoXmlSerilizable<LodgingRoom1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of room (for example, club/lounge level room). 
     /// </summary>
+    [IsoId("_kVNgxvcTEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Room Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RoomType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RoomType { get; init; } 
+    #else
+    public System.String? RoomType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the room location information (for example,ocean view, lake view, level, etc.) 
     /// </summary>
+    [IsoId("_kVNgx_cTEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Room Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RoomLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RoomLocation { get; init; } 
+    #else
+    public System.String? RoomLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contain the type of bed in room (for example, single, double, king, etc.) 
     /// </summary>
+    [IsoId("_kVNgyfcTEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bed Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? BedType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BedType { get; init; } 
+    #else
+    public System.String? BedType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the number of guests in the room. 
     /// </summary>
+    [IsoId("_kVNgyPcTEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guests Per Room")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? GuestsPerRoom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GuestsPerRoom { get; init; } 
+    #else
+    public System.String? GuestsPerRoom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the number of adult guests in the room. 
     /// </summary>
+    [IsoId("_hpN_IfcUEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adults In Room")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? AdultsInRoom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdultsInRoom { get; init; } 
+    #else
+    public System.String? AdultsInRoom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the number of child guests in the room. 
     /// </summary>
+    [IsoId("_oUeWMfcUEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Children In Room")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? ChildrenInRoom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ChildrenInRoom { get; init; } 
+    #else
+    public System.String? ChildrenInRoom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Daily rate being charged for the room.
     /// </summary>
+    [IsoId("_aCzx8PcVEeiW-auGnDPZIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Daily Room Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? DailyRoomRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DailyRoomRate { get; init; } 
+    #else
+    public System.Decimal? DailyRoomRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RoomType is IsoMax35Text RoomTypeValue)
-        {
-            writer.WriteStartElement(null, "RoomTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RoomTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RoomLocation is IsoMax35Text RoomLocationValue)
-        {
-            writer.WriteStartElement(null, "RoomLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RoomLocationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (BedType is IsoMax70Text BedTypeValue)
-        {
-            writer.WriteStartElement(null, "BedTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(BedTypeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (GuestsPerRoom is IsoMax3NumericText GuestsPerRoomValue)
-        {
-            writer.WriteStartElement(null, "GstsPerRoom", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(GuestsPerRoomValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AdultsInRoom is IsoMax3NumericText AdultsInRoomValue)
-        {
-            writer.WriteStartElement(null, "AdltsInRoom", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(AdultsInRoomValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ChildrenInRoom is IsoMax3NumericText ChildrenInRoomValue)
-        {
-            writer.WriteStartElement(null, "ChldrnInRoom", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(ChildrenInRoomValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (DailyRoomRate is IsoImpliedCurrencyAndAmount DailyRoomRateValue)
-        {
-            writer.WriteStartElement(null, "DalyRoomRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(DailyRoomRateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static LodgingRoom1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

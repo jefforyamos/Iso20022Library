@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes an instance of an intraday margin call being made against a margin account.
 /// </summary>
+[IsoId("_dC8lAEG6EemxGPEh9hU2Xg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Day Margin Call")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraDayMarginCall1
-     : IIsoXmlSerilizable<IntraDayMarginCall1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntraDayMarginCall1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntraDayMarginCall1( GenericIdentification165 reqMarginAccountIdentification,System.Decimal reqIntraDayCall,System.DateTime reqTimeStamp )
+    {
+        MarginAccountIdentification = reqMarginAccountIdentification;
+        IntraDayCall = reqIntraDayCall;
+        TimeStamp = reqTimeStamp;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the margin account against which the intraday margin call is being made.
     /// </summary>
+    [IsoId("_rCkhkEG6EemxGPEh9hU2Xg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    #else
+    public GenericIdentification165 MarginAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the call being made.
     /// </summary>
+    [IsoId("_7dvTgEG6EemxGPEh9hU2Xg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intra Day Call")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount IntraDayCall { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal IntraDayCall { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal IntraDayCall { get; init; } 
+    #else
+    public System.Decimal IntraDayCall { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time at which the margin call was made.
     /// </summary>
+    [IsoId("_AaCOYEG7EemxGPEh9hU2Xg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime TimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime TimeStamp { get; init; } 
+    #else
+    public System.DateTime TimeStamp { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MrgnAcctId", xmlNamespace );
-        MarginAccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IntraDayCall", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IntraDayCall)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static IntraDayMarginCall1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

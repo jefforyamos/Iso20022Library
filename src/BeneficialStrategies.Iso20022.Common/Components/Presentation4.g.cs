@@ -7,63 +7,95 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information for the presentation of documents.
 /// </summary>
+[IsoId("_vsXgeX1qEeGlwNeVP9egyg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Presentation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Presentation4
-     : IIsoXmlSerilizable<Presentation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Medium through which the presentation can be submitted such as paper, electronic or both.
     /// </summary>
+    [IsoId("_vsXgfH1qEeGlwNeVP9egyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Medium")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PresentationMedium1Choice_? Medium { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PresentationMedium1Choice_? Medium { get; init; } 
+    #else
+    public PresentationMedium1Choice_? Medium { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document required to be presented.
     /// </summary>
+    [IsoId("_vsXgh31qEeGlwNeVP9egyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document11? Document { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document11? Document { get; init; } 
+    #else
+    public Document11? Document { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the presentation.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_vsXgf31qEeGlwNeVP9egyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Medium is PresentationMedium1Choice_ MediumValue)
-        {
-            writer.WriteStartElement(null, "Mdm", xmlNamespace );
-            MediumValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Document is Document11 DocumentValue)
-        {
-            writer.WriteStartElement(null, "Doc", xmlNamespace );
-            DocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static Presentation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

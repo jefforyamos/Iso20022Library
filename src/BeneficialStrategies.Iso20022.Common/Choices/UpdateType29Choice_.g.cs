@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the type of update requested. That is addition, deletion or modification.
-/// </summary>
-[KnownType(typeof(UpdateType29Choice.Addition))]
-[KnownType(typeof(UpdateType29Choice.Deletion))]
-[KnownType(typeof(UpdateType29Choice.Modification))]
-public abstract partial record UpdateType29Choice_ : IIsoXmlSerilizable<UpdateType29Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the type of update requested. That is addition, deletion or modification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UpdateType29Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UpdateType29Choice.Addition))]
+    [KnownType(typeof(UpdateType29Choice.Deletion))]
+    [KnownType(typeof(UpdateType29Choice.Modification))]
+    [IsoId("_ubeXIcvGEeihG9bKfarOOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Type 29 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UpdateType29Choice_
+    #else
+    public abstract partial class UpdateType29Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Addtn" => UpdateType29Choice.Addition.Deserialize(elementWithPayload),
-             "Deltn" => UpdateType29Choice.Deletion.Deserialize(elementWithPayload),
-             "Mod" => UpdateType29Choice.Modification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UpdateType29Choice choice.")
-        };
     }
 }

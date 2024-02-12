@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Manufacturer configuration parameters of the point of interaction (POI).
 /// </summary>
+[IsoId("_yQlkAEeSEeODR7vDcYOqmg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Terminal Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTerminalParameters1
-     : IIsoXmlSerilizable<PaymentTerminalParameters1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Parameters to synchronise the real time clock of the POI (Point Of Interaction).
     /// </summary>
+    [IsoId("_O7L_4EeWEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clock Synchronisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClockSynchronisation1? ClockSynchronisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClockSynchronisation1? ClockSynchronisation { get; init; } 
+    #else
+    public ClockSynchronisation1? ClockSynchronisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time zone line to update in the time zone data base subset stored in the POI (Point Of Interaction). The format of the line is conform to the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
+    [IsoId("_JFopIEeTEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Zone Line")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TimeZoneLine { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TimeZoneLine { get; init; } 
+    #else
+    public System.String? TimeZoneLine { get; set; } 
+    #endif
+    
     /// <summary>
     /// Others manufacturer configuration parameters of the point of interaction.
     /// </summary>
+    [IsoId("_QbW5gEeTEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? OtherParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? OtherParameters { get; init; } 
+    #else
+    public System.Byte[]? OtherParameters { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ClockSynchronisation is ClockSynchronisation1 ClockSynchronisationValue)
-        {
-            writer.WriteStartElement(null, "ClckSynctn", xmlNamespace );
-            ClockSynchronisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TimeZoneLine is IsoMax70Text TimeZoneLineValue)
-        {
-            writer.WriteStartElement(null, "TmZoneLine", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(TimeZoneLineValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (OtherParameters is IsoMax10000Binary OtherParametersValue)
-        {
-            writer.WriteStartElement(null, "OthrParams", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(OtherParametersValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentTerminalParameters1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

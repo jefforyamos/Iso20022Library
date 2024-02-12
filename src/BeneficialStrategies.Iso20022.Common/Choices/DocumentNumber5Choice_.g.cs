@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a short document number, a long document number or a proprietary document number.
-/// </summary>
-[KnownType(typeof(DocumentNumber5Choice.ShortNumber))]
-[KnownType(typeof(DocumentNumber5Choice.LongNumber))]
-[KnownType(typeof(DocumentNumber5Choice.ProprietaryNumber))]
-public abstract partial record DocumentNumber5Choice_ : IIsoXmlSerilizable<DocumentNumber5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a short document number, a long document number or a proprietary document number.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DocumentNumber5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DocumentNumber5Choice.ShortNumber))]
+    [KnownType(typeof(DocumentNumber5Choice.LongNumber))]
+    [KnownType(typeof(DocumentNumber5Choice.ProprietaryNumber))]
+    [IsoId("_CkuCkTnbEeWLJsP1cO-amg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Number 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DocumentNumber5Choice_
+    #else
+    public abstract partial class DocumentNumber5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ShrtNb" => DocumentNumber5Choice.ShortNumber.Deserialize(elementWithPayload),
-             "LngNb" => DocumentNumber5Choice.LongNumber.Deserialize(elementWithPayload),
-             "PrtryNb" => DocumentNumber5Choice.ProprietaryNumber.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DocumentNumber5Choice choice.")
-        };
     }
 }

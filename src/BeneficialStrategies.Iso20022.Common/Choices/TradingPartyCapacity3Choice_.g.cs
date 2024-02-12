@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the trading capacity.
-/// </summary>
-[KnownType(typeof(TradingPartyCapacity3Choice.Code))]
-[KnownType(typeof(TradingPartyCapacity3Choice.Proprietary))]
-public abstract partial record TradingPartyCapacity3Choice_ : IIsoXmlSerilizable<TradingPartyCapacity3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the trading capacity.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradingPartyCapacity3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradingPartyCapacity3Choice.Code))]
+    [KnownType(typeof(TradingPartyCapacity3Choice.Proprietary))]
+    [IsoId("_YLdZIY-1Eeaoj_JbcpWKgg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Party Capacity 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradingPartyCapacity3Choice_
+    #else
+    public abstract partial class TradingPartyCapacity3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TradingPartyCapacity3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TradingPartyCapacity3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradingPartyCapacity3Choice choice.")
-        };
     }
 }

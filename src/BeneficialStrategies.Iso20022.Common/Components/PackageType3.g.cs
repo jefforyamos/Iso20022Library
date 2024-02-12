@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Chunk of a software package.
 /// </summary>
+[IsoId("_i4mQ8VFDEeyApZmLzm74zA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Package Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PackageType3
-     : IIsoXmlSerilizable<PackageType3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the software packages of which the chunk belongs.
     /// </summary>
+    [IsoId("_i-5GMVFDEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Package Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? PackageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification176? PackageIdentification { get; init; } 
+    #else
+    public GenericIdentification176? PackageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Full length of software package identified through PackageIdentification.
     /// </summary>
+    [IsoId("_i-5GM1FDEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Package Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? PackageLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PackageLength { get; init; } 
+    #else
+    public System.UInt64? PackageLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place of the first following PackageBlock, beginning with 0, in the full software package identified through PackageIdentification.
     /// </summary>
+    [IsoId("_i-5GNVFDEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OffsetStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? OffsetStart { get; init; } 
+    #else
+    public System.UInt64? OffsetStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Following place of the last following PackageBlock in the full software package identified through PackageIdentification.
     /// </summary>
+    [IsoId("_i-5GN1FDEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offset End")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OffsetEnd { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? OffsetEnd { get; init; } 
+    #else
+    public System.UInt64? OffsetEnd { get; set; } 
+    #endif
+    
     /// <summary>
     /// Consecutive slices of the full software package identified through PackageIdentification starting with first slice at the place identified with OffsetStart and ending with the last slice at the previous place identified with OffsetEnd.
     /// </summary>
+    [IsoId("_i-5GOVFDEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Package Block")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternallyDefinedData3? PackageBlock { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternallyDefinedData3? PackageBlock { get; init; } 
+    #else
+    public ExternallyDefinedData3? PackageBlock { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PackageIdentification is GenericIdentification176 PackageIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PackgId", xmlNamespace );
-            PackageIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PackageLength is IsoPositiveNumber PackageLengthValue)
-        {
-            writer.WriteStartElement(null, "PackgLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(PackageLengthValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OffsetStart is IsoPositiveNumber OffsetStartValue)
-        {
-            writer.WriteStartElement(null, "OffsetStart", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetStartValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OffsetEnd is IsoPositiveNumber OffsetEndValue)
-        {
-            writer.WriteStartElement(null, "OffsetEnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetEndValue)); // data type PositiveNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PackageBlock is ExternallyDefinedData3 PackageBlockValue)
-        {
-            writer.WriteStartElement(null, "PackgBlck", xmlNamespace );
-            PackageBlockValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PackageType3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

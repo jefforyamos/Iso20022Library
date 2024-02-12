@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status for an order.
-/// </summary>
-[KnownType(typeof(OrderStatus3Choice.Status))]
-[KnownType(typeof(OrderStatus3Choice.Cancelled))]
-[KnownType(typeof(OrderStatus3Choice.ConditionallyAccepted))]
-[KnownType(typeof(OrderStatus3Choice.Rejected))]
-[KnownType(typeof(OrderStatus3Choice.Suspended))]
-[KnownType(typeof(OrderStatus3Choice.PartiallySettled))]
-public abstract partial record OrderStatus3Choice_ : IIsoXmlSerilizable<OrderStatus3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status for an order.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OrderStatus3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OrderStatus3Choice.Status))]
+    [KnownType(typeof(OrderStatus3Choice.Cancelled))]
+    [KnownType(typeof(OrderStatus3Choice.ConditionallyAccepted))]
+    [KnownType(typeof(OrderStatus3Choice.Rejected))]
+    [KnownType(typeof(OrderStatus3Choice.Suspended))]
+    [KnownType(typeof(OrderStatus3Choice.PartiallySettled))]
+    [IsoId("_uvD4kUH7EeaV3ab_pHzFIQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Status 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OrderStatus3Choice_
+    #else
+    public abstract partial class OrderStatus3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Sts" => OrderStatus3Choice.Status.Deserialize(elementWithPayload),
-             "Canc" => OrderStatus3Choice.Cancelled.Deserialize(elementWithPayload),
-             "CondlyAccptd" => OrderStatus3Choice.ConditionallyAccepted.Deserialize(elementWithPayload),
-             "Rjctd" => OrderStatus3Choice.Rejected.Deserialize(elementWithPayload),
-             "Sspd" => OrderStatus3Choice.Suspended.Deserialize(elementWithPayload),
-             "PrtlySttld" => OrderStatus3Choice.PartiallySettled.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OrderStatus3Choice choice.")
-        };
     }
 }

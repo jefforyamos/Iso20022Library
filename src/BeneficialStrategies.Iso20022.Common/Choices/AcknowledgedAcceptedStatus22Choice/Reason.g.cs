@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AcknowledgedAcceptedStatus22Choice;
-
-/// <summary>
-/// Specifies the reason of the acknowledged accepted status.
-/// </summary>
-public partial record Reason : AcknowledgedAcceptedStatus22Choice_
-     , IIsoXmlSerilizable<Reason>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AcknowledgedAcceptedStatus22Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies additional information about the processed instruction.
+    /// Specifies the reason of the acknowledged accepted status.
     /// </summary>
-    public required AcknowledgementReason13Choice_ Code { get; init; } 
-    /// <summary>
-    /// Provides additional reason information that cannot be provided in a structured field.
-    /// </summary>
-    public IsoMax210Text? AdditionalReasonInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UBgzGTqrEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reason : AcknowledgedAcceptedStatus22Choice_
+    #else
+    public partial class Reason : AcknowledgedAcceptedStatus22Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        Code.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Reason instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Reason( AcknowledgementReason13Choice_ reqCode )
         {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
+            Code = reqCode;
         }
-    }
-    public static new Reason Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies additional information about the processed instruction.
+        /// </summary>
+        [IsoId("_UhM_wTqrEeWyoP0PbocV1Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AcknowledgementReason13Choice_ Code { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AcknowledgementReason13Choice_ Code { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AcknowledgementReason13Choice_ Code { get; init; } 
+        #else
+        public AcknowledgementReason13Choice_ Code { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides additional reason information that cannot be provided in a structured field.
+        /// </summary>
+        [IsoId("_UhM_yTqrEeWyoP0PbocV1Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Reason Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalReasonInformation { get; init; } 
+        #else
+        public System.String? AdditionalReasonInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

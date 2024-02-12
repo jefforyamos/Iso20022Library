@@ -7,96 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the mobile of stakeholder.
 /// </summary>
+[IsoId("_V4zFAXDdEe2MCaKO5AtGsA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mobile Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MobileData5
-     : IIsoXmlSerilizable<MobileData5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the country of a mobile phone operator.
     /// </summary>
+    [IsoId("_V_ZcQXDdEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mobile Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? MobileCountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MobileCountryCode { get; init; } 
+    #else
+    public System.String? MobileCountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the mobile phone operator inside a country.
     /// </summary>
+    [IsoId("_V_ZcQ3DdEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mobile Network Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3NumericText? MobileNetworkCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MobileNetworkCode { get; init; } 
+    #else
+    public System.String? MobileNetworkCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Masked Mobile Subscriber Integrated Service Digital Network.
     /// </summary>
+    [IsoId("_V_ZcRXDdEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mobile Masked MSISDN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MobileMaskedMSISDN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MobileMaskedMSISDN { get; init; } 
+    #else
+    public System.String? MobileMaskedMSISDN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Geographic location specified by geographic or UTM coordinates.
     /// </summary>
+    [IsoId("_V_ZcR3DdEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Geolocation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Geolocation1? Geolocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Geolocation1? Geolocation { get; init; } 
+    #else
+    public Geolocation1? Geolocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sensitive information related to the mobile phone.
     /// </summary>
+    [IsoId("_V_ZcSXDdEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sensitive Mobile Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SensitiveMobileData1? SensitiveMobileData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SensitiveMobileData1? SensitiveMobileData { get; init; } 
+    #else
+    public SensitiveMobileData1? SensitiveMobileData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sensitive information related to the mobile phone, protected by CMS.
     /// </summary>
+    [IsoId("_V_ZcS3DdEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Mobile Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType35? ProtectedMobileData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType35? ProtectedMobileData { get; init; } 
+    #else
+    public ContentInformationType35? ProtectedMobileData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MobileCountryCode is IsoMin2Max3AlphaText MobileCountryCodeValue)
-        {
-            writer.WriteStartElement(null, "MobCtryCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(MobileCountryCodeValue)); // data type Min2Max3AlphaText System.String
-            writer.WriteEndElement();
-        }
-        if (MobileNetworkCode is IsoMin2Max3NumericText MobileNetworkCodeValue)
-        {
-            writer.WriteStartElement(null, "MobNtwkCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(MobileNetworkCodeValue)); // data type Min2Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (MobileMaskedMSISDN is IsoMax35Text MobileMaskedMSISDNValue)
-        {
-            writer.WriteStartElement(null, "MobMskdMSISDN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MobileMaskedMSISDNValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Geolocation is Geolocation1 GeolocationValue)
-        {
-            writer.WriteStartElement(null, "Glctn", xmlNamespace );
-            GeolocationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SensitiveMobileData is SensitiveMobileData1 SensitiveMobileDataValue)
-        {
-            writer.WriteStartElement(null, "SnstvMobData", xmlNamespace );
-            SensitiveMobileDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProtectedMobileData is ContentInformationType35 ProtectedMobileDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdMobData", xmlNamespace );
-            ProtectedMobileDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MobileData5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

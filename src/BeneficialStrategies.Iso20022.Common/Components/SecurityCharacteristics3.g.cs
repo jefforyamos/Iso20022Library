@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide detailed information about the security.
 /// </summary>
+[IsoId("_f2gQwTpyEemk2e6qGBk8IQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityCharacteristics3
-     : IIsoXmlSerilizable<SecurityCharacteristics3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecurityCharacteristics3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecurityCharacteristics3( AmountPricePerFinancialInstrumentQuantity9 reqValuationPrice,System.Decimal reqCollateralValue )
+    {
+        ValuationPrice = reqValuationPrice;
+        CollateralValue = reqCollateralValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the security.
     /// </summary>
+    [IsoId("_gGvsMTpyEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19? Identification { get; init; } 
+    #else
+    public SecurityIdentification19? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the position for the security.
     /// </summary>
+    [IsoId("_gGvsMzpyEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Position")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesPosition1? Position { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesPosition1? Position { get; init; } 
+    #else
+    public SecuritiesPosition1? Position { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the price of the security for valuation purposes.
     /// </summary>
+    [IsoId("_gGvsNTpyEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
+    #else
+    public AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the value of the security for collateral purposes.
     /// </summary>
+    [IsoId("_gGvsNzpyEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CollateralValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CollateralValue { get; init; } 
+    #else
+    public System.Decimal CollateralValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is SecurityIdentification19 IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Position is SecuritiesPosition1 PositionValue)
-        {
-            writer.WriteStartElement(null, "Pos", xmlNamespace );
-            PositionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ValtnPric", xmlNamespace );
-        ValuationPrice.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static SecurityCharacteristics3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

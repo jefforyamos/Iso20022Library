@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the type of system event.
-/// </summary>
-[KnownType(typeof(SystemEventType2Choice.Code))]
-[KnownType(typeof(SystemEventType2Choice.Proprietary))]
-public abstract partial record SystemEventType2Choice_ : IIsoXmlSerilizable<SystemEventType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the type of system event.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SystemEventType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SystemEventType2Choice.Code))]
+    [KnownType(typeof(SystemEventType2Choice.Proprietary))]
+    [IsoId("_717nF6MgEeCJ6YNENx4h-w_-1478283975")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Event Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SystemEventType2Choice_
+    #else
+    public abstract partial class SystemEventType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SystemEventType2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SystemEventType2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SystemEventType2Choice choice.")
-        };
     }
 }

@@ -9,67 +9,128 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
-
-/// <summary>
-/// Cash settlement chain parties and accounts.
-/// </summary>
-public partial record CashPartiesDetails : SecuritiesOrCash1Choice_
-     , IIsoXmlSerilizable<CashPartiesDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Party to which the payment amount must be ultimately delivered. In some cases, this may be a fund.
+    /// Cash settlement chain parties and accounts.
     /// </summary>
-    public required PartyIdentificationAndAccount96 Creditor { get; init; } 
-    /// <summary>
-    /// Financial institution that services the cash account of the beneficiary (creditor). In some markets, this is also known as receiving agent. The creditor agent is the party where the payment amount must be ultimately delivered on behalf of the beneficiary (creditor), that is, the party where the beneficiary has its account.
-    /// </summary>
-    public required PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
-    /// <summary>
-    /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
-    /// </summary>
-    public PartyIdentificationAndAccount97? Intermediary { get; init; } 
-    /// <summary>
-    /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
-    /// </summary>
-    public PartyIdentificationAndAccount97? Intermediary2 { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_yNcsADchEeOA3chqL9a4Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Parties Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CashPartiesDetails : SecuritiesOrCash1Choice_
+    #else
+    public partial class CashPartiesDetails : SecuritiesOrCash1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-        Creditor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-        CreditorAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Intermediary is PartyIdentificationAndAccount97 IntermediaryValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CashPartiesDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CashPartiesDetails( PartyIdentificationAndAccount96 reqCreditor,PartyIdentificationAndAccount97 reqCreditorAgent )
         {
-            writer.WriteStartElement(null, "Intrmy", xmlNamespace );
-            IntermediaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Creditor = reqCreditor;
+            CreditorAgent = reqCreditorAgent;
         }
-        if (Intermediary2 is PartyIdentificationAndAccount97 Intermediary2Value)
-        {
-            writer.WriteStartElement(null, "Intrmy2", xmlNamespace );
-            Intermediary2Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new CashPartiesDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Party to which the payment amount must be ultimately delivered. In some cases, this may be a fund.
+        /// </summary>
+        [IsoId("_nszs4DcjEeOKPpUjhHfcCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Creditor")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyIdentificationAndAccount96 Creditor { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyIdentificationAndAccount96 Creditor { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentificationAndAccount96 Creditor { get; init; } 
+        #else
+        public PartyIdentificationAndAccount96 Creditor { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Financial institution that services the cash account of the beneficiary (creditor). In some markets, this is also known as receiving agent. The creditor agent is the party where the payment amount must be ultimately delivered on behalf of the beneficiary (creditor), that is, the party where the beneficiary has its account.
+        /// </summary>
+        [IsoId("_ns0T_zcjEeOKPpUjhHfcCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Creditor Agent")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
+        #else
+        public PartyIdentificationAndAccount97 CreditorAgent { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
+        /// </summary>
+        [IsoId("_ns0T8DcjEeOKPpUjhHfcCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Intermediary")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentificationAndAccount97? Intermediary { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentificationAndAccount97? Intermediary { get; init; } 
+        #else
+        public PartyIdentificationAndAccount97? Intermediary { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
+        /// </summary>
+        [IsoId("_6CPMETcjEeOKPpUjhHfcCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Intermediary")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentificationAndAccount97? Intermediary2 { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentificationAndAccount97? Intermediary2 { get; init; } 
+        #else
+        public PartyIdentificationAndAccount97? Intermediary2 { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

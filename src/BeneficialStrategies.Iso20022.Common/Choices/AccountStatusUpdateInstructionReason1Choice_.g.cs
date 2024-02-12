@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for a reason for an instruction to change the status of an account.
-/// </summary>
-[KnownType(typeof(AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason))]
-[KnownType(typeof(AccountStatusUpdateInstructionReason1Choice.Reason))]
-public abstract partial record AccountStatusUpdateInstructionReason1Choice_ : IIsoXmlSerilizable<AccountStatusUpdateInstructionReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for a reason for an instruction to change the status of an account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountStatusUpdateInstructionReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason))]
+    [KnownType(typeof(AccountStatusUpdateInstructionReason1Choice.Reason))]
+    [IsoId("_MizyUXi8EeaRm5xIK6nGuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Status Update Instruction Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountStatusUpdateInstructionReason1Choice_
+    #else
+    public abstract partial class AccountStatusUpdateInstructionReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => AccountStatusUpdateInstructionReason1Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountStatusUpdateInstructionReason1Choice choice.")
-        };
     }
 }

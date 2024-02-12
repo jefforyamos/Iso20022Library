@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of mandate related information.
-/// </summary>
-[KnownType(typeof(MandateRelatedData2Choice.DirectDebitMandate))]
-[KnownType(typeof(MandateRelatedData2Choice.CreditTransferMandate))]
-public abstract partial record MandateRelatedData2Choice_ : IIsoXmlSerilizable<MandateRelatedData2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of mandate related information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MandateRelatedData2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MandateRelatedData2Choice.DirectDebitMandate))]
+    [KnownType(typeof(MandateRelatedData2Choice.CreditTransferMandate))]
+    [IsoId("_a24zwdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Related Data 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MandateRelatedData2Choice_
+    #else
+    public abstract partial class MandateRelatedData2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DrctDbtMndt" => MandateRelatedData2Choice.DirectDebitMandate.Deserialize(elementWithPayload),
-             "CdtTrfMndt" => MandateRelatedData2Choice.CreditTransferMandate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MandateRelatedData2Choice choice.")
-        };
     }
 }

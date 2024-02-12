@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the security or cash pledged as collateral.
 /// </summary>
+[IsoId("__pYAga5nEeuo-IflVgGqiA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralType19
-     : IIsoXmlSerilizable<CollateralType19>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the details of the security pledged as collateral.
     /// </summary>
+    [IsoId("__431Ea5nEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityReuseData1? Security { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityReuseData1? Security { get; init; } 
+    #else
+    public SecurityReuseData1? Security { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency and the average interest rate received.
     /// </summary>
+    [IsoId("__431E65nEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashReuseData1? Cash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashReuseData1? Cash { get; init; } 
+    #else
+    public CashReuseData1? Cash { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Security is SecurityReuseData1 SecurityValue)
-        {
-            writer.WriteStartElement(null, "Scty", xmlNamespace );
-            SecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Cash is CashReuseData1 CashValue)
-        {
-            writer.WriteStartElement(null, "Csh", xmlNamespace );
-            CashValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralType19 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

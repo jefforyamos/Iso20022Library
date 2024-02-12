@@ -7,106 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria based on which information is included.
 /// </summary>
+[IsoId("_3_TRNTp8EemwKdP955WBJQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Balance Query Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraBalanceQueryCriteria8
-     : IIsoXmlSerilizable<IntraBalanceQueryCriteria8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [IsoId("_4JuYgTp8EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ModificationRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ModificationRequestIdentification { get; init; } 
+    #else
+    public System.String? ModificationRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
+    [IsoId("_4JuYiTp8EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationProcessingStatus9Choice_? ProcessingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ModificationProcessingStatus9Choice_? ProcessingStatus { get; init; } 
+    #else
+    public ModificationProcessingStatus9Choice_? ProcessingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
+    [IsoId("_4JuYizp8EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentificationSearchCriteria2Choice_? CashAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentificationSearchCriteria2Choice_? CashAccount { get; init; } 
+    #else
+    public AccountIdentificationSearchCriteria2Choice_? CashAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [IsoId("_4JuYjTp8EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification8? CashAccountOwner { get; init; } 
+    #else
+    public SystemPartyIdentification8? CashAccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_x9Y8oTp9EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
+    [IsoId("_4JuYjzp8EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification8? MessageOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification8? MessageOriginator { get; init; } 
+    #else
+    public SystemPartyIdentification8? MessageOriginator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the creation date/time of the intra-balance movement.
     /// </summary>
+    [IsoId("_4JuYkTp8EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch5Choice_? CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeSearch5Choice_? CreationDateTime { get; init; } 
+    #else
+    public DateAndDateTimeSearch5Choice_? CreationDateTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ModificationRequestIdentification is IsoMax35Text ModificationRequestIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ModReqId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModificationRequestIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProcessingStatus is ModificationProcessingStatus9Choice_ ProcessingStatusValue)
-        {
-            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
-            ProcessingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccount is AccountIdentificationSearchCriteria2Choice_ CashAccountValue)
-        {
-            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-            CashAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
-            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
-        {
-            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
-            CashAccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageOriginator is SystemPartyIdentification8 MessageOriginatorValue)
-        {
-            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
-            MessageOriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreationDateTime is DateAndDateTimeSearch5Choice_ CreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-            CreationDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static IntraBalanceQueryCriteria8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

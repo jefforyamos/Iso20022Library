@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice;
-
-/// <summary>
-/// Upper boundary of a range of percentage rates.
-/// </summary>
-public partial record To : PercentageRange1Choice_
-     , IIsoXmlSerilizable<To>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Percentage rate of the range limit.
+    /// Upper boundary of a range of percentage rates.
     /// </summary>
-    public required IsoPercentageRate BoundaryRate { get; init; } 
-    /// <summary>
-    /// Indicates whether the boundary percentage rate is included in the range of percentage rates.
-    /// </summary>
-    public required IsoYesNoIndicator Included { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_7_BRqqMgEeCJ6YNENx4h-w_-1593914623")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("To")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record To : PercentageRange1Choice_
+    #else
+    public partial class To : PercentageRange1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "BdryRate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(BoundaryRate)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Incl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static new To Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a To instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public To( System.Decimal reqBoundaryRate,System.String reqIncluded )
+        {
+            BoundaryRate = reqBoundaryRate;
+            Included = reqIncluded;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Percentage rate of the range limit.
+        /// </summary>
+        [IsoId("_8GekiKMgEeCJ6YNENx4h-w_1727044493")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Boundary Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoPercentageRate BoundaryRate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal BoundaryRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal BoundaryRate { get; init; } 
+        #else
+        public System.Decimal BoundaryRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the boundary percentage rate is included in the range of percentage rates.
+        /// </summary>
+        [IsoId("_8GekiaMgEeCJ6YNENx4h-w_-1807157650")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Included")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator Included { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Included { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Included { get; init; } 
+        #else
+        public System.String Included { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

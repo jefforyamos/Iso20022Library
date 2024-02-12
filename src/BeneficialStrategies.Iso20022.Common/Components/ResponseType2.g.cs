@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response of a requested service.
 /// </summary>
+[IsoId("_MGZDwXuGEeSZrqGdHyoIrw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Response Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ResponseType2
-     : IIsoXmlSerilizable<ResponseType2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ResponseType2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ResponseType2( Response3Code reqResult )
+    {
+        Result = reqResult;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Result of the request message or advice message.
     /// </summary>
+    [IsoId("_w3tPcHuGEeSZrqGdHyoIrw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Response3Code Result { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Response3Code Result { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Response3Code Result { get; init; } 
+    #else
+    public Response3Code Result { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detail of the result.
     /// </summary>
+    [IsoId("_vcAUMHuLEeSZrqGdHyoIrw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultDetail1Code? ResultDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResultDetail1Code? ResultDetails { get; init; } 
+    #else
+    public ResultDetail1Code? ResultDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information to be logged for further examination.
     /// </summary>
+    [IsoId("_QIlfIHuMEeSZrqGdHyoIrw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Result Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalResultInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalResultInformation { get; init; } 
+    #else
+    public System.String? AdditionalResultInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rslt", xmlNamespace );
-        writer.WriteValue(Result.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ResultDetails is ResultDetail1Code ResultDetailsValue)
-        {
-            writer.WriteStartElement(null, "RsltDtls", xmlNamespace );
-            writer.WriteValue(ResultDetailsValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalResultInformation is IsoMax140Text AdditionalResultInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRsltInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalResultInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ResponseType2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

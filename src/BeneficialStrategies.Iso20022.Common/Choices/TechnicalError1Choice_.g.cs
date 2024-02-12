@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the reason for the technical error.
-/// </summary>
-[KnownType(typeof(TechnicalError1Choice.Code))]
-[KnownType(typeof(TechnicalError1Choice.Proprietary))]
-public abstract partial record TechnicalError1Choice_ : IIsoXmlSerilizable<TechnicalError1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the reason for the technical error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TechnicalError1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TechnicalError1Choice.Code))]
+    [KnownType(typeof(TechnicalError1Choice.Proprietary))]
+    [IsoId("_pDbrZA3BEeWH49U6bkyMaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Error 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TechnicalError1Choice_
+    #else
+    public abstract partial class TechnicalError1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TechnicalError1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TechnicalError1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TechnicalError1Choice choice.")
-        };
     }
 }

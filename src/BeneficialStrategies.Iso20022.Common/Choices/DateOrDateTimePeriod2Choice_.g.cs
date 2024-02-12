@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a date or a date and time format for a period.
-/// </summary>
-[KnownType(typeof(DateOrDateTimePeriod2Choice.Date))]
-[KnownType(typeof(DateOrDateTimePeriod2Choice.DateTime))]
-public abstract partial record DateOrDateTimePeriod2Choice_ : IIsoXmlSerilizable<DateOrDateTimePeriod2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a date or a date and time format for a period.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateOrDateTimePeriod2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateOrDateTimePeriod2Choice.Date))]
+    [KnownType(typeof(DateOrDateTimePeriod2Choice.DateTime))]
+    [IsoId("_lq6kIbQVEeemgtANb5gbCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Or Date Time Period 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateOrDateTimePeriod2Choice_
+    #else
+    public abstract partial class DateOrDateTimePeriod2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => DateOrDateTimePeriod2Choice.Date.Deserialize(elementWithPayload),
-             "DtTm" => DateOrDateTimePeriod2Choice.DateTime.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateOrDateTimePeriod2Choice choice.")
-        };
     }
 }

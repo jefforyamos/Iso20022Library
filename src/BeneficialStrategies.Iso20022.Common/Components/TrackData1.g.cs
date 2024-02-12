@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Magnetic track or equivalent payment card data.
 /// </summary>
+[IsoId("_Sqk0swEcEeCQm6a_G2yO_w_184409498")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Track Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackData1
-     : IIsoXmlSerilizable<TrackData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TrackData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TrackData1( System.String reqTrackValue )
+    {
+        TrackValue = reqTrackValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Track number of the card.
     /// </summary>
+    [IsoId("_Sqk0tAEcEeCQm6a_G2yO_w_-165337927")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? TrackNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TrackNumber { get; init; } 
+    #else
+    public System.String? TrackNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card track content or equivalent.
     /// </summary>
+    [IsoId("_Sqk0tQEcEeCQm6a_G2yO_w_-1883337047")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text TrackValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TrackValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TrackValue { get; init; } 
+    #else
+    public System.String TrackValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TrackNumber is IsoExact1NumericText TrackNumberValue)
-        {
-            writer.WriteStartElement(null, "TrckNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(TrackNumberValue)); // data type Exact1NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrckVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(TrackValue)); // data type Max140Text System.String
-        writer.WriteEndElement();
-    }
-    public static TrackData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

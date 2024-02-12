@@ -7,170 +7,302 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vote expressed for one resolution.
 /// </summary>
+[IsoId("_bBHFka-WEemJ1NnLPsTFaw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Vote")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Vote11
-     : IIsoXmlSerilizable<Vote11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Vote11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Vote11( System.String reqIssuerLabel )
+    {
+        IssuerLabel = reqIssuerLabel;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [IsoId("_bVfaI6-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Label")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerLabel { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IssuerLabel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IssuerLabel { get; init; } 
+    #else
+    public System.String IssuerLabel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
+    [IsoId("_bVfaJa-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("For")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? For { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? For { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? For { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
+    [IsoId("_bVfaJ6-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Against")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? Against { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? Against { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? Against { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of abstention votes for one resolution.
     /// </summary>
+    [IsoId("_bVfaKa-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Abstain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? Abstain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? Abstain { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? Abstain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes withheld for one resolution.
     /// </summary>
+    [IsoId("_bVfaK6-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withhold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? Withhold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? Withhold { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? Withhold { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes in line with the votes of the management.
     /// </summary>
+    [IsoId("_bVfaLa-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("With Management")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? WithManagement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? WithManagement { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? WithManagement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
+    [IsoId("_bVfaL6-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Against Management")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? AgainstManagement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? AgainstManagement { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? AgainstManagement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
+    [IsoId("_bVfaMa-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discretionary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? Discretionary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? Discretionary { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? Discretionary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes in favour for one year for "say on pay" type of resolution.
     /// </summary>
+    [IsoId("_bVfaM6-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("One Year")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? OneYear { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? OneYear { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? OneYear { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes in favour of two years for "say on pay" type of resolution.
     /// </summary>
+    [IsoId("_bVfaNa-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Two Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? TwoYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? TwoYears { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? TwoYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes in favour of three years for "say on pay" type of resolution.
     /// </summary>
+    [IsoId("_bVfaN6-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Three Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? ThreeYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? ThreeYears { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? ThreeYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Do not vote.
     /// </summary>
+    [IsoId("_bVfaOa-WEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("No Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? NoAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? NoAction { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? NoAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Vote is cast as empty but the vote is counted.
     /// </summary>
+    [IsoId("_EnkbQK-XEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrCode1Choice_? Blank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityOrCode1Choice_? Blank { get; init; } 
+    #else
+    public QuantityOrCode1Choice_? Blank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
-    public ValueList<ProprietaryVote1> Proprietary { get; init; } = [];
+    [IsoId("_tkrR8K-XEemJ1NnLPsTFaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(4)]
+    #endif
+    public ValueList<ProprietaryVote1> Proprietary { get; init; } = new ValueList<ProprietaryVote1>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (For is QuantityOrCode1Choice_ ForValue)
-        {
-            writer.WriteStartElement(null, "For", xmlNamespace );
-            ForValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Against is QuantityOrCode1Choice_ AgainstValue)
-        {
-            writer.WriteStartElement(null, "Agnst", xmlNamespace );
-            AgainstValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Abstain is QuantityOrCode1Choice_ AbstainValue)
-        {
-            writer.WriteStartElement(null, "Abstn", xmlNamespace );
-            AbstainValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Withhold is QuantityOrCode1Choice_ WithholdValue)
-        {
-            writer.WriteStartElement(null, "Wthhld", xmlNamespace );
-            WithholdValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WithManagement is QuantityOrCode1Choice_ WithManagementValue)
-        {
-            writer.WriteStartElement(null, "WthMgmt", xmlNamespace );
-            WithManagementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgainstManagement is QuantityOrCode1Choice_ AgainstManagementValue)
-        {
-            writer.WriteStartElement(null, "AgnstMgmt", xmlNamespace );
-            AgainstManagementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Discretionary is QuantityOrCode1Choice_ DiscretionaryValue)
-        {
-            writer.WriteStartElement(null, "Dscrtnry", xmlNamespace );
-            DiscretionaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OneYear is QuantityOrCode1Choice_ OneYearValue)
-        {
-            writer.WriteStartElement(null, "OneYr", xmlNamespace );
-            OneYearValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TwoYears is QuantityOrCode1Choice_ TwoYearsValue)
-        {
-            writer.WriteStartElement(null, "TwoYrs", xmlNamespace );
-            TwoYearsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ThreeYears is QuantityOrCode1Choice_ ThreeYearsValue)
-        {
-            writer.WriteStartElement(null, "ThreeYrs", xmlNamespace );
-            ThreeYearsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NoAction is QuantityOrCode1Choice_ NoActionValue)
-        {
-            writer.WriteStartElement(null, "NoActn", xmlNamespace );
-            NoActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Blank is QuantityOrCode1Choice_ BlankValue)
-        {
-            writer.WriteStartElement(null, "Blnk", xmlNamespace );
-            BlankValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Prtry", xmlNamespace );
-        Proprietary.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Vote11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

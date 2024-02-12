@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding the corporate action event.
 /// </summary>
+[IsoId("_tk03Lw-rEeuE0Pnt-OcNOA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Unallocated Details SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionUnallocatedDetailsSD7
-     : IIsoXmlSerilizable<CorporateActionUnallocatedDetailsSD7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of Participants positions distribution balance concerned in unallocated payment.
     /// </summary>
+    [IsoId("_t5zBYQ-rEeuE0Pnt-OcNOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unallocated Distribution Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD3Choice_? UnallocatedDistributionBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionUnallocatedBalanceSD3Choice_? UnallocatedDistributionBalance { get; init; } 
+    #else
+    public CorporateActionUnallocatedBalanceSD3Choice_? UnallocatedDistributionBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of Participants positions redemption balance concerned in unallocated payment.
     /// </summary>
+    [IsoId("_t5zBaQ-rEeuE0Pnt-OcNOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unallocated Redemption Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD3? UnallocatedRedemptionBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionUnallocatedBalanceSD3? UnallocatedRedemptionBalance { get; init; } 
+    #else
+    public CorporateActionUnallocatedBalanceSD3? UnallocatedRedemptionBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of participants positions reorganisation balance concerned in unallocated payment.
     /// </summary>
+    [IsoId("_t5zBaw-rEeuE0Pnt-OcNOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unallocated Reorganisation Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD4? UnallocatedReorganisationBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionUnallocatedBalanceSD4? UnallocatedReorganisationBalance { get; init; } 
+    #else
+    public CorporateActionUnallocatedBalanceSD4? UnallocatedReorganisationBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
+    [IsoId("_t5zBbQ-rEeuE0Pnt-OcNOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unallocated Securities Transaction Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedSecuritiesTransactionDetailsSD8? UnallocatedSecuritiesTransactionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD8? UnallocatedSecuritiesTransactionDetails { get; init; } 
+    #else
+    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD8? UnallocatedSecuritiesTransactionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
+    [IsoId("_t5zBdQ-rEeuE0Pnt-OcNOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unallocated Cash Transaction Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedCashTransactionDetailsSD7? UnallocatedCashTransactionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionUnallocatedCashTransactionDetailsSD7? UnallocatedCashTransactionDetails { get; init; } 
+    #else
+    public CorporateActionUnallocatedCashTransactionDetailsSD7? UnallocatedCashTransactionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (UnallocatedDistributionBalance is CorporateActionUnallocatedBalanceSD3Choice_ UnallocatedDistributionBalanceValue)
-        {
-            writer.WriteStartElement(null, "UallctdDstrbtnBal", xmlNamespace );
-            UnallocatedDistributionBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnallocatedRedemptionBalance is CorporateActionUnallocatedBalanceSD3 UnallocatedRedemptionBalanceValue)
-        {
-            writer.WriteStartElement(null, "UallctdRedBal", xmlNamespace );
-            UnallocatedRedemptionBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnallocatedReorganisationBalance is CorporateActionUnallocatedBalanceSD4 UnallocatedReorganisationBalanceValue)
-        {
-            writer.WriteStartElement(null, "UallctdReorgBal", xmlNamespace );
-            UnallocatedReorganisationBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnallocatedSecuritiesTransactionDetails is CorporateActionUnallocatedSecuritiesTransactionDetailsSD8 UnallocatedSecuritiesTransactionDetailsValue)
-        {
-            writer.WriteStartElement(null, "UallctdSctiesTxDtls", xmlNamespace );
-            UnallocatedSecuritiesTransactionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnallocatedCashTransactionDetails is CorporateActionUnallocatedCashTransactionDetailsSD7 UnallocatedCashTransactionDetailsValue)
-        {
-            writer.WriteStartElement(null, "UallctdCshTxDtls", xmlNamespace );
-            UnallocatedCashTransactionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionUnallocatedDetailsSD7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

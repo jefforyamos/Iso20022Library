@@ -7,64 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[IsoId("_Rr6tQtp-Ed-ak6NoX_4Aeg_1803280729")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Commission")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Commission9
-     : IIsoXmlSerilizable<Commission9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Commission9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Commission9( CommissionType6Code reqType,System.String reqExtendedType,System.Decimal reqAmount,System.Decimal reqRate )
+    {
+        Type = reqType;
+        ExtendedType = reqExtendedType;
+        Amount = reqAmount;
+        Rate = reqRate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [IsoId("_Rr6tQ9p-Ed-ak6NoX_4Aeg_1803281144")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommissionType6Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CommissionType6Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommissionType6Code Type { get; init; } 
+    #else
+    public CommissionType6Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [IsoId("_Rr6tRNp-Ed-ak6NoX_4Aeg_1154241590")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedType { get; init; } 
+    #else
+    public System.String ExtendedType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
+    [IsoId("_Rr6tRdp-Ed-ak6NoX_4Aeg_1804201271")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Commission expressed as a percentage.
     /// </summary>
+    [IsoId("_Rr6tRtp-Ed-ak6NoX_4Aeg_1804201348")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Rate { get; init; } 
+    #else
+    public System.Decimal Rate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(Amount)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-    }
-    public static Commission9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

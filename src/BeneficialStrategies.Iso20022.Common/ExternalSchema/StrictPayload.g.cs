@@ -8,33 +8,22 @@ using BeneficialStrategies.Iso20022.Components;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.ExternalSchema;
 
 /// <summary>
 /// Specifies a data structure that allows the inclusion of any valid XML structure, for example, through an XML Schema. The property namespace is set to 'any'.
 /// The processContents value is 'strict' which according to the above specification and to ISO 20022: 2013 means that the application must understand and validate the content.
 /// </summary>
-public partial record StrictPayload : IIsoXmlSerilizable<StrictPayload>
+public partial record StrictPayload
 {
     #nullable enable
     
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-    }
-    public static StrictPayload Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

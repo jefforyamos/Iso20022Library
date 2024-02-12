@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Definition of retry process if activation of an action fails.
 /// </summary>
+[IsoId("_K9D0N31DEeCF8NjrBemJWQ_-2058168701")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Process Retry")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProcessRetry1
-     : IIsoXmlSerilizable<ProcessRetry1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProcessRetry1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProcessRetry1( System.String reqDelay )
+    {
+        Delay = reqDelay;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Time period to wait for a retry in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
+    [IsoId("_K9M-IH1DEeCF8NjrBemJWQ_444551643")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delay")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax9NumericText Delay { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Delay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Delay { get; init; } 
+    #else
+    public System.String Delay { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of retries.
     /// </summary>
+    [IsoId("_K9M-IX1DEeCF8NjrBemJWQ_-1003849246")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumNumber { get; init; } 
+    #else
+    public System.UInt64? MaximumNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time of the last retry.
     /// </summary>
+    [IsoId("_K9M-In1DEeCF8NjrBemJWQ_-109160754")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Re Try Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? LastReTryTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? LastReTryTime { get; init; } 
+    #else
+    public System.TimeOnly? LastReTryTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Dely", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(Delay)); // data type Max9NumericText System.String
-        writer.WriteEndElement();
-        if (MaximumNumber is IsoNumber MaximumNumberValue)
-        {
-            writer.WriteStartElement(null, "MaxNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (LastReTryTime is IsoISOTime LastReTryTimeValue)
-        {
-            writer.WriteStartElement(null, "LastReTryTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(LastReTryTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static ProcessRetry1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

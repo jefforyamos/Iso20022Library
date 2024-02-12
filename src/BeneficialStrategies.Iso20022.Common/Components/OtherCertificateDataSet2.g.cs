@@ -7,81 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact, in the context of a commercial trade transaction.
 /// </summary>
+[IsoId("_d3zy0QgKEeSeS5xdjFfOTw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Certificate Data Set")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherCertificateDataSet2
-     : IIsoXmlSerilizable<OtherCertificateDataSet2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OtherCertificateDataSet2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OtherCertificateDataSet2( DocumentIdentification1 reqDataSetIdentification,System.String reqCertificateIdentification,System.String reqCertificateType,System.DateOnly reqIssueDate,PartyIdentification26 reqIssuer )
+    {
+        DataSetIdentification = reqDataSetIdentification;
+        CertificateIdentification = reqCertificateIdentification;
+        CertificateType = reqCertificateType;
+        IssueDate = reqIssueDate;
+        Issuer = reqIssuer;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the certificate data set.
     /// </summary>
+    [IsoId("_ePAx4QgKEeSeS5xdjFfOTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    #else
+    public DocumentIdentification1 DataSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [IsoId("_ePAx4wgKEeSeS5xdjFfOTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CertificateIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CertificateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CertificateIdentification { get; init; } 
+    #else
+    public System.String CertificateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
+    [IsoId("_ePAx5QgKEeSeS5xdjFfOTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText CertificateType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CertificateType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CertificateType { get; init; } 
+    #else
+    public System.String CertificateType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [IsoId("_ePAx5wgKEeSeS5xdjFfOTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly IssueDate { get; init; } 
+    #else
+    public System.DateOnly IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issuer of the certificate, typically the inspection company or its agent.
     /// </summary>
+    [IsoId("_ePAx6QgKEeSeS5xdjFfOTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Issuer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification26 Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26 Issuer { get; init; } 
+    #else
+    public PartyIdentification26 Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
+    [IsoId("_ePAx6wgKEeSeS5xdjFfOTw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? CertificateInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificateInformation { get; init; } 
+    #else
+    public System.String? CertificateInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
-        DataSetIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CertId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CertTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(CertificateType)); // data type Exact4AlphaNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Issr", xmlNamespace );
-        Issuer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CertificateInformation is IsoMax350Text CertificateInformationValue)
-        {
-            writer.WriteStartElement(null, "CertInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(CertificateInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherCertificateDataSet2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

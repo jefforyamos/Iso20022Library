@@ -9,39 +9,57 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice;
-
-/// <summary>
-/// List of subordinate liquidity pool member.
-/// </summary>
-public partial record SubordinateMemberDetails : LiquidityPoolMembers1Choice_
-     , IIsoXmlSerilizable<SubordinateMemberDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// List of the identifier pairs.
+    /// List of subordinate liquidity pool member.
     /// </summary>
-    public AccountOwnerAndIdentification1? List { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _qhLMECDvEeav65mEytrgaA
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_2ObkwCDsEeav65mEytrgaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subordinate Member Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SubordinateMemberDetails : LiquidityPoolMembers1Choice_
+    #else
+    public partial class SubordinateMemberDetails : LiquidityPoolMembers1Choice_
+    #endif
     {
-        // Not sure how to serialize List, multiplicity Unknown
-    }
-    public static new SubordinateMemberDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// List of the identifier pairs.
+        /// </summary>
+        [IsoId("_qhLMECDvEeav65mEytrgaA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("List")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public AccountOwnerAndIdentification1? List { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _qhLMECDvEeav65mEytrgaA
+        
+        
+        #nullable disable
+        
     }
 }

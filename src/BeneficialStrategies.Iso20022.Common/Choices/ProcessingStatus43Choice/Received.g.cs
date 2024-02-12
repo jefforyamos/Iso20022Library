@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
-
-/// <summary>
-/// Status of the standing settlement instruction, cancellation or deletion is received for further processing.
-/// </summary>
-public partial record Received : ProcessingStatus43Choice_
-     , IIsoXmlSerilizable<Received>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reason for the received status.
+    /// Status of the standing settlement instruction, cancellation or deletion is received for further processing.
     /// </summary>
-    public required ReceivedReason1Choice_ Reason { get; init; } 
-    /// <summary>
-    /// Additional information about the processed instruction.
-    /// </summary>
-    public IsoMax210Text? AdditionalReasonInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_T_H5oVhGEeOMYfRGLS0NbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Received")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Received : ProcessingStatus43Choice_
+    #else
+    public partial class Received : ProcessingStatus43Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Received instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Received( ReceivedReason1Choice_ reqReason )
         {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
+            Reason = reqReason;
         }
-    }
-    public static new Received Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reason for the received status.
+        /// </summary>
+        [IsoId("_Kak_EFj7EeOgwYxfAV02bg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ReceivedReason1Choice_ Reason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ReceivedReason1Choice_ Reason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReceivedReason1Choice_ Reason { get; init; } 
+        #else
+        public ReceivedReason1Choice_ Reason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the processed instruction.
+        /// </summary>
+        [IsoId("_Kak_C1j7EeOgwYxfAV02bg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Reason Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalReasonInformation { get; init; } 
+        #else
+        public System.String? AdditionalReasonInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

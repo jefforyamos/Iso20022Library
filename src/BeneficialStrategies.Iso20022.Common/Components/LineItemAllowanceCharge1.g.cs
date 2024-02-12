@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Pricing component, such as a service, promotion, allowance or charge, for this line item.
 /// </summary>
+[IsoId("_S0Q8TgEcEeCQm6a_G2yO_w_145447968")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Line Item Allowance Charge")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LineItemAllowanceCharge1
-     : IIsoXmlSerilizable<LineItemAllowanceCharge1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
+    [IsoId("_S0Q8TwEcEeCQm6a_G2yO_w_2144378337")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ChargeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ChargeIndicator { get; init; } 
+    #else
+    public System.String? ChargeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual monetary value of this allowance charge.
     /// </summary>
+    [IsoId("_S0Q8UAEcEeCQm6a_G2yO_w_1865072585")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ActualAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ActualAmount { get; init; } 
+    #else
+    public System.Decimal? ActualAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity on which this allowance charge is based.
     /// </summary>
+    [IsoId("_S0aGIAEcEeCQm6a_G2yO_w_700685910")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? BasisQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity3? BasisQuantity { get; init; } 
+    #else
+    public Quantity3? BasisQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage applied to calculate this allowance charge.
     /// </summary>
+    [IsoId("_S0aGIQEcEeCQm6a_G2yO_w_-642810795")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Percent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CalculationPercent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CalculationPercent { get; init; } 
+    #else
+    public System.Decimal? CalculationPercent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the order in which the allowance or charge is applied.
     /// </summary>
+    [IsoId("_S0aGIgEcEeCQm6a_G2yO_w_-1141593647")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SequenceNumber { get; init; } 
+    #else
+    public System.UInt64? SequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason, expressed as text, for this allowance charge.
     /// </summary>
+    [IsoId("_S0aGIwEcEeCQm6a_G2yO_w_-1352166303")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DiscountOrChargeType1Choice_? Reason { get; init; } 
+    #else
+    public DiscountOrChargeType1Choice_? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ChargeIndicator is IsoYesNoIndicator ChargeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ChrgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ChargeIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ActualAmount is IsoCurrencyAndAmount ActualAmountValue)
-        {
-            writer.WriteStartElement(null, "ActlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ActualAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (BasisQuantity is Quantity3 BasisQuantityValue)
-        {
-            writer.WriteStartElement(null, "BsisQty", xmlNamespace );
-            BasisQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CalculationPercent is IsoPercentageRate CalculationPercentValue)
-        {
-            writer.WriteStartElement(null, "ClctnPct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculationPercentValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SequenceNumber is IsoNumber SequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Reason is DiscountOrChargeType1Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LineItemAllowanceCharge1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

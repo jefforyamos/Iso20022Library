@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a fixed rate and a floating rate.
-/// </summary>
-[KnownType(typeof(InterestRate6Choice.Fixed))]
-[KnownType(typeof(InterestRate6Choice.Floating))]
-public abstract partial record InterestRate6Choice_ : IIsoXmlSerilizable<InterestRate6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a fixed rate and a floating rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InterestRate6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InterestRate6Choice.Fixed))]
+    [KnownType(typeof(InterestRate6Choice.Floating))]
+    [IsoId("_nYyCASc1EeaCIe3n1Gx9ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InterestRate6Choice_
+    #else
+    public abstract partial class InterestRate6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Fxd" => InterestRate6Choice.Fixed.Deserialize(elementWithPayload),
-             "Fltg" => InterestRate6Choice.Floating.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InterestRate6Choice choice.")
-        };
     }
 }

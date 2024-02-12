@@ -7,147 +7,245 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
 /// </summary>
+[IsoId("_QbcTNPfSEei89sMSHxl1ew")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Temporary Services")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TemporaryServices1
-     : IIsoXmlSerilizable<TemporaryServices1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the details of the contracting company that has requested temporary services. 
     /// </summary>
+    [IsoId("_QbcTOffSEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contracting Company")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServicesCompany1? ContractingCompany { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TemporaryServicesCompany1? ContractingCompany { get; init; } 
+    #else
+    public TemporaryServicesCompany1? ContractingCompany { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains information about the individual working in a temporary capacity.
     /// </summary>
+    [IsoId("_QbcTOvfSEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Temporary Employee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification210? TemporaryEmployee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification210? TemporaryEmployee { get; init; } 
+    #else
+    public PartyIdentification210? TemporaryEmployee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of the job or task of the individual working in a temporary capacity.
     /// </summary>
+    [IsoId("_QbcTNvfSEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Job")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServicesJob1? Job { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TemporaryServicesJob1? Job { get; init; } 
+    #else
+    public TemporaryServicesJob1? Job { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not the fee for the individual working in a temporary capacity is a flat
     /// rate.
     /// </summary>
+    [IsoId("_QbcTN_fSEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Flat Rate Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FlatRateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FlatRateIndicator { get; init; } 
+    #else
+    public System.String? FlatRateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the discount amount. 
     /// </summary>
+    [IsoId("_e6IJUPfdEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DiscountAmount { get; init; } 
+    #else
+    public System.Decimal? DiscountAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_QbcTNffSEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of the labour performed and associated duration and billing rate. 
     /// </summary>
+    [IsoId("_ns07wPfiEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Labor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServicesLabor1? Labor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TemporaryServicesLabor1? Labor { get; init; } 
+    #else
+    public TemporaryServicesLabor1? Labor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains miscellaneous expense details.
     /// </summary>
+    [IsoId("_bvgYsPfjEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Miscellaneous Expenses")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount13? MiscellaneousExpenses { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount13? MiscellaneousExpenses { get; init; } 
+    #else
+    public Amount13? MiscellaneousExpenses { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subtotal amount exclusive of tax.
     /// </summary>
+    [IsoId("_nG9ZIPfjEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subtotal Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SubtotalAmount { get; init; } 
+    #else
+    public System.Decimal? SubtotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the amount of taxes assessed for temporary services.
     /// </summary>
+    [IsoId("_1iAGYPfjEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax33? Tax { get; init; } 
+    #else
+    public Tax33? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional user-defined data pertaining to the temporary services. 
     /// </summary>
+    [IsoId("_QbcTOPfSEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ContractingCompany is TemporaryServicesCompany1 ContractingCompanyValue)
-        {
-            writer.WriteStartElement(null, "CtrctgCpny", xmlNamespace );
-            ContractingCompanyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TemporaryEmployee is PartyIdentification210 TemporaryEmployeeValue)
-        {
-            writer.WriteStartElement(null, "TempMplyee", xmlNamespace );
-            TemporaryEmployeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Job is TemporaryServicesJob1 JobValue)
-        {
-            writer.WriteStartElement(null, "Job", xmlNamespace );
-            JobValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FlatRateIndicator is IsoTrueFalseIndicator FlatRateIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FlatRateInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FlatRateIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DiscountAmount is IsoImpliedCurrencyAndAmount DiscountAmountValue)
-        {
-            writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(DiscountAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Labor is TemporaryServicesLabor1 LaborValue)
-        {
-            writer.WriteStartElement(null, "Labr", xmlNamespace );
-            LaborValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MiscellaneousExpenses is Amount13 MiscellaneousExpensesValue)
-        {
-            writer.WriteStartElement(null, "MiscExpnss", xmlNamespace );
-            MiscellaneousExpensesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubtotalAmount is IsoImpliedCurrencyAndAmount SubtotalAmountValue)
-        {
-            writer.WriteStartElement(null, "SbttlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(SubtotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Tax is Tax33 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TemporaryServices1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

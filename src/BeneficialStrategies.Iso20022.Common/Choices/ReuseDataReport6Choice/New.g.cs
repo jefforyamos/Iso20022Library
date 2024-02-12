@@ -9,94 +9,188 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport6Choice;
-
-/// <summary>
-/// Indicates whether transaction is reported for the first time.
-/// </summary>
-public partial record New : ReuseDataReport6Choice_
-     , IIsoXmlSerilizable<New>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport6Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identifier of a record in a message used as part of error management and status advice message.
+    /// Indicates whether transaction is reported for the first time.
     /// </summary>
-    public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
-    /// <summary>
-    /// Date and time of submission of the report to the entitled receiver.
-    /// </summary>
-    public required IsoISODateTime ReportingDateTime { get; init; } 
-    /// <summary>
-    /// Data specific to counterparties and related fields.
-    /// </summary>
-    public required CounterpartyData87 Counterparty { get; init; } 
-    /// <summary>
-    /// Provides the details of the security or cash pledged as collateral.
-    /// </summary>
-    public CollateralType19? CollateralComponent { get; init; } 
-    /// <summary>
-    /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
-    /// </summary>
-    public required IsoISODate EventDay { get; init; } 
-    /// <summary>
-    /// Information on funding sources used to finance margin loans.
-    /// </summary>
-    public FundingSource3? FundingSource { get; init; } 
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_MzHkQcK8EeuMhqg3CsEu6Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record New : ReuseDataReport6Choice_
+    #else
+    public partial class New : ReuseDataReport6Choice_
+    #endif
     {
-        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a New instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public New( System.DateTime reqReportingDateTime,CounterpartyData87 reqCounterparty,System.DateOnly reqEventDay )
         {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
+            ReportingDateTime = reqReportingDateTime;
+            Counterparty = reqCounterparty;
+            EventDay = reqEventDay;
         }
-        writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
-        Counterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CollateralComponent is CollateralType19 CollateralComponentValue)
-        {
-            writer.WriteStartElement(null, "CollCmpnt", xmlNamespace );
-            CollateralComponentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "EvtDay", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EventDay)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (FundingSource is FundingSource3 FundingSourceValue)
-        {
-            writer.WriteStartElement(null, "FndgSrc", xmlNamespace );
-            FundingSourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new New Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identifier of a record in a message used as part of error management and status advice message.
+        /// </summary>
+        [IsoId("_M0kVwcK8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Record Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TechnicalRecordIdentification { get; init; } 
+        #else
+        public System.String? TechnicalRecordIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time of submission of the report to the entitled receiver.
+        /// </summary>
+        [IsoId("_M0kVw8K8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reporting Date Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime ReportingDateTime { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime ReportingDateTime { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime ReportingDateTime { get; init; } 
+        #else
+        public System.DateTime ReportingDateTime { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data specific to counterparties and related fields.
+        /// </summary>
+        [IsoId("_M0kVxcK8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CounterpartyData87 Counterparty { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CounterpartyData87 Counterparty { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CounterpartyData87 Counterparty { get; init; } 
+        #else
+        public CounterpartyData87 Counterparty { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the details of the security or cash pledged as collateral.
+        /// </summary>
+        [IsoId("_M0kVx8K8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Component")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralType19? CollateralComponent { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralType19? CollateralComponent { get; init; } 
+        #else
+        public CollateralType19? CollateralComponent { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
+        /// </summary>
+        [IsoId("_M0kVycK8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Day")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate EventDay { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly EventDay { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly EventDay { get; init; } 
+        #else
+        public System.DateOnly EventDay { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information on funding sources used to finance margin loans.
+        /// </summary>
+        [IsoId("_M0kVy8K8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Funding Source")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FundingSource3? FundingSource { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FundingSource3? FundingSource { get; init; } 
+        #else
+        public FundingSource3? FundingSource { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_M0kVzcK8EeuMhqg3CsEu6Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

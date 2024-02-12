@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes search criteria for securities account audit trail query.
 /// </summary>
+[IsoId("_0Ba1cTpzEemk2e6qGBk8IQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Account Audit Trail Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesAccountAuditTrailSearchCriteria3
-     : IIsoXmlSerilizable<SecuritiesAccountAuditTrailSearchCriteria3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the securities account to be queried.
     /// </summary>
+    [IsoId("_0L2j0TpzEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SecuritiesAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19? SecuritiesAccountIdentification { get; init; } 
+    #else
+    public SecuritiesAccount19? SecuritiesAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the period for querying information.
     /// </summary>
+    [IsoId("_0L2j0zpzEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
+    #else
+    public DatePeriodSearch1Choice_? DatePeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SecuritiesAccountIdentification is SecuritiesAccount19 SecuritiesAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
-            SecuritiesAccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DatePeriod is DatePeriodSearch1Choice_ DatePeriodValue)
-        {
-            writer.WriteStartElement(null, "DtPrd", xmlNamespace );
-            DatePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesAccountAuditTrailSearchCriteria3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

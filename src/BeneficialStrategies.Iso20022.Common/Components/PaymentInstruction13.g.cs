@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.|.
 /// </summary>
+[IsoId("_Lss7yxbwEeOy-PlRuFSUzQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Instruction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentInstruction13
-     : IIsoXmlSerilizable<PaymentInstruction13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date at which the initiating party requests that the payment instruction be processed. |.
     /// </summary>
+    [IsoId("_MFP-oxbwEeOy-PlRuFSUzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Execution Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RequestedExecutionDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? RequestedExecutionDateTime { get; init; } 
+    #else
+    public System.DateTime? RequestedExecutionDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type, or nature, of the payment, for example an express payment.
     /// </summary>
+    [IsoId("_MFP-pRbwEeOy-PlRuFSUzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentType4Choice_? PaymentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentType4Choice_? PaymentType { get; init; } 
+    #else
+    public PaymentType4Choice_? PaymentType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RequestedExecutionDateTime is IsoISODateTime RequestedExecutionDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ReqdExctnDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(RequestedExecutionDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (PaymentType is PaymentType4Choice_ PaymentTypeValue)
-        {
-            writer.WriteStartElement(null, "PmtTp", xmlNamespace );
-            PaymentTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentInstruction13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

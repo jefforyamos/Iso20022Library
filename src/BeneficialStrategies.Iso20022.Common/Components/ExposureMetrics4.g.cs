@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
+[IsoId("_nh43Ya5MEeuo-IflVgGqiA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Exposure Metrics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExposureMetrics4
-     : IIsoXmlSerilizable<ExposureMetrics4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money to be settled as of the start date and maturity date of the transaction.
     /// </summary>
+    [IsoId("_nw8nEa5MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Principal Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PrincipalAmount3? PrincipalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PrincipalAmount3? PrincipalAmount { get; init; } 
+    #else
+    public PrincipalAmount3? PrincipalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the loan value, that is the quantity or nominal amount multiplied by the price.
     /// </summary>
+    [IsoId("_nw8nE65MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loan Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LoanValue { get; init; } 
+    #else
+    public System.Decimal? LoanValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [IsoId("_nw8nFa5MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? MarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? MarketValue { get; init; } 
+    #else
+    public AmountAndDirection53? MarketValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of margin loans in base currency.
     /// </summary>
+    [IsoId("_nw8nF65MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outstanding Margin Loan Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OutstandingMarginLoanAmount { get; init; } 
+    #else
+    public System.Decimal? OutstandingMarginLoanAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market value of short position in base currency.
     /// </summary>
+    [IsoId("_nw8nGa5MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Market Value Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ShortMarketValueAmount { get; init; } 
+    #else
+    public System.Decimal? ShortMarketValueAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Margin loan in which a counterparty extends credit in connection with the purchase, sale, carrying or trading of securities, but not including other loans that are secured by collateral in the form of securities.
     /// </summary>
+    [IsoId("_nw8nG65MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Loan")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarginLoan { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarginLoan { get; init; } 
+    #else
+    public System.Decimal? MarginLoan { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
+    [IsoId("_nw8nHa5MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Collateral Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? CashCollateralAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? CashCollateralAmount { get; init; } 
+    #else
+    public AmountAndDirection53? CashCollateralAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [IsoId("_nw8nH65MEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? CollateralMarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? CollateralMarketValue { get; init; } 
+    #else
+    public AmountAndDirection53? CollateralMarketValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PrincipalAmount is PrincipalAmount3 PrincipalAmountValue)
-        {
-            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
-            PrincipalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoanValue is IsoActiveOrHistoricCurrencyAndAmount LoanValueValue)
-        {
-            writer.WriteStartElement(null, "LnVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(LoanValueValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketValue is AmountAndDirection53 MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            MarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OutstandingMarginLoanAmount is IsoActiveOrHistoricCurrencyAndAmount OutstandingMarginLoanAmountValue)
-        {
-            writer.WriteStartElement(null, "OutsdngMrgnLnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OutstandingMarginLoanAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ShortMarketValueAmount is IsoActiveOrHistoricCurrencyAndAmount ShortMarketValueAmountValue)
-        {
-            writer.WriteStartElement(null, "ShrtMktValAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ShortMarketValueAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarginLoan is IsoActiveOrHistoricCurrencyAndAmount MarginLoanValue)
-        {
-            writer.WriteStartElement(null, "MrgnLn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarginLoanValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashCollateralAmount is AmountAndDirection53 CashCollateralAmountValue)
-        {
-            writer.WriteStartElement(null, "CshCollAmt", xmlNamespace );
-            CashCollateralAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralMarketValue is AmountAndDirection53 CollateralMarketValueValue)
-        {
-            writer.WriteStartElement(null, "CollMktVal", xmlNamespace );
-            CollateralMarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ExposureMetrics4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

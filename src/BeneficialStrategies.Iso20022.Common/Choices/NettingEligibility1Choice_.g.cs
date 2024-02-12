@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the netting eligibility information.
-/// </summary>
-[KnownType(typeof(NettingEligibility1Choice.Indicator))]
-[KnownType(typeof(NettingEligibility1Choice.Proprietary))]
-public abstract partial record NettingEligibility1Choice_ : IIsoXmlSerilizable<NettingEligibility1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the netting eligibility information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NettingEligibility1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NettingEligibility1Choice.Indicator))]
+    [KnownType(typeof(NettingEligibility1Choice.Proprietary))]
+    [IsoId("_QvkZwdp-Ed-ak6NoX_4Aeg_-841042953")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Netting Eligibility 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NettingEligibility1Choice_
+    #else
+    public abstract partial class NettingEligibility1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ind" => NettingEligibility1Choice.Indicator.Deserialize(elementWithPayload),
-             "Prtry" => NettingEligibility1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NettingEligibility1Choice choice.")
-        };
     }
 }

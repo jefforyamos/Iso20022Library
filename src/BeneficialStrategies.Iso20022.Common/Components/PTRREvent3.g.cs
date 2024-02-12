@@ -7,17 +7,37 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information if contract results from a post trade risk reduction operation.
 /// </summary>
+[IsoId("_CElm0Vo4Ee23K4GXSpBSeg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("PTRR Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PTRREvent3
-     : IIsoXmlSerilizable<PTRREvent3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
@@ -27,40 +47,40 @@ public partial record PTRREvent3
     /// Portfolio Rebalancing/Margin management: A PTRR service provided by a service provider to reduce risk in an existing portfolio of trades by adding new non-price forming trades and where no existing trades in the portfolio are terminated or replaced and the notional is increased rather than decreased.
     /// Other Portfolio post trade risk reduction services: A post trade risk reduction service provided by a service provider to reduce risk in existing portfolios of trades using non-price forming trades and where such service does not qualify as Portfolio Compression or Portfolio Rebalancing.
     /// </summary>
+    [IsoId("_CF_VAVo4Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technique")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskReductionService1Code? Technique { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RiskReductionService1Code? Technique { get; init; } 
+    #else
+    public RiskReductionService1Code? Technique { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the post trade risk reduction service provider.
     /// </summary>
+    [IsoId("_CF_VA1o4Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? ServiceProvider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_? ServiceProvider { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_? ServiceProvider { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Technique is RiskReductionService1Code TechniqueValue)
-        {
-            writer.WriteStartElement(null, "Tchnq", xmlNamespace );
-            writer.WriteValue(TechniqueValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ServiceProvider is OrganisationIdentification15Choice_ ServiceProviderValue)
-        {
-            writer.WriteStartElement(null, "SvcPrvdr", xmlNamespace );
-            ServiceProviderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PTRREvent3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Prefix used for name.
-/// </summary>
-[KnownType(typeof(NamePrefix2Choice.NamePrefix))]
-[KnownType(typeof(NamePrefix2Choice.ExtendedNamePrefix))]
-public abstract partial record NamePrefix2Choice_ : IIsoXmlSerilizable<NamePrefix2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Prefix used for name.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NamePrefix2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NamePrefix2Choice.NamePrefix))]
+    [KnownType(typeof(NamePrefix2Choice.ExtendedNamePrefix))]
+    [IsoId("_HMqgQQ2fEeSNWNtJlXOAhg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Prefix 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NamePrefix2Choice_
+    #else
+    public abstract partial class NamePrefix2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NmPrfx" => NamePrefix2Choice.NamePrefix.Deserialize(elementWithPayload),
-             "XtndedNmPrfx" => NamePrefix2Choice.ExtendedNamePrefix.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NamePrefix2Choice choice.")
-        };
     }
 }

@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice;
-
-/// <summary>
-/// Provides details about the margin requirements for the segregated independent amount only.
-/// </summary>
-public partial record SegregatedIndependentAmountRequirement : MarginRequirement1Choice_
-     , IIsoXmlSerilizable<SegregatedIndependentAmountRequirement>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Amount of new margin that will be delivered to one party by the other party after rounding, threshold and minimum transfer amount are taken into account.
+    /// Provides details about the margin requirements for the segregated independent amount only.
     /// </summary>
-    public IsoActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
-    /// <summary>
-    /// Amount of new margin that will be recalled to one party from the other party after rounding, threshold and minimum transfer amount are taken into account.
-    /// </summary>
-    public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QmogMdp-Ed-ak6NoX_4Aeg_-911647050")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Segregated Independent Amount Requirement")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SegregatedIndependentAmountRequirement : MarginRequirement1Choice_
+    #else
+    public partial class SegregatedIndependentAmountRequirement : MarginRequirement1Choice_
+    #endif
     {
-        if (DeliverMarginAmount is IsoActiveCurrencyAndAmount DeliverMarginAmountValue)
-        {
-            writer.WriteStartElement(null, "DlvrMrgnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeliverMarginAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ReturnMarginAmount is IsoActiveCurrencyAndAmount ReturnMarginAmountValue)
-        {
-            writer.WriteStartElement(null, "RtrMrgnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ReturnMarginAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static new SegregatedIndependentAmountRequirement Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Amount of new margin that will be delivered to one party by the other party after rounding, threshold and minimum transfer amount are taken into account.
+        /// </summary>
+        [IsoId("_Ul4kAdp-Ed-ak6NoX_4Aeg_1961004215")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Deliver Margin Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? DeliverMarginAmount { get; init; } 
+        #else
+        public System.Decimal? DeliverMarginAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of new margin that will be recalled to one party from the other party after rounding, threshold and minimum transfer amount are taken into account.
+        /// </summary>
+        [IsoId("_Ul4kAtp-Ed-ak6NoX_4Aeg_-1890638845")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Return Margin Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? ReturnMarginAmount { get; init; } 
+        #else
+        public System.Decimal? ReturnMarginAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

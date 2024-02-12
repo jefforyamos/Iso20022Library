@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification2Choice;
-
-/// <summary>
-/// Information used to identify a member within a clearing system.
-/// </summary>
-public partial record ClearingSystemMemberIdentification : MemberIdentification2Choice_
-     , IIsoXmlSerilizable<ClearingSystemMemberIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
+    /// Information used to identify a member within a clearing system.
     /// </summary>
-    public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
-    /// <summary>
-    /// Identification of a member of a clearing system.
-    /// </summary>
-    public required IsoMax35Text MemberIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_8Hq3WKMgEeCJ6YNENx4h-w_-79393312")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing System Member Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ClearingSystemMemberIdentification : MemberIdentification2Choice_
+    #else
+    public partial class ClearingSystemMemberIdentification : MemberIdentification2Choice_
+    #endif
     {
-        if (ClearingSystemIdentification is ClearingSystemIdentification2Choice_ ClearingSystemIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ClearingSystemMemberIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ClearingSystemMemberIdentification( System.String reqMemberIdentification )
         {
-            writer.WriteStartElement(null, "ClrSysId", xmlNamespace );
-            ClearingSystemIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            MemberIdentification = reqMemberIdentification;
         }
-        writer.WriteStartElement(null, "MmbId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MemberIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static new ClearingSystemMemberIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
+        /// </summary>
+        [IsoId("_TMehHdp-Ed-ak6NoX_4Aeg_-1082144614")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Clearing System Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
+        #else
+        public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of a member of a clearing system.
+        /// </summary>
+        [IsoId("_TMehHtp-Ed-ak6NoX_4Aeg_151445420")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Member Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text MemberIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String MemberIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String MemberIdentification { get; init; } 
+        #else
+        public System.String MemberIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

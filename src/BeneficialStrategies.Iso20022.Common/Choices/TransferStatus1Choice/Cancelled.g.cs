@@ -9,61 +9,137 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice;
-
-/// <summary>
-/// Status of the transfer is cancelled.
-/// </summary>
-public partial record Cancelled : TransferStatus1Choice_
-     , IIsoXmlSerilizable<Cancelled>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indicates that there is no reason available or to report.
+    /// Status of the transfer is cancelled.
     /// </summary>
-    public required NoReasonCode NoSpecifiedReason { get; init; } 
-    /// <summary>
-    /// Reason for the cancelled status.
-    /// </summary>
-    public required CancelledStatusReason3Code Reason { get; init; } 
-    /// <summary>
-    /// Reason for the cancelled status.
-    /// </summary>
-    public required IsoExtended350Code ExtendedReason { get; init; } 
-    /// <summary>
-    /// Proprietary identification of the reason for the cancelled status.
-    /// </summary>
-    public required GenericIdentification1 DataSourceScheme { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_o1CqrhwkEeOIveEnnb_1-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancelled")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Cancelled : TransferStatus1Choice_
+    #else
+    public partial class Cancelled : TransferStatus1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
-        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(Reason.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedReason)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
-        DataSourceScheme.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Cancelled Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Cancelled instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Cancelled( NoReasonCode reqNoSpecifiedReason,CancelledStatusReason3Code reqReason,System.String reqExtendedReason,GenericIdentification1 reqDataSourceScheme )
+        {
+            NoSpecifiedReason = reqNoSpecifiedReason;
+            Reason = reqReason;
+            ExtendedReason = reqExtendedReason;
+            DataSourceScheme = reqDataSourceScheme;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indicates that there is no reason available or to report.
+        /// </summary>
+        [IsoId("_RSSsVNp-Ed-ak6NoX_4Aeg_-1452392952")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("No Specified Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required NoReasonCode NoSpecifiedReason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public NoReasonCode NoSpecifiedReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NoReasonCode NoSpecifiedReason { get; init; } 
+        #else
+        public NoReasonCode NoSpecifiedReason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reason for the cancelled status.
+        /// </summary>
+        [IsoId("_RSSsVdp-Ed-ak6NoX_4Aeg_-25230446")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CancelledStatusReason3Code Reason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CancelledStatusReason3Code Reason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CancelledStatusReason3Code Reason { get; init; } 
+        #else
+        public CancelledStatusReason3Code Reason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reason for the cancelled status.
+        /// </summary>
+        [IsoId("_RSSsVtp-Ed-ak6NoX_4Aeg_-25230404")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Extended Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoExtended350Code ExtendedReason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String ExtendedReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String ExtendedReason { get; init; } 
+        #else
+        public System.String ExtendedReason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Proprietary identification of the reason for the cancelled status.
+        /// </summary>
+        [IsoId("_RSSsV9p-Ed-ak6NoX_4Aeg_-25230386")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Data Source Scheme")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericIdentification1 DataSourceScheme { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericIdentification1 DataSourceScheme { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification1 DataSourceScheme { get; init; } 
+        #else
+        public GenericIdentification1 DataSourceScheme { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

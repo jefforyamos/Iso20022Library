@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of side pocket units, or amount, or rate.
-/// </summary>
-[KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.UnitsNumber))]
-[KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.OrderedAmount))]
-[KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.HoldingsRate))]
-public abstract partial record SidePocketUnitsOrAmountOrRate1Choice_ : IIsoXmlSerilizable<SidePocketUnitsOrAmountOrRate1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of side pocket units, or amount, or rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SidePocketUnitsOrAmountOrRate1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.UnitsNumber))]
+    [KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.OrderedAmount))]
+    [KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.HoldingsRate))]
+    [IsoId("_Rhe-4dp-Ed-ak6NoX_4Aeg_-1345719140")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Side Pocket Units Or Amount Or Rate 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SidePocketUnitsOrAmountOrRate1Choice_
+    #else
+    public abstract partial class SidePocketUnitsOrAmountOrRate1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "UnitsNb" => SidePocketUnitsOrAmountOrRate1Choice.UnitsNumber.Deserialize(elementWithPayload),
-             "OrdrdAmt" => SidePocketUnitsOrAmountOrRate1Choice.OrderedAmount.Deserialize(elementWithPayload),
-             "HldgsRate" => SidePocketUnitsOrAmountOrRate1Choice.HoldingsRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SidePocketUnitsOrAmountOrRate1Choice choice.")
-        };
     }
 }

@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError7Choice;
-
-/// <summary>
-/// Reports either on the standing order or on a business error.
-/// </summary>
-public partial record Report : StandingOrderOrError7Choice_
-     , IIsoXmlSerilizable<Report>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError7Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+    /// Reports either on the standing order or on a business error.
     /// </summary>
-    public required StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
-    /// <summary>
-    /// Requested information on the standing order or business error when information has not been found.
-    /// </summary>
-    public required StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_eamLEdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Report : StandingOrderOrError7Choice_
+    #else
+    public partial class Report : StandingOrderOrError7Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "StgOrdrId", xmlNamespace );
-        StandingOrderIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StgOrdrOrErr", xmlNamespace );
-        StandingOrderOrError.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Report Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Report instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Report( StandingOrderIdentification6 reqStandingOrderIdentification,StandingOrderOrError8Choice_ reqStandingOrderOrError )
+        {
+            StandingOrderIdentification = reqStandingOrderIdentification;
+            StandingOrderOrError = reqStandingOrderOrError;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+        /// </summary>
+        [IsoId("_eb5yodcZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standing Order Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
+        #else
+        public StandingOrderIdentification6 StandingOrderIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Requested information on the standing order or business error when information has not been found.
+        /// </summary>
+        [IsoId("_eb5yo9cZEeqRFcf2R4bPBw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standing Order Or Error")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
+        #else
+        public StandingOrderOrError8Choice_ StandingOrderOrError { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

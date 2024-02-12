@@ -9,183 +9,314 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice;
-
-/// <summary>
-/// Addition of information to the securities transaction.
-/// </summary>
-public partial record Addition : UpdateType26Choice_
-     , IIsoXmlSerilizable<Addition>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides settlement type and identification information.
+    /// Addition of information to the securities transaction.
     /// </summary>
-    public SettlementTypeAndAdditionalParameters17? SettlementTypeAndAdditionalParameters { get; init; } 
-    /// <summary>
-    /// Link to another transaction that must be processed after, before or at the same time.
-    /// </summary>
-    public Linkages48? Linkages { get; init; } 
-    /// <summary>
-    /// Details of the trade.
-    /// </summary>
-    public SecuritiesTradeDetails65? TradeDetails { get; init; } 
-    /// <summary>
-    /// Attributes defining a financial instrument.
-    /// </summary>
-    public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; init; } 
-    /// <summary>
-    /// Details related to the account and quantity involved in the transaction.
-    /// </summary>
-    public QuantityAndAccount59? QuantityAndAccountDetails { get; init; } 
-    /// <summary>
-    /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
-    /// </summary>
-    public SettlementDetails138? SettlementParameters { get; init; } 
-    /// <summary>
-    /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
-    /// </summary>
-    public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; init; } 
-    /// <summary>
-    /// Identifies the chain of delivering settlement parties.
-    /// </summary>
-    public SettlementParties58? DeliveringSettlementParties { get; init; } 
-    /// <summary>
-    /// Identifies the chain of receiving settlement parties.
-    /// </summary>
-    public SettlementParties58? ReceivingSettlementParties { get; init; } 
-    /// <summary>
-    /// Cash parties involved in the transaction if different for the securities settlement parties.
-    /// </summary>
-    public CashParties30? CashParties { get; init; } 
-    /// <summary>
-    /// Total amount of money to be paid or received in exchange for the securities.
-    /// </summary>
-    public AmountAndDirection85? SettlementAmount { get; init; } 
-    /// <summary>
-    /// Other amounts than the settlement amount.
-    /// </summary>
-    public OtherAmounts35? OtherAmounts { get; init; } 
-    /// <summary>
-    /// Other business parties relevant to the transaction.
-    /// </summary>
-    public OtherParties29? OtherBusinessParties { get; init; } 
-    /// <summary>
-    /// Provides information required for the registration or physical settlement.
-    /// </summary>
-    public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; init; } 
-    /// <summary>
-    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_JfG625w3EeazcsnODTksnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Addition")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Addition : UpdateType26Choice_
+    #else
+    public partial class Addition : UpdateType26Choice_
+    #endif
     {
-        if (SettlementTypeAndAdditionalParameters is SettlementTypeAndAdditionalParameters17 SettlementTypeAndAdditionalParametersValue)
-        {
-            writer.WriteStartElement(null, "SttlmTpAndAddtlParams", xmlNamespace );
-            SettlementTypeAndAdditionalParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Linkages is Linkages48 LinkagesValue)
-        {
-            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
-            LinkagesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeDetails is SecuritiesTradeDetails65 TradeDetailsValue)
-        {
-            writer.WriteStartElement(null, "TradDtls", xmlNamespace );
-            TradeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes78 FinancialInstrumentAttributesValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
-            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QuantityAndAccountDetails is QuantityAndAccount59 QuantityAndAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
-            QuantityAndAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementParameters is SettlementDetails138 SettlementParametersValue)
-        {
-            writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
-            SettlementParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandingSettlementInstructionDetails is StandingSettlementInstruction12 StandingSettlementInstructionDetailsValue)
-        {
-            writer.WriteStartElement(null, "StgSttlmInstrDtls", xmlNamespace );
-            StandingSettlementInstructionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveringSettlementParties is SettlementParties58 DeliveringSettlementPartiesValue)
-        {
-            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
-            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceivingSettlementParties is SettlementParties58 ReceivingSettlementPartiesValue)
-        {
-            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
-            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashParties is CashParties30 CashPartiesValue)
-        {
-            writer.WriteStartElement(null, "CshPties", xmlNamespace );
-            CashPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementAmount is AmountAndDirection85 SettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-            SettlementAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherAmounts is OtherAmounts35 OtherAmountsValue)
-        {
-            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
-            OtherAmountsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherBusinessParties is OtherParties29 OtherBusinessPartiesValue)
-        {
-            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
-            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalPhysicalOrRegistrationDetails is RegistrationParameters5 AdditionalPhysicalOrRegistrationDetailsValue)
-        {
-            writer.WriteStartElement(null, "AddtlPhysOrRegnDtls", xmlNamespace );
-            AdditionalPhysicalOrRegistrationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Addition Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides settlement type and identification information.
+        /// </summary>
+        [IsoId("_JfG65Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Type And Additional Parameters")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SettlementTypeAndAdditionalParameters17? SettlementTypeAndAdditionalParameters { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementTypeAndAdditionalParameters17? SettlementTypeAndAdditionalParameters { get; init; } 
+        #else
+        public SettlementTypeAndAdditionalParameters17? SettlementTypeAndAdditionalParameters { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Link to another transaction that must be processed after, before or at the same time.
+        /// </summary>
+        [IsoId("_JfG655w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Linkages")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Linkages48? Linkages { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Linkages48? Linkages { get; init; } 
+        #else
+        public Linkages48? Linkages { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details of the trade.
+        /// </summary>
+        [IsoId("_JfG66Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Trade Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesTradeDetails65? TradeDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesTradeDetails65? TradeDetails { get; init; } 
+        #else
+        public SecuritiesTradeDetails65? TradeDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Attributes defining a financial instrument.
+        /// </summary>
+        [IsoId("_JfG665w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; init; } 
+        #else
+        public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details related to the account and quantity involved in the transaction.
+        /// </summary>
+        [IsoId("_JfG67Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quantity And Account Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public QuantityAndAccount59? QuantityAndAccountDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public QuantityAndAccount59? QuantityAndAccountDetails { get; init; } 
+        #else
+        public QuantityAndAccount59? QuantityAndAccountDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
+        /// </summary>
+        [IsoId("_JfG675w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Parameters")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SettlementDetails138? SettlementParameters { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementDetails138? SettlementParameters { get; init; } 
+        #else
+        public SettlementDetails138? SettlementParameters { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
+        /// </summary>
+        [IsoId("_JfG68Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standing Settlement Instruction Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; init; } 
+        #else
+        public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the chain of delivering settlement parties.
+        /// </summary>
+        [IsoId("_JfG685w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Delivering Settlement Parties")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SettlementParties58? DeliveringSettlementParties { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementParties58? DeliveringSettlementParties { get; init; } 
+        #else
+        public SettlementParties58? DeliveringSettlementParties { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the chain of receiving settlement parties.
+        /// </summary>
+        [IsoId("_JfG69Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Receiving Settlement Parties")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SettlementParties58? ReceivingSettlementParties { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementParties58? ReceivingSettlementParties { get; init; } 
+        #else
+        public SettlementParties58? ReceivingSettlementParties { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Cash parties involved in the transaction if different for the securities settlement parties.
+        /// </summary>
+        [IsoId("_JfG695w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Parties")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashParties30? CashParties { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashParties30? CashParties { get; init; } 
+        #else
+        public CashParties30? CashParties { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Total amount of money to be paid or received in exchange for the securities.
+        /// </summary>
+        [IsoId("_JfG6-Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AmountAndDirection85? SettlementAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountAndDirection85? SettlementAmount { get; init; } 
+        #else
+        public AmountAndDirection85? SettlementAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Other amounts than the settlement amount.
+        /// </summary>
+        [IsoId("_JfG6-5w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Amounts")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public OtherAmounts35? OtherAmounts { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OtherAmounts35? OtherAmounts { get; init; } 
+        #else
+        public OtherAmounts35? OtherAmounts { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Other business parties relevant to the transaction.
+        /// </summary>
+        [IsoId("_JfG6_Zw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Business Parties")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public OtherParties29? OtherBusinessParties { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OtherParties29? OtherBusinessParties { get; init; } 
+        #else
+        public OtherParties29? OtherBusinessParties { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides information required for the registration or physical settlement.
+        /// </summary>
+        [IsoId("_JfG6_5w3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Physical Or Registration Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; init; } 
+        #else
+        public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+        /// </summary>
+        [IsoId("_JfG7AZw3EeazcsnODTksnQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the attributes of the financial instrument.
-/// </summary>
-[KnownType(typeof(FinancialInstrumentAttributes5Choice.Identification))]
-[KnownType(typeof(FinancialInstrumentAttributes5Choice.AlternateIdentification))]
-[KnownType(typeof(FinancialInstrumentAttributes5Choice.Other))]
-public abstract partial record FinancialInstrumentAttributes5Choice_ : IIsoXmlSerilizable<FinancialInstrumentAttributes5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the attributes of the financial instrument.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrumentAttributes5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrumentAttributes5Choice.Identification))]
+    [KnownType(typeof(FinancialInstrumentAttributes5Choice.AlternateIdentification))]
+    [KnownType(typeof(FinancialInstrumentAttributes5Choice.Other))]
+    [IsoId("_6fVwkZicEe2f7NHvXATP5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Attributes 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrumentAttributes5Choice_
+    #else
+    public abstract partial class FinancialInstrumentAttributes5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Id" => FinancialInstrumentAttributes5Choice.Identification.Deserialize(elementWithPayload),
-             "AltrnId" => FinancialInstrumentAttributes5Choice.AlternateIdentification.Deserialize(elementWithPayload),
-             "Othr" => FinancialInstrumentAttributes5Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrumentAttributes5Choice choice.")
-        };
     }
 }

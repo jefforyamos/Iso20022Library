@@ -7,187 +7,344 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Inquiry transaction
 /// </summary>
+[IsoId("_mdK4kVdVEeeIAMBcVOw01w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transaction105
-     : IIsoXmlSerilizable<Transaction105>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transaction105 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transaction105( System.String reqTransactionType,TransactionIdentification11 reqTransactionIdentification )
+    {
+        TransactionType = reqTransactionType;
+        TransactionIdentification = reqTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of transaction associated with the main service.
     /// ISO 8583:87/93/2003 bit 3
     /// </summary>
+    [IsoId("_mpSB8VdVEeeIAMBcVOw01w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact2AlphaNumericText TransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransactionType { get; init; } 
+    #else
+    public System.String TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides further granularity of purpose of TransactionType
     /// </summary>
+    [IsoId("_yBb9URqkEeqH1IQNpbVpEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionSubType { get; init; } 
+    #else
+    public System.String? TransactionSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
+    [IsoId("_Tr8CFN-oEeelLeeCyrjnCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalService1? AdditionalService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalService1? AdditionalService { get; init; } 
+    #else
+    public AdditionalService1? AdditionalService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason to send the message.
     /// ISO 8583:93/2003 bit 25.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
+    [IsoId("_EQjcst-pEeelLeeCyrjnCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? MessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageReason { get; init; } 
+    #else
+    public System.String? MessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
+    [IsoId("_EQjcs9-pEeelLeeCyrjnCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AlternateMessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AlternateMessageReason { get; init; } 
+    #else
+    public System.String? AlternateMessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
+    [IsoId("_ZbFwEVdaEeeIAMBcVOw01w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Special Programme Qualification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init; } 
+    #else
+    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [IsoId("_mpSCA1dVEeeIAMBcVOw01w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification11 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentification11 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentification11 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentification11 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction currency of the acceptor.
     /// ISO 4217
     /// </summary>
+    [IsoId("_Q7n_4JmGEee_M7tURHTZTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? TransactionCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? TransactionCurrency { get; init; } 
+    #else
+    public string? TransactionCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of some or all amounts in the transaction amount.   
     /// The detailed amount is used to calculate the reconciliation amount for messages in which the transaction amount is absent.
     /// </summary>
+    [IsoId("_AD7Fg0TFEeiTBYbU3rWV0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount20? DetailedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount20? DetailedAmount { get; init; } 
+    #else
+    public DetailedAmount20? DetailedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
     /// </summary>
+    [IsoId("_eV604a0yEeiBP5PZ97xcEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount4? ReconciliationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount4? ReconciliationAmount { get; init; } 
+    #else
+    public Amount4? ReconciliationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
+    [IsoId("_AD7FhETFEeiTBYbU3rWV0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalAmounts2? AdditionalAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalAmounts2? AdditionalAmounts { get; init; } 
+    #else
+    public AdditionalAmounts2? AdditionalAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
+    [IsoId("_AD7FhUTFEeiTBYbU3rWV0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee1? AdditionalFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalFee1? AdditionalFees { get; init; } 
+    #else
+    public AdditionalFee1? AdditionalFees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for debit, inquiries and the source of funding for transfers.
     /// </summary>
+    [IsoId("_1_Hh8d-pEeelLeeCyrjnCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountDetails2? AccountFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountDetails2? AccountFrom { get; init; } 
+    #else
+    public AccountDetails2? AccountFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
+    [IsoId("_EXk1Qd-qEeelLeeCyrjnCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? TransactionDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionDescription { get; init; } 
+    #else
+    public System.String? TransactionDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional data.
     /// </summary>
+    [IsoId("_MPz5QRqmEeqH1IQNpbVpEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact2AlphaNumericText(TransactionType)); // data type Exact2AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (TransactionSubType is IsoMax35Text TransactionSubTypeValue)
-        {
-            writer.WriteStartElement(null, "TxSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionSubTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalService is AdditionalService1 AdditionalServiceValue)
-        {
-            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
-            AdditionalServiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageReason is IsoExact4NumericText MessageReasonValue)
-        {
-            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(MessageReasonValue)); // data type Exact4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AlternateMessageReason is IsoMax35Text AlternateMessageReasonValue)
-        {
-            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateMessageReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SpecialProgrammeQualification is SpecialProgrammeQualification1 SpecialProgrammeQualificationValue)
-        {
-            writer.WriteStartElement(null, "SpclPrgrmmQlfctn", xmlNamespace );
-            SpecialProgrammeQualificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TransactionCurrency is ISO3NumericCurrencyCode TransactionCurrencyValue)
-        {
-            writer.WriteStartElement(null, "TxCcy", xmlNamespace );
-            writer.WriteValue(TransactionCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DetailedAmount is DetailedAmount20 DetailedAmountValue)
-        {
-            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
-            DetailedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationAmount is Amount4 ReconciliationAmountValue)
-        {
-            writer.WriteStartElement(null, "RcncltnAmt", xmlNamespace );
-            ReconciliationAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalAmounts is AdditionalAmounts2 AdditionalAmountsValue)
-        {
-            writer.WriteStartElement(null, "AddtlAmts", xmlNamespace );
-            AdditionalAmountsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
-        {
-            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
-            AdditionalFeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountFrom is AccountDetails2 AccountFromValue)
-        {
-            writer.WriteStartElement(null, "AcctFr", xmlNamespace );
-            AccountFromValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
-        {
-            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Transaction105 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

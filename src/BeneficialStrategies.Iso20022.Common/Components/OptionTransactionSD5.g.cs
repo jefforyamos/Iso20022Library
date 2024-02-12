@@ -7,197 +7,376 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action movement option details.
 /// </summary>
+[IsoId("_RTIO4ecYEei5aPS232E3Mw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option Transaction SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OptionTransactionSD5
-     : IIsoXmlSerilizable<OptionTransactionSD5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OptionTransactionSD5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OptionTransactionSD5( System.String reqTransactionIdentification,System.DateTime reqTransactionIdentificationDate,FinancialInstrumentQuantity15Choice_ reqTransactionIdentificationQuantity )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        TransactionIdentificationDate = reqTransactionIdentificationDate;
+        TransactionIdentificationQuantity = reqTransactionIdentificationQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_R2_J4ecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC Instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
+    [IsoId("_R2_J4-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15Text TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransactionIdentification { get; init; } 
+    #else
+    public System.String TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
+    [IsoId("_R2_J5ecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionSequenceNumber { get; init; } 
+    #else
+    public System.String? TransactionSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instruction date and time for reorganisation instructions or the deposit date for reorganisation / custody deposits.
     /// </summary>
+    [IsoId("_R2_J5-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TransactionIdentificationDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime TransactionIdentificationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime TransactionIdentificationDate { get; init; } 
+    #else
+    public System.DateTime TransactionIdentificationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
+    [IsoId("_R2_J6ecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Oversubscribed quantity of the instruction.
     /// </summary>
+    [IsoId("_R2_J6-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification Oversubscription Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// For prorated events, portion of the instructed units that was accepted by the Issuer / Agent.
     /// </summary>
+    [IsoId("_R2_J7ecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accepted Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? AcceptedQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? AcceptedQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? AcceptedQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// For prorated events, the portion of the instructed quantity that was not accepted by the Issuer / Agent.
     /// </summary>
+    [IsoId("_R2_J7-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unaccepted Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? UnacceptedQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? UnacceptedQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? UnacceptedQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount based upon the DTC cash rate per instruction.
     /// </summary>
+    [IsoId("_R2_J8ecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entitled Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EntitledAmount { get; init; } 
+    #else
+    public System.Decimal? EntitledAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity based upon the DTC security rate per instruction.
     /// </summary>
+    [IsoId("_R2_J8-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entitled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? EntitledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? EntitledQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? EntitledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entitled units for the oversubscription.
     /// </summary>
+    [IsoId("_R2_J9ecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entitled Oversubscription Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? EntitledOversubscriptionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? EntitledOversubscriptionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? EntitledOversubscriptionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount paid to the issuer / agent for subscription cost.
     /// </summary>
+    [IsoId("_R2_J9-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? SubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? SubscriptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount paid to the issuer / agent for the oversubscription cost.
     /// </summary>
+    [IsoId("_R2_J--cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Oversubscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? OversubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OversubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? OversubscriptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash disbursement in lieu of a fractional quantity of, for example, equity.
     /// </summary>
+    [IsoId("_R2_KAecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Lieu Of Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashInLieuOfShare { get; init; } 
+    #else
+    public System.Decimal? CashInLieuOfShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [IsoId("_R2_KCecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Reference Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerReferenceIdentification { get; init; } 
+    #else
+    public System.String? CustomerReferenceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity entered by the agent on PUT (Mortgage Backed) instructions to be paid. This quantity can be for the full or partial instructed quantity.
     /// </summary>
+    [IsoId("_R2_KC-cYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Entered Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? AgentEnteredQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? AgentEnteredQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? AgentEnteredQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Client free format instruction narrative information. Will be 80 characters for tender instructions, 150 characters for rights instructions and 20 characters for put instructions.
     /// </summary>
+    [IsoId("_R2_KDecYEei5aPS232E3Mw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Comments")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? InstructionComments { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionComments { get; init; } 
+    #else
+    public System.String? InstructionComments { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15Text(TransactionIdentification)); // data type Max15Text System.String
-        writer.WriteEndElement();
-        if (TransactionSequenceNumber is IsoMax3NumericText TransactionSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "TxSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionSequenceNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxIdDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionIdentificationDate)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxIdQty", xmlNamespace );
-        TransactionIdentificationQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TransactionIdentificationOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ TransactionIdentificationOversubscriptionQuantityValue)
-        {
-            writer.WriteStartElement(null, "TxIdOvrsbcptQty", xmlNamespace );
-            TransactionIdentificationOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AcceptedQuantity is FinancialInstrumentQuantity15Choice_ AcceptedQuantityValue)
-        {
-            writer.WriteStartElement(null, "AccptdQty", xmlNamespace );
-            AcceptedQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnacceptedQuantity is FinancialInstrumentQuantity15Choice_ UnacceptedQuantityValue)
-        {
-            writer.WriteStartElement(null, "UaccptdQty", xmlNamespace );
-            UnacceptedQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EntitledAmount is IsoRestrictedFINActiveCurrencyAndAmount EntitledAmountValue)
-        {
-            writer.WriteStartElement(null, "EntitldAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(EntitledAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EntitledQuantity is FinancialInstrumentQuantity15Choice_ EntitledQuantityValue)
-        {
-            writer.WriteStartElement(null, "EntitldQty", xmlNamespace );
-            EntitledQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EntitledOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ EntitledOversubscriptionQuantityValue)
-        {
-            writer.WriteStartElement(null, "EntitldOvrsbcptQty", xmlNamespace );
-            EntitledOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubscriptionAmount is IsoRestrictedFINActiveCurrencyAndAmount SubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "SbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(SubscriptionAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OversubscriptionAmount is IsoRestrictedFINActiveCurrencyAndAmount OversubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "OvrsbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(OversubscriptionAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashInLieuOfShare is IsoRestrictedFINActiveCurrencyAndAmount CashInLieuOfShareValue)
-        {
-            writer.WriteStartElement(null, "CshInLieuOfShr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(CashInLieuOfShareValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CustomerReferenceIdentification is IsoMax30Text CustomerReferenceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax30Text(CustomerReferenceIdentificationValue)); // data type Max30Text System.String
-            writer.WriteEndElement();
-        }
-        if (AgentEnteredQuantity is FinancialInstrumentQuantity15Choice_ AgentEnteredQuantityValue)
-        {
-            writer.WriteStartElement(null, "AgtNtrdQty", xmlNamespace );
-            AgentEnteredQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionComments is IsoMax210Text InstructionCommentsValue)
-        {
-            writer.WriteStartElement(null, "InstrCmnts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(InstructionCommentsValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static OptionTransactionSD5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

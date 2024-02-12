@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[IsoId("_PXDuuNp-Ed-ak6NoX_4Aeg_818704056")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party And Certificate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyAndCertificate1
-     : IIsoXmlSerilizable<PartyAndCertificate1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyAndCertificate1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyAndCertificate1( PartyIdentification41 reqParty,Authorisation1 reqAuthorisation )
+    {
+        Party = reqParty;
+        Authorisation = reqAuthorisation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [IsoId("_PXM4oNp-Ed-ak6NoX_4Aeg_2106416666")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification41 Party { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification41 Party { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification41 Party { get; init; } 
+    #else
+    public PartyIdentification41 Party { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security certificate used to sign electronically.
     /// </summary>
+    [IsoId("_PXM4odp-Ed-ak6NoX_4Aeg_1578430719")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? Certificate { get; init; } 
+    #else
+    public System.Byte[]? Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>
+    [IsoId("_PXM4otp-Ed-ak6NoX_4Aeg_880566094")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SignatureOrder { get; init; } 
+    #else
+    public System.String? SignatureOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Authorisation granted to a mandate holder.
     /// </summary>
+    [IsoId("_PXM4o9p-Ed-ak6NoX_4Aeg_637414510")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Authorisation1 Authorisation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Authorisation1 Authorisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Authorisation1 Authorisation { get; init; } 
+    #else
+    public Authorisation1 Authorisation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Pty", xmlNamespace );
-        Party.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Certificate is IsoMax10KBinary CertificateValue)
-        {
-            writer.WriteStartElement(null, "Cert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(CertificateValue)); // data type Max10KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (SignatureOrder is IsoMax15PlusSignedNumericText SignatureOrderValue)
-        {
-            writer.WriteStartElement(null, "SgntrOrdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(SignatureOrderValue)); // data type Max15PlusSignedNumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Authstn", xmlNamespace );
-        Authorisation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static PartyAndCertificate1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

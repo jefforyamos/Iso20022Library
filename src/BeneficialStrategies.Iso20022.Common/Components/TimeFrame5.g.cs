@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Time frame elements that define a period as number of days before or after a activity.
 /// </summary>
+[IsoId("_eJEWwV81Eeicg40_9gK9vQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Time Frame")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TimeFrame5
-     : IIsoXmlSerilizable<TimeFrame5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Description of the timeframe.
     /// </summary>
+    [IsoId("_eY14JV81Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Time Frame Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherTimeFrameDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherTimeFrameDescription { get; init; } 
+    #else
+    public System.String? OtherTimeFrameDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days after the trade date (T) used for the standard timeframe for the issue of a deal confirmation.
     /// </summary>
+    [IsoId("_eY14J181Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Plus")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TradePlus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TradePlus { get; init; } 
+    #else
+    public System.UInt64? TradePlus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Convention used for adjusting a date when it is not a business day.
     /// </summary>
+    [IsoId("_eY14KV81Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Working Day Adjustment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
+    #else
+    public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; set; } 
+    #endif
+    
     /// <summary>
     /// For the time of the issuance of the deal confirmation, the order desk must be contacted.
     /// </summary>
+    [IsoId("_eY14K181Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Refer To Order Desk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
+    #else
+    public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OtherTimeFrameDescription is IsoMax350Text OtherTimeFrameDescriptionValue)
-        {
-            writer.WriteStartElement(null, "OthrTmFrameDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherTimeFrameDescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradePlus is IsoNumber TradePlusValue)
-        {
-            writer.WriteStartElement(null, "TPlus", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TradePlusValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (NonWorkingDayAdjustment is BusinessDayConvention1Code NonWorkingDayAdjustmentValue)
-        {
-            writer.WriteStartElement(null, "NonWorkgDayAdjstmnt", xmlNamespace );
-            writer.WriteValue(NonWorkingDayAdjustmentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReferToOrderDesk is ReferToFundOrderDesk1Code ReferToOrderDeskValue)
-        {
-            writer.WriteStartElement(null, "RefrToOrdrDsk", xmlNamespace );
-            writer.WriteValue(ReferToOrderDeskValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static TimeFrame5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

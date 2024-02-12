@@ -7,106 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details related to an individual trip. 
 /// </summary>
+[IsoId("_X6Xf1_i3EeiJaN6-Lf-c_w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trip Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TripInformation1
-     : IIsoXmlSerilizable<TripInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification number of the trip.
     /// </summary>
+    [IsoId("_X6YG4vi3EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trip Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TripNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TripNumber { get; init; } 
+    #else
+    public System.String? TripNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains an indicator identifying the job or task identifier of the individual. 
     /// </summary>
+    [IsoId("_X6YG5Pi3EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Job Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? JobNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? JobNumber { get; init; } 
+    #else
+    public System.String? JobNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the work order or purchase order number. 
     /// </summary>
+    [IsoId("_X6YG5fi3EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Work Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? WorkOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? WorkOrder { get; init; } 
+    #else
+    public System.String? WorkOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the invoice number. 
     /// </summary>
+    [IsoId("_X6YG4fi3EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? InvoiceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InvoiceNumber { get; init; } 
+    #else
+    public System.String? InvoiceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the billing identification number. 
     /// </summary>
+    [IsoId("_X6YG4Pi3EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? BillingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BillingIdentification { get; init; } 
+    #else
+    public System.String? BillingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification number assigned by an agent. 
     /// </summary>
+    [IsoId("_X6YG4_i3EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Control Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ControlNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ControlNumber { get; init; } 
+    #else
+    public System.String? ControlNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delivery Ticket Number for the trip information.
     /// </summary>
+    [IsoId("_kjUdAPi6EeiJaN6-Lf-c_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Ticket Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DeliveryTicketNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeliveryTicketNumber { get; init; } 
+    #else
+    public System.String? DeliveryTicketNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TripNumber is IsoMax35Text TripNumberValue)
-        {
-            writer.WriteStartElement(null, "TripNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (JobNumber is IsoMax10Text JobNumberValue)
-        {
-            writer.WriteStartElement(null, "JobNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10Text(JobNumberValue)); // data type Max10Text System.String
-            writer.WriteEndElement();
-        }
-        if (WorkOrder is IsoMax70Text WorkOrderValue)
-        {
-            writer.WriteStartElement(null, "WorkOrdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(WorkOrderValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (InvoiceNumber is IsoMax70Text InvoiceNumberValue)
-        {
-            writer.WriteStartElement(null, "InvcNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(InvoiceNumberValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (BillingIdentification is IsoMax70Text BillingIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BllgId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(BillingIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ControlNumber is IsoMax35Text ControlNumberValue)
-        {
-            writer.WriteStartElement(null, "CtrlNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ControlNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeliveryTicketNumber is IsoMax35Text DeliveryTicketNumberValue)
-        {
-            writer.WriteStartElement(null, "DlvryTcktNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DeliveryTicketNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TripInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

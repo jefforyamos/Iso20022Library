@@ -7,51 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for the tax calculation method D.
 /// </summary>
+[IsoId("_6QGNoJqlEeGSON8vddiWzQ_173630706")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Billing Method")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BillingMethod3
-     : IIsoXmlSerilizable<BillingMethod3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BillingMethod3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BillingMethod3( AmountAndDirection34 reqServiceTaxPriceAmount )
+    {
+        ServiceTaxPriceAmount = reqServiceTaxPriceAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Equivalent amount to the service tax host amount but allows the sender to optionally express the value in the pricing currency.
     /// </summary>
+    [IsoId("_6QGNoZqlEeGSON8vddiWzQ_-823441647")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Tax Price Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
+    #else
+    public AmountAndDirection34 ServiceTaxPriceAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    public ValueList<BillingServicesTax2> TaxIdentification { get; init; } = [];
+    [IsoId("_6QGNopqlEeGSON8vddiWzQ_480308590")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(3)]
+    #endif
+    public ValueList<BillingServicesTax2> TaxIdentification { get; init; } = new ValueList<BillingServicesTax2>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SvcTaxPricAmt", xmlNamespace );
-        ServiceTaxPriceAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TaxId", xmlNamespace );
-        TaxIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static BillingMethod3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

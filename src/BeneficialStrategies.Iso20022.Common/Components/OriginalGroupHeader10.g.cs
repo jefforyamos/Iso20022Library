@@ -7,120 +7,226 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the original group, to which the message refers.
 /// </summary>
+[IsoId("_nKbvgbTREeeyuKckOGlwuA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original Group Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalGroupHeader10
-     : IIsoXmlSerilizable<OriginalGroupHeader10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OriginalGroupHeader10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OriginalGroupHeader10( System.String reqOriginalMessageIdentification,System.String reqOriginalMessageNameIdentification )
+    {
+        OriginalMessageIdentification = reqOriginalMessageIdentification;
+        OriginalMessageNameIdentification = reqOriginalMessageNameIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the assigner, to unambiguously identify the group cancellation request.||Usage: The group cancellation request identification can be used for reconciliation or to link tasks related to the cancellation request.
     /// </summary>
+    [IsoId("_nTSwk7TREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group Cancellation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? GroupCancellationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GroupCancellationIdentification { get; init; } 
+    #else
+    public System.String? GroupCancellationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Uniquely and unambiguously identifies an exception or an investigation workflow.
     /// </summary>
+    [IsoId("_nTSwlbTREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Case")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case4? Case { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Case4? Case { get; init; } 
+    #else
+    public Case4? Case { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [IsoId("_nTSwl7TREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalMessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalMessageIdentification { get; init; } 
+    #else
+    public System.String OriginalMessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [IsoId("_nTSwmbTREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Name Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalMessageNameIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalMessageNameIdentification { get; init; } 
+    #else
+    public System.String OriginalMessageNameIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [IsoId("_nTSwm7TREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? OriginalCreationDateTime { get; init; } 
+    #else
+    public System.DateTime? OriginalCreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of individual transactions contained in the original message.
     /// </summary>
+    [IsoId("_nTSwnbTREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NumberOfTransactions { get; init; } 
+    #else
+    public System.String? NumberOfTransactions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
+    [IsoId("_nTSwn7TREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Control Sum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ControlSum { get; init; } 
+    #else
+    public System.UInt64? ControlSum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the cancellation request applies to a whole group of transactions or to individual transactions within an original group.
     /// </summary>
+    [IsoId("_nTSwobTREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group Cancellation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoGroupCancellationIndicator? GroupCancellation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GroupCancellation { get; init; } 
+    #else
+    public System.String? GroupCancellation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
+    [IsoId("_nTSwo7TREeeyuKckOGlwuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCancellationReason4? CancellationReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCancellationReason4? CancellationReasonInformation { get; init; } 
+    #else
+    public PaymentCancellationReason4? CancellationReasonInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (GroupCancellationIdentification is IsoMax35Text GroupCancellationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "GrpCxlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(GroupCancellationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Case is Case4 CaseValue)
-        {
-            writer.WriteStartElement(null, "Case", xmlNamespace );
-            CaseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
-        {
-            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ControlSum is IsoDecimalNumber ControlSumValue)
-        {
-            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (GroupCancellation is IsoGroupCancellationIndicator GroupCancellationValue)
-        {
-            writer.WriteStartElement(null, "GrpCxl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoGroupCancellationIndicator(GroupCancellationValue)); // data type GroupCancellationIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CancellationReasonInformation is PaymentCancellationReason4 CancellationReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "CxlRsnInf", xmlNamespace );
-            CancellationReasonInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OriginalGroupHeader10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

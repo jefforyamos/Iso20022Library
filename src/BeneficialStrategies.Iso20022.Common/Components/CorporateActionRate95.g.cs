@@ -7,126 +7,202 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies security rate details.
 /// </summary>
+[IsoId("_k9s7O83xEee5nJBZsW8MFQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionRate95
-     : IIsoXmlSerilizable<CorporateActionRate95>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
+    [IsoId("_k9s7P83xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Quantity For Subscribed Resultant Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat23Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RatioFormat23Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    #else
+    public RatioFormat23Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
+    [IsoId("_k9s7R83xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Quantity For Existing Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat23Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RatioFormat23Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
+    #else
+    public RatioFormat23Choice_? AdditionalQuantityForExistingSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
+    [IsoId("_k9s7T83xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New To Old")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat24Choice_? NewToOld { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RatioFormat24Choice_? NewToOld { get; init; } 
+    #else
+    public RatioFormat24Choice_? NewToOld { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to determine the cash consideration split across outturn settlement transactions that are the result of a transformation of the parent transaction.
     /// </summary>
+    [IsoId("_k9s7V83xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transformation Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TransformationRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TransformationRate { get; init; } 
+    #else
+    public System.Decimal? TransformationRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [IsoId("_k9s7Wc3xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat46Choice_? ChargesFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat46Choice_? ChargesFees { get; init; } 
+    #else
+    public RateAndAmountFormat46Choice_? ChargesFees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
+    [IsoId("_k9s7W83xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fiscal Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? FiscalStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat3Choice_? FiscalStamp { get; init; } 
+    #else
+    public RateFormat3Choice_? FiscalStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
+    [IsoId("_k9s7Xc3xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicable Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? ApplicableRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat3Choice_? ApplicableRate { get; init; } 
+    #else
+    public RateFormat3Choice_? ApplicableRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
+    [IsoId("_k9s7X83xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Credit Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat21Choice_? TaxCreditRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat21Choice_? TaxCreditRate { get; init; } 
+    #else
+    public RateFormat21Choice_? TaxCreditRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of financial transaction tax.
     /// </summary>
+    [IsoId("_k9s7Yc3xEee5nJBZsW8MFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Transaction Tax Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? FinancialTransactionTaxRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat3Choice_? FinancialTransactionTaxRate { get; init; } 
+    #else
+    public RateFormat3Choice_? FinancialTransactionTaxRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AdditionalQuantityForSubscribedResultantSecurities is RatioFormat23Choice_ AdditionalQuantityForSubscribedResultantSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "AddtlQtyForSbcbdRsltntScties", xmlNamespace );
-            AdditionalQuantityForSubscribedResultantSecuritiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalQuantityForExistingSecurities is RatioFormat23Choice_ AdditionalQuantityForExistingSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "AddtlQtyForExstgScties", xmlNamespace );
-            AdditionalQuantityForExistingSecuritiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewToOld is RatioFormat24Choice_ NewToOldValue)
-        {
-            writer.WriteStartElement(null, "NewToOd", xmlNamespace );
-            NewToOldValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransformationRate is IsoPercentageRate TransformationRateValue)
-        {
-            writer.WriteStartElement(null, "TrfrmatnRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TransformationRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ChargesFees is RateAndAmountFormat46Choice_ ChargesFeesValue)
-        {
-            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
-            ChargesFeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FiscalStamp is RateFormat3Choice_ FiscalStampValue)
-        {
-            writer.WriteStartElement(null, "FsclStmp", xmlNamespace );
-            FiscalStampValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ApplicableRate is RateFormat3Choice_ ApplicableRateValue)
-        {
-            writer.WriteStartElement(null, "AplblRate", xmlNamespace );
-            ApplicableRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxCreditRate is RateFormat21Choice_ TaxCreditRateValue)
-        {
-            writer.WriteStartElement(null, "TaxCdtRate", xmlNamespace );
-            TaxCreditRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialTransactionTaxRate is RateFormat3Choice_ FinancialTransactionTaxRateValue)
-        {
-            writer.WriteStartElement(null, "FinTxTaxRate", xmlNamespace );
-            FinancialTransactionTaxRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionRate95 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

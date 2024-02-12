@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the unadjusted effective and end date of the schedule.
 /// </summary>
+[IsoId("_xBNIoQbKEeqrW7Meu5r3kQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Schedule")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Schedule3
-     : IIsoXmlSerilizable<Schedule3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Schedule3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Schedule3( System.DateOnly reqUnadjustedEffectiveDate,AmountAndDirection106 reqAmount )
+    {
+        UnadjustedEffectiveDate = reqUnadjustedEffectiveDate;
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>
+    [IsoId("_xJjMUQbKEeqrW7Meu5r3kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unadjusted Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate UnadjustedEffectiveDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly UnadjustedEffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly UnadjustedEffectiveDate { get; init; } 
+    #else
+    public System.DateOnly UnadjustedEffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
+    [IsoId("_xJjMUwbKEeqrW7Meu5r3kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unadjusted End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? UnadjustedEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? UnadjustedEndDate { get; init; } 
+    #else
+    public System.DateOnly? UnadjustedEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable, commission and accrued interest.
     /// </summary>
+    [IsoId("_xJjMVQbKEeqrW7Meu5r3kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection106 Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection106 Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection106 Amount { get; init; } 
+    #else
+    public AmountAndDirection106 Amount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UadjstdFctvDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEffectiveDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (UnadjustedEndDate is IsoISODate UnadjustedEndDateValue)
-        {
-            writer.WriteStartElement(null, "UadjstdEndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        Amount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Schedule3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

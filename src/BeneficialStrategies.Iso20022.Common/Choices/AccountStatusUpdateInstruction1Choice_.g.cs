@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for an account status update instruction.
-/// </summary>
-[KnownType(typeof(AccountStatusUpdateInstruction1Choice.Code))]
-[KnownType(typeof(AccountStatusUpdateInstruction1Choice.Proprietary))]
-public abstract partial record AccountStatusUpdateInstruction1Choice_ : IIsoXmlSerilizable<AccountStatusUpdateInstruction1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for an account status update instruction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountStatusUpdateInstruction1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountStatusUpdateInstruction1Choice.Code))]
+    [KnownType(typeof(AccountStatusUpdateInstruction1Choice.Proprietary))]
+    [IsoId("_rZMYAHi5EeaRm5xIK6nGuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Status Update Instruction 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountStatusUpdateInstruction1Choice_
+    #else
+    public abstract partial class AccountStatusUpdateInstruction1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AccountStatusUpdateInstruction1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AccountStatusUpdateInstruction1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountStatusUpdateInstruction1Choice choice.")
-        };
     }
 }

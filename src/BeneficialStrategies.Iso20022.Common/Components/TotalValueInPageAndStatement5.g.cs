@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
+[IsoId("_L7GM8MRrEeij-rSPpvD-Tw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Value In Page And Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalValueInPageAndStatement5
-     : IIsoXmlSerilizable<TotalValueInPageAndStatement5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total value of exposure reported in this message.
     /// </summary>
+    [IsoId("_8TX0sMRrEeij-rSPpvD-Tw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Exposure Value Of Page")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalExposureValueOfPage { get; init; } 
+    #else
+    public System.Decimal? TotalExposureValueOfPage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of collateral held reported in this message.
     /// </summary>
+    [IsoId("_Hzfo8MRsEeij-rSPpvD-Tw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Collateral Held Value Of Page")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalCollateralHeldValueOfPage { get; init; } 
+    #else
+    public System.Decimal? TotalCollateralHeldValueOfPage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalExposureValueOfPage is IsoActiveOrHistoricCurrencyAndAmount TotalExposureValueOfPageValue)
-        {
-            writer.WriteStartElement(null, "TtlXpsrValOfPg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalExposureValueOfPageValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalCollateralHeldValueOfPage is IsoActiveOrHistoricCurrencyAndAmount TotalCollateralHeldValueOfPageValue)
-        {
-            writer.WriteStartElement(null, "TtlCollHeldValOfPg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCollateralHeldValueOfPageValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalValueInPageAndStatement5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

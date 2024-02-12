@@ -7,17 +7,44 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Network management transaction.
 /// </summary>
+[IsoId("_xpB0YYv7EeumSPwlS1PkxQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transaction134
-     : IIsoXmlSerilizable<Transaction134>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transaction134 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transaction134( TransactionIdentification12 reqTransactionIdentification )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,118 +52,196 @@ public partial record Transaction134
     /// ISO 8583:87/93 bit 24
     /// ISO 8583:2003 bit 70
     /// </summary>
+    [IsoId("_xuMBMYv7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Network Management Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkManagementType1Code? NetworkManagementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkManagementType1Code? NetworkManagementType { get; init; } 
+    #else
+    public NetworkManagementType1Code? NetworkManagementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of network management in free text.
     /// </summary>
+    [IsoId("_xuMBM4v7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Network Management Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherNetworkManagementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherNetworkManagementType { get; init; } 
+    #else
+    public System.String? OtherNetworkManagementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
+    [IsoId("_8-H8d8sJEeuNe7RtB4qFHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO8583MessageReasonCode? MessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? MessageReason { get; init; } 
+    #else
+    public string? MessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
+    [IsoId("_xuMBN4v7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AlternateMessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AlternateMessageReason { get; init; } 
+    #else
+    public System.String? AlternateMessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [IsoId("_xuMBOYv7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentification12 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of messages in the store and forward queue.
     /// </summary>
+    [IsoId("_xuMBO4v7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Messages")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfMessages { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfMessages { get; init; } 
+    #else
+    public System.UInt64? NumberOfMessages { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of messages in the store and forward queue.
     /// </summary>
+    [IsoId("_xuMBPYv7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Number Of Messages")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumberOfMessages { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumNumberOfMessages { get; init; } 
+    #else
+    public System.UInt64? MaximumNumberOfMessages { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
+    [IsoId("_xuMBP4v7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalFee2? AdditionalFee { get; init; } 
+    #else
+    public AdditionalFee2? AdditionalFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information pertaining to the network management type or function being performed.
     /// </summary>
+    [IsoId("_xuMBQYv7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? TransactionDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionDescription { get; init; } 
+    #else
+    public System.String? TransactionDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional data.
     /// </summary>
+    [IsoId("_xuMBQ4v7EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NetworkManagementType is NetworkManagementType1Code NetworkManagementTypeValue)
-        {
-            writer.WriteStartElement(null, "NtwkMgmtTp", xmlNamespace );
-            writer.WriteValue(NetworkManagementTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherNetworkManagementType is IsoMax35Text OtherNetworkManagementTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrNtwkMgmtTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherNetworkManagementTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
-        {
-            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
-            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AlternateMessageReason is IsoMax256Text AlternateMessageReasonValue)
-        {
-            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AlternateMessageReasonValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (NumberOfMessages is IsoNumber NumberOfMessagesValue)
-        {
-            writer.WriteStartElement(null, "NbOfMsgs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMessagesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaximumNumberOfMessages is IsoNumber MaximumNumberOfMessagesValue)
-        {
-            writer.WriteStartElement(null, "MaxNbOfMsgs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberOfMessagesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
-        {
-            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
-            AdditionalFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
-        {
-            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Transaction134 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

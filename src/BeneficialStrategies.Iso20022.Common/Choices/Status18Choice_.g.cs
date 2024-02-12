@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status.
-/// </summary>
-[KnownType(typeof(Status18Choice.Proprietary))]
-[KnownType(typeof(Status18Choice.MatchingStatus))]
-[KnownType(typeof(Status18Choice.InferredMatchingStatus))]
-[KnownType(typeof(Status18Choice.SettlementStatus))]
-[KnownType(typeof(Status18Choice.InstructionProcessingStatus))]
-public abstract partial record Status18Choice_ : IIsoXmlSerilizable<Status18Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Status18Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Status18Choice.Proprietary))]
+    [KnownType(typeof(Status18Choice.MatchingStatus))]
+    [KnownType(typeof(Status18Choice.InferredMatchingStatus))]
+    [KnownType(typeof(Status18Choice.SettlementStatus))]
+    [KnownType(typeof(Status18Choice.InstructionProcessingStatus))]
+    [IsoId("_gi4k0TnuEeWfSKvvZlhRKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status 18 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Status18Choice_
+    #else
+    public abstract partial class Status18Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Prtry" => Status18Choice.Proprietary.Deserialize(elementWithPayload),
-             "MtchgSts" => Status18Choice.MatchingStatus.Deserialize(elementWithPayload),
-             "IfrrdMtchgSts" => Status18Choice.InferredMatchingStatus.Deserialize(elementWithPayload),
-             "SttlmSts" => Status18Choice.SettlementStatus.Deserialize(elementWithPayload),
-             "InstrPrcgSts" => Status18Choice.InstructionProcessingStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Status18Choice choice.")
-        };
     }
 }

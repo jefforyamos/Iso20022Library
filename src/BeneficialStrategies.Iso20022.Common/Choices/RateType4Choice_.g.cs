@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the rate as a percentage or a text.
-/// </summary>
-[KnownType(typeof(RateType4Choice.Percentage))]
-[KnownType(typeof(RateType4Choice.Other))]
-public abstract partial record RateType4Choice_ : IIsoXmlSerilizable<RateType4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the rate as a percentage or a text.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RateType4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RateType4Choice.Percentage))]
+    [KnownType(typeof(RateType4Choice.Other))]
+    [IsoId("_Rp-zkdp-Ed-ak6NoX_4Aeg_-171034137")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Type 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RateType4Choice_
+    #else
+    public abstract partial class RateType4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Pctg" => RateType4Choice.Percentage.Deserialize(elementWithPayload),
-             "Othr" => RateType4Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RateType4Choice choice.")
-        };
     }
 }

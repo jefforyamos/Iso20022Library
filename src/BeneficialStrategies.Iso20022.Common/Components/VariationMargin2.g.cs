@@ -7,86 +7,155 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards central counterparty.
 /// </summary>
+[IsoId("_Uk2CN9p-Ed-ak6NoX_4Aeg_1785473393")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Variation Margin")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VariationMargin2
-     : IIsoXmlSerilizable<VariationMargin2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a VariationMargin2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public VariationMargin2( Amount2 reqTotalMarkToMarket,Amount2 reqFailsHaircut )
+    {
+        TotalMarkToMarket = reqTotalMarkToMarket;
+        FailsHaircut = reqFailsHaircut;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards the central counterparty.
     /// </summary>
+    [IsoId("_Uk2CONp-Ed-ak6NoX_4Aeg_-292711042")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Variation Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TotalVariationMargin1? TotalVariationMargin { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Uk2CONp-Ed-ak6NoX_4Aeg_-292711042
+    
     /// <summary>
     /// Net unrealised profit or loss on the value of the netted, gross and failing positions.
     /// </summary>
+    [IsoId("_Uk_MINp-Ed-ak6NoX_4Aeg_-514484433")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Mark To Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2 TotalMarkToMarket { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount2 TotalMarkToMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2 TotalMarkToMarket { get; init; } 
+    #else
+    public Amount2 TotalMarkToMarket { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unrealised net loss calculated at the participant portfolio level.
     /// </summary>
+    [IsoId("_Uk_MIdp-Ed-ak6NoX_4Aeg_526741485")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mark To Market Netted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? MarkToMarketNetted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2? MarkToMarketNetted { get; init; } 
+    #else
+    public Amount2? MarkToMarketNetted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unrealised net loss calculated in that market/boundary.
     /// </summary>
+    [IsoId("_Uk_MItp-Ed-ak6NoX_4Aeg_-859385259")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mark To Market Gross")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? MarkToMarketGross { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2? MarkToMarketGross { get; init; } 
+    #else
+    public Amount2? MarkToMarketGross { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sum of the unrealised loss without taking profit into consideration.
     /// </summary>
+    [IsoId("_Uk_MI9p-Ed-ak6NoX_4Aeg_-781100489")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mark To Market Fails")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? MarkToMarketFails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2? MarkToMarketFails { get; init; } 
+    #else
+    public Amount2? MarkToMarketFails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Haircut applied to the absolute value of the participants net positions. Calculation depends on a participants credit rating.
     /// </summary>
+    [IsoId("_Uk_MJNp-Ed-ak6NoX_4Aeg_1551318789")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fails Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2 FailsHaircut { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount2 FailsHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2 FailsHaircut { get; init; } 
+    #else
+    public Amount2 FailsHaircut { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize TotalVariationMargin, multiplicity Unknown
-        writer.WriteStartElement(null, "TtlMrkToMkt", xmlNamespace );
-        TotalMarkToMarket.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MarkToMarketNetted is Amount2 MarkToMarketNettedValue)
-        {
-            writer.WriteStartElement(null, "MrkToMktNetd", xmlNamespace );
-            MarkToMarketNettedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarkToMarketGross is Amount2 MarkToMarketGrossValue)
-        {
-            writer.WriteStartElement(null, "MrkToMktGrss", xmlNamespace );
-            MarkToMarketGrossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarkToMarketFails is Amount2 MarkToMarketFailsValue)
-        {
-            writer.WriteStartElement(null, "MrkToMktFls", xmlNamespace );
-            MarkToMarketFailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FlsHrcut", xmlNamespace );
-        FailsHaircut.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static VariationMargin2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

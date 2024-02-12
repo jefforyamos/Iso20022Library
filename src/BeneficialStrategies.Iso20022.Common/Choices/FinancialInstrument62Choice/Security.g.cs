@@ -9,90 +9,167 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice;
-
-/// <summary>
-/// Identification of the security.
-/// </summary>
-public partial record Security : FinancialInstrument62Choice_
-     , IIsoXmlSerilizable<Security>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
+    /// Identification of the security.
     /// </summary>
-    public required SecurityIdentification25Choice_ Identification { get; init; } 
-    /// <summary>
-    /// Name of the financial instrument in free format text.
-    /// </summary>
-    public IsoMax350Text? Name { get; init; } 
-    /// <summary>
-    /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
-    /// </summary>
-    public IsoMax35Text? ShortName { get; init; } 
-    /// <summary>
-    /// Type of security.
-    /// </summary>
-    public ClassificationType32Choice_? ClassificationType { get; init; } 
-    /// <summary>
-    /// Indicates whether the security is a restricted security.
-    /// </summary>
-    public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
-    /// <summary>
-    /// Alternative security offered in place of a restricted security.
-    /// </summary>
-    public FinancialInstrumentIdentification4? AlternateSecurity { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_qD51cZy1Eem54rMzia0iag")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Security : FinancialInstrument62Choice_
+    #else
+    public partial class Security : FinancialInstrument62Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Name is IsoMax350Text NameValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Security instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Security( SecurityIdentification25Choice_ reqIdentification )
         {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-        if (ShortName is IsoMax35Text ShortNameValue)
-        {
-            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClassificationType is ClassificationType32Choice_ ClassificationTypeValue)
-        {
-            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
-            ClassificationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RestrictedIndicator is IsoYesNoIndicator RestrictedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RstrctdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RestrictedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AlternateSecurity is FinancialInstrumentIdentification4 AlternateSecurityValue)
-        {
-            writer.WriteStartElement(null, "AltrnScty", xmlNamespace );
-            AlternateSecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Security Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
+        /// </summary>
+        [IsoId("_ymDcs5y1Eem54rMzia0iag")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SecurityIdentification25Choice_ Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SecurityIdentification25Choice_ Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecurityIdentification25Choice_ Identification { get; init; } 
+        #else
+        public SecurityIdentification25Choice_ Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the financial instrument in free format text.
+        /// </summary>
+        [IsoId("_ymDctZy1Eem54rMzia0iag")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
+        /// </summary>
+        [IsoId("_ymDct5y1Eem54rMzia0iag")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Short Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? ShortName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ShortName { get; init; } 
+        #else
+        public System.String? ShortName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Type of security.
+        /// </summary>
+        [IsoId("_ymDcuZy1Eem54rMzia0iag")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Classification Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ClassificationType32Choice_? ClassificationType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ClassificationType32Choice_? ClassificationType { get; init; } 
+        #else
+        public ClassificationType32Choice_? ClassificationType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the security is a restricted security.
+        /// </summary>
+        [IsoId("_ojOQYJy2Eem54rMzia0iag")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Restricted Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? RestrictedIndicator { get; init; } 
+        #else
+        public System.String? RestrictedIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Alternative security offered in place of a restricted security.
+        /// </summary>
+        [IsoId("_4-IZEJy1Eem54rMzia0iag")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Alternate Security")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrumentIdentification4? AlternateSecurity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentIdentification4? AlternateSecurity { get; init; } 
+        #else
+        public FinancialInstrumentIdentification4? AlternateSecurity { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

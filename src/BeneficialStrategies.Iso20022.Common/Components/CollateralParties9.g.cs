@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the chain of collateral parties on the instruction side.
 /// </summary>
+[IsoId("_YHwsTSs-EeySlt9bF77XfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralParties9
-     : IIsoXmlSerilizable<CollateralParties9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Instructing party sending the collateral instruction.
     /// </summary>
+    [IsoId("_YgDQdys-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party A")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount202? PartyA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount202? PartyA { get; init; } 
+    #else
+    public PartyIdentificationAndAccount202? PartyA { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that instructs party A to send the message.
     /// </summary>
+    [IsoId("_YgDQeSs-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Party A")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount202? ClientPartyA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount202? ClientPartyA { get; init; } 
+    #else
+    public PartyIdentificationAndAccount202? ClientPartyA { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
+    [IsoId("_YgDQeys-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? TripartyAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? TripartyAgent { get; init; } 
+    #else
+    public PartyIdentification136? TripartyAgent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PartyA is PartyIdentificationAndAccount202 PartyAValue)
-        {
-            writer.WriteStartElement(null, "PtyA", xmlNamespace );
-            PartyAValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClientPartyA is PartyIdentificationAndAccount202 ClientPartyAValue)
-        {
-            writer.WriteStartElement(null, "ClntPtyA", xmlNamespace );
-            ClientPartyAValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TripartyAgent is PartyIdentification136 TripartyAgentValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
-            TripartyAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralParties9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

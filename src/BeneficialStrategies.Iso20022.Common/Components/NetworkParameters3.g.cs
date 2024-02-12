@@ -7,82 +7,128 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
+[IsoId("_-UB7YWpTEeSR-ZWLvO-1dg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Network Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NetworkParameters3
-     : IIsoXmlSerilizable<NetworkParameters3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Network addresses of the host.
     /// </summary>
+    [IsoId("_hbhpkGpUEeSR-ZWLvO-1dg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public NetworkParameters4? Address { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _hbhpkGpUEeSR-ZWLvO-1dg
+    
     /// <summary>
     /// User name identifying the client.
     /// </summary>
+    [IsoId("_-gseaWpTEeSR-ZWLvO-1dg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("User Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? UserName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UserName { get; init; } 
+    #else
+    public System.String? UserName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Password authenticating the client.
     /// </summary>
+    [IsoId("_-gsea2pTEeSR-ZWLvO-1dg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Access Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? AccessCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AccessCode { get; init; } 
+    #else
+    public System.Byte[]? AccessCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// X.509 Certificate required to authenticate the server.
     /// </summary>
+    [IsoId("_H9hTQGpWEeSR-ZWLvO-1dg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Server Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? ServerCertificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ServerCertificate { get; init; } 
+    #else
+    public System.Byte[]? ServerCertificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the X.509 Certificate required to authenticate the server, for instance a digest of the certificate.
     /// </summary>
+    [IsoId("_PZZO8GpWEeSR-ZWLvO-1dg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Server Certificate Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? ServerCertificateIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ServerCertificateIdentifier { get; init; } 
+    #else
+    public System.Byte[]? ServerCertificateIdentifier { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize Address, multiplicity Unknown
-        if (UserName is IsoMax35Text UserNameValue)
-        {
-            writer.WriteStartElement(null, "UsrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(UserNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccessCode is IsoMax35Binary AccessCodeValue)
-        {
-            writer.WriteStartElement(null, "AccsCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AccessCodeValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (ServerCertificate is IsoMax3000Binary ServerCertificateValue)
-        {
-            writer.WriteStartElement(null, "SvrCert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(ServerCertificateValue)); // data type Max3000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (ServerCertificateIdentifier is IsoMax140Binary ServerCertificateIdentifierValue)
-        {
-            writer.WriteStartElement(null, "SvrCertIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(ServerCertificateIdentifierValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static NetworkParameters3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

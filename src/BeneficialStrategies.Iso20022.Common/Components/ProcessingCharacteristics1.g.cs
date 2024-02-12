@@ -7,77 +7,164 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
+[IsoId("_UBrDs9p-Ed-ak6NoX_4Aeg_651074944")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Processing Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProcessingCharacteristics1
-     : IIsoXmlSerilizable<ProcessingCharacteristics1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProcessingCharacteristics1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProcessingCharacteristics1( System.String reqAmountIndicator,System.String reqUnitsIndicator,System.TimeOnly reqDealingCutOffTime,TimeFrame3Choice_ reqDealingCutOffTimeFrame,Timeframe2Choice_ reqSettlementCycle )
+    {
+        AmountIndicator = reqAmountIndicator;
+        UnitsIndicator = reqUnitsIndicator;
+        DealingCutOffTime = reqDealingCutOffTime;
+        DealingCutOffTimeFrame = reqDealingCutOffTimeFrame;
+        SettlementCycle = reqSettlementCycle;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether a subscription or a redemption can be instructed by amount.
     /// </summary>
+    [IsoId("_UBrDtNp-Ed-ak6NoX_4Aeg_1742686060")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AmountIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AmountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AmountIndicator { get; init; } 
+    #else
+    public System.String AmountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether subscriptions or redemptions may be placed as a number of units.
     /// </summary>
+    [IsoId("_UBrDtdp-Ed-ak6NoX_4Aeg_1448711749")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator UnitsIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String UnitsIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String UnitsIndicator { get; init; } 
+    #else
+    public System.String UnitsIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    [IsoId("_UBrDttp-Ed-ak6NoX_4Aeg_1655381109")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dealing Currency Accepted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    public string? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UBrDttp-Ed-ak6NoX_4Aeg_1655381109
+    
     /// <summary>
     /// Last date/time at which an order to subscribe or redeem can be given.
     /// </summary>
+    [IsoId("_UBrDt9p-Ed-ak6NoX_4Aeg_1609988215")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dealing Cut Off Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOTime DealingCutOffTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.TimeOnly DealingCutOffTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly DealingCutOffTime { get; init; } 
+    #else
+    public System.TimeOnly DealingCutOffTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// TimeFrame or period concept that allows definition of a period as number of days before or after a defined activity.
     /// </summary>
+    [IsoId("_UBrDuNp-Ed-ak6NoX_4Aeg_-189448505")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dealing Cut Off Time Frame")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TimeFrame3Choice_ DealingCutOffTimeFrame { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TimeFrame3Choice_ DealingCutOffTimeFrame { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TimeFrame3Choice_ DealingCutOffTimeFrame { get; init; } 
+    #else
+    public TimeFrame3Choice_ DealingCutOffTimeFrame { get; set; } 
+    #endif
+    
     /// <summary>
     /// An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement period ||Where T = the date the price is applied to a transaction.
     /// </summary>
+    [IsoId("_UB00sNp-Ed-ak6NoX_4Aeg_-1103139328")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Cycle")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Timeframe2Choice_ SettlementCycle { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Timeframe2Choice_ SettlementCycle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Timeframe2Choice_ SettlementCycle { get; init; } 
+    #else
+    public Timeframe2Choice_ SettlementCycle { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AmtInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmountIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UnitsInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(UnitsIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize DealingCurrencyAccepted, multiplicity Unknown
-        writer.WriteStartElement(null, "DealgCutOffTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISOTime(DealingCutOffTime)); // data type ISOTime System.TimeOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DealgCutOffTmFrame", xmlNamespace );
-        DealingCutOffTimeFrame.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmCycl", xmlNamespace );
-        SettlementCycle.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ProcessingCharacteristics1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

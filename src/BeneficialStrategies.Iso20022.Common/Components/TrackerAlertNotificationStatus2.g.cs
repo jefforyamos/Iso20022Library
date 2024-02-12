@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on an alert notification issued by the tracker.
 /// </summary>
+[IsoId("_k0GOM_Y0Eemf4dJxCjghNw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Alert Notification Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerAlertNotificationStatus2
-     : IIsoXmlSerilizable<TrackerAlertNotificationStatus2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TrackerAlertNotificationStatus2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TrackerAlertNotificationStatus2( TrackerAlertStatus1 reqAlertStatus,TrackerAlertStatusReason1 reqStatusReason )
+    {
+        AlertStatus = reqAlertStatus;
+        StatusReason = reqStatusReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the status of an alert, in a coded form.
     /// </summary>
+    [IsoId("_k0GON_Y0Eemf4dJxCjghNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alert Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertStatus1 AlertStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TrackerAlertStatus1 AlertStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerAlertStatus1 AlertStatus { get; init; } 
+    #else
+    public TrackerAlertStatus1 AlertStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
+    [IsoId("_k0GOOfY0Eemf4dJxCjghNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertStatusReason1 StatusReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TrackerAlertStatusReason1 StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerAlertStatusReason1 StatusReason { get; init; } 
+    #else
+    public TrackerAlertStatusReason1 StatusReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AlrtSts", xmlNamespace );
-        AlertStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-        StatusReason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static TrackerAlertNotificationStatus2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

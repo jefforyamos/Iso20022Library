@@ -7,156 +7,256 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Preparation/bringing to market of a security (also known as primary market or Initial Public Offering (IPO) issuance).
 /// </summary>
+[IsoId("_rszksWf2Eembv_9KtOEw8g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Issuance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Issuance5
-     : IIsoXmlSerilizable<Issuance5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates where the financial instrument was issued.
     /// </summary>
+    [IsoId("_r6OVoWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? IssuePlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuePlace { get; init; } 
+    #else
+    public System.String? IssuePlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country where a security is issued by the issuer or its agent.
     /// </summary>
+    [IsoId("_r6OVr2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Of Issue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfIssue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CountryOfIssue { get; init; } 
+    #else
+    public string? CountryOfIssue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
+    [IsoId("_r6OVt2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? IssueDate { get; init; } 
+    #else
+    public System.DateOnly? IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time, as announced by the issuer, at which the securities will be issued.
     /// </summary>
+    [IsoId("_r6OVv2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Announcement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? AnnouncementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? AnnouncementDate { get; init; } 
+    #else
+    public System.DateTime? AnnouncementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the date from which the instrument code is valid. This date can be before the actual issue date of an instrument for 'when-issued' securities, but may not be a date in the future for a new security.
     /// </summary>
+    [IsoId("_r6OVwWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISIN Valid From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ISINValidFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ISINValidFrom { get; init; } 
+    #else
+    public System.DateOnly? ISINValidFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
+    [IsoId("_r6OVw2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Organisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? IssuerOrganisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Organisation38? IssuerOrganisation { get; init; } 
+    #else
+    public Organisation38? IssuerOrganisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total original amount or quantity published.
     /// </summary>
+    [IsoId("_r6OVxWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Nominal Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Figure used as a control to verify whether the information provided is correct. It represents the issue size multiplied by the issue price.
     /// </summary>
+    [IsoId("_r6OVx2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Issued Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FullIssuedAmount { get; init; } 
+    #else
+    public System.Decimal? FullIssuedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Represents the total amount/quantity of the proceeds from the sale of all securities in the initial offering. This amount/quantity is known after the new issue is priced.
     /// </summary>
+    [IsoId("_r6OVyWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? IssueSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? IssueSize { get; init; } 
+    #else
+    public System.UInt64? IssueSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Initial issue price of the asset.
     /// </summary>
+    [IsoId("_r6OVy2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? IssuePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue1? IssuePrice { get; init; } 
+    #else
+    public PriceValue1? IssuePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Way in which the issue will be marketed to the primary market, via individual dealers (so called non syndicated distribution) or via a syndicate of managers, underwriters and selling group members (so called syndicated distribution).
     /// </summary>
+    [IsoId("_r6OVzWf2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuance Distribution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; init; } 
+    #else
+    public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Jurisdiction (country, county, state, province, city) of the issue.
     /// </summary>
+    [IsoId("_r6OVz2f2Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Governing Law")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Jurisdiction1? GoverningLaw { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Jurisdiction1? GoverningLaw { get; init; } 
+    #else
+    public Jurisdiction1? GoverningLaw { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (IssuePlace is IsoMICIdentifier IssuePlaceValue)
-        {
-            writer.WriteStartElement(null, "IssePlc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(IssuePlaceValue)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (CountryOfIssue is CountryCode CountryOfIssueValue)
-        {
-            writer.WriteStartElement(null, "CtryOfIsse", xmlNamespace );
-            writer.WriteValue(CountryOfIssueValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (IssueDate is IsoISODate IssueDateValue)
-        {
-            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AnnouncementDate is IsoISODateTime AnnouncementDateValue)
-        {
-            writer.WriteStartElement(null, "AnncmntDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(AnnouncementDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ISINValidFrom is IsoISODate ISINValidFromValue)
-        {
-            writer.WriteStartElement(null, "ISINVldFr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ISINValidFromValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (IssuerOrganisation is Organisation38 IssuerOrganisationValue)
-        {
-            writer.WriteStartElement(null, "IssrOrg", xmlNamespace );
-            IssuerOrganisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssueNominalAmount is FinancialInstrumentQuantity1Choice_ IssueNominalAmountValue)
-        {
-            writer.WriteStartElement(null, "IsseNmnlAmt", xmlNamespace );
-            IssueNominalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FullIssuedAmount is IsoActiveCurrencyAndAmount FullIssuedAmountValue)
-        {
-            writer.WriteStartElement(null, "FullIssdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FullIssuedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (IssueSize is IsoNumber IssueSizeValue)
-        {
-            writer.WriteStartElement(null, "IsseSz", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(IssueSizeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (IssuePrice is PriceValue1 IssuePriceValue)
-        {
-            writer.WriteStartElement(null, "IssePric", xmlNamespace );
-            IssuePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssuanceDistribution is SecuritiesTransactionType31Choice_ IssuanceDistributionValue)
-        {
-            writer.WriteStartElement(null, "IssncDstrbtn", xmlNamespace );
-            IssuanceDistributionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GoverningLaw is Jurisdiction1 GoverningLawValue)
-        {
-            writer.WriteStartElement(null, "GovngLaw", xmlNamespace );
-            GoverningLawValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Issuance5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

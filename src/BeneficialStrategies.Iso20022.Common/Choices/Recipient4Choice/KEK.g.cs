@@ -9,64 +9,131 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Recipient4Choice;
-
-/// <summary>
-/// Key encryption key using previously distributed symmetric key.
-/// </summary>
-public partial record KEK : Recipient4Choice_
-     , IIsoXmlSerilizable<KEK>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Recipient4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Version of the data structure.
+    /// Key encryption key using previously distributed symmetric key.
     /// </summary>
-    public IsoNumber? Version { get; init; } 
-    /// <summary>
-    /// Identification of the key encryption key (KEK).
-    /// </summary>
-    public required KEKIdentifier2 KEKIdentification { get; init; } 
-    /// <summary>
-    /// Algorithm to encrypt the key encryption key (KEK).
-    /// </summary>
-    public required AlgorithmIdentification13 KeyEncryptionAlgorithm { get; init; } 
-    /// <summary>
-    /// Encrypted key encryption key (KEK).
-    /// </summary>
-    public required IsoMax500Binary EncryptedKey { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_N1aSo2i0EeS87LmvcA55sg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("KEK")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record KEK : Recipient4Choice_
+    #else
+    public partial class KEK : Recipient4Choice_
+    #endif
     {
-        if (Version is IsoNumber VersionValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a KEK instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public KEK( KEKIdentifier2 reqKEKIdentification,AlgorithmIdentification13 reqKeyEncryptionAlgorithm,System.Byte[] reqEncryptedKey )
         {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
+            KEKIdentification = reqKEKIdentification;
+            KeyEncryptionAlgorithm = reqKeyEncryptionAlgorithm;
+            EncryptedKey = reqEncryptedKey;
         }
-        writer.WriteStartElement(null, "KEKId", xmlNamespace );
-        KEKIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "KeyNcrptnAlgo", xmlNamespace );
-        KeyEncryptionAlgorithm.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NcrptdKey", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax500Binary(EncryptedKey)); // data type Max500Binary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static new KEK Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Version of the data structure.
+        /// </summary>
+        [IsoId("_Hs9e8Wi6EeS87LmvcA55sg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Version")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoNumber? Version { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? Version { get; init; } 
+        #else
+        public System.UInt64? Version { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the key encryption key (KEK).
+        /// </summary>
+        [IsoId("_Hs9e82i6EeS87LmvcA55sg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("KEK Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required KEKIdentifier2 KEKIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public KEKIdentifier2 KEKIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public KEKIdentifier2 KEKIdentification { get; init; } 
+        #else
+        public KEKIdentifier2 KEKIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Algorithm to encrypt the key encryption key (KEK).
+        /// </summary>
+        [IsoId("_Hs9e9Wi6EeS87LmvcA55sg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Key Encryption Algorithm")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AlgorithmIdentification13 KeyEncryptionAlgorithm { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AlgorithmIdentification13 KeyEncryptionAlgorithm { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AlgorithmIdentification13 KeyEncryptionAlgorithm { get; init; } 
+        #else
+        public AlgorithmIdentification13 KeyEncryptionAlgorithm { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Encrypted key encryption key (KEK).
+        /// </summary>
+        [IsoId("_Hs9e92i6EeS87LmvcA55sg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Encrypted Key")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax500Binary EncryptedKey { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Byte[] EncryptedKey { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Byte[] EncryptedKey { get; init; } 
+        #else
+        public System.Byte[] EncryptedKey { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

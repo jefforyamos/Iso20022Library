@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
+[IsoId("_ylymkZlcEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashBalance9
-     : IIsoXmlSerilizable<CashBalance9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashBalance9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashBalance9( BalanceCounterparty1Code reqCounterpartyType )
+    {
+        CounterpartyType = reqCounterpartyType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
+    [IsoId("_yttMZ5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceType8Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceType8Choice_? Type { get; init; } 
+    #else
+    public BalanceType8Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
+    [IsoId("_yttMaZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceCounterparty1Code CounterpartyType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BalanceCounterparty1Code CounterpartyType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceCounterparty1Code CounterpartyType { get; init; } 
+    #else
+    public BalanceCounterparty1Code CounterpartyType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
+    [IsoId("_yttMa5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? CounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5? CounterpartyIdentification { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5? CounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
+    [IsoId("_yttMbZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch3Choice_? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeSearch3Choice_? ValueDate { get; init; } 
+    #else
+    public DateAndDateTimeSearch3Choice_? ValueDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is BalanceType8Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtrPtyTp", xmlNamespace );
-        writer.WriteValue(CounterpartyType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (CounterpartyIdentification is BranchAndFinancialInstitutionIdentification5 CounterpartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is DateAndDateTimeSearch3Choice_ ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            ValueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashBalance9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

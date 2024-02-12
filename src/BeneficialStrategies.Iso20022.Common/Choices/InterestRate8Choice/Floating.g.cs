@@ -9,52 +9,91 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InterestRate8Choice;
-
-/// <summary>
-/// Interest rate is a variable / floating rate, based on an index.
-/// </summary>
-public partial record Floating : InterestRate8Choice_
-     , IIsoXmlSerilizable<Floating>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InterestRate8Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identifies the reference index for the instrument. 
-    /// Usage:
-    /// Index or name if the reference rate is not included in the index list.
+    /// Interest rate is a variable / floating rate, based on an index.
     /// </summary>
-    public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
-    /// <summary>
-    /// Term of the reference rate.
-    /// </summary>
-    public InterestRateContractTerm2? Term { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_IEREA35aEea2k7EBUopqxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floating")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Floating : InterestRate8Choice_
+    #else
+    public partial class Floating : InterestRate8Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RefRate", xmlNamespace );
-        ReferenceRate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Term is InterestRateContractTerm2 TermValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Floating instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Floating( BenchmarkCurveName5Choice_ reqReferenceRate )
         {
-            writer.WriteStartElement(null, "Term", xmlNamespace );
-            TermValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            ReferenceRate = reqReferenceRate;
         }
-    }
-    public static new Floating Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the reference index for the instrument. 
+        /// Usage:
+        /// Index or name if the reference rate is not included in the index list.
+        /// </summary>
+        [IsoId("_Hq0pQX5aEea2k7EBUopqxw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reference Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
+        #else
+        public BenchmarkCurveName5Choice_ ReferenceRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Term of the reference rate.
+        /// </summary>
+        [IsoId("_Hq0pQ35aEea2k7EBUopqxw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Term")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateContractTerm2? Term { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateContractTerm2? Term { get; init; } 
+        #else
+        public InterestRateContractTerm2? Term { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

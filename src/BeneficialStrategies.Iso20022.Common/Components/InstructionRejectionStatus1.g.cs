@@ -7,60 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status advising on the rejection of the instruction or cancellation request.
 /// </summary>
+[IsoId("_RWwVldp-Ed-ak6NoX_4Aeg_-151657311")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Instruction Rejection Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InstructionRejectionStatus1
-     : IIsoXmlSerilizable<InstructionRejectionStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InstructionRejectionStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InstructionRejectionStatus1( RejectionReason1Code reqReason,System.String reqExtendedReason )
+    {
+        Reason = reqReason;
+        ExtendedReason = reqExtendedReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason advising the rejection of the instruction.
     /// </summary>
+    [IsoId("_RWwVltp-Ed-ak6NoX_4Aeg_-151657309")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason1Code Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectionReason1Code Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectionReason1Code Reason { get; init; } 
+    #else
+    public RejectionReason1Code Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// This code can be used in case another reason is required.
     /// </summary>
+    [IsoId("_RWwVl9p-Ed-ak6NoX_4Aeg_-1485291083")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedReason { get; init; } 
+    #else
+    public System.String ExtendedReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the reason.
     /// </summary>
+    [IsoId("_RWwVmNp-Ed-ak6NoX_4Aeg_-151657294")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(Reason.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedReason)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InstructionRejectionStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

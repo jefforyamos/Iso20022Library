@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trigger parameters.
 /// </summary>
+[IsoId("_99Ns1nltEeG7BsjMvd1mEw_340413416")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trigger")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Trigger1
-     : IIsoXmlSerilizable<Trigger1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details related to the date on which a variation is effective.
     /// </summary>
+    [IsoId("_99Ns13ltEeG7BsjMvd1mEw_-1029546391")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Choice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FixedOrRecurrentDate1Choice_? DateChoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FixedOrRecurrentDate1Choice_? DateChoice { get; init; } 
+    #else
+    public FixedOrRecurrentDate1Choice_? DateChoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the documentary event on which a variation is triggered.
     /// </summary>
+    [IsoId("_99Ns2HltEeG7BsjMvd1mEw_-1230694624")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Documentary Event")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document10? DocumentaryEvent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document10? DocumentaryEvent { get; init; } 
+    #else
+    public Document10? DocumentaryEvent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DateChoice is FixedOrRecurrentDate1Choice_ DateChoiceValue)
-        {
-            writer.WriteStartElement(null, "DtChc", xmlNamespace );
-            DateChoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DocumentaryEvent is Document10 DocumentaryEventValue)
-        {
-            writer.WriteStartElement(null, "DcmntryEvt", xmlNamespace );
-            DocumentaryEventValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Trigger1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

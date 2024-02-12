@@ -7,110 +7,199 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to display, print or store.
 /// </summary>
+[IsoId("_UaE20duVEeiB5uLfkg9ZJA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Action Message")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ActionMessage6
-     : IIsoXmlSerilizable<ActionMessage6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ActionMessage6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ActionMessage6( UserInterface4Code reqMessageDestination,System.String reqMessageContent )
+    {
+        MessageDestination = reqMessageDestination;
+        MessageContent = reqMessageContent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [IsoId("_Uk8DAduVEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Destination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface4Code MessageDestination { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UserInterface4Code MessageDestination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UserInterface4Code MessageDestination { get; init; } 
+    #else
+    public UserInterface4Code MessageDestination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Qualification of the information to sent to an output logical device.
     /// </summary>
+    [IsoId("_afR6gNuVEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information Qualifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InformationQualify1Code? InformationQualifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InformationQualify1Code? InformationQualifier { get; init; } 
+    #else
+    public InformationQualify1Code? InformationQualifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message format.
     /// </summary>
+    [IsoId("_Uk8DA9uVEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat3Code? Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OutputFormat3Code? Format { get; init; } 
+    #else
+    public OutputFormat3Code? Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content or reference of the message.
     /// </summary>
+    [IsoId("_Uk8DBduVEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20000Text MessageContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageContent { get; init; } 
+    #else
+    public System.String MessageContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature of the message.
     /// </summary>
+    [IsoId("_Uk8DB9uVEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Content Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType18? MessageContentSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType18? MessageContentSignature { get; init; } 
+    #else
+    public ContentInformationType18? MessageContentSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of message displayed or printed as Barcode.
     /// </summary>
+    [IsoId("_yULO4NucEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Output Barcode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputBarcode1? OutputBarcode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OutputBarcode1? OutputBarcode { get; init; } 
+    #else
+    public OutputBarcode1? OutputBarcode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Flag to request a message response.
     /// </summary>
+    [IsoId("_3AZGYNucEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Required Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ResponseRequiredFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ResponseRequiredFlag { get; init; } 
+    #else
+    public System.String? ResponseRequiredFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of seconds the message has to be displayed.
     /// </summary>
+    [IsoId("_5kpy4NucEeiB5uLfkg9ZJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Display Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumDisplayTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MinimumDisplayTime { get; init; } 
+    #else
+    public System.UInt64? MinimumDisplayTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgDstn", xmlNamespace );
-        writer.WriteValue(MessageDestination.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (InformationQualifier is InformationQualify1Code InformationQualifierValue)
-        {
-            writer.WriteStartElement(null, "InfQlfr", xmlNamespace );
-            writer.WriteValue(InformationQualifierValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Format is OutputFormat3Code FormatValue)
-        {
-            writer.WriteStartElement(null, "Frmt", xmlNamespace );
-            writer.WriteValue(FormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MsgCntt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax20000Text(MessageContent)); // data type Max20000Text System.String
-        writer.WriteEndElement();
-        if (MessageContentSignature is ContentInformationType18 MessageContentSignatureValue)
-        {
-            writer.WriteStartElement(null, "MsgCnttSgntr", xmlNamespace );
-            MessageContentSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OutputBarcode is OutputBarcode1 OutputBarcodeValue)
-        {
-            writer.WriteStartElement(null, "OutptBrcd", xmlNamespace );
-            OutputBarcodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResponseRequiredFlag is IsoTrueFalseIndicator ResponseRequiredFlagValue)
-        {
-            writer.WriteStartElement(null, "RspnReqrdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ResponseRequiredFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MinimumDisplayTime is IsoNumber MinimumDisplayTimeValue)
-        {
-            writer.WriteStartElement(null, "MinDispTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumDisplayTimeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ActionMessage6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

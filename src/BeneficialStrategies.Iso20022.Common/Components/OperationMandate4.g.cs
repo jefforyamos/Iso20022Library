@@ -7,99 +7,195 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information specifying the mandate.
 /// </summary>
+[IsoId("_Cj9vd249EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Operation Mandate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OperationMandate4
-     : IIsoXmlSerilizable<OperationMandate4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OperationMandate4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OperationMandate4( System.String reqIdentification,System.String reqRequiredSignatureNumber,System.String reqSignatureOrderIndicator )
+    {
+        Identification = reqIdentification;
+        RequiredSignatureNumber = reqRequiredSignatureNumber;
+        SignatureOrderIndicator = reqSignatureOrderIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the mandate.
     /// </summary>
+    [IsoId("_CtgF8W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Channel for which the operation mandate is valid. If ApplicableChannel equals Fax, this means that a bank operation instruction sent by fax will be processed according to the mandates exchanged in this message.
     /// </summary>
+    [IsoId("_CtgF8249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicable Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public Channel2Choice_? ApplicableChannel { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _CtgF8249EeiU9cctagi5ow
+    
     /// <summary>
     /// Number of required and necessary signatures by the mandate.
     /// </summary>
+    [IsoId("_CtgF9W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Required Signature Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15PlusSignedNumericText RequiredSignatureNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RequiredSignatureNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RequiredSignatureNumber { get; init; } 
+    #else
+    public System.String RequiredSignatureNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator whether a certain order of signatures has to be respected or not.
     /// </summary>
+    [IsoId("_CtgF9249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Order Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SignatureOrderIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SignatureOrderIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SignatureOrderIndicator { get; init; } 
+    #else
+    public System.String SignatureOrderIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Holder of the mandate.
     /// </summary>
+    [IsoId("_CtgF-W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Holder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndAuthorisation4? MandateHolder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyAndAuthorisation4? MandateHolder { get; init; } 
+    #else
+    public PartyAndAuthorisation4? MandateHolder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Bank operation allowed by a mandate.
     /// </summary>
+    [IsoId("_CtgF-249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Operation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public BankTransactionCodeStructure4? BankOperation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _CtgF-249EeiU9cctagi5ow
+    
     /// <summary>
     /// Specifies the date when the mandate becomes valid.
     /// </summary>
+    [IsoId("_CtgF_W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? StartDate { get; init; } 
+    #else
+    public System.DateOnly? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date when the mandate stops to be valid.
     /// </summary>
+    [IsoId("_CtgF_249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EndDate { get; init; } 
+    #else
+    public System.DateOnly? EndDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize ApplicableChannel, multiplicity Unknown
-        writer.WriteStartElement(null, "ReqrdSgntrNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(RequiredSignatureNumber)); // data type Max15PlusSignedNumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SgntrOrdrInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatureOrderIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (MandateHolder is PartyAndAuthorisation4 MandateHolderValue)
-        {
-            writer.WriteStartElement(null, "MndtHldr", xmlNamespace );
-            MandateHolderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize BankOperation, multiplicity Unknown
-        if (StartDate is IsoISODate StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (EndDate is IsoISODate EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static OperationMandate4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

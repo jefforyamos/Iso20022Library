@@ -7,144 +7,298 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[IsoId("_UscfANp-Ed-ak6NoX_4Aeg_1902245509")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeData1
-     : IIsoXmlSerilizable<TradeData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeData1( System.String reqNotificationIdentification,System.String reqMatchingSystemUniqueReference,TradeStatus1Code reqCurrentStatus,System.String reqExtendedCurrentStatus )
+    {
+        NotificationIdentification = reqNotificationIdentification;
+        MatchingSystemUniqueReference = reqMatchingSystemUniqueReference;
+        CurrentStatus = reqCurrentStatus;
+        ExtendedCurrentStatus = reqExtendedCurrentStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Refers to the identification of a notification.
     /// </summary>
+    [IsoId("_UscfAdp-Ed-ak6NoX_4Aeg_1953965551")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text NotificationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NotificationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NotificationIdentification { get; init; } 
+    #else
+    public System.String NotificationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the unique identification assigned to a trade by a central matching system.
     /// </summary>
+    [IsoId("_UscfAtp-Ed-ak6NoX_4Aeg_1954886301")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching System Unique Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MatchingSystemUniqueReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MatchingSystemUniqueReference { get; init; } 
+    #else
+    public System.String MatchingSystemUniqueReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party which assigned a status to a treasury trade.
     /// </summary>
+    [IsoId("_UscfA9p-Ed-ak6NoX_4Aeg_502075221")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatusOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatusOriginator { get; init; } 
+    #else
+    public System.String? StatusOriginator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
+    [IsoId("_UscfBNp-Ed-ak6NoX_4Aeg_1546701058")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeStatus1Code CurrentStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeStatus1Code CurrentStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeStatus1Code CurrentStatus { get; init; } 
+    #else
+    public TradeStatus1Code CurrentStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
+    [IsoId("_UscfBdp-Ed-ak6NoX_4Aeg_2119516029")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Current Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedCurrentStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedCurrentStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedCurrentStatus { get; init; } 
+    #else
+    public System.String ExtendedCurrentStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
+    [IsoId("_UscfBtp-Ed-ak6NoX_4Aeg_1103289655")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CurrentStatusSubType { get; init; } 
+    #else
+    public System.String? CurrentStatusSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time at which the current status was assigned.
     /// </summary>
+    [IsoId("_UscfB9p-Ed-ak6NoX_4Aeg_1922452873")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CurrentStatusTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CurrentStatusTime { get; init; } 
+    #else
+    public System.DateTime? CurrentStatusTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [IsoId("_UscfCNp-Ed-ak6NoX_4Aeg_1145893613")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeStatus1Code? PreviousStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeStatus1Code? PreviousStatus { get; init; } 
+    #else
+    public TradeStatus1Code? PreviousStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
+    [IsoId("_UscfCdp-Ed-ak6NoX_4Aeg_942747498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Previous Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedPreviousStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExtendedPreviousStatus { get; init; } 
+    #else
+    public System.String? ExtendedPreviousStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [IsoId("_Uslo8Np-Ed-ak6NoX_4Aeg_-1628157965")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Status Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PreviousStatusSubType { get; init; } 
+    #else
+    public System.String? PreviousStatusSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time at which the previous status was assigned.
     /// </summary>
+    [IsoId("_Uslo8dp-Ed-ak6NoX_4Aeg_-1473004903")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Status Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? PreviousStatusTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? PreviousStatusTime { get; init; } 
+    #else
+    public System.DateTime? PreviousStatusTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported.
     /// </summary>
+    [IsoId("_Uslo8tp-Ed-ak6NoX_4Aeg_1820316906")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ProductType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductType { get; init; } 
+    #else
+    public System.String? ProductType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (StatusOriginator is IsoMax35Text StatusOriginatorValue)
-        {
-            writer.WriteStartElement(null, "StsOrgtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusOriginatorValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CurSts", xmlNamespace );
-        writer.WriteValue(CurrentStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedCurSts", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedCurrentStatus)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        if (CurrentStatusSubType is IsoMax70Text CurrentStatusSubTypeValue)
-        {
-            writer.WriteStartElement(null, "CurStsSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CurrentStatusSubTypeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CurrentStatusTime is IsoISODateTime CurrentStatusTimeValue)
-        {
-            writer.WriteStartElement(null, "CurStsTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CurrentStatusTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (PreviousStatus is TradeStatus1Code PreviousStatusValue)
-        {
-            writer.WriteStartElement(null, "PrvsSts", xmlNamespace );
-            writer.WriteValue(PreviousStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExtendedPreviousStatus is IsoExtended350Code ExtendedPreviousStatusValue)
-        {
-            writer.WriteStartElement(null, "XtndedPrvsSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedPreviousStatusValue)); // data type Extended350Code System.String
-            writer.WriteEndElement();
-        }
-        if (PreviousStatusSubType is IsoMax70Text PreviousStatusSubTypeValue)
-        {
-            writer.WriteStartElement(null, "PrvsStsSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(PreviousStatusSubTypeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (PreviousStatusTime is IsoISODateTime PreviousStatusTimeValue)
-        {
-            writer.WriteStartElement(null, "PrvsStsTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(PreviousStatusTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ProductType is IsoMax4AlphaNumericText ProductTypeValue)
-        {
-            writer.WriteStartElement(null, "PdctTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProductTypeValue)); // data type Max4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

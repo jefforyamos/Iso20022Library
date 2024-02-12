@@ -7,120 +7,232 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about the schedule change.
 /// </summary>
+[IsoId("_bMr9gBkcEeapYKOltfjd7A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Schedule Change Entry")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ScheduleChangeEntry1
-     : IIsoXmlSerilizable<ScheduleChangeEntry1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ScheduleChangeEntry1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ScheduleChangeEntry1( SystemEventType2Choice_ reqScheduleEventType,System.String reqChangeType )
+    {
+        ScheduleEventType = reqScheduleEventType;
+        ChangeType = reqChangeType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of the scheduled event.
     /// </summary>
+    [IsoId("_MiT-UBkdEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Schedule Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventType2Choice_ ScheduleEventType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SystemEventType2Choice_ ScheduleEventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemEventType2Choice_ ScheduleEventType { get; init; } 
+    #else
+    public SystemEventType2Choice_ ScheduleEventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identificaiton of the scheduled event.
     /// </summary>
+    [IsoId("_zvnEQBkdEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Schedule Event Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? ScheduleEventIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ScheduleEventIdentification { get; init; } 
+    #else
+    public System.String? ScheduleEventIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// New frequency of the scheduled event.
     /// </summary>
+    [IsoId("_FkCvMBkeEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? EventFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventFrequency { get; init; } 
+    #else
+    public System.String? EventFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency of the scheduled event before change.
     /// </summary>
+    [IsoId("_Q3lgABkeEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Previous Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? EventPreviousFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventPreviousFrequency { get; init; } 
+    #else
+    public System.String? EventPreviousFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// New scheduled time of the event.
     /// </summary>
+    [IsoId("_iFbFABkeEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? EventTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? EventTime { get; init; } 
+    #else
+    public System.TimeOnly? EventTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Scheduled time of the event before change.
     /// </summary>
+    [IsoId("_v_fMIBkeEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Previous Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? EventPreviousTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? EventPreviousTime { get; init; } 
+    #else
+    public System.TimeOnly? EventPreviousTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum duration of event.
     /// </summary>
+    [IsoId("_FBeJICHbEea-Xbqk8qZGYQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EventDuration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventDuration { get; init; } 
+    #else
+    public System.String? EventDuration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set earlier duration of event.
     /// </summary>
+    [IsoId("_xYTUsCHbEea-Xbqk8qZGYQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Previous Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EventPreviousDuration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventPreviousDuration { get; init; } 
+    #else
+    public System.String? EventPreviousDuration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of schedule modification (i.e. event cancelled, new event).
     /// </summary>
+    [IsoId("_GXOqMBkfEeapYKOltfjd7A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Change Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ChangeType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ChangeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ChangeType { get; init; } 
+    #else
+    public System.String ChangeType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SchdlEvtTp", xmlNamespace );
-        ScheduleEventType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ScheduleEventIdentification is IsoExact1NumericText ScheduleEventIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SchdlEvtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(ScheduleEventIdentificationValue)); // data type Exact1NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EventFrequency is IsoMax4Text EventFrequencyValue)
-        {
-            writer.WriteStartElement(null, "EvtFrqcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(EventFrequencyValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (EventPreviousFrequency is IsoMax4Text EventPreviousFrequencyValue)
-        {
-            writer.WriteStartElement(null, "EvtPrvsFrqcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(EventPreviousFrequencyValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (EventTime is IsoISOTime EventTimeValue)
-        {
-            writer.WriteStartElement(null, "EvtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(EventTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (EventPreviousTime is IsoISOTime EventPreviousTimeValue)
-        {
-            writer.WriteStartElement(null, "EvtPrvsTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(EventPreviousTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (EventDuration is IsoMax3NumericText EventDurationValue)
-        {
-            writer.WriteStartElement(null, "EvtDrtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EventDurationValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EventPreviousDuration is IsoMax3NumericText EventPreviousDurationValue)
-        {
-            writer.WriteStartElement(null, "EvtPrvsDrtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EventPreviousDurationValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ChngTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ChangeType)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static ScheduleChangeEntry1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

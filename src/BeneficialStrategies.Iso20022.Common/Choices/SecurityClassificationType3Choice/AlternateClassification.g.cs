@@ -9,50 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choice;
-
-/// <summary>
-/// Other type of classification of the financial instrument.
-/// </summary>
-public partial record AlternateClassification : SecurityClassificationType3Choice_
-     , IIsoXmlSerilizable<AlternateClassification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Proprietary information issued by the data source scheme issuer.
+    /// Other type of classification of the financial instrument.
     /// </summary>
-    public required IsoRestrictedFINMax30Text Identification { get; init; } 
-    /// <summary>
-    /// Entity that assigns the identification.
-    /// </summary>
-    public IsoRestrictedFINMax8Text? Issuer { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_SimIQ_35EeimOuZbLgw0bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Classification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AlternateClassification : SecurityClassificationType3Choice_
+    #else
+    public partial class AlternateClassification : SecurityClassificationType3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax30Text(Identification)); // data type RestrictedFINMax30Text System.String
-        writer.WriteEndElement();
-        if (Issuer is IsoRestrictedFINMax8Text IssuerValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AlternateClassification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AlternateClassification( System.String reqIdentification )
         {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax8Text(IssuerValue)); // data type RestrictedFINMax8Text System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-    }
-    public static new AlternateClassification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Proprietary information issued by the data source scheme issuer.
+        /// </summary>
+        [IsoId("_7MqLRRHnEeG9eo4v8X6Ubw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 30 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoRestrictedFINMax30Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Entity that assigns the identification.
+        /// </summary>
+        [IsoId("_7MqLSRHnEeG9eo4v8X6Ubw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoRestrictedFINMax8Text? Issuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Issuer { get; init; } 
+        #else
+        public System.String? Issuer { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

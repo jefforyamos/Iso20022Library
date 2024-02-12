@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the Financial Institution responding to the request.
 /// </summary>
+[IsoId("_SuwKHAEcEeCQm6a_G2yO_w_2135472976")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Responder Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ResponderDetails1
-     : IIsoXmlSerilizable<ResponderDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ResponderDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ResponderDetails1( System.DateTime reqDateTimeStamp,System.String reqResponder )
+    {
+        DateTimeStamp = reqDateTimeStamp;
+        Responder = reqResponder;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time at which the response was created.
     /// </summary>
+    [IsoId("_SuwKHQEcEeCQm6a_G2yO_w_-495861824")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateTimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime DateTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime DateTimeStamp { get; init; } 
+    #else
+    public System.DateTime DateTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the responder.
     /// </summary>
+    [IsoId("_Su5UAAEcEeCQm6a_G2yO_w_569448861")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Responder { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Responder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Responder { get; init; } 
+    #else
+    public System.String Responder { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DtTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rspndr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Responder)); // data type AnyBICIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static ResponderDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

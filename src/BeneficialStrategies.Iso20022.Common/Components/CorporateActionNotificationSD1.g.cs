@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer security identification reference information.
 /// </summary>
+[IsoId("_1Tg-ADL3EeKU9IrkkToqcw_-2108418056")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Notification SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNotificationSD1
-     : IIsoXmlSerilizable<CorporateActionNotificationSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionNotificationSD1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionNotificationSD1( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1Tg-ATL3EeKU9IrkkToqcw_1641834561")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Internal security identification as provided by the customer for the given security on the security of interest (SOI) import file.
     /// </summary>
+    [IsoId("_1Tg-AjL3EeKU9IrkkToqcw_-48041887")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Internal Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? CustomerInternalSecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerInternalSecurityIdentification { get; init; } 
+    #else
+    public System.String? CustomerInternalSecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security identifier that is used to match the customer's SOI (Security of Interest) to the GCA VS Security Cross Reference.
     /// </summary>
+    [IsoId("_1Tg-AzL3EeKU9IrkkToqcw_-1925537148")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Of Interest Matching Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; init; } 
+    #else
+    public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (CustomerInternalSecurityIdentification is IsoMax16Text CustomerInternalSecurityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrIntlSctyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax16Text(CustomerInternalSecurityIdentificationValue)); // data type Max16Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecurityOfInterestMatchingSecurity is SecurityIdentification15 SecurityOfInterestMatchingSecurityValue)
-        {
-            writer.WriteStartElement(null, "SctyOfIntrstMtchgScty", xmlNamespace );
-            SecurityOfInterestMatchingSecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNotificationSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

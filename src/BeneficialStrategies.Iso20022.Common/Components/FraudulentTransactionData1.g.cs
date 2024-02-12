@@ -7,88 +7,138 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the confirmed fraudulent transaction.
 /// </summary>
+[IsoId("_ODlhYHbMEeef9c2nwgY9Xw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fraudulent Transaction Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FraudulentTransactionData1
-     : IIsoXmlSerilizable<FraudulentTransactionData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status of authorisation of the fraudulent transaction.
     /// </summary>
+    [IsoId("_vj16EHbOEeef9c2nwgY9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthorisationStatus1? AuthorisationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthorisationStatus1? AuthorisationStatus { get; init; } 
+    #else
+    public AuthorisationStatus1? AuthorisationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the dispute if and when relevant.
     /// </summary>
+    [IsoId("_SA70YHdTEeeKH6vrEwvLHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dispute Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisputeData2? DisputeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DisputeData2? DisputeDetails { get; init; } 
+    #else
+    public DisputeData2? DisputeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for sending the message.
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
+    [IsoId("_lWAsEsZjEeiCDcGzDHI_9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? MessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageReason { get; init; } 
+    #else
+    public System.String? MessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
+    [IsoId("_ucH8AcZjEeiCDcGzDHI_9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AlternateMessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AlternateMessageReason { get; init; } 
+    #else
+    public System.String? AlternateMessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Complete or partial details of the original message identified as fraudulent.
     /// </summary>
+    [IsoId("_luPFcHdTEeeKH6vrEwvLHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fraudulent Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? FraudulentMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? FraudulentMessage { get; init; } 
+    #else
+    public System.Byte[]? FraudulentMessage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AuthorisationStatus is AuthorisationStatus1 AuthorisationStatusValue)
-        {
-            writer.WriteStartElement(null, "AuthstnSts", xmlNamespace );
-            AuthorisationStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DisputeDetails is DisputeData2 DisputeDetailsValue)
-        {
-            writer.WriteStartElement(null, "DsptDtls", xmlNamespace );
-            DisputeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageReason is IsoExact4NumericText MessageReasonValue)
-        {
-            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(MessageReasonValue)); // data type Exact4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AlternateMessageReason is IsoMax35Text AlternateMessageReasonValue)
-        {
-            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateMessageReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FraudulentMessage is IsoMax100KBinary FraudulentMessageValue)
-        {
-            writer.WriteStartElement(null, "FrdlntMsg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(FraudulentMessageValue)); // data type Max100KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static FraudulentTransactionData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

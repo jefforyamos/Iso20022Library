@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security parameters of the host downloading the key.
 /// </summary>
+[IsoId("_usm58bTxEeeQy4o2AayYHg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityParameters10
-     : IIsoXmlSerilizable<SecurityParameters10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Random value from the host.
     /// </summary>
+    [IsoId("_u1uZsbTxEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Challenge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? HostChallenge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? HostChallenge { get; init; } 
+    #else
+    public System.Byte[]? HostChallenge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cryptographic key used to store in the ATM.
     /// </summary>
+    [IsoId("_u1uZs7TxEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey12? Key { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CryptographicKey12? Key { get; init; } 
+    #else
+    public CryptographicKey12? Key { get; set; } 
+    #endif
+    
     /// <summary>
     /// Element containing the signature.
     /// </summary>
+    [IsoId("_u1uZtbTxEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Choice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSignature2Choice_? SignatureChoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSignature2Choice_? SignatureChoice { get; init; } 
+    #else
+    public ATMSignature2Choice_? SignatureChoice { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (HostChallenge is IsoMax140Binary HostChallengeValue)
-        {
-            writer.WriteStartElement(null, "HstChllng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(HostChallengeValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Key is CryptographicKey12 KeyValue)
-        {
-            writer.WriteStartElement(null, "Key", xmlNamespace );
-            KeyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SignatureChoice is ATMSignature2Choice_ SignatureChoiceValue)
-        {
-            writer.WriteStartElement(null, "SgntrChc", xmlNamespace );
-            SignatureChoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityParameters10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

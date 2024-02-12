@@ -7,61 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type of movement preliminary advice document.
 /// </summary>
+[IsoId("_QxNYhdp-Ed-ak6NoX_4Aeg_206813968")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Preliminary Advice Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPreliminaryAdviceType1
-     : IIsoXmlSerilizable<CorporateActionPreliminaryAdviceType1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionPreliminaryAdviceType1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionPreliminaryAdviceType1( CorporateActionPreliminaryAdviceType1Code reqType,CorporateActionProcessingStatus1Choice_ reqProcessingStatus )
+    {
+        Type = reqType;
+        ProcessingStatus = reqProcessingStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of movement preliminary advice ie. new or replacement.
     /// </summary>
+    [IsoId("_QxNYhtp-Ed-ak6NoX_4Aeg_-140554685")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    #else
+    public CorporateActionPreliminaryAdviceType1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
+    [IsoId("_QxNYh9p-Ed-ak6NoX_4Aeg_1529675202")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; init; } 
+    #else
+    public CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the movement preliminary advice is sent after entitlement date.
     /// Value is Yes (true) if sent after entitlement date and No (false) if sent before entitlement date.
     /// </summary>
+    [IsoId("_QxNYiNp-Ed-ak6NoX_4Aeg_-1422220686")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligibility Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EligibilityIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EligibilityIndicator { get; init; } 
+    #else
+    public System.String? EligibilityIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
-        ProcessingStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EligibilityIndicator is IsoYesNoIndicator EligibilityIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ElgbltyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EligibilityIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionPreliminaryAdviceType1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// TimeFrame elements that define a period as number of days before or after a activity.
 /// </summary>
+[IsoId("_UAoh4Np-Ed-ak6NoX_4Aeg_-1899090252")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Time Frame")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TimeFrame3
-     : IIsoXmlSerilizable<TimeFrame3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies a description of any other TimeFrame that may be used for the DealingCutOffTimeFrame.
     /// </summary>
+    [IsoId("_UAoh4dp-Ed-ak6NoX_4Aeg_-1857530882")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Time Frame Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherTimeFrameDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherTimeFrameDescription { get; init; } 
+    #else
+    public System.String? OtherTimeFrameDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// An agreed number of days before the Trade date (T) used to define standard timeframes e.g. T-1 Dealing cut off or T-2 prepayment condition||Where = T is the date that the price is applied to a transaction.
     /// </summary>
+    [IsoId("_UAoh4tp-Ed-ak6NoX_4Aeg_-1899090190")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Minus")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TradeMinus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TradeMinus { get; init; } 
+    #else
+    public System.UInt64? TradeMinus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Convention used for adjusting a date when it is not a business day.
     /// </summary>
+    [IsoId("_UAoh49p-Ed-ak6NoX_4Aeg_1418685838")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Working Day Adjustment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
+    #else
+    public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Refer to Order Desk.
     /// </summary>
+    [IsoId("_UAoh5Np-Ed-ak6NoX_4Aeg_-242360634")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Refer To Order Desk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
+    #else
+    public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OtherTimeFrameDescription is IsoMax350Text OtherTimeFrameDescriptionValue)
-        {
-            writer.WriteStartElement(null, "OthrTmFrameDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherTimeFrameDescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradeMinus is IsoNumber TradeMinusValue)
-        {
-            writer.WriteStartElement(null, "TMns", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TradeMinusValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (NonWorkingDayAdjustment is BusinessDayConvention1Code NonWorkingDayAdjustmentValue)
-        {
-            writer.WriteStartElement(null, "NonWorkgDayAdjstmnt", xmlNamespace );
-            writer.WriteValue(NonWorkingDayAdjustmentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReferToOrderDesk is ReferToFundOrderDesk1Code ReferToOrderDeskValue)
-        {
-            writer.WriteStartElement(null, "RefrToOrdrDsk", xmlNamespace );
-            writer.WriteValue(ReferToOrderDeskValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static TimeFrame3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

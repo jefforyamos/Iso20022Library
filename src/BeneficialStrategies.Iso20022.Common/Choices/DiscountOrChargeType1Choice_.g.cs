@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a type of discount or a type of charge.
-/// </summary>
-[KnownType(typeof(DiscountOrChargeType1Choice.ChargeType))]
-[KnownType(typeof(DiscountOrChargeType1Choice.DiscountType))]
-public abstract partial record DiscountOrChargeType1Choice_ : IIsoXmlSerilizable<DiscountOrChargeType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a type of discount or a type of charge.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DiscountOrChargeType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DiscountOrChargeType1Choice.ChargeType))]
+    [KnownType(typeof(DiscountOrChargeType1Choice.DiscountType))]
+    [IsoId("_St2yMAEcEeCQm6a_G2yO_w_-1902647807")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Or Charge Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DiscountOrChargeType1Choice_
+    #else
+    public abstract partial class DiscountOrChargeType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ChrgTp" => DiscountOrChargeType1Choice.ChargeType.Deserialize(elementWithPayload),
-             "DscntTp" => DiscountOrChargeType1Choice.DiscountType.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DiscountOrChargeType1Choice choice.")
-        };
     }
 }

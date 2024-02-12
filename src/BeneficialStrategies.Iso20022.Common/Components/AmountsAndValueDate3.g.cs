@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the value date and the amounts traded in a foreign exchange option trade.
 /// </summary>
+[IsoId("_TImttNp-Ed-ak6NoX_4Aeg_128911716")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amounts And Value Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmountsAndValueDate3
-     : IIsoXmlSerilizable<AmountsAndValueDate3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AmountsAndValueDate3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AmountsAndValueDate3( System.Decimal reqCallAmount,System.Decimal reqPutAmount )
+    {
+        CallAmount = reqCallAmount;
+        PutAmount = reqPutAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Call amount and currency of a foreign exchange option trade.
     /// </summary>
+    [IsoId("_TImttdp-Ed-ak6NoX_4Aeg_128911718")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Call Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CallAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CallAmount { get; init; } 
+    #else
+    public System.Decimal CallAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Put amount and currency of a foreign exchange option trade.
     /// </summary>
+    [IsoId("_TImtttp-Ed-ak6NoX_4Aeg_128911993")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Put Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PutAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PutAmount { get; init; } 
+    #else
+    public System.Decimal PutAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the trade is settled, ie, the amounts are due.
     /// </summary>
+    [IsoId("_TImtt9p-Ed-ak6NoX_4Aeg_128911758")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FinalSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? FinalSettlementDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CallAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CallAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PutAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(PutAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (FinalSettlementDate is IsoISODate FinalSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "FnlSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FinalSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static AmountsAndValueDate3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

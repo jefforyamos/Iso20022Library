@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
 /// </summary>
+[IsoId("_VRiwKNp-Ed-ak6NoX_4Aeg_949302748")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Credit Transfer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CreditTransfer4
-     : IIsoXmlSerilizable<CreditTransfer4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CreditTransfer4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CreditTransfer4( Debtor2 reqDebtorDetails )
+    {
+        DebtorDetails = reqDebtorDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
+    [IsoId("_VRiwKdp-Ed-ak6NoX_4Aeg_949302766")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reference { get; init; } 
+    #else
+    public System.String? Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that receives an amount of money from the debtor. The creditor is also the credit account owner.
     /// </summary>
+    [IsoId("_VRshINp-Ed-ak6NoX_4Aeg_949302826")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Creditor2? CreditorDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Creditor2? CreditorDetails { get; init; } 
+    #else
+    public Creditor2? CreditorDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that owes the cash to the creditor/final party. The debtor is also the debit account owner.
     /// </summary>
+    [IsoId("_VRshIdp-Ed-ak6NoX_4Aeg_949302784")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Debtor2 DebtorDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Debtor2 DebtorDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Debtor2 DebtorDetails { get; init; } 
+    #else
+    public Debtor2 DebtorDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Reference is IsoMax35Text ReferenceValue)
-        {
-            writer.WriteStartElement(null, "Ref", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CreditorDetails is Creditor2 CreditorDetailsValue)
-        {
-            writer.WriteStartElement(null, "CdtrDtls", xmlNamespace );
-            CreditorDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DbtrDtls", xmlNamespace );
-        DebtorDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CreditTransfer4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

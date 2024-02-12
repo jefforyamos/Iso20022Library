@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric variables consisting in interest rates, lending fees or haircuts, calculated as weighted averages.
 /// </summary>
+[IsoId("_rpb5cc-nEeufOvGsyZiDWA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Price Metrics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PriceMetrics3
-     : IIsoXmlSerilizable<PriceMetrics3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
+    [IsoId("_rsBTY8-nEeufOvGsyZiDWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rates")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Rates3? Rates { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Rates3? Rates { get; init; } 
+    #else
+    public Rates3? Rates { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fee that the borrower of the security or commodity pays to the lender.
     /// </summary>
+    [IsoId("_rsBTZc-nEeufOvGsyZiDWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lending Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? LendingFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LendingFee { get; init; } 
+    #else
+    public System.Decimal? LendingFee { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Rates is Rates3 RatesValue)
-        {
-            writer.WriteStartElement(null, "Rates", xmlNamespace );
-            RatesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LendingFee is IsoPercentageRate LendingFeeValue)
-        {
-            writer.WriteStartElement(null, "LndgFee", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(LendingFeeValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static PriceMetrics3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

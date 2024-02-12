@@ -7,108 +7,200 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
 /// </summary>
+[IsoId("_oAv2w1m4EeOQYsoJizpkVw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxReport1
-     : IIsoXmlSerilizable<TaxReport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TaxReport1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TaxReport1( GroupHeader69 reqTaxReportHeader,PartyIdentification72 reqSeller,TradeSettlement2 reqTradeSettlement )
+    {
+        TaxReportHeader = reqTaxReportHeader;
+        Seller = reqSeller;
+        TradeSettlement = reqTradeSettlement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Basic report details.
     /// </summary>
+    [IsoId("_trTl01m4EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Report Header")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader69 TaxReportHeader { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GroupHeader69 TaxReportHeader { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GroupHeader69 TaxReportHeader { get; init; } 
+    #else
+    public GroupHeader69 TaxReportHeader { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax reporting agent, for example seller.
     /// Responsible to issue tax reporting to tax authority.
     /// </summary>
+    [IsoId("_3-XxEFm4EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification72 Seller { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification72 Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification72 Seller { get; init; } 
+    #else
+    public PartyIdentification72 Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the buyer of goods/service reported in this message.
     /// </summary>
+    [IsoId("_7BHwYFm4EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification72? Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification72? Buyer { get; init; } 
+    #else
+    public PartyIdentification72? Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of the business transactions reported in the message.
     /// </summary>
+    [IsoId("_LaSXMFm5EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Settlement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeSettlement2 TradeSettlement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeSettlement2 TradeSettlement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeSettlement2 TradeSettlement { get; init; } 
+    #else
+    public TradeSettlement2 TradeSettlement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reserved for parties that may be required by a specific tax authority.
     /// </summary>
+    [IsoId("_ErRwwJD1EeSZY4BVJy2t3A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification72? OtherParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification72? OtherParty { get; init; } 
+    #else
+    public PartyIdentification72? OtherParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional reference like site key or identifier.
     /// </summary>
+    [IsoId("_zSTYoFm6EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation1? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation1? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation1? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Structure to deliver link to external attachment or deliver base64-coded attachment inside message.
     /// </summary>
+    [IsoId("_5Jz-kFm6EeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation2? AdditionalReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation2? AdditionalReference { get; init; } 
+    #else
+    public DocumentGeneralInformation2? AdditionalReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
+    [IsoId("_nHYhsEjvEeaOe8w0NJ11wQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TaxRptHdr", xmlNamespace );
-        TaxReportHeader.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sellr", xmlNamespace );
-        Seller.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Buyer is PartyIdentification72 BuyerValue)
-        {
-            writer.WriteStartElement(null, "Buyr", xmlNamespace );
-            BuyerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TradSttlm", xmlNamespace );
-        TradeSettlement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OtherParty is PartyIdentification72 OtherPartyValue)
-        {
-            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
-            OtherPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation1 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReference is DocumentGeneralInformation2 AdditionalReferenceValue)
-        {
-            writer.WriteStartElement(null, "AddtlRef", xmlNamespace );
-            AdditionalReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxReport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

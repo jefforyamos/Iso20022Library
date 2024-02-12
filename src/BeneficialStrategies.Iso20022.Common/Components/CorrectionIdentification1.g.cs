@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a correction has occurred.
 /// </summary>
+[IsoId("_H32DoJb3Eeuc6pwKtqbEVQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Correction Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorrectionIdentification1
-     : IIsoXmlSerilizable<CorrectionIdentification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the message contains an updated version of a message that was previously sent.
     /// </summary>
+    [IsoId("_6niOsJb3Eeuc6pwKtqbEVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Indicator { get; init; } 
+    #else
+    public System.String? Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the date of the update.
     /// </summary>
+    [IsoId("_ObTUIJb4Eeuc6pwKtqbEVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the time of the update.
     /// </summary>
+    [IsoId("_Tm2zAJb4Eeuc6pwKtqbEVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? Time { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? Time { get; init; } 
+    #else
+    public System.TimeOnly? Time { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Indicator is IsoTrueFalseIndicator IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Time is IsoISOTime TimeValue)
-        {
-            writer.WriteStartElement(null, "Tm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CorrectionIdentification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

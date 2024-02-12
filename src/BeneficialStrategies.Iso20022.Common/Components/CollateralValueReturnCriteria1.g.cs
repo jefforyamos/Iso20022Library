@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on collateral.
 /// </summary>
+[IsoId("__7yZ5zpsEemk2e6qGBk8IQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Value Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralValueReturnCriteria1
-     : IIsoXmlSerilizable<CollateralValueReturnCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the cash account owner information is requested.
     /// </summary>
+    [IsoId("_AF6mUTptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Owner Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CashAccountOwnerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashAccountOwnerIndicator { get; init; } 
+    #else
+    public System.String? CashAccountOwnerIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the cash account servicer information is requested.
     /// </summary>
+    [IsoId("_AF6mUzptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Servicer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CashAccountServicerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashAccountServicerIndicator { get; init; } 
+    #else
+    public System.String? CashAccountServicerIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the securities account owner information is requested.
     /// </summary>
+    [IsoId("_LCkhFTptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Owner Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SecuritiesAccountOwnerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecuritiesAccountOwnerIndicator { get; init; } 
+    #else
+    public System.String? SecuritiesAccountOwnerIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the securities account servicer information is requested.
     /// </summary>
+    [IsoId("_LCkhFjptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Servicer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SecuritiesAccountServicerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecuritiesAccountServicerIndicator { get; init; } 
+    #else
+    public System.String? SecuritiesAccountServicerIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the total value of the collateral valuation information is requested..
     /// </summary>
+    [IsoId("_LCkhFzptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Collateral Valuation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TotalCollateralValuationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TotalCollateralValuationIndicator { get; init; } 
+    #else
+    public System.String? TotalCollateralValuationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the securities account information is requested.
     /// </summary>
+    [IsoId("_LCkhGDptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SecuritiesAccountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecuritiesAccountIndicator { get; init; } 
+    #else
+    public System.String? SecuritiesAccountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the securities account information is requested.
     /// </summary>
+    [IsoId("_LCkhGTptEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? Securities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Securities { get; init; } 
+    #else
+    public System.String? Securities { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CashAccountOwnerIndicator is IsoRequestedIndicator CashAccountOwnerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CshAcctOwnrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CashAccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CashAccountServicerIndicator is IsoRequestedIndicator CashAccountServicerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CshAcctSvcrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CashAccountServicerIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesAccountOwnerIndicator is IsoRequestedIndicator SecuritiesAccountOwnerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcctOwnrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesAccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesAccountServicerIndicator is IsoRequestedIndicator SecuritiesAccountServicerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcctSvcrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesAccountServicerIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TotalCollateralValuationIndicator is IsoRequestedIndicator TotalCollateralValuationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TtlCollValtnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TotalCollateralValuationIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesAccountIndicator is IsoRequestedIndicator SecuritiesAccountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcctInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesAccountIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Securities is IsoRequestedIndicator SecuritiesValue)
-        {
-            writer.WriteStartElement(null, "Scties", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralValueReturnCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Reconciliation Response message.
 /// </summary>
+[IsoId("_wlhKENxfEeioifFt1dhnJA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reconciliation Response Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReconciliationResponseData1
-     : IIsoXmlSerilizable<ReconciliationResponseData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReconciliationResponseData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReconciliationResponseData1( ReconciliationType1Code reqReconciliationType )
+    {
+        ReconciliationType = reqReconciliationType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of Reconciliation requested by the Sale to the POI.
     /// </summary>
+    [IsoId("_2aeLQNxfEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationType1Code ReconciliationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReconciliationType1Code ReconciliationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReconciliationType1Code ReconciliationType { get; init; } 
+    #else
+    public ReconciliationType1Code ReconciliationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period between Sale and POI.
     /// </summary>
+    [IsoId("_505qwNxfEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? POIReconciliationIdentification { get; init; } 
+    #else
+    public System.String? POIReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the Sale to POI Reconciliation processing.
     /// </summary>
+    [IsoId("_9SsAQNxfEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionTotalsSet1? TransactionTotals { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionTotalsSet1? TransactionTotals { get; init; } 
+    #else
+    public TransactionTotalsSet1? TransactionTotals { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RcncltnTp", xmlNamespace );
-        writer.WriteValue(ReconciliationType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (POIReconciliationIdentification is IsoMax35Text POIReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionTotals is TransactionTotalsSet1 TransactionTotalsValue)
-        {
-            writer.WriteStartElement(null, "TxTtls", xmlNamespace );
-            TransactionTotalsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReconciliationResponseData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

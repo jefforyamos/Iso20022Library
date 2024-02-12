@@ -7,99 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the processing of the transaction.
 /// </summary>
+[IsoId("_vMv0gd8gEeeNTcLLmuYy-w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Processing Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProcessingResult5
-     : IIsoXmlSerilizable<ProcessingResult5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Result of the processing.
     /// </summary>
+    [IsoId("_vbjFg98gEeeNTcLLmuYy-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData1? ResultData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResultData1? ResultData { get; init; } 
+    #else
+    public ResultData1? ResultData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
+    [IsoId("_8guSURs2EeqrvK3udMUsNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Result Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData1? OriginalResultData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResultData1? OriginalResultData { get; init; } 
+    #else
+    public ResultData1? OriginalResultData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Action required flag.
     /// Default: False: Action Not Required.
     /// True: Action Required.
     /// </summary>
+    [IsoId("_vbjFhd8gEeeNTcLLmuYy-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ActionRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ActionRequired { get; init; } 
+    #else
+    public System.String? ActionRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of actions to be performed.
     /// </summary>
+    [IsoId("_vbjFh98gEeeNTcLLmuYy-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action9? Action { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Action9? Action { get; init; } 
+    #else
+    public Action9? Action { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional action to perform.
     /// </summary>
+    [IsoId("_vbjFid8gEeeNTcLLmuYy-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalAction1? AdditionalAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalAction1? AdditionalAction { get; init; } 
+    #else
+    public AdditionalAction1? AdditionalAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
+    [IsoId("_vbjFi98gEeeNTcLLmuYy-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation20? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation20? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation20? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ResultData is ResultData1 ResultDataValue)
-        {
-            writer.WriteStartElement(null, "RsltData", xmlNamespace );
-            ResultDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalResultData is ResultData1 OriginalResultDataValue)
-        {
-            writer.WriteStartElement(null, "OrgnlRsltData", xmlNamespace );
-            OriginalResultDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActionRequired is IsoYesNoIndicator ActionRequiredValue)
-        {
-            writer.WriteStartElement(null, "ActnReqrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActionRequiredValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Action is Action9 ActionValue)
-        {
-            writer.WriteStartElement(null, "Actn", xmlNamespace );
-            ActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalAction is AdditionalAction1 AdditionalActionValue)
-        {
-            writer.WriteStartElement(null, "AddtlActn", xmlNamespace );
-            AdditionalActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation20 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ProcessingResult5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

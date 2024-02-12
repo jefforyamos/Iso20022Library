@@ -7,73 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Document presented for examination.
 /// </summary>
+[IsoId("_-Eq_uHltEeG7BsjMvd1mEw_-538829885")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Demand Documentation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DemandDocumentation1
-     : IIsoXmlSerilizable<DemandDocumentation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DemandDocumentation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DemandDocumentation1( System.String reqCompleteIndicator )
+    {
+        CompleteIndicator = reqCompleteIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indication as to whether the presentation is complete.
     /// </summary>
+    [IsoId("_-E0JoHltEeG7BsjMvd1mEw_-572404369")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Complete Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CompleteIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CompleteIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CompleteIndicator { get; init; } 
+    #else
+    public System.String CompleteIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to an incomplete presentation.
     /// </summary>
+    [IsoId("_-E0JoXltEeG7BsjMvd1mEw_-1669522883")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Completion Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? CompletionInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CompletionInformation { get; init; } 
+    #else
+    public System.String? CompletionInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document or template enclosed in the demand.
     /// </summary>
+    [IsoId("_-E0JonltEeG7BsjMvd1mEw_32400156")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enclosed File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document9? EnclosedFile { get; init; } 
+    #else
+    public Document9? EnclosedFile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Narrative text constituting the demand.
     /// </summary>
+    [IsoId("_-E0Jo3ltEeG7BsjMvd1mEw_370931401")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Demand Narrative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? DemandNarrative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DemandNarrative { get; init; } 
+    #else
+    public System.String? DemandNarrative { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CmpltInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CompleteIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (CompletionInformation is IsoMax2000Text CompletionInformationValue)
-        {
-            writer.WriteStartElement(null, "CmpltnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(CompletionInformationValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-        if (EnclosedFile is Document9 EnclosedFileValue)
-        {
-            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
-            EnclosedFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DemandNarrative is IsoMax20000Text DemandNarrativeValue)
-        {
-            writer.WriteStartElement(null, "DmndNrrtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax20000Text(DemandNarrativeValue)); // data type Max20000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DemandDocumentation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

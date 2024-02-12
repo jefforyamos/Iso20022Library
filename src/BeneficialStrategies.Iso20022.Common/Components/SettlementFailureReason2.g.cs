@@ -7,50 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
+[IsoId("_QHUzx76YEemHTLTzJg7M-A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Failure Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementFailureReason2
-     : IIsoXmlSerilizable<SettlementFailureReason2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementFailureReason2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementFailureReason2( System.String reqMainReasons,System.String reqEfficiencyImprovement )
+    {
+        MainReasons = reqMainReasons;
+        EfficiencyImprovement = reqEfficiencyImprovement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Main reasons for settlement fails during the reporting period.
     /// </summary>
+    [IsoId("_QMoKg76YEemHTLTzJg7M-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Main Reasons")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2048Text MainReasons { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MainReasons { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MainReasons { get; init; } 
+    #else
+    public System.String MainReasons { get; set; } 
+    #endif
+    
     /// <summary>
     /// Measures to improve settlement efficiency.
     /// </summary>
+    [IsoId("_QMoKhb6YEemHTLTzJg7M-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Efficiency Improvement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2048Text EfficiencyImprovement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String EfficiencyImprovement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String EfficiencyImprovement { get; init; } 
+    #else
+    public System.String EfficiencyImprovement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MainRsns", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax2048Text(MainReasons)); // data type Max2048Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EffcncyImprvmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax2048Text(EfficiencyImprovement)); // data type Max2048Text System.String
-        writer.WriteEndElement();
-    }
-    public static SettlementFailureReason2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

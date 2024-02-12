@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date parameters.
 /// </summary>
+[IsoId("_98LLAnltEeG7BsjMvd1mEw_1203331503")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Date Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DateInformation1
-     : IIsoXmlSerilizable<DateInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DateInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DateInformation1( System.DateOnly reqStartDate,ExternalDateFrequency1Code reqFrequency,System.UInt64 reqNumber )
+    {
+        StartDate = reqStartDate;
+        Frequency = reqFrequency;
+        Number = reqNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date on which a recurrent date will commence.
     /// </summary>
+    [IsoId("_98LLA3ltEeG7BsjMvd1mEw_-900960723")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate StartDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly StartDate { get; init; } 
+    #else
+    public System.DateOnly StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the regularity of the trigger date.
     /// </summary>
+    [IsoId("_98LLBHltEeG7BsjMvd1mEw_-1516871632")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDateFrequency1Code Frequency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDateFrequency1Code Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDateFrequency1Code Frequency { get; init; } 
+    #else
+    public ExternalDateFrequency1Code Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of trigger date occurrence cycles.
     /// </summary>
+    [IsoId("_98LLBXltEeG7BsjMvd1mEw_-1181408529")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Number { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Number { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Number { get; init; } 
+    #else
+    public System.UInt64 Number { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "StartDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-        writer.WriteValue(Frequency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Nb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(Number)); // data type Number System.UInt64
-        writer.WriteEndElement();
-    }
-    public static DateInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

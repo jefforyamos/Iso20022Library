@@ -7,106 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Driver in a car rental party
 /// </summary>
+[IsoId("_DNYFscW0EeuhguwJmlgagQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Driver In Party")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DriverInParty2
-     : IIsoXmlSerilizable<DriverInParty2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of vehicle rental driver.
     /// </summary>
+    [IsoId("_DSE_gcW0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address of driver in party.
     /// </summary>
+    [IsoId("_DSE_g8W0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address2? Address { get; init; } 
+    #else
+    public Address2? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact details of driver in party.
     /// </summary>
+    [IsoId("_DSE_hcW0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact6? Contact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact6? Contact { get; init; } 
+    #else
+    public Contact6? Contact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of birth of vehicle rental driver.
     /// </summary>
+    [IsoId("_DSE_h8W0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DateOfBirth { get; init; } 
+    #else
+    public System.DateOnly? DateOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Age of driver.
     /// </summary>
+    [IsoId("_DSE_icW0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Age")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? Age { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Age { get; init; } 
+    #else
+    public System.String? Age { get; set; } 
+    #endif
+    
     /// <summary>
     /// Credential used by the driver for identification.
     /// </summary>
+    [IsoId("_DSE_i8W0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driver Credential")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TravelDocument2? DriverCredential { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TravelDocument2? DriverCredential { get; init; } 
+    #else
+    public TravelDocument2? DriverCredential { get; set; } 
+    #endif
+    
     /// <summary>
     /// Driving license details.
     /// </summary>
+    [IsoId("_DSE_jcW0EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driving License")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DrivingLicense2? DrivingLicense { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DrivingLicense2? DrivingLicense { get; init; } 
+    #else
+    public DrivingLicense2? DrivingLicense { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is Address2 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Contact is Contact6 ContactValue)
-        {
-            writer.WriteStartElement(null, "Ctct", xmlNamespace );
-            ContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateOfBirth is IsoISODate DateOfBirthValue)
-        {
-            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Age is IsoMax2NumericText AgeValue)
-        {
-            writer.WriteStartElement(null, "Age", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(AgeValue)); // data type Max2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (DriverCredential is TravelDocument2 DriverCredentialValue)
-        {
-            writer.WriteStartElement(null, "DrvrCrdntl", xmlNamespace );
-            DriverCredentialValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DrivingLicense is DrivingLicense2 DrivingLicenseValue)
-        {
-            writer.WriteStartElement(null, "DrvgLic", xmlNamespace );
-            DrivingLicenseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DriverInParty2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Information about a party's account.
-/// </summary>
-[KnownType(typeof(AccountParties13Choice.PrimaryOwner))]
-[KnownType(typeof(AccountParties13Choice.Trustee))]
-[KnownType(typeof(AccountParties13Choice.Nominee))]
-[KnownType(typeof(AccountParties13Choice.JointOwner))]
-public abstract partial record AccountParties13Choice_ : IIsoXmlSerilizable<AccountParties13Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Information about a party's account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountParties13Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountParties13Choice.PrimaryOwner))]
+    [KnownType(typeof(AccountParties13Choice.Trustee))]
+    [KnownType(typeof(AccountParties13Choice.Nominee))]
+    [KnownType(typeof(AccountParties13Choice.JointOwner))]
+    [IsoId("_oK88BZQ_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Parties 13 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountParties13Choice_
+    #else
+    public abstract partial class AccountParties13Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PmryOwnr" => AccountParties13Choice.PrimaryOwner.Deserialize(elementWithPayload),
-             "Trstee" => AccountParties13Choice.Trustee.Deserialize(elementWithPayload),
-             "Nmnee" => AccountParties13Choice.Nominee.Deserialize(elementWithPayload),
-             "JntOwnr" => AccountParties13Choice.JointOwner.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountParties13Choice choice.")
-        };
     }
 }

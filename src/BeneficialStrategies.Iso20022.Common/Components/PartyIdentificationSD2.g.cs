@@ -7,93 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding the existing agent component.
 /// </summary>
+[IsoId("_1SUrNTL3EeKU9IrkkToqcw_-650886899")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Identification SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyIdentificationSD2
-     : IIsoXmlSerilizable<PartyIdentificationSD2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyIdentificationSD2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyIdentificationSD2( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1SUrNjL3EeKU9IrkkToqcw_-499458347")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTC agent identification number.
     /// </summary>
+    [IsoId("_1SUrNzL3EeKU9IrkkToqcw_166499706")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? AgentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AgentIdentification { get; init; } 
+    #else
+    public System.String? AgentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Telephone number of the agent.
     /// </summary>
+    [IsoId("_1SecMDL3EeKU9IrkkToqcw_1493400736")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Telephone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? AgentTelephoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AgentTelephoneNumber { get; init; } 
+    #else
+    public System.String? AgentTelephoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent designated contact information details.
     /// </summary>
+    [IsoId("_1SecMTL3EeKU9IrkkToqcw_2014524246")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationSD4? ContactInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationSD4? ContactInformation { get; init; } 
+    #else
+    public PartyIdentificationSD4? ContactInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Email address of the event agent.
     /// </summary>
+    [IsoId("_1SecMjL3EeKU9IrkkToqcw_1284201148")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Email Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AgentEmailAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AgentEmailAddress { get; init; } 
+    #else
+    public System.String? AgentEmailAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Event agent address.
     /// </summary>
+    [IsoId("_1SecMzL3EeKU9IrkkToqcw_-600131637")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress1? AgentAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress1? AgentAddress { get; init; } 
+    #else
+    public PostalAddress1? AgentAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (AgentIdentification is IsoMax8Text AgentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AgtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8Text(AgentIdentificationValue)); // data type Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (AgentTelephoneNumber is IsoPhoneNumber AgentTelephoneNumberValue)
-        {
-            writer.WriteStartElement(null, "AgtTelNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(AgentTelephoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (ContactInformation is PartyIdentificationSD4 ContactInformationValue)
-        {
-            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
-            ContactInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgentEmailAddress is IsoMax256Text AgentEmailAddressValue)
-        {
-            writer.WriteStartElement(null, "AgtEmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AgentEmailAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (AgentAddress is PostalAddress1 AgentAddressValue)
-        {
-            writer.WriteStartElement(null, "AgtAdr", xmlNamespace );
-            AgentAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyIdentificationSD2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

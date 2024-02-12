@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the relationship type between parties to the transaction.
-/// </summary>
-[KnownType(typeof(TradeCounterpartyRelationship1Choice.Code))]
-[KnownType(typeof(TradeCounterpartyRelationship1Choice.Proprietary))]
-public abstract partial record TradeCounterpartyRelationship1Choice_ : IIsoXmlSerilizable<TradeCounterpartyRelationship1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the relationship type between parties to the transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeCounterpartyRelationship1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeCounterpartyRelationship1Choice.Code))]
+    [KnownType(typeof(TradeCounterpartyRelationship1Choice.Proprietary))]
+    [IsoId("_n_k54Cb_Ee2BYL6XeAmCWw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Counterparty Relationship 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeCounterpartyRelationship1Choice_
+    #else
+    public abstract partial class TradeCounterpartyRelationship1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TradeCounterpartyRelationship1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TradeCounterpartyRelationship1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeCounterpartyRelationship1Choice choice.")
-        };
     }
 }

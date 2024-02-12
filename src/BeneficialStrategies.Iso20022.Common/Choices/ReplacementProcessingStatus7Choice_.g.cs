@@ -7,50 +7,42 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status for the replacement processing.
-/// </summary>
-[KnownType(typeof(ReplacementProcessingStatus7Choice.Accepted))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.Completed))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.Denied))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.InRepair))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.PartialReplacementAccepted))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.Pending))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.ReceivedAtIntermediary))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.ReceivedAtStockExchange))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.Rejected))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.ModificationRequested))]
-[KnownType(typeof(ReplacementProcessingStatus7Choice.ProprietaryStatus))]
-public abstract partial record ReplacementProcessingStatus7Choice_ : IIsoXmlSerilizable<ReplacementProcessingStatus7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status for the replacement processing.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReplacementProcessingStatus7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.Accepted))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.Completed))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.Denied))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.InRepair))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.PartialReplacementAccepted))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.Pending))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.ReceivedAtIntermediary))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.ReceivedAtStockExchange))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.Rejected))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.ModificationRequested))]
+    [KnownType(typeof(ReplacementProcessingStatus7Choice.ProprietaryStatus))]
+    [IsoId("_A5TcANokEeC60axPepSq7g_722143945")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Replacement Processing Status 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReplacementProcessingStatus7Choice_
+    #else
+    public abstract partial class ReplacementProcessingStatus7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Accptd" => ReplacementProcessingStatus7Choice.Accepted.Deserialize(elementWithPayload),
-             "Cmpltd" => ReplacementProcessingStatus7Choice.Completed.Deserialize(elementWithPayload),
-             "Dnd" => ReplacementProcessingStatus7Choice.Denied.Deserialize(elementWithPayload),
-             "InRpr" => ReplacementProcessingStatus7Choice.InRepair.Deserialize(elementWithPayload),
-             "PrtlRplcmntAccptd" => ReplacementProcessingStatus7Choice.PartialReplacementAccepted.Deserialize(elementWithPayload),
-             "Pdg" => ReplacementProcessingStatus7Choice.Pending.Deserialize(elementWithPayload),
-             "RcvdAtIntrmy" => ReplacementProcessingStatus7Choice.ReceivedAtIntermediary.Deserialize(elementWithPayload),
-             "RcvdAtStockXchg" => ReplacementProcessingStatus7Choice.ReceivedAtStockExchange.Deserialize(elementWithPayload),
-             "Rjctd" => ReplacementProcessingStatus7Choice.Rejected.Deserialize(elementWithPayload),
-             "ModReqd" => ReplacementProcessingStatus7Choice.ModificationRequested.Deserialize(elementWithPayload),
-             "PrtrySts" => ReplacementProcessingStatus7Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReplacementProcessingStatus7Choice choice.")
-        };
     }
 }

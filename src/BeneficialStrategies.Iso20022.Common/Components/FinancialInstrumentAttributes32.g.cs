@@ -7,256 +7,436 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Description of the financial instrument.
 /// </summary>
+[IsoId("_3osh8fpREeCLrd06h-p51g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Attributes")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentAttributes32
-     : IIsoXmlSerilizable<FinancialInstrumentAttributes32>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a financial instrument.
     /// </summary>
+    [IsoId("_3osh__pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification14? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
+    [IsoId("_3osiCfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Listing")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
+    #else
+    public MarketIdentification3Choice_? PlaceOfListing { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
+    [IsoId("_3osiE_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Day Count Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat1Choice_? DayCountBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestComputationMethodFormat1Choice_? DayCountBasis { get; init; } 
+    #else
+    public InterestComputationMethodFormat1Choice_? DayCountBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI).
     /// </summary>
+    [IsoId("_3osiHfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClassificationType2Choice_? ClassificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClassificationType2Choice_? ClassificationType { get; init; } 
+    #else
+    public ClassificationType2Choice_? ClassificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which a financial instrument is currently denominated.
     /// </summary>
+    [IsoId("_3osiJ_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Denomination Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? DenominationCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? DenominationCurrency { get; init; } 
+    #else
+    public string? DenominationCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Next payment date of an interest bearing financial instrument.
     /// </summary>
+    [IsoId("_3osiMfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Coupon Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NextCouponDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? NextCouponDate { get; init; } 
+    #else
+    public System.DateOnly? NextCouponDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which an order expires or at which a privilege or offer terminates.
     /// </summary>
+    [IsoId("_3osiO_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExpiryDate { get; init; } 
+    #else
+    public System.DateOnly? ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the interest rate or redemption price will be/was calculated according to the terms of the issue.
     /// </summary>
+    [IsoId("_3osiRfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floating Rate Fixing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FloatingRateFixingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FloatingRateFixingDate { get; init; } 
+    #else
+    public System.DateOnly? FloatingRateFixingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a financial instrument becomes due and assets are to be repaid.
     /// </summary>
+    [IsoId("_3osiT_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? MaturityDate { get; init; } 
+    #else
+    public System.DateOnly? MaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the financial instrument is issued.
     /// </summary>
+    [IsoId("_3osiWfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? IssueDate { get; init; } 
+    #else
+    public System.DateOnly? IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a financial instrument is called away/redeemed before its scheduled maturity.
     /// </summary>
+    [IsoId("_3osiY_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Callable Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NextCallableDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? NextCallableDate { get; init; } 
+    #else
+    public System.DateOnly? NextCallableDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a holder of a financial instrument has the right to request redemption of the principal amount prior to its scheduled maturity date.
     /// </summary>
+    [IsoId("_3osibfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Putable Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PutableDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PutableDate { get; init; } 
+    #else
+    public System.DateOnly? PutableDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which an interest bearing financial instrument begins to accrue interest.
     /// </summary>
+    [IsoId("_3osid_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dated Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DatedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DatedDate { get; init; } 
+    #else
+    public System.DateOnly? DatedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deadline by which a convertible security must be converted, according to the terms of the issue.
     /// </summary>
+    [IsoId("_3osigfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conversion Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ConversionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ConversionDate { get; init; } 
+    #else
+    public System.DateOnly? ConversionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
+    [IsoId("_3osii_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PreviousFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousFactor { get; init; } 
+    #else
+    public System.Decimal? PreviousFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
+    [IsoId("_3osilfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? NextFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NextFactor { get; init; } 
+    #else
+    public System.Decimal? NextFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Annual rate of a financial instrument.
     /// </summary>
+    [IsoId("_3osin_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? InterestRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InterestRate { get; init; } 
+    #else
+    public System.Decimal? InterestRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interest rate applicable to the next interest payment period in relation to variable rate instruments.
     /// </summary>
+    [IsoId("_3osiqfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Interest Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? NextInterestRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NextInterestRate { get; init; } 
+    #else
+    public System.Decimal? NextInterestRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Also known as Minimum Nominal Value. Minimum nominal quantity of financial instrument that must be purchased/sold.
     /// </summary>
+    [IsoId("_3osis_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Nominal Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_3osivfpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_3osix_pREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Multiple Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a financial instrument quantity.
     /// </summary>
+    [IsoId("_3osi0fpREeCLrd06h-p51g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ContractSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? ContractSize { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? ContractSize { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlaceOfListing is MarketIdentification3Choice_ PlaceOfListingValue)
-        {
-            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
-            PlaceOfListingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DayCountBasis is InterestComputationMethodFormat1Choice_ DayCountBasisValue)
-        {
-            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
-            DayCountBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClassificationType is ClassificationType2Choice_ ClassificationTypeValue)
-        {
-            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
-            ClassificationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DenominationCurrency is ActiveOrHistoricCurrencyCode DenominationCurrencyValue)
-        {
-            writer.WriteStartElement(null, "DnmtnCcy", xmlNamespace );
-            writer.WriteValue(DenominationCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NextCouponDate is IsoISODate NextCouponDateValue)
-        {
-            writer.WriteStartElement(null, "NxtCpnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(NextCouponDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ExpiryDate is IsoISODate ExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (FloatingRateFixingDate is IsoISODate FloatingRateFixingDateValue)
-        {
-            writer.WriteStartElement(null, "FltgRateFxgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FloatingRateFixingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MaturityDate is IsoISODate MaturityDateValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (IssueDate is IsoISODate IssueDateValue)
-        {
-            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (NextCallableDate is IsoISODate NextCallableDateValue)
-        {
-            writer.WriteStartElement(null, "NxtCllblDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(NextCallableDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PutableDate is IsoISODate PutableDateValue)
-        {
-            writer.WriteStartElement(null, "PutblDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PutableDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DatedDate is IsoISODate DatedDateValue)
-        {
-            writer.WriteStartElement(null, "DtdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DatedDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ConversionDate is IsoISODate ConversionDateValue)
-        {
-            writer.WriteStartElement(null, "ConvsDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ConversionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PreviousFactor is IsoPercentageRate PreviousFactorValue)
-        {
-            writer.WriteStartElement(null, "PrvsFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PreviousFactorValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NextFactor is IsoPercentageRate NextFactorValue)
-        {
-            writer.WriteStartElement(null, "NxtFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(NextFactorValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InterestRate is IsoPercentageRate InterestRateValue)
-        {
-            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InterestRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NextInterestRate is IsoPercentageRate NextInterestRateValue)
-        {
-            writer.WriteStartElement(null, "NxtIntrstRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(NextInterestRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumNominalQuantity is FinancialInstrumentQuantity1Choice_ MinimumNominalQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinNmnlQty", xmlNamespace );
-            MinimumNominalQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblQty", xmlNamespace );
-            MinimumExercisableQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableMultipleQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableMultipleQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblMltplQty", xmlNamespace );
-            MinimumExercisableMultipleQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractSize is FinancialInstrumentQuantity1Choice_ ContractSizeValue)
-        {
-            writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
-            ContractSizeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrumentAttributes32 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

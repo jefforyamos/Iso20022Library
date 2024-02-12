@@ -7,104 +7,208 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[IsoId("_w_FwIVnLEeOQYsoJizpkVw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Group Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GroupHeader69
-     : IIsoXmlSerilizable<GroupHeader69>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a GroupHeader69 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public GroupHeader69( System.String reqIdentification,System.DateOnly reqIssuedDate,ExternalDocumentType1Code reqReportCategory,ExternalDocumentType1Code reqTaxReportPurpose )
+    {
+        Identification = reqIdentification;
+        IssuedDate = reqIssuedDate;
+        ReportCategory = reqReportCategory;
+        TaxReportPurpose = reqTaxReportPurpose;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Report identification, for example invoice number or report number from point of sales system.
     /// </summary>
+    [IsoId("_xLvFAVnLEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the status report was created.
     /// </summary>
+    [IsoId("_xLvFBVnLEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issued Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssuedDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly IssuedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly IssuedDate { get; init; } 
+    #else
+    public System.DateOnly IssuedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the report is based on debit invoice, credit invoice, card transaction or cash transaction.
     /// </summary>
+    [IsoId("_QUuWQFnMEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code ReportCategory { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentType1Code ReportCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentType1Code ReportCategory { get; init; } 
+    #else
+    public ExternalDocumentType1Code ReportCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the TaxReport is new, correction or remove.
     /// </summary>
+    [IsoId("_Dn1M4FnMEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Report Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code TaxReportPurpose { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentType1Code TaxReportPurpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentType1Code TaxReportPurpose { get; init; } 
+    #else
+    public ExternalDocumentType1Code TaxReportPurpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original tax report identification, used for example original invoice number with credit notes.
     /// </summary>
+    [IsoId("_e6lMYFnMEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalIdentification { get; init; } 
+    #else
+    public System.String? OriginalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of tax representative. The corporate (seller) is allowed to use a tax representative for value added tax responsibilities in case the seller is not registered in a specific value added tax registry.
     /// </summary>
+    [IsoId("_ocsb0FnMEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller Tax Representative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification116? SellerTaxRepresentative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification116? SellerTaxRepresentative { get; init; } 
+    #else
+    public PartyIdentification116? SellerTaxRepresentative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of tax representative. The corporate (buyer) is allowed to use a tax representative for value added tax responsibilities in case the buyer is not registered in a specific value added tax registry.
     /// </summary>
+    [IsoId("_t4-eUFnMEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer Tax Representative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification116? BuyerTaxRepresentative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification116? BuyerTaxRepresentative { get; init; } 
+    #else
+    public PartyIdentification116? BuyerTaxRepresentative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the language used in the message.
     /// </summary>
+    [IsoId("_yQ0oUFnMEeOQYsoJizpkVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? LanguageCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LanguageCode { get; init; } 
+    #else
+    public string? LanguageCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IssdDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(IssuedDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptCtgy", xmlNamespace );
-        writer.WriteValue(ReportCategory.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TaxRptPurp", xmlNamespace );
-        writer.WriteValue(TaxReportPurpose.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OriginalIdentification is IsoMax35Text OriginalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SellerTaxRepresentative is PartyIdentification116 SellerTaxRepresentativeValue)
-        {
-            writer.WriteStartElement(null, "SellrTaxRprtv", xmlNamespace );
-            SellerTaxRepresentativeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BuyerTaxRepresentative is PartyIdentification116 BuyerTaxRepresentativeValue)
-        {
-            writer.WriteStartElement(null, "BuyrTaxRprtv", xmlNamespace );
-            BuyerTaxRepresentativeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LanguageCode is LanguageCode LanguageCodeValue)
-        {
-            writer.WriteStartElement(null, "LangCd", xmlNamespace );
-            writer.WriteValue(LanguageCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static GroupHeader69 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity2Choice;
-
-/// <summary>
-/// Provides the period for the time to maturity.
-/// </summary>
-public partial record Period : TimeToMaturity2Choice_
-     , IIsoXmlSerilizable<Period>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the start of the maturity period.
+    /// Provides the period for the time to maturity.
     /// </summary>
-    public MaturityTerm2? Start { get; init; } 
-    /// <summary>
-    /// Specifies the end of the maturity period.
-    /// </summary>
-    public MaturityTerm2? End { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("__aOTka5OEeuo-IflVgGqiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Period : TimeToMaturity2Choice_
+    #else
+    public partial class Period : TimeToMaturity2Choice_
+    #endif
     {
-        if (Start is MaturityTerm2 StartValue)
-        {
-            writer.WriteStartElement(null, "Start", xmlNamespace );
-            StartValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (End is MaturityTerm2 EndValue)
-        {
-            writer.WriteStartElement(null, "End", xmlNamespace );
-            EndValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Period Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the start of the maturity period.
+        /// </summary>
+        [IsoId("__pHrMa5OEeuo-IflVgGqiA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Start")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MaturityTerm2? Start { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MaturityTerm2? Start { get; init; } 
+        #else
+        public MaturityTerm2? Start { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the end of the maturity period.
+        /// </summary>
+        [IsoId("__pHrM65OEeuo-IflVgGqiA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("End")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MaturityTerm2? End { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MaturityTerm2? End { get; init; } 
+        #else
+        public MaturityTerm2? End { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

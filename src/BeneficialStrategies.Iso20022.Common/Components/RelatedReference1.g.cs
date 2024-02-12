@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of the message previously received and for which the delivery status is notified.
 /// </summary>
+[IsoId("_rrrBUQ2zEeWH49U6bkyMaA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Related Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RelatedReference1
-     : IIsoXmlSerilizable<RelatedReference1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique transaction identifier assigned by the local application.
     /// </summary>
+    [IsoId("_JFLwQRJaEeWg-NN-FmovgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Unique Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? TransactionUniqueIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionUniqueIdentifier { get; init; } 
+    #else
+    public System.String? TransactionUniqueIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message reference assigned by the original message sender.
     /// </summary>
+    [IsoId("_F5zZYRJaEeWg-NN-FmovgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageReference { get; init; } 
+    #else
+    public System.String? MessageReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TransactionUniqueIdentifier is IsoMax105Text TransactionUniqueIdentifierValue)
-        {
-            writer.WriteStartElement(null, "TxUnqIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(TransactionUniqueIdentifierValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        if (MessageReference is IsoMax35Text MessageReferenceValue)
-        {
-            writer.WriteStartElement(null, "MsgRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RelatedReference1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

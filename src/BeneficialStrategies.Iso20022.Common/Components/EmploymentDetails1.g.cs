@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Previous employment information.
 /// </summary>
+[IsoId("_YJCEAHzpEeuEHsEB8Johfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Employment Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EmploymentDetails1
-     : IIsoXmlSerilizable<EmploymentDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Current tax code.
     /// </summary>
+    [IsoId("_vkTboXzpEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification36? TaxCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification36? TaxCode { get; init; } 
+    #else
+    public GenericIdentification36? TaxCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not another tax code exists.
     /// </summary>
+    [IsoId("_2hDV4HzqEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Tax Code Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OtherTaxCodeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherTaxCodeIndicator { get; init; } 
+    #else
+    public System.String? OtherTaxCodeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether tax is cumulative or non-cumulative. In the UK, this is known as the W1M1 indicator.
     /// </summary>
+    [IsoId("_8YYLEHzpEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cumulative Tax Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CumulativeTaxIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CumulativeTaxIndicator { get; init; } 
+    #else
+    public System.String? CumulativeTaxIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the previous pay.
     /// </summary>
+    [IsoId("_D_1EoHzqEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Pay")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviousPay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousPay { get; init; } 
+    #else
+    public System.Decimal? PreviousPay { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the previous tax.
     /// </summary>
+    [IsoId("_Hg2UUHzqEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviousTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousTax { get; init; } 
+    #else
+    public System.Decimal? PreviousTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Start date of the employment period.
     /// </summary>
+    [IsoId("_KV09YHzqEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat42Choice_? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat42Choice_? StartDate { get; init; } 
+    #else
+    public DateFormat42Choice_? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// End date of the employment period.
     /// </summary>
+    [IsoId("_ydy70HzqEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat42Choice_? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat42Choice_? EndDate { get; init; } 
+    #else
+    public DateFormat42Choice_? EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the employment.
     /// </summary>
+    [IsoId("_9IAbwHzqEeuEHsEB8Johfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TaxCode is GenericIdentification36 TaxCodeValue)
-        {
-            writer.WriteStartElement(null, "TaxCd", xmlNamespace );
-            TaxCodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherTaxCodeIndicator is IsoYesNoIndicator OtherTaxCodeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OthrTaxCdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OtherTaxCodeIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CumulativeTaxIndicator is IsoYesNoIndicator CumulativeTaxIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CmltvTaxInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CumulativeTaxIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PreviousPay is IsoActiveCurrencyAndAmount PreviousPayValue)
-        {
-            writer.WriteStartElement(null, "PrvsPay", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousPayValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviousTax is IsoActiveCurrencyAndAmount PreviousTaxValue)
-        {
-            writer.WriteStartElement(null, "PrvsTax", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousTaxValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (StartDate is DateFormat42Choice_ StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            StartDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EndDate is DateFormat42Choice_ EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            EndDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static EmploymentDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

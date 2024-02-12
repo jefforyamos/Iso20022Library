@@ -7,117 +7,217 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the calculation of the margin.
 /// </summary>
+[IsoId("_UkjHSdp-Ed-ak6NoX_4Aeg_-647501406")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Margin")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Margin2
-     : IIsoXmlSerilizable<Margin2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Margin2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Margin2( System.Decimal reqTotalMarginAmount,VariationMargin2 reqVariationMargin,Amount2 reqInitialMargin )
+    {
+        TotalMarginAmount = reqTotalMarginAmount;
+        VariationMargin = reqVariationMargin;
+        InitialMargin = reqInitialMargin;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
+    [IsoId("_UkjHStp-Ed-ak6NoX_4Aeg_-2041966150")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification14? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net total of the transaction exposure of all outstanding deals.
     /// </summary>
+    [IsoId("_UksRMNp-Ed-ak6NoX_4Aeg_-329577950")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? ExposureAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2? ExposureAmount { get; init; } 
+    #else
+    public Amount2? ExposureAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total margin requirement (expressed in the reporting currency) that must be provided by the clearing member to the central counterparty. This is the total requirement calculated to cover the initial margin and the variation margin.
     /// </summary>
+    [IsoId("_UksRMdp-Ed-ak6NoX_4Aeg_-1135141434")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Margin Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalMarginAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalMarginAmount { get; init; } 
+    #else
+    public System.Decimal TotalMarginAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the calculation of the variation margin.
     /// </summary>
+    [IsoId("_UksRMtp-Ed-ak6NoX_4Aeg_177061771")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VariationMargin2 VariationMargin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public VariationMargin2 VariationMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VariationMargin2 VariationMargin { get; init; } 
+    #else
+    public VariationMargin2 VariationMargin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.
     /// </summary>
+    [IsoId("_UksRM9p-Ed-ak6NoX_4Aeg_2010627762")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2 InitialMargin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount2 InitialMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2 InitialMargin { get; init; } 
+    #else
+    public Amount2 InitialMargin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional amount (expressed in the reporting currency) that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on Central counterparty specific criteria.
     /// </summary>
+    [IsoId("_UksRNNp-Ed-ak6NoX_4Aeg_2025633151")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Increase Coverage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IncreaseCoverage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? IncreaseCoverage { get; init; } 
+    #else
+    public System.Decimal? IncreaseCoverage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the Central counterparty.
     /// </summary>
+    [IsoId("_UksRNdp-Ed-ak6NoX_4Aeg_499679229")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Requirement Deposit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumRequirementDeposit { get; init; } 
+    #else
+    public System.Decimal? MinimumRequirementDeposit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
+    [IsoId("_UksRNtp-Ed-ak6NoX_4Aeg_1252170489")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral On Deposit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Collateral3? CollateralOnDeposit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Collateral3? CollateralOnDeposit { get; init; } 
+    #else
+    public Collateral3? CollateralOnDeposit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the margin result.
     /// </summary>
+    [IsoId("_UksRN9p-Ed-ak6NoX_4Aeg_1717019535")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginResult1Choice_? MarginResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarginResult1Choice_? MarginResult { get; init; } 
+    #else
+    public MarginResult1Choice_? MarginResult { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExposureAmount is Amount2 ExposureAmountValue)
-        {
-            writer.WriteStartElement(null, "XpsrAmt", xmlNamespace );
-            ExposureAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlMrgnAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalMarginAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
-        VariationMargin.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InitlMrgn", xmlNamespace );
-        InitialMargin.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (IncreaseCoverage is IsoActiveCurrencyAndAmount IncreaseCoverageValue)
-        {
-            writer.WriteStartElement(null, "IncrCvrg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncreaseCoverageValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumRequirementDeposit is IsoActiveCurrencyAndAmount MinimumRequirementDepositValue)
-        {
-            writer.WriteStartElement(null, "MinRqrmntDpst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumRequirementDepositValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CollateralOnDeposit is Collateral3 CollateralOnDepositValue)
-        {
-            writer.WriteStartElement(null, "CollOnDpst", xmlNamespace );
-            CollateralOnDepositValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarginResult is MarginResult1Choice_ MarginResultValue)
-        {
-            writer.WriteStartElement(null, "MrgnRslt", xmlNamespace );
-            MarginResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Margin2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

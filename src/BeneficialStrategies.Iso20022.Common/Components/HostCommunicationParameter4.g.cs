@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[IsoId("_PDwmYY3_EeWRwov1g9WL_A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Host Communication Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record HostCommunicationParameter4
-     : IIsoXmlSerilizable<HostCommunicationParameter4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a HostCommunicationParameter4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public HostCommunicationParameter4( TerminalManagementAction3Code reqActionType,System.String reqHostIdentification )
+    {
+        ActionType = reqActionType;
+        HostIdentification = reqHostIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [IsoId("_YkadQI3_EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #else
+    public TerminalManagementAction3Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the host.
     /// </summary>
+    [IsoId("_POMUwY3_EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text HostIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String HostIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String HostIdentification { get; init; } 
+    #else
+    public System.String HostIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Network parameters of the host.
     /// </summary>
+    [IsoId("_POMUw43_EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters3? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters3? Address { get; init; } 
+    #else
+    public NetworkParameters3? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
+    [IsoId("_POMUxY3_EeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KEKIdentifier5? Key { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KEKIdentifier5? Key { get; init; } 
+    #else
+    public KEKIdentifier5? Key { get; set; } 
+    #endif
+    
     /// <summary>
     /// Access information to reach an intermediate network service provider.
     /// </summary>
+    [IsoId("_EXHBAI4AEeWRwov1g9WL_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Network Service Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters5? NetworkServiceProvider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters5? NetworkServiceProvider { get; init; } 
+    #else
+    public NetworkParameters5? NetworkServiceProvider { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "HstId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Address is NetworkParameters3 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Key is KEKIdentifier5 KeyValue)
-        {
-            writer.WriteStartElement(null, "Key", xmlNamespace );
-            KeyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetworkServiceProvider is NetworkParameters5 NetworkServiceProviderValue)
-        {
-            writer.WriteStartElement(null, "NtwkSvcPrvdr", xmlNamespace );
-            NetworkServiceProviderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static HostCommunicationParameter4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

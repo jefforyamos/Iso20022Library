@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Official identification of an organisation (legal entity) in a specific register.
 /// </summary>
+[IsoId("_QP1JwNp-Ed-ak6NoX_4Aeg_-158801686")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Organisation Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OrganisationIdentification5
-     : IIsoXmlSerilizable<OrganisationIdentification5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OrganisationIdentification5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OrganisationIdentification5( System.String reqRegistrationNumber )
+    {
+        RegistrationNumber = reqRegistrationNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the register of legal entities.
     /// </summary>
+    [IsoId("_QP1Jwdp-Ed-ak6NoX_4Aeg_-1308997280")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RegistrationNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RegistrationNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RegistrationNumber { get; init; } 
+    #else
+    public System.String RegistrationNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the register managed by a registration authority.
     /// </summary>
+    [IsoId("_QP1Jwtp-Ed-ak6NoX_4Aeg_-1209035067")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Register Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RegisterName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RegisterName { get; init; } 
+    #else
+    public System.String? RegisterName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RegnNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (RegisterName is IsoMax35Text RegisterNameValue)
-        {
-            writer.WriteStartElement(null, "RegrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegisterNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static OrganisationIdentification5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

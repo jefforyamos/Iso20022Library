@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Card Reader Application Protocol Data Unit Response message.
 /// </summary>
+[IsoId("_W5rM4N6iEeiwsev40qZGEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Send Application Protocol Data Unit Card Reader Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeviceSendApplicationProtocolDataUnitCardReaderResponse1
-     : IIsoXmlSerilizable<DeviceSendApplicationProtocolDataUnitCardReaderResponse1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeviceSendApplicationProtocolDataUnitCardReaderResponse1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeviceSendApplicationProtocolDataUnitCardReaderResponse1( System.Byte[] reqCardStatus )
+    {
+        CardStatus = reqCardStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
+    [IsoId("_yAfMsN6jEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin1Max256Binary? Data { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? Data { get; init; } 
+    #else
+    public System.Byte[]? Data { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of a smartcard response to a command (SW1-SW2). Reference: ISO 7816-4.
     /// </summary>
+    [IsoId("_BQhBMN6kEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin1Max256Binary CardStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] CardStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] CardStatus { get; init; } 
+    #else
+    public System.Byte[] CardStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Data is IsoMin1Max256Binary DataValue)
-        {
-            writer.WriteStartElement(null, "Data", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(DataValue)); // data type Min1Max256Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CardSts", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(CardStatus)); // data type Min1Max256Binary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static DeviceSendApplicationProtocolDataUnitCardReaderResponse1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

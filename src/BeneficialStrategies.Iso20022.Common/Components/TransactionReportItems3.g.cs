@@ -7,160 +7,368 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed description of the items that correspond to the parameters set in a request and for which a report has been generated.
 /// </summary>
+[IsoId("_Pcav1tp-Ed-ak6NoX_4Aeg_-340644138")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Report Items")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionReportItems3
-     : IIsoXmlSerilizable<TransactionReportItems3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionReportItems3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionReportItems3( System.String reqTransactionIdentification,TransactionStatus4 reqTransactionStatus,DocumentIdentification7 reqPurchaseOrderReference,PartyIdentification26 reqBuyer,PartyIdentification26 reqSeller,BICIdentification1 reqBuyerBank,string reqBuyerBankCountry,BICIdentification1 reqSellerBank,string reqSellerBankCountry,System.Decimal reqOutstandingAmount,System.Decimal reqTotalNetAmount )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        TransactionStatus = reqTransactionStatus;
+        PurchaseOrderReference = reqPurchaseOrderReference;
+        Buyer = reqBuyer;
+        Seller = reqSeller;
+        BuyerBank = reqBuyerBank;
+        BuyerBankCountry = reqBuyerBankCountry;
+        SellerBank = reqSellerBank;
+        SellerBankCountry = reqSellerBankCountry;
+        OutstandingAmount = reqOutstandingAmount;
+        TotalNetAmount = reqTotalNetAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
+    [IsoId("_Pcav19p-Ed-ak6NoX_4Aeg_-340643903")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransactionIdentification { get; init; } 
+    #else
+    public System.String TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
+    [IsoId("_Pcav2Np-Ed-ak6NoX_4Aeg_-340642293")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Established Baseline Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
+    #else
+    public DocumentIdentification3? EstablishedBaselineIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [IsoId("_Pckg0Np-Ed-ak6NoX_4Aeg_-340642912")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionStatus4 TransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionStatus4 TransactionStatus { get; init; } 
+    #else
+    public TransactionStatus4 TransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = [];
+    [IsoId("_Pckg0dp-Ed-ak6NoX_4Aeg_-340643309")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("User Transaction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
+    
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
+    [IsoId("_Pckg0tp-Ed-ak6NoX_4Aeg_-340643207")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purchase Order Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    #else
+    public DocumentIdentification7 PurchaseOrderReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_Pckg09p-Ed-ak6NoX_4Aeg_-340642397")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Buyer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification26 Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26 Buyer { get; init; } 
+    #else
+    public PartyIdentification26 Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_Pckg1Np-Ed-ak6NoX_4Aeg_-340642475")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Seller { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification26 Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26 Seller { get; init; } 
+    #else
+    public PartyIdentification26 Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution of the buyer.
     /// </summary>
+    [IsoId("_Pckg1dp-Ed-ak6NoX_4Aeg_-340642817")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer Bank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 BuyerBank { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BICIdentification1 BuyerBank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1 BuyerBank { get; init; } 
+    #else
+    public BICIdentification1 BuyerBank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the buyer bank.
     /// </summary>
+    [IsoId("_Pckg1tp-Ed-ak6NoX_4Aeg_-340643808")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer Bank Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode BuyerBankCountry { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string BuyerBankCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string BuyerBankCountry { get; init; } 
+    #else
+    public string BuyerBankCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution of the seller.
     /// </summary>
+    [IsoId("_Pckg19p-Ed-ak6NoX_4Aeg_-340641981")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller Bank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 SellerBank { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BICIdentification1 SellerBank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1 SellerBank { get; init; } 
+    #else
+    public BICIdentification1 SellerBank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the seller bank.
     /// </summary>
+    [IsoId("_Pckg2Np-Ed-ak6NoX_4Aeg_-340643748")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller Bank Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode SellerBankCountry { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string SellerBankCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string SellerBankCountry { get; init; } 
+    #else
+    public string SellerBankCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution that is an obligor bank to the transaction.
     /// </summary>
+    [IsoId("_Pckg2dp-Ed-ak6NoX_4Aeg_244469562")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Obligor Bank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? ObligorBank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1? ObligorBank { get; init; } 
+    #else
+    public BICIdentification1? ObligorBank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution that is a data set submitting bank to the transaction.
     /// </summary>
+    [IsoId("_PcuR0Np-Ed-ak6NoX_4Aeg_600025147")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Submitting Bank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? SubmittingBank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1? SubmittingBank { get; init; } 
+    #else
+    public BICIdentification1? SubmittingBank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of baseline not yet utilised.
     /// </summary>
+    [IsoId("_PcuR0dp-Ed-ak6NoX_4Aeg_-340643843")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outstanding Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OutstandingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal OutstandingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal OutstandingAmount { get; init; } 
+    #else
+    public System.Decimal OutstandingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total net amount as specified in the baseline.
     /// </summary>
+    [IsoId("_PcuR0tp-Ed-ak6NoX_4Aeg_-783982941")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount TotalNetAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalNetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalNetAmount { get; init; } 
+    #else
+    public System.Decimal TotalNetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Next processing step required.
     /// </summary>
+    [IsoId("_PcuR09p-Ed-ak6NoX_4Aeg_-340643379")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Request For Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? PendingRequestForAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PendingActivity2? PendingRequestForAction { get; init; } 
+    #else
+    public PendingActivity2? PendingRequestForAction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
-        {
-            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
-            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        TransactionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
-        UserTransactionReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
-        PurchaseOrderReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Buyr", xmlNamespace );
-        Buyer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sellr", xmlNamespace );
-        Seller.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
-        BuyerBank.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BuyrBkCtry", xmlNamespace );
-        writer.WriteValue(BuyerBankCountry.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
-        SellerBank.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SellrBkCtry", xmlNamespace );
-        writer.WriteValue(SellerBankCountry.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ObligorBank is BICIdentification1 ObligorBankValue)
-        {
-            writer.WriteStartElement(null, "OblgrBk", xmlNamespace );
-            ObligorBankValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubmittingBank is BICIdentification1 SubmittingBankValue)
-        {
-            writer.WriteStartElement(null, "SubmitgBk", xmlNamespace );
-            SubmittingBankValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OutsdngAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OutstandingAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlNetAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalNetAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (PendingRequestForAction is PendingActivity2 PendingRequestForActionValue)
-        {
-            writer.WriteStartElement(null, "PdgReqForActn", xmlNamespace );
-            PendingRequestForActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionReportItems3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

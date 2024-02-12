@@ -7,46 +7,40 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References13Choice.SecuritiesSettlementTransactionIdentification))]
-[KnownType(typeof(References13Choice.IntraPositionMovementIdentification))]
-[KnownType(typeof(References13Choice.IntraBalanceMovementIdentification))]
-[KnownType(typeof(References13Choice.AccountServicerTransactionIdentification))]
-[KnownType(typeof(References13Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References13Choice.PoolIdentification))]
-[KnownType(typeof(References13Choice.CommonIdentification))]
-[KnownType(typeof(References13Choice.TradeIdentification))]
-[KnownType(typeof(References13Choice.OtherTransactionIdentification))]
-public abstract partial record References13Choice_ : IIsoXmlSerilizable<References13Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References13Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References13Choice.SecuritiesSettlementTransactionIdentification))]
+    [KnownType(typeof(References13Choice.IntraPositionMovementIdentification))]
+    [KnownType(typeof(References13Choice.IntraBalanceMovementIdentification))]
+    [KnownType(typeof(References13Choice.AccountServicerTransactionIdentification))]
+    [KnownType(typeof(References13Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References13Choice.PoolIdentification))]
+    [KnownType(typeof(References13Choice.CommonIdentification))]
+    [KnownType(typeof(References13Choice.TradeIdentification))]
+    [KnownType(typeof(References13Choice.OtherTransactionIdentification))]
+    [IsoId("_-1br8fuZEd-Qm92hXFsDlA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 13 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References13Choice_
+    #else
+    public abstract partial class References13Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxId" => References13Choice.SecuritiesSettlementTransactionIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntId" => References13Choice.IntraPositionMovementIdentification.Deserialize(elementWithPayload),
-             "IntraBalMvmntId" => References13Choice.IntraBalanceMovementIdentification.Deserialize(elementWithPayload),
-             "AcctSvcrTxId" => References13Choice.AccountServicerTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => References13Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "PoolId" => References13Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "CmonId" => References13Choice.CommonIdentification.Deserialize(elementWithPayload),
-             "TradId" => References13Choice.TradeIdentification.Deserialize(elementWithPayload),
-             "OthrTxId" => References13Choice.OtherTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References13Choice choice.")
-        };
     }
 }

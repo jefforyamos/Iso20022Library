@@ -7,132 +7,215 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Resources of a legal entity or other financial construct that are available to meet cash obligations.
 /// </summary>
+[IsoId("_Ta5foLJQEeaYqc4G3TTwhA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Liquid Resources")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LiquidResources1
-     : IIsoXmlSerilizable<LiquidResources1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Cash expected to be available to the CCP on each day in order to meet liquid requirements.
     /// </summary>
+    [IsoId("_yq6uYESsEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Due")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public LiquidResourceInformation1? CashDue { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _yq6uYESsEemM8-DVOYzdVQ
+    
     /// <summary>
     /// Lines of credit with credit institutions that are contractually committed with the liquidity provider.
     /// </summary>
+    [IsoId("_ADHekEStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Facilities Committed Lines Of Credit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesCommittedLinesOfCredit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FacilitiesCommittedLinesOfCredit { get; init; } 
+    #else
+    public LiquidResourceInformation1? FacilitiesCommittedLinesOfCredit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Repurchase agreement that are contractually committed with the liquidity provider.
     /// </summary>
+    [IsoId("_GH3PQEStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Facilities Committed Repurchase Agreements")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesCommittedRepurchaseAgreements { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FacilitiesCommittedRepurchaseAgreements { get; init; } 
+    #else
+    public LiquidResourceInformation1? FacilitiesCommittedRepurchaseAgreements { get; set; } 
+    #endif
+    
     /// <summary>
     /// FX swaps that are contractually committed with the liquidity provider.
     /// </summary>
+    [IsoId("_LR_KwEStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Facilities Committed FX Swaps")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesCommittedFXSwaps { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FacilitiesCommittedFXSwaps { get; init; } 
+    #else
+    public LiquidResourceInformation1? FacilitiesCommittedFXSwaps { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other liquidity facilities that are contractually committed with the liquidity provider.
     /// </summary>
+    [IsoId("_RIdO4EStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Facilities Other Committed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesOtherCommitted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FacilitiesOtherCommitted { get; init; } 
+    #else
+    public LiquidResourceInformation1? FacilitiesOtherCommitted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Liquidity facilities that are not contractually committed.
     /// </summary>
+    [IsoId("_V9wJ4EStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Facilities Uncommitted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesUncommitted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FacilitiesUncommitted { get; init; } 
+    #else
+    public LiquidResourceInformation1? FacilitiesUncommitted { get; set; } 
+    #endif
+    
     /// <summary>
     /// CCPs own non cash resources.
     /// </summary>
+    [IsoId("_bPLAMEStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instruments CCP")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsCCP { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FinancialInstrumentsCCP { get; init; } 
+    #else
+    public LiquidResourceInformation1? FinancialInstrumentsCCP { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instruments from CCP treasury investments of clearing members cash collateral with any of the CCPs own cash invested included.
     /// </summary>
+    [IsoId("_hQgQgEStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instruments Treasury Investments")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsTreasuryInvestments { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FinancialInstrumentsTreasuryInvestments { get; init; } 
+    #else
+    public LiquidResourceInformation1? FinancialInstrumentsTreasuryInvestments { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instruments due to be delivered to the defaulting member that post-default can be used to meet liquidity needs in the event of their default.
     /// </summary>
+    [IsoId("_l39j0EStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instruments Defaulters Settlement Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsDefaultersSettlementCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FinancialInstrumentsDefaultersSettlementCollateral { get; init; } 
+    #else
+    public LiquidResourceInformation1? FinancialInstrumentsDefaultersSettlementCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Non-cash collateral e.g. margin provided by the defaulting counterparty that can be used to meet liquidity needs in the event of their default.
     /// </summary>
+    [IsoId("_qv8mcEStEemM8-DVOYzdVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instruments Defaulters Non Cash Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsDefaultersNonCashCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LiquidResourceInformation1? FinancialInstrumentsDefaultersNonCashCollateral { get; init; } 
+    #else
+    public LiquidResourceInformation1? FinancialInstrumentsDefaultersNonCashCollateral { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize CashDue, multiplicity Unknown
-        if (FacilitiesCommittedLinesOfCredit is LiquidResourceInformation1 FacilitiesCommittedLinesOfCreditValue)
-        {
-            writer.WriteStartElement(null, "FcltiesCmmtdLinesOfCdt", xmlNamespace );
-            FacilitiesCommittedLinesOfCreditValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FacilitiesCommittedRepurchaseAgreements is LiquidResourceInformation1 FacilitiesCommittedRepurchaseAgreementsValue)
-        {
-            writer.WriteStartElement(null, "FcltiesCmmtdRpAgrmts", xmlNamespace );
-            FacilitiesCommittedRepurchaseAgreementsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FacilitiesCommittedFXSwaps is LiquidResourceInformation1 FacilitiesCommittedFXSwapsValue)
-        {
-            writer.WriteStartElement(null, "FcltiesCmmtdFxSwps", xmlNamespace );
-            FacilitiesCommittedFXSwapsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FacilitiesOtherCommitted is LiquidResourceInformation1 FacilitiesOtherCommittedValue)
-        {
-            writer.WriteStartElement(null, "FcltiesOthrCmmtd", xmlNamespace );
-            FacilitiesOtherCommittedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FacilitiesUncommitted is LiquidResourceInformation1 FacilitiesUncommittedValue)
-        {
-            writer.WriteStartElement(null, "FcltiesUcmmtd", xmlNamespace );
-            FacilitiesUncommittedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentsCCP is LiquidResourceInformation1 FinancialInstrumentsCCPValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmsCCP", xmlNamespace );
-            FinancialInstrumentsCCPValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentsTreasuryInvestments is LiquidResourceInformation1 FinancialInstrumentsTreasuryInvestmentsValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmsTrsrInvstmts", xmlNamespace );
-            FinancialInstrumentsTreasuryInvestmentsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentsDefaultersSettlementCollateral is LiquidResourceInformation1 FinancialInstrumentsDefaultersSettlementCollateralValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmsDfltrsSttlmColl", xmlNamespace );
-            FinancialInstrumentsDefaultersSettlementCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentsDefaultersNonCashCollateral is LiquidResourceInformation1 FinancialInstrumentsDefaultersNonCashCollateralValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmsDfltrsNonCshColl", xmlNamespace );
-            FinancialInstrumentsDefaultersNonCashCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LiquidResources1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

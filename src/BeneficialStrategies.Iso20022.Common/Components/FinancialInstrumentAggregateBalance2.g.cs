@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aggregated position held in a securities account for a specified financial instrument.
 /// </summary>
+[IsoId("_aA5_JqCCEeOEyO7fCl8lLA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Aggregate Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentAggregateBalance2
-     : IIsoXmlSerilizable<FinancialInstrumentAggregateBalance2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Balance of settled transactions.
     /// </summary>
+    [IsoId("_aA5_KqCCEeOEyO7fCl8lLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settled Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? SettledBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? SettledBalance { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? SettledBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of settled transactions and transactions pending settlement.
     /// </summary>
+    [IsoId("_aA5_KaCCEeOEyO7fCl8lLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Traded Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? TradedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? TradedBalance { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? TradedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of the balances of holdings into sub-balances.
     /// </summary>
+    [IsoId("_aA5_K6CCEeOEyO7fCl8lLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubBalanceBreakdown1? BalanceBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubBalanceBreakdown1? BalanceBreakdown { get; init; } 
+    #else
+    public SubBalanceBreakdown1? BalanceBreakdown { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SettledBalance is FinancialInstrumentQuantity1Choice_ SettledBalanceValue)
-        {
-            writer.WriteStartElement(null, "SttldBal", xmlNamespace );
-            SettledBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradedBalance is FinancialInstrumentQuantity1Choice_ TradedBalanceValue)
-        {
-            writer.WriteStartElement(null, "TraddBal", xmlNamespace );
-            TradedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BalanceBreakdown is SubBalanceBreakdown1 BalanceBreakdownValue)
-        {
-            writer.WriteStartElement(null, "BalBrkdwn", xmlNamespace );
-            BalanceBreakdownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrumentAggregateBalance2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

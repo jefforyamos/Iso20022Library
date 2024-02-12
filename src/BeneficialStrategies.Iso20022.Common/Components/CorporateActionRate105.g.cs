@@ -7,156 +7,256 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rates of a corporate action.
 /// </summary>
+[IsoId("_YT-8Re29Eeqc-LCjwLsUVg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionRate105
-     : IIsoXmlSerilizable<CorporateActionRate105>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Annualised interest rate of a financial instrument used to calculate the actual interest rate of the coupon or the accrued interest.
     /// </summary>
+    [IsoId("_Yn6kFe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat37Choice_? InterestRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat37Choice_? InterestRate { get; init; } 
+    #else
+    public RateAndAmountFormat37Choice_? InterestRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event.
     /// </summary>
+    [IsoId("_Yn6kHe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Sought")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat7Choice_? PercentageSought { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat7Choice_? PercentageSought { get; init; } 
+    #else
+    public RateFormat7Choice_? PercentageSought { get; set; } 
+    #endif
+    
     /// <summary>
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
+    [IsoId("_Yn6kJe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? RelatedIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat3Choice_? RelatedIndex { get; init; } 
+    #else
+    public RateFormat3Choice_? RelatedIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Margin allowed over or under a given rate.
     /// </summary>
+    [IsoId("_Yn6kLe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? Spread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat3Choice_? Spread { get; init; } 
+    #else
+    public RateFormat3Choice_? Spread { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
+    [IsoId("_Yn6kNe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid Interval")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat38Choice_? BidInterval { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat38Choice_? BidInterval { get; init; } 
+    #else
+    public RateAndAmountFormat38Choice_? BidInterval { get; set; } 
+    #endif
+    
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
+    [IsoId("_Yn6kPe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat12Choice_? PreviousFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat12Choice_? PreviousFactor { get; init; } 
+    #else
+    public RateFormat12Choice_? PreviousFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
+    [IsoId("_Yn6kRe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat12Choice_? NextFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat12Choice_? NextFactor { get; init; } 
+    #else
+    public RateFormat12Choice_? NextFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
+    [IsoId("_Yn6kTe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvestment Discount Rate To Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? ReinvestmentDiscountRateToMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateFormat3Choice_? ReinvestmentDiscountRateToMarket { get; init; } 
+    #else
+    public RateFormat3Choice_? ReinvestmentDiscountRateToMarket { get; set; } 
+    #endif
+    
     /// <summary>
     /// For structured security issues where there is a set schedule of principal and interest payments for the life of the issue, this is the difference between the actual rate of the interest payment and the expected or scheduled rate of the interest payment.
     /// </summary>
+    [IsoId("_Yn6kVe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Shortfall")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat39Choice_? InterestShortfall { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat39Choice_? InterestShortfall { get; init; } 
+    #else
+    public RateAndAmountFormat39Choice_? InterestShortfall { get; set; } 
+    #endif
+    
     /// <summary>
     /// For structured security issues where there is a set schedule of principal and interest payments for the life of the issue, this is the difference between the actual rate of the capital or principal repayment and the scheduled capital repayment.
     /// </summary>
+    [IsoId("_Yn6kV-29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Realised Loss")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat39Choice_? RealisedLoss { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat39Choice_? RealisedLoss { get; init; } 
+    #else
+    public RateAndAmountFormat39Choice_? RealisedLoss { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend or interest rate declared by the issuer.
     /// </summary>
+    [IsoId("_Yn6kWe29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declared Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat39Choice_? DeclaredRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat39Choice_? DeclaredRate { get; init; } 
+    #else
+    public RateAndAmountFormat39Choice_? DeclaredRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Public index rate applied to the amount paid to adjust it to inflation.
     /// </summary>
+    [IsoId("_brtFNO29Eeqc-LCjwLsUVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat37Choice_? IndexFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat37Choice_? IndexFactor { get; init; } 
+    #else
+    public RateAndAmountFormat37Choice_? IndexFactor { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InterestRate is RateAndAmountFormat37Choice_ InterestRateValue)
-        {
-            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
-            InterestRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PercentageSought is RateFormat7Choice_ PercentageSoughtValue)
-        {
-            writer.WriteStartElement(null, "PctgSght", xmlNamespace );
-            PercentageSoughtValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RelatedIndex is RateFormat3Choice_ RelatedIndexValue)
-        {
-            writer.WriteStartElement(null, "RltdIndx", xmlNamespace );
-            RelatedIndexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Spread is RateFormat3Choice_ SpreadValue)
-        {
-            writer.WriteStartElement(null, "Sprd", xmlNamespace );
-            SpreadValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BidInterval is RateAndAmountFormat38Choice_ BidIntervalValue)
-        {
-            writer.WriteStartElement(null, "BidIntrvl", xmlNamespace );
-            BidIntervalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousFactor is RateFormat12Choice_ PreviousFactorValue)
-        {
-            writer.WriteStartElement(null, "PrvsFctr", xmlNamespace );
-            PreviousFactorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NextFactor is RateFormat12Choice_ NextFactorValue)
-        {
-            writer.WriteStartElement(null, "NxtFctr", xmlNamespace );
-            NextFactorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReinvestmentDiscountRateToMarket is RateFormat3Choice_ ReinvestmentDiscountRateToMarketValue)
-        {
-            writer.WriteStartElement(null, "RinvstmtDscntRateToMkt", xmlNamespace );
-            ReinvestmentDiscountRateToMarketValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterestShortfall is RateAndAmountFormat39Choice_ InterestShortfallValue)
-        {
-            writer.WriteStartElement(null, "IntrstShrtfll", xmlNamespace );
-            InterestShortfallValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RealisedLoss is RateAndAmountFormat39Choice_ RealisedLossValue)
-        {
-            writer.WriteStartElement(null, "RealsdLoss", xmlNamespace );
-            RealisedLossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeclaredRate is RateAndAmountFormat39Choice_ DeclaredRateValue)
-        {
-            writer.WriteStartElement(null, "DclrdRate", xmlNamespace );
-            DeclaredRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IndexFactor is RateAndAmountFormat37Choice_ IndexFactorValue)
-        {
-            writer.WriteStartElement(null, "IndxFctr", xmlNamespace );
-            IndexFactorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionRate105 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

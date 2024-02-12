@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation3Choice;
-
-/// <summary>
-/// Indicates the type of contract confirmation.
-/// </summary>
-public partial record Confirmed : TradeConfirmation3Choice_
-     , IIsoXmlSerilizable<Confirmed>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies whether the contract was confirmed electronically or non-electronically.
+    /// Indicates the type of contract confirmation.
     /// </summary>
-    public TradeConfirmationType1Code? Type { get; init; } 
-    /// <summary>
-    /// Date and time of the trade confirmation, indicating time zone in which the confirmation has taken place.
-    /// </summary>
-    public IsoISODateTime? TimeStamp { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_PQNwEVo3Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmed")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Confirmed : TradeConfirmation3Choice_
+    #else
+    public partial class Confirmed : TradeConfirmation3Choice_
+    #endif
     {
-        if (Type is TradeConfirmationType1Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TimeStamp is IsoISODateTime TimeStampValue)
-        {
-            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static new Confirmed Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies whether the contract was confirmed electronically or non-electronically.
+        /// </summary>
+        [IsoId("_V9SsEVo3Ee23K4GXSpBSeg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TradeConfirmationType1Code? Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TradeConfirmationType1Code? Type { get; init; } 
+        #else
+        public TradeConfirmationType1Code? Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time of the trade confirmation, indicating time zone in which the confirmation has taken place.
+        /// </summary>
+        [IsoId("_V9SsE1o3Ee23K4GXSpBSeg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Time Stamp")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODateTime? TimeStamp { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime? TimeStamp { get; init; } 
+        #else
+        public System.DateTime? TimeStamp { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

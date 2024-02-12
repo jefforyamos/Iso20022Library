@@ -9,75 +9,176 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ReportingRequirement2Choice;
-
-/// <summary>
-/// Specifies categories of statuses of a derivative when there is a reporting requirement for both counterparties.
-/// </summary>
-public partial record ReportingRequirement : ReportingRequirement2Choice_
-     , IIsoXmlSerilizable<ReportingRequirement>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ReportingRequirement2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indicator of receiving only one side or both sides of the derivatives.
+    /// Specifies categories of statuses of a derivative when there is a reporting requirement for both counterparties.
     /// </summary>
-    public required TradeRepositoryReportingType1Code ReportingType { get; init; } 
-    /// <summary>
-    /// Indicator of side identification of the same derivative.
-    /// </summary>
-    public required PairingStatus1Code Pairing { get; init; } 
-    /// <summary>
-    /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
-    /// </summary>
-    public required ReconciliationStatus1Code Reconciliation { get; init; } 
-    /// <summary>
-    /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
-    /// </summary>
-    public required ReconciliationStatus2Code ValuationReconciliation { get; init; } 
-    /// <summary>
-    /// Indicator of derivative reopening, terminated or cancelled by mistake.
-    /// </summary>
-    public required IsoYesNoIndicator Revived { get; init; } 
-    /// <summary>
-    /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
-    /// </summary>
-    public required IsoYesNoIndicator FurtherModification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_IVUQMV55Ee2a_-MvhEjKmA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Requirement")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ReportingRequirement : ReportingRequirement2Choice_
+    #else
+    public partial class ReportingRequirement : ReportingRequirement2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RptgTp", xmlNamespace );
-        writer.WriteValue(ReportingType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Pairg", xmlNamespace );
-        writer.WriteValue(Pairing.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
-        writer.WriteValue(Reconciliation.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnRcncltn", xmlNamespace );
-        writer.WriteValue(ValuationReconciliation.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rvvd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Revived)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FrthrMod", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FurtherModification)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static new ReportingRequirement Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ReportingRequirement instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ReportingRequirement( TradeRepositoryReportingType1Code reqReportingType,PairingStatus1Code reqPairing,ReconciliationStatus1Code reqReconciliation,ReconciliationStatus2Code reqValuationReconciliation,System.String reqRevived,System.String reqFurtherModification )
+        {
+            ReportingType = reqReportingType;
+            Pairing = reqPairing;
+            Reconciliation = reqReconciliation;
+            ValuationReconciliation = reqValuationReconciliation;
+            Revived = reqRevived;
+            FurtherModification = reqFurtherModification;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indicator of receiving only one side or both sides of the derivatives.
+        /// </summary>
+        [IsoId("_IWQrYV55Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reporting Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required TradeRepositoryReportingType1Code ReportingType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public TradeRepositoryReportingType1Code ReportingType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TradeRepositoryReportingType1Code ReportingType { get; init; } 
+        #else
+        public TradeRepositoryReportingType1Code ReportingType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicator of side identification of the same derivative.
+        /// </summary>
+        [IsoId("_IWQrY155Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Pairing")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PairingStatus1Code Pairing { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PairingStatus1Code Pairing { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PairingStatus1Code Pairing { get; init; } 
+        #else
+        public PairingStatus1Code Pairing { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
+        /// </summary>
+        [IsoId("_IWQrZV55Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reconciliation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ReconciliationStatus1Code Reconciliation { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ReconciliationStatus1Code Reconciliation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReconciliationStatus1Code Reconciliation { get; init; } 
+        #else
+        public ReconciliationStatus1Code Reconciliation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
+        /// </summary>
+        [IsoId("_IWQrZ155Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Valuation Reconciliation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ReconciliationStatus2Code ValuationReconciliation { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ReconciliationStatus2Code ValuationReconciliation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReconciliationStatus2Code ValuationReconciliation { get; init; } 
+        #else
+        public ReconciliationStatus2Code ValuationReconciliation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicator of derivative reopening, terminated or cancelled by mistake.
+        /// </summary>
+        [IsoId("_IWQraV55Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Revived")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator Revived { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Revived { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Revived { get; init; } 
+        #else
+        public System.String Revived { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
+        /// </summary>
+        [IsoId("_IWQra155Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Further Modification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator FurtherModification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String FurtherModification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String FurtherModification { get; init; } 
+        #else
+        public System.String FurtherModification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

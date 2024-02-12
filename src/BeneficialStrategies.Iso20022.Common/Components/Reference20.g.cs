@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the updated interest request such the original InterestRequest identification, and optionaly the InterestResponse identification.
 /// </summary>
+[IsoId("_Qkr_cNp-Ed-ak6NoX_4Aeg_2036685643")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Reference20
-     : IIsoXmlSerilizable<Reference20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Reference20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Reference20( System.String reqInterestPaymentRequestIdentification )
+    {
+        InterestPaymentRequestIdentification = reqInterestPaymentRequestIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the reference to the interest payment request.
     /// </summary>
+    [IsoId("_Qkr_cdp-Ed-ak6NoX_4Aeg_-1576527728")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Payment Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InterestPaymentRequestIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InterestPaymentRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InterestPaymentRequestIdentification { get; init; } 
+    #else
+    public System.String InterestPaymentRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the reference to the interest payment response.
     /// </summary>
+    [IsoId("_Qkr_ctp-Ed-ak6NoX_4Aeg_-1163077636")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Payment Response Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InterestPaymentResponseIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterestPaymentResponseIdentification { get; init; } 
+    #else
+    public System.String? InterestPaymentResponseIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IntrstPmtReqId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestPaymentRequestIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (InterestPaymentResponseIdentification is IsoMax35Text InterestPaymentResponseIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IntrstPmtRspnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestPaymentResponseIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Reference20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

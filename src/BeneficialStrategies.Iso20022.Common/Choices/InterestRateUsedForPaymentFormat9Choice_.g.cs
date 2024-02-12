@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an amount or a rate.
-/// </summary>
-[KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.Rate))]
-[KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.Amount))]
-[KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus))]
-public abstract partial record InterestRateUsedForPaymentFormat9Choice_ : IIsoXmlSerilizable<InterestRateUsedForPaymentFormat9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an amount or a rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InterestRateUsedForPaymentFormat9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.Rate))]
+    [KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.Amount))]
+    [KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus))]
+    [IsoId("_cj-G-ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate Used For Payment Format 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InterestRateUsedForPaymentFormat9Choice_
+    #else
+    public abstract partial class InterestRateUsedForPaymentFormat9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rate" => InterestRateUsedForPaymentFormat9Choice.Rate.Deserialize(elementWithPayload),
-             "Amt" => InterestRateUsedForPaymentFormat9Choice.Amount.Deserialize(elementWithPayload),
-             "RateTpAndAmtAndRateSts" => InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InterestRateUsedForPaymentFormat9Choice choice.")
-        };
     }
 }

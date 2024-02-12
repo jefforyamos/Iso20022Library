@@ -7,80 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[IsoId("_Qf60NNp-Ed-ak6NoX_4Aeg_-1826849881")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Price Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PriceInformation3
-     : IIsoXmlSerilizable<PriceInformation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PriceInformation3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PriceInformation3( PriceRateOrAmountOrUnknownChoice_ reqValue,UnitPriceType1Choice_ reqPriceType )
+    {
+        Value = reqValue;
+        PriceType = reqPriceType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_Qf60Ndp-Ed-ak6NoX_4Aeg_-41080249")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
+    #else
+    public PriceRateOrAmountOrUnknownChoice_ Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
+    [IsoId("_Qf60Ntp-Ed-ak6NoX_4Aeg_-311662157")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPriceType1Choice_ PriceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnitPriceType1Choice_ PriceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitPriceType1Choice_ PriceType { get; init; } 
+    #else
+    public UnitPriceType1Choice_ PriceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
+    [IsoId("_Qf60N9p-Ed-ak6NoX_4Aeg_-41080187")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Source Of Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
+    #else
+    public PriceSourceFormatChoice_? SourceOfPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
+    [IsoId("_Qf60ONp-Ed-ak6NoX_4Aeg_-41080157")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quotation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? QuotationDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? QuotationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the price is expressed as a yield. The absence of Yielded means it is not applicable.
     /// </summary>
+    [IsoId("_Qf60Odp-Ed-ak6NoX_4Aeg_-41080156")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Yielded Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? YieldedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? YieldedIndicator { get; init; } 
+    #else
+    public System.String? YieldedIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PricTp", xmlNamespace );
-        PriceType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SourceOfPrice is PriceSourceFormatChoice_ SourceOfPriceValue)
-        {
-            writer.WriteStartElement(null, "SrcOfPric", xmlNamespace );
-            SourceOfPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QuotationDate is DateAndDateTimeChoice_ QuotationDateValue)
-        {
-            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
-            QuotationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (YieldedIndicator is IsoYesNoIndicator YieldedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "YlddInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(YieldedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PriceInformation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

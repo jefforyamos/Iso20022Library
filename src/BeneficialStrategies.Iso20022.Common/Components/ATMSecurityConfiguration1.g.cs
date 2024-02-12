@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters in use by the security device.
 /// </summary>
+[IsoId("_4FKwEIr6EeSvuOJS0mmL0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Security Configuration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMSecurityConfiguration1
-     : IIsoXmlSerilizable<ATMSecurityConfiguration1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Configuration of the cryptographic keys.
     /// </summary>
+    [IsoId("_LT8SEIr7EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Keys")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration2? Keys { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityConfiguration2? Keys { get; init; } 
+    #else
+    public ATMSecurityConfiguration2? Keys { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of the encryption or digital envelope, if the security module is able to perform encryption.
     /// </summary>
+    [IsoId("_vEEGgIr7EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encryption")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration3? Encryption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityConfiguration3? Encryption { get; init; } 
+    #else
+    public ATMSecurityConfiguration3? Encryption { get; set; } 
+    #endif
+    
     /// <summary>
     /// MAC (Message Authentication Code) algorithm the security module is able to manage.
     /// </summary>
+    [IsoId("_gRAscIr8EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("MAC Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm12Code? MACAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Algorithm12Code? MACAlgorithm { get; init; } 
+    #else
+    public Algorithm12Code? MACAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digest algorithm the security module is able to manage.
     /// </summary>
+    [IsoId("_kEKN8Ir8EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm11Code? DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Algorithm11Code? DigestAlgorithm { get; init; } 
+    #else
+    public Algorithm11Code? DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of the digital signatures if the security module is able to perform digital signatures with an asymmetric key.
     /// </summary>
+    [IsoId("_2MDAYIr8EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration4? DigitalSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityConfiguration4? DigitalSignature { get; init; } 
+    #else
+    public ATMSecurityConfiguration4? DigitalSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of the PIN online verification.
     /// </summary>
+    [IsoId("_fAcnAIr9EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration5? PIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityConfiguration5? PIN { get; init; } 
+    #else
+    public ATMSecurityConfiguration5? PIN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mechanism used to protect the message of the ATM protocol.
     /// </summary>
+    [IsoId("_KGeSAIr-EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Protection")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageProtection1Code? MessageProtection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageProtection1Code? MessageProtection { get; init; } 
+    #else
+    public MessageProtection1Code? MessageProtection { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Keys is ATMSecurityConfiguration2 KeysValue)
-        {
-            writer.WriteStartElement(null, "Keys", xmlNamespace );
-            KeysValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Encryption is ATMSecurityConfiguration3 EncryptionValue)
-        {
-            writer.WriteStartElement(null, "Ncrptn", xmlNamespace );
-            EncryptionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MACAlgorithm is Algorithm12Code MACAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "MACAlgo", xmlNamespace );
-            writer.WriteValue(MACAlgorithmValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DigestAlgorithm is Algorithm11Code DigestAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DigitalSignature is ATMSecurityConfiguration4 DigitalSignatureValue)
-        {
-            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
-            DigitalSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PIN is ATMSecurityConfiguration5 PINValue)
-        {
-            writer.WriteStartElement(null, "PIN", xmlNamespace );
-            PINValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageProtection is MessageProtection1Code MessageProtectionValue)
-        {
-            writer.WriteStartElement(null, "MsgPrtcn", xmlNamespace );
-            writer.WriteValue(MessageProtectionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMSecurityConfiguration1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

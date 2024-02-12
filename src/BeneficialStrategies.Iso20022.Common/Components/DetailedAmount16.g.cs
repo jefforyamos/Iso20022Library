@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the deposit transaction.
 /// </summary>
+[IsoId("_7175Qa4AEeWL1uap3dNhCQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Detailed Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DetailedAmount16
-     : IIsoXmlSerilizable<DetailedAmount16>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Link to the account for multi-account deposit.
     /// </summary>
+    [IsoId("_FgDOIK4BEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? AccountSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? AccountSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? AccountSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the deposit to be made on the ATM after the approval of the deposit transaction.
     /// </summary>
+    [IsoId("_8BHOga4AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount To Deposit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AmountToDeposit { get; init; } 
+    #else
+    public System.Decimal? AmountToDeposit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the amount to deposit when different from the base currency of the ATM.
     /// </summary>
+    [IsoId("_8BHOg64AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cashback amount value.
     /// </summary>
+    [IsoId("_RuWLUK-TEeWJvLRJ8PsD_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Back Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashBackAmount { get; init; } 
+    #else
+    public System.Decimal? CashBackAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deposit fees, accepted by the customer.
     /// </summary>
+    [IsoId("_8BHOha4AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? Fees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount13? Fees { get; init; } 
+    #else
+    public DetailedAmount13? Fees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the donation.
     /// </summary>
+    [IsoId("_8BHOh64AEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Donation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? Donation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount13? Donation { get; init; } 
+    #else
+    public DetailedAmount13? Donation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountSequenceNumber is IsoNumber AccountSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "AcctSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(AccountSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AmountToDeposit is IsoImpliedCurrencyAndAmount AmountToDepositValue)
-        {
-            writer.WriteStartElement(null, "AmtToDpst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountToDepositValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CashBackAmount is IsoImpliedCurrencyAndAmount CashBackAmountValue)
-        {
-            writer.WriteStartElement(null, "CshBckAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CashBackAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Fees is DetailedAmount13 FeesValue)
-        {
-            writer.WriteStartElement(null, "Fees", xmlNamespace );
-            FeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Donation is DetailedAmount13 DonationValue)
-        {
-            writer.WriteStartElement(null, "Dontn", xmlNamespace );
-            DonationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DetailedAmount16 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

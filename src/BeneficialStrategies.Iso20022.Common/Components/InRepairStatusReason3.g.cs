@@ -7,67 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the reason for the in-repair status.
 /// </summary>
+[IsoId("_RTVOJ9p-Ed-ak6NoX_4Aeg_-363009151")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("In Repair Status Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InRepairStatusReason3
-     : IIsoXmlSerilizable<InRepairStatusReason3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InRepairStatusReason3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InRepairStatusReason3( InRepairStatusReason1Code reqReason,System.String reqExtendedReason,GenericIdentification1 reqDataSourceScheme )
+    {
+        Reason = reqReason;
+        ExtendedReason = reqExtendedReason;
+        DataSourceScheme = reqDataSourceScheme;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason for the in repair status.
     /// </summary>
+    [IsoId("_RTVOKNp-Ed-ak6NoX_4Aeg_-1745735307")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InRepairStatusReason1Code Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InRepairStatusReason1Code Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InRepairStatusReason1Code Reason { get; init; } 
+    #else
+    public InRepairStatusReason1Code Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason of the in repair status.
     /// </summary>
+    [IsoId("_RTVOKdp-Ed-ak6NoX_4Aeg_1452658289")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedReason { get; init; } 
+    #else
+    public System.String ExtendedReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary identification of the reason for the in-repair status.
     /// </summary>
+    [IsoId("_RTVOKtp-Ed-ak6NoX_4Aeg_-1707593315")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Source Scheme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification1 DataSourceScheme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1 DataSourceScheme { get; init; } 
+    #else
+    public GenericIdentification1 DataSourceScheme { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the in-repair status reason.
     /// </summary>
+    [IsoId("_RTe_INp-Ed-ak6NoX_4Aeg_-1023923466")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(Reason.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedReason)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
-        DataSourceScheme.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InRepairStatusReason3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

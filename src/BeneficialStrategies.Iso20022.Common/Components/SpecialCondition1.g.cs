@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Special conditions for the loan.
 /// </summary>
+[IsoId("_pqRrgdOCEeSQ_-lmj1tzfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Special Condition")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SpecialCondition1
-     : IIsoXmlSerilizable<SpecialCondition1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SpecialCondition1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SpecialCondition1( System.Decimal reqIncomingAmount,System.Decimal reqOutgoingAmount )
+    {
+        IncomingAmount = reqIncomingAmount;
+        OutgoingAmount = reqOutgoingAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Incoming amount on special conditions.
     /// </summary>
+    [IsoId("_uNbGkNOCEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incoming Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount IncomingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal IncomingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal IncomingAmount { get; init; } 
+    #else
+    public System.Decimal IncomingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outgoing amount on special conditions.
     /// </summary>
+    [IsoId("_xOYWINOCEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outgoing Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OutgoingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal OutgoingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal OutgoingAmount { get; init; } 
+    #else
+    public System.Decimal OutgoingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Incoming amount to other account on special conditions.
     /// </summary>
+    [IsoId("_9TKtYwtLEeWkxvNyFrBT8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incoming Amount To Other Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? IncomingAmountToOtherAccount { get; init; } 
+    #else
+    public System.Decimal? IncomingAmountToOtherAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outgoing payment amount from other account on special conditions.
     /// </summary>
+    [IsoId("_HfRVAAtMEeWkxvNyFrBT8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment From Other Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PaymentFromOtherAccount { get; init; } 
+    #else
+    public System.Decimal? PaymentFromOtherAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IncmgAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncomingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OutgngAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OutgoingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (IncomingAmountToOtherAccount is IsoActiveCurrencyAndAmount IncomingAmountToOtherAccountValue)
-        {
-            writer.WriteStartElement(null, "IncmgAmtToOthrAcct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncomingAmountToOtherAccountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PaymentFromOtherAccount is IsoActiveCurrencyAndAmount PaymentFromOtherAccountValue)
-        {
-            writer.WriteStartElement(null, "PmtFrOthrAcct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PaymentFromOtherAccountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static SpecialCondition1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

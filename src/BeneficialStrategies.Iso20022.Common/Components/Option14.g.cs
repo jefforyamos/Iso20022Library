@@ -7,83 +7,128 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Derivative instrument that gives the buyer the right but not the obligation to purchase a set of quantity of a financial instrument at a future date.
 /// </summary>
+[IsoId("_d3DnkchsEeadgvwNGwK05w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Option14
-     : IIsoXmlSerilizable<Option14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Expiration style of the option.
     /// </summary>
-    public SimpleValueList<OptionStyle5Code> ExpirationStyle { get; init; } = [];
+    [IsoId("_d_smOchsEeadgvwNGwK05w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiration Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(4)]
+    #endif
+    public SimpleValueList<OptionStyle5Code> ExpirationStyle { get; init; } = new SimpleValueList<OptionStyle5Code>(){};
+    
     /// <summary>
     /// Specifies how the option can be exercised.
     /// </summary>
+    [IsoId("_d_smN8hsEeadgvwNGwK05w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExoticOptionStyle1Code? OptionStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExoticOptionStyle1Code? OptionStyle { get; init; } 
+    #else
+    public ExoticOptionStyle1Code? OptionStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the option is a call or a put.
     /// </summary>
+    [IsoId("_d_smO8hsEeadgvwNGwK05w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType1Code? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType1Code? OptionType { get; init; } 
+    #else
+    public OptionType1Code? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the option has a barrier.
     /// </summary>
+    [IsoId("_d_smPchsEeadgvwNGwK05w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Barrier Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BarrierIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BarrierIndicator { get; init; } 
+    #else
+    public System.String? BarrierIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the event in the life of the option.
     /// </summary>
+    [IsoId("_d_smQchsEeadgvwNGwK05w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionEvent2? EventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionEvent2? EventType { get; init; } 
+    #else
+    public OptionEvent2? EventType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "XprtnStyle", xmlNamespace );
-        writer.WriteValue(ExpirationStyle.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OptionStyle is ExoticOptionStyle1Code OptionStyleValue)
-        {
-            writer.WriteStartElement(null, "OptnStyle", xmlNamespace );
-            writer.WriteValue(OptionStyleValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OptionType is OptionType1Code OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BarrierIndicator is IsoTrueFalseIndicator BarrierIndicatorValue)
-        {
-            writer.WriteStartElement(null, "BrrrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BarrierIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EventType is OptionEvent2 EventTypeValue)
-        {
-            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
-            EventTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Option14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

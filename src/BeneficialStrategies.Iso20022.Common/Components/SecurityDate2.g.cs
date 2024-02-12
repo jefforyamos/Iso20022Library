@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies security date details.
 /// </summary>
+[IsoId("_TYQTQ9p-Ed-ak6NoX_4Aeg_-950423797")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityDate2
-     : IIsoXmlSerilizable<SecurityDate2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecurityDate2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecurityDate2( DateFormat6Choice_ reqPaymentDate )
+    {
+        PaymentDate = reqPaymentDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
+    [IsoId("_TYQTRNp-Ed-ak6NoX_4Aeg_-950423667")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat6Choice_ PaymentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateFormat6Choice_ PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat6Choice_ PaymentDate { get; init; } 
+    #else
+    public DateFormat6Choice_ PaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which securities become available for trading, for example first dealing date.
     /// </summary>
+    [IsoId("_TYQTRdp-Ed-ak6NoX_4Aeg_-950423762")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Available Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? AvailableDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat6Choice_? AvailableDate { get; init; } 
+    #else
+    public DateFormat6Choice_? AvailableDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which a security will be entitled to a dividend.
     /// </summary>
+    [IsoId("_TYQTRtp-Ed-ak6NoX_4Aeg_-950423702")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Ranking Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? DividendRankingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat6Choice_? DividendRankingDate { get; init; } 
+    #else
+    public DateFormat6Choice_? DividendRankingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
+    [IsoId("_TYQTR9p-Ed-ak6NoX_4Aeg_-950423685")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earliest Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? EarliestPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat6Choice_? EarliestPaymentDate { get; init; } 
+    #else
+    public DateFormat6Choice_? EarliestPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
     /// </summary>
+    [IsoId("_TYQTSNp-Ed-ak6NoX_4Aeg_-950423727")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pari Passu Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? PariPassuDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat6Choice_? PariPassuDate { get; init; } 
+    #else
+    public DateFormat6Choice_? PariPassuDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-        PaymentDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AvailableDate is DateFormat6Choice_ AvailableDateValue)
-        {
-            writer.WriteStartElement(null, "AvlblDt", xmlNamespace );
-            AvailableDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DividendRankingDate is DateFormat6Choice_ DividendRankingDateValue)
-        {
-            writer.WriteStartElement(null, "DvddRnkgDt", xmlNamespace );
-            DividendRankingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarliestPaymentDate is DateFormat6Choice_ EarliestPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
-            EarliestPaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PariPassuDate is DateFormat6Choice_ PariPassuDateValue)
-        {
-            writer.WriteStartElement(null, "PrpssDt", xmlNamespace );
-            PariPassuDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityDate2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

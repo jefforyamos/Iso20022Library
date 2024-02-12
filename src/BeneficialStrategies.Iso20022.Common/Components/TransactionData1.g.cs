@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card transaction information to be transferred.
 /// </summary>
+[IsoId("_Y-DEIfwLEeGHDMP28rpT3g_1761080314")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionData1
-     : IIsoXmlSerilizable<TransactionData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [IsoId("_Y-DEIvwLEeGHDMP28rpT3g_237700941")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Brand")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardBrand { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardBrand { get; init; } 
+    #else
+    public System.String? CardBrand { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card data associated with the card performing the transaction.
     /// </summary>
+    [IsoId("_Y-DEI_wLEeGHDMP28rpT3g_304673772")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData3? CardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlainCardData3? CardData { get; init; } 
+    #else
+    public PlainCardData3? CardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [IsoId("_Y-DEJPwLEeGHDMP28rpT3g_362363636")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Point Of Interaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction1? PointOfInteraction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteraction1? PointOfInteraction { get; init; } 
+    #else
+    public PointOfInteraction1? PointOfInteraction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the transaction.
     /// </summary>
+    [IsoId("_Y-M1IPwLEeGHDMP28rpT3g_-1560928202")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransactionDetails8? TransactionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentTransactionDetails8? TransactionDetails { get; init; } 
+    #else
+    public CardPaymentTransactionDetails8? TransactionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// PrePaid Account for funds transfer or loading.
     /// </summary>
+    [IsoId("_Y-M1IfwLEeGHDMP28rpT3g_769227939")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Paid Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? PrePaidAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? PrePaidAccount { get; init; } 
+    #else
+    public CashAccount24? PrePaidAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CardBrand is IsoMax35Text CardBrandValue)
-        {
-            writer.WriteStartElement(null, "CardBrnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardBrandValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardData is PlainCardData3 CardDataValue)
-        {
-            writer.WriteStartElement(null, "CardData", xmlNamespace );
-            CardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PointOfInteraction is PointOfInteraction1 PointOfInteractionValue)
-        {
-            writer.WriteStartElement(null, "PtOfIntractn", xmlNamespace );
-            PointOfInteractionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionDetails is CardPaymentTransactionDetails8 TransactionDetailsValue)
-        {
-            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
-            TransactionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrePaidAccount is CashAccount24 PrePaidAccountValue)
-        {
-            writer.WriteStartElement(null, "PrePdAcct", xmlNamespace );
-            PrePaidAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

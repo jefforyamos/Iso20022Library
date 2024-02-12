@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type, date and version of the agreement.
 /// </summary>
+[IsoId("_bedvoJUTEea7vKctaoIyEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Agreement Conditions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AgreementConditions1
-     : IIsoXmlSerilizable<AgreementConditions1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AgreementConditions1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AgreementConditions1( System.String reqAgreementCode )
+    {
+        AgreementCode = reqAgreementCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of agreement.
     /// </summary>
+    [IsoId("_LS4cYJUUEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax6AlphaText AgreementCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AgreementCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AgreementCode { get; init; } 
+    #else
+    public System.String AgreementCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date of the agreement.
     /// </summary>
+    [IsoId("_6QcZoJUUEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the version of the agreement.
     /// </summary>
+    [IsoId("_-vvPcJUUEea7vKctaoIyEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Version { get; init; } 
+    #else
+    public System.String? Version { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AgrmtCd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax6AlphaText(AgreementCode)); // data type Max6AlphaText System.String
-        writer.WriteEndElement();
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Version is IsoExact4NumericText VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(VersionValue)); // data type Exact4NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AgreementConditions1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

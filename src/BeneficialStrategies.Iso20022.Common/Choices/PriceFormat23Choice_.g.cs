@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a percentage price or an amount price or an unspecified price or index points.
-/// </summary>
-[KnownType(typeof(PriceFormat23Choice.PercentagePrice))]
-[KnownType(typeof(PriceFormat23Choice.AmountPrice))]
-[KnownType(typeof(PriceFormat23Choice.NotSpecifiedPrice))]
-[KnownType(typeof(PriceFormat23Choice.IndexPoints))]
-public abstract partial record PriceFormat23Choice_ : IIsoXmlSerilizable<PriceFormat23Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a percentage price or an amount price or an unspecified price or index points.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriceFormat23Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PriceFormat23Choice.PercentagePrice))]
+    [KnownType(typeof(PriceFormat23Choice.AmountPrice))]
+    [KnownType(typeof(PriceFormat23Choice.NotSpecifiedPrice))]
+    [KnownType(typeof(PriceFormat23Choice.IndexPoints))]
+    [IsoId("_ASFIoOwOEd-sn-FiNtktcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Format 23 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriceFormat23Choice_
+    #else
+    public abstract partial class PriceFormat23Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PctgPric" => PriceFormat23Choice.PercentagePrice.Deserialize(elementWithPayload),
-             "AmtPric" => PriceFormat23Choice.AmountPrice.Deserialize(elementWithPayload),
-             "NotSpcfdPric" => PriceFormat23Choice.NotSpecifiedPrice.Deserialize(elementWithPayload),
-             "IndxPts" => PriceFormat23Choice.IndexPoints.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriceFormat23Choice choice.")
-        };
     }
 }

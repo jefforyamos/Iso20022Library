@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between cancellation by reference or by transfer details.
-/// </summary>
-[KnownType(typeof(Cancellation12Choice.References))]
-[KnownType(typeof(Cancellation12Choice.TransferOutDetails))]
-public abstract partial record Cancellation12Choice_ : IIsoXmlSerilizable<Cancellation12Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between cancellation by reference or by transfer details.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Cancellation12Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Cancellation12Choice.References))]
+    [KnownType(typeof(Cancellation12Choice.TransferOutDetails))]
+    [IsoId("__8PcLSPvEeWQjryFgN2ITg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation 12 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Cancellation12Choice_
+    #else
+    public abstract partial class Cancellation12Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Refs" => Cancellation12Choice.References.Deserialize(elementWithPayload),
-             "TrfOutDtls" => Cancellation12Choice.TransferOutDetails.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Cancellation12Choice choice.")
-        };
     }
 }

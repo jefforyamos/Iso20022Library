@@ -7,64 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on the cash balance.
 /// </summary>
+[IsoId("_4WGqR5laEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Balance Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashBalanceReturnCriteria1
-     : IIsoXmlSerilizable<CashBalanceReturnCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashBalanceReturnCriteria1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashBalanceReturnCriteria1( System.String reqTypeIndicator,System.String reqStatusIndicator,System.String reqValueDateIndicator,System.String reqNumberOfPaymentsIndicator )
+    {
+        TypeIndicator = reqTypeIndicator;
+        StatusIndicator = reqStatusIndicator;
+        ValueDateIndicator = reqValueDateIndicator;
+        NumberOfPaymentsIndicator = reqNumberOfPaymentsIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the balance type is requested.
     /// </summary>
+    [IsoId("_4er-cZlaEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator TypeIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TypeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TypeIndicator { get; init; } 
+    #else
+    public System.String TypeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the balance status is requested.
     /// </summary>
+    [IsoId("_4er-c5laEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator StatusIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String StatusIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String StatusIndicator { get; init; } 
+    #else
+    public System.String StatusIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the value date is requested.
     /// </summary>
+    [IsoId("_4er-dZlaEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator ValueDateIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ValueDateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ValueDateIndicator { get; init; } 
+    #else
+    public System.String ValueDateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the number of payment is requested.
     /// </summary>
+    [IsoId("_4er-d5laEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Payments Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator NumberOfPaymentsIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NumberOfPaymentsIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NumberOfPaymentsIndicator { get; init; } 
+    #else
+    public System.String NumberOfPaymentsIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TpInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicator)); // data type RequestedIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StsInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicator)); // data type RequestedIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValDtInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ValueDateIndicator)); // data type RequestedIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfPmtsInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NumberOfPaymentsIndicator)); // data type RequestedIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static CashBalanceReturnCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

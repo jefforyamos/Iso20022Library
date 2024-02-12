@@ -7,226 +7,382 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Eligible and not eligible balance of securities for a corporate action event.
 /// </summary>
+[IsoId("_ctP_Z5KQEeWHWpTQn1FFVg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Balance Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionBalanceDetails36
-     : IIsoXmlSerilizable<CorporateActionBalanceDetails36>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
+    [IsoId("_ctP_a5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Eligible Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalEligibleBalanceFormat9? TotalEligibleBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TotalEligibleBalanceFormat9? TotalEligibleBalance { get; init; } 
+    #else
+    public TotalEligibleBalanceFormat9? TotalEligibleBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
+    [IsoId("_ctP_c5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? BlockedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? BlockedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? BlockedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
     /// </summary>
+    [IsoId("_ctP_e5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Borrowed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? BorrowedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? BorrowedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? BorrowedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
     /// </summary>
+    [IsoId("_ctP_g5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral In Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? CollateralInBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? CollateralInBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? CollateralInBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
     /// </summary>
+    [IsoId("_ctP_i5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Out Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? CollateralOutBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? CollateralOutBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? CollateralOutBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that have been loaned to a third party.
     /// </summary>
+    [IsoId("_ctP_k5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Loan Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? OnLoanBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? OnLoanBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? OnLoanBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that are pending delivery.
     /// </summary>
+    [IsoId("_ctP_m5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Delivery Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat10Choice_? PendingDeliveryBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat10Choice_? PendingDeliveryBalance { get; init; } 
+    #else
+    public BalanceFormat10Choice_? PendingDeliveryBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that are pending receipt.
     /// </summary>
+    [IsoId("_ctP_o5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Receipt Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat10Choice_? PendingReceiptBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat10Choice_? PendingReceiptBalance { get; init; } 
+    #else
+    public BalanceFormat10Choice_? PendingReceiptBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
     /// </summary>
+    [IsoId("_ctP_q5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Out For Registration Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? OutForRegistrationBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? OutForRegistrationBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? OutForRegistrationBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of securities representing only settled transactions; pending transactions not included.
     /// </summary>
+    [IsoId("_ctP_s5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Position Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat10Choice_? SettlementPositionBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat10Choice_? SettlementPositionBalance { get; init; } 
+    #else
+    public BalanceFormat10Choice_? SettlementPositionBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// </summary>
+    [IsoId("_ctP_u5KQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Street Position Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? StreetPositionBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? StreetPositionBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? StreetPositionBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
+    [IsoId("_ctQlwZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date Position Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? TradeDatePositionBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? TradeDatePositionBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? TradeDatePositionBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of physical securities that are in the process of being transferred from one depository/agent to another.
     /// </summary>
+    [IsoId("_ctQlyZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("In Transshipment Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? InTransshipmentBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? InTransshipmentBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? InTransshipmentBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of financial instruments that are registered (in the name of a nominee name or of the beneficial owner).
     /// </summary>
+    [IsoId("_ctQl0ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registered Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? RegisteredBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? RegisteredBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? RegisteredBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position that account holders should return to the account servicer to participate in the event or to fulfil their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
+    [IsoId("_ctQl2ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Obligated Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? ObligatedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? ObligatedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? ObligatedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
+    [IsoId("_ctQl4ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Uninstructed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? UninstructedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? UninstructedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? UninstructedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
+    [IsoId("_ctQl6ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? InstructedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? InstructedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? InstructedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance that has been affected by the process run through the event.
     /// </summary>
+    [IsoId("_ctQl8ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Affected Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? AffectedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? AffectedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? AffectedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance that has not been affected by the process run through the event.
     /// </summary>
+    [IsoId("_ctQl-ZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unaffected Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat7Choice_? UnaffectedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceFormat7Choice_? UnaffectedBalance { get; init; } 
+    #else
+    public BalanceFormat7Choice_? UnaffectedBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalEligibleBalance is TotalEligibleBalanceFormat9 TotalEligibleBalanceValue)
-        {
-            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
-            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockedBalance is BalanceFormat7Choice_ BlockedBalanceValue)
-        {
-            writer.WriteStartElement(null, "BlckdBal", xmlNamespace );
-            BlockedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BorrowedBalance is BalanceFormat7Choice_ BorrowedBalanceValue)
-        {
-            writer.WriteStartElement(null, "BrrwdBal", xmlNamespace );
-            BorrowedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralInBalance is BalanceFormat7Choice_ CollateralInBalanceValue)
-        {
-            writer.WriteStartElement(null, "CollInBal", xmlNamespace );
-            CollateralInBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralOutBalance is BalanceFormat7Choice_ CollateralOutBalanceValue)
-        {
-            writer.WriteStartElement(null, "CollOutBal", xmlNamespace );
-            CollateralOutBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OnLoanBalance is BalanceFormat7Choice_ OnLoanBalanceValue)
-        {
-            writer.WriteStartElement(null, "OnLnBal", xmlNamespace );
-            OnLoanBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PendingDeliveryBalance is BalanceFormat10Choice_ PendingDeliveryBalanceValue)
-        {
-            writer.WriteStartElement(null, "PdgDlvryBal", xmlNamespace );
-            PendingDeliveryBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PendingReceiptBalance is BalanceFormat10Choice_ PendingReceiptBalanceValue)
-        {
-            writer.WriteStartElement(null, "PdgRctBal", xmlNamespace );
-            PendingReceiptBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OutForRegistrationBalance is BalanceFormat7Choice_ OutForRegistrationBalanceValue)
-        {
-            writer.WriteStartElement(null, "OutForRegnBal", xmlNamespace );
-            OutForRegistrationBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementPositionBalance is BalanceFormat10Choice_ SettlementPositionBalanceValue)
-        {
-            writer.WriteStartElement(null, "SttlmPosBal", xmlNamespace );
-            SettlementPositionBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StreetPositionBalance is BalanceFormat7Choice_ StreetPositionBalanceValue)
-        {
-            writer.WriteStartElement(null, "StrtPosBal", xmlNamespace );
-            StreetPositionBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeDatePositionBalance is BalanceFormat7Choice_ TradeDatePositionBalanceValue)
-        {
-            writer.WriteStartElement(null, "TradDtPosBal", xmlNamespace );
-            TradeDatePositionBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InTransshipmentBalance is BalanceFormat7Choice_ InTransshipmentBalanceValue)
-        {
-            writer.WriteStartElement(null, "InTrnsShipmntBal", xmlNamespace );
-            InTransshipmentBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RegisteredBalance is BalanceFormat7Choice_ RegisteredBalanceValue)
-        {
-            writer.WriteStartElement(null, "RegdBal", xmlNamespace );
-            RegisteredBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ObligatedBalance is BalanceFormat7Choice_ ObligatedBalanceValue)
-        {
-            writer.WriteStartElement(null, "OblgtdBal", xmlNamespace );
-            ObligatedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UninstructedBalance is BalanceFormat7Choice_ UninstructedBalanceValue)
-        {
-            writer.WriteStartElement(null, "UinstdBal", xmlNamespace );
-            UninstructedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructedBalance is BalanceFormat7Choice_ InstructedBalanceValue)
-        {
-            writer.WriteStartElement(null, "InstdBal", xmlNamespace );
-            InstructedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AffectedBalance is BalanceFormat7Choice_ AffectedBalanceValue)
-        {
-            writer.WriteStartElement(null, "AfctdBal", xmlNamespace );
-            AffectedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnaffectedBalance is BalanceFormat7Choice_ UnaffectedBalanceValue)
-        {
-            writer.WriteStartElement(null, "UafctdBal", xmlNamespace );
-            UnaffectedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionBalanceDetails36 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

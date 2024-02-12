@@ -7,83 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the references of an account management instruction message.
 /// </summary>
+[IsoId("_dJFMsSFeEeW9XJWqfgXIIA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Management Message Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountManagementMessageReference3
-     : IIsoXmlSerilizable<AccountManagementMessageReference3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountManagementMessageReference3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountManagementMessageReference3( AccountManagementType1Code reqStatusRequestType )
+    {
+        StatusRequestType = reqStatusRequestType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message.
     /// </summary>
+    [IsoId("_dqQnISFeEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LinkedMessage3Choice_? LinkedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LinkedMessage3Choice_? LinkedReference { get; init; } 
+    #else
+    public LinkedMessage3Choice_? LinkedReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the status request refers to an earlier account opening or modification instruction message.
     /// </summary>
+    [IsoId("_dqQnIyFeEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementType1Code StatusRequestType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountManagementType1Code StatusRequestType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountManagementType1Code StatusRequestType { get; init; } 
+    #else
+    public AccountManagementType1Code StatusRequestType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or account modification instruction at application level.
     /// </summary>
+    [IsoId("_dqQnJSFeEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountApplicationIdentification { get; init; } 
+    #else
+    public System.String? AccountApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
+    [IsoId("_s9JIcVxQEeW8MLuBzR10cg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Existing Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExistingAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExistingAccountIdentification { get; init; } 
+    #else
+    public System.String? ExistingAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account information for which the status of an account management instruction is requested.
     /// </summary>
+    [IsoId("_dqQnJyFeEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount53? InvestmentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount53? InvestmentAccount { get; init; } 
+    #else
+    public InvestmentAccount53? InvestmentAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LinkedReference is LinkedMessage3Choice_ LinkedReferenceValue)
-        {
-            writer.WriteStartElement(null, "LkdRef", xmlNamespace );
-            LinkedReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StsReqTp", xmlNamespace );
-        writer.WriteValue(StatusRequestType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExistingAccountIdentification is IsoMax35Text ExistingAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ExstgAcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ExistingAccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InvestmentAccount is InvestmentAccount53 InvestmentAccountValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcct", xmlNamespace );
-            InvestmentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountManagementMessageReference3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

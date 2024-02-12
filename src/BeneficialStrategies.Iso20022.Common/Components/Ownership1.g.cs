@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides ownership details  of a person on an asset.
 /// </summary>
+[IsoId("_6_92AIzzEemXJvzC2Wyt1g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Ownership")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Ownership1
-     : IIsoXmlSerilizable<Ownership1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of ownership.
     /// </summary>
+    [IsoId("_ZauvUYz0EemXJvzC2Wyt1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ownership Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OwnershipType3Choice_? OwnershipType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OwnershipType3Choice_? OwnershipType { get; init; } 
+    #else
+    public OwnershipType3Choice_? OwnershipType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of ownership that a person has on an asset.
     /// </summary>
+    [IsoId("_jeCnUIz0EemXJvzC2Wyt1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ownership Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? OwnershipPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OwnershipPercentage { get; init; } 
+    #else
+    public System.Decimal? OwnershipPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of usufruct that a person has on an asset.
     /// </summary>
+    [IsoId("_8KqSEIz0EemXJvzC2Wyt1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Usufruct Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? UsufructPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UsufructPercentage { get; init; } 
+    #else
+    public System.Decimal? UsufructPercentage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OwnershipType is OwnershipType3Choice_ OwnershipTypeValue)
-        {
-            writer.WriteStartElement(null, "OwnrshTp", xmlNamespace );
-            OwnershipTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OwnershipPercentage is IsoPercentageRate OwnershipPercentageValue)
-        {
-            writer.WriteStartElement(null, "OwnrshPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OwnershipPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UsufructPercentage is IsoPercentageRate UsufructPercentageValue)
-        {
-            writer.WriteStartElement(null, "UsfrctPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UsufructPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static Ownership1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

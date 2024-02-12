@@ -7,69 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the confirmation of a transfer in transaction.
 /// </summary>
+[IsoId("_QwC1gRgmEeK-_89we2b-bA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transfer In")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransferIn8
-     : IIsoXmlSerilizable<TransferIn8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransferIn8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransferIn8( InvestmentAccount22 reqAccountDetails )
+    {
+        AccountDetails = reqAccountDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
+    [IsoId("_RFpSFRgmEeK-_89we2b-bA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public Transfer25? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RFpSFRgmEeK-_89we2b-bA
+    
     /// <summary>
     /// Information related to the account into which the financial instrument was received.
     /// </summary>
+    [IsoId("_RFpSGRgmEeK-_89we2b-bA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount22 AccountDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvestmentAccount22 AccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount22 AccountDetails { get; init; } 
+    #else
+    public InvestmentAccount22 AccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the delivering side of the transfer.
     /// </summary>
+    [IsoId("_RFpSHRgmEeK-_89we2b-bA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliverInformation11? SettlementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliverInformation11? SettlementDetails { get; init; } 
+    #else
+    public DeliverInformation11? SettlementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
+    [IsoId("_RFpSIRgmEeK-_89we2b-bA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize TransferDetails, multiplicity Unknown
-        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
-        AccountDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SettlementDetails is DeliverInformation11 SettlementDetailsValue)
-        {
-            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
-            SettlementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransferIn8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

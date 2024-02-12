@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional indicators on the transaction.
 /// </summary>
+[IsoId("_ZVa-kGhoEeaqBY_HJicULw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Transaction Indicator")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesTransactionIndicator2
-     : IIsoXmlSerilizable<SecuritiesTransactionIndicator2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesTransactionIndicator2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesTransactionIndicator2( System.String reqSecuritiesFinancingTransactionIndicator )
+    {
+        SecuritiesFinancingTransactionIndicator = reqSecuritiesFinancingTransactionIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the transaction was executed under a pre-trade waiver.
     /// </summary>
+    [IsoId("_ZmkY8WhoEeaqBY_HJicULw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Waiver Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingWaiverType1Code? WaiverIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingWaiverType1Code? WaiverIndicator { get; init; } 
+    #else
+    public ReportingWaiverType1Code? WaiverIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a short sell concluded by the investment agent on its own accounts or on behalf of a client, as described in the local regulation.
     /// </summary>
+    [IsoId("_ZmkY82hoEeaqBY_HJicULw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Selling Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Side5Code? ShortSellingIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Side5Code? ShortSellingIndicator { get; init; } 
+    #else
+    public Side5Code? ShortSellingIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of transaction in accordance with the local regulation.
     /// </summary>
+    [IsoId("_ZmkY9WhoEeaqBY_HJicULw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("OTC Post Trade Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingWaiverType3Code? OTCPostTradeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingWaiverType3Code? OTCPostTradeIndicator { get; init; } 
+    #else
+    public ReportingWaiverType3Code? OTCPostTradeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transaction is objectively measurable as reducing risks directly relating to the commercial activity of the entity executing the transaction.
     /// </summary>
+    [IsoId("_ZmkY92hoEeaqBY_HJicULw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Reducing Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RiskReducingTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RiskReducingTransaction { get; init; } 
+    #else
+    public System.String? RiskReducingTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transaction falls within the scope of activity to be reported under the Securities Financing Transactions Regulation.
     /// </summary>
+    [IsoId("_ZmkY-WhoEeaqBY_HJicULw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Financing Transaction Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator SecuritiesFinancingTransactionIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SecuritiesFinancingTransactionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SecuritiesFinancingTransactionIndicator { get; init; } 
+    #else
+    public System.String SecuritiesFinancingTransactionIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (WaiverIndicator is ReportingWaiverType1Code WaiverIndicatorValue)
-        {
-            writer.WriteStartElement(null, "WvrInd", xmlNamespace );
-            writer.WriteValue(WaiverIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ShortSellingIndicator is Side5Code ShortSellingIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ShrtSellgInd", xmlNamespace );
-            writer.WriteValue(ShortSellingIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OTCPostTradeIndicator is ReportingWaiverType3Code OTCPostTradeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OTCPstTradInd", xmlNamespace );
-            writer.WriteValue(OTCPostTradeIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RiskReducingTransaction is IsoTrueFalseIndicator RiskReducingTransactionValue)
-        {
-            writer.WriteStartElement(null, "RskRdcgTx", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RiskReducingTransactionValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SctiesFincgTxInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SecuritiesFinancingTransactionIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static SecuritiesTransactionIndicator2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

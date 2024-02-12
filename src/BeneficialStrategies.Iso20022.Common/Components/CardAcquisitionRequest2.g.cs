@@ -7,126 +7,217 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request to card data acquisition.
 /// </summary>
+[IsoId("_mmNwMYYEEemxIqbaFEE8-w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Acquisition Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardAcquisitionRequest2
-     : IIsoXmlSerilizable<CardAcquisitionRequest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Card payment brands allowed by the Sale System for the payment transaction.
     /// </summary>
+    [IsoId("_mxLDAYYEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed Payment Brand")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AllowedPaymentBrand { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AllowedPaymentBrand { get; init; } 
+    #else
+    public System.String? AllowedPaymentBrand { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loyalty brands or programs allowed by the Sale System for the loyalty transaction.
     /// </summary>
+    [IsoId("_mxLDA4YEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowed Loyalty Brand")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AllowedLoyaltyBrand { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AllowedLoyaltyBrand { get; init; } 
+    #else
+    public System.String? AllowedLoyaltyBrand { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the Customer realises the selection of the card application.
     /// </summary>
+    [IsoId("_mxLDBYYEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Force Customer Selection Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ForceCustomerSelectionFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ForceCustomerSelectionFlag { get; init; } 
+    #else
+    public System.String? ForceCustomerSelectionFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the transaction. It allows the processing of a contactless card.
     /// </summary>
+    [IsoId("_mxLDB4YEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmount { get; init; } 
+    #else
+    public System.Decimal? TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of payment transaction.
     /// </summary>
+    [IsoId("_mxLDCYYEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType13Code? PaymentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType13Code? PaymentType { get; init; } 
+    #else
+    public CardPaymentServiceType13Code? PaymentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if Cashback is allowed
     /// </summary>
+    [IsoId("_mxLDC4YEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Back Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CashBackFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashBackFlag { get; init; } 
+    #else
+    public System.String? CashBackFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// The POI System receives this information.
     /// </summary>
+    [IsoId("_kR1Sw4YEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale To POI Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SaleToPOIData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleToPOIData { get; init; } 
+    #else
+    public System.String? SaleToPOIData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sale information intended for the Acquirer.
     /// </summary>
+    [IsoId("_kR1SxIYEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale To Acquirer Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SaleToAcquirerData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleToAcquirerData { get; init; } 
+    #else
+    public System.String? SaleToAcquirerData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sale information intended for the Issuer.
     /// </summary>
+    [IsoId("_kR1SxYYEEemxIqbaFEE8-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale To Issuer Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SaleToIssuerData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleToIssuerData { get; init; } 
+    #else
+    public System.String? SaleToIssuerData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AllowedPaymentBrand is IsoMax35Text AllowedPaymentBrandValue)
-        {
-            writer.WriteStartElement(null, "AllwdPmtBrnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AllowedPaymentBrandValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AllowedLoyaltyBrand is IsoMax35Text AllowedLoyaltyBrandValue)
-        {
-            writer.WriteStartElement(null, "AllwdLltyBrnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AllowedLoyaltyBrandValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ForceCustomerSelectionFlag is IsoTrueFalseIndicator ForceCustomerSelectionFlagValue)
-        {
-            writer.WriteStartElement(null, "ForceCstmrSelctnFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ForceCustomerSelectionFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PaymentType is CardPaymentServiceType13Code PaymentTypeValue)
-        {
-            writer.WriteStartElement(null, "PmtTp", xmlNamespace );
-            writer.WriteValue(PaymentTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CashBackFlag is IsoTrueFalseIndicator CashBackFlagValue)
-        {
-            writer.WriteStartElement(null, "CshBckFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CashBackFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SaleToPOIData is IsoMax70Text SaleToPOIDataValue)
-        {
-            writer.WriteStartElement(null, "SaleToPOIData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SaleToPOIDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleToAcquirerData is IsoMax70Text SaleToAcquirerDataValue)
-        {
-            writer.WriteStartElement(null, "SaleToAcqrrData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SaleToAcquirerDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleToIssuerData is IsoMax70Text SaleToIssuerDataValue)
-        {
-            writer.WriteStartElement(null, "SaleToIssrData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SaleToIssuerDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CardAcquisitionRequest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

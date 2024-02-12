@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the notional quantity frequency.
 /// </summary>
+[IsoId("_X-QgoSJEEe2zWP9pqvmqdw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Quantity Term")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record QuantityTerm1
-     : IIsoXmlSerilizable<QuantityTerm1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
+    [IsoId("_n1kXkSJEEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Quantity { get; init; } 
+    #else
+    public System.UInt64? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
+    [IsoId("_6LpXASJEEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
+    #else
+    public UnitOfMeasure8Choice_? UnitOfMeasure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the number of time units (as expressed by the frequency period) that determines the frequency at which periodic dates occur.
     /// </summary>
+    [IsoId("_X_OJ8SJEEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Value { get; init; } 
+    #else
+    public System.UInt64? Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit for the frequency period.
     /// </summary>
+    [IsoId("_X_EY8yJEEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency19Code? TimeUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency19Code? TimeUnit { get; init; } 
+    #else
+    public Frequency19Code? TimeUnit { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Quantity is IsoLongFraction19DecimalNumber QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(QuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Value is IsoMax3Number ValueValue)
-        {
-            writer.WriteStartElement(null, "Val", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Number(ValueValue)); // data type Max3Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TimeUnit is Frequency19Code TimeUnitValue)
-        {
-            writer.WriteStartElement(null, "TmUnit", xmlNamespace );
-            writer.WriteValue(TimeUnitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static QuantityTerm1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

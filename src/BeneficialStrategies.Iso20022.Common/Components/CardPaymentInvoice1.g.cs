@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed invoice data.
 /// </summary>
+[IsoId("_YJ1FgDD0EeO9waS4ina8CA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Invoice")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentInvoice1
-     : IIsoXmlSerilizable<CardPaymentInvoice1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentInvoice1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentInvoice1( InvoiceHeader1 reqInvoiceHeader,TradeAgreement6 reqTradeAgreement,TradeDelivery1 reqTradeDelivery )
+    {
+        InvoiceHeader = reqInvoiceHeader;
+        TradeAgreement = reqTradeAgreement;
+        TradeDelivery = reqTradeDelivery;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// General data relevant to the main body of the invoice such as date of issue, currency code and identification number.
     /// </summary>
+    [IsoId("_ozV1cDD0EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Header")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceHeader1 InvoiceHeader { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvoiceHeader1 InvoiceHeader { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvoiceHeader1 InvoiceHeader { get; init; } 
+    #else
+    public InvoiceHeader1 InvoiceHeader { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contractual details related to the agreement between parties.
     /// </summary>
+    [IsoId("_ubYcADD0EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Agreement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement6 TradeAgreement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeAgreement6 TradeAgreement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeAgreement6 TradeAgreement { get; init; } 
+    #else
+    public TradeAgreement6 TradeAgreement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
     /// </summary>
+    [IsoId("_ymbgIDD0EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Delivery")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeDelivery1 TradeDelivery { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeDelivery1 TradeDelivery { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeDelivery1 TradeDelivery { get; init; } 
+    #else
+    public TradeDelivery1 TradeDelivery { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
     /// </summary>
+    [IsoId("_3mI7YDD0EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Line Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItem10? LineItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LineItem10? LineItem { get; init; } 
+    #else
+    public LineItem10? LineItem { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InvcHdr", xmlNamespace );
-        InvoiceHeader.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradAgrmt", xmlNamespace );
-        TradeAgreement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradDlvry", xmlNamespace );
-        TradeDelivery.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LineItem is LineItem10 LineItemValue)
-        {
-            writer.WriteStartElement(null, "LineItm", xmlNamespace );
-            LineItemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentInvoice1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

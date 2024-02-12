@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unit of measure in which the quantity is expressed.
-/// </summary>
-[KnownType(typeof(UnitOfMeasure8Choice.Code))]
-[KnownType(typeof(UnitOfMeasure8Choice.Proprietary))]
-public abstract partial record UnitOfMeasure8Choice_ : IIsoXmlSerilizable<UnitOfMeasure8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unit of measure in which the quantity is expressed.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnitOfMeasure8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnitOfMeasure8Choice.Code))]
+    [KnownType(typeof(UnitOfMeasure8Choice.Proprietary))]
+    [IsoId("_D7l4ADNlEe2UWZuK9pqFtg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnitOfMeasure8Choice_
+    #else
+    public abstract partial class UnitOfMeasure8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => UnitOfMeasure8Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => UnitOfMeasure8Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnitOfMeasure8Choice choice.")
-        };
     }
 }

@@ -9,73 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Party43Choice;
-
-/// <summary>
-/// Unique and unambiguous identification of a financial institution.
-/// </summary>
-public partial record FinancialInstitutionIdentification : Party43Choice_
-     , IIsoXmlSerilizable<FinancialInstitutionIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Party43Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Business identification code of the financial institution.
+    /// Unique and unambiguous identification of a financial institution.
     /// </summary>
-    public IsoBICFIDec2014Identifier? BICFI { get; init; } 
-    /// <summary>
-    /// Information used to identify a member within a clearing system.
-    /// </summary>
-    public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; init; } 
-    /// <summary>
-    /// Legal entity identification as an alternate identification for a party.
-    /// </summary>
-    public IsoLEIIdentifier? LEI { get; init; } 
-    /// <summary>
-    /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
-    /// </summary>
-    public GenericFinancialIdentification1? Other { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Bp2Qk249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record FinancialInstitutionIdentification : Party43Choice_
+    #else
+    public partial class FinancialInstitutionIdentification : Party43Choice_
+    #endif
     {
-        if (BICFI is IsoBICFIDec2014Identifier BICFIValue)
-        {
-            writer.WriteStartElement(null, "BICFI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBICFIDec2014Identifier(BICFIValue)); // data type BICFIDec2014Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification2 ClearingSystemMemberIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
-            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LEI is IsoLEIIdentifier LEIValue)
-        {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Other is GenericFinancialIdentification1 OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            OtherValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new FinancialInstitutionIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Business identification code of the financial institution.
+        /// </summary>
+        [IsoId("_ODyZAW5OEeiU9cctagi5ow")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("BICFI")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoBICFIDec2014Identifier? BICFI { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? BICFI { get; init; } 
+        #else
+        public System.String? BICFI { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information used to identify a member within a clearing system.
+        /// </summary>
+        [IsoId("_ODyZA25OEeiU9cctagi5ow")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Clearing System Member Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; init; } 
+        #else
+        public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Legal entity identification as an alternate identification for a party.
+        /// </summary>
+        [IsoId("_jnptgK9REeiTd4HhN4n9hw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("LEI")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? LEI { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LEI { get; init; } 
+        #else
+        public System.String? LEI { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
+        /// </summary>
+        [IsoId("_ODyZBW5OEeiU9cctagi5ow")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public GenericFinancialIdentification1? Other { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericFinancialIdentification1? Other { get; init; } 
+        #else
+        public GenericFinancialIdentification1? Other { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

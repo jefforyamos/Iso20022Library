@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Passenger ticket information for the cardholder. 
 /// </summary>
+[IsoId("_E2tJY_QcEeihCvvpsmGI2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Passenger Transport")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PassengerTransport1
-     : IIsoXmlSerilizable<PassengerTransport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. Acquirers can submit one occurrence of this component for each airline, railway, or travel agency transaction to provide general ticket information.
     /// </summary>
+    [IsoId("_E2tJZfQcEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PassengerTransportSummary1? Summary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PassengerTransportSummary1? Summary { get; init; } 
+    #else
+    public PassengerTransportSummary1? Summary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. Acquirers can submit multiple occurrences of this component for each airline, railway, or travel agency transaction to provide general ticket information.
     /// </summary>
+    [IsoId("_E2tJZPQcEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trip Leg")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TripLeg1? TripLeg { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TripLeg1? TripLeg { get; init; } 
+    #else
+    public TripLeg1? TripLeg { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional charges related to or during transit (for example, baggage fee, in-flight purchase). These are separate from the original ticket purchase.
     /// </summary>
+    [IsoId("_oA_s4PQcEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ancillary Purchase")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AncillaryPurchase1? AncillaryPurchase { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AncillaryPurchase1? AncillaryPurchase { get; init; } 
+    #else
+    public AncillaryPurchase1? AncillaryPurchase { get; set; } 
+    #endif
+    
     /// <summary>
     /// Vehicle for hire for passenger transport - excludes vehicles driven by a renter.  Examples include, but are not limited to, taxi, chauffered limousine, boats.
     /// </summary>
+    [IsoId("_3YFysPQcEeihCvvpsmGI2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hired Vehicle Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HiredVehicle1? HiredVehicleDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HiredVehicle1? HiredVehicleDetails { get; init; } 
+    #else
+    public HiredVehicle1? HiredVehicleDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Summary is PassengerTransportSummary1 SummaryValue)
-        {
-            writer.WriteStartElement(null, "Summry", xmlNamespace );
-            SummaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TripLeg is TripLeg1 TripLegValue)
-        {
-            writer.WriteStartElement(null, "TripLeg", xmlNamespace );
-            TripLegValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AncillaryPurchase is AncillaryPurchase1 AncillaryPurchaseValue)
-        {
-            writer.WriteStartElement(null, "AncllryPurchs", xmlNamespace );
-            AncillaryPurchaseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HiredVehicleDetails is HiredVehicle1 HiredVehicleDetailsValue)
-        {
-            writer.WriteStartElement(null, "HirdVhclDtls", xmlNamespace );
-            HiredVehicleDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PassengerTransport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

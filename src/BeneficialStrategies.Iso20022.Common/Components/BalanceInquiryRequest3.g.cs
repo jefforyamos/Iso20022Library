@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Balance Inquiry Request message.
 /// </summary>
+[IsoId("_qkw4UQxqEeqdx6buGpCCQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Balance Inquiry Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BalanceInquiryRequest3
-     : IIsoXmlSerilizable<BalanceInquiryRequest3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data related to the account pointed by the payment card.
     /// </summary>
+    [IsoId("_qxshEQxqEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Account Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentAccountRequest1? PaymentAccountRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentAccountRequest1? PaymentAccountRequest { get; init; } 
+    #else
+    public PaymentAccountRequest1? PaymentAccountRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to a requested Loyalty program or account.
     /// </summary>
+    [IsoId("_qxshEwxqEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Account Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyAccountRequest2? LoyaltyAccountRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyAccountRequest2? LoyaltyAccountRequest { get; init; } 
+    #else
+    public LoyaltyAccountRequest2? LoyaltyAccountRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to a requested Stored value account.
     /// </summary>
+    [IsoId("_qxshFQxqEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stored Value Account Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueRequest3? StoredValueAccountRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueRequest3? StoredValueAccountRequest { get; init; } 
+    #else
+    public StoredValueRequest3? StoredValueAccountRequest { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PaymentAccountRequest is PaymentAccountRequest1 PaymentAccountRequestValue)
-        {
-            writer.WriteStartElement(null, "PmtAcctReq", xmlNamespace );
-            PaymentAccountRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoyaltyAccountRequest is LoyaltyAccountRequest2 LoyaltyAccountRequestValue)
-        {
-            writer.WriteStartElement(null, "LltyAcctReq", xmlNamespace );
-            LoyaltyAccountRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StoredValueAccountRequest is StoredValueRequest3 StoredValueAccountRequestValue)
-        {
-            writer.WriteStartElement(null, "StordValAcctReq", xmlNamespace );
-            StoredValueAccountRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BalanceInquiryRequest3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

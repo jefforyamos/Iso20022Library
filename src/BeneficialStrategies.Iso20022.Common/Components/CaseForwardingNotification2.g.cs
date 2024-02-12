@@ -7,43 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of a case resulting from a case assignment.
 /// </summary>
+[IsoId("_T-P8Qtp-Ed-ak6NoX_4Aeg_2025360319")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Case Forwarding Notification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CaseForwardingNotification2
-     : IIsoXmlSerilizable<CaseForwardingNotification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CaseForwardingNotification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CaseForwardingNotification2( CaseForwardingNotification2Code reqJustification )
+    {
+        Justification = reqJustification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Justification for the forward action.
     /// </summary>
+    [IsoId("_T-P8Q9p-Ed-ak6NoX_4Aeg_2025360321")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Justification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseForwardingNotification2Code Justification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CaseForwardingNotification2Code Justification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CaseForwardingNotification2Code Justification { get; init; } 
+    #else
+    public CaseForwardingNotification2Code Justification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Justfn", xmlNamespace );
-        writer.WriteValue(Justification.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static CaseForwardingNotification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
+[IsoId("_6PgXxJqlEeGSON8vddiWzQ_126693803")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Billing Service Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BillingServiceParameters2
-     : IIsoXmlSerilizable<BillingServiceParameters2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BillingServiceParameters2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BillingServiceParameters2( BillingServiceIdentification2 reqBankService,AmountAndDirection34 reqServiceChargeAmount )
+    {
+        BankService = reqBankService;
+        ServiceChargeAmount = reqServiceChargeAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the details to fully identify the bank service.
     /// </summary>
+    [IsoId("_6PgXxZqlEeGSON8vddiWzQ_-1989872304")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingServiceIdentification2 BankService { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BillingServiceIdentification2 BankService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BillingServiceIdentification2 BankService { get; init; } 
+    #else
+    public BillingServiceIdentification2 BankService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
+    [IsoId("_6PgXxpqlEeGSON8vddiWzQ_-424116921")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Volume")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Volume { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Volume { get; init; } 
+    #else
+    public System.UInt64? Volume { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price per item or unit used to calculate the charge expressed in the pricing currency.
     /// </summary>
+    [IsoId("_6PgXx5qlEeGSON8vddiWzQ_-1110935494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? UnitPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection34? UnitPrice { get; init; } 
+    #else
+    public AmountAndDirection34? UnitPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the calculated charge expressed in the pricing currency, exclusive of any tax.
     /// </summary>
+    [IsoId("_6PphsJqlEeGSON8vddiWzQ_534331941")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Charge Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 ServiceChargeAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection34 ServiceChargeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection34 ServiceChargeAmount { get; init; } 
+    #else
+    public AmountAndDirection34 ServiceChargeAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BkSvc", xmlNamespace );
-        BankService.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Volume is IsoDecimalNumber VolumeValue)
-        {
-            writer.WriteStartElement(null, "Vol", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(VolumeValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is AmountAndDirection34 UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SvcChrgAmt", xmlNamespace );
-        ServiceChargeAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static BillingServiceParameters2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

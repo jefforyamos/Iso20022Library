@@ -7,150 +7,283 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to support the Know Your Customer processes.
 /// </summary>
+[IsoId("_XMeHwRODEeKjmvxNCObNeQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Profile Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyProfileInformation2
-     : IIsoXmlSerilizable<PartyProfileInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyProfileInformation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyProfileInformation2( System.String reqCertificationIndicator,CertificationType1Choice_ reqCertificateType )
+    {
+        CertificationIndicator = reqCertificationIndicator;
+        CertificateType = reqCertificateType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the certificate type has been obtained and verified.
     /// </summary>
+    [IsoId("_XheueRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CertificationIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CertificationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CertificationIndicator { get; init; } 
+    #else
+    public System.String CertificationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the person who validated the document.
     /// </summary>
+    [IsoId("_XheufRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validating Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? ValidatingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ValidatingParty { get; init; } 
+    #else
+    public System.String? ValidatingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the person who checked the document.
     /// </summary>
+    [IsoId("_XheugRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Checking Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CheckingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CheckingParty { get; init; } 
+    #else
+    public System.String? CheckingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the person who is responsible for the document.
     /// </summary>
+    [IsoId("_XheuhRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? ResponsibleParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ResponsibleParty { get; init; } 
+    #else
+    public System.String? ResponsibleParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of certificate.
     /// </summary>
+    [IsoId("_73D6sBdEEeK5g-3oYI0_9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CertificationType1Choice_ CertificateType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CertificationType1Choice_ CertificateType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CertificationType1Choice_ CertificateType { get; init; } 
+    #else
+    public CertificationType1Choice_ CertificateType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the certification check has been performed.
     /// </summary>
+    [IsoId("_XheukRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Checking Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CheckingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CheckingDate { get; init; } 
+    #else
+    public System.DateOnly? CheckingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how frequently the check is performed.
     /// </summary>
+    [IsoId("_XheulRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Checking Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency1Code? CheckingFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventFrequency1Code? CheckingFrequency { get; init; } 
+    #else
+    public EventFrequency1Code? CheckingFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date at which the next certification check will be performed.
     /// </summary>
+    [IsoId("_XheumRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Revision Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NextRevisionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? NextRevisionDate { get; init; } 
+    #else
+    public System.DateOnly? NextRevisionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Limits between which a person's salary is estimated.
     /// </summary>
+    [IsoId("_XheunRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Salary Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SalaryRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SalaryRange { get; init; } 
+    #else
+    public System.String? SalaryRange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the main source of revenue.
     /// </summary>
+    [IsoId("_XheuoRODEeKjmvxNCObNeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Source Of Wealth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SourceOfWealth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SourceOfWealth { get; init; } 
+    #else
+    public System.String? SourceOfWealth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies an assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
+    [IsoId("_Qu2P0BdvEeKYM7Bc71nDlA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Conduct Classification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
+    #else
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the customer’s money laundering risk.
     /// </summary>
+    [IsoId("_XOBSsBdvEeKYM7Bc71nDlA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskLevel1Choice_? RiskLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RiskLevel1Choice_? RiskLevel { get; init; } 
+    #else
+    public RiskLevel1Choice_? RiskLevel { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (ValidatingParty is IsoMax140Text ValidatingPartyValue)
-        {
-            writer.WriteStartElement(null, "VldtngPty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(ValidatingPartyValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (CheckingParty is IsoMax140Text CheckingPartyValue)
-        {
-            writer.WriteStartElement(null, "ChckngPty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(CheckingPartyValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (ResponsibleParty is IsoMax140Text ResponsiblePartyValue)
-        {
-            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(ResponsiblePartyValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CertTp", xmlNamespace );
-        CertificateType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CheckingDate is IsoISODate CheckingDateValue)
-        {
-            writer.WriteStartElement(null, "ChckngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CheckingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CheckingFrequency is EventFrequency1Code CheckingFrequencyValue)
-        {
-            writer.WriteStartElement(null, "ChckngFrqcy", xmlNamespace );
-            writer.WriteValue(CheckingFrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NextRevisionDate is IsoISODate NextRevisionDateValue)
-        {
-            writer.WriteStartElement(null, "NxtRvsnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(NextRevisionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SalaryRange is IsoMax35Text SalaryRangeValue)
-        {
-            writer.WriteStartElement(null, "SlryRg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SalaryRangeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SourceOfWealth is IsoMax140Text SourceOfWealthValue)
-        {
-            writer.WriteStartElement(null, "SrcOfWlth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(SourceOfWealthValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerConductClassification is CustomerConductClassification1Choice_ CustomerConductClassificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrCndctClssfctn", xmlNamespace );
-            CustomerConductClassificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RiskLevel is RiskLevel1Choice_ RiskLevelValue)
-        {
-            writer.WriteStartElement(null, "RskLvl", xmlNamespace );
-            RiskLevelValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyProfileInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

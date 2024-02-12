@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Indicates whether the contract was cleared, not cleared or if the contract is intended to be cleared.
-/// </summary>
-[KnownType(typeof(Cleared23Choice.Cleared))]
-[KnownType(typeof(Cleared23Choice.IntendToClear))]
-[KnownType(typeof(Cleared23Choice.NonCleared))]
-public abstract partial record Cleared23Choice_ : IIsoXmlSerilizable<Cleared23Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Indicates whether the contract was cleared, not cleared or if the contract is intended to be cleared.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Cleared23Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Cleared23Choice.Cleared))]
+    [KnownType(typeof(Cleared23Choice.IntendToClear))]
+    [KnownType(typeof(Cleared23Choice.NonCleared))]
+    [IsoId("_zVhWIQtuEe2eQ-C-GTDpFA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cleared 23 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Cleared23Choice_
+    #else
+    public abstract partial class Cleared23Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Clrd" => Cleared23Choice.Cleared.Deserialize(elementWithPayload),
-             "IntndToClear" => Cleared23Choice.IntendToClear.Deserialize(elementWithPayload),
-             "NonClrd" => Cleared23Choice.NonCleared.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Cleared23Choice choice.")
-        };
     }
 }

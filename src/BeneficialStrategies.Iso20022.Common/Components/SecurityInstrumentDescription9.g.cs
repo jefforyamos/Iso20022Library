@@ -7,81 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
+[IsoId("_TGvncWXuEeWIGZvepIG8Mg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Instrument Description")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityInstrumentDescription9
-     : IIsoXmlSerilizable<SecurityInstrumentDescription9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecurityInstrumentDescription9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecurityInstrumentDescription9( System.String reqIdentification,System.String reqFullName,System.String reqClassificationType,string reqNotionalCurrency,System.String reqCommodityDerivativeIndicator )
+    {
+        Identification = reqIdentification;
+        FullName = reqFullName;
+        ClassificationType = reqClassificationType;
+        NotionalCurrency = reqNotionalCurrency;
+        CommodityDerivativeIndicator = reqCommodityDerivativeIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Code used to identify the financial instrument.
     /// </summary>
+    [IsoId("_TST-QWXuEeWIGZvepIG8Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Full name of the financial instrument.
     /// </summary>
+    [IsoId("_TST-Q2XuEeWIGZvepIG8Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text FullName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FullName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FullName { get; init; } 
+    #else
+    public System.String FullName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Short name of financial instrument in accordance with ISO 18774.
     /// </summary>
+    [IsoId("_TST-RWXuEeWIGZvepIG8Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ShortName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ShortName { get; init; } 
+    #else
+    public System.String? ShortName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification.
     /// </summary>
+    [IsoId("_TST-R2XuEeWIGZvepIG8Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCFIOct2015Identifier ClassificationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ClassificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ClassificationType { get; init; } 
+    #else
+    public System.String ClassificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [IsoId("_TST-S2XuEeWIGZvepIG8Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notional Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string NotionalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string NotionalCurrency { get; init; } 
+    #else
+    public string NotionalCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument falls within the definition of commodities derivative under the local regulation.
     /// </summary>
+    [IsoId("_TST-TWXuEeWIGZvepIG8Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commodity Derivative Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator CommodityDerivativeIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CommodityDerivativeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CommodityDerivativeIndicator { get; init; } 
+    #else
+    public System.String CommodityDerivativeIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FullNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(FullName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (ShortName is IsoMax35Text ShortNameValue)
-        {
-            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationType)); // data type CFIOct2015Identifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
-        writer.WriteValue(NotionalCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CmmdtyDerivInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CommodityDerivativeIndicator)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static SecurityInstrumentDescription9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

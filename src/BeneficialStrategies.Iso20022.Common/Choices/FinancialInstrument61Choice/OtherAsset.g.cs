@@ -9,84 +9,174 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice;
-
-/// <summary>
-/// Identification of another kind of asset in the holding that is not a security or cash.
-/// </summary>
-public partial record OtherAsset : FinancialInstrument61Choice_
-     , IIsoXmlSerilizable<OtherAsset>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of asset.
+    /// Identification of another kind of asset in the holding that is not a security or cash.
     /// </summary>
-    public required OtherAsset2Choice_ OtherAssetType { get; init; } 
-    /// <summary>
-    /// Technical identification of the asset.
-    /// </summary>
-    public required IsoMax35Text Identification { get; init; } 
-    /// <summary>
-    /// Name of the asset.
-    /// </summary>
-    public IsoMax35Text? Name { get; init; } 
-    /// <summary>
-    /// Description of the asset.
-    /// </summary>
-    public IsoMax35Text? Description { get; init; } 
-    /// <summary>
-    /// Additional identification of the asset.
-    /// </summary>
-    public SimpleValueList<IsoMax35Text> OtherIdentification { get; init; } = [];
-    /// <summary>
-    /// Additional information about the other asset.
-    /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_mW7mFZNBEemQB_8XA98K0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Asset")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OtherAsset : FinancialInstrument61Choice_
+    #else
+    public partial class OtherAsset : FinancialInstrument61Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "OthrAsstTp", xmlNamespace );
-        OtherAssetType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Name is IsoMax35Text NameValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OtherAsset instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OtherAsset( OtherAsset2Choice_ reqOtherAssetType,System.String reqIdentification )
         {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            OtherAssetType = reqOtherAssetType;
+            Identification = reqIdentification;
         }
-        if (Description is IsoMax35Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DescriptionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OthrId", xmlNamespace );
-        OtherIdentification.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
-        writer.WriteEndElement();
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new OtherAsset Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of asset.
+        /// </summary>
+        [IsoId("_mrKwsZNBEemQB_8XA98K0Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Asset Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required OtherAsset2Choice_ OtherAssetType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public OtherAsset2Choice_ OtherAssetType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OtherAsset2Choice_ OtherAssetType { get; init; } 
+        #else
+        public OtherAsset2Choice_ OtherAssetType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Technical identification of the asset.
+        /// </summary>
+        [IsoId("_mrKws5NBEemQB_8XA98K0Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the asset.
+        /// </summary>
+        [IsoId("_mrKwtZNBEemQB_8XA98K0Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Description of the asset.
+        /// </summary>
+        [IsoId("_syYKoP8dEemiJ7i9El0LvQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Description")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Description { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Description { get; init; } 
+        #else
+        public System.String? Description { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional identification of the asset.
+        /// </summary>
+        [IsoId("_mrKwt5NBEemQB_8XA98K0Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(5)]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        public SimpleValueList<System.String> OtherIdentification { get; init; } = new SimpleValueList<System.String>(){};
+        
+        /// <summary>
+        /// Additional information about the other asset.
+        /// </summary>
+        [IsoId("_mrKwuZNBEemQB_8XA98K0Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #else
+        public AdditionalInformation15? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

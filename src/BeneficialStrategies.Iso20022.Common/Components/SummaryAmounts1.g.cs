@@ -7,166 +7,274 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides amounts taken in to account to calculate the collateral position.
 /// </summary>
+[IsoId("_vVx-YqMOEeCojJW5vEuTEQ_933225086")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Summary Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SummaryAmounts1
-     : IIsoXmlSerilizable<SummaryAmounts1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of unsecured exposure a counterparty will accept before issuing a margin call in the base currency.
     /// </summary>
+    [IsoId("_AexcItokEeC60axPepSq7g_102667053")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Threshold Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ThresholdAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ThresholdAmount { get; init; } 
+    #else
+    public System.Decimal? ThresholdAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the threshold amount is secured or unsecured.
     /// </summary>
+    [IsoId("_vVx-Y6MOEeCojJW5vEuTEQ_-1456058639")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Threshold Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ThresholdType1Code? ThresholdType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ThresholdType1Code? ThresholdType { get; init; } 
+    #else
+    public ThresholdType1Code? ThresholdType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of posted collateral (pre-haircut) held by the taker.
     /// </summary>
+    [IsoId("_vVx-ZKMOEeCojJW5vEuTEQ_1210837912")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Haircut Collateral Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreHaircutCollateralValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreHaircutCollateralValue { get; init; } 
+    #else
+    public System.Decimal? PreHaircutCollateralValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of collateral required (unrounded).
     /// </summary>
+    [IsoId("_vVx-ZaMOEeCojJW5vEuTEQ_78396103")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjusted Exposure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AdjustedExposure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AdjustedExposure { get; init; } 
+    #else
+    public System.Decimal? AdjustedExposure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of collateral required (rounded).
     /// </summary>
+    [IsoId("_vVx-ZqMOEeCojJW5vEuTEQ_1256493419")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CollateralRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CollateralRequired { get; init; } 
+    #else
+    public System.Decimal? CollateralRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of collateral).
     /// </summary>
+    [IsoId("_vVx-Z6MOEeCojJW5vEuTEQ_-1634168070")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Transfer Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumTransferAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumTransferAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumTransferAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount specified to avoid the need to transfer uneven amounts of collateral.
     /// </summary>
+    [IsoId("_vVx-aKMOEeCojJW5vEuTEQ_344022506")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rounding Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RoundingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RoundingAmount { get; init; } 
+    #else
+    public System.Decimal? RoundingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exposure value at previous valuation.
     /// </summary>
+    [IsoId("_vV7IUKMOEeCojJW5vEuTEQ_-1037937575")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Exposure Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviousExposureValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousExposureValue { get; init; } 
+    #else
+    public System.Decimal? PreviousExposureValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of collateral at previous valuation.
     /// </summary>
+    [IsoId("_vV7IUaMOEeCojJW5vEuTEQ_-1492369915")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Collateral Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviousCollateralValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousCollateralValue { get; init; } 
+    #else
+    public System.Decimal? PreviousCollateralValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of incoming collateral, to be settled.
     /// </summary>
+    [IsoId("_vV7IUqMOEeCojJW5vEuTEQ_-2014052582")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Pending Incoming Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalPendingIncomingCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalPendingIncomingCollateral { get; init; } 
+    #else
+    public System.Decimal? TotalPendingIncomingCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of outgoing collateral, to be settled.
     /// </summary>
+    [IsoId("_vV7IU6MOEeCojJW5vEuTEQ_-1006504724")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Pending Outgoing Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalPendingOutgoingCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalPendingOutgoingCollateral { get; init; } 
+    #else
+    public System.Decimal? TotalPendingOutgoingCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sum of accrued interest.
     /// </summary>
+    [IsoId("_vV7IVKMOEeCojJW5vEuTEQ_-1233182887")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Accrued Interest Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAccruedInterestAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAccruedInterestAmount { get; init; } 
+    #else
+    public System.Decimal? TotalAccruedInterestAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sum of fees/commissions.
     /// </summary>
+    [IsoId("_vV7IVaMOEeCojJW5vEuTEQ_109882518")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalFees { get; init; } 
+    #else
+    public System.Decimal? TotalFees { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ThresholdAmount is IsoActiveCurrencyAndAmount ThresholdAmountValue)
-        {
-            writer.WriteStartElement(null, "ThrshldAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ThresholdAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ThresholdType is ThresholdType1Code ThresholdTypeValue)
-        {
-            writer.WriteStartElement(null, "ThrshldTp", xmlNamespace );
-            writer.WriteValue(ThresholdTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PreHaircutCollateralValue is IsoActiveCurrencyAndAmount PreHaircutCollateralValueValue)
-        {
-            writer.WriteStartElement(null, "PreHrcutCollVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreHaircutCollateralValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdjustedExposure is IsoActiveCurrencyAndAmount AdjustedExposureValue)
-        {
-            writer.WriteStartElement(null, "AdjstdXpsr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AdjustedExposureValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CollateralRequired is IsoActiveCurrencyAndAmount CollateralRequiredValue)
-        {
-            writer.WriteStartElement(null, "CollReqrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralRequiredValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumTransferAmount is IsoActiveCurrencyAndAmount MinimumTransferAmountValue)
-        {
-            writer.WriteStartElement(null, "MinTrfAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumTransferAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RoundingAmount is IsoActiveCurrencyAndAmount RoundingAmountValue)
-        {
-            writer.WriteStartElement(null, "RndgAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RoundingAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviousExposureValue is IsoActiveCurrencyAndAmount PreviousExposureValueValue)
-        {
-            writer.WriteStartElement(null, "PrvsXpsrVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousExposureValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviousCollateralValue is IsoActiveCurrencyAndAmount PreviousCollateralValueValue)
-        {
-            writer.WriteStartElement(null, "PrvsCollVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousCollateralValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalPendingIncomingCollateral is IsoActiveCurrencyAndAmount TotalPendingIncomingCollateralValue)
-        {
-            writer.WriteStartElement(null, "TtlPdgIncmgColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalPendingIncomingCollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalPendingOutgoingCollateral is IsoActiveCurrencyAndAmount TotalPendingOutgoingCollateralValue)
-        {
-            writer.WriteStartElement(null, "TtlPdgOutgngColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalPendingOutgoingCollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalAccruedInterestAmount is IsoActiveCurrencyAndAmount TotalAccruedInterestAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlAcrdIntrstAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAccruedInterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalFees is IsoActiveCurrencyAndAmount TotalFeesValue)
-        {
-            writer.WriteStartElement(null, "TtlFees", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalFeesValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static SummaryAmounts1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice;
-
-/// <summary>
-/// Specifies a date code and a time.
-/// </summary>
-public partial record DateCodeAndTime : DateFormat7Choice_
-     , IIsoXmlSerilizable<DateCodeAndTime>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the type of date.
+    /// Specifies a date code and a time.
     /// </summary>
-    public required DateCode4Choice_ DateCode { get; init; } 
-    /// <summary>
-    /// Specifies the time.
-    /// </summary>
-    public required IsoISOTime Time { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Q237o9p-Ed-ak6NoX_4Aeg_1192656013")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Code And Time")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DateCodeAndTime : DateFormat7Choice_
+    #else
+    public partial class DateCodeAndTime : DateFormat7Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "DtCd", xmlNamespace );
-        DateCode.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISOTime(Time)); // data type ISOTime System.TimeOnly
-        writer.WriteEndElement();
-    }
-    public static new DateCodeAndTime Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DateCodeAndTime instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DateCodeAndTime( DateCode4Choice_ reqDateCode,System.TimeOnly reqTime )
+        {
+            DateCode = reqDateCode;
+            Time = reqTime;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the type of date.
+        /// </summary>
+        [IsoId("_Q2uKqdp-Ed-ak6NoX_4Aeg_-834882430")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Date Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required DateCode4Choice_ DateCode { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public DateCode4Choice_ DateCode { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateCode4Choice_ DateCode { get; init; } 
+        #else
+        public DateCode4Choice_ DateCode { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the time.
+        /// </summary>
+        [IsoId("_Q237oNp-Ed-ak6NoX_4Aeg_713469563")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISOTime Time { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.TimeOnly Time { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.TimeOnly Time { get; init; } 
+        #else
+        public System.TimeOnly Time { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

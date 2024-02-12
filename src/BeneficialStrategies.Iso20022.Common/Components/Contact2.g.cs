@@ -7,156 +7,289 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a contact person.
 /// </summary>
+[IsoId("_DZOUkVyuEeeve7Je9cXtkQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Contact")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Contact2
-     : IIsoXmlSerilizable<Contact2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [IsoId("_DkrWoVyuEeeve7Je9cXtkQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Home phone number of contact.
     /// </summary>
+    [IsoId("_gNEyB45UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Home Phone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? HomePhoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HomePhoneNumber { get; init; } 
+    #else
+    public System.String? HomePhoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Business phone number of contact.
     /// </summary>
+    [IsoId("_gNEyCI5UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Phone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? BusinessPhoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BusinessPhoneNumber { get; init; } 
+    #else
+    public System.String? BusinessPhoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mobile phone number of contact.
     /// </summary>
+    [IsoId("_gNEyCY5UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mobile Phone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? MobilePhoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MobilePhoneNumber { get; init; } 
+    #else
+    public System.String? MobilePhoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other phone number of contact.
     /// </summary>
+    [IsoId("_gNEyCo5UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Phone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? OtherPhoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherPhoneNumber { get; init; } 
+    #else
+    public System.String? OtherPhoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Personal email address of contact.
     /// </summary>
+    [IsoId("_gNEyC45UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Personal Email Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? PersonalEmailAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PersonalEmailAddress { get; init; } 
+    #else
+    public System.String? PersonalEmailAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Business email address of contact.
     /// </summary>
+    [IsoId("_gNEyDI5UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Email Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? BusinessEmailAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BusinessEmailAddress { get; init; } 
+    #else
+    public System.String? BusinessEmailAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other email address of contact.
     /// </summary>
+    [IsoId("_gNEyDY5UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Email Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? OtherEmailAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherEmailAddress { get; init; } 
+    #else
+    public System.String? OtherEmailAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collection of information that identifies a home FAX number, as defined by telecom services.
     /// </summary>
+    [IsoId("_DkrWo1yuEeeve7Je9cXtkQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Home Fax Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? HomeFaxNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HomeFaxNumber { get; init; } 
+    #else
+    public System.String? HomeFaxNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collection of information that identifies a home FAX number, as defined by telecom services.
     /// </summary>
+    [IsoId("_wAu4AI5UEeeiH8xEoW101w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Fax Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? BusinessFaxNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BusinessFaxNumber { get; init; } 
+    #else
+    public System.String? BusinessFaxNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// </summary>
+    [IsoId("_DkrWqVyuEeeve7Je9cXtkQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("URL Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? URLAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? URLAddress { get; init; } 
+    #else
+    public System.String? URLAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language of the contact.
     /// </summary>
+    [IsoId("_Jvq5QFyuEeeve7Je9cXtkQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO2ALanguageCode? Language { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Language { get; init; } 
+    #else
+    public string? Language { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (HomePhoneNumber is IsoPhoneNumber HomePhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "HomePhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(HomePhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (BusinessPhoneNumber is IsoPhoneNumber BusinessPhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "BizPhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(BusinessPhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (MobilePhoneNumber is IsoPhoneNumber MobilePhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "MobPhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(MobilePhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (OtherPhoneNumber is IsoPhoneNumber OtherPhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "OthrPhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(OtherPhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (PersonalEmailAddress is IsoMax256Text PersonalEmailAddressValue)
-        {
-            writer.WriteStartElement(null, "PrsnlEmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(PersonalEmailAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (BusinessEmailAddress is IsoMax256Text BusinessEmailAddressValue)
-        {
-            writer.WriteStartElement(null, "BizEmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(BusinessEmailAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (OtherEmailAddress is IsoMax256Text OtherEmailAddressValue)
-        {
-            writer.WriteStartElement(null, "OthrEmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(OtherEmailAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (HomeFaxNumber is IsoPhoneNumber HomeFaxNumberValue)
-        {
-            writer.WriteStartElement(null, "HomeFaxNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(HomeFaxNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (BusinessFaxNumber is IsoPhoneNumber BusinessFaxNumberValue)
-        {
-            writer.WriteStartElement(null, "BizFaxNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(BusinessFaxNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (URLAddress is IsoMax256Text URLAddressValue)
-        {
-            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (Language is ISO2ALanguageCode LanguageValue)
-        {
-            writer.WriteStartElement(null, "Lang", xmlNamespace );
-            writer.WriteValue(LanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Contact2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

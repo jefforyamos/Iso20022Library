@@ -7,146 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a limit.
 /// </summary>
+[IsoId("_PwPj_ZlcEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Limit Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LimitSearchCriteria5
-     : IIsoXmlSerilizable<LimitSearchCriteria5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
+    [IsoId("_P4oq95lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
+    #else
+    public SystemIdentification2Choice_? SystemIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
+    [IsoId("_P4oq-ZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bilateral Limit Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of limit as set by default in the system. The default limit is applicable by the system unless otherwise instructed.
     /// </summary>
+    [IsoId("_P4oq-5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Default Limit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitType1Choice_? DefaultLimitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LimitType1Choice_? DefaultLimitType { get; init; } 
+    #else
+    public LimitType1Choice_? DefaultLimitType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
+    [IsoId("_P4oq_ZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Limit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitType1Choice_? CurrentLimitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LimitType1Choice_? CurrentLimitType { get; init; } 
+    #else
+    public LimitType1Choice_? CurrentLimitType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [IsoId("_P4oq_5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_P4orAZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+    #else
+    public AccountIdentification4Choice_? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
+    [IsoId("_P4orA5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveAmountRange3Choice_? UsedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActiveAmountRange3Choice_? UsedAmount { get; init; } 
+    #else
+    public ActiveAmountRange3Choice_? UsedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
+    [IsoId("_P4orBZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Used Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageRange1Choice_? UsedPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PercentageRange1Choice_? UsedPercentage { get; init; } 
+    #else
+    public PercentageRange1Choice_? UsedPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
+    [IsoId("_P4orB5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LimitCurrency { get; init; } 
+    #else
+    public string? LimitCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [IsoId("_P4orCZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveAmountRange3Choice_? LimitAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActiveAmountRange3Choice_? LimitAmount { get; init; } 
+    #else
+    public ActiveAmountRange3Choice_? LimitAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of dates when the limit becomes valid.
     /// </summary>
+    [IsoId("_P4orC5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Valid As Of Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndPeriod2Choice_? LimitValidAsOfDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndPeriod2Choice_? LimitValidAsOfDate { get; init; } 
+    #else
+    public DateAndPeriod2Choice_? LimitValidAsOfDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SystemIdentification is SystemIdentification2Choice_ SystemIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SysId", xmlNamespace );
-            SystemIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BilateralLimitCounterpartyIdentification is BranchAndFinancialInstitutionIdentification5 BilateralLimitCounterpartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
-            BilateralLimitCounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DefaultLimitType is LimitType1Choice_ DefaultLimitTypeValue)
-        {
-            writer.WriteStartElement(null, "DfltLmtTp", xmlNamespace );
-            DefaultLimitTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrentLimitType is LimitType1Choice_ CurrentLimitTypeValue)
-        {
-            writer.WriteStartElement(null, "CurLmtTp", xmlNamespace );
-            CurrentLimitTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountOwner is BranchAndFinancialInstitutionIdentification5 AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UsedAmount is ActiveAmountRange3Choice_ UsedAmountValue)
-        {
-            writer.WriteStartElement(null, "UsdAmt", xmlNamespace );
-            UsedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UsedPercentage is PercentageRange1Choice_ UsedPercentageValue)
-        {
-            writer.WriteStartElement(null, "UsdPctg", xmlNamespace );
-            UsedPercentageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LimitCurrency is ActiveCurrencyCode LimitCurrencyValue)
-        {
-            writer.WriteStartElement(null, "LmtCcy", xmlNamespace );
-            writer.WriteValue(LimitCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (LimitAmount is ActiveAmountRange3Choice_ LimitAmountValue)
-        {
-            writer.WriteStartElement(null, "LmtAmt", xmlNamespace );
-            LimitAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LimitValidAsOfDate is DateAndPeriod2Choice_ LimitValidAsOfDateValue)
-        {
-            writer.WriteStartElement(null, "LmtVldAsOfDt", xmlNamespace );
-            LimitValidAsOfDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LimitSearchCriteria5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

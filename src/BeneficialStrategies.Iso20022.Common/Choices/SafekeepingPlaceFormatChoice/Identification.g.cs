@@ -9,60 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice;
-
-/// <summary>
-/// Place of safekeeping expressed as a code and BIC.
-/// </summary>
-public partial record Identification : SafekeepingPlaceFormatChoice_
-     , IIsoXmlSerilizable<Identification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Place of safekeeping as a code.
+    /// Place of safekeeping expressed as a code and BIC.
     /// </summary>
-    public required SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
-    /// <summary>
-    /// Additional information about the place of safekeeping.
-    /// </summary>
-    public IsoMax35Text? Narrative { get; init; } 
-    /// <summary>
-    /// Place of safekeeping.
-    /// </summary>
-    public PartyIdentification3? Party { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RB5f5dp-Ed-ak6NoX_4Aeg_-334909529")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Identification : SafekeepingPlaceFormatChoice_
+    #else
+    public partial class Identification : SafekeepingPlaceFormatChoice_
+    #endif
     {
-        writer.WriteStartElement(null, "PlcSfkpg", xmlNamespace );
-        writer.WriteValue(PlaceSafekeeping.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Narrative is IsoMax35Text NarrativeValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Identification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Identification( SafekeepingPlace1Code reqPlaceSafekeeping )
         {
-            writer.WriteStartElement(null, "Nrrtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NarrativeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            PlaceSafekeeping = reqPlaceSafekeeping;
         }
-        if (Party is PartyIdentification3 PartyValue)
-        {
-            writer.WriteStartElement(null, "Pty", xmlNamespace );
-            PartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Identification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Place of safekeeping as a code.
+        /// </summary>
+        [IsoId("_SfoCJNp-Ed-ak6NoX_4Aeg_-1275917504")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Place Safekeeping")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
+        #else
+        public SafekeepingPlace1Code PlaceSafekeeping { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the place of safekeeping.
+        /// </summary>
+        [IsoId("_SfoCJdp-Ed-ak6NoX_4Aeg_-379437396")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Narrative")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Narrative { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Narrative { get; init; } 
+        #else
+        public System.String? Narrative { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Place of safekeeping.
+        /// </summary>
+        [IsoId("_SfoCJtp-Ed-ak6NoX_4Aeg_-405959313")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Party")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification3? Party { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification3? Party { get; init; } 
+        #else
+        public PartyIdentification3? Party { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

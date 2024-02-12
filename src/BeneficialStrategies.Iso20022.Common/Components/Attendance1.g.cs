@@ -7,73 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information and conditions provided for the physical attendance to the meeting.  
 /// </summary>
+[IsoId("_Ky03MK4kEemG7MmivSuE5g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Attendance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Attendance1
-     : IIsoXmlSerilizable<Attendance1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Conditions for physical admittance to general meeting.
     /// </summary>
-    public ValueList<AttendanceAdmissionConditions1> AdmissionConditions { get; init; } = [];
+    [IsoId("_rvsg4K4kEemG7MmivSuE5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Admission Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(7)]
+    #endif
+    public ValueList<AttendanceAdmissionConditions1> AdmissionConditions { get; init; } = new ValueList<AttendanceAdmissionConditions1>(){};
+    
     /// <summary>
     /// Specifies how to order the attendance card or to give notice of attendance.
     /// </summary>
+    [IsoId("_aLaKw64kEemG7MmivSuE5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ConfirmationInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConfirmationInformation { get; init; } 
+    #else
+    public System.String? ConfirmationInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time by which the beneficial owner or agent must provide notification of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
+    [IsoId("_aLaKxK4kEemG7MmivSuE5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? ConfirmationDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat58Choice_? ConfirmationDeadline { get; init; } 
+    #else
+    public DateFormat58Choice_? ConfirmationDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
+    [IsoId("_aLaKxa4kEemG7MmivSuE5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Market Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? ConfirmationMarketDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat58Choice_? ConfirmationMarketDeadline { get; init; } 
+    #else
+    public DateFormat58Choice_? ConfirmationMarketDeadline { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AdmssnConds", xmlNamespace );
-        AdmissionConditions.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ConfirmationInformation is IsoMax350Text ConfirmationInformationValue)
-        {
-            writer.WriteStartElement(null, "ConfInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ConfirmationInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (ConfirmationDeadline is DateFormat58Choice_ ConfirmationDeadlineValue)
-        {
-            writer.WriteStartElement(null, "ConfDdln", xmlNamespace );
-            ConfirmationDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConfirmationMarketDeadline is DateFormat58Choice_ ConfirmationMarketDeadlineValue)
-        {
-            writer.WriteStartElement(null, "ConfMktDdln", xmlNamespace );
-            ConfirmationMarketDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Attendance1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

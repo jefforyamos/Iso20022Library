@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the list of criteria to be returned in the contract registration statement.
 /// </summary>
+[IsoId("_ZgWEUOFIEeStTblywAGIyA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Contract Registration Statement Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ContractRegistrationStatementCriteria1
-     : IIsoXmlSerilizable<ContractRegistrationStatementCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the journal of the transactions recorded under the registered currency control contract must be returned or not.
     /// </summary>
+    [IsoId("_0pv6lOFIEeStTblywAGIyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Journal")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TransactionJournal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionJournal { get; init; } 
+    #else
+    public System.String? TransactionJournal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the journal of the supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
+    [IsoId("_0pv6leFIEeStTblywAGIyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supporting Document Journal")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SupportingDocumentJournal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SupportingDocumentJournal { get; init; } 
+    #else
+    public System.String? SupportingDocumentJournal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the journal of additional supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
+    [IsoId("_0pv6luFIEeStTblywAGIyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Supporting Document Journal")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AdditionalSupportingDocumentJournal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalSupportingDocumentJournal { get; init; } 
+    #else
+    public System.String? AdditionalSupportingDocumentJournal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the details on the currency control rule against which has been violated must be returned or not.
     /// </summary>
+    [IsoId("_0pv6l-FIEeStTblywAGIyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regulatory Rule Validation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RegulatoryRuleValidation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RegulatoryRuleValidation { get; init; } 
+    #else
+    public System.String? RegulatoryRuleValidation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TransactionJournal is IsoTrueFalseIndicator TransactionJournalValue)
-        {
-            writer.WriteStartElement(null, "TxJrnl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransactionJournalValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SupportingDocumentJournal is IsoTrueFalseIndicator SupportingDocumentJournalValue)
-        {
-            writer.WriteStartElement(null, "SpprtgDocJrnl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SupportingDocumentJournalValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalSupportingDocumentJournal is IsoTrueFalseIndicator AdditionalSupportingDocumentJournalValue)
-        {
-            writer.WriteStartElement(null, "AddtlSpprtgDocJrnl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AdditionalSupportingDocumentJournalValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RegulatoryRuleValidation is IsoTrueFalseIndicator RegulatoryRuleValidationValue)
-        {
-            writer.WriteStartElement(null, "RgltryRuleVldtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RegulatoryRuleValidationValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ContractRegistrationStatementCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

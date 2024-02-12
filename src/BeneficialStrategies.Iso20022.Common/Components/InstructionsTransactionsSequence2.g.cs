@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides input capability for multiple instructions on elective corporate action events via a single instruction message through using Transaction Sequence Number.
 /// </summary>
+[IsoId("_ocESMzDtEey2N-DB7H7A5A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Instructions Transactions Sequence")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InstructionsTransactionsSequence2
-     : IIsoXmlSerilizable<InstructionsTransactionsSequence2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
+    [IsoId("_oxhksTDtEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionSequenceNumber { get; init; } 
+    #else
+    public System.String? TransactionSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
+    [IsoId("_oxhkszDtEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
+    [IsoId("_oxhktTDtEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Oversubscription Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? OversubscriptionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity31Choice_? OversubscriptionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity31Choice_? OversubscriptionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [IsoId("_oxhktzDtEey2N-DB7H7A5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Reference Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerReferenceIdentification { get; init; } 
+    #else
+    public System.String? CustomerReferenceIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TransactionSequenceNumber is IsoMax3NumericText TransactionSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "TxSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionSequenceNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionQuantity is FinancialInstrumentQuantity31Choice_ InstructionQuantityValue)
-        {
-            writer.WriteStartElement(null, "InstrQty", xmlNamespace );
-            InstructionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OversubscriptionQuantity is FinancialInstrumentQuantity31Choice_ OversubscriptionQuantityValue)
-        {
-            writer.WriteStartElement(null, "OvrsbcptQty", xmlNamespace );
-            OversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustomerReferenceIdentification is IsoMax30Text CustomerReferenceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax30Text(CustomerReferenceIdentificationValue)); // data type Max30Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InstructionsTransactionsSequence2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

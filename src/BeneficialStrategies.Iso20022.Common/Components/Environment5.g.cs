@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[IsoId("_tBScAVaIEeeFltjJxERUxw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Environment5
-     : IIsoXmlSerilizable<Environment5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party in contract with an Acceptor to acquire card payment transactions.
     /// </summary>
+    [IsoId("_tMveEVaIEeeFltjJxERUxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Acquirer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Acquirer { get; init; } 
+    #else
+    public PartyIdentification197? Acquirer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Originator of the transaction.
     /// </summary>
+    [IsoId("_B3yJwFaJEeeFltjJxERUxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Originator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Originator { get; init; } 
+    #else
+    public PartyIdentification197? Originator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// </summary>
+    [IsoId("_tMveE1aIEeeFltjJxERUxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Sender { get; init; } 
+    #else
+    public PartyIdentification197? Sender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party receiving the message from the origin or from another intermediary agent.
     /// </summary>
+    [IsoId("_tMveFVaIEeeFltjJxERUxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Receiver { get; init; } 
+    #else
+    public PartyIdentification197? Receiver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card acceptor performing the card transaction.
     /// </summary>
+    [IsoId("_jxmRwc5gEeiEmaZryQQ14Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acceptor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification203? Acceptor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification203? Acceptor { get; init; } 
+    #else
+    public PartyIdentification203? Acceptor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [IsoId("_KHVlIFaJEeeFltjJxERUxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Destination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Destination { get; init; } 
+    #else
+    public PartyIdentification197? Destination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
+    [IsoId("_tMveH1aIEeeFltjJxERUxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardData2? Card { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardData2? Card { get; init; } 
+    #else
+    public CardData2? Card { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of payment token.
     /// </summary>
+    [IsoId("_rBiXofGpEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Token")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Token1? Token { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Token1? Token { get; init; } 
+    #else
+    public Token1? Token { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Acquirer is PartyIdentification197 AcquirerValue)
-        {
-            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
-            AcquirerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Originator is PartyIdentification197 OriginatorValue)
-        {
-            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
-            OriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Sender is PartyIdentification197 SenderValue)
-        {
-            writer.WriteStartElement(null, "Sndr", xmlNamespace );
-            SenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Receiver is PartyIdentification197 ReceiverValue)
-        {
-            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
-            ReceiverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Acceptor is PartyIdentification203 AcceptorValue)
-        {
-            writer.WriteStartElement(null, "Accptr", xmlNamespace );
-            AcceptorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Destination is PartyIdentification197 DestinationValue)
-        {
-            writer.WriteStartElement(null, "Dstn", xmlNamespace );
-            DestinationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Card is CardData2 CardValue)
-        {
-            writer.WriteStartElement(null, "Card", xmlNamespace );
-            CardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Token is Token1 TokenValue)
-        {
-            writer.WriteStartElement(null, "Tkn", xmlNamespace );
-            TokenValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Environment5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

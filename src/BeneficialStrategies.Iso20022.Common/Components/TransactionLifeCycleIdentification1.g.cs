@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -17,78 +23,143 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// It shall contain the same value in all messages throughout a transaction's lifecycle.
 /// ISO 8583:2003 bit 21
 /// </summary>
+[IsoId("_5kV_sER7Eeeb1MmUPTrSMw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Life Cycle Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionLifeCycleIdentification1
-     : IIsoXmlSerilizable<TransactionLifeCycleIdentification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionLifeCycleIdentification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionLifeCycleIdentification1( System.String reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique transaction identifier.
     /// ISO 8583:2003 bit 21-2
     /// </summary>
+    [IsoId("_URUEoKdZEeiva6IOmhpVHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact15Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains authorisation sequence number.
     /// </summary>
+    [IsoId("_uA1W0KdZEeiva6IOmhpVHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? AuthorisationSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthorisationSequenceNumber { get; init; } 
+    #else
+    public System.String? AuthorisationSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number used with trace identifier to uniquely identify where a single authorisation was obtained covering a number of financial presentments.
     /// ISO 8583:2003 bit 21-3
     /// </summary>
+    [IsoId("_27MCsKdZEeiva6IOmhpVHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Presentment Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? PresentmentSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PresentmentSequenceNumber { get; init; } 
+    #else
+    public System.String? PresentmentSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expected maximum number of presentments for this transaction.
     /// </summary>
+    [IsoId("_8vlqQKdZEeiva6IOmhpVHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Presentment Sequence Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? PresentmentSequenceCount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PresentmentSequenceCount { get; init; } 
+    #else
+    public System.String? PresentmentSequenceCount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code calculated using an algorithm against key transaction data elements that are common to both authorisation and financial messages.
     /// ISO 8583:2003 bit 21-4
     /// </summary>
+    [IsoId("_A0fqIKdaEeiva6IOmhpVHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Token")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AuthenticationToken { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthenticationToken { get; init; } 
+    #else
+    public System.String? AuthenticationToken { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact15Text(Identification)); // data type Exact15Text System.String
-        writer.WriteEndElement();
-        if (AuthorisationSequenceNumber is IsoExact2NumericText AuthorisationSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "AuthstnSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(AuthorisationSequenceNumberValue)); // data type Exact2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (PresentmentSequenceNumber is IsoExact2NumericText PresentmentSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "PresntmntSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(PresentmentSequenceNumberValue)); // data type Exact2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (PresentmentSequenceCount is IsoExact2NumericText PresentmentSequenceCountValue)
-        {
-            writer.WriteStartElement(null, "PresntmntSeqCnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(PresentmentSequenceCountValue)); // data type Exact2NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AuthenticationToken is IsoMax35Text AuthenticationTokenValue)
-        {
-            writer.WriteStartElement(null, "AuthntcnTkn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AuthenticationTokenValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionLifeCycleIdentification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

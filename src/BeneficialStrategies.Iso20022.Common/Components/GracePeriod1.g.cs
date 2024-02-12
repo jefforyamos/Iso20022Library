@@ -7,60 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Grace period applicable to an instalment plan.
 /// </summary>
+[IsoId("_SDCRMEVCEeea-M6VZkEPUw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Grace Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GracePeriod1
-     : IIsoXmlSerilizable<GracePeriod1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a GracePeriod1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public GracePeriod1( System.String reqTime,GracePeriodUnitType1Code reqUnitType )
+    {
+        Time = reqTime;
+        UnitType = reqUnitType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Grace period time relative to the grace period unit type. 
     /// </summary>
+    [IsoId("_mEDvgEVCEeea-M6VZkEPUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText Time { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Time { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Time { get; init; } 
+    #else
+    public System.String Time { get; set; } 
+    #endif
+    
     /// <summary>
     /// Grace period unit type.
     /// </summary>
+    [IsoId("_tgcBgEVCEeea-M6VZkEPUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GracePeriodUnitType1Code UnitType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GracePeriodUnitType1Code UnitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GracePeriodUnitType1Code UnitType { get; init; } 
+    #else
+    public GracePeriodUnitType1Code UnitType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Grace period other unit type.
     /// </summary>
+    [IsoId("_7tjAcEVCEeea-M6VZkEPUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Unit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherUnitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherUnitType { get; init; } 
+    #else
+    public System.String? OtherUnitType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(Time)); // data type Max3NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UnitTp", xmlNamespace );
-        writer.WriteValue(UnitType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherUnitType is IsoMax35Text OtherUnitTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrUnitTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherUnitTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static GracePeriod1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

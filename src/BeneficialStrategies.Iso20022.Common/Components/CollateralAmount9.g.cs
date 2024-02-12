@@ -7,93 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Securities collateral position valuation amounts.
 /// </summary>
+[IsoId("__gn0GPSgEeicy5Zn42b9bg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralAmount9
-     : IIsoXmlSerilizable<CollateralAmount9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralAmount9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralAmount9( System.Decimal reqActualMarketValuePostHaircut )
+    {
+        ActualMarketValuePostHaircut = reqActualMarketValuePostHaircut;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Actual market value post haircut expressed in the collateral currency. 
     /// </summary>
+    [IsoId("__gn0H_SgEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Market Value Post Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ActualMarketValuePostHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ActualMarketValuePostHaircut { get; init; } 
+    #else
+    public System.Decimal ActualMarketValuePostHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual market value before haircut expressed in the collateral currency.
     /// </summary>
+    [IsoId("__gn0HfSgEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Market Value Before Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ActualMarketValueBeforeHaircut { get; init; } 
+    #else
+    public System.Decimal? ActualMarketValueBeforeHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
+    [IsoId("__gn0HvSgEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Collateral In Transaction Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExposureCollateralInTransactionCurrency { get; init; } 
+    #else
+    public System.Decimal? ExposureCollateralInTransactionCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
+    [IsoId("__gn0G_SgEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Collateral In Reporting Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExposureCollateralInReportingCurrency { get; init; } 
+    #else
+    public System.Decimal? ExposureCollateralInReportingCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual market value post haircut expressed in the transaction currency.
     /// </summary>
+    [IsoId("__gn0IPSgEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value Amount Post Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketValueAmountPostHaircut { get; init; } 
+    #else
+    public System.Decimal? MarketValueAmountPostHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual market value before haircut expressed in the transaction currency. 
     /// </summary>
+    [IsoId("__gn0HPSgEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value Amount Before Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketValueAmountBeforeHaircut { get; init; } 
+    #else
+    public System.Decimal? MarketValueAmountBeforeHaircut { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActlMktValPstHrcut", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ActualMarketValuePostHaircut)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (ActualMarketValueBeforeHaircut is IsoActiveOrHistoricCurrencyAndAmount ActualMarketValueBeforeHaircutValue)
-        {
-            writer.WriteStartElement(null, "ActlMktValBfrHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ActualMarketValueBeforeHaircutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExposureCollateralInTransactionCurrency is IsoActiveOrHistoricCurrencyAndAmount ExposureCollateralInTransactionCurrencyValue)
-        {
-            writer.WriteStartElement(null, "XpsrCollInTxCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExposureCollateralInTransactionCurrencyValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExposureCollateralInReportingCurrency is IsoActiveOrHistoricCurrencyAndAmount ExposureCollateralInReportingCurrencyValue)
-        {
-            writer.WriteStartElement(null, "XpsrCollInRptgCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExposureCollateralInReportingCurrencyValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketValueAmountPostHaircut is IsoActiveOrHistoricCurrencyAndAmount MarketValueAmountPostHaircutValue)
-        {
-            writer.WriteStartElement(null, "MktValAmtPstHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueAmountPostHaircutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketValueAmountBeforeHaircut is IsoActiveOrHistoricCurrencyAndAmount MarketValueAmountBeforeHaircutValue)
-        {
-            writer.WriteStartElement(null, "MktValAmtBfrHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueAmountBeforeHaircutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralAmount9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Contains the data to be authenticated or verified.
-/// </summary>
-[KnownType(typeof(VerificationValue1Choice.TextValue))]
-[KnownType(typeof(VerificationValue1Choice.BinaryValue))]
-[KnownType(typeof(VerificationValue1Choice.HexadecimalBinaryValue))]
-[KnownType(typeof(VerificationValue1Choice.PINData))]
-public abstract partial record VerificationValue1Choice_ : IIsoXmlSerilizable<VerificationValue1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Contains the data to be authenticated or verified.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static VerificationValue1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(VerificationValue1Choice.TextValue))]
+    [KnownType(typeof(VerificationValue1Choice.BinaryValue))]
+    [KnownType(typeof(VerificationValue1Choice.HexadecimalBinaryValue))]
+    [KnownType(typeof(VerificationValue1Choice.PINData))]
+    [IsoId("_4EhKpZaNEemfCcEf5rVTyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Verification Value 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record VerificationValue1Choice_
+    #else
+    public abstract partial class VerificationValue1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "TxtVal" => VerificationValue1Choice.TextValue.Deserialize(elementWithPayload),
-             "BinryVal" => VerificationValue1Choice.BinaryValue.Deserialize(elementWithPayload),
-             "HexBinryVal" => VerificationValue1Choice.HexadecimalBinaryValue.Deserialize(elementWithPayload),
-             "PINData" => VerificationValue1Choice.PINData.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid VerificationValue1Choice choice.")
-        };
     }
 }

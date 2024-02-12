@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the identification of the reported party through the name or the sector.
-/// </summary>
-[KnownType(typeof(NameOrSector1Choice.Name))]
-[KnownType(typeof(NameOrSector1Choice.Sector))]
-public abstract partial record NameOrSector1Choice_ : IIsoXmlSerilizable<NameOrSector1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the identification of the reported party through the name or the sector.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NameOrSector1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NameOrSector1Choice.Name))]
+    [KnownType(typeof(NameOrSector1Choice.Sector))]
+    [IsoId("_6MuWYYInEeWA9fc11zJf1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Or Sector 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NameOrSector1Choice_
+    #else
+    public abstract partial class NameOrSector1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Nm" => NameOrSector1Choice.Name.Deserialize(elementWithPayload),
-             "Sctr" => NameOrSector1Choice.Sector.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NameOrSector1Choice choice.")
-        };
     }
 }

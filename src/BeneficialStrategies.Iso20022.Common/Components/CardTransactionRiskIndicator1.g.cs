@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates to the issuer the level of risk of the transaction.
 /// </summary>
+[IsoId("_lnDF4HsKEeSR68OJvMfxJQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Transaction Risk Indicator")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardTransactionRiskIndicator1
-     : IIsoXmlSerilizable<CardTransactionRiskIndicator1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardTransactionRiskIndicator1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardTransactionRiskIndicator1( System.UInt64 reqLevel )
+    {
+        Level = reqLevel;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason to indicate a certain level of risk for the transaction.
     /// </summary>
+    [IsoId("_BJYHkHsNEeSR68OJvMfxJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransactionRiskReason1Code? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardTransactionRiskReason1Code? Reason { get; init; } 
+    #else
+    public CardTransactionRiskReason1Code? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Level of risk, from 1 to 99.
     /// </summary>
+    [IsoId("_NUeygHsNEeSR68OJvMfxJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Level { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Level { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Level { get; init; } 
+    #else
+    public System.UInt64 Level { get; set; } 
+    #endif
+    
     /// <summary>
     /// Recommended action for the issuer.
     /// </summary>
+    [IsoId("_4l1jwHsNEeSR68OJvMfxJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recommended Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionType4Code? RecommendedAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionType4Code? RecommendedAction { get; init; } 
+    #else
+    public ActionType4Code? RecommendedAction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Reason is CardTransactionRiskReason1Code ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(ReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Lvl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(Level)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (RecommendedAction is ActionType4Code RecommendedActionValue)
-        {
-            writer.WriteStartElement(null, "RcmmnddActn", xmlNamespace );
-            writer.WriteValue(RecommendedActionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static CardTransactionRiskIndicator1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

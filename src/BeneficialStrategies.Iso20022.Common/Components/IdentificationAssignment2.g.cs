@@ -7,85 +7,170 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the identification assignment.
 /// </summary>
+[IsoId("_tpGiYVkyEeGeoaLUQk__nA_757109061")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Identification Assignment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IdentificationAssignment2
-     : IIsoXmlSerilizable<IdentificationAssignment2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IdentificationAssignment2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IdentificationAssignment2( System.String reqMessageIdentification,System.DateTime reqCreationDateTime,Party12Choice_ reqAssigner,Party12Choice_ reqAssignee )
+    {
+        MessageIdentification = reqMessageIdentification;
+        CreationDateTime = reqCreationDateTime;
+        Assigner = reqAssigner;
+        Assignee = reqAssignee;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the assigner, and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The assigner has to make sure that MessageIdentification is unique per assignee for a pre-agreed period.
     /// </summary>
+    [IsoId("_tpGiYlkyEeGeoaLUQk__nA_-239963292")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the identification assignment was created.
     /// </summary>
+    [IsoId("_tpGiY1kyEeGeoaLUQk__nA_-1350874711")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CreationDateTime { get; init; } 
+    #else
+    public System.DateTime CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that created the identification assignment.
     /// </summary>
+    [IsoId("_tpGiZFkyEeGeoaLUQk__nA_1013268714")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party12Choice_? Creator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party12Choice_? Creator { get; init; } 
+    #else
+    public Party12Choice_? Creator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the first agent in the identification chain, following the payment initiating party.
     /// </summary>
+    [IsoId("_tpQTYFkyEeGeoaLUQk__nA_-597652062")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? FirstAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5? FirstAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5? FirstAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that assigns the identification assignment to another party. This is also the sender of the message.
     /// </summary>
+    [IsoId("_tpQTYVkyEeGeoaLUQk__nA_-1094715058")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assigner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party12Choice_ Assigner { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Party12Choice_ Assigner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party12Choice_ Assigner { get; init; } 
+    #else
+    public Party12Choice_ Assigner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that the identification assignment is assigned to. This is also the receiver of the message.
     /// </summary>
+    [IsoId("_tpQTYlkyEeGeoaLUQk__nA_322874245")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assignee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party12Choice_ Assignee { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Party12Choice_ Assignee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party12Choice_ Assignee { get; init; } 
+    #else
+    public Party12Choice_ Assignee { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (Creator is Party12Choice_ CreatorValue)
-        {
-            writer.WriteStartElement(null, "Cretr", xmlNamespace );
-            CreatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FirstAgent is BranchAndFinancialInstitutionIdentification5 FirstAgentValue)
-        {
-            writer.WriteStartElement(null, "FrstAgt", xmlNamespace );
-            FirstAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Assgnr", xmlNamespace );
-        Assigner.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Assgne", xmlNamespace );
-        Assignee.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static IdentificationAssignment2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

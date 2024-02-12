@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Sound Request message.
 /// </summary>
+[IsoId("_GGvxgN6-Eeiwsev40qZGEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Play Sound Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DevicePlaySoundRequest1
-     : IIsoXmlSerilizable<DevicePlaySoundRequest1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DevicePlaySoundRequest1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DevicePlaySoundRequest1( SoundAction1Code reqSoundAction )
+    {
+        SoundAction = reqSoundAction;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Message response awaited by the initiator of the Request.
     /// </summary>
+    [IsoId("_Qx_MMN6-Eeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseMode1Code? ResponseMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseMode1Code? ResponseMode { get; init; } 
+    #else
+    public ResponseMode1Code? ResponseMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested Action: Start to play a sound, Stop to play a sound, Set the default volume.
     /// </summary>
+    [IsoId("_VPocMN6-Eeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sound Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SoundAction1Code SoundAction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SoundAction1Code SoundAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SoundAction1Code SoundAction { get; init; } 
+    #else
+    public SoundAction1Code SoundAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Volume of a sound, either in a pourcentage of the maximum volume, or 0 to mute.
     /// </summary>
+    [IsoId("_xG7TMN6-Eeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sound Volume")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SoundVolume { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SoundVolume { get; init; } 
+    #else
+    public System.Decimal? SoundVolume { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of a sound to play.
     /// </summary>
+    [IsoId("_z4YuMN6-Eeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sound Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SoundContent1? SoundContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SoundContent1? SoundContent { get; init; } 
+    #else
+    public SoundContent1? SoundContent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ResponseMode is ResponseMode1Code ResponseModeValue)
-        {
-            writer.WriteStartElement(null, "RspnMd", xmlNamespace );
-            writer.WriteValue(ResponseModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SoundActn", xmlNamespace );
-        writer.WriteValue(SoundAction.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SoundVolume is IsoPercentageRate SoundVolumeValue)
-        {
-            writer.WriteStartElement(null, "SoundVol", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SoundVolumeValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SoundContent is SoundContent1 SoundContentValue)
-        {
-            writer.WriteStartElement(null, "SoundCntt", xmlNamespace );
-            SoundContentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DevicePlaySoundRequest1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

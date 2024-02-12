@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type of movement preliminary advice document.
 /// </summary>
+[IsoId("_QE2AMTQSEe2o-K1dwNg8Gg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Preliminary Advice Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPreliminaryAdviceType3
-     : IIsoXmlSerilizable<CorporateActionPreliminaryAdviceType3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionPreliminaryAdviceType3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionPreliminaryAdviceType3( CorporateActionPreliminaryAdviceType1Code reqType,CorporateActionMovementPreliminaryAdviceFunction1Code reqFunction )
+    {
+        Type = reqType;
+        Function = reqFunction;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of movement preliminary advice, for example. new or replacement.
     /// </summary>
+    [IsoId("_Qcr4cTQSEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    #else
+    public CorporateActionPreliminaryAdviceType1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the message advises about the final eligible balance and entitlements or about an upcoming posting or reversal of securities and/or cash postings.
     /// </summary>
+    [IsoId("_97CFsDQSEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Function")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
+    #else
+    public CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Fctn", xmlNamespace );
-        writer.WriteValue(Function.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static CorporateActionPreliminaryAdviceType3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

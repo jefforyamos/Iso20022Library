@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification2Choice;
-
-/// <summary>
-/// Provides the identification of a party.
-/// </summary>
-public partial record OrganisationIdentification : SystemPartyIdentification2Choice_
-     , IIsoXmlSerilizable<OrganisationIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identification of the party.
+    /// Provides the identification of a party.
     /// </summary>
-    public required PartyIdentification120Choice_ Identification { get; init; } 
-    /// <summary>
-    /// Legal entity identification as an alternate identification for a party.
-    /// </summary>
-    public IsoLEIIdentifier? LEI { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_w8OZgWc-EemvNLufWGIVOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OrganisationIdentification : SystemPartyIdentification2Choice_
+    #else
+    public partial class OrganisationIdentification : SystemPartyIdentification2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LEI is IsoLEIIdentifier LEIValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OrganisationIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OrganisationIdentification( PartyIdentification120Choice_ reqIdentification )
         {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
         }
-    }
-    public static new OrganisationIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identification of the party.
+        /// </summary>
+        [IsoId("_VulSIbpYEeifFaUMRKyMMw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyIdentification120Choice_ Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyIdentification120Choice_ Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification120Choice_ Identification { get; init; } 
+        #else
+        public PartyIdentification120Choice_ Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Legal entity identification as an alternate identification for a party.
+        /// </summary>
+        [IsoId("_VulSI7pYEeifFaUMRKyMMw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("LEI")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? LEI { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LEI { get; init; } 
+        #else
+        public System.String? LEI { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

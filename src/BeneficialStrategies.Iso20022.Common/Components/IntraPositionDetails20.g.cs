@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[IsoId("_mKkkV_7xEeCvPoRGOxRobQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Position Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraPositionDetails20
-     : IIsoXmlSerilizable<IntraPositionDetails20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntraPositionDetails20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntraPositionDetails20( SecuritiesBalanceType3Choice_ reqBalanceFrom )
+    {
+        BalanceFrom = reqBalanceFrom;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [IsoId("_mKkkXf7xEeCvPoRGOxRobQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
+    #else
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance from which the securities were moved.
     /// </summary>
+    [IsoId("_mKkkYf7xEeCvPoRGOxRobQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
+    #else
+    public SecuritiesBalanceType3Choice_ BalanceFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Intra-position movement(s) having been performed.
     /// </summary>
+    [IsoId("_mKkkZf7xEeCvPoRGOxRobQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intra Position Movement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public IntraPositionMovementDetails7? IntraPositionMovement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _mKkkZf7xEeCvPoRGOxRobQ
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SafekeepingPlace is SafekeepingPlaceFormat3Choice_ SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "BalFr", xmlNamespace );
-        BalanceFrom.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize IntraPositionMovement, multiplicity Unknown
-    }
-    public static IntraPositionDetails20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,593 +7,1057 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies amounts in the framework of a corporate action event.
 /// </summary>
+[IsoId("_elmxAbXVEeiTob_PrFFUxA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionAmounts50
-     : IIsoXmlSerilizable<CorporateActionAmounts50>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionAmounts50 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionAmounts50( System.Decimal reqPostingAmount )
+    {
+        PostingAmount = reqPostingAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money that is to be/was posted to the account.
     /// </summary>
+    [IsoId("_e3mf87XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posting Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PostingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PostingAmount { get; init; } 
+    #else
+    public System.Decimal PostingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money before any deductions and allowances have been made.
     /// </summary>
+    [IsoId("_e3mf-7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Cash Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? GrossCashAmount { get; init; } 
+    #else
+    public System.Decimal? GrossCashAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money after deductions and allowances have been made, if any, that is, the total amount +/- charges/fees.
     /// </summary>
+    [IsoId("_e3mgA7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Cash Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NetCashAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetCashAmount { get; init; } 
+    #else
+    public System.Decimal? NetCashAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash premium made available if the securities holder consents or participates to an event, for example consent fees or solicitation fees.
     /// </summary>
+    [IsoId("_e3mgC7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Solicitation Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SolicitationFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SolicitationFees { get; init; } 
+    #else
+    public System.Decimal? SolicitationFees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash disbursement in lieu of a fractional quantity of, for example, equity.
     /// </summary>
+    [IsoId("_e3mgE7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Lieu Of Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashInLieuOfShare { get; init; } 
+    #else
+    public System.Decimal? CashInLieuOfShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money distributed as the result of a capital gain.
     /// </summary>
+    [IsoId("_e3mgG7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Capital Gain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CapitalGain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CapitalGain { get; init; } 
+    #else
+    public System.Decimal? CapitalGain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money representing a coupon payment.
     /// </summary>
+    [IsoId("_e3mgI7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? InterestAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InterestAmount { get; init; } 
+    #else
+    public System.Decimal? InterestAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money resulting from a market claim.
     /// </summary>
+    [IsoId("_e3mgK7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Claim Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MarketClaimAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketClaimAmount { get; init; } 
+    #else
+    public System.Decimal? MarketClaimAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// (Unique to France) Amount due to a buyer of securities dealt prior to ex date which may be subject to different rate of taxation.
     /// </summary>
+    [IsoId("_e3mgM7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indemnity Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IndemnityAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? IndemnityAmount { get; init; } 
+    #else
+    public System.Decimal? IndemnityAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that the borrower pays to the lender as a compensation. It does not entitle the lender to reclaim any tax credit and is sometimes treated differently by the local tax authorities of the lender. Also covers compensation/indemnity of missed dividend concerning early/late settlements if applicable to a market.
     /// </summary>
+    [IsoId("_e3mgO7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Manufactured Dividend Payment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ManufacturedDividendPaymentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ManufacturedDividendPaymentAmount { get; init; } 
+    #else
+    public System.Decimal? ManufacturedDividendPaymentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money reinvested in additional securities.
     /// </summary>
+    [IsoId("_e3mgPbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvestment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ReinvestmentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ReinvestmentAmount { get; init; } 
+    #else
+    public System.Decimal? ReinvestmentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount resulting from a fully franked dividend paid by a company; amount includes tax credit for companies that have made sufficient tax payments during the fiscal period.
     /// </summary>
+    [IsoId("_e3mgRbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fully Franked Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FullyFrankedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FullyFrankedAmount { get; init; } 
+    #else
+    public System.Decimal? FullyFrankedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount resulting from an unfranked dividend paid by a company; the amount does not include tax credit and is subject to withholding tax.
     /// </summary>
+    [IsoId("_e3mgTbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unfranked Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? UnfrankedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnfrankedAmount { get; init; } 
+    #else
+    public System.Decimal? UnfrankedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money related to taxable income that cannot be categorised.
     /// </summary>
+    [IsoId("_e3mgVbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sundry Or Other Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SundryOrOtherAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SundryOrOtherAmount { get; init; } 
+    #else
+    public System.Decimal? SundryOrOtherAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that has not been subject to taxation.
     /// </summary>
+    [IsoId("_e3mgXbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Free Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TaxFreeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxFreeAmount { get; init; } 
+    #else
+    public System.Decimal? TaxFreeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of income eligible for deferred taxation.
     /// </summary>
+    [IsoId("_e3mgZbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Deferred Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TaxDeferredAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxDeferredAmount { get; init; } 
+    #else
+    public System.Decimal? TaxDeferredAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax on value added.
     /// </summary>
+    [IsoId("_e3mgbbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Added Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ValueAddedTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ValueAddedTaxAmount { get; init; } 
+    #else
+    public System.Decimal? ValueAddedTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
+    [IsoId("_e3mgdbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stamp Duty Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? StampDutyAmount { get; init; } 
+    #else
+    public System.Decimal? StampDutyAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
+    [IsoId("_e3mgfbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Reclaim Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TaxReclaimAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxReclaimAmount { get; init; } 
+    #else
+    public System.Decimal? TaxReclaimAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of taxes that have been previously paid in relation to the taxable event.
     /// </summary>
+    [IsoId("_e3mghbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Credit Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TaxCreditAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxCreditAmount { get; init; } 
+    #else
+    public System.Decimal? TaxCreditAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of additional taxes that cannot be categorised.
     /// </summary>
+    [IsoId("_e3mgjbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AdditionalTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AdditionalTaxAmount { get; init; } 
+    #else
+    public System.Decimal? AdditionalTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
+    [IsoId("_e3mglbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withholding Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? WithholdingTaxAmount { get; init; } 
+    #else
+    public System.Decimal? WithholdingTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money withheld by the jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
+    [IsoId("_e3mgnbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Second Level Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SecondLevelTaxAmount { get; init; } 
+    #else
+    public System.Decimal? SecondLevelTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of fiscal tax to apply.
     /// </summary>
+    [IsoId("_e3mgn7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fiscal Stamp Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FiscalStampAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FiscalStampAmount { get; init; } 
+    #else
+    public System.Decimal? FiscalStampAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
+    [IsoId("_e3mgp7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Executing Broker Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ExecutingBrokerAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExecutingBrokerAmount { get; init; } 
+    #else
+    public System.Decimal? ExecutingBrokerAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of paying/sub-paying agent commission.
     /// </summary>
+    [IsoId("_e3mgr7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Paying Agent Commission Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PayingAgentCommissionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PayingAgentCommissionAmount { get; init; } 
+    #else
+    public System.Decimal? PayingAgentCommissionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Local broker's commission.
     /// </summary>
+    [IsoId("_e3mgt7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Broker Commission Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? LocalBrokerCommissionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LocalBrokerCommissionAmount { get; init; } 
+    #else
+    public System.Decimal? LocalBrokerCommissionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, Securities and Exchange fees.
     /// </summary>
+    [IsoId("_e3mgv7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regulatory Fees Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RegulatoryFeesAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RegulatoryFeesAmount { get; init; } 
+    #else
+    public System.Decimal? RegulatoryFeesAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// All costs related to the physical delivery of documents such as stamps, postage, carrier fees, insurances or messenger services.
     /// </summary>
+    [IsoId("_e3mgx7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipping Fees Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ShippingFeesAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ShippingFeesAmount { get; init; } 
+    #else
+    public System.Decimal? ShippingFeesAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
+    [IsoId("_e3mgz7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ChargesAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ChargesAmount { get; init; } 
+    #else
+    public System.Decimal? ChargesAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates cash retained from previous dividend.
     /// </summary>
+    [IsoId("_e3mg17XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Amount Brought Forward")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashAmountBroughtForward { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashAmountBroughtForward { get; init; } 
+    #else
+    public System.Decimal? CashAmountBroughtForward { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the balance carried forward to next dividend.
     /// </summary>
+    [IsoId("_e3mg37XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Amount Carried Forward")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashAmountCarriedForward { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashAmountCarriedForward { get; init; } 
+    #else
+    public System.Decimal? CashAmountCarriedForward { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of cash that would have been payable if the dividend had been taken in the form of cash rather than shares.
     /// </summary>
+    [IsoId("_e3mg57XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notional Dividend Payable Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NotionalDividendPayableAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NotionalDividendPayableAmount { get; init; } 
+    #else
+    public System.Decimal? NotionalDividendPayableAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Where new securities are issued in lieu of a cash dividend, the notional tax is the tax on the amount of cash that would have been paid.
     /// </summary>
+    [IsoId("_e3mg77XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notional Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NotionalTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NotionalTaxAmount { get; init; } 
+    #else
+    public System.Decimal? NotionalTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money paid by the tax authorities in addition to the payment of the tax refund itself.
     /// </summary>
+    [IsoId("_e3mg97XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Arrears Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TaxArrearsAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxArrearsAmount { get; init; } 
+    #else
+    public System.Decimal? TaxArrearsAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Posting/settlement Amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
+    [IsoId("_e3mg_7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? OriginalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OriginalAmount { get; init; } 
+    #else
+    public System.Decimal? OriginalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money representing a distribution of a bond's principal, for example, repayment of outstanding debt.
     /// </summary>
+    [IsoId("_e3mhB7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Principal Or Corpus")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PrincipalOrCorpus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PrincipalOrCorpus { get; init; } 
+    #else
+    public System.Decimal? PrincipalOrCorpus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money (not interest) in addition to the principal at the redemption of a bond.
     /// </summary>
+    [IsoId("_e3mhD7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Premium Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RedemptionPremiumAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RedemptionPremiumAmount { get; init; } 
+    #else
+    public System.Decimal? RedemptionPremiumAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount relating to the underlying security for which income is distributed.
     /// </summary>
+    [IsoId("_e3mhF7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Portion")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IncomePortion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? IncomePortion { get; init; } 
+    #else
+    public System.Decimal? IncomePortion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of stock exchange tax.
     /// </summary>
+    [IsoId("_e3mhH7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stock Exchange Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StockExchangeTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? StockExchangeTax { get; init; } 
+    #else
+    public System.Decimal? StockExchangeTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of tax withheld at source in conformance with the EU Savings Directive.
     /// </summary>
+    [IsoId("_e3mhJ7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EU Tax Retention Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? EUTaxRetentionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EUTaxRetentionAmount { get; init; } 
+    #else
+    public System.Decimal? EUTaxRetentionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of interest that has been accrued in between coupon payment periods.
     /// </summary>
+    [IsoId("_e3mhL7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accrued Interest Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AccruedInterestAmount { get; init; } 
+    #else
+    public System.Decimal? AccruedInterestAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the fund distribution amount which represents the average accrued income included in the purchase price for units bought during the account period.
     /// </summary>
+    [IsoId("_e3mhN7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equalisation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? EqualisationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EqualisationAmount { get; init; } 
+    #else
+    public System.Decimal? EqualisationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// FATCA (Foreign Account Tax Compliance Act) related tax amount.
     /// </summary>
+    [IsoId("_e3mhObXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("FATCA Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FATCATaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FATCATaxAmount { get; init; } 
+    #else
+    public System.Decimal? FATCATaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of tax related income subject to NRA (Non Resident Alien).
     /// </summary>
+    [IsoId("_e3mhO7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("NRA Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NRATaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NRATaxAmount { get; init; } 
+    #else
+    public System.Decimal? NRATaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of tax related to back up withholding.
     /// </summary>
+    [IsoId("_e3mhPbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Back Up Withholding Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? BackUpWithholdingTaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? BackUpWithholdingTaxAmount { get; init; } 
+    #else
+    public System.Decimal? BackUpWithholdingTaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of overall tax withheld at source by fund managers prior to considering the tax obligation of each unit holder.
     /// </summary>
+    [IsoId("_e3mhP7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax On Income Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TaxOnIncomeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxOnIncomeAmount { get; init; } 
+    #else
+    public System.Decimal? TaxOnIncomeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
+    [IsoId("_e3mhQbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TransactionTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TransactionTax { get; init; } 
+    #else
+    public System.Decimal? TransactionTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of proceeds which is not actually paid to the security holder but on which withholding tax is applicable.
     /// </summary>
+    [IsoId("_e3mhQ7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deemed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DeemedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DeemedAmount { get; init; } 
+    #else
+    public System.Decimal? DeemedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount relating to a conduit foreign income.
     /// </summary>
+    [IsoId("_e3mhRbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conduit Foreign Income Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ConduitForeignIncomeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ConduitForeignIncomeAmount { get; init; } 
+    #else
+    public System.Decimal? ConduitForeignIncomeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of dividend proceeds attributed to the security holder for the taxable year and the rate of dividend proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [IsoId("_iNPmFLXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deemed Dividend Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DeemedDividendAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DeemedDividendAmount { get; init; } 
+    #else
+    public System.Decimal? DeemedDividendAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of the proceeds components comprising a fund payment attributed to the security holder for the taxable year and the rate of the fund proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [IsoId("_iNPmFbXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deemed Fund Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DeemedFundAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DeemedFundAmount { get; init; } 
+    #else
+    public System.Decimal? DeemedFundAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of interest proceeds attributed to the security holder for the taxable year and the rate of interest proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [IsoId("_iNPmFrXVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deemed Interest Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DeemedInterestAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DeemedInterestAmount { get; init; } 
+    #else
+    public System.Decimal? DeemedInterestAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of royalty proceeds attributed to the security holder for the taxable year and the rate of royalty proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [IsoId("_iNPmF7XVEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deemed Royalties Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DeemedRoyaltiesAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DeemedRoyaltiesAmount { get; init; } 
+    #else
+    public System.Decimal? DeemedRoyaltiesAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money debited or credited to adjust for the difference between the estimated and the final subscription rate for Rights Exercise events.
     /// </summary>
+    [IsoId("_eNtvALaREeiN--kDwanlkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjusted Subscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AdjustedSubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AdjustedSubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? AdjustedSubscriptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money refunded from the original subscription cost for a Rights Exercise event.  This occurs when the event is prorated and the subscription cost relating to the unaffected (unaccepted) balance is returned to the holder.
     /// </summary>
+    [IsoId("_msJT4LaREeiN--kDwanlkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Refunded Subscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RefundedSubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RefundedSubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? RefundedSubscriptionAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PstngAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PostingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (GrossCashAmount is IsoActiveCurrencyAndAmount GrossCashAmountValue)
-        {
-            writer.WriteStartElement(null, "GrssCshAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(GrossCashAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NetCashAmount is IsoActiveCurrencyAndAmount NetCashAmountValue)
-        {
-            writer.WriteStartElement(null, "NetCshAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetCashAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SolicitationFees is IsoActiveCurrencyAndAmount SolicitationFeesValue)
-        {
-            writer.WriteStartElement(null, "SlctnFees", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SolicitationFeesValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashInLieuOfShare is IsoActiveCurrencyAndAmount CashInLieuOfShareValue)
-        {
-            writer.WriteStartElement(null, "CshInLieuOfShr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashInLieuOfShareValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CapitalGain is IsoActiveCurrencyAndAmount CapitalGainValue)
-        {
-            writer.WriteStartElement(null, "CptlGn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CapitalGainValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InterestAmount is IsoActiveCurrencyAndAmount InterestAmountValue)
-        {
-            writer.WriteStartElement(null, "IntrstAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketClaimAmount is IsoActiveCurrencyAndAmount MarketClaimAmountValue)
-        {
-            writer.WriteStartElement(null, "MktClmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MarketClaimAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (IndemnityAmount is IsoActiveCurrencyAndAmount IndemnityAmountValue)
-        {
-            writer.WriteStartElement(null, "IndmntyAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IndemnityAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ManufacturedDividendPaymentAmount is IsoActiveCurrencyAndAmount ManufacturedDividendPaymentAmountValue)
-        {
-            writer.WriteStartElement(null, "ManfctrdDvddPmtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ManufacturedDividendPaymentAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ReinvestmentAmount is IsoActiveCurrencyAndAmount ReinvestmentAmountValue)
-        {
-            writer.WriteStartElement(null, "RinvstmtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ReinvestmentAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FullyFrankedAmount is IsoActiveCurrencyAndAmount FullyFrankedAmountValue)
-        {
-            writer.WriteStartElement(null, "FullyFrnkdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FullyFrankedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnfrankedAmount is IsoActiveCurrencyAndAmount UnfrankedAmountValue)
-        {
-            writer.WriteStartElement(null, "UfrnkdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(UnfrankedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SundryOrOtherAmount is IsoActiveCurrencyAndAmount SundryOrOtherAmountValue)
-        {
-            writer.WriteStartElement(null, "SndryOrOthrAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SundryOrOtherAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxFreeAmount is IsoActiveCurrencyAndAmount TaxFreeAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxFreeAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxFreeAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxDeferredAmount is IsoActiveCurrencyAndAmount TaxDeferredAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxDfrrdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxDeferredAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ValueAddedTaxAmount is IsoActiveCurrencyAndAmount ValueAddedTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "ValAddedTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ValueAddedTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (StampDutyAmount is IsoActiveCurrencyAndAmount StampDutyAmountValue)
-        {
-            writer.WriteStartElement(null, "StmpDtyAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StampDutyAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxReclaimAmount is IsoActiveCurrencyAndAmount TaxReclaimAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxRclmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxReclaimAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxCreditAmount is IsoActiveCurrencyAndAmount TaxCreditAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxCdtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxCreditAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdditionalTaxAmount is IsoActiveCurrencyAndAmount AdditionalTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "AddtlTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AdditionalTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (WithholdingTaxAmount is IsoActiveCurrencyAndAmount WithholdingTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "WhldgTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(WithholdingTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SecondLevelTaxAmount is IsoActiveCurrencyAndAmount SecondLevelTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "ScndLvlTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SecondLevelTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FiscalStampAmount is IsoActiveCurrencyAndAmount FiscalStampAmountValue)
-        {
-            writer.WriteStartElement(null, "FsclStmpAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FiscalStampAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExecutingBrokerAmount is IsoActiveCurrencyAndAmount ExecutingBrokerAmountValue)
-        {
-            writer.WriteStartElement(null, "ExctgBrkrAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ExecutingBrokerAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PayingAgentCommissionAmount is IsoActiveCurrencyAndAmount PayingAgentCommissionAmountValue)
-        {
-            writer.WriteStartElement(null, "PngAgtComssnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PayingAgentCommissionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (LocalBrokerCommissionAmount is IsoActiveCurrencyAndAmount LocalBrokerCommissionAmountValue)
-        {
-            writer.WriteStartElement(null, "LclBrkrComssnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LocalBrokerCommissionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RegulatoryFeesAmount is IsoActiveCurrencyAndAmount RegulatoryFeesAmountValue)
-        {
-            writer.WriteStartElement(null, "RgltryFeesAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RegulatoryFeesAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ShippingFeesAmount is IsoActiveCurrencyAndAmount ShippingFeesAmountValue)
-        {
-            writer.WriteStartElement(null, "ShppgFeesAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ShippingFeesAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ChargesAmount is IsoActiveCurrencyAndAmount ChargesAmountValue)
-        {
-            writer.WriteStartElement(null, "ChrgsAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ChargesAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashAmountBroughtForward is IsoActiveCurrencyAndAmount CashAmountBroughtForwardValue)
-        {
-            writer.WriteStartElement(null, "CshAmtBrghtFwd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashAmountBroughtForwardValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashAmountCarriedForward is IsoActiveCurrencyAndAmount CashAmountCarriedForwardValue)
-        {
-            writer.WriteStartElement(null, "CshAmtCrrdFwd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashAmountCarriedForwardValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NotionalDividendPayableAmount is IsoActiveCurrencyAndAmount NotionalDividendPayableAmountValue)
-        {
-            writer.WriteStartElement(null, "NtnlDvddPyblAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NotionalDividendPayableAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NotionalTaxAmount is IsoActiveCurrencyAndAmount NotionalTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "NtnlTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NotionalTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxArrearsAmount is IsoActiveCurrencyAndAmount TaxArrearsAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxArrearsAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxArrearsAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OriginalAmount is IsoActiveCurrencyAndAmount OriginalAmountValue)
-        {
-            writer.WriteStartElement(null, "OrgnlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OriginalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PrincipalOrCorpus is IsoActiveCurrencyAndAmount PrincipalOrCorpusValue)
-        {
-            writer.WriteStartElement(null, "PrncplOrCrps", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PrincipalOrCorpusValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RedemptionPremiumAmount is IsoActiveCurrencyAndAmount RedemptionPremiumAmountValue)
-        {
-            writer.WriteStartElement(null, "RedPrmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RedemptionPremiumAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (IncomePortion is IsoActiveCurrencyAndAmount IncomePortionValue)
-        {
-            writer.WriteStartElement(null, "IncmPrtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncomePortionValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (StockExchangeTax is IsoActiveCurrencyAndAmount StockExchangeTaxValue)
-        {
-            writer.WriteStartElement(null, "StockXchgTax", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StockExchangeTaxValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EUTaxRetentionAmount is IsoActiveCurrencyAndAmount EUTaxRetentionAmountValue)
-        {
-            writer.WriteStartElement(null, "EUTaxRtntnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(EUTaxRetentionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AccruedInterestAmount is IsoActiveCurrencyAndAmount AccruedInterestAmountValue)
-        {
-            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AccruedInterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EqualisationAmount is IsoActiveCurrencyAndAmount EqualisationAmountValue)
-        {
-            writer.WriteStartElement(null, "EqulstnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(EqualisationAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FATCATaxAmount is IsoActiveCurrencyAndAmount FATCATaxAmountValue)
-        {
-            writer.WriteStartElement(null, "FATCATaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FATCATaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NRATaxAmount is IsoActiveCurrencyAndAmount NRATaxAmountValue)
-        {
-            writer.WriteStartElement(null, "NRATaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NRATaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (BackUpWithholdingTaxAmount is IsoActiveCurrencyAndAmount BackUpWithholdingTaxAmountValue)
-        {
-            writer.WriteStartElement(null, "BckUpWhldgTaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BackUpWithholdingTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxOnIncomeAmount is IsoActiveCurrencyAndAmount TaxOnIncomeAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxOnIncmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxOnIncomeAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TransactionTax is IsoActiveCurrencyAndAmount TransactionTaxValue)
-        {
-            writer.WriteStartElement(null, "TxTax", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionTaxValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DeemedAmount is IsoActiveCurrencyAndAmount DeemedAmountValue)
-        {
-            writer.WriteStartElement(null, "DmdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeemedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ConduitForeignIncomeAmount is IsoActiveCurrencyAndAmount ConduitForeignIncomeAmountValue)
-        {
-            writer.WriteStartElement(null, "CndtFrgnIncmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ConduitForeignIncomeAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DeemedDividendAmount is IsoActiveCurrencyAndAmount DeemedDividendAmountValue)
-        {
-            writer.WriteStartElement(null, "DmdDvddAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeemedDividendAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DeemedFundAmount is IsoActiveCurrencyAndAmount DeemedFundAmountValue)
-        {
-            writer.WriteStartElement(null, "DmdFndAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeemedFundAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DeemedInterestAmount is IsoActiveCurrencyAndAmount DeemedInterestAmountValue)
-        {
-            writer.WriteStartElement(null, "DmdIntrstAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeemedInterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DeemedRoyaltiesAmount is IsoActiveCurrencyAndAmount DeemedRoyaltiesAmountValue)
-        {
-            writer.WriteStartElement(null, "DmdRyltsAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeemedRoyaltiesAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdjustedSubscriptionAmount is IsoActiveCurrencyAndAmount AdjustedSubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "AdjstdSbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AdjustedSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RefundedSubscriptionAmount is IsoActiveCurrencyAndAmount RefundedSubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "RfnddSbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RefundedSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionAmounts50 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

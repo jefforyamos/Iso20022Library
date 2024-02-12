@@ -7,249 +7,430 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets and currency position sets reports. 
 /// </summary>
+[IsoId("_0xmkFQ1MEeqV4s5SpzR1dQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set Dimensions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSetDimensions3
-     : IIsoXmlSerilizable<PositionSetDimensions3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [IsoId("_0yWyAQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
+    #else
+    public TradeCounterpartyReport9? CounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency used for the valuation of the contract.
     /// </summary>
+    [IsoId("_0yWyAw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? ValueCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ValueCurrency { get; init; } 
+    #else
+    public string? ValueCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of collateral agreement existing between counterparties.
     /// </summary>
+    [IsoId("_0yWyBQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralisationType1Code? Collateralisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralisationType1Code? Collateralisation { get; init; } 
+    #else
+    public CollateralisationType1Code? Collateralisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the portfolio if collateral is reported on a portfolio basis, as defined by the reporting counterparty.
     /// </summary>
+    [IsoId("_0yWyBw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Portfolio { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Portfolio { get; init; } 
+    #else
+    public System.String? Portfolio { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification according to the contract type.
     /// </summary>
+    [IsoId("_0yWyCQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentContractType2Code? ContractType { get; init; } 
+    #else
+    public FinancialInstrumentContractType2Code? ContractType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification according to the asset class of the contract.
     /// </summary>
+    [IsoId("_0yWyCw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductType4Code? AssetClass { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProductType4Code? AssetClass { get; init; } 
+    #else
+    public ProductType4Code? AssetClass { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the direct underlying instrument based on its type.
     /// </summary>
+    [IsoId("_0yWyDQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification34Choice_? UnderlyingInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification34Choice_? UnderlyingInstrument { get; init; } 
+    #else
+    public SecurityIdentification34Choice_? UnderlyingInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.
     /// </summary>
+    [IsoId("_0yWyDw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Leg Notional Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? FirstLegNotionalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? FirstLegNotionalCurrency { get; init; } 
+    #else
+    public string? FirstLegNotionalCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the second leg.
     /// </summary>
+    [IsoId("_0yWyEQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Second Leg Notional Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SecondLegNotionalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? SecondLegNotionalCurrency { get; init; } 
+    #else
+    public string? SecondLegNotionalCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the currency of delivery.
     /// </summary>
+    [IsoId("_0yWyEw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverable Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? DeliverableCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? DeliverableCurrency { get; init; } 
+    #else
+    public string? DeliverableCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the cross currency, if different from the currency of delivery.
     /// </summary>
+    [IsoId("_0yWyFQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverable Cross Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? DeliverableCrossCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? DeliverableCrossCurrency { get; init; } 
+    #else
+    public string? DeliverableCrossCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
+    [IsoId("_0yWyFw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Agreement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MasterAgreement2? MasterAgreement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MasterAgreement2? MasterAgreement { get; init; } 
+    #else
+    public MasterAgreement2? MasterAgreement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
+    [IsoId("_0yWyGQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ClearingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClearingStatus { get; init; } 
+    #else
+    public System.String? ClearingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.
     /// </summary>
+    [IsoId("_0yWyGw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intra Group")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IntraGroup { get; init; } 
+    #else
+    public System.String? IntraGroup { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
+    [IsoId("_0yWyHQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
+    #else
+    public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of the option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [IsoId("_0yWyHw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType2Code? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType2Code? OptionType { get; init; } 
+    #else
+    public OptionType2Code? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference between a maturity date of a derivative and the reference date, based on a Gregorian calendar.
     /// </summary>
+    [IsoId("_0yWyIQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time To Maturity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeToMaturity1Choice_? TimeToMaturity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TimeToMaturity1Choice_? TimeToMaturity { get; init; } 
+    #else
+    public TimeToMaturity1Choice_? TimeToMaturity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Groups of IRS (Internal Revenue Service) derivatives with reference to whether leg 1 and leg 2 are fixed or floating.
     /// </summary>
+    [IsoId("_0yWyIw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("IRS Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? IRSType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IRSType { get; init; } 
+    #else
+    public System.String? IRSType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of seniority in case of contract on index or on a single name entity.
     /// </summary>
+    [IsoId("_0yWyJQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seniority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
+    #else
+    public DebtInstrumentSeniorityType2Code? Seniority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
+    [IsoId("_0yWyJw1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tranche")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? Tranche { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Tranche { get; init; } 
+    #else
+    public System.String? Tranche { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details on the commodity asset class type.
     /// </summary>
+    [IsoId("_0yWyKQ1MEeqV4s5SpzR1dQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commodity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Commodity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Commodity { get; init; } 
+    #else
+    public System.String? Commodity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CounterpartyIdentification is TradeCounterpartyReport9 CounterpartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueCurrency is ActiveOrHistoricCurrencyCode ValueCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ValCcy", xmlNamespace );
-            writer.WriteValue(ValueCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Collateralisation is CollateralisationType1Code CollateralisationValue)
-        {
-            writer.WriteStartElement(null, "Collstn", xmlNamespace );
-            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Portfolio is IsoMax52Text PortfolioValue)
-        {
-            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(PortfolioValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (ContractType is FinancialInstrumentContractType2Code ContractTypeValue)
-        {
-            writer.WriteStartElement(null, "CtrctTp", xmlNamespace );
-            writer.WriteValue(ContractTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AssetClass is ProductType4Code AssetClassValue)
-        {
-            writer.WriteStartElement(null, "AsstClss", xmlNamespace );
-            writer.WriteValue(AssetClassValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UnderlyingInstrument is SecurityIdentification34Choice_ UnderlyingInstrumentValue)
-        {
-            writer.WriteStartElement(null, "UndrlygInstrm", xmlNamespace );
-            UnderlyingInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FirstLegNotionalCurrency is ActiveCurrencyCode FirstLegNotionalCurrencyValue)
-        {
-            writer.WriteStartElement(null, "FrstLegNtnlCcy", xmlNamespace );
-            writer.WriteValue(FirstLegNotionalCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SecondLegNotionalCurrency is ActiveCurrencyCode SecondLegNotionalCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ScndLegNtnlCcy", xmlNamespace );
-            writer.WriteValue(SecondLegNotionalCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DeliverableCurrency is ActiveCurrencyCode DeliverableCurrencyValue)
-        {
-            writer.WriteStartElement(null, "DlvrblCcy", xmlNamespace );
-            writer.WriteValue(DeliverableCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DeliverableCrossCurrency is ActiveOrHistoricCurrencyCode DeliverableCrossCurrencyValue)
-        {
-            writer.WriteStartElement(null, "DlvrblCrossCcy", xmlNamespace );
-            writer.WriteValue(DeliverableCrossCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MasterAgreement is MasterAgreement2 MasterAgreementValue)
-        {
-            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
-            MasterAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingStatus is IsoTrueFalseIndicator ClearingStatusValue)
-        {
-            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingStatusValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (IntraGroup is IsoTrueFalseIndicator IntraGroupValue)
-        {
-            writer.WriteStartElement(null, "IntraGrp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IntraGroupValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ExchangeRateBasis is ExchangeRateBasis1Choice_ ExchangeRateBasisValue)
-        {
-            writer.WriteStartElement(null, "XchgRateBsis", xmlNamespace );
-            ExchangeRateBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OptionType is OptionType2Code OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TimeToMaturity is TimeToMaturity1Choice_ TimeToMaturityValue)
-        {
-            writer.WriteStartElement(null, "TmToMtrty", xmlNamespace );
-            TimeToMaturityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IRSType is IsoMax52Text IRSTypeValue)
-        {
-            writer.WriteStartElement(null, "IRSTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(IRSTypeValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (Seniority is DebtInstrumentSeniorityType2Code SeniorityValue)
-        {
-            writer.WriteStartElement(null, "Snrty", xmlNamespace );
-            writer.WriteValue(SeniorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Tranche is IsoTrueFalseIndicator TrancheValue)
-        {
-            writer.WriteStartElement(null, "Trch", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TrancheValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Commodity is IsoMax52Text CommodityValue)
-        {
-            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommodityValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PositionSetDimensions3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

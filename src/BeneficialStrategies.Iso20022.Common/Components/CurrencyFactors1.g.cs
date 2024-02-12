@@ -7,74 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency specific Factors.
 /// </summary>
+[IsoId("_SvDFDAEcEeCQm6a_G2yO_w_737045003")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Currency Factors")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CurrencyFactors1
-     : IIsoXmlSerilizable<CurrencyFactors1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CurrencyFactors1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CurrencyFactors1( string reqCurrency,System.Decimal reqShortPositionLimit,System.Decimal reqMinimumPayInAmount,System.Decimal reqVolatilityMargin )
+    {
+        Currency = reqCurrency;
+        ShortPositionLimit = reqShortPositionLimit;
+        MinimumPayInAmount = reqMinimumPayInAmount;
+        VolatilityMargin = reqVolatilityMargin;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency of the underlying currency specific amounts and ratios used in the pay-in schedule calculation.
     /// </summary>
+    [IsoId("_SvDFDQEcEeCQm6a_G2yO_w_-1485086465")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode Currency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Currency { get; init; } 
+    #else
+    public string Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum allowed short position in the currency during settlement.
     /// </summary>
+    [IsoId("_SvDFDgEcEeCQm6a_G2yO_w_243513360")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Position Limit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ShortPositionLimit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ShortPositionLimit { get; init; } 
+    #else
+    public System.Decimal ShortPositionLimit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum amount paid in one payment unless the short position is less than the minimum.
     /// </summary>
+    [IsoId("_SvDFDwEcEeCQm6a_G2yO_w_151707201")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Pay In Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal MinimumPayInAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal MinimumPayInAmount { get; init; } 
+    #else
+    public System.Decimal MinimumPayInAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Margin used to decrease long positions and increase short positions during the risk calculation.
     /// </summary>
+    [IsoId("_SvM2AAEcEeCQm6a_G2yO_w_-1119940583")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Volatility Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate VolatilityMargin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal VolatilityMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal VolatilityMargin { get; init; } 
+    #else
+    public System.Decimal VolatilityMargin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exchange rate used in the calculation of the pay-in schedule.
     /// </summary>
+    [IsoId("_SvM2AQEcEeCQm6a_G2yO_w_948992700")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreedRate2? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreedRate2? Rate { get; init; } 
+    #else
+    public AgreedRate2? Rate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ccy", xmlNamespace );
-        writer.WriteValue(Currency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ShrtPosLmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ShortPositionLimit)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MinPayInAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumPayInAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VoltlyMrgn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(VolatilityMargin)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        if (Rate is AgreedRate2 RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            RateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CurrencyFactors1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

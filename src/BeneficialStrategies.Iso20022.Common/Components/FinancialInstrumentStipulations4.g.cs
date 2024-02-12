@@ -7,446 +7,793 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional restrictions on the financial instrument, related to the stipulation.
 /// </summary>
+[IsoId("_5DuEYQgTEe2fOITqoTnSLQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Stipulations")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentStipulations4
-     : IIsoXmlSerilizable<FinancialInstrumentStipulations4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of stipulation expressing geographical constraints on a fixed income instrument. It is expressed with a state or country abbreviation and a minimum or maximum percentage. Example: CA 0-80 (minimum of 80 percent in Californian assests).
     /// </summary>
+    [IsoId("_5XPdVwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Geographics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Geographics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Geographics { get; init; } 
+    #else
+    public System.String? Geographics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of allowed yield.
     /// </summary>
+    [IsoId("_5XPdXwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Yield Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountOrPercentageRange1? YieldRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountOrPercentageRange1? YieldRange { get; init; } 
+    #else
+    public AmountOrPercentageRange1? YieldRange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of assessment of securities credit and investment risk.
     /// </summary>
+    [IsoId("_5XPdYQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rating")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Rating1? Rating { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Rating1? Rating { get; init; } 
+    #else
+    public Rating1? Rating { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a range of coupon numbers attached to its related financial instrument.
     /// </summary>
+    [IsoId("_5XPdYwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Coupon Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountOrPercentageRange1? CouponRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountOrPercentageRange1? CouponRange { get; init; } 
+    #else
+    public AmountOrPercentageRange1? CouponRange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument repays the principal amount in parts during the life cycle of the security.
     /// </summary>
+    [IsoId("_5XPdZQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amortisable Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AmortisableIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AmortisableIndicator { get; init; } 
+    #else
+    public System.String? AmortisableIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
+    [IsoId("_5XPdZwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Purpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Purpose { get; init; } 
+    #else
+    public System.String? Purpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the issue is subject to alternative minimum taxation (used for municipal bonds).
     /// </summary>
+    [IsoId("_5XPdaQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternative Minimum Tax Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AlternativeMinimumTaxIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AlternativeMinimumTaxIndicator { get; init; } 
+    #else
+    public System.String? AlternativeMinimumTaxIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates an instruction to reinvest dividends in the underlying security (or proceeds at maturity in a similar instrument) if the current rate is <rate> or better.
     /// </summary>
+    [IsoId("_5XPdawgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Auto Reinvestment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AutoReinvestment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AutoReinvestment { get; init; } 
+    #else
+    public System.Decimal? AutoReinvestment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
+    [IsoId("_5XPdbQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeTransactionCondition2Code? TransactionConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeTransactionCondition2Code? TransactionConditions { get; init; } 
+    #else
+    public TradeTransactionCondition2Code? TransactionConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
+    [IsoId("_5XPdbwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates an instruction to override an investment's default start and/or end date with a custom date.
     /// </summary>
+    [IsoId("_5XPdcQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Custom Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod2? CustomDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod2? CustomDate { get; init; } 
+    #else
+    public DateTimePeriod2? CustomDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
+    [IsoId("_5XPdcwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Haircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Haircut { get; init; } 
+    #else
+    public System.Decimal? Haircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the lender is assured partial or full payment by a third party if the borrower defaults.
     /// </summary>
+    [IsoId("_5XPddQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insured Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? InsuredIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InsuredIndicator { get; init; } 
+    #else
+    public System.String? InsuredIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates an instruction or attribute giving the number of days to be included in the look-back period for the investment. E.g. some options allow exercise based on the underlying asset's optimal value over the look-back period.
     /// </summary>
+    [IsoId("_5XPddwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Look Back")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? LookBack { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? LookBack { get; init; } 
+    #else
+    public System.UInt64? LookBack { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the maturity date.
     /// </summary>
+    [IsoId("_5XPdfwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? MaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16? MaturityDate { get; init; } 
+    #else
+    public System.UInt16? MaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the issue date.
     /// </summary>
+    [IsoId("_5XPdgQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16? IssueDate { get; init; } 
+    #else
+    public System.UInt16? IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the issuer.
     /// </summary>
+    [IsoId("_5XPdgwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICNonFIDec2014Identifier? IssuerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IssuerIdentification { get; init; } 
+    #else
+    public System.String? IssuerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the issue size range.
     /// </summary>
+    [IsoId("_5XPdhQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? IssueSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? IssueSize { get; init; } 
+    #else
+    public System.UInt64? IssueSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the minimum denomination of a security.
     /// </summary>
+    [IsoId("_5XPdhwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of time the collateral can be substitute.
     /// </summary>
+    [IsoId("_5XPdiQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Substitution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumSubstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumSubstitution { get; init; } 
+    #else
+    public System.UInt64? MaximumSubstitution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the minimum tradable increments of a security.
     /// </summary>
+    [IsoId("_5XPdiwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Increment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumIncrement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumIncrement { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumIncrement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the periodic or regular cycle of interest payments.
     /// </summary>
+    [IsoId("_5XPdjQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency1Code? PaymentFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency1Code? PaymentFrequency { get; init; } 
+    #else
+    public Frequency1Code? PaymentFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
+    [IsoId("_5XPdjwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond, particularly an MBS, issued in a particular year.
     /// </summary>
+    [IsoId("_5XPdkQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Production")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Production { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Production { get; init; } 
+    #else
+    public System.String? Production { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies if the securities is restricted or not (as per Rule 144).
     /// </summary>
+    [IsoId("_5XPdkwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restricted Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RestrictedIndicator { get; init; } 
+    #else
+    public System.String? RestrictedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the frequency at which the bond is re-rated and therefore re-priced (bond attribute, particularly of floating rate and index linked instruments).
     /// </summary>
+    [IsoId("_5XPdlQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency1Code? PriceFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency1Code? PriceFrequency { get; init; } 
+    #else
+    public Frequency1Code? PriceFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the market sector the security is classified as. E.g. pharmacuticals, automobile, housing, etc.
     /// </summary>
+    [IsoId("_5XPdlwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Sector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Sector { get; init; } 
+    #else
+    public System.String? Sector { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the maximum number of times collateral can be substituted.
     /// </summary>
+    [IsoId("_5XPdmQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Substitution Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency1Code? SubstitutionFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency1Code? SubstitutionFrequency { get; init; } 
+    #else
+    public Frequency1Code? SubstitutionFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of remaining times the collateral can be substitute.
     /// </summary>
+    [IsoId("_5XPdmwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Substitution Left")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SubstitutionLeft { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SubstitutionLeft { get; init; } 
+    #else
+    public System.UInt64? SubstitutionLeft { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a search criterion when looking to buy an MBS that either is [yes] or is not [no] an entire pool.
     /// </summary>
+    [IsoId("_5XPdnQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Whole Pool Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? WholePoolIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? WholePoolIndicator { get; init; } 
+    #else
+    public System.String? WholePoolIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the Benchmark source price (eg. BB Generic, BB Fairvalue, Brokertec.).
     /// </summary>
+    [IsoId("_5XPdnwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PriceSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PriceSource { get; init; } 
+    #else
+    public System.String? PriceSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which an interest bearing security becomes due and assets are to be repaid.
     /// </summary>
+    [IsoId("_5XPdoQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ExpirationDate { get; init; } 
+    #else
+    public System.DateTime? ExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount for which a security can be overalloted (as in greenshoe option).
     /// </summary>
+    [IsoId("_5XPdowgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Over Allotment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OverAllotmentAmount { get; init; } 
+    #else
+    public System.Decimal? OverAllotmentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage for which a security can be overalloted (as in greenshoe option).
     /// </summary>
+    [IsoId("_5XPdpQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Over Allotment Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? OverAllotmentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OverAllotmentRate { get; init; } 
+    #else
+    public System.Decimal? OverAllotmentRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond within a particular price range.
     /// </summary>
+    [IsoId("_5XPdpwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Range")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountOrPercentageRange1? PriceRange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountOrPercentageRange1? PriceRange { get; init; } 
+    #else
+    public AmountOrPercentageRange1? PriceRange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the issuer has the right to pay the security prior to maturity. Also called RetractableIndicator.
     /// </summary>
+    [IsoId("_5XPdqQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Callable Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CallableIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CallableIndicator { get; init; } 
+    #else
+    public System.String? CallableIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the interest bearing security is convertible into another type of security.
     /// </summary>
+    [IsoId("_5XPdqwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Convertible Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConvertibleIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConvertibleIndicator { get; init; } 
+    #else
+    public System.String? ConvertibleIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the holder has the right to ask for redemption of the security prior to final maturity. Also called RedeemableIndicator.
     /// </summary>
+    [IsoId("_5XPdrQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Putable Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PutableIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PutableIndicator { get; init; } 
+    #else
+    public System.String? PutableIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether an interest bearing instrument is deposited in a fund that will be used to pay debt service on refunded securities.
     /// </summary>
+    [IsoId("_5XPdrwgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Funded Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PreFundedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PreFundedIndicator { get; init; } 
+    #else
+    public System.String? PreFundedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether an interest bearing instrument is being escrowed or collateralized either by direct obligations guaranteed by the US government, or by other types of securities. The maturity schedules of the securities in the escrow fund are determined in such a way to pay the maturity value, coupon, and premium payments (if any) of the refunded bonds.
     /// </summary>
+    [IsoId("_5XPdsQgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Escrowed Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EscrowedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EscrowedIndicator { get; init; } 
+    #else
+    public System.String? EscrowedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the security has no maturity date.
     /// </summary>
+    [IsoId("_5XPdswgTEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Perpetual Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PerpetualIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PerpetualIndicator { get; init; } 
+    #else
+    public System.String? PerpetualIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Geographics is IsoMax35Text GeographicsValue)
-        {
-            writer.WriteStartElement(null, "Geogcs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(GeographicsValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (YieldRange is AmountOrPercentageRange1 YieldRangeValue)
-        {
-            writer.WriteStartElement(null, "YldRg", xmlNamespace );
-            YieldRangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Rating is Rating1 RatingValue)
-        {
-            writer.WriteStartElement(null, "Ratg", xmlNamespace );
-            RatingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CouponRange is AmountOrPercentageRange1 CouponRangeValue)
-        {
-            writer.WriteStartElement(null, "CpnRg", xmlNamespace );
-            CouponRangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AmortisableIndicator is IsoYesNoIndicator AmortisableIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AmtsblInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmortisableIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Purpose is IsoMax256Text PurposeValue)
-        {
-            writer.WriteStartElement(null, "Purp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(PurposeValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (AlternativeMinimumTaxIndicator is IsoYesNoIndicator AlternativeMinimumTaxIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AltrntvMinTaxInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AlternativeMinimumTaxIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AutoReinvestment is IsoPercentageRate AutoReinvestmentValue)
-        {
-            writer.WriteStartElement(null, "AutoRinvstmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AutoReinvestmentValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TransactionConditions is TradeTransactionCondition2Code TransactionConditionsValue)
-        {
-            writer.WriteStartElement(null, "TxConds", xmlNamespace );
-            writer.WriteValue(TransactionConditionsValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CustomDate is DateTimePeriod2 CustomDateValue)
-        {
-            writer.WriteStartElement(null, "CstmDt", xmlNamespace );
-            CustomDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Haircut is IsoPercentageRate HaircutValue)
-        {
-            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InsuredIndicator is IsoYesNoIndicator InsuredIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InsrdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InsuredIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LookBack is IsoNumber LookBackValue)
-        {
-            writer.WriteStartElement(null, "LookBck", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(LookBackValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaturityDate is IsoISOYearMonth MaturityDateValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(MaturityDateValue)); // data type ISOYearMonth System.UInt16
-            writer.WriteEndElement();
-        }
-        if (IssueDate is IsoISOYearMonth IssueDateValue)
-        {
-            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(IssueDateValue)); // data type ISOYearMonth System.UInt16
-            writer.WriteEndElement();
-        }
-        if (IssuerIdentification is IsoBICNonFIDec2014Identifier IssuerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IssrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBICNonFIDec2014Identifier(IssuerIdentificationValue)); // data type BICNonFIDec2014Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (IssueSize is IsoNumber IssueSizeValue)
-        {
-            writer.WriteStartElement(null, "IsseSz", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(IssueSizeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MinimumDenomination is FinancialInstrumentQuantity1Choice_ MinimumDenominationValue)
-        {
-            writer.WriteStartElement(null, "MinDnmtn", xmlNamespace );
-            MinimumDenominationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaximumSubstitution is IsoNumber MaximumSubstitutionValue)
-        {
-            writer.WriteStartElement(null, "MaxSbstitn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumSubstitutionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MinimumIncrement is FinancialInstrumentQuantity1Choice_ MinimumIncrementValue)
-        {
-            writer.WriteStartElement(null, "MinIncrmt", xmlNamespace );
-            MinimumIncrementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentFrequency is Frequency1Code PaymentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
-            writer.WriteValue(PaymentFrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MinimumQuantity is FinancialInstrumentQuantity1Choice_ MinimumQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinQty", xmlNamespace );
-            MinimumQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Production is IsoMax35Text ProductionValue)
-        {
-            writer.WriteStartElement(null, "Pdctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RestrictedIndicator is IsoYesNoIndicator RestrictedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RstrctdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RestrictedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PriceFrequency is Frequency1Code PriceFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PricFrqcy", xmlNamespace );
-            writer.WriteValue(PriceFrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Sector is IsoMax35Text SectorValue)
-        {
-            writer.WriteStartElement(null, "Sctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SectorValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SubstitutionFrequency is Frequency1Code SubstitutionFrequencyValue)
-        {
-            writer.WriteStartElement(null, "SbstitnFrqcy", xmlNamespace );
-            writer.WriteValue(SubstitutionFrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SubstitutionLeft is IsoNumber SubstitutionLeftValue)
-        {
-            writer.WriteStartElement(null, "SbstitnLft", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SubstitutionLeftValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (WholePoolIndicator is IsoYesNoIndicator WholePoolIndicatorValue)
-        {
-            writer.WriteStartElement(null, "WhlPoolInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WholePoolIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PriceSource is IsoMax35Text PriceSourceValue)
-        {
-            writer.WriteStartElement(null, "PricSrc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PriceSourceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExpirationDate is IsoISODateTime ExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpirationDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (OverAllotmentAmount is IsoActiveCurrencyAndAmount OverAllotmentAmountValue)
-        {
-            writer.WriteStartElement(null, "OverAlltmtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OverAllotmentAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OverAllotmentRate is IsoPercentageRate OverAllotmentRateValue)
-        {
-            writer.WriteStartElement(null, "OverAlltmtRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OverAllotmentRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PriceRange is AmountOrPercentageRange1 PriceRangeValue)
-        {
-            writer.WriteStartElement(null, "PricRg", xmlNamespace );
-            PriceRangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CallableIndicator is IsoYesNoIndicator CallableIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CllblInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CallableIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ConvertibleIndicator is IsoYesNoIndicator ConvertibleIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ConvtblInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConvertibleIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PutableIndicator is IsoYesNoIndicator PutableIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PutblInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PutableIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PreFundedIndicator is IsoYesNoIndicator PreFundedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PreFnddInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PreFundedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EscrowedIndicator is IsoYesNoIndicator EscrowedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "EscrwdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EscrowedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PerpetualIndicator is IsoYesNoIndicator PerpetualIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PerptlInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PerpetualIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrumentStipulations4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

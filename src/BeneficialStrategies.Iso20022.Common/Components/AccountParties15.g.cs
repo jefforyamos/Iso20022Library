@@ -7,164 +7,295 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a party's account.
 /// </summary>
+[IsoId("_vGjQYUNMEeamLdeYEZm56w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountParties15
-     : IIsoXmlSerilizable<AccountParties15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountParties15 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountParties15( AccountParties10Choice_ reqPrincipalAccountParty )
+    {
+        PrincipalAccountParty = reqPrincipalAccountParty;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
+    [IsoId("_vgcXFUNMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Principal Account Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountParties10Choice_ PrincipalAccountParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountParties10Choice_ PrincipalAccountParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountParties10Choice_ PrincipalAccountParty { get; init; } 
+    #else
+    public AccountParties10Choice_ PrincipalAccountParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
+    [IsoId("_vgcXF0NMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? SecondaryOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? SecondaryOwner { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? SecondaryOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
+    [IsoId("_vgcXGUNMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? Beneficiary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? Beneficiary { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? Beneficiary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
+    [IsoId("_vgcXG0NMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Power Of Attorney")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? PowerOfAttorney { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? PowerOfAttorney { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? PowerOfAttorney { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
+    [IsoId("_vgcXHUNMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Guardian")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? LegalGuardian { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? LegalGuardian { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? LegalGuardian { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
     /// </summary>
+    [IsoId("_vgcXH0NMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Custodian For Minor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? CustodianForMinor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? CustodianForMinor { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? CustodianForMinor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
-    public ValueList<InvestmentAccountOwnershipInformation14> SuccessorOnDeath { get; init; } = [];
+    [IsoId("_vgcXIUNMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Successor On Death")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    public ValueList<InvestmentAccountOwnershipInformation14> SuccessorOnDeath { get; init; } = new ValueList<InvestmentAccountOwnershipInformation14>(){};
+    
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
+    [IsoId("_vgcXI0NMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Administrator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? Administrator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? Administrator { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? Administrator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of party.
     /// </summary>
+    [IsoId("_vgcXJUNMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedParty11? OtherParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExtendedParty11? OtherParty { get; init; } 
+    #else
+    public ExtendedParty11? OtherParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public ValueList<InvestmentAccountOwnershipInformation14> Granter { get; init; } = [];
+    [IsoId("_vgcXJ0NMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Granter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    public ValueList<InvestmentAccountOwnershipInformation14> Granter { get; init; } = new ValueList<InvestmentAccountOwnershipInformation14>(){};
+    
     /// <summary>
     /// Entity that creates a trust or contributes assets to the trust.
     /// </summary>
-    public ValueList<InvestmentAccountOwnershipInformation14> Settlor { get; init; } = [];
+    [IsoId("_vgcXKUNMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    public ValueList<InvestmentAccountOwnershipInformation14> Settlor { get; init; } = new ValueList<InvestmentAccountOwnershipInformation14>(){};
+    
     /// <summary>
     /// Party that makes, or participates in the making of, decisions that affect the whole, or a substantial part, of the business of a customer of a reporting entity or that has the capacity to affect significantly the financial standing of a customer of a reporting entity. Typically, this is a controlling person of a corporate (ownership type CORP).
     /// </summary>
+    [IsoId("_vpQ3UEzNEeafiMTDrtSnyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Senior Managing Official")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? SeniorManagingOfficial { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? SeniorManagingOfficial { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? SeniorManagingOfficial { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person appointed under the trust instrument to direct or restrain the trustees in relation to their administration of the trust. Typically, this is a controlling person of a trust (ownership type TRUS) or other non-individual organisation (ownership type ONIS).
     /// </summary>
+    [IsoId("_JhA4cEzOEeafiMTDrtSnyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation14? Protector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOwnershipInformation14? Protector { get; init; } 
+    #else
+    public InvestmentAccountOwnershipInformation14? Protector { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that registers its name with the issuer and the name used for the registration.
     /// </summary>
+    [IsoId("_vgcXK0NMEeamLdeYEZm56w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registered Shareholder Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegisteredShareholderName1Choice_? RegisteredShareholderName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RegisteredShareholderName1Choice_? RegisteredShareholderName { get; init; } 
+    #else
+    public RegisteredShareholderName1Choice_? RegisteredShareholderName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrncplAcctPty", xmlNamespace );
-        PrincipalAccountParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SecondaryOwner is InvestmentAccountOwnershipInformation14 SecondaryOwnerValue)
-        {
-            writer.WriteStartElement(null, "ScndryOwnr", xmlNamespace );
-            SecondaryOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Beneficiary is InvestmentAccountOwnershipInformation14 BeneficiaryValue)
-        {
-            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
-            BeneficiaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PowerOfAttorney is InvestmentAccountOwnershipInformation14 PowerOfAttorneyValue)
-        {
-            writer.WriteStartElement(null, "PwrOfAttny", xmlNamespace );
-            PowerOfAttorneyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalGuardian is InvestmentAccountOwnershipInformation14 LegalGuardianValue)
-        {
-            writer.WriteStartElement(null, "LglGuardn", xmlNamespace );
-            LegalGuardianValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustodianForMinor is InvestmentAccountOwnershipInformation14 CustodianForMinorValue)
-        {
-            writer.WriteStartElement(null, "CtdnForMnr", xmlNamespace );
-            CustodianForMinorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SucssrOnDth", xmlNamespace );
-        SuccessorOnDeath.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Administrator is InvestmentAccountOwnershipInformation14 AdministratorValue)
-        {
-            writer.WriteStartElement(null, "Admstr", xmlNamespace );
-            AdministratorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherParty is ExtendedParty11 OtherPartyValue)
-        {
-            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
-            OtherPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Grntr", xmlNamespace );
-        Granter.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sttlr", xmlNamespace );
-        Settlor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SeniorManagingOfficial is InvestmentAccountOwnershipInformation14 SeniorManagingOfficialValue)
-        {
-            writer.WriteStartElement(null, "SnrMggOffcl", xmlNamespace );
-            SeniorManagingOfficialValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Protector is InvestmentAccountOwnershipInformation14 ProtectorValue)
-        {
-            writer.WriteStartElement(null, "Prtctr", xmlNamespace );
-            ProtectorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RegisteredShareholderName is RegisteredShareholderName1Choice_ RegisteredShareholderNameValue)
-        {
-            writer.WriteStartElement(null, "RegdShrhldrNm", xmlNamespace );
-            RegisteredShareholderNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountParties15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

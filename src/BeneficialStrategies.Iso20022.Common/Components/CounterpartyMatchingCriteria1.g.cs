@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a loan.
 /// </summary>
+[IsoId("_bHPnAKxaEem81-uIvTF5rQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Counterparty Matching Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CounterpartyMatchingCriteria1
-     : IIsoXmlSerilizable<CounterpartyMatchingCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the reporting counterparties are matching or not.
     /// </summary>
+    [IsoId("_KrOioa-eEemF0ZVFnxVu4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification1? ReportingCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareOrganisationIdentification1? ReportingCounterparty { get; init; } 
+    #else
+    public CompareOrganisationIdentification1? ReportingCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the other counterparties are matching or not.
     /// </summary>
+    [IsoId("_2BxTwKxaEem81-uIvTF5rQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification1? OtherCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareOrganisationIdentification1? OtherCounterparty { get; init; } 
+    #else
+    public CompareOrganisationIdentification1? OtherCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the counterparty side are matching or not.
     /// </summary>
+    [IsoId("_qzbzEKxaEem81-uIvTF5rQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCounterpartySide1? CounterpartySide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareCounterpartySide1? CounterpartySide { get; init; } 
+    #else
+    public CompareCounterpartySide1? CounterpartySide { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportingCounterparty is CompareOrganisationIdentification1 ReportingCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
-            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCounterparty is CompareOrganisationIdentification1 OtherCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
-            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CounterpartySide is CompareCounterpartySide1 CounterpartySideValue)
-        {
-            writer.WriteStartElement(null, "CtrPtySd", xmlNamespace );
-            CounterpartySideValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CounterpartyMatchingCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

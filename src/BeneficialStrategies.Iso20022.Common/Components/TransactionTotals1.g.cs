@@ -7,87 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction totals during the reconciliation period, for a certain type of transaction.
 /// </summary>
+[IsoId("_TGSgYwEcEeCQm6a_G2yO_w_12313043")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Totals")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionTotals1
-     : IIsoXmlSerilizable<TransactionTotals1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionTotals1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionTotals1( TypeTransactionTotals1Code reqType,System.String reqTotalNumber,System.Decimal reqCumulativeAmount )
+    {
+        Type = reqType;
+        TotalNumber = reqTotalNumber;
+        CumulativeAmount = reqCumulativeAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifier assigned by the merchant identifying a set of POI terminals performing some categories of transactions.
     /// </summary>
+    [IsoId("_TGcRUAEcEeCQm6a_G2yO_w_-1831555946")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Group Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIGroupIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? POIGroupIdentification { get; init; } 
+    #else
+    public System.String? POIGroupIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Category of cards related the acceptance processing rules defined by the acquirer.
     /// </summary>
+    [IsoId("_TGcRUQEcEeCQm6a_G2yO_w_-1096609716")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Product Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? CardProductProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardProductProfile { get; init; } 
+    #else
+    public System.String? CardProductProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency associated with the transaction totals.
     /// </summary>
+    [IsoId("_TGcRUgEcEeCQm6a_G2yO_w_-1699958713")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the type of transaction.
     /// </summary>
+    [IsoId("_TGcRUwEcEeCQm6a_G2yO_w_1606471381")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeTransactionTotals1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TypeTransactionTotals1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeTransactionTotals1Code Type { get; init; } 
+    #else
+    public TypeTransactionTotals1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of transactions during a reconciliation period.
     /// </summary>
+    [IsoId("_TGcRVAEcEeCQm6a_G2yO_w_24821323")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35NumericText TotalNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TotalNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TotalNumber { get; init; } 
+    #else
+    public System.String TotalNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of a collection of transactions.
     /// </summary>
+    [IsoId("_TGcRVQEcEeCQm6a_G2yO_w_213589768")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cumulative Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CumulativeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CumulativeAmount { get; init; } 
+    #else
+    public System.Decimal CumulativeAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (POIGroupIdentification is IsoMax35Text POIGroupIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIGrpId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIGroupIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardProductProfile is IsoExact4NumericText CardProductProfileValue)
-        {
-            writer.WriteStartElement(null, "CardPdctPrfl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(CardProductProfileValue)); // data type Exact4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Currency is CurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35NumericText(TotalNumber)); // data type Max35NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CmltvAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CumulativeAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static TransactionTotals1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

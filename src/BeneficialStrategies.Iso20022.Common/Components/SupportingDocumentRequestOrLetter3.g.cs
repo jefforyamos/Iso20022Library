@@ -7,145 +7,284 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency control related document or letter supporting the contract registration.
 /// </summary>
+[IsoId("_r7UcEbGJEeuSTr8k0UEM8A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Supporting Document Request Or Letter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SupportingDocumentRequestOrLetter3
-     : IIsoXmlSerilizable<SupportingDocumentRequestOrLetter3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SupportingDocumentRequestOrLetter3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SupportingDocumentRequestOrLetter3( System.String reqRequestOrLetterIdentification,System.String reqSubject,SupportLetterType1Choice_ reqType,System.String reqResponseRequired )
+    {
+        RequestOrLetterIdentification = reqRequestOrLetterIdentification;
+        Subject = reqSubject;
+        Type = reqType;
+        ResponseRequired = reqResponseRequired;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the supporting document request or the letter.
     /// </summary>
+    [IsoId("_r8hV8bGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Or Letter Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RequestOrLetterIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RequestOrLetterIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RequestOrLetterIdentification { get; init; } 
+    #else
+    public System.String RequestOrLetterIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the supporting document request or the letter.
     /// </summary>
+    [IsoId("_r8hV87GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sender of the request or letter.
     /// </summary>
+    [IsoId("_r8hV9bGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? Sender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party40Choice_? Sender { get; init; } 
+    #else
+    public Party40Choice_? Sender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Receiver of the request or letter.
     /// </summary>
+    [IsoId("_r8hV97GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? Receiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party40Choice_? Receiver { get; init; } 
+    #else
+    public Party40Choice_? Receiver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the references of the original underlying message(s) for which supporting documents are requested or for which the letter is sent.
     /// </summary>
+    [IsoId("_r8hV-bGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original References")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessage4? OriginalReferences { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMessage4? OriginalReferences { get; init; } 
+    #else
+    public OriginalMessage4? OriginalReferences { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subject of the letter or supporting document.
     /// </summary>
+    [IsoId("_r8hV-7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subject")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Subject { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Subject { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Subject { get; init; } 
+    #else
+    public System.String Subject { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the type of supporting document requested.
     /// </summary>
+    [IsoId("_r8hV_bGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupportLetterType1Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SupportLetterType1Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupportLetterType1Choice_ Type { get; init; } 
+    #else
+    public SupportLetterType1Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further free format description of the request.
     /// </summary>
+    [IsoId("_r8hV_7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Flag to indicate whether a response is required or not.
     /// Usage: when the request is used to send a letter, there is no response required.
     /// </summary>
+    [IsoId("_r8hWAbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ResponseRequired { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ResponseRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ResponseRequired { get; init; } 
+    #else
+    public System.String ResponseRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which the response to the request is expected.
     /// </summary>
+    [IsoId("_r8hWA7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DueDate { get; init; } 
+    #else
+    public System.DateOnly? DueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Documents provided as attachments to the supporting document request or letter.
     /// </summary>
+    [IsoId("_r8hWBbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attachment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation5? Attachment { get; init; } 
+    #else
+    public DocumentGeneralInformation5? Attachment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_r8hWB7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ReqOrLttrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestOrLetterIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Sender is Party40Choice_ SenderValue)
-        {
-            writer.WriteStartElement(null, "Sndr", xmlNamespace );
-            SenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Receiver is Party40Choice_ ReceiverValue)
-        {
-            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
-            ReceiverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalReferences is OriginalMessage4 OriginalReferencesValue)
-        {
-            writer.WriteStartElement(null, "OrgnlRefs", xmlNamespace );
-            OriginalReferencesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sbjt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(Subject)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Description is IsoMax1025Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(DescriptionValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RspnReqrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ResponseRequired)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (DueDate is IsoISODate DueDateValue)
-        {
-            writer.WriteStartElement(null, "DueDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Attachment is DocumentGeneralInformation5 AttachmentValue)
-        {
-            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
-            AttachmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SupportingDocumentRequestOrLetter3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

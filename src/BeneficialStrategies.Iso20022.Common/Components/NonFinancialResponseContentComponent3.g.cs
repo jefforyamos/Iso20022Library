@@ -7,100 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aim of the non financial response.
 /// </summary>
+[IsoId("_JlplIXJNEe299ZbWCkdR_w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Non Financial Response Content Component")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NonFinancialResponseContentComponent3
-     : IIsoXmlSerilizable<NonFinancialResponseContentComponent3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NonFinancialResponseContentComponent3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NonFinancialResponseContentComponent3( NonFinancialRequestType2Code reqNonFinancialRequestType,ResponseType11 reqResponse )
+    {
+        NonFinancialRequestType = reqNonFinancialRequestType;
+        Response = reqResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of non financial request that the Acquirer processed.
     /// </summary>
+    [IsoId("_JsqzIXJNEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Financial Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonFinancialRequestType2Code NonFinancialRequestType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NonFinancialRequestType2Code NonFinancialRequestType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NonFinancialRequestType2Code NonFinancialRequestType { get; init; } 
+    #else
+    public NonFinancialRequestType2Code NonFinancialRequestType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the most relevant Acquirer to process the transaction.
     /// </summary>
+    [IsoId("_JsqzI3JNEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Selected")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer10? AcquirerSelected { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Acquirer10? AcquirerSelected { get; init; } 
+    #else
+    public Acquirer10? AcquirerSelected { get; set; } 
+    #endif
+    
     /// <summary>
     /// Advice from the Acquirer (or its Agent) to the POI to manage risk. 
     /// </summary>
+    [IsoId("_JsqzJXJNEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Management Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonFinancialResponseRisk1Code? RiskManagementResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NonFinancialResponseRisk1Code? RiskManagementResult { get; init; } 
+    #else
+    public NonFinancialResponseRisk1Code? RiskManagementResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of instalment supoported by the Service Provider.
     /// </summary>
+    [IsoId("_Jpl0gHJOEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RecurringTransaction5? Instalment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RecurringTransaction5? Instalment { get; init; } 
+    #else
+    public RecurringTransaction5? Instalment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional elements sent by the ServiceProvider which are not linked to payment.
     /// </summary>
+    [IsoId("_6qrvwHJOEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternallyDefinedData4? AdditionalResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternallyDefinedData4? AdditionalResponse { get; init; } 
+    #else
+    public ExternallyDefinedData4? AdditionalResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
+    [IsoId("_JsqzJ3JNEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action14? Action { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Action14? Action { get; init; } 
+    #else
+    public Action14? Action { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [IsoId("_JsqzKXJNEe299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType11 Response { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType11 Response { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType11 Response { get; init; } 
+    #else
+    public ResponseType11 Response { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NonFinReqTp", xmlNamespace );
-        writer.WriteValue(NonFinancialRequestType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AcquirerSelected is Acquirer10 AcquirerSelectedValue)
-        {
-            writer.WriteStartElement(null, "AcqrrSelctd", xmlNamespace );
-            AcquirerSelectedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RiskManagementResult is NonFinancialResponseRisk1Code RiskManagementResultValue)
-        {
-            writer.WriteStartElement(null, "RskMgmtRslt", xmlNamespace );
-            writer.WriteValue(RiskManagementResultValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Instalment is RecurringTransaction5 InstalmentValue)
-        {
-            writer.WriteStartElement(null, "Instlmt", xmlNamespace );
-            InstalmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalResponse is ExternallyDefinedData4 AdditionalResponseValue)
-        {
-            writer.WriteStartElement(null, "AddtlRspn", xmlNamespace );
-            AdditionalResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Action is Action14 ActionValue)
-        {
-            writer.WriteStartElement(null, "Actn", xmlNamespace );
-            ActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Rspn", xmlNamespace );
-        Response.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static NonFinancialResponseContentComponent3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

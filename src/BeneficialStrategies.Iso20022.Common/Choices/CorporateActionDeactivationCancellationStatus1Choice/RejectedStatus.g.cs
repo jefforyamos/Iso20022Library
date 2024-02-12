@@ -9,49 +9,78 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CorporateActionDeactivationCancellationStatus1Choice;
-
-/// <summary>
-/// Provides information about the rejection status.
-/// </summary>
-public partial record RejectedStatus : CorporateActionDeactivationCancellationStatus1Choice_
-     , IIsoXmlSerilizable<RejectedStatus>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CorporateActionDeactivationCancellationStatus1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// The rejection reason.
+    /// Provides information about the rejection status.
     /// </summary>
-    public RejectionReason7FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _RkeBcdp-Ed-ak6NoX_4Aeg_1510068594
-    /// <summary>
-    /// Additional information about the status.
-    /// </summary>
-    public IsoMax350Text? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RiYWwtp-Ed-ak6NoX_4Aeg_1549781490")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Status")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record RejectedStatus : CorporateActionDeactivationCancellationStatus1Choice_
+    #else
+    public partial class RejectedStatus : CorporateActionDeactivationCancellationStatus1Choice_
+    #endif
     {
-        // Not sure how to serialize Reason, multiplicity Unknown
-        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new RejectedStatus Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// The rejection reason.
+        /// </summary>
+        [IsoId("_RkeBcdp-Ed-ak6NoX_4Aeg_1510068594")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public RejectionReason7FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _RkeBcdp-Ed-ak6NoX_4Aeg_1510068594
+        
+        /// <summary>
+        /// Additional information about the status.
+        /// </summary>
+        [IsoId("_RkeBctp-Ed-ak6NoX_4Aeg_1510068595")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalInformation { get; init; } 
+        #else
+        public System.String? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

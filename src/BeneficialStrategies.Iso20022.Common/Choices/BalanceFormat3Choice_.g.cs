@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between balance, eligible balance and not eligible balance formats.
-/// </summary>
-[KnownType(typeof(BalanceFormat3Choice.Balance))]
-[KnownType(typeof(BalanceFormat3Choice.EligibleBalance))]
-[KnownType(typeof(BalanceFormat3Choice.NotEligibleBalance))]
-[KnownType(typeof(BalanceFormat3Choice.FullPeriodUnits))]
-[KnownType(typeof(BalanceFormat3Choice.PartWayPeriodUnits))]
-public abstract partial record BalanceFormat3Choice_ : IIsoXmlSerilizable<BalanceFormat3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between balance, eligible balance and not eligible balance formats.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static BalanceFormat3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(BalanceFormat3Choice.Balance))]
+    [KnownType(typeof(BalanceFormat3Choice.EligibleBalance))]
+    [KnownType(typeof(BalanceFormat3Choice.NotEligibleBalance))]
+    [KnownType(typeof(BalanceFormat3Choice.FullPeriodUnits))]
+    [KnownType(typeof(BalanceFormat3Choice.PartWayPeriodUnits))]
+    [IsoId("_2-A6IRFPEeKp2ZN13DI_pA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Format 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record BalanceFormat3Choice_
+    #else
+    public abstract partial class BalanceFormat3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Bal" => BalanceFormat3Choice.Balance.Deserialize(elementWithPayload),
-             "ElgblBal" => BalanceFormat3Choice.EligibleBalance.Deserialize(elementWithPayload),
-             "NotElgblBal" => BalanceFormat3Choice.NotEligibleBalance.Deserialize(elementWithPayload),
-             "FullPrdUnits" => BalanceFormat3Choice.FullPeriodUnits.Deserialize(elementWithPayload),
-             "PartWayPrdUnits" => BalanceFormat3Choice.PartWayPeriodUnits.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid BalanceFormat3Choice choice.")
-        };
     }
 }

@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties related to an investment fund.
 /// </summary>
+[IsoId("_FCdpMF_6EeiNMJ262H2pWg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundParties1
-     : IIsoXmlSerilizable<FundParties1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Guarantor of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00080.
     /// </summary>
+    [IsoId("_KGpUwV_6EeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guarantor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? Guarantor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes5? Guarantor { get; init; } 
+    #else
+    public ContactAttributes5? Guarantor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that regularly monitors compliance with the legal regulations.
     /// </summary>
+    [IsoId("_Nn5N8l_6EeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Auditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? Auditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes5? Auditor { get; init; } 
+    #else
+    public ContactAttributes5? Auditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal owner of the financial instrument. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
+    [IsoId("_Nn5N81_6EeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trustee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? Trustee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes5? Trustee { get; init; } 
+    #else
+    public ContactAttributes5? Trustee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of party.
     /// </summary>
+    [IsoId("_F-x3wWALEeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedParty13? OtherParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExtendedParty13? OtherParty { get; init; } 
+    #else
+    public ExtendedParty13? OtherParty { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Guarantor is ContactAttributes5 GuarantorValue)
-        {
-            writer.WriteStartElement(null, "Guarntr", xmlNamespace );
-            GuarantorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Auditor is ContactAttributes5 AuditorValue)
-        {
-            writer.WriteStartElement(null, "Audtr", xmlNamespace );
-            AuditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Trustee is ContactAttributes5 TrusteeValue)
-        {
-            writer.WriteStartElement(null, "Trstee", xmlNamespace );
-            TrusteeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherParty is ExtendedParty13 OtherPartyValue)
-        {
-            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
-            OtherPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundParties1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

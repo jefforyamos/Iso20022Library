@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code or a proprietary code to specify the features that may apply to a corporate action option.
-/// </summary>
-[KnownType(typeof(OptionFeaturesFormat21Choice.Code))]
-[KnownType(typeof(OptionFeaturesFormat21Choice.Proprietary))]
-public abstract partial record OptionFeaturesFormat21Choice_ : IIsoXmlSerilizable<OptionFeaturesFormat21Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code or a proprietary code to specify the features that may apply to a corporate action option.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OptionFeaturesFormat21Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OptionFeaturesFormat21Choice.Code))]
+    [KnownType(typeof(OptionFeaturesFormat21Choice.Proprietary))]
+    [IsoId("_c5XvRZKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Features Format 21 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OptionFeaturesFormat21Choice_
+    #else
+    public abstract partial class OptionFeaturesFormat21Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => OptionFeaturesFormat21Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => OptionFeaturesFormat21Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OptionFeaturesFormat21Choice choice.")
-        };
     }
 }

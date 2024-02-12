@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for the identification of a party.
-/// </summary>
-[KnownType(typeof(PartyIdentification182Choice.AnyBIC))]
-[KnownType(typeof(PartyIdentification182Choice.ProprietaryIdentification))]
-[KnownType(typeof(PartyIdentification182Choice.NameAndAddress))]
-[KnownType(typeof(PartyIdentification182Choice.TaxIdentificationNumber))]
-[KnownType(typeof(PartyIdentification182Choice.NationalRegistrationNumber))]
-public abstract partial record PartyIdentification182Choice_ : IIsoXmlSerilizable<PartyIdentification182Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for the identification of a party.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PartyIdentification182Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PartyIdentification182Choice.AnyBIC))]
+    [KnownType(typeof(PartyIdentification182Choice.ProprietaryIdentification))]
+    [KnownType(typeof(PartyIdentification182Choice.NameAndAddress))]
+    [KnownType(typeof(PartyIdentification182Choice.TaxIdentificationNumber))]
+    [KnownType(typeof(PartyIdentification182Choice.NationalRegistrationNumber))]
+    [IsoId("_NPY5wZTJEemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification 182 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PartyIdentification182Choice_
+    #else
+    public abstract partial class PartyIdentification182Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AnyBIC" => PartyIdentification182Choice.AnyBIC.Deserialize(elementWithPayload),
-             "PrtryId" => PartyIdentification182Choice.ProprietaryIdentification.Deserialize(elementWithPayload),
-             "NmAndAdr" => PartyIdentification182Choice.NameAndAddress.Deserialize(elementWithPayload),
-             "TaxIdNb" => PartyIdentification182Choice.TaxIdentificationNumber.Deserialize(elementWithPayload),
-             "NtlRegnNb" => PartyIdentification182Choice.NationalRegistrationNumber.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PartyIdentification182Choice choice.")
-        };
     }
 }

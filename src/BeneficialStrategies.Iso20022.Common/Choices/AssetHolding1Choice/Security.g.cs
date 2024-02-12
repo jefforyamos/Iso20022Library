@@ -9,54 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice;
-
-/// <summary>
-/// Identification and value of the outright investment.
-/// </summary>
-public partial record Security : AssetHolding1Choice_
-     , IIsoXmlSerilizable<Security>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// ISIN of the outright investment.
+    /// Identification and value of the outright investment.
     /// </summary>
-    public required IsoISINOct2015Identifier Identification { get; init; } 
-    /// <summary>
-    /// Value of the outright investment according to the CCP’s system of record.
-    /// </summary>
-    public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
-    /// <summary>
-    /// Type of a financial instrument: an equity, bond or other.
-    /// </summary>
-    public required ProductType7Code FinancialInstrumentType { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_GHPngK_7EeaE9YROwd69hA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Security : AssetHolding1Choice_
+    #else
+    public partial class Security : AssetHolding1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MktVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(MarketValue)); // data type ActiveCurrencyAnd24Amount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrmTp", xmlNamespace );
-        writer.WriteValue(FinancialInstrumentType.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new Security Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Security instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Security( System.String reqIdentification,System.Decimal reqMarketValue,ProductType7Code reqFinancialInstrumentType )
+        {
+            Identification = reqIdentification;
+            MarketValue = reqMarketValue;
+            FinancialInstrumentType = reqFinancialInstrumentType;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// ISIN of the outright investment.
+        /// </summary>
+        [IsoId("_RK0CoK_7EeaE9YROwd69hA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISINOct2015Identifier Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the outright investment according to the CCP’s system of record.
+        /// </summary>
+        [IsoId("_ULeXQK_7EeaE9YROwd69hA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Market Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal MarketValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal MarketValue { get; init; } 
+        #else
+        public System.Decimal MarketValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Type of a financial instrument: an equity, bond or other.
+        /// </summary>
+        [IsoId("_kn10ADXsEemdWfjs3tykFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ProductType7Code FinancialInstrumentType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ProductType7Code FinancialInstrumentType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProductType7Code FinancialInstrumentType { get; init; } 
+        #else
+        public ProductType7Code FinancialInstrumentType { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

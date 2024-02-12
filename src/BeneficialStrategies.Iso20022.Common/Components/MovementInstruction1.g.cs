@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the movement instructions.
 /// </summary>
+[IsoId("_RirRtdp-Ed-ak6NoX_4Aeg_-1983038422")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Movement Instruction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MovementInstruction1
-     : IIsoXmlSerilizable<MovementInstruction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MovementInstruction1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MovementInstruction1( CorporateActionMovement1 reqMovementGeneralInformation )
+    {
+        MovementGeneralInformation = reqMovementGeneralInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides general information about the movement.
     /// </summary>
+    [IsoId("_RirRttp-Ed-ak6NoX_4Aeg_-1906384163")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Movement General Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovement1 MovementGeneralInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionMovement1 MovementGeneralInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionMovement1 MovementGeneralInformation { get; init; } 
+    #else
+    public CorporateActionMovement1 MovementGeneralInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the underlying securities movement.
     /// </summary>
+    [IsoId("_RirRt9p-Ed-ak6NoX_4Aeg_-1853745607")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Securities Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; init; } 
+    #else
+    public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the underlying cash movement.
     /// </summary>
+    [IsoId("_RirRuNp-Ed-ak6NoX_4Aeg_-1965607200")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Cash Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashMovement2? UnderlyingCashMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashMovement2? UnderlyingCashMovementDetails { get; init; } 
+    #else
+    public CashMovement2? UnderlyingCashMovementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the proceeds, ie, outturned resources.
     /// </summary>
+    [IsoId("_Ri1CsNp-Ed-ak6NoX_4Aeg_-1820497873")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proceeds Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProceedsMovement1? ProceedsMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProceedsMovement1? ProceedsMovementDetails { get; init; } 
+    #else
+    public ProceedsMovement1? ProceedsMovementDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MvmntGnlInf", xmlNamespace );
-        MovementGeneralInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UnderlyingSecuritiesMovementDetails is UnderlyingSecurityMovement1 UnderlyingSecuritiesMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "UndrlygSctiesMvmntDtls", xmlNamespace );
-            UnderlyingSecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnderlyingCashMovementDetails is CashMovement2 UnderlyingCashMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "UndrlygCshMvmntDtls", xmlNamespace );
-            UnderlyingCashMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProceedsMovementDetails is ProceedsMovement1 ProceedsMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "PrcdsMvmntDtls", xmlNamespace );
-            ProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MovementInstruction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

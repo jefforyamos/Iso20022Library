@@ -7,103 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument used to process a payment instruction.
 /// </summary>
+[IsoId("__Ai3oCC0EeWJd9HF2tO7BA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Instrument")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentInstrument13
-     : IIsoXmlSerilizable<PaymentInstrument13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentInstrument13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentInstrument13( string reqSettlementCurrency )
+    {
+        SettlementCurrency = reqSettlementCurrency;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [IsoId("_Hmk5USC1EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string SettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string SettlementCurrency { get; init; } 
+    #else
+    public string SettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>
+    [IsoId("_LAh3sSC1EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DividendPercentage { get; init; } 
+    #else
+    public System.Decimal? DividendPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
+    [IsoId("_q1v80SC1EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscription Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument18Choice_? SubscriptionPaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument18Choice_? SubscriptionPaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument18Choice_? SubscriptionPaymentInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
+    [IsoId("_CUs6kSC2EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument19Choice_? RedemptionPaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument19Choice_? RedemptionPaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument19Choice_? RedemptionPaymentInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
+    [IsoId("_OMg2ESC2EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument19Choice_? DividendPaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument19Choice_? DividendPaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument19Choice_? DividendPaymentInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
+    [IsoId("_TWp_sSC2EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Savings Plan Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument18Choice_? SavingsPlanPaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument18Choice_? SavingsPlanPaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument18Choice_? SavingsPlanPaymentInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for an interest payment.
     /// </summary>
+    [IsoId("_YE0X8SC2EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument19Choice_? InterestPaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrument19Choice_? InterestPaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrument19Choice_? InterestPaymentInstrument { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
-        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (DividendPercentage is IsoPercentageBoundedRate DividendPercentageValue)
-        {
-            writer.WriteStartElement(null, "DvddPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageBoundedRate(DividendPercentageValue)); // data type PercentageBoundedRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SubscriptionPaymentInstrument is PaymentInstrument18Choice_ SubscriptionPaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "SbcptPmtInstrm", xmlNamespace );
-            SubscriptionPaymentInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RedemptionPaymentInstrument is PaymentInstrument19Choice_ RedemptionPaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "RedPmtInstrm", xmlNamespace );
-            RedemptionPaymentInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DividendPaymentInstrument is PaymentInstrument19Choice_ DividendPaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "DvddPmtInstrm", xmlNamespace );
-            DividendPaymentInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SavingsPlanPaymentInstrument is PaymentInstrument18Choice_ SavingsPlanPaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "SvgsPlanPmtInstrm", xmlNamespace );
-            SavingsPlanPaymentInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterestPaymentInstrument is PaymentInstrument19Choice_ InterestPaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "IntrstPmtInstrm", xmlNamespace );
-            InterestPaymentInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentInstrument13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

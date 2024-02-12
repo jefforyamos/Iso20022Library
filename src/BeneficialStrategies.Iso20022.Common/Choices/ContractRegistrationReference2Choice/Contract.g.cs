@@ -9,53 +9,83 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Choice;
-
-/// <summary>
-/// Identification of the contract.
-/// </summary>
-public partial record Contract : ContractRegistrationReference2Choice_
-     , IIsoXmlSerilizable<Contract>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identifies the document.
+    /// Identification of the contract.
     /// </summary>
-    public IsoMax35Text? Identification { get; init; } 
-    /// <summary>
-    /// Date of issuance of the document.
-    /// </summary>
-    public IsoISODate? DateOfIssue { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_KVgWabMmEeueudaIbClZbQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Contract : ContractRegistrationReference2Choice_
+    #else
+    public partial class Contract : ContractRegistrationReference2Choice_
+    #endif
     {
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DateOfIssue is IsoISODate DateOfIssueValue)
-        {
-            writer.WriteStartElement(null, "DtOfIsse", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfIssueValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static new Contract Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the document.
+        /// </summary>
+        [IsoId("_zSWHUbMmEeueudaIbClZbQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Identification { get; init; } 
+        #else
+        public System.String? Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date of issuance of the document.
+        /// </summary>
+        [IsoId("_zSWHU7MmEeueudaIbClZbQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Date Of Issue")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? DateOfIssue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? DateOfIssue { get; init; } 
+        #else
+        public System.DateOnly? DateOfIssue { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

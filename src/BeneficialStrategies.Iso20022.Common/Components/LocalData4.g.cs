@@ -7,113 +7,208 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
+[IsoId("_TPWQUcW7EeuhguwJmlgagQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Local Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LocalData4
-     : IIsoXmlSerilizable<LocalData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LocalData4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LocalData4( string reqLanguage )
+    {
+        Language = reqLanguage;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
+    [IsoId("_TT8cccW7EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISOMax3ALanguageCode Language { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Language { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Language { get; init; } 
+    #else
+    public string Language { get; set; } 
+    #endif
+    
     /// <summary>
     /// Short name of the party in the local language.
     /// </summary>
+    [IsoId("_TT8cc8W7EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ShortName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ShortName { get; init; } 
+    #else
+    public System.String? ShortName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal Corporate Name of the party in the local language
     /// </summary>
+    [IsoId("_Dq42wCB6Eey8XKHwKquEQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Corporate Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? LegalCorporateName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LegalCorporateName { get; init; } 
+    #else
+    public System.String? LegalCorporateName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name and location of acceptor in the local language.  May only contain name when the location is specified elsewhere.
     /// </summary>
+    [IsoId("_aT8UesW7EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name And Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 200 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax200Text? NameAndLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NameAndLocation { get; init; } 
+    #else
+    public System.String? NameAndLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Structured postal address in the local language.
     /// </summary>
+    [IsoId("_jofpAcW7EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address3? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address3? Address { get; init; } 
+    #else
+    public Address3? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information used when card acceptor street address is insufficient.
     /// </summary>
+    [IsoId("_75FwdMosEeuuJ571wNLKkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Address Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 512 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax512Text? AdditionalAddressInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalAddressInformation { get; init; } 
+    #else
+    public System.String? AdditionalAddressInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// </summary>
+    [IsoId("_fKYT0cotEeuuJ571wNLKkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Contact Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 512 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax512Text? AdditionalContactInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalContactInformation { get; init; } 
+    #else
+    public System.String? AdditionalContactInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional local language data
     /// </summary>
+    [IsoId("_tZ10AcXLEeumGdYElfgmbw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Lang", xmlNamespace );
-        writer.WriteValue(Language.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ShortName is IsoMax70Text ShortNameValue)
-        {
-            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ShortNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (LegalCorporateName is IsoMax210Text LegalCorporateNameValue)
-        {
-            writer.WriteStartElement(null, "LglCorpNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(LegalCorporateNameValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-        if (NameAndLocation is IsoMax200Text NameAndLocationValue)
-        {
-            writer.WriteStartElement(null, "NmAndLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax200Text(NameAndLocationValue)); // data type Max200Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is Address3 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalAddressInformation is IsoMax512Text AdditionalAddressInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlAdrInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax512Text(AdditionalAddressInformationValue)); // data type Max512Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalContactInformation is IsoMax512Text AdditionalContactInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlCtctInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax512Text(AdditionalContactInformationValue)); // data type Max512Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LocalData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

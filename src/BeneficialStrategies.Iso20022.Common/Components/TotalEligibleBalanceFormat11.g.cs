@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total eligible balance for the corporate action and full and part way period units.
 /// </summary>
+[IsoId("_plMAxzi7Eeydid5dcNPKvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Eligible Balance Format")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalEligibleBalanceFormat11
-     : IIsoXmlSerilizable<TotalEligibleBalanceFormat11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>
+    [IsoId("_plMAyTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity80Choice_? Balance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity80Choice_? Balance { get; init; } 
+    #else
+    public Quantity80Choice_? Balance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of units of a fund that were purchased in a previous distribution period and/or held at the beginning of a distribution period, for example Group I Units in the UK.
     /// </summary>
+    [IsoId("_plMAyzi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Period Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat13? FullPeriodUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat13? FullPeriodUnits { get; init; } 
+    #else
+    public SignedQuantityFormat13? FullPeriodUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of units of a fund that were purchased part way throughout a distribution period, for example Group II Units in the U.K.
     /// </summary>
+    [IsoId("_plMAzTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Part Way Period Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat13? PartWayPeriodUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat13? PartWayPeriodUnits { get; init; } 
+    #else
+    public SignedQuantityFormat13? PartWayPeriodUnits { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Balance is Quantity80Choice_ BalanceValue)
-        {
-            writer.WriteStartElement(null, "Bal", xmlNamespace );
-            BalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FullPeriodUnits is SignedQuantityFormat13 FullPeriodUnitsValue)
-        {
-            writer.WriteStartElement(null, "FullPrdUnits", xmlNamespace );
-            FullPeriodUnitsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PartWayPeriodUnits is SignedQuantityFormat13 PartWayPeriodUnitsValue)
-        {
-            writer.WriteStartElement(null, "PartWayPrdUnits", xmlNamespace );
-            PartWayPeriodUnitsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalEligibleBalanceFormat11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Contains information describing the fulfilment information delivery methods.
-/// </summary>
-[KnownType(typeof(RetrievalDeliveryMethod1Choice.RequestedMethod))]
-[KnownType(typeof(RetrievalDeliveryMethod1Choice.EstablishedMethod))]
-[KnownType(typeof(RetrievalDeliveryMethod1Choice.ActualDeliveryMethod))]
-public abstract partial record RetrievalDeliveryMethod1Choice_ : IIsoXmlSerilizable<RetrievalDeliveryMethod1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Contains information describing the fulfilment information delivery methods.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RetrievalDeliveryMethod1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RetrievalDeliveryMethod1Choice.RequestedMethod))]
+    [KnownType(typeof(RetrievalDeliveryMethod1Choice.EstablishedMethod))]
+    [KnownType(typeof(RetrievalDeliveryMethod1Choice.ActualDeliveryMethod))]
+    [IsoId("_wPBNlewhEeiMkKo2clXHdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Retrieval Delivery Method 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RetrievalDeliveryMethod1Choice_
+    #else
+    public abstract partial class RetrievalDeliveryMethod1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ReqdMtd" => RetrievalDeliveryMethod1Choice.RequestedMethod.Deserialize(elementWithPayload),
-             "EstblishdMtd" => RetrievalDeliveryMethod1Choice.EstablishedMethod.Deserialize(elementWithPayload),
-             "ActlDlvryMtd" => RetrievalDeliveryMethod1Choice.ActualDeliveryMethod.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RetrievalDeliveryMethod1Choice choice.")
-        };
     }
 }

@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer of the withdrawal transaction, in charge of the funds settlement with the issuer.
 /// </summary>
+[IsoId("_077-4Yn1EeS9F4Qrq_eaVA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acquirer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Acquirer7
-     : IIsoXmlSerilizable<Acquirer7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the acquirer.
     /// </summary>
+    [IsoId("_1Ivr0Yn1EeS9F4Qrq_eaVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquiring Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AcquiringInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AcquiringInstitution { get; init; } 
+    #else
+    public System.String? AcquiringInstitution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the acquirer branch.
     /// </summary>
+    [IsoId("_1Ivr04n1EeS9F4Qrq_eaVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Branch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Branch { get; init; } 
+    #else
+    public System.String? Branch { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AcquiringInstitution is IsoMax35Text AcquiringInstitutionValue)
-        {
-            writer.WriteStartElement(null, "AcqrgInstn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquiringInstitutionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Branch is IsoMax35Text BranchValue)
-        {
-            writer.WriteStartElement(null, "Brnch", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BranchValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Acquirer7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

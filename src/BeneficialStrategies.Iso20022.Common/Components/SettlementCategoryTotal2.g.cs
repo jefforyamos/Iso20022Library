@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement totals
 /// </summary>
+[IsoId("_-LcTQZMmEeuleeHpFMMhmQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Category Total")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementCategoryTotal2
-     : IIsoXmlSerilizable<SettlementCategoryTotal2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementCategoryTotal2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementCategoryTotal2( Amount17 reqAmount )
+    {
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of transactions.
     /// </summary>
+    [IsoId("_-SNpoZMmEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Count { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Count { get; init; } 
+    #else
+    public System.UInt64? Count { get; set; } 
+    #endif
+    
     /// <summary>
     /// Gross amount.
     /// </summary>
+    [IsoId("_-SNpo5MmEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount17 Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount17 Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount17 Amount { get; init; } 
+    #else
+    public Amount17 Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interchange fee amount.
     /// </summary>
+    [IsoId("_-SNppZMmEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interchange Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount17? InterchangeFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount17? InterchangeFee { get; init; } 
+    #else
+    public Amount17? InterchangeFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing fee.
     /// </summary>
+    [IsoId("_-SNpp5MmEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount17? ProcessingFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount17? ProcessingFee { get; init; } 
+    #else
+    public Amount17? ProcessingFee { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Count is IsoNumber CountValue)
-        {
-            writer.WriteStartElement(null, "Cnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(CountValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        Amount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (InterchangeFee is Amount17 InterchangeFeeValue)
-        {
-            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
-            InterchangeFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingFee is Amount17 ProcessingFeeValue)
-        {
-            writer.WriteStartElement(null, "PrcgFee", xmlNamespace );
-            ProcessingFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementCategoryTotal2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

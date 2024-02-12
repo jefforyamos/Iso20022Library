@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
-
-/// <summary>
-/// Specifies whether the party is locked or not, and the reason for this status, when required.
-/// </summary>
-public partial record LockStatus : UpdateLogPartyRecord1Choice_
-     , IIsoXmlSerilizable<LockStatus>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Old value before the update.
+    /// Specifies whether the party is locked or not, and the reason for this status, when required.
     /// </summary>
-    public required PartyLockStatus1 Old { get; init; } 
-    /// <summary>
-    /// New value after the update.
-    /// </summary>
-    public required PartyLockStatus1 New { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_xPt7iWjNEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lock Status")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record LockStatus : UpdateLogPartyRecord1Choice_
+    #else
+    public partial class LockStatus : UpdateLogPartyRecord1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Od", xmlNamespace );
-        Old.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "New", xmlNamespace );
-        New.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new LockStatus Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a LockStatus instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public LockStatus( PartyLockStatus1 reqOld,PartyLockStatus1 reqNew )
+        {
+            Old = reqOld;
+            New = reqNew;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Old value before the update.
+        /// </summary>
+        [IsoId("_mm5wdGjSEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Old")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyLockStatus1 Old { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyLockStatus1 Old { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyLockStatus1 Old { get; init; } 
+        #else
+        public PartyLockStatus1 Old { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// New value after the update.
+        /// </summary>
+        [IsoId("_mm5wdWjSEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyLockStatus1 New { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyLockStatus1 New { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyLockStatus1 New { get; init; } 
+        #else
+        public PartyLockStatus1 New { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

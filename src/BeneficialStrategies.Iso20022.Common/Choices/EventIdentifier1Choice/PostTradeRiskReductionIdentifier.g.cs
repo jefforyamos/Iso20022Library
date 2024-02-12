@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.EventIdentifier1Choice;
-
-/// <summary>
-/// Specifies post trade risk reduction identifier.
-/// </summary>
-public partial record PostTradeRiskReductionIdentifier : EventIdentifier1Choice_
-     , IIsoXmlSerilizable<PostTradeRiskReductionIdentifier>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.EventIdentifier1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identification of the structurer of the post trade risk reduction identifier.
+    /// Specifies post trade risk reduction identifier.
     /// </summary>
-    public required IsoLEIIdentifier Structurer { get; init; } 
-    /// <summary>
-    /// Post trade risk reduction identifier assigned by the structurer allowing to link the constituents.
-    /// </summary>
-    public required IsoMax52Text Identification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_tbdG8PbfEeyInphUKJZxtQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Post Trade Risk Reduction Identifier")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PostTradeRiskReductionIdentifier : EventIdentifier1Choice_
+    #else
+    public partial class PostTradeRiskReductionIdentifier : EventIdentifier1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Strr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Structurer)); // data type LEIIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax52Text(Identification)); // data type Max52Text System.String
-        writer.WriteEndElement();
-    }
-    public static new PostTradeRiskReductionIdentifier Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a PostTradeRiskReductionIdentifier instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public PostTradeRiskReductionIdentifier( System.String reqStructurer,System.String reqIdentification )
+        {
+            Structurer = reqStructurer;
+            Identification = reqIdentification;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of the structurer of the post trade risk reduction identifier.
+        /// </summary>
+        [IsoId("_-UxsID1hEeyA3eIPELln4g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Structurer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoLEIIdentifier Structurer { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Structurer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Structurer { get; init; } 
+        #else
+        public System.String Structurer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Post trade risk reduction identifier assigned by the structurer allowing to link the constituents.
+        /// </summary>
+        [IsoId("_GT9wQD1iEeyA3eIPELln4g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax52Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

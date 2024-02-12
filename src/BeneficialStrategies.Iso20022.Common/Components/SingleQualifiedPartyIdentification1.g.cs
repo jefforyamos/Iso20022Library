@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -18,42 +24,72 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Such references can occur in sequence. The last occurrence of RelativeIdentifier is the local identifier at the party recursively defined by the PrefixParty and all preceding occurrences of RelativeIdentifier.
 /// Technical note: The sequence of relative identifiers is used to avoid a recursive definition in the catalogue.
 /// </summary>
+[IsoId("_OTgzMjUx-AOSNFX-8224494")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Single Qualified Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SingleQualifiedPartyIdentification1
-     : IIsoXmlSerilizable<SingleQualifiedPartyIdentification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SingleQualifiedPartyIdentification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SingleQualifiedPartyIdentification1( TradeParty1 reqBaseParty )
+    {
+        BaseParty = reqBaseParty;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party identification recognisable by parties in the trade.
     /// </summary>
+    [IsoId("_OTgzMjUy-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty1 BaseParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeParty1 BaseParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1 BaseParty { get; init; } 
+    #else
+    public TradeParty1 BaseParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a party, each identifier is recursively defined relative to the party identified by the base party and the preceding part of the list.
     /// </summary>
-    public SimpleValueList<IsoMax35Text> RelativeIdentifier { get; init; } = [];
+    [IsoId("_OTgzMjUz-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Relative Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> RelativeIdentifier { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BasePty", xmlNamespace );
-        BaseParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RltvIdr", xmlNamespace );
-        RelativeIdentifier.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
-        writer.WriteEndElement();
-    }
-    public static SingleQualifiedPartyIdentification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

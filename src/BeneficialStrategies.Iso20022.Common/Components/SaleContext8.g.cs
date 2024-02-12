@@ -7,190 +7,335 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the sale involved in a card transaction.
 /// </summary>
+[IsoId("_GejwcShKEeyhZIgCcGlTyA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sale Context")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SaleContext8
-     : IIsoXmlSerilizable<SaleContext8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
+    [IsoId("_GknVIShKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleIdentification { get; init; } 
+    #else
+    public System.String? SaleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [IsoId("_GknVIyhKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Reference Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleReferenceIdentification { get; init; } 
+    #else
+    public System.String? SaleReferenceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
+    [IsoId("_GknVJShKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SaleReferenceNumber { get; init; } 
+    #else
+    public System.String? SaleReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of goods and/or services.
     /// </summary>
+    [IsoId("_GknVJyhKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Goods And Services Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GoodsAndServices1Code? GoodsAndServicesType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GoodsAndServices1Code? GoodsAndServicesType { get; init; } 
+    #else
+    public GoodsAndServices1Code? GoodsAndServicesType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub type of goods and/or services.
     /// </summary>
+    [IsoId("_GknVKShKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Good And Services Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GoodsAndServicesSubType1Code? GoodAndServicesSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GoodsAndServicesSubType1Code? GoodAndServicesSubType { get; init; } 
+    #else
+    public GoodsAndServicesSubType1Code? GoodAndServicesSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other goods and services sub type applied to the transaction.
     /// </summary>
+    [IsoId("_GknVKyhKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Good And Services Other Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? GoodAndServicesOtherSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? GoodAndServicesOtherSubType { get; init; } 
+    #else
+    public System.String? GoodAndServicesOtherSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code that specifies the good or service delivery channel.
     /// </summary>
+    [IsoId("_pHSlYD5LEeyHI64WSlzTlg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Good And Service Delivery Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GoodAndServiceDeliveryChannel1Code? GoodAndServiceDeliveryChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GoodAndServiceDeliveryChannel1Code? GoodAndServiceDeliveryChannel { get; init; } 
+    #else
+    public GoodAndServiceDeliveryChannel1Code? GoodAndServiceDeliveryChannel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other good or service delivery channel defined at private or national level.
     /// </summary>
+    [IsoId("_3TryoD5LEeyHI64WSlzTlg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Good And Service Delivery Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherGoodAndServiceDeliveryChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherGoodAndServiceDeliveryChannel { get; init; } 
+    #else
+    public System.String? OtherGoodAndServiceDeliveryChannel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code that specifies the good or service delivery schedule.
     /// </summary>
+    [IsoId("_AJPeED5MEeyHI64WSlzTlg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Good And Service Delivery Schedule")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GoodAndServiceDeliverySchedule1Code? GoodAndServiceDeliverySchedule { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GoodAndServiceDeliverySchedule1Code? GoodAndServiceDeliverySchedule { get; init; } 
+    #else
+    public GoodAndServiceDeliverySchedule1Code? GoodAndServiceDeliverySchedule { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other good or service delivery schedule defined at private or national level.
     /// </summary>
+    [IsoId("_H9uuED5MEeyHI64WSlzTlg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Good And Service Delivery Schedule")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherGoodAndServiceDeliverySchedule { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherGoodAndServiceDeliverySchedule { get; init; } 
+    #else
+    public System.String? OtherGoodAndServiceDeliverySchedule { get; set; } 
+    #endif
+    
     /// <summary>
     /// Also referred to as split tender. Indicates whether the payment transaction is a partial payment of the sale transaction.
     /// True: Partial payment of a sale transaction
     /// False: Not a partial payment of a sale transaction.
     /// </summary>
+    [IsoId("_GknVLShKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Split Payment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SplitPaymentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SplitPaymentIndicator { get; init; } 
+    #else
+    public System.String? SplitPaymentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether a receipt from the goods or services provider was requested.
     /// True: Receipt requested
     /// False: Receipt not requested.
     /// </summary>
+    [IsoId("_GknVLyhKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receipt Request Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReceiptRequestIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiptRequestIndicator { get; init; } 
+    #else
+    public System.String? ReceiptRequestIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of receipt requested or communication channel used.
     /// </summary>
+    [IsoId("_GknVMShKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receipt Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReceiptType1Code? ReceiptType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReceiptType1Code? ReceiptType { get; init; } 
+    #else
+    public ReceiptType1Code? ReceiptType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Destination of the receipt (for example, e-mail address, SMS number, etc.).
     /// </summary>
+    [IsoId("_GknVMyhKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receipt Destination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ReceiptDestination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiptDestination { get; init; } 
+    #else
+    public System.String? ReceiptDestination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional data.
     /// </summary>
+    [IsoId("_SeXxYShKEeyhZIgCcGlTyA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleReferenceIdentification is IsoMax35Text SaleReferenceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SaleRefId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (GoodsAndServicesType is GoodsAndServices1Code GoodsAndServicesTypeValue)
-        {
-            writer.WriteStartElement(null, "GoodsAndSvcsTp", xmlNamespace );
-            writer.WriteValue(GoodsAndServicesTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (GoodAndServicesSubType is GoodsAndServicesSubType1Code GoodAndServicesSubTypeValue)
-        {
-            writer.WriteStartElement(null, "GoodAndSvcsSubTp", xmlNamespace );
-            writer.WriteValue(GoodAndServicesSubTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (GoodAndServicesOtherSubType is IsoMax35Text GoodAndServicesOtherSubTypeValue)
-        {
-            writer.WriteStartElement(null, "GoodAndSvcsOthrSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(GoodAndServicesOtherSubTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (GoodAndServiceDeliveryChannel is GoodAndServiceDeliveryChannel1Code GoodAndServiceDeliveryChannelValue)
-        {
-            writer.WriteStartElement(null, "GoodAndSvcDlvryChanl", xmlNamespace );
-            writer.WriteValue(GoodAndServiceDeliveryChannelValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherGoodAndServiceDeliveryChannel is IsoMax35Text OtherGoodAndServiceDeliveryChannelValue)
-        {
-            writer.WriteStartElement(null, "OthrGoodAndSvcDlvryChanl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherGoodAndServiceDeliveryChannelValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (GoodAndServiceDeliverySchedule is GoodAndServiceDeliverySchedule1Code GoodAndServiceDeliveryScheduleValue)
-        {
-            writer.WriteStartElement(null, "GoodAndSvcDlvrySchdl", xmlNamespace );
-            writer.WriteValue(GoodAndServiceDeliveryScheduleValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherGoodAndServiceDeliverySchedule is IsoMax35Text OtherGoodAndServiceDeliveryScheduleValue)
-        {
-            writer.WriteStartElement(null, "OthrGoodAndSvcDlvrySchdl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherGoodAndServiceDeliveryScheduleValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SplitPaymentIndicator is IsoTrueFalseIndicator SplitPaymentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SpltPmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SplitPaymentIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReceiptRequestIndicator is IsoTrueFalseIndicator ReceiptRequestIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RctReqInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReceiptRequestIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReceiptType is ReceiptType1Code ReceiptTypeValue)
-        {
-            writer.WriteStartElement(null, "RctTp", xmlNamespace );
-            writer.WriteValue(ReceiptTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReceiptDestination is IsoMax70Text ReceiptDestinationValue)
-        {
-            writer.WriteStartElement(null, "RctDstn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ReceiptDestinationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SaleContext8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

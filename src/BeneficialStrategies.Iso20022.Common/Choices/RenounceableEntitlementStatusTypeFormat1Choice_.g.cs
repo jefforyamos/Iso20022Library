@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code or proprietary code to specify the type of the renounceable entitlement status.
-/// </summary>
-[KnownType(typeof(RenounceableEntitlementStatusTypeFormat1Choice.Code))]
-[KnownType(typeof(RenounceableEntitlementStatusTypeFormat1Choice.Proprietary))]
-public abstract partial record RenounceableEntitlementStatusTypeFormat1Choice_ : IIsoXmlSerilizable<RenounceableEntitlementStatusTypeFormat1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code or proprietary code to specify the type of the renounceable entitlement status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RenounceableEntitlementStatusTypeFormat1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RenounceableEntitlementStatusTypeFormat1Choice.Code))]
+    [KnownType(typeof(RenounceableEntitlementStatusTypeFormat1Choice.Proprietary))]
+    [IsoId("_Q3dxhtp-Ed-ak6NoX_4Aeg_1417014637")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Renounceable Entitlement Status Type Format 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RenounceableEntitlementStatusTypeFormat1Choice_
+    #else
+    public abstract partial class RenounceableEntitlementStatusTypeFormat1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => RenounceableEntitlementStatusTypeFormat1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => RenounceableEntitlementStatusTypeFormat1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RenounceableEntitlementStatusTypeFormat1Choice choice.")
-        };
     }
 }

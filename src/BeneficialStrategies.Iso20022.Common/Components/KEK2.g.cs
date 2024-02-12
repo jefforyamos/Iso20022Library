@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key encryption key (KEK), using previously distributed symmetric key.
 /// </summary>
+[IsoId("_pLgEYQinEeKn9O5oyej_zw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("KEK")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record KEK2
-     : IIsoXmlSerilizable<KEK2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a KEK2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public KEK2( KEKIdentifier1 reqKEKIdentification,AlgorithmIdentification2 reqKeyEncryptionAlgorithm,System.Byte[] reqEncryptedKey )
+    {
+        KEKIdentification = reqKEKIdentification;
+        KeyEncryptionAlgorithm = reqKeyEncryptionAlgorithm;
+        EncryptedKey = reqEncryptedKey;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [IsoId("_pYJZQQinEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the key encryption key (KEK).
     /// </summary>
+    [IsoId("_pYJZRQinEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("KEK Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required KEKIdentifier1 KEKIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public KEKIdentifier1 KEKIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KEKIdentifier1 KEKIdentification { get; init; } 
+    #else
+    public KEKIdentifier1 KEKIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Algorithm to encrypt the key encryption key (KEK).
     /// </summary>
+    [IsoId("_pYJZSQinEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Encryption Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification2 KeyEncryptionAlgorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AlgorithmIdentification2 KeyEncryptionAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification2 KeyEncryptionAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification2 KeyEncryptionAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encrypted key encryption key (KEK).
     /// </summary>
+    [IsoId("_pYJZTQinEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encrypted Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Binary EncryptedKey { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] EncryptedKey { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] EncryptedKey { get; init; } 
+    #else
+    public System.Byte[] EncryptedKey { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "KEKId", xmlNamespace );
-        KEKIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "KeyNcrptnAlgo", xmlNamespace );
-        KeyEncryptionAlgorithm.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NcrptdKey", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Binary(EncryptedKey)); // data type Max140Binary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static KEK2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies target dates dates related to account opening and closing.
 /// </summary>
+[IsoId("_UkGbYdp-Ed-ak6NoX_4Aeg_197946061")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Contract")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountContract4
-     : IIsoXmlSerilizable<AccountContract4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date on which the account and related services are expected to cease to be operational for the account owner.
     /// </summary>
+    [IsoId("_UkPlQNp-Ed-ak6NoX_4Aeg_-621007620")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Target Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TargetClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TargetClosingDate { get; init; } 
+    #else
+    public System.DateOnly? TargetClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator that the account opening/maintenance/closing process needs to be treated urgently, that is, sooner than the terms established by the service level agreed between the account holder customer and the account servicing institution.
     /// </summary>
+    [IsoId("_UkPlQdp-Ed-ak6NoX_4Aeg_-1796198645")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Urgency Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? UrgencyFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UrgencyFlag { get; init; } 
+    #else
+    public System.String? UrgencyFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates removal of the account. After removal, an account will not appear anymore in reports.
     /// </summary>
+    [IsoId("_UkPlQtp-Ed-ak6NoX_4Aeg_-1964414832")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Removal Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RemovalIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RemovalIndicator { get; init; } 
+    #else
+    public System.String? RemovalIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TargetClosingDate is IsoISODate TargetClosingDateValue)
-        {
-            writer.WriteStartElement(null, "TrgtClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TargetClosingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (UrgencyFlag is IsoYesNoIndicator UrgencyFlagValue)
-        {
-            writer.WriteStartElement(null, "UrgcyFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(UrgencyFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RemovalIndicator is IsoYesNoIndicator RemovalIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RmvlInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RemovalIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountContract4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

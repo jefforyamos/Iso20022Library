@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a cash account, a charges account or a tax account.
-/// </summary>
-[KnownType(typeof(Account8Choice.CashAccount))]
-[KnownType(typeof(Account8Choice.ChargesAccount))]
-[KnownType(typeof(Account8Choice.TaxAccount))]
-public abstract partial record Account8Choice_ : IIsoXmlSerilizable<Account8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Account8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Account8Choice.CashAccount))]
+    [KnownType(typeof(Account8Choice.ChargesAccount))]
+    [KnownType(typeof(Account8Choice.TaxAccount))]
+    [IsoId("_Q4z1Udp-Ed-ak6NoX_4Aeg_-2028069382")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Account8Choice_
+    #else
+    public abstract partial class Account8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CshAcct" => Account8Choice.CashAccount.Deserialize(elementWithPayload),
-             "ChrgsAcct" => Account8Choice.ChargesAccount.Deserialize(elementWithPayload),
-             "TaxAcct" => Account8Choice.TaxAccount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Account8Choice choice.")
-        };
     }
 }

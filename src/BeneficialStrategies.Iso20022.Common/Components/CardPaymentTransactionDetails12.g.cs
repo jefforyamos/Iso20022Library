@@ -7,180 +7,325 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transaction in the authorisation request.
 /// </summary>
+[IsoId("_njt2ETDzEeO9waS4ina8CA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Transaction Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentTransactionDetails12
-     : IIsoXmlSerilizable<CardPaymentTransactionDetails12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentTransactionDetails12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentTransactionDetails12( string reqCurrency,System.Decimal reqTotalAmount )
+    {
+        Currency = reqCurrency;
+        TotalAmount = reqTotalAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [IsoId("_nyTEoTDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode Currency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Currency { get; init; } 
+    #else
+    public string Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [IsoId("_nyTEozDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalAmount { get; init; } 
+    #else
+    public System.Decimal TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Qualifies the amount associated with the transaction.
     /// </summary>
+    [IsoId("_nyTEpTDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Qualifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfAmount1Code? AmountQualifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfAmount1Code? AmountQualifier { get; init; } 
+    #else
+    public TypeOfAmount1Code? AmountQualifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
+    [IsoId("_nyTEpzDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount5? DetailedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount5? DetailedAmount { get; init; } 
+    #else
+    public DetailedAmount5? DetailedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
+    [IsoId("_nyTEqTDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValidityDate { get; init; } 
+    #else
+    public System.DateOnly? ValidityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason to process an online authorisation.
     /// </summary>
+    [IsoId("_nyTEqzDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Line Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineReason1Code? OnLineReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OnLineReason1Code? OnLineReason { get; init; } 
+    #else
+    public OnLineReason1Code? OnLineReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
+    [IsoId("_nyTErTDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unattended Level Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UnattendedLevelCategory { get; init; } 
+    #else
+    public System.String? UnattendedLevelCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
+    [IsoId("_nyTErzDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccountType1Code? AccountType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAccountType1Code? AccountType { get; init; } 
+    #else
+    public CardAccountType1Code? AccountType { get; set; } 
+    #endif
+    
     /// <summary>
     /// The currency conversion has been accepted by the cardholder.
     /// </summary>
+    [IsoId("_o4-awEeaEeODR7vDcYOqmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conversion Accepted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ConversionAccepted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConversionAccepted { get; init; } 
+    #else
+    public System.String? ConversionAccepted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency conversion proposed to the cardholder.
     /// </summary>
+    [IsoId("_3ZdmwDDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Conversion")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion1? CurrencyConversion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyConversion1? CurrencyConversion { get; init; } 
+    #else
+    public CurrencyConversion1? CurrencyConversion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to a financial loan (instalment) or to a recurring transaction.
     /// </summary>
+    [IsoId("_CAUQsDD0EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RecurringTransaction2? Instalment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RecurringTransaction2? Instalment { get; init; } 
+    #else
+    public RecurringTransaction2? Instalment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment transaction with an aggregated amount.
     /// </summary>
+    [IsoId("_dGViIDD8EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Aggregation Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregationTransaction1? AggregationTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AggregationTransaction1? AggregationTransaction { get; init; } 
+    #else
+    public AggregationTransaction1? AggregationTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
+    [IsoId("_nyTEszDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product1? Product { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Product1? Product { get; init; } 
+    #else
+    public Product1? Product { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed invoice data.
     /// </summary>
+    [IsoId("_P2ad0DD0EeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Payment Invoice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentInvoice1? CardPaymentInvoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentInvoice1? CardPaymentInvoice { get; init; } 
+    #else
+    public CardPaymentInvoice1? CardPaymentInvoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [IsoId("_nyTEtTDzEeO9waS4ina8CA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Related Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ICCRelatedData { get; init; } 
+    #else
+    public System.Byte[]? ICCRelatedData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ccy", xmlNamespace );
-        writer.WriteValue(Currency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (AmountQualifier is TypeOfAmount1Code AmountQualifierValue)
-        {
-            writer.WriteStartElement(null, "AmtQlfr", xmlNamespace );
-            writer.WriteValue(AmountQualifierValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DetailedAmount is DetailedAmount5 DetailedAmountValue)
-        {
-            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
-            DetailedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValidityDate is IsoISODate ValidityDateValue)
-        {
-            writer.WriteStartElement(null, "VldtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidityDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (OnLineReason is OnLineReason1Code OnLineReasonValue)
-        {
-            writer.WriteStartElement(null, "OnLineRsn", xmlNamespace );
-            writer.WriteValue(OnLineReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UnattendedLevelCategory is IsoMax35NumericText UnattendedLevelCategoryValue)
-        {
-            writer.WriteStartElement(null, "UattnddLvlCtgy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(UnattendedLevelCategoryValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AccountType is CardAccountType1Code AccountTypeValue)
-        {
-            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
-            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ConversionAccepted is IsoTrueFalseIndicator ConversionAcceptedValue)
-        {
-            writer.WriteStartElement(null, "ConvsAccptd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ConversionAcceptedValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CurrencyConversion is CurrencyConversion1 CurrencyConversionValue)
-        {
-            writer.WriteStartElement(null, "CcyConvs", xmlNamespace );
-            CurrencyConversionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Instalment is RecurringTransaction2 InstalmentValue)
-        {
-            writer.WriteStartElement(null, "Instlmt", xmlNamespace );
-            InstalmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AggregationTransaction is AggregationTransaction1 AggregationTransactionValue)
-        {
-            writer.WriteStartElement(null, "AggtnTx", xmlNamespace );
-            AggregationTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Product is Product1 ProductValue)
-        {
-            writer.WriteStartElement(null, "Pdct", xmlNamespace );
-            ProductValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardPaymentInvoice is CardPaymentInvoice1 CardPaymentInvoiceValue)
-        {
-            writer.WriteStartElement(null, "CardPmtInvc", xmlNamespace );
-            CardPaymentInvoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
-        {
-            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentTransactionDetails12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

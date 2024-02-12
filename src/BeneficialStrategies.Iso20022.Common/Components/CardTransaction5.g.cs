@@ -7,188 +7,374 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card transaction for which the financial authorisation is requested.
 /// </summary>
+[IsoId("_H1_E8YIdEeSvPp7yXrNQIw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardTransaction5
-     : IIsoXmlSerilizable<CardTransaction5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardTransaction5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardTransaction5( CardPaymentServiceType7Code reqTransactionType,System.DateTime reqAcceptorTransactionDateTime,System.String reqAcceptorTransactionIdentification,System.String reqInitiatorTransactionIdentification,CardTransactionDetail3 reqTransactionDetails )
+    {
+        TransactionType = reqTransactionType;
+        AcceptorTransactionDateTime = reqAcceptorTransactionDateTime;
+        AcceptorTransactionIdentification = reqAcceptorTransactionIdentification;
+        InitiatorTransactionIdentification = reqInitiatorTransactionIdentification;
+        TransactionDetails = reqTransactionDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of transaction being undertaken for the main service. 
     /// It correspond partially to the ISO 8583 field number 3.
     /// </summary>
+    [IsoId("_ICgeAYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentServiceType7Code TransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentServiceType7Code TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType7Code TransactionType { get; init; } 
+    #else
+    public CardPaymentServiceType7Code TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Service in addition to the main service. 
     /// It correspond partially to the ISO 8583: 2003 field number 22-3.
     /// </summary>
+    [IsoId("_ICgeA4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType8Code? AdditionalService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType8Code? AdditionalService { get; init; } 
+    #else
+    public CardPaymentServiceType8Code? AdditionalService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional attribute of the service type. 
     /// It correspond partially to the ISO 8583: 2003 field number 22-3.
     /// </summary>
+    [IsoId("_ICgeBYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
+    #else
+    public CardPaymentServiceType3Code? ServiceAttribute { get; set; } 
+    #endif
+    
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction. 
     /// It correspond to the ISO 8583 field number 18 for the version 87, field numbers 18 and 26 for the version 93, and field number 26 for the version 2003.
     /// </summary>
+    [IsoId("_ICgeB4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin3Max4NumericText? MerchantCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MerchantCategoryCode { get; init; } 
+    #else
+    public System.String? MerchantCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
+    [IsoId("_ICgeCYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier2? Reconciliation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier2? Reconciliation { get; init; } 
+    #else
+    public TransactionIdentifier2? Reconciliation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the transaction transported unchanged by the acquirer from the card acceptor to the issuer. Corresponds to the CAPE data element TransactionIdentification/ TransactionDateTime.
     /// It correspond to the ISO 8583 field number 12.
     /// </summary>
+    [IsoId("_ICgeC4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acceptor Transaction Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime AcceptorTransactionDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime AcceptorTransactionDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime AcceptorTransactionDateTime { get; init; } 
+    #else
+    public System.DateTime AcceptorTransactionDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique transaction identification generated by the acceptor or the acquirer transported unchanged by the acquirer from the card acceptor to the issuer. It is used to assist locating the original source information. Eventually it could be included in the cardholder statement. It corresponds to ISO 8583, field 37 and CAPE data element TransactionIdentification/TransactionReference.
     /// </summary>
+    [IsoId("_ICgeDYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acceptor Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AcceptorTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AcceptorTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AcceptorTransactionIdentification { get; init; } 
+    #else
+    public System.String AcceptorTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number generated by the transaction Initiator to assist in identifying a transaction uniquely. This value remains unchanged for all messages within a message pair exchange, for instance an initiation/response. It corresponds to the ISO 8583 field number 11.
     /// </summary>
+    [IsoId("_ICgeD4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiator Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InitiatorTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InitiatorTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InitiatorTransactionIdentification { get; init; } 
+    #else
+    public System.String InitiatorTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification to match transactions throughout their life cycle (for example, authorisation to financial presentment, financial presentment to chargeback). It shall contain the same value in all messages throughout a transaction’s life cycle. It corresponds partially to ISO 8583: 2003 field number 21.
     /// </summary>
+    [IsoId("_ICgeEYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Life Cycle Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionLifeCycleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionLifeCycleIdentification { get; init; } 
+    #else
+    public System.String? TransactionLifeCycleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Life cycle transaction sequence number when multiple authorisations are performed for the same presentment.
     /// It corresponds partially to ISO 8583: 2003 field number 21.
     /// </summary>
+    [IsoId("_ICgeE4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Life Cycle Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TransactionLifeCycleSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TransactionLifeCycleSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? TransactionLifeCycleSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of transactions under the same life cycle transaction sequence number.
     /// </summary>
+    [IsoId("_ICgeFYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Life Cycle Sequence Counter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TransactionLifeCycleSequenceCounter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TransactionLifeCycleSequenceCounter { get; init; } 
+    #else
+    public System.UInt64? TransactionLifeCycleSequenceCounter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data supplied by an acquirer at clearing time to assist in identifying the original transaction in subsequent messages, for example when researching retrievals and chargebacks. It corresponds to ISO 8583: 2003 field number 31, acquirer reference number.
     /// </summary>
+    [IsoId("_aTYsQC7jEeWc7f-D6ByqMg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Transaction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? AcquirerTransactionReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AcquirerTransactionReference { get; init; } 
+    #else
+    public System.String? AcquirerTransactionReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data supplied by a card issuer in response messages or in issuer generated messages, that the acquirer may be required to be provided in subsequent messages. It corresponds to ISO 8583: 93 and 2003 field number 95.
     /// </summary>
+    [IsoId("_6l4QUC7wEeWc7f-D6ByqMg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Issuer Reference Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CardIssuerReferenceData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardIssuerReferenceData { get; init; } 
+    #else
+    public System.String? CardIssuerReferenceData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the original transaction.
     /// It corresponds to ISO 8583, field number 90 for the version 87, and 56 for the other versions.
     /// </summary>
+    [IsoId("_ICgeF4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransaction3? OriginalTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardTransaction3? OriginalTransaction { get; init; } 
+    #else
+    public CardTransaction3? OriginalTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the card transaction.
     /// </summary>
+    [IsoId("_ICgeGYIdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransactionDetail3 TransactionDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardTransactionDetail3 TransactionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardTransactionDetail3 TransactionDetails { get; init; } 
+    #else
+    public CardTransactionDetail3 TransactionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of the authorisation.
     /// </summary>
+    [IsoId("_ICgeG4IdEeSvPp7yXrNQIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthorisationResult7? AuthorisationResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthorisationResult7? AuthorisationResult { get; init; } 
+    #else
+    public AuthorisationResult7? AuthorisationResult { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        writer.WriteValue(TransactionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalService is CardPaymentServiceType8Code AdditionalServiceValue)
-        {
-            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
-            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ServiceAttribute is CardPaymentServiceType3Code ServiceAttributeValue)
-        {
-            writer.WriteStartElement(null, "SvcAttr", xmlNamespace );
-            writer.WriteValue(ServiceAttributeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MerchantCategoryCode is IsoMin3Max4NumericText MerchantCategoryCodeValue)
-        {
-            writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin3Max4NumericText(MerchantCategoryCodeValue)); // data type Min3Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Reconciliation is TransactionIdentifier2 ReconciliationValue)
-        {
-            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
-            ReconciliationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AccptrTxDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(AcceptorTransactionDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AccptrTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AcceptorTransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InitrTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InitiatorTransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (TransactionLifeCycleIdentification is IsoMax35Text TransactionLifeCycleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxLifeCyclId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionLifeCycleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionLifeCycleSequenceNumber is IsoNumber TransactionLifeCycleSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "TxLifeCyclSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TransactionLifeCycleSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TransactionLifeCycleSequenceCounter is IsoNumber TransactionLifeCycleSequenceCounterValue)
-        {
-            writer.WriteStartElement(null, "TxLifeCyclSeqCntr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TransactionLifeCycleSequenceCounterValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AcquirerTransactionReference is IsoMax35NumericText AcquirerTransactionReferenceValue)
-        {
-            writer.WriteStartElement(null, "AcqrrTxRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(AcquirerTransactionReferenceValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CardIssuerReferenceData is IsoMax140Text CardIssuerReferenceDataValue)
-        {
-            writer.WriteStartElement(null, "CardIssrRefData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(CardIssuerReferenceDataValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalTransaction is CardTransaction3 OriginalTransactionValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTx", xmlNamespace );
-            OriginalTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxDtls", xmlNamespace );
-        TransactionDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AuthorisationResult is AuthorisationResult7 AuthorisationResultValue)
-        {
-            writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
-            AuthorisationResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardTransaction5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

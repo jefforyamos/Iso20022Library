@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for the identification of an individual person.
-/// </summary>
-[KnownType(typeof(IndividualPersonIdentification3Choice.IdentificationNumber))]
-[KnownType(typeof(IndividualPersonIdentification3Choice.PersonName))]
-public abstract partial record IndividualPersonIdentification3Choice_ : IIsoXmlSerilizable<IndividualPersonIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for the identification of an individual person.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IndividualPersonIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IndividualPersonIdentification3Choice.IdentificationNumber))]
+    [KnownType(typeof(IndividualPersonIdentification3Choice.PersonName))]
+    [IsoId("_GWjI8YoWEeahcZ3Nzs1Qag")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Person Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IndividualPersonIdentification3Choice_
+    #else
+    public abstract partial class IndividualPersonIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IdNb" => IndividualPersonIdentification3Choice.IdentificationNumber.Deserialize(elementWithPayload),
-             "PrsnNm" => IndividualPersonIdentification3Choice.PersonName.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IndividualPersonIdentification3Choice choice.")
-        };
     }
 }

@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AmountType4Choice;
-
-/// <summary>
-/// Amount of money to be moved between the debtor and creditor, expressed in the currency of the debtor's account, and the currency in which the amount is to be moved.
-/// </summary>
-public partial record EquivalentAmount : AmountType4Choice_
-     , IIsoXmlSerilizable<EquivalentAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AmountType4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Amount of money to be moved between debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be moved in a different currency.|Usage: The first agent will convert the equivalent amount into the amount to be moved.
+    /// Amount of money to be moved between the debtor and creditor, expressed in the currency of the debtor's account, and the currency in which the amount is to be moved.
     /// </summary>
-    public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
-    /// <summary>
-    /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
-    /// </summary>
-    public required ActiveOrHistoricCurrencyCode CurrencyOfTransfer { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("__k-HBVkJEeSeLKjZh_lWZw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equivalent Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record EquivalentAmount : AmountType4Choice_
+    #else
+    public partial class EquivalentAmount : AmountType4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CcyOfTrf", xmlNamespace );
-        writer.WriteValue(CurrencyOfTransfer.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new EquivalentAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a EquivalentAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public EquivalentAmount( System.Decimal reqAmount,string reqCurrencyOfTransfer )
+        {
+            Amount = reqAmount;
+            CurrencyOfTransfer = reqCurrencyOfTransfer;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Amount of money to be moved between debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be moved in a different currency.|Usage: The first agent will convert the equivalent amount into the amount to be moved.
+        /// </summary>
+        [IsoId("_P57LNNp-Ed-ak6NoX_4Aeg_853564730")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Amount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Amount { get; init; } 
+        #else
+        public System.Decimal Amount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
+        /// </summary>
+        [IsoId("_P57LNdp-Ed-ak6NoX_4Aeg_853564760")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Currency Of Transfer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveOrHistoricCurrencyCode CurrencyOfTransfer { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string CurrencyOfTransfer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string CurrencyOfTransfer { get; init; } 
+        #else
+        public string CurrencyOfTransfer { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

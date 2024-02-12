@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the placement agent identification for a hedge fund if the investor was referred by one.
 /// </summary>
+[IsoId("_jiooYSFhEeW9XJWqfgXIIA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Referred Agent")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReferredAgent2
-     : IIsoXmlSerilizable<ReferredAgent2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReferredAgent2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReferredAgent2( Referred1Code reqReferred )
+    {
+        Referred = reqReferred;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates if the investor was referred by a placement agent.
     /// </summary>
+    [IsoId("_j-L78yFhEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Referred1Code Referred { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Referred1Code Referred { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Referred1Code Referred { get; init; } 
+    #else
+    public Referred1Code Referred { get; set; } 
+    #endif
+    
     /// <summary>
     /// Placement agent that referred the investor.
     /// </summary>
+    [IsoId("_j-L79SFhEeW9XJWqfgXIIA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Placement Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification70Choice_? ReferredPlacementAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification70Choice_? ReferredPlacementAgent { get; init; } 
+    #else
+    public PartyIdentification70Choice_? ReferredPlacementAgent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rfrd", xmlNamespace );
-        writer.WriteValue(Referred.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ReferredPlacementAgent is PartyIdentification70Choice_ ReferredPlacementAgentValue)
-        {
-            writer.WriteStartElement(null, "RfrdPlcmntAgt", xmlNamespace );
-            ReferredPlacementAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReferredAgent2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

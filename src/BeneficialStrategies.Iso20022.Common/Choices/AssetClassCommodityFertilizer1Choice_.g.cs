@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines commodity attributes of a derivative where the type is fertilizer.
-/// </summary>
-[KnownType(typeof(AssetClassCommodityFertilizer1Choice.Ammonia))]
-[KnownType(typeof(AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate))]
-[KnownType(typeof(AssetClassCommodityFertilizer1Choice.Potash))]
-[KnownType(typeof(AssetClassCommodityFertilizer1Choice.Sulphur))]
-[KnownType(typeof(AssetClassCommodityFertilizer1Choice.Urea))]
-[KnownType(typeof(AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate))]
-public abstract partial record AssetClassCommodityFertilizer1Choice_ : IIsoXmlSerilizable<AssetClassCommodityFertilizer1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines commodity attributes of a derivative where the type is fertilizer.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassCommodityFertilizer1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassCommodityFertilizer1Choice.Ammonia))]
+    [KnownType(typeof(AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate))]
+    [KnownType(typeof(AssetClassCommodityFertilizer1Choice.Potash))]
+    [KnownType(typeof(AssetClassCommodityFertilizer1Choice.Sulphur))]
+    [KnownType(typeof(AssetClassCommodityFertilizer1Choice.Urea))]
+    [KnownType(typeof(AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate))]
+    [IsoId("_J_XoMFr2EeWN79Bl6BUd3g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Commodity Fertilizer 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassCommodityFertilizer1Choice_
+    #else
+    public abstract partial class AssetClassCommodityFertilizer1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ammn" => AssetClassCommodityFertilizer1Choice.Ammonia.Deserialize(elementWithPayload),
-             "DmmnmPhspht" => AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate.Deserialize(elementWithPayload),
-             "Ptsh" => AssetClassCommodityFertilizer1Choice.Potash.Deserialize(elementWithPayload),
-             "Slphr" => AssetClassCommodityFertilizer1Choice.Sulphur.Deserialize(elementWithPayload),
-             "Urea" => AssetClassCommodityFertilizer1Choice.Urea.Deserialize(elementWithPayload),
-             "UreaAndAmmnmNtrt" => AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassCommodityFertilizer1Choice choice.")
-        };
     }
 }

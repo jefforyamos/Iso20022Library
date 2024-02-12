@@ -7,78 +7,114 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional characteristics of addendum data.
 /// </summary>
+[IsoId("_IocXk_JZEeiJn9rM2Znz2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalCharacteristics1
-     : IIsoXmlSerilizable<AdditionalCharacteristics1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the specific classification or type of business.
     /// </summary>
+    [IsoId("_IocXlPJZEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? BusinessType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalCharacteristicDetails1? BusinessType { get; init; } 
+    #else
+    public AdditionalCharacteristicDetails1? BusinessType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies specific characteristics about the
     /// business owner.
     /// </summary>
+    [IsoId("_IocXlfJZEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? Owner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalCharacteristicDetails1? Owner { get; init; } 
+    #else
+    public AdditionalCharacteristicDetails1? Owner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies specific characteristics about the business certification type, such as small business, disadvantaged, or other certification type.
     /// </summary>
+    [IsoId("_fs81AfJZEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? Certification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalCharacteristicDetails1? Certification { get; init; } 
+    #else
+    public AdditionalCharacteristicDetails1? Certification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the racial or ethnic type of
     /// the majority owner of the business.
     /// </summary>
+    [IsoId("_gHCI8fJZEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Owner Ethnicity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? OwnerEthnicity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalCharacteristicDetails1? OwnerEthnicity { get; init; } 
+    #else
+    public AdditionalCharacteristicDetails1? OwnerEthnicity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BusinessType is AdditionalCharacteristicDetails1 BusinessTypeValue)
-        {
-            writer.WriteStartElement(null, "BizTp", xmlNamespace );
-            BusinessTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Owner is AdditionalCharacteristicDetails1 OwnerValue)
-        {
-            writer.WriteStartElement(null, "Ownr", xmlNamespace );
-            OwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Certification is AdditionalCharacteristicDetails1 CertificationValue)
-        {
-            writer.WriteStartElement(null, "Certfctn", xmlNamespace );
-            CertificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OwnerEthnicity is AdditionalCharacteristicDetails1 OwnerEthnicityValue)
-        {
-            writer.WriteStartElement(null, "OwnrEthncty", xmlNamespace );
-            OwnerEthnicityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalCharacteristics1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

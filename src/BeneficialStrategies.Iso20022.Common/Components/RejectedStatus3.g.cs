@@ -7,50 +7,72 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status is rejected.
 /// </summary>
+[IsoId("_U23mVNp-Ed-ak6NoX_4Aeg_-2053158623")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rejected Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RejectedStatus3
-     : IIsoXmlSerilizable<RejectedStatus3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason for a rejected status in the report.
     /// </summary>
-    public ValueList<RejectedStatusReason6> Reason { get; init; } = [];
+    [IsoId("_U23mVdp-Ed-ak6NoX_4Aeg_96799303")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<RejectedStatusReason6> Reason { get; init; } = new ValueList<RejectedStatusReason6>(){};
+    
     /// <summary>
     /// Proprietary identification of a reason for a rejected status in the report.
     /// </summary>
-    public ValueList<GenericIdentification1> DataSourceScheme { get; init; } = [];
+    [IsoId("_U23mVtp-Ed-ak6NoX_4Aeg_-2053158562")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Source Scheme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<GenericIdentification1> DataSourceScheme { get; init; } = new ValueList<GenericIdentification1>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
-        DataSourceScheme.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static RejectedStatus3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

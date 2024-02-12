@@ -7,107 +7,199 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular triparty collateral instruction/transaction  can be confirmed. These parameters are defined by the instructing party in compliance with triparty collateral rules in the market the instruction/transaction will take place.
 /// </summary>
+[IsoId("_MOvFUSs9EeySlt9bF77XfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralParameters13
-     : IIsoXmlSerilizable<CollateralParameters13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralParameters13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralParameters13( CollateralTransactionType1Choice_ reqCollateralInstructionType,ExposureType23Choice_ reqExposureType,CollateralRole1Code reqCollateralSide )
+    {
+        CollateralInstructionType = reqCollateralInstructionType;
+        ExposureType = reqExposureType;
+        CollateralSide = reqCollateralSide;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
+    [IsoId("_Ml-gkSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Instruction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    #else
+    public CollateralTransactionType1Choice_ CollateralInstructionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
+    [IsoId("_Ml-gkys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType23Choice_ ExposureType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExposureType23Choice_ ExposureType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExposureType23Choice_ ExposureType { get; init; } 
+    #else
+    public ExposureType23Choice_ ExposureType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
+    [IsoId("_Ml-glSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralRole1Code CollateralSide { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralRole1Code CollateralSide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralRole1Code CollateralSide { get; init; } 
+    #else
+    public CollateralRole1Code CollateralSide { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the priority with which the instruction needs to be executed.
     /// </summary>
+    [IsoId("_Ml-glys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? Priority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification30? Priority { get; init; } 
+    #else
+    public GenericIdentification30? Priority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
+    [IsoId("_Ml-gmSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Automatic Allocation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AutomaticAllocation { get; init; } 
+    #else
+    public System.String? AutomaticAllocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the proposed collateral movements can be accepted.
     /// </summary>
+    [IsoId("_Ml-gmys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Approved")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CollateralApproved { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralApproved { get; init; } 
+    #else
+    public System.String? CollateralApproved { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the proposed collateral movements have settled or not.
     /// </summary>
+    [IsoId("_Ml-gnSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Approved")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SettlementApproved { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementApproved { get; init; } 
+    #else
+    public System.String? SettlementApproved { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amount of the collateral.
     /// </summary>
+    [IsoId("_Ml-gnys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAmount5? CollateralAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAmount5? CollateralAmount { get; init; } 
+    #else
+    public CollateralAmount5? CollateralAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CollInstrTp", xmlNamespace );
-        CollateralInstructionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
-        ExposureType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollSd", xmlNamespace );
-        writer.WriteValue(CollateralSide.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Priority is GenericIdentification30 PriorityValue)
-        {
-            writer.WriteStartElement(null, "Prty", xmlNamespace );
-            PriorityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AutomaticAllocation is IsoYesNoIndicator AutomaticAllocationValue)
-        {
-            writer.WriteStartElement(null, "AutomtcAllcn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AutomaticAllocationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralApproved is IsoYesNoIndicator CollateralApprovedValue)
-        {
-            writer.WriteStartElement(null, "CollApprvd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralApprovedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementApproved is IsoYesNoIndicator SettlementApprovedValue)
-        {
-            writer.WriteStartElement(null, "SttlmApprvd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SettlementApprovedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralAmount is CollateralAmount5 CollateralAmountValue)
-        {
-            writer.WriteStartElement(null, "CollAmt", xmlNamespace );
-            CollateralAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralParameters13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

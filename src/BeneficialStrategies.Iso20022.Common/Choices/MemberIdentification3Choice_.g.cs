@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Set of elements used to identify a financial institution.
-/// </summary>
-[KnownType(typeof(MemberIdentification3Choice.BICFI))]
-[KnownType(typeof(MemberIdentification3Choice.ClearingSystemMemberIdentification))]
-[KnownType(typeof(MemberIdentification3Choice.Other))]
-public abstract partial record MemberIdentification3Choice_ : IIsoXmlSerilizable<MemberIdentification3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Set of elements used to identify a financial institution.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MemberIdentification3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MemberIdentification3Choice.BICFI))]
+    [KnownType(typeof(MemberIdentification3Choice.ClearingSystemMemberIdentification))]
+    [KnownType(typeof(MemberIdentification3Choice.Other))]
+    [IsoId("_h_8rhXSbEeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Member Identification 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MemberIdentification3Choice_
+    #else
+    public abstract partial class MemberIdentification3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BICFI" => MemberIdentification3Choice.BICFI.Deserialize(elementWithPayload),
-             "ClrSysMmbId" => MemberIdentification3Choice.ClearingSystemMemberIdentification.Deserialize(elementWithPayload),
-             "Othr" => MemberIdentification3Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MemberIdentification3Choice choice.")
-        };
     }
 }

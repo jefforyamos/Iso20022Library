@@ -7,130 +7,221 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment terminal or ATM performing the transaction
 /// </summary>
+[IsoId("_O6I3sECOEeeXpbqDpLawug")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Terminal")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Terminal1
-     : IIsoXmlSerilizable<Terminal1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Terminal1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Terminal1( TerminalIdentification1 reqTerminalIdentification )
+    {
+        TerminalIdentification = reqTerminalIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the terminal performing the transaction.
     /// </summary>
+    [IsoId("_nLdGgECOEeeXpbqDpLawug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalIdentification1 TerminalIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalIdentification1 TerminalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalIdentification1 TerminalIdentification { get; init; } 
+    #else
+    public TerminalIdentification1 TerminalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of terminal.
     /// </summary>
+    [IsoId("_6H0FARqYEeqH1IQNpbVpEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalType1Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalType1Code? Type { get; init; } 
+    #else
+    public TerminalType1Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of terminal.
     /// </summary>
+    [IsoId("_7oE94RqYEeqH1IQNpbVpEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherType { get; init; } 
+    #else
+    public System.String? OtherType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Capabilities of the terminal
     /// </summary>
+    [IsoId("_CCx9YEqXEeenp6hmNprBHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Capabilities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Capabilities1? Capabilities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Capabilities1? Capabilities { get; init; } 
+    #else
+    public Capabilities1? Capabilities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of terminal integration at a point of service location.
     /// </summary>
+    [IsoId("_Ugjk0RV9EeiTbY4xN42WAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Integration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalIntegrationCategory1Code? TerminalIntegration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalIntegrationCategory1Code? TerminalIntegration { get; init; } 
+    #else
+    public TerminalIntegrationCategory1Code? TerminalIntegration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the terminal is operated outdoor or indoor at the point of service.
     /// True: The terminal is operated outdoor
     /// False: The terminal is operated indoor
     /// </summary>
+    [IsoId("_WkEUsRV9EeiTbY4xN42WAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outdoor Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OutdoorIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OutdoorIndicator { get; init; } 
+    #else
+    public System.String? OutdoorIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the terminal is operated on- or off-premises at the point of service.
     /// True: The terminal is operated off premises.
     /// False: The terminal is operated on premises.
     /// ISO 8583:93 bit 22-4, ISO 8583:2003 bit 22-3.
     /// </summary>
+    [IsoId("_YegoIRV9EeiTbY4xN42WAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Off Premises Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OffPremisesIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OffPremisesIndicator { get; init; } 
+    #else
+    public System.String? OffPremisesIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transaction was performed on board.
     /// True: The terminal is located on board.
     /// False: The terminal is not located on board.
     /// </summary>
+    [IsoId("_qGJ6YdIhEeirx-13kKhDlQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Board Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OnBoardIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OnBoardIndicator { get; init; } 
+    #else
+    public System.String? OnBoardIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the transactions.
     /// </summary>
+    [IsoId("_LXOZ0NIfEeirx-13kKhDlQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Component")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponent8? POIComponent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponent8? POIComponent { get; init; } 
+    #else
+    public PointOfInteractionComponent8? POIComponent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TermnlId", xmlNamespace );
-        TerminalIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Type is TerminalType1Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherType is IsoMax35Text OtherTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Capabilities is Capabilities1 CapabilitiesValue)
-        {
-            writer.WriteStartElement(null, "Cpblties", xmlNamespace );
-            CapabilitiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TerminalIntegration is TerminalIntegrationCategory1Code TerminalIntegrationValue)
-        {
-            writer.WriteStartElement(null, "TermnlIntgtn", xmlNamespace );
-            writer.WriteValue(TerminalIntegrationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OutdoorIndicator is IsoTrueFalseIndicator OutdoorIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OutdrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutdoorIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (OffPremisesIndicator is IsoTrueFalseIndicator OffPremisesIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OffPrmissInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OffPremisesIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (OnBoardIndicator is IsoTrueFalseIndicator OnBoardIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OnBrdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OnBoardIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (POIComponent is PointOfInteractionComponent8 POIComponentValue)
-        {
-            writer.WriteStartElement(null, "POICmpnt", xmlNamespace );
-            POIComponentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Terminal1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

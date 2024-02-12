@@ -7,146 +7,247 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the first leg in a two leg transaction process.
 /// </summary>
+[IsoId("_x7vQEQhKEe2fOITqoTnSLQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Two Leg Transaction Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TwoLegTransactionDetails5
-     : IIsoXmlSerilizable<TwoLegTransactionDetails5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [IsoId("_yM4DYQhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeDate8Choice_? TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeDate8Choice_? TradeDate { get; init; } 
+    #else
+    public TradeDate8Choice_? TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the reference assigned in the first leg of the transaction.
     /// </summary>
+    [IsoId("_yM4DYwhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Leg Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OpeningLegIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OpeningLegIdentification { get; init; } 
+    #else
+    public System.String? OpeningLegIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the second leg of the transaction as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
+    [IsoId("_yM4DZQhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Leg Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClosingLegIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClosingLegIdentification { get; init; } 
+    #else
+    public System.String? ClosingLegIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
+    [IsoId("_yM4DZwhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Trade Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection29? GrossTradeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection29? GrossTradeAmount { get; init; } 
+    #else
+    public AmountAndDirection29? GrossTradeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies other amounts pertaining to the transaction.
     /// </summary>
+    [IsoId("_yM4DaQhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherAmounts16? OtherAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherAmounts16? OtherAmounts { get; init; } 
+    #else
+    public OtherAmounts16? OtherAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
+    [IsoId("_yM4DawhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Second Leg Narrative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SecondLegNarrative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecondLegNarrative { get; init; } 
+    #else
+    public System.String? SecondLegNarrative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Negotiated fixed price of the security to buy it back.
     /// </summary>
+    [IsoId("_yM4DbQhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price14? EndPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price14? EndPrice { get; init; } 
+    #else
+    public Price14? EndPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [IsoId("_yM4DbwhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClosingDate4Choice_? ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClosingDate4Choice_? ClosingDate { get; init; } 
+    #else
+    public ClosingDate4Choice_? ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities. The amount includes the principal with any commissions and fees or accrued interest.
     /// </summary>
+    [IsoId("_yM4DdwhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection5? ClosingSettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection5? ClosingSettlementAmount { get; init; } 
+    #else
+    public AmountAndDirection5? ClosingSettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing date of the trading session.
     /// </summary>
+    [IsoId("_yM4DeQhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeDate7Choice_? ProcessingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeDate7Choice_? ProcessingDate { get; init; } 
+    #else
+    public TradeDate7Choice_? ProcessingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of the second leg transaction.
     /// </summary>
+    [IsoId("_yM4DewhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Two Leg Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TwoLegTransactionType4Choice_? TwoLegTransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TwoLegTransactionType4Choice_? TwoLegTransactionType { get; init; } 
+    #else
+    public TwoLegTransactionType4Choice_? TwoLegTransactionType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TradeDate is TradeDate8Choice_ TradeDateValue)
-        {
-            writer.WriteStartElement(null, "TradDt", xmlNamespace );
-            TradeDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OpeningLegIdentification is IsoMax35Text OpeningLegIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OpngLegId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OpeningLegIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClosingLegIdentification is IsoMax35Text ClosingLegIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClsgLegId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClosingLegIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (GrossTradeAmount is AmountAndDirection29 GrossTradeAmountValue)
-        {
-            writer.WriteStartElement(null, "GrssTradAmt", xmlNamespace );
-            GrossTradeAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherAmounts is OtherAmounts16 OtherAmountsValue)
-        {
-            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
-            OtherAmountsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondLegNarrative is IsoMax140Text SecondLegNarrativeValue)
-        {
-            writer.WriteStartElement(null, "ScndLegNrrtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(SecondLegNarrativeValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (EndPrice is Price14 EndPriceValue)
-        {
-            writer.WriteStartElement(null, "EndPric", xmlNamespace );
-            EndPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosingDate is ClosingDate4Choice_ ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            ClosingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosingSettlementAmount is AmountAndDirection5 ClosingSettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "ClsgSttlmAmt", xmlNamespace );
-            ClosingSettlementAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingDate is TradeDate7Choice_ ProcessingDateValue)
-        {
-            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
-            ProcessingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TwoLegTransactionType is TwoLegTransactionType4Choice_ TwoLegTransactionTypeValue)
-        {
-            writer.WriteStartElement(null, "TwoLegTxTp", xmlNamespace );
-            TwoLegTransactionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TwoLegTransactionDetails5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

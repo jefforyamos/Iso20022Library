@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Alternate identification of a security.
 /// </summary>
+[IsoId("_W9bqO9p-Ed-ak6NoX_4Aeg_419486529")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Alternate Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AlternateIdentification2
-     : IIsoXmlSerilizable<AlternateIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AlternateIdentification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AlternateIdentification2( System.String reqIdentification,IdentificationSource2Choice_ reqIdentificationSource )
+    {
+        Identification = reqIdentification;
+        IdentificationSource = reqIdentificationSource;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
+    [IsoId("_W9bqPNp-Ed-ak6NoX_4Aeg_-1574658177")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 31 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax31Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Source of the security identification.
     /// </summary>
+    [IsoId("_W9k0INp-Ed-ak6NoX_4Aeg_-1624701768")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationSource2Choice_ IdentificationSource { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public IdentificationSource2Choice_ IdentificationSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IdentificationSource2Choice_ IdentificationSource { get; init; } 
+    #else
+    public IdentificationSource2Choice_ IdentificationSource { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax31Text(Identification)); // data type RestrictedFINXMax31Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IdSrc", xmlNamespace );
-        IdentificationSource.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static AlternateIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

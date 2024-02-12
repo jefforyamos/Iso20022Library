@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Current or default reservation set by the member and managed by the transaction administrator.
-/// </summary>
-[KnownType(typeof(CurrentOrDefaultReservation2Choice.Current))]
-[KnownType(typeof(CurrentOrDefaultReservation2Choice.Default))]
-public abstract partial record CurrentOrDefaultReservation2Choice_ : IIsoXmlSerilizable<CurrentOrDefaultReservation2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Current or default reservation set by the member and managed by the transaction administrator.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CurrentOrDefaultReservation2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CurrentOrDefaultReservation2Choice.Current))]
+    [KnownType(typeof(CurrentOrDefaultReservation2Choice.Default))]
+    [IsoId("_BndOfW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Or Default Reservation 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CurrentOrDefaultReservation2Choice_
+    #else
+    public abstract partial class CurrentOrDefaultReservation2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cur" => CurrentOrDefaultReservation2Choice.Current.Deserialize(elementWithPayload),
-             "Dflt" => CurrentOrDefaultReservation2Choice.Default.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CurrentOrDefaultReservation2Choice choice.")
-        };
     }
 }

@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[IsoId("_dsRUYb-CEeW_u_CSZtGM1g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Linkages")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Linkages50
-     : IIsoXmlSerilizable<Linkages50>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Linkages50 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Linkages50( System.String reqSecuritiesSettlementTransactionIdentification )
+    {
+        SecuritiesSettlementTransactionIdentification = reqSecuritiesSettlementTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction - for information only.
     /// </summary>
+    [IsoId("_eEEwYb-CEeW_u_CSZtGM1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Position")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition23Choice_? ProcessingPosition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingPosition23Choice_? ProcessingPosition { get; init; } 
+    #else
+    public ProcessingPosition23Choice_? ProcessingPosition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of a securities settlement transaction as known by the account owner (or instructing party acting on its behalf).
     /// </summary>
+    [IsoId("_eEEwY7-CEeW_u_CSZtGM1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Settlement Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text SecuritiesSettlementTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SecuritiesSettlementTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SecuritiesSettlementTransactionIdentification { get; init; } 
+    #else
+    public System.String SecuritiesSettlementTransactionIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProcessingPosition is ProcessingPosition23Choice_ ProcessingPositionValue)
-        {
-            writer.WriteStartElement(null, "PrcgPos", xmlNamespace );
-            ProcessingPositionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SctiesSttlmTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(SecuritiesSettlementTransactionIdentification)); // data type RestrictedFINXMax16Text System.String
-        writer.WriteEndElement();
-    }
-    public static Linkages50 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

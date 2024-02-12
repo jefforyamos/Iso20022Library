@@ -9,130 +9,231 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Party47Choice;
-
-/// <summary>
-/// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
-/// </summary>
-public partial record Organisation : Party47Choice_
-     , IIsoXmlSerilizable<Organisation>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Party47Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name by which the organisation is known and which is usually used to identify that organisation.
+    /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>
-    public IsoMax350Text? Name { get; init; } 
-    /// <summary>
-    /// Name of the organisation in short form.
-    /// </summary>
-    public IsoMax35Text? ShortName { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identifier for the organisation.
-    /// </summary>
-    public PartyIdentification177Choice_? Identification { get; init; } 
-    /// <summary>
-    /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
-    /// </summary>
-    public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
-    /// <summary>
-    /// Purpose of the organisation, for example, charity.
-    /// </summary>
-    public IsoMax35Text? Purpose { get; init; } 
-    /// <summary>
-    /// Country in which the organisation is registered.
-    /// </summary>
-    public CountryCode? RegistrationCountry { get; init; } 
-    /// <summary>
-    /// Date and time at which a given organisation was officially registered.
-    /// </summary>
-    public IsoISODate? RegistrationDate { get; init; } 
-    /// <summary>
-    /// Information that locates and identifies a specific address, as defined by postal services.
-    /// </summary>
-    public ValueList<PostalAddress21> PostalAddress { get; init; } = [];
-    /// <summary>
-    /// Type of organisation.
-    /// </summary>
-    public OrganisationType1Choice_? TypeOfOrganisation { get; init; } 
-    /// <summary>
-    /// Place of listing for shares in the organisation.
-    /// </summary>
-    public IsoMICIdentifier? PlaceOfListing { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_mDHs0ZQ_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Organisation : Party47Choice_
+    #else
+    public partial class Organisation : Party47Choice_
+    #endif
     {
-        if (Name is IsoMax350Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (ShortName is IsoMax35Text ShortNameValue)
-        {
-            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Identification is PartyIdentification177Choice_ IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
-        {
-            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Purpose is IsoMax35Text PurposeValue)
-        {
-            writer.WriteStartElement(null, "Purp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PurposeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RegistrationCountry is CountryCode RegistrationCountryValue)
-        {
-            writer.WriteStartElement(null, "RegnCtry", xmlNamespace );
-            writer.WriteValue(RegistrationCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RegistrationDate is IsoISODate RegistrationDateValue)
-        {
-            writer.WriteStartElement(null, "RegnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-        PostalAddress.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TypeOfOrganisation is OrganisationType1Choice_ TypeOfOrganisationValue)
-        {
-            writer.WriteStartElement(null, "TpOfOrg", xmlNamespace );
-            TypeOfOrganisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlaceOfListing is IsoMICIdentifier PlaceOfListingValue)
-        {
-            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlaceOfListingValue)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Organisation Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name by which the organisation is known and which is usually used to identify that organisation.
+        /// </summary>
+        [IsoId("_mWdfk5Q_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Name { get; init; } 
+        #else
+        public System.String? Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the organisation in short form.
+        /// </summary>
+        [IsoId("_mWdflZQ_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Short Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? ShortName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ShortName { get; init; } 
+        #else
+        public System.String? ShortName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identifier for the organisation.
+        /// </summary>
+        [IsoId("_mWdfl5Q_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification177Choice_? Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification177Choice_? Identification { get; init; } 
+        #else
+        public PartyIdentification177Choice_? Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
+        /// </summary>
+        [IsoId("_mWdfmZQ_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Legal Entity Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LegalEntityIdentifier { get; init; } 
+        #else
+        public System.String? LegalEntityIdentifier { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Purpose of the organisation, for example, charity.
+        /// </summary>
+        [IsoId("_mWdfm5Q_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Purpose")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Purpose { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Purpose { get; init; } 
+        #else
+        public System.String? Purpose { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Country in which the organisation is registered.
+        /// </summary>
+        [IsoId("_mWdfnZQ_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Registration Country")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CountryCode? RegistrationCountry { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? RegistrationCountry { get; init; } 
+        #else
+        public string? RegistrationCountry { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time at which a given organisation was officially registered.
+        /// </summary>
+        [IsoId("_mWdfn5Q_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Registration Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? RegistrationDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? RegistrationDate { get; init; } 
+        #else
+        public System.DateOnly? RegistrationDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information that locates and identifies a specific address, as defined by postal services.
+        /// </summary>
+        [IsoId("_mWdfoZQ_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Postal Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(10)]
+        #endif
+        public ValueList<PostalAddress21> PostalAddress { get; init; } = new ValueList<PostalAddress21>(){};
+        
+        /// <summary>
+        /// Type of organisation.
+        /// </summary>
+        [IsoId("_mWdfo5Q_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type Of Organisation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public OrganisationType1Choice_? TypeOfOrganisation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OrganisationType1Choice_? TypeOfOrganisation { get; init; } 
+        #else
+        public OrganisationType1Choice_? TypeOfOrganisation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Place of listing for shares in the organisation.
+        /// </summary>
+        [IsoId("_mWdfpZQ_EemqYPWMBuVawg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Place Of Listing")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMICIdentifier? PlaceOfListing { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PlaceOfListing { get; init; } 
+        #else
+        public System.String? PlaceOfListing { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

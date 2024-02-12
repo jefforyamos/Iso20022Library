@@ -7,100 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[IsoId("_K86DOH1DEeCF8NjrBemJWQ_-1777383124")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Network Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NetworkParameters1
-     : IIsoXmlSerilizable<NetworkParameters1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NetworkParameters1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NetworkParameters1( System.String reqPrimaryAddress,System.UInt64 reqPrimaryPortNumber )
+    {
+        PrimaryAddress = reqPrimaryAddress;
+        PrimaryPortNumber = reqPrimaryPortNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// IP address or host name of the primary host.
     /// </summary>
+    [IsoId("_K9D0MH1DEeCF8NjrBemJWQ_1112033591")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PrimaryAddress { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PrimaryAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PrimaryAddress { get; init; } 
+    #else
+    public System.String PrimaryAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Port number of the primary host.
     /// </summary>
+    [IsoId("_K9D0MX1DEeCF8NjrBemJWQ_1665134773")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Port Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber PrimaryPortNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 PrimaryPortNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 PrimaryPortNumber { get; init; } 
+    #else
+    public System.UInt64 PrimaryPortNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// IP address or host name of the secondary host.
     /// </summary>
+    [IsoId("_K9D0Mn1DEeCF8NjrBemJWQ_386383236")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecondaryAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecondaryAddress { get; init; } 
+    #else
+    public System.String? SecondaryAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Port number of the secondary host.
     /// </summary>
+    [IsoId("_K9D0M31DEeCF8NjrBemJWQ_-776733232")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Port Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SecondaryPortNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? SecondaryPortNumber { get; init; } 
+    #else
+    public System.UInt64? SecondaryPortNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// User name identifying the client.
     /// </summary>
+    [IsoId("_K9D0NH1DEeCF8NjrBemJWQ_434071500")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("User Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? UserName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UserName { get; init; } 
+    #else
+    public System.String? UserName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Password authenticating the client.
     /// </summary>
+    [IsoId("_K9D0NX1DEeCF8NjrBemJWQ_73749005")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Access Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccessCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccessCode { get; init; } 
+    #else
+    public System.String? AccessCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Client certificate chain.
     /// </summary>
+    [IsoId("_K9D0Nn1DEeCF8NjrBemJWQ_69300385")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? ClientCertificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ClientCertificate { get; init; } 
+    #else
+    public System.Byte[]? ClientCertificate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PmryAdr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PrimaryAddress)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmryPortNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(PrimaryPortNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (SecondaryAddress is IsoMax35Text SecondaryAddressValue)
-        {
-            writer.WriteStartElement(null, "ScndryAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondaryAddressValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecondaryPortNumber is IsoNumber SecondaryPortNumberValue)
-        {
-            writer.WriteStartElement(null, "ScndryPortNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SecondaryPortNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (UserName is IsoMax35Text UserNameValue)
-        {
-            writer.WriteStartElement(null, "UsrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(UserNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccessCode is IsoMax35Text AccessCodeValue)
-        {
-            writer.WriteStartElement(null, "AccsCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccessCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClientCertificate is IsoMax3000Binary ClientCertificateValue)
-        {
-            writer.WriteStartElement(null, "ClntCert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(ClientCertificateValue)); // data type Max3000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static NetworkParameters1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

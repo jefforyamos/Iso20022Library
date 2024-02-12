@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the response status.
-/// </summary>
-[KnownType(typeof(ResponseStatus7Choice.Code))]
-[KnownType(typeof(ResponseStatus7Choice.Proprietary))]
-public abstract partial record ResponseStatus7Choice_ : IIsoXmlSerilizable<ResponseStatus7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the response status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ResponseStatus7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ResponseStatus7Choice.Code))]
+    [KnownType(typeof(ResponseStatus7Choice.Proprietary))]
+    [IsoId("_8QcPRZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Status 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ResponseStatus7Choice_
+    #else
+    public abstract partial class ResponseStatus7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ResponseStatus7Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ResponseStatus7Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ResponseStatus7Choice choice.")
-        };
     }
 }

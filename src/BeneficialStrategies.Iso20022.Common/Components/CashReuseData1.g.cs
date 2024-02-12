@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the type and amount of the cash reinvestment in a given currency and on the cash reinvestment rate.
 /// </summary>
+[IsoId("_ANAEgI67EeaxxtxaoOwzAg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Reuse Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashReuseData1
-     : IIsoXmlSerilizable<CashReuseData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashReuseData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashReuseData1( System.Decimal reqCashReinvestmentRate )
+    {
+        CashReinvestmentRate = reqCashReinvestmentRate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
+    [IsoId("_P73YgJLiEeelrYORFsXWZg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvested Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public ReinvestedCashTypeAndAmount1? ReinvestedCash { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _P73YgJLiEeelrYORFsXWZg
+    
     /// <summary>
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
+    [IsoId("_AgOw8JLiEeelrYORFsXWZg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Reinvestment Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate CashReinvestmentRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CashReinvestmentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CashReinvestmentRate { get; init; } 
+    #else
+    public System.Decimal CashReinvestmentRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize ReinvestedCash, multiplicity Unknown
-        writer.WriteStartElement(null, "CshRinvstmtRate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(CashReinvestmentRate)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-    }
-    public static CashReuseData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

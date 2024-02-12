@@ -7,83 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Disposition of previously submitted fraud report message.
 /// </summary>
+[IsoId("_zIOnkHdiEeeKH6vrEwvLHA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fraud Disposition Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FraudDispositionStatus1
-     : IIsoXmlSerilizable<FraudDispositionStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FraudDispositionStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FraudDispositionStatus1( ActionTaken1Code reqActionTaken )
+    {
+        ActionTaken = reqActionTaken;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the action taken as a disposition of the previously fraud report message.
     /// </summary>
+    [IsoId("_KfaJYHdjEeeKH6vrEwvLHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Taken")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionTaken1Code ActionTaken { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ActionTaken1Code ActionTaken { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionTaken1Code ActionTaken { get; init; } 
+    #else
+    public ActionTaken1Code ActionTaken { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other action taken as defined at national or private level.
     /// </summary>
+    [IsoId("_RBJ_IHdjEeeKH6vrEwvLHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Action Taken")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherActionTaken { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherActionTaken { get; init; } 
+    #else
+    public System.String? OtherActionTaken { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains errors found in the submitted fraud report message.
     /// </summary>
+    [IsoId("_bl7lcHdjEeeKH6vrEwvLHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Error Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? ErrorData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ErrorData { get; init; } 
+    #else
+    public System.String? ErrorData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains warnings found in the submitted fraud report message.
     /// </summary>
+    [IsoId("_iUehEHdjEeeKH6vrEwvLHA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Warning Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? WarningData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? WarningData { get; init; } 
+    #else
+    public System.String? WarningData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information
     /// </summary>
+    [IsoId("_fDSBsJjDEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation22? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation22? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation22? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTaken", xmlNamespace );
-        writer.WriteValue(ActionTaken.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherActionTaken is IsoMax35Text OtherActionTakenValue)
-        {
-            writer.WriteStartElement(null, "OthrActnTaken", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherActionTakenValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ErrorData is IsoMax256Text ErrorDataValue)
-        {
-            writer.WriteStartElement(null, "ErrData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(ErrorDataValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (WarningData is IsoMax256Text WarningDataValue)
-        {
-            writer.WriteStartElement(null, "WrngData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(WarningDataValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation22 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FraudDispositionStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

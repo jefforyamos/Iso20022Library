@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of energy related derivatives.
 /// </summary>
+[IsoId("_FH-ooYeJEei3PYANOK_QWA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Energy Specific Attribute")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EnergySpecificAttribute5
-     : IIsoXmlSerilizable<EnergySpecificAttribute5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the delivery point(s) of market area(s) for energy derivative contracts.
     /// </summary>
+    [IsoId("_FU8GkYeJEei3PYANOK_QWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Point Or Zone")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryInterconnectionPoint1Choice_? DeliveryPointOrZone { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryInterconnectionPoint1Choice_? DeliveryPointOrZone { get; init; } 
+    #else
+    public DeliveryInterconnectionPoint1Choice_? DeliveryPointOrZone { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the border(s) or border point(s) of a transportation contract.
     /// </summary>
+    [IsoId("_FU8Gk4eJEei3PYANOK_QWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Inter Connection Point")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; init; } 
+    #else
+    public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the delivery profile.
     /// </summary>
+    [IsoId("_FU8GlYeJEei3PYANOK_QWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Load Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnergyLoadType1Code? LoadType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EnergyLoadType1Code? LoadType { get; init; } 
+    #else
+    public EnergyLoadType1Code? LoadType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
+    [IsoId("_FU8Gl4eJEei3PYANOK_QWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnergyDeliveryAttribute4? DeliveryAttribute { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EnergyDeliveryAttribute4? DeliveryAttribute { get; init; } 
+    #else
+    public EnergyDeliveryAttribute4? DeliveryAttribute { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DeliveryPointOrZone is DeliveryInterconnectionPoint1Choice_ DeliveryPointOrZoneValue)
-        {
-            writer.WriteStartElement(null, "DlvryPtOrZone", xmlNamespace );
-            DeliveryPointOrZoneValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterConnectionPoint is DeliveryInterconnectionPoint1Choice_ InterConnectionPointValue)
-        {
-            writer.WriteStartElement(null, "IntrCnnctnPt", xmlNamespace );
-            InterConnectionPointValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LoadType is EnergyLoadType1Code LoadTypeValue)
-        {
-            writer.WriteStartElement(null, "LdTp", xmlNamespace );
-            writer.WriteValue(LoadTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DeliveryAttribute is EnergyDeliveryAttribute4 DeliveryAttributeValue)
-        {
-            writer.WriteStartElement(null, "DlvryAttr", xmlNamespace );
-            DeliveryAttributeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static EnergySpecificAttribute5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

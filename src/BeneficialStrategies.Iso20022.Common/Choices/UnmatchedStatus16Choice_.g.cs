@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies whether the status is provided with a reason or not.
-/// </summary>
-[KnownType(typeof(UnmatchedStatus16Choice.NoSpecifiedReason))]
-[KnownType(typeof(UnmatchedStatus16Choice.Reason))]
-public abstract partial record UnmatchedStatus16Choice_ : IIsoXmlSerilizable<UnmatchedStatus16Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies whether the status is provided with a reason or not.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnmatchedStatus16Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnmatchedStatus16Choice.NoSpecifiedReason))]
+    [KnownType(typeof(UnmatchedStatus16Choice.Reason))]
+    [IsoId("_Hq3ssTqOEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unmatched Status 16 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnmatchedStatus16Choice_
+    #else
+    public abstract partial class UnmatchedStatus16Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => UnmatchedStatus16Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => UnmatchedStatus16Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnmatchedStatus16Choice choice.")
-        };
     }
 }

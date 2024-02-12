@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between details of missing information or the complete set of available information.
-/// </summary>
-[KnownType(typeof(UnableToApplyJustification1Choice.AnyInformation))]
-[KnownType(typeof(UnableToApplyJustification1Choice.MissingOrIncorrectInformation))]
-public abstract partial record UnableToApplyJustification1Choice_ : IIsoXmlSerilizable<UnableToApplyJustification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between details of missing information or the complete set of available information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnableToApplyJustification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnableToApplyJustification1Choice.AnyInformation))]
+    [KnownType(typeof(UnableToApplyJustification1Choice.MissingOrIncorrectInformation))]
+    [IsoId("_T-i3MNp-Ed-ak6NoX_4Aeg_-1347537926")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unable To Apply Justification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnableToApplyJustification1Choice_
+    #else
+    public abstract partial class UnableToApplyJustification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AnyInf" => UnableToApplyJustification1Choice.AnyInformation.Deserialize(elementWithPayload),
-             "MssngOrIncrrctInf" => UnableToApplyJustification1Choice.MissingOrIncorrectInformation.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnableToApplyJustification1Choice choice.")
-        };
     }
 }

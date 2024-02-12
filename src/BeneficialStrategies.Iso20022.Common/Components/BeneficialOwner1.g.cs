@@ -7,130 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
+[IsoId("_UDK4gtp-Ed-ak6NoX_4Aeg_988649524")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Beneficial Owner")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BeneficialOwner1
-     : IIsoXmlSerilizable<BeneficialOwner1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BeneficialOwner1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BeneficialOwner1( PartyIdentification2Choice_ reqBeneficialOwnerIdentification,UnitOrFaceAmount1Choice_ reqElectedSecuritiesQuantity )
+    {
+        BeneficialOwnerIdentification = reqBeneficialOwnerIdentification;
+        ElectedSecuritiesQuantity = reqElectedSecuritiesQuantity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the party that is the beneficial owner of the specified securities.
     /// </summary>
+    [IsoId("_UDK4g9p-Ed-ak6NoX_4Aeg_1334046666")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficial Owner Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ BeneficialOwnerIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ BeneficialOwnerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ BeneficialOwnerIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_ BeneficialOwnerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional identification of the party that is the beneficial owner of the specified securities.
     /// </summary>
+    [IsoId("_UDK4hNp-Ed-ak6NoX_4Aeg_676441952")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification16? AdditionalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification16? AdditionalIdentification { get; init; } 
+    #else
+    public GenericIdentification16? AdditionalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nationality of the beneficial owner.
     /// </summary>
+    [IsoId("_UDK4hdp-Ed-ak6NoX_4Aeg_1121599543")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nationality")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Nationality { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Nationality { get; init; } 
+    #else
+    public string? Nationality { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a persons permanent home).
     /// </summary>
+    [IsoId("_UDK4htp-Ed-ak6NoX_4Aeg_-2035918764")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Domicile Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? DomicileCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? DomicileCountry { get; init; } 
+    #else
+    public string? DomicileCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
+    [IsoId("_UDK4h9p-Ed-ak6NoX_4Aeg_-1915021119")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Domicile Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? NonDomicileCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? NonDomicileCountry { get; init; } 
+    #else
+    public string? NonDomicileCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Whether or not certification is required from the account owner. |Yes: certification required |No: no certification required.
     /// </summary>
+    [IsoId("_UDK4iNp-Ed-ak6NoX_4Aeg_1671667903")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificationIndicator { get; init; } 
+    #else
+    public System.String? CertificationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
+    [IsoId("_UDK4idp-Ed-ak6NoX_4Aeg_1671667933")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
+    #else
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides declaration details narrative relative to the financial instrument, eg, beneficial ownership.
     /// </summary>
+    [IsoId("_UDK4itp-Ed-ak6NoX_4Aeg_1438879300")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declaration Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? DeclarationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeclarationDetails { get; init; } 
+    #else
+    public System.String? DeclarationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [IsoId("_UDUCcNp-Ed-ak6NoX_4Aeg_1039620249")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification7? SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification7? SecurityIdentification { get; init; } 
+    #else
+    public SecurityIdentification7? SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities elected by to the beneficial owner.
     /// </summary>
+    [IsoId("_UDUCcdp-Ed-ak6NoX_4Aeg_1538417422")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Elected Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ ElectedSecuritiesQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnitOrFaceAmount1Choice_ ElectedSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_ ElectedSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_ ElectedSecuritiesQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BnfclOwnrId", xmlNamespace );
-        BeneficialOwnerIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalIdentification is GenericIdentification16 AdditionalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
-            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Nationality is CountryCode NationalityValue)
-        {
-            writer.WriteStartElement(null, "Ntlty", xmlNamespace );
-            writer.WriteValue(NationalityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DomicileCountry is CountryCode DomicileCountryValue)
-        {
-            writer.WriteStartElement(null, "DmclCtry", xmlNamespace );
-            writer.WriteValue(DomicileCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NonDomicileCountry is CountryCode NonDomicileCountryValue)
-        {
-            writer.WriteStartElement(null, "NonDmclCtry", xmlNamespace );
-            writer.WriteValue(NonDomicileCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CertificationIndicator is IsoYesNoIndicator CertificationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CertificationType is BeneficiaryCertificationType1FormatChoice_ CertificationTypeValue)
-        {
-            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
-            CertificationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeclarationDetails is IsoMax350Text DeclarationDetailsValue)
-        {
-            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(DeclarationDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecurityIdentification is SecurityIdentification7 SecurityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SctyId", xmlNamespace );
-            SecurityIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ElctdSctiesQty", xmlNamespace );
-        ElectedSecuritiesQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static BeneficialOwner1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

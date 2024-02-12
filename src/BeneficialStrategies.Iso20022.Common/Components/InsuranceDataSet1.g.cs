@@ -7,155 +7,328 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact that goods have been insured under an insurance policy.
 /// </summary>
+[IsoId("_Tm2v9tp-Ed-ak6NoX_4Aeg_888710434")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Insurance Data Set")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InsuranceDataSet1
-     : IIsoXmlSerilizable<InsuranceDataSet1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InsuranceDataSet1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InsuranceDataSet1( DocumentIdentification1 reqDataSetIdentification,PartyIdentification26 reqIssuer,System.DateOnly reqIssueDate,System.String reqInsuranceDocumentIdentification,System.Decimal reqInsuredAmount,PartyIdentification29Choice_ reqAssured,PostalAddress5 reqClaimsPayableAt )
+    {
+        DataSetIdentification = reqDataSetIdentification;
+        Issuer = reqIssuer;
+        IssueDate = reqIssueDate;
+        InsuranceDocumentIdentification = reqInsuranceDocumentIdentification;
+        InsuredAmount = reqInsuredAmount;
+        Assured = reqAssured;
+        ClaimsPayableAt = reqClaimsPayableAt;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the insurancedata set.
     /// </summary>
+    [IsoId("_Tm2v99p-Ed-ak6NoX_4Aeg_-1099246738")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    #else
+    public DocumentIdentification1 DataSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issuer of the certificate, typically the insurance company or its agent.
     /// </summary>
+    [IsoId("_Tm2v-Np-Ed-ak6NoX_4Aeg_1216560686")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Issuer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification26 Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26 Issuer { get; init; } 
+    #else
+    public PartyIdentification26 Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [IsoId("_Tm2v-dp-Ed-ak6NoX_4Aeg_1545335745")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly IssueDate { get; init; } 
+    #else
+    public System.DateOnly IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date upon which cover under an insurance policy becomes effective.
     /// </summary>
+    [IsoId("_Tm2v-tp-Ed-ak6NoX_4Aeg_1571192429")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EffectiveDate { get; init; } 
+    #else
+    public System.DateOnly? EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the insurance certificate was issued.
     /// </summary>
+    [IsoId("_Tm2v-9p-Ed-ak6NoX_4Aeg_1690329886")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Issue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress5? PlaceOfIssue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress5? PlaceOfIssue { get; init; } 
+    #else
+    public PostalAddress5? PlaceOfIssue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [IsoId("_Tm2v_Np-Ed-ak6NoX_4Aeg_1786375668")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Document Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InsuranceDocumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InsuranceDocumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InsuranceDocumentIdentification { get; init; } 
+    #else
+    public System.String InsuranceDocumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transport information relative to the goods that are insured under the insurance policy.
     /// </summary>
+    [IsoId("_Tm_54Np-Ed-ak6NoX_4Aeg_-1469580210")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SingleTransport3? Transport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SingleTransport3? Transport { get; init; } 
+    #else
+    public SingleTransport3? Transport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the goods as insured under the insurance policy.
     /// </summary>
+    [IsoId("_Tm_54dp-Ed-ak6NoX_4Aeg_-397424452")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insured Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount InsuredAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal InsuredAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal InsuredAmount { get; init; } 
+    #else
+    public System.Decimal InsuredAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
+    [IsoId("_Tm_54tp-Ed-ak6NoX_4Aeg_-88042726")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insured Goods Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? InsuredGoodsDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InsuredGoodsDescription { get; init; } 
+    #else
+    public System.String? InsuredGoodsDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the conditions and exclusion clauses under which insurance is granted.
     /// </summary>
+    [IsoId("_Tm_549p-Ed-ak6NoX_4Aeg_515013339")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InsuranceConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InsuranceConditions { get; init; } 
+    #else
+    public System.String? InsuranceConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Standard insurance clauses defined by the Institute of London Underwriters (or the American Institute of marine Underwriters).
     /// </summary>
+    [IsoId("_Tm_55Np-Ed-ak6NoX_4Aeg_812386949")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Clauses")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InsuranceClauses1Code? InsuranceClauses { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InsuranceClauses1Code? InsuranceClauses { get; init; } 
+    #else
+    public InsuranceClauses1Code? InsuranceClauses { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that is covered under the assurance policy.
     /// </summary>
+    [IsoId("_Tm_55dp-Ed-ak6NoX_4Aeg_976774092")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assured")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification29Choice_ Assured { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification29Choice_ Assured { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification29Choice_ Assured { get; init; } 
+    #else
+    public PartyIdentification29Choice_ Assured { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where claims under the insurance policy will be paid.
     /// </summary>
+    [IsoId("_Tm_55tp-Ed-ak6NoX_4Aeg_1330485176")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Claims Payable At")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PostalAddress5 ClaimsPayableAt { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PostalAddress5 ClaimsPayableAt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress5 ClaimsPayableAt { get; init; } 
+    #else
+    public PostalAddress5 ClaimsPayableAt { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which claims, if valid, will be paid.
     /// </summary>
+    [IsoId("_Tm_559p-Ed-ak6NoX_4Aeg_1343411929")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Claims Payable In")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? ClaimsPayableIn { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ClaimsPayableIn { get; init; } 
+    #else
+    public string? ClaimsPayableIn { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
-        DataSetIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Issr", xmlNamespace );
-        Issuer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (EffectiveDate is IsoISODate EffectiveDateValue)
-        {
-            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PlaceOfIssue is PostalAddress5 PlaceOfIssueValue)
-        {
-            writer.WriteStartElement(null, "PlcOfIsse", xmlNamespace );
-            PlaceOfIssueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InsrncDocId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InsuranceDocumentIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Transport is SingleTransport3 TransportValue)
-        {
-            writer.WriteStartElement(null, "Trnsprt", xmlNamespace );
-            TransportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InsrdAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(InsuredAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (InsuredGoodsDescription is IsoMax70Text InsuredGoodsDescriptionValue)
-        {
-            writer.WriteStartElement(null, "InsrdGoodsDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(InsuredGoodsDescriptionValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (InsuranceConditions is IsoMax350Text InsuranceConditionsValue)
-        {
-            writer.WriteStartElement(null, "InsrncConds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InsuranceConditionsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (InsuranceClauses is InsuranceClauses1Code InsuranceClausesValue)
-        {
-            writer.WriteStartElement(null, "InsrncClauses", xmlNamespace );
-            writer.WriteValue(InsuranceClausesValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Assrd", xmlNamespace );
-        Assured.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClmsPyblAt", xmlNamespace );
-        ClaimsPayableAt.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ClaimsPayableIn is CurrencyCode ClaimsPayableInValue)
-        {
-            writer.WriteStartElement(null, "ClmsPyblIn", xmlNamespace );
-            writer.WriteValue(ClaimsPayableInValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static InsuranceDataSet1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

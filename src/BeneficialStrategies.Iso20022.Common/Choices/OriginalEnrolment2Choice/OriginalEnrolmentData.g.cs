@@ -9,84 +9,170 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice;
-
-/// <summary>
-/// Provides the original enrolment data.
-/// </summary>
-public partial record OriginalEnrolmentData : OriginalEnrolment2Choice_
-     , IIsoXmlSerilizable<OriginalEnrolmentData>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Detailed activation data related to the creditor enrolment.
+    /// Provides the original enrolment data.
     /// </summary>
-    public required CreditorServiceEnrolment1 Enrolment { get; init; } 
-    /// <summary>
-    /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another, such as the brand name.
-    /// </summary>
-    public IsoMax140Text? CreditorTradingName { get; init; } 
-    /// <summary>
-    /// Party to which an amount of money is due.
-    /// </summary>
-    public required RTPPartyIdentification1 Creditor { get; init; } 
-    /// <summary>
-    /// Ultimate party to which an amount of money is due.
-    /// </summary>
-    public RTPPartyIdentification1? UltimateCreditor { get; init; } 
-    /// <summary>
-    /// Classification of a business by the types of goods or services it provides.
-    /// </summary>
-    public required IsoMerchantCategoryCodeIdentifier MerchantCategoryCode { get; init; } 
-    /// <summary>
-    /// Commercial logo of the creditor.
-    /// </summary>
-    public IsoMax10KBinary? CreditorLogo { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UZbOI-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Enrolment Data")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OriginalEnrolmentData : OriginalEnrolment2Choice_
+    #else
+    public partial class OriginalEnrolmentData : OriginalEnrolment2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Enrlmnt", xmlNamespace );
-        Enrolment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CreditorTradingName is IsoMax140Text CreditorTradingNameValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OriginalEnrolmentData instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OriginalEnrolmentData( CreditorServiceEnrolment1 reqEnrolment,RTPPartyIdentification1 reqCreditor,System.String reqMerchantCategoryCode )
         {
-            writer.WriteStartElement(null, "CdtrTradgNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(CreditorTradingNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
+            Enrolment = reqEnrolment;
+            Creditor = reqCreditor;
+            MerchantCategoryCode = reqMerchantCategoryCode;
         }
-        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-        Creditor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UltimateCreditor is RTPPartyIdentification1 UltimateCreditorValue)
-        {
-            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
-            UltimateCreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMerchantCategoryCodeIdentifier(MerchantCategoryCode)); // data type MerchantCategoryCodeIdentifier System.String
-        writer.WriteEndElement();
-        if (CreditorLogo is IsoMax10KBinary CreditorLogoValue)
-        {
-            writer.WriteStartElement(null, "CdtrLogo", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(CreditorLogoValue)); // data type Max10KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static new OriginalEnrolmentData Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Detailed activation data related to the creditor enrolment.
+        /// </summary>
+        [IsoId("_UalrweH7Eeqbls7Gk4-ckA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Enrolment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CreditorServiceEnrolment1 Enrolment { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CreditorServiceEnrolment1 Enrolment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CreditorServiceEnrolment1 Enrolment { get; init; } 
+        #else
+        public CreditorServiceEnrolment1 Enrolment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another, such as the brand name.
+        /// </summary>
+        [IsoId("_Ualrw-H7Eeqbls7Gk4-ckA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Creditor Trading Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? CreditorTradingName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CreditorTradingName { get; init; } 
+        #else
+        public System.String? CreditorTradingName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party to which an amount of money is due.
+        /// </summary>
+        [IsoId("_UalrxeH7Eeqbls7Gk4-ckA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Creditor")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required RTPPartyIdentification1 Creditor { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public RTPPartyIdentification1 Creditor { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RTPPartyIdentification1 Creditor { get; init; } 
+        #else
+        public RTPPartyIdentification1 Creditor { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Ultimate party to which an amount of money is due.
+        /// </summary>
+        [IsoId("_Ualrx-H7Eeqbls7Gk4-ckA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Ultimate Creditor")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RTPPartyIdentification1? UltimateCreditor { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RTPPartyIdentification1? UltimateCreditor { get; init; } 
+        #else
+        public RTPPartyIdentification1? UltimateCreditor { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Classification of a business by the types of goods or services it provides.
+        /// </summary>
+        [IsoId("_UalryeH7Eeqbls7Gk4-ckA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Merchant Category Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMerchantCategoryCodeIdentifier MerchantCategoryCode { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String MerchantCategoryCode { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String MerchantCategoryCode { get; init; } 
+        #else
+        public System.String MerchantCategoryCode { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Commercial logo of the creditor.
+        /// </summary>
+        [IsoId("_Ualry-H7Eeqbls7Gk4-ckA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Creditor Logo")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax10KBinary? CreditorLogo { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Byte[]? CreditorLogo { get; init; } 
+        #else
+        public System.Byte[]? CreditorLogo { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

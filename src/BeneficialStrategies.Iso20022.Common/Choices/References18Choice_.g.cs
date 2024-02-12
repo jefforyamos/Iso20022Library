@@ -7,54 +7,44 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References18Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
-[KnownType(typeof(References18Choice.IntraPositionMovementConfirmationIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesBalanceAccountingReportIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesBalanceCustodyReportIdentification))]
-[KnownType(typeof(References18Choice.IntraPositionMovementPostingReportIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesFinancingConfirmationIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesTransactionPendingReportIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesTransactionPostingReportIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
-[KnownType(typeof(References18Choice.PortfolioTransferNotificationIdentification))]
-[KnownType(typeof(References18Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
-[KnownType(typeof(References18Choice.OtherMessageIdentification))]
-public abstract partial record References18Choice_ : IIsoXmlSerilizable<References18Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References18Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References18Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
+    [KnownType(typeof(References18Choice.IntraPositionMovementConfirmationIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesBalanceAccountingReportIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesBalanceCustodyReportIdentification))]
+    [KnownType(typeof(References18Choice.IntraPositionMovementPostingReportIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesFinancingConfirmationIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesTransactionPendingReportIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesTransactionPostingReportIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
+    [KnownType(typeof(References18Choice.PortfolioTransferNotificationIdentification))]
+    [KnownType(typeof(References18Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
+    [KnownType(typeof(References18Choice.OtherMessageIdentification))]
+    [IsoId("_9EijET9mEeCuVfEpWlZb5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 18 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References18Choice_
+    #else
+    public abstract partial class References18Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxConfId" => References18Choice.SecuritiesSettlementTransactionConfirmationIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntConfId" => References18Choice.IntraPositionMovementConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesBalAcctgRptId" => References18Choice.SecuritiesBalanceAccountingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesBalCtdyRptId" => References18Choice.SecuritiesBalanceCustodyReportIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntPstngRptId" => References18Choice.IntraPositionMovementPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesFincgConfId" => References18Choice.SecuritiesFinancingConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPdgRptId" => References18Choice.SecuritiesTransactionPendingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPstngRptId" => References18Choice.SecuritiesTransactionPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtRptId" => References18Choice.SecuritiesSettlementTransactionAllegementReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtNtfctnTxId" => References18Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification.Deserialize(elementWithPayload),
-             "PrtflTrfNtfctnId" => References18Choice.PortfolioTransferNotificationIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxGnrtnNtfctnId" => References18Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification.Deserialize(elementWithPayload),
-             "OthrMsgId" => References18Choice.OtherMessageIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References18Choice choice.")
-        };
     }
 }

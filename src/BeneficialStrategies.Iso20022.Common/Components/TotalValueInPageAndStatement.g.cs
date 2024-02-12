@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Value of total holdings reported.
 /// </summary>
+[IsoId("_Q7Cp9tp-Ed-ak6NoX_4Aeg_-277574684")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Value In Page And Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalValueInPageAndStatement
-     : IIsoXmlSerilizable<TotalValueInPageAndStatement>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TotalValueInPageAndStatement instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TotalValueInPageAndStatement( System.Decimal reqTotalHoldingsValueOfStatement )
+    {
+        TotalHoldingsValueOfStatement = reqTotalHoldingsValueOfStatement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total value of positions reported in this message.
     /// </summary>
+    [IsoId("_Q7Cp99p-Ed-ak6NoX_4Aeg_-1277686772")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Holdings Value Of Page")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalHoldingsValueOfPage { get; init; } 
+    #else
+    public System.Decimal? TotalHoldingsValueOfPage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [IsoId("_Q7Ma8Np-Ed-ak6NoX_4Aeg_-1254598967")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Holdings Value Of Statement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalHoldingsValueOfStatement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalHoldingsValueOfStatement { get; init; } 
+    #else
+    public System.Decimal TotalHoldingsValueOfStatement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalHoldingsValueOfPage is IsoActiveCurrencyAndAmount TotalHoldingsValueOfPageValue)
-        {
-            writer.WriteStartElement(null, "TtlHldgsValOfPg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalHoldingsValueOfPageValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlHldgsValOfStmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalHoldingsValueOfStatement)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static TotalValueInPageAndStatement Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

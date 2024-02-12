@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for a type of charge.
-/// </summary>
-[KnownType(typeof(ChargeType6Choice.Code))]
-[KnownType(typeof(ChargeType6Choice.Proprietary))]
-public abstract partial record ChargeType6Choice_ : IIsoXmlSerilizable<ChargeType6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for a type of charge.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ChargeType6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ChargeType6Choice.Code))]
+    [KnownType(typeof(ChargeType6Choice.Proprietary))]
+    [IsoId("_h-65cYjKEeeqaMoyJI1HbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Type 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ChargeType6Choice_
+    #else
+    public abstract partial class ChargeType6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ChargeType6Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ChargeType6Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ChargeType6Choice choice.")
-        };
     }
 }

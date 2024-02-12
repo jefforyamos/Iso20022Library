@@ -7,136 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the stored value account or the stored value card (Prepaid card).
 /// </summary>
+[IsoId("_SsowIQxrEeqdx6buGpCCQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Stored Value Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StoredValueAccount2
-     : IIsoXmlSerilizable<StoredValueAccount2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of stored value account.
     /// </summary>
+    [IsoId("_S3y3QQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueAccountType1Code? AccountType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueAccountType1Code? AccountType { get; init; } 
+    #else
+    public StoredValueAccountType1Code? AccountType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of identification for this Stored Value Account.
     /// </summary>
+    [IsoId("_S3y3QwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardIdentificationType1Code? IdentificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardIdentificationType1Code? IdentificationType { get; init; } 
+    #else
+    public CardIdentificationType1Code? IdentificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of Stored Value Account.
     /// </summary>
+    [IsoId("_S3y3RQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Brand to which belong the account.
     /// </summary>
+    [IsoId("_S3y3RwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Brand")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Brand { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Brand { get; init; } 
+    #else
+    public System.String? Brand { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provider of the Stored Value Account.
     /// </summary>
+    [IsoId("_S3y3SQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Provider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Provider { get; init; } 
+    #else
+    public System.String? Provider { get; set; } 
+    #endif
+    
     /// <summary>
     /// Owner name of an account.
     /// </summary>
+    [IsoId("_S3y3SwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Owner Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 45 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax45Text? OwnerName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OwnerName { get; init; } 
+    #else
+    public System.String? OwnerName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expiry date of the account of card.
     /// </summary>
+    [IsoId("_S3y3TQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExpiryDate { get; init; } 
+    #else
+    public System.String? ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Standard or last entry mode to access the Stored Value account or card.
     /// </summary>
+    [IsoId("_S3y3TwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading8Code? EntryMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardDataReading8Code? EntryMode { get; init; } 
+    #else
+    public CardDataReading8Code? EntryMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the Stored Value account.
     /// </summary>
+    [IsoId("_S3y3UQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current balance of the Stored Value account.
     /// </summary>
+    [IsoId("_S3y3UwxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Balance { get; init; } 
+    #else
+    public System.Decimal? Balance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountType is StoredValueAccountType1Code AccountTypeValue)
-        {
-            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
-            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (IdentificationType is CardIdentificationType1Code IdentificationTypeValue)
-        {
-            writer.WriteStartElement(null, "IdTp", xmlNamespace );
-            writer.WriteValue(IdentificationTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Brand is IsoMax35Text BrandValue)
-        {
-            writer.WriteStartElement(null, "Brnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BrandValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Provider is IsoMax35Text ProviderValue)
-        {
-            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OwnerName is IsoMax45Text OwnerNameValue)
-        {
-            writer.WriteStartElement(null, "OwnrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax45Text(OwnerNameValue)); // data type Max45Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExpiryDate is IsoMax10Text ExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10Text(ExpiryDateValue)); // data type Max10Text System.String
-            writer.WriteEndElement();
-        }
-        if (EntryMode is CardDataReading8Code EntryModeValue)
-        {
-            writer.WriteStartElement(null, "NtryMd", xmlNamespace );
-            writer.WriteValue(EntryModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Balance is IsoImpliedCurrencyAndAmount BalanceValue)
-        {
-            writer.WriteStartElement(null, "Bal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(BalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static StoredValueAccount2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

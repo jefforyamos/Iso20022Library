@@ -7,317 +7,555 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card payment transaction.
 /// </summary>
+[IsoId("_4Dwf0YNuEeuHqfO1LgkE9Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Context")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionContext7
-     : IIsoXmlSerilizable<TransactionContext7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionContext7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionContext7( string reqMerchantCategoryCode )
+    {
+        MerchantCategoryCode = reqMerchantCategoryCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Category code related to the type of services or goods the merchant provides for the transaction in accordance with ISO 18245.
     /// </summary>
+    [IsoId("_GB4jbcpDEeuuJ571wNLKkA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISO18245MerchantCategoryCode MerchantCategoryCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string MerchantCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string MerchantCategoryCode { get; init; } 
+    #else
+    public string MerchantCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details about the merchant that is used in with the merchant category code (MCC) for the particular purchase.
     /// </summary>
+    [IsoId("_4Igc84NuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Category Specific Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MerchantCategorySpecificData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MerchantCategorySpecificData { get; init; } 
+    #else
+    public System.String? MerchantCategorySpecificData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Notifies the express consent of the customer for a given service (used in DCC, funds transfers, money lending, etc.).
     /// True: Explicit customer consent obtained
     /// False: Implicit customer consent obtained
     /// </summary>
+    [IsoId("_4Igc9YNuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Consent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CustomerConsent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerConsent { get; init; } 
+    #else
+    public System.String? CustomerConsent { get; set; } 
+    #endif
+    
     /// <summary>
     /// PIN pad is inoperative.
     /// Default: False - PIN pad is operative or not applicable.
     /// True: PIN pas is inoperative.
     /// </summary>
+    [IsoId("_9x-gkbXnEeusf7oR9YukCg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Pad Inoperative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PINPadInoperative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PINPadInoperative { get; init; } 
+    #else
+    public System.String? PINPadInoperative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicate the PIN entry bypass.
     /// </summary>
+    [IsoId("_wiS60DHIEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PIN Entry Bypass Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PINEntryBypassIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PINEntryBypassIndicator { get; init; } 
+    #else
+    public System.String? PINEntryBypassIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a chip data fallback.
     /// </summary>
+    [IsoId("_4Igc94NuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Fallback Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ICCFallbackIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ICCFallbackIndicator { get; init; } 
+    #else
+    public System.String? ICCFallbackIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// A code that provides the reason of ICC fallback. 
     /// </summary>
+    [IsoId("_GAoEoDHJEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Fallback Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ICCFallbackReason1Code? ICCFallbackReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ICCFallbackReason1Code? ICCFallbackReasonCode { get; init; } 
+    #else
+    public ICCFallbackReason1Code? ICCFallbackReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other ICC fallback reason code defined at national or private level.
     /// </summary>
+    [IsoId("_U5lAcDHKEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other ICC Fallback Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherICCFallbackReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherICCFallbackReasonCode { get; init; } 
+    #else
+    public System.String? OtherICCFallbackReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a magnetic stripe fallback.
     /// True: Fallback
     /// False: No fallback
     /// Default: False
     /// </summary>
+    [IsoId("_4Igc-YNuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Magnetic Stripe Fallback Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MagneticStripeFallbackIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MagneticStripeFallbackIndicator { get; init; } 
+    #else
+    public System.String? MagneticStripeFallbackIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a late presentment as defined by each specific implementation.
     /// True: Transaction was presented late
     /// False: Transaction was not presented late
     /// Default: False
     /// </summary>
+    [IsoId("_4Igc-4NuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Late Presentment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? LatePresentmentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LatePresentmentIndicator { get; init; } 
+    #else
+    public System.String? LatePresentmentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies final authorisation messages for the purpose of managing open-to buy or available balance. 
     /// </summary>
+    [IsoId("_4Igc_YNuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Authorisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FinalAuthorisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FinalAuthorisationIndicator { get; init; } 
+    #else
+    public System.String? FinalAuthorisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a deferred delivery as defined by each specific implementation.
     /// True: deferred delivery.
     /// False: Delivery is not identified as deferred.
     /// Default: False.
     /// </summary>
+    [IsoId("_4Igc_4NuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deferred Delivery Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DeferredDeliveryIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeferredDeliveryIndicator { get; init; } 
+    #else
+    public System.String? DeferredDeliveryIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the partial shipment.
     /// </summary>
+    [IsoId("_kpZdYDHMEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Partial Shipment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PartialShipmentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PartialShipmentIndicator { get; init; } 
+    #else
+    public System.String? PartialShipmentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a delayed charge.
     /// </summary>
+    [IsoId("_RbDCADKkEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delayed Charges Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DelayedChargesIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DelayedChargesIndicator { get; init; } 
+    #else
+    public System.String? DelayedChargesIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
+    [IsoId("_aEHwoTKkEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("No Show Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NoShowIndicator { get; init; } 
+    #else
+    public System.String? NoShowIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a reauthorisation.
     /// </summary>
+    [IsoId("_lvbhMDKkEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reauthorisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReauthorisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReauthorisationIndicator { get; init; } 
+    #else
+    public System.String? ReauthorisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a resubmission. 
     /// </summary>
+    [IsoId("_zLT3gDKkEeyTT91yHXSlSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Re Submission Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReSubmissionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReSubmissionIndicator { get; init; } 
+    #else
+    public System.String? ReSubmissionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
+    [IsoId("_4IgdAYNuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionInitiator1Code? TransactionInitiator { get; init; } 
+    #else
+    public TransactionInitiator1Code? TransactionInitiator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the consumer authentication process is temporarily unavailable in the acceptance, acquirer or agent environment for this request.  It does not indicate an outage in the issuer processing domain (including agents acting on behalf of the issuer).
     /// </summary>
+    [IsoId("_zUMEQMVXEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Outage Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AuthenticationOutageIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthenticationOutageIndicator { get; init; } 
+    #else
+    public System.String? AuthenticationOutageIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// </summary>
+    [IsoId("_4IgdA4NuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Programme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProgramme2? CardProgramme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardProgramme2? CardProgramme { get; init; } 
+    #else
+    public CardProgramme2? CardProgramme { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
+    [IsoId("_oGRdgMVbEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Jurisdiction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Jurisdiction2? Jurisdiction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Jurisdiction2? Jurisdiction { get; init; } 
+    #else
+    public Jurisdiction2? Jurisdiction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
+    [IsoId("_4IgdBYNuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementService3? SettlementService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementService3? SettlementService { get; init; } 
+    #else
+    public SettlementService3? SettlementService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
+    [IsoId("_4IgdB4NuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reconciliation3? Reconciliation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Reconciliation3? Reconciliation { get; init; } 
+    #else
+    public Reconciliation3? Reconciliation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further detailed information on the exchange rates that have been used in or are related to the transaction.
     /// </summary>
+    [IsoId("_OieIkINvEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRateInformation2? ExchangeRateInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeRateInformation2? ExchangeRateInformation { get; init; } 
+    #else
+    public ExchangeRateInformation2? ExchangeRateInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the transaction was completed and captured.
     /// ISO 8583 bit 17
     /// </summary>
+    [IsoId("_4IgdCYNuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Capture Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CaptureDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CaptureDate { get; init; } 
+    #else
+    public System.DateOnly? CaptureDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// The date on which the sale or purchase is expected to occur.
     /// </summary>
+    [IsoId("_XMWaYMVYEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Anticipated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateAnticipated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DateAnticipated { get; init; } 
+    #else
+    public System.DateOnly? DateAnticipated { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
+    [IsoId("_dHP2EMVZEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
-        writer.WriteValue(MerchantCategoryCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MerchantCategorySpecificData is IsoMax35Text MerchantCategorySpecificDataValue)
-        {
-            writer.WriteStartElement(null, "MrchntCtgySpcfcData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantCategorySpecificDataValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerConsent is IsoTrueFalseIndicator CustomerConsentValue)
-        {
-            writer.WriteStartElement(null, "CstmrCnsnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CustomerConsentValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PINPadInoperative is IsoTrueFalseIndicator PINPadInoperativeValue)
-        {
-            writer.WriteStartElement(null, "PINPadInprtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PINPadInoperativeValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PINEntryBypassIndicator is IsoTrueFalseIndicator PINEntryBypassIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PINNtryBpssInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PINEntryBypassIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ICCFallbackIndicator is IsoTrueFalseIndicator ICCFallbackIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ICCFllbckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ICCFallbackIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ICCFallbackReasonCode is ICCFallbackReason1Code ICCFallbackReasonCodeValue)
-        {
-            writer.WriteStartElement(null, "ICCFllbckRsnCd", xmlNamespace );
-            writer.WriteValue(ICCFallbackReasonCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherICCFallbackReasonCode is IsoMax35Text OtherICCFallbackReasonCodeValue)
-        {
-            writer.WriteStartElement(null, "OthrICCFllbckRsnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherICCFallbackReasonCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MagneticStripeFallbackIndicator is IsoTrueFalseIndicator MagneticStripeFallbackIndicatorValue)
-        {
-            writer.WriteStartElement(null, "MgntcStrpFllbckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MagneticStripeFallbackIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LatePresentmentIndicator is IsoTrueFalseIndicator LatePresentmentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "LatePresntmntInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LatePresentmentIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FinalAuthorisationIndicator is IsoTrueFalseIndicator FinalAuthorisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FnlAuthstnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FinalAuthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DeferredDeliveryIndicator is IsoTrueFalseIndicator DeferredDeliveryIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DfrrdDlvryInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DeferredDeliveryIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PartialShipmentIndicator is IsoTrueFalseIndicator PartialShipmentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtlShipmntInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PartialShipmentIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DelayedChargesIndicator is IsoTrueFalseIndicator DelayedChargesIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DelydChrgsInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DelayedChargesIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (NoShowIndicator is IsoTrueFalseIndicator NoShowIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NoShowInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NoShowIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReauthorisationIndicator is IsoTrueFalseIndicator ReauthorisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ReauthstnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReauthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReSubmissionIndicator is IsoTrueFalseIndicator ReSubmissionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ReSubmissnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReSubmissionIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionInitiator is TransactionInitiator1Code TransactionInitiatorValue)
-        {
-            writer.WriteStartElement(null, "TxInitr", xmlNamespace );
-            writer.WriteValue(TransactionInitiatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AuthenticationOutageIndicator is IsoTrueFalseIndicator AuthenticationOutageIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AuthntcnOutgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AuthenticationOutageIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CardProgramme is CardProgramme2 CardProgrammeValue)
-        {
-            writer.WriteStartElement(null, "CardPrgrmm", xmlNamespace );
-            CardProgrammeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Jurisdiction is Jurisdiction2 JurisdictionValue)
-        {
-            writer.WriteStartElement(null, "Jursdctn", xmlNamespace );
-            JurisdictionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementService is SettlementService3 SettlementServiceValue)
-        {
-            writer.WriteStartElement(null, "SttlmSvc", xmlNamespace );
-            SettlementServiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reconciliation is Reconciliation3 ReconciliationValue)
-        {
-            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
-            ReconciliationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExchangeRateInformation is ExchangeRateInformation2 ExchangeRateInformationValue)
-        {
-            writer.WriteStartElement(null, "XchgRateInf", xmlNamespace );
-            ExchangeRateInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CaptureDate is IsoISODate CaptureDateValue)
-        {
-            writer.WriteStartElement(null, "CaptrDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CaptureDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DateAnticipated is IsoISODate DateAnticipatedValue)
-        {
-            writer.WriteStartElement(null, "DtAntcptd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateAnticipatedValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionContext7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

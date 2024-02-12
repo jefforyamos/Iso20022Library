@@ -9,83 +9,134 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecurityCommodity7Choice;
-
-/// <summary>
-/// Data specific to commodities being subject to the transaction.
-/// </summary>
-public partial record Commodity : SecurityCommodity7Choice_
-     , IIsoXmlSerilizable<Commodity>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecurityCommodity7Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies whether the values defined asset class commodity are matching or not.
+    /// Data specific to commodities being subject to the transaction.
     /// </summary>
-    public CompareCommodityAssetClass3? Classification { get; init; } 
-    /// <summary>
-    /// Specifies whether the values defined as decimal number are matching or not.
-    /// </summary>
-    public CompareDecimalNumber3? Quantity { get; init; } 
-    /// <summary>
-    /// Specifies whether the the unit prices are matching or not.
-    /// </summary>
-    public CompareUnitPrice6? UnitPrice { get; init; } 
-    /// <summary>
-    /// Specifies whether the values defined as active or historic currency and amount are matching or not.
-    /// </summary>
-    public CompareAmountAndDirection2? MarketValue { get; init; } 
-    /// <summary>
-    /// Specifies whether the values defined as unit of measure code are matching or not.
-    /// </summary>
-    public CompareUnitOfMeasure3? UnitOfMeasure { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Ul6y88gyEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commodity")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Commodity : SecurityCommodity7Choice_
+    #else
+    public partial class Commodity : SecurityCommodity7Choice_
+    #endif
     {
-        if (Classification is CompareCommodityAssetClass3 ClassificationValue)
-        {
-            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
-            ClassificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Quantity is CompareDecimalNumber3 QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is CompareUnitPrice6 UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketValue is CompareAmountAndDirection2 MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            MarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is CompareUnitOfMeasure3 UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Commodity Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies whether the values defined asset class commodity are matching or not.
+        /// </summary>
+        [IsoId("_zNicg8gyEeuGrNSsxk3B0A")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Classification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompareCommodityAssetClass3? Classification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompareCommodityAssetClass3? Classification { get; init; } 
+        #else
+        public CompareCommodityAssetClass3? Classification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the values defined as decimal number are matching or not.
+        /// </summary>
+        [IsoId("_zNichcgyEeuGrNSsxk3B0A")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quantity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompareDecimalNumber3? Quantity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompareDecimalNumber3? Quantity { get; init; } 
+        #else
+        public CompareDecimalNumber3? Quantity { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the the unit prices are matching or not.
+        /// </summary>
+        [IsoId("_zNich8gyEeuGrNSsxk3B0A")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit Price")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompareUnitPrice6? UnitPrice { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompareUnitPrice6? UnitPrice { get; init; } 
+        #else
+        public CompareUnitPrice6? UnitPrice { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the values defined as active or historic currency and amount are matching or not.
+        /// </summary>
+        [IsoId("_zNicicgyEeuGrNSsxk3B0A")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Market Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompareAmountAndDirection2? MarketValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompareAmountAndDirection2? MarketValue { get; init; } 
+        #else
+        public CompareAmountAndDirection2? MarketValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the values defined as unit of measure code are matching or not.
+        /// </summary>
+        [IsoId("_zNici8gyEeuGrNSsxk3B0A")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit Of Measure")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompareUnitOfMeasure3? UnitOfMeasure { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompareUnitOfMeasure3? UnitOfMeasure { get; init; } 
+        #else
+        public CompareUnitOfMeasure3? UnitOfMeasure { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

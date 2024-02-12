@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Request message to transmit.
 /// </summary>
+[IsoId("_Hi8mMQ0sEeqUVL7sB4m7NA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Transmit Message Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeviceTransmitMessageRequest2
-     : IIsoXmlSerilizable<DeviceTransmitMessageRequest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeviceTransmitMessageRequest2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeviceTransmitMessageRequest2( NetworkParameters7 reqDestinationAddress,System.UInt64 reqMaximumTransmissionTime,System.Byte[] reqMessageToSend )
+    {
+        DestinationAddress = reqDestinationAddress;
+        MaximumTransmissionTime = reqMaximumTransmissionTime;
+        MessageToSend = reqMessageToSend;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Transport address.
     /// </summary>
+    [IsoId("_H1Mz0Q0sEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkParameters7 DestinationAddress { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NetworkParameters7 DestinationAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters7 DestinationAddress { get; init; } 
+    #else
+    public NetworkParameters7 DestinationAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum time in seconds of transmission.
     /// </summary>
+    [IsoId("_H1Mz0w0sEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Transmission Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber MaximumTransmissionTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 MaximumTransmissionTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 MaximumTransmissionTime { get; init; } 
+    #else
+    public System.UInt64 MaximumTransmissionTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the timeout to receive an answer.
     /// </summary>
+    [IsoId("_H1Mz1Q0sEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Waiting Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumWaitingTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumWaitingTime { get; init; } 
+    #else
+    public System.UInt64? MaximumWaitingTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the message to be transmitted.
     /// </summary>
+    [IsoId("_H1Mz1w0sEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message To Send")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax100KBinary MessageToSend { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] MessageToSend { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] MessageToSend { get; init; } 
+    #else
+    public System.Byte[] MessageToSend { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DstnAdr", xmlNamespace );
-        DestinationAddress.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MaxTrnsmssnTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(MaximumTransmissionTime)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (MaximumWaitingTime is IsoNumber MaximumWaitingTimeValue)
-        {
-            writer.WriteStartElement(null, "MaxWtgTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumWaitingTimeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MsgToSnd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageToSend)); // data type Max100KBinary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static DeviceTransmitMessageRequest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

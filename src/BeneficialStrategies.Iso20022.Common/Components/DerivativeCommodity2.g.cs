@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the details of a commodity derivative.
 /// </summary>
+[IsoId("_e-bjmXvyEeanCNPcMT7sSg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Derivative Commodity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DerivativeCommodity2
-     : IIsoXmlSerilizable<DerivativeCommodity2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DerivativeCommodity2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DerivativeCommodity2( AssetClassCommodity3Choice_ reqProduct )
+    {
+        Product = reqProduct;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Commodity product attributes.
     /// </summary>
+    [IsoId("_fHZ5YXvyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassCommodity3Choice_ Product { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AssetClassCommodity3Choice_ Product { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClassCommodity3Choice_ Product { get; init; } 
+    #else
+    public AssetClassCommodity3Choice_ Product { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction type as specified by the trading venue.
     /// </summary>
+    [IsoId("_fHZ5Y3vyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassTransactionType1Code? TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClassTransactionType1Code? TransactionType { get; init; } 
+    #else
+    public AssetClassTransactionType1Code? TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Final price type as specified by the trading venue.
     /// </summary>
+    [IsoId("_fHZ5ZXvyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Price Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetPriceType1Code? FinalPriceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetPriceType1Code? FinalPriceType { get; init; } 
+    #else
+    public AssetPriceType1Code? FinalPriceType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Pdct", xmlNamespace );
-        Product.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TransactionType is AssetClassTransactionType1Code TransactionTypeValue)
-        {
-            writer.WriteStartElement(null, "TxTp", xmlNamespace );
-            writer.WriteValue(TransactionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FinalPriceType is AssetPriceType1Code FinalPriceTypeValue)
-        {
-            writer.WriteStartElement(null, "FnlPricTp", xmlNamespace );
-            writer.WriteValue(FinalPriceTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static DerivativeCommodity2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,150 +7,298 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related for the transportation of goods by sea.
 /// </summary>
+[IsoId("_IIXFodQxEeK0PPbKncCqzA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport By Sea")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportBySea5
-     : IIsoXmlSerilizable<TransportBySea5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransportBySea5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransportBySea5( System.String reqPortOfLoading,System.String reqPortOfDischarge )
+    {
+        PortOfLoading = reqPortOfLoading;
+        PortOfDischarge = reqPortOfDischarge;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
+    [IsoId("_IjneQdQxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Port Of Loading")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PortOfLoading { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PortOfLoading { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PortOfLoading { get; init; } 
+    #else
+    public System.String PortOfLoading { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
+    [IsoId("_IjneQ9QxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Port Of Discharge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PortOfDischarge { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PortOfDischarge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PortOfDischarge { get; init; } 
+    #else
+    public System.String PortOfDischarge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of a vessel.
     /// </summary>
+    [IsoId("_IjneRdQxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vessel Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? VesselName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VesselName { get; init; } 
+    #else
+    public System.String? VesselName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [IsoId("_IjneR9QxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sea Carrier Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SeaCarrierName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SeaCarrierName { get; init; } 
+    #else
+    public System.String? SeaCarrierName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
+    [IsoId("_AU6FgNQzEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sea Carrier Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? SeaCarrierCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? SeaCarrierCountry { get; init; } 
+    #else
+    public string? SeaCarrierCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_RYdtINQzEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CarrierAgentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CarrierAgentName { get; init; } 
+    #else
+    public System.String? CarrierAgentName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_VRJ18NQzEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CarrierAgentCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CarrierAgentCountry { get; init; } 
+    #else
+    public string? CarrierAgentCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the master or captain of a vessel that signs the document for example, bill of lading, charter party bill of lading, non-negotiable sea waybill or multimodal transport document that evidences shipment of the goods from a port of loading to a port of discharge.
     /// </summary>
+    [IsoId("_6GgNENQzEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? MasterName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MasterName { get; init; } 
+    #else
+    public System.String? MasterName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the company or individual that signs a charter party bill of lading that evidences shipment of the goods from a port of loading to a port of discharge and acts in the capacity of charterer.
     /// </summary>
+    [IsoId("_AwsNINQ0EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charterer Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ChartererName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ChartererName { get; init; } 
+    #else
+    public System.String? ChartererName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the company or individual that signs a charter party bill of lading that evidences shipment of the goods from a port of loading to a port of discharge and acts in the capacity of owner;.
     /// </summary>
+    [IsoId("_GBZRwNQ0EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Owner Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? OwnerName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OwnerName { get; init; } 
+    #else
+    public System.String? OwnerName { get; set; } 
+    #endif
+    
     /// <summary>
     /// International Maritime Organisation identification of a ship. The IMO identification number scheme was introduced in 1987 as a measure aimed at enhancing maritime safety and pollution prevention and to facilitate the prevention of maritime fraud. It assigns a permanent number to each vessel for identification purposes. This number remains unchanged upon transfer of the vessel to other flag(s) and is inserted in all vessel certificates. The IMO identification number is made up of the three letters "IMO" followed by a seven-digit number assigned to all vessels by IHS FairPlay (formerly known as Lloyd's Register-Fairplay). This is a unique seven digit number that is assigned to vessels and aids banks in determining whether a vessel is subject to an order that would not permit a bank to handle a certain transaction under local or international laws.
     /// </summary>
+    [IsoId("_Xiw2wNQ0EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("IMO Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact7NumericText? IMONumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IMONumber { get; init; } 
+    #else
+    public System.String? IMONumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the voyage by sea.
     /// </summary>
+    [IsoId("_zjc3ABUyEeOCqpkCrPgk4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Voyage Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VoyageNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VoyageNumber { get; init; } 
+    #else
+    public System.String? VoyageNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PortOfLoadng", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfLoading)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PortOfDschrge", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfDischarge)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (VesselName is IsoMax70Text VesselNameValue)
-        {
-            writer.WriteStartElement(null, "VsslNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(VesselNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (SeaCarrierName is IsoMax70Text SeaCarrierNameValue)
-        {
-            writer.WriteStartElement(null, "SeaCrrierNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SeaCarrierNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (SeaCarrierCountry is CountryCode SeaCarrierCountryValue)
-        {
-            writer.WriteStartElement(null, "SeaCrrierCtry", xmlNamespace );
-            writer.WriteValue(SeaCarrierCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentName is IsoMax70Text CarrierAgentNameValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CarrierAgentNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentCountry is CountryCode CarrierAgentCountryValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtCtry", xmlNamespace );
-            writer.WriteValue(CarrierAgentCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MasterName is IsoMax70Text MasterNameValue)
-        {
-            writer.WriteStartElement(null, "MstrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(MasterNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ChartererName is IsoMax70Text ChartererNameValue)
-        {
-            writer.WriteStartElement(null, "ChrtrrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ChartererNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (OwnerName is IsoMax70Text OwnerNameValue)
-        {
-            writer.WriteStartElement(null, "OwnrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(OwnerNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (IMONumber is IsoExact7NumericText IMONumberValue)
-        {
-            writer.WriteStartElement(null, "IMONb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact7NumericText(IMONumberValue)); // data type Exact7NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (VoyageNumber is IsoMax35Text VoyageNumberValue)
-        {
-            writer.WriteStartElement(null, "VygNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(VoyageNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportBySea5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

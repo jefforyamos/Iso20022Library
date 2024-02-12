@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to search for an account and to report on the account. A name may be given to the new query.
 /// </summary>
+[IsoId("_jJp0oe5NEeCisYr99QEiWA_181019716")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Value Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralValueCriteria1
-     : IIsoXmlSerilizable<CollateralValueCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [IsoId("_jJp0ou5NEeCisYr99QEiWA_-275893458")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QueryName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? QueryName { get; init; } 
+    #else
+    public System.String? QueryName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria to be used to extract the account information.
     /// </summary>
+    [IsoId("_jJp0o-5NEeCisYr99QEiWA_-1182011055")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Search Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralValueSearchCriteria1? SearchCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralValueSearchCriteria1? SearchCriteria { get; init; } 
+    #else
+    public CollateralValueSearchCriteria1? SearchCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the expected account report.
     /// </summary>
+    [IsoId("_jJp0pO5NEeCisYr99QEiWA_-1499787716")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountReturnCriteria2? ReturnCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountReturnCriteria2? ReturnCriteria { get; init; } 
+    #else
+    public CashAccountReturnCriteria2? ReturnCriteria { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (QueryName is IsoMax35Text QueryNameValue)
-        {
-            writer.WriteStartElement(null, "QryNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SearchCriteria is CollateralValueSearchCriteria1 SearchCriteriaValue)
-        {
-            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
-            SearchCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnCriteria is CashAccountReturnCriteria2 ReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
-            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralValueCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Point of interaction parameters related to the security of software application and application protocol.
 /// </summary>
+[IsoId("_Jjm7YTZ4EeOP_KvUKe29ng")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityParameters2
-     : IIsoXmlSerilizable<SecurityParameters2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
+    [IsoId("_J1bEITZ4EeOP_KvUKe29ng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Challenge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? POIChallenge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? POIChallenge { get; init; } 
+    #else
+    public System.Byte[]? POIChallenge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
+    [IsoId("_J1bEIzZ4EeOP_KvUKe29ng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("TM Challenge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? TMChallenge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? TMChallenge { get; init; } 
+    #else
+    public System.Byte[]? TMChallenge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Key to inject in the point of interaction, protected by the temporary key previously sent.
     /// </summary>
+    [IsoId("_J1bEJTZ4EeOP_KvUKe29ng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Symmetric Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey4? SymmetricKey { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CryptographicKey4? SymmetricKey { get; init; } 
+    #else
+    public CryptographicKey4? SymmetricKey { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (POIChallenge is IsoMax140Binary POIChallengeValue)
-        {
-            writer.WriteStartElement(null, "POIChllng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(POIChallengeValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (TMChallenge is IsoMax140Binary TMChallengeValue)
-        {
-            writer.WriteStartElement(null, "TMChllng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(TMChallengeValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (SymmetricKey is CryptographicKey4 SymmetricKeyValue)
-        {
-            writer.WriteStartElement(null, "SmmtrcKey", xmlNamespace );
-            SymmetricKeyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityParameters2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

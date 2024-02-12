@@ -7,84 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the meta data for a netting cut off update request: message identification, request servicer and a request type.
 /// </summary>
+[IsoId("_vL8UIJVFEeaYkf5FCqYMeA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Request Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RequestData1
-     : IIsoXmlSerilizable<RequestData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RequestData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RequestData1( System.String reqMessageIdentification,System.String reqRequestType,System.DateOnly reqRequestedActivationDate,PartyIdentification73Choice_ reqNetServiceParticipantIdentification )
+    {
+        MessageIdentification = reqMessageIdentification;
+        RequestType = reqRequestType;
+        RequestedActivationDate = reqRequestedActivationDate;
+        NetServiceParticipantIdentification = reqNetServiceParticipantIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the message.
     /// </summary>
+    [IsoId("_F1X_IJVGEeaYkf5FCqYMeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the type of request.
     /// </summary>
+    [IsoId("_V4DYkJVGEeaYkf5FCqYMeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4Text RequestType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RequestType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RequestType { get; init; } 
+    #else
+    public System.String RequestType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the business date on which the new netting cut off(s) is (are) to be activated.
     /// </summary>
+    [IsoId("_9-M4EZnmEeaKH-pm9fIa8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Activation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate RequestedActivationDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly RequestedActivationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly RequestedActivationDate { get; init; } 
+    #else
+    public System.DateOnly RequestedActivationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the central system servicing the request.
     /// </summary>
+    [IsoId("_PFii8JVGEeaYkf5FCqYMeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? RequestServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? RequestServicer { get; init; } 
+    #else
+    public PartyIdentification73Choice_? RequestServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the participant issuing the request.
     /// </summary>
+    [IsoId("_1xniEZnvEeahw7LV9elg3w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Service Participant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
+    #else
+    public PartyIdentification73Choice_ NetServiceParticipantIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>
+    [IsoId("_l9h34ZnnEeaKH-pm9fIa8w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Service Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NetServiceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NetServiceType { get; init; } 
+    #else
+    public System.String? NetServiceType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReqTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4Text(RequestType)); // data type Max4Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReqdActvtnDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(RequestedActivationDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (RequestServicer is PartyIdentification73Choice_ RequestServicerValue)
-        {
-            writer.WriteStartElement(null, "ReqSvcr", xmlNamespace );
-            RequestServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "NetSvcPtcptId", xmlNamespace );
-        NetServiceParticipantIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (NetServiceType is IsoMax35Text NetServiceTypeValue)
-        {
-            writer.WriteStartElement(null, "NetSvcTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NetServiceTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RequestData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

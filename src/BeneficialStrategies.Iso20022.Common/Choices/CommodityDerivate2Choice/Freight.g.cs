@@ -9,47 +9,98 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
-
-/// <summary>
-/// Details specific to freight derivatives.
-/// </summary>
-public partial record Freight : CommodityDerivate2Choice_
-     , IIsoXmlSerilizable<Freight>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specification of the size related to the freight sub type. Field to be populated when the base product field is equal to freight.
+    /// Details specific to freight derivatives.
     /// </summary>
-    public required IsoMax25Text Size { get; init; } 
-    /// <summary>
-    /// Details the specific route or time charter average. Field to be populated when the base product field is equal to freight.
-    /// </summary>
-    public required IsoMax25Text AverageTimeCharter { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_zwLKwWlHEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Freight")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Freight : CommodityDerivate2Choice_
+    #else
+    public partial class Freight : CommodityDerivate2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Sz", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax25Text(Size)); // data type Max25Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AvrgTmChrtr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax25Text(AverageTimeCharter)); // data type Max25Text System.String
-        writer.WriteEndElement();
-    }
-    public static new Freight Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Freight instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Freight( System.String reqSize,System.String reqAverageTimeCharter )
+        {
+            Size = reqSize;
+            AverageTimeCharter = reqAverageTimeCharter;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specification of the size related to the freight sub type. Field to be populated when the base product field is equal to freight.
+        /// </summary>
+        [IsoId("_z5EBAWlHEeaLAKoEUNsD9g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Size")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 25 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax25Text Size { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Size { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Size { get; init; } 
+        #else
+        public System.String Size { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details the specific route or time charter average. Field to be populated when the base product field is equal to freight.
+        /// </summary>
+        [IsoId("_z5EBA2lHEeaLAKoEUNsD9g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Average Time Charter")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 25 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax25Text AverageTimeCharter { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String AverageTimeCharter { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String AverageTimeCharter { get; init; } 
+        #else
+        public System.String AverageTimeCharter { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

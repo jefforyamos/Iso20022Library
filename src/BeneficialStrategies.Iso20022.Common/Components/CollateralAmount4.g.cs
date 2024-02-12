@@ -7,113 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Securities collateral position valuation amounts.
 /// </summary>
+[IsoId("_6b5HwM4FEeiirviLm7P0IA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralAmount4
-     : IIsoXmlSerilizable<CollateralAmount4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralAmount4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralAmount4( System.Decimal reqActualMarketValuePostValuationFactor )
+    {
+        ActualMarketValuePostValuationFactor = reqActualMarketValuePostValuationFactor;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Actual market value post valuation factor expressed in the collateral currency (denomination currency of the security). For cash, it is the value post haircut. 
     /// </summary>
+    [IsoId("_coNAEM4GEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Market Value Post Valuation Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostValuationFactor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ActualMarketValuePostValuationFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ActualMarketValuePostValuationFactor { get; init; } 
+    #else
+    public System.Decimal ActualMarketValuePostValuationFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual market value before valuation factor expressed in the collateral currency (denomination currency of the security). For cash, it is the value before haircut.
     /// </summary>
+    [IsoId("_v3K54M4HEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Market Value Before Valuation Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeValuationFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ActualMarketValueBeforeValuationFactor { get; init; } 
+    #else
+    public System.Decimal? ActualMarketValueBeforeValuationFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
+    [IsoId("_kZi1cM4GEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Collateral In Transaction Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExposureCollateralInTransactionCurrency { get; init; } 
+    #else
+    public System.Decimal? ExposureCollateralInTransactionCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
+    [IsoId("_u_ECoM4GEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Collateral In Reporting Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExposureCollateralInReportingCurrency { get; init; } 
+    #else
+    public System.Decimal? ExposureCollateralInReportingCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market  value post valuation factor expressed in the transaction currency. For cash, it is the value post haircut. 
     /// </summary>
+    [IsoId("_GzsVcM4HEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value Amount Post Valuation Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostValuationFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketValueAmountPostValuationFactor { get; init; } 
+    #else
+    public System.Decimal? MarketValueAmountPostValuationFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market value before valuation factor expressed in the transaction currency. For cash, it is the value before haircut.
     /// </summary>
+    [IsoId("_TSKBQM4HEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value Amount Before Valuation Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeValuationFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketValueAmountBeforeValuationFactor { get; init; } 
+    #else
+    public System.Decimal? MarketValueAmountBeforeValuationFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of own collateral in the reporting currency.
     /// </summary>
+    [IsoId("_qECsga_fEeqMo4JxiuZGSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Value Of Own Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfOwnCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalValueOfOwnCollateral { get; init; } 
+    #else
+    public System.Decimal? TotalValueOfOwnCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of reused/rehypotheticated collateral in the reporting currency.
     /// </summary>
+    [IsoId("_rznzwa_fEeqMo4JxiuZGSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Value Of Reused Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfReusedCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalValueOfReusedCollateral { get; init; } 
+    #else
+    public System.Decimal? TotalValueOfReusedCollateral { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActlMktValPstValtnFctr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ActualMarketValuePostValuationFactor)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (ActualMarketValueBeforeValuationFactor is IsoActiveOrHistoricCurrencyAndAmount ActualMarketValueBeforeValuationFactorValue)
-        {
-            writer.WriteStartElement(null, "ActlMktValBfrValtnFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ActualMarketValueBeforeValuationFactorValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExposureCollateralInTransactionCurrency is IsoActiveOrHistoricCurrencyAndAmount ExposureCollateralInTransactionCurrencyValue)
-        {
-            writer.WriteStartElement(null, "XpsrCollInTxCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExposureCollateralInTransactionCurrencyValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExposureCollateralInReportingCurrency is IsoActiveOrHistoricCurrencyAndAmount ExposureCollateralInReportingCurrencyValue)
-        {
-            writer.WriteStartElement(null, "XpsrCollInRptgCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExposureCollateralInReportingCurrencyValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketValueAmountPostValuationFactor is IsoActiveOrHistoricCurrencyAndAmount MarketValueAmountPostValuationFactorValue)
-        {
-            writer.WriteStartElement(null, "MktValAmtPstValtnFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueAmountPostValuationFactorValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketValueAmountBeforeValuationFactor is IsoActiveOrHistoricCurrencyAndAmount MarketValueAmountBeforeValuationFactorValue)
-        {
-            writer.WriteStartElement(null, "MktValAmtBfrValtnFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueAmountBeforeValuationFactorValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalValueOfOwnCollateral is IsoActiveOrHistoricCurrencyAndAmount TotalValueOfOwnCollateralValue)
-        {
-            writer.WriteStartElement(null, "TtlValOfOwnColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalValueOfOwnCollateralValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalValueOfReusedCollateral is IsoActiveOrHistoricCurrencyAndAmount TotalValueOfReusedCollateralValue)
-        {
-            writer.WriteStartElement(null, "TtlValOfReusdColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalValueOfReusedCollateralValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralAmount4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

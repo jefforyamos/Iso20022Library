@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the underlying (group of) transaction(s) to which the resolution of investigation applies.
 /// </summary>
+[IsoId("_r4psgYlrEeePr-EGJjGYzQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Underlying Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnderlyingTransaction19
-     : IIsoXmlSerilizable<UnderlyingTransaction19>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information on the original cancellation message, to which the resolution refers.
     /// </summary>
+    [IsoId("_sHR-Y4lrEeePr-EGJjGYzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Group Information And Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupHeader9? OriginalGroupInformationAndStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalGroupHeader9? OriginalGroupInformationAndStatus { get; init; } 
+    #else
+    public OriginalGroupHeader9? OriginalGroupInformationAndStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the original (group of) transactions, to which the cancellation status refers.
     /// </summary>
+    [IsoId("_sHR-ZYlrEeePr-EGJjGYzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information And Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInstruction26? OriginalPaymentInformationAndStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalPaymentInstruction26? OriginalPaymentInformationAndStatus { get; init; } 
+    #else
+    public OriginalPaymentInstruction26? OriginalPaymentInformationAndStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the original transactions to which the cancellation request message refers.
     /// </summary>
+    [IsoId("_sHR-Z4lrEeePr-EGJjGYzQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Information And Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction85? TransactionInformationAndStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTransaction85? TransactionInformationAndStatus { get; init; } 
+    #else
+    public PaymentTransaction85? TransactionInformationAndStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalGroupInformationAndStatus is OriginalGroupHeader9 OriginalGroupInformationAndStatusValue)
-        {
-            writer.WriteStartElement(null, "OrgnlGrpInfAndSts", xmlNamespace );
-            OriginalGroupInformationAndStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalPaymentInformationAndStatus is OriginalPaymentInstruction26 OriginalPaymentInformationAndStatusValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPmtInfAndSts", xmlNamespace );
-            OriginalPaymentInformationAndStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionInformationAndStatus is PaymentTransaction85 TransactionInformationAndStatusValue)
-        {
-            writer.WriteStartElement(null, "TxInfAndSts", xmlNamespace );
-            TransactionInformationAndStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static UnderlyingTransaction19 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
+[IsoId("_ucGeUa-VEeWJvLRJ8PsD_w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransactionAmounts8
-     : IIsoXmlSerilizable<ATMTransactionAmounts8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Default currency of the limits.
     /// </summary>
+    [IsoId("_uoeGYa-VEeWJvLRJ8PsD_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum amount allowed for a transaction in the service.
     /// </summary>
+    [IsoId("_uoeGY6-VEeWJvLRJ8PsD_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Possible Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumPossibleAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumPossibleAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum amount allowed for a transaction in the service.
     /// </summary>
+    [IsoId("_uoeGZa-VEeWJvLRJ8PsD_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Possible Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumPossibleAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumPossibleAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
     /// </summary>
+    [IsoId("_uoeGZ6-VEeWJvLRJ8PsD_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts7? AdditionalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMTransactionAmounts7? AdditionalAmount { get; init; } 
+    #else
+    public ATMTransactionAmounts7? AdditionalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Limit of deposited media for the customer.
     /// </summary>
+    [IsoId("_3g-YIK-VEeWJvLRJ8PsD_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deposit Limits")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts9? DepositLimits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMTransactionAmounts9? DepositLimits { get; init; } 
+    #else
+    public ATMTransactionAmounts9? DepositLimits { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MaximumPossibleAmount is IsoImpliedCurrencyAndAmount MaximumPossibleAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxPssblAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumPossibleAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumPossibleAmount is IsoImpliedCurrencyAndAmount MinimumPossibleAmountValue)
-        {
-            writer.WriteStartElement(null, "MinPssblAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumPossibleAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdditionalAmount is ATMTransactionAmounts7 AdditionalAmountValue)
-        {
-            writer.WriteStartElement(null, "AddtlAmt", xmlNamespace );
-            AdditionalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositLimits is ATMTransactionAmounts9 DepositLimitsValue)
-        {
-            writer.WriteStartElement(null, "DpstLmts", xmlNamespace );
-            DepositLimitsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransactionAmounts8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

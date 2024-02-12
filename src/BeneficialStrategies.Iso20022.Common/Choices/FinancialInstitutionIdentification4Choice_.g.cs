@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
-/// </summary>
-[KnownType(typeof(FinancialInstitutionIdentification4Choice.BIC))]
-[KnownType(typeof(FinancialInstitutionIdentification4Choice.NameAndAddress))]
-public abstract partial record FinancialInstitutionIdentification4Choice_ : IIsoXmlSerilizable<FinancialInstitutionIdentification4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstitutionIdentification4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstitutionIdentification4Choice.BIC))]
+    [KnownType(typeof(FinancialInstitutionIdentification4Choice.NameAndAddress))]
+    [IsoId("_QEzlhtp-Ed-ak6NoX_4Aeg_-827596048")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution Identification 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstitutionIdentification4Choice_
+    #else
+    public abstract partial class FinancialInstitutionIdentification4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BIC" => FinancialInstitutionIdentification4Choice.BIC.Deserialize(elementWithPayload),
-             "NmAndAdr" => FinancialInstitutionIdentification4Choice.NameAndAddress.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstitutionIdentification4Choice choice.")
-        };
     }
 }

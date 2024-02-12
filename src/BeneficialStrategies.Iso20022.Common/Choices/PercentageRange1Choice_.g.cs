@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ranges of rates in which a percentage rate is considered valid or a specified percentage rate which has to be matched or unmatched to be valid.
-/// </summary>
-[KnownType(typeof(PercentageRange1Choice.From))]
-[KnownType(typeof(PercentageRange1Choice.To))]
-[KnownType(typeof(PercentageRange1Choice.FromTo))]
-[KnownType(typeof(PercentageRange1Choice.Equal))]
-[KnownType(typeof(PercentageRange1Choice.NotEqual))]
-public abstract partial record PercentageRange1Choice_ : IIsoXmlSerilizable<PercentageRange1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ranges of rates in which a percentage rate is considered valid or a specified percentage rate which has to be matched or unmatched to be valid.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PercentageRange1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PercentageRange1Choice.From))]
+    [KnownType(typeof(PercentageRange1Choice.To))]
+    [KnownType(typeof(PercentageRange1Choice.FromTo))]
+    [KnownType(typeof(PercentageRange1Choice.Equal))]
+    [KnownType(typeof(PercentageRange1Choice.NotEqual))]
+    [IsoId("_7_BRqKMgEeCJ6YNENx4h-w_249022340")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Range 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PercentageRange1Choice_
+    #else
+    public abstract partial class PercentageRange1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Fr" => PercentageRange1Choice.From.Deserialize(elementWithPayload),
-             "To" => PercentageRange1Choice.To.Deserialize(elementWithPayload),
-             "FrTo" => PercentageRange1Choice.FromTo.Deserialize(elementWithPayload),
-             "EQ" => PercentageRange1Choice.Equal.Deserialize(elementWithPayload),
-             "NEQ" => PercentageRange1Choice.NotEqual.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PercentageRange1Choice choice.")
-        };
     }
 }

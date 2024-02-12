@@ -9,73 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice;
-
-/// <summary>
-/// Portfolio is a general investment.
-/// </summary>
-public partial record GeneralInvestment : FundPortfolio2Choice_
-     , IIsoXmlSerilizable<GeneralInvestment>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of investment.
+    /// Portfolio is a general investment.
     /// </summary>
-    public GeneralInvestmentAccountType1Choice_? Type { get; init; } 
-    /// <summary>
-    /// Amount of money invested.
-    /// </summary>
-    public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
-    /// <summary>
-    /// Estimated value of the assets.
-    /// </summary>
-    public DateAndAmount2? EstimatedValue { get; init; } 
-    /// <summary>
-    /// Additional information about the portfolio.
-    /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_pEam004aEeiQHa-q1Uephw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Investment")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record GeneralInvestment : FundPortfolio2Choice_
+    #else
+    public partial class GeneralInvestment : FundPortfolio2Choice_
+    #endif
     {
-        if (Type is GeneralInvestmentAccountType1Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrentInvestmentAmount is IsoActiveCurrencyAnd13DecimalAmount CurrentInvestmentAmountValue)
-        {
-            writer.WriteStartElement(null, "CurInvstmtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CurrentInvestmentAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EstimatedValue is DateAndAmount2 EstimatedValueValue)
-        {
-            writer.WriteStartElement(null, "EstmtdVal", xmlNamespace );
-            EstimatedValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new GeneralInvestment Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of investment.
+        /// </summary>
+        [IsoId("_lboOIE4NEeiQHa-q1Uephw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public GeneralInvestmentAccountType1Choice_? Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GeneralInvestmentAccountType1Choice_? Type { get; init; } 
+        #else
+        public GeneralInvestmentAccountType1Choice_? Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of money invested.
+        /// </summary>
+        [IsoId("_JnLksqqwEeirN7VYUwRpeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Current Investment Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? CurrentInvestmentAmount { get; init; } 
+        #else
+        public System.Decimal? CurrentInvestmentAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Estimated value of the assets.
+        /// </summary>
+        [IsoId("_JnLks6qwEeirN7VYUwRpeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Estimated Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DateAndAmount2? EstimatedValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateAndAmount2? EstimatedValue { get; init; } 
+        #else
+        public DateAndAmount2? EstimatedValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the portfolio.
+        /// </summary>
+        [IsoId("_yHL6wE4NEeiQHa-q1Uephw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #else
+        public AdditionalInformation15? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

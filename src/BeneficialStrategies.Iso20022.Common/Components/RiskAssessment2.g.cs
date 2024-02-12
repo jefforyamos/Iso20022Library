@@ -7,136 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates to the card issuer the level of risk associated with the transaction.
 /// </summary>
+[IsoId("_hh16scSsEeuBjv5G5kw00g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Risk Assessment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RiskAssessment2
-     : IIsoXmlSerilizable<RiskAssessment2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Entity providing an intermediate result of a risk assessment process.
     /// </summary>
+    [IsoId("_hm9rQcSsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Assessment Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification200? RiskAssessmentEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification200? RiskAssessmentEntity { get; init; } 
+    #else
+    public PartyIdentification200? RiskAssessmentEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of risk assessment.
     /// </summary>
+    [IsoId("_hm9rQ8SsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Assessment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RiskAssessmentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RiskAssessmentType { get; init; } 
+    #else
+    public System.String? RiskAssessmentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction is identified as high risk.
     /// </summary>
+    [IsoId("_xNnQAMSsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("High Risk Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? HighRiskTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HighRiskTransaction { get; init; } 
+    #else
+    public System.String? HighRiskTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for indicating a certain level of risk for the transaction.
     /// </summary>
+    [IsoId("_hm9rRcSsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reason { get; init; } 
+    #else
+    public System.String? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Risk assessment result.
     /// </summary>
+    [IsoId("_hm9rR8SsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Result { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Result { get; init; } 
+    #else
+    public System.String? Result { get; set; } 
+    #endif
+    
     /// <summary>
     /// Conditions noted for the risk assessment.
     /// </summary>
+    [IsoId("_3xgWYMVSEeuPIIgba4mCug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Risk Condition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? RiskCondition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? RiskCondition { get; init; } 
+    #else
+    public AdditionalData1? RiskCondition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional risk data associated with the transaction.
     /// </summary>
+    [IsoId("_hm9rScSsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Risk Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalRiskData1? AdditionalRiskData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalRiskData1? AdditionalRiskData { get; init; } 
+    #else
+    public AdditionalRiskData1? AdditionalRiskData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Recommended action based on risk assessment.
     /// </summary>
+    [IsoId("_hm9rS8SsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recommended Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionType8Code? RecommendedAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionType8Code? RecommendedAction { get; init; } 
+    #else
+    public ActionType8Code? RecommendedAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other recommended action based on risk assessment defined at national or private level.
     /// </summary>
+    [IsoId("_hm9rTcSsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Recommended Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherRecommendedAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherRecommendedAction { get; init; } 
+    #else
+    public System.String? OtherRecommendedAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional details of recommended action or other recommended action. 
     /// </summary>
+    [IsoId("_hm9rT8SsEeuBjv5G5kw00g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recommended Action Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? RecommendedActionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RecommendedActionDetails { get; init; } 
+    #else
+    public System.String? RecommendedActionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RiskAssessmentEntity is PartyIdentification200 RiskAssessmentEntityValue)
-        {
-            writer.WriteStartElement(null, "RskAssmntNtty", xmlNamespace );
-            RiskAssessmentEntityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RiskAssessmentType is IsoMax35Text RiskAssessmentTypeValue)
-        {
-            writer.WriteStartElement(null, "RskAssmntTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RiskAssessmentTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (HighRiskTransaction is IsoTrueFalseIndicator HighRiskTransactionValue)
-        {
-            writer.WriteStartElement(null, "HghRskTx", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HighRiskTransactionValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Reason is IsoMax35Text ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Result is IsoMax35Text ResultValue)
-        {
-            writer.WriteStartElement(null, "Rslt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResultValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RiskCondition is AdditionalData1 RiskConditionValue)
-        {
-            writer.WriteStartElement(null, "RskCond", xmlNamespace );
-            RiskConditionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalRiskData is AdditionalRiskData1 AdditionalRiskDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlRskData", xmlNamespace );
-            AdditionalRiskDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RecommendedAction is ActionType8Code RecommendedActionValue)
-        {
-            writer.WriteStartElement(null, "RcmmnddActn", xmlNamespace );
-            writer.WriteValue(RecommendedActionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherRecommendedAction is IsoMax35Text OtherRecommendedActionValue)
-        {
-            writer.WriteStartElement(null, "OthrRcmmnddActn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherRecommendedActionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RecommendedActionDetails is IsoMax256Text RecommendedActionDetailsValue)
-        {
-            writer.WriteStartElement(null, "RcmmnddActnDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(RecommendedActionDetailsValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RiskAssessment2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

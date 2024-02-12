@@ -7,84 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash premium made available if the securities holder consents or participates to an event.
 /// </summary>
+[IsoId("_TjIGjtp-Ed-ak6NoX_4Aeg_-593608139")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Incentive Premium")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IncentivePremium2
-     : IIsoXmlSerilizable<IncentivePremium2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IncentivePremium2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IncentivePremium2( PriceRateOrAmountChoice_ reqAmount,System.UInt64 reqPerSecurity,System.UInt64 reqPerVote,System.String reqPerAttendee )
+    {
+        Amount = reqAmount;
+        PerSecurity = reqPerSecurity;
+        PerVote = reqPerVote;
+        PerAttendee = reqPerAttendee;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Description of the premium.
     /// </summary>
+    [IsoId("_TjR3gNp-Ed-ak6NoX_4Aeg_-593607912")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash premium paid per security, per vote or per attendee.
     /// </summary>
+    [IsoId("_TjR3gdp-Ed-ak6NoX_4Aeg_-593607904")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountChoice_ Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceRateOrAmountChoice_ Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceRateOrAmountChoice_ Amount { get; init; } 
+    #else
+    public PriceRateOrAmountChoice_ Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of securities giving right to a premium.
     /// </summary>
+    [IsoId("_TjR3gtp-Ed-ak6NoX_4Aeg_-593607879")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Per Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber PerSecurity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 PerSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 PerSecurity { get; init; } 
+    #else
+    public System.UInt64 PerSecurity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes giving right to a premium.
     /// </summary>
+    [IsoId("_TjR3g9p-Ed-ak6NoX_4Aeg_-593607844")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Per Vote")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber PerVote { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 PerVote { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 PerVote { get; init; } 
+    #else
+    public System.UInt64 PerVote { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the premium is given per attendee.
     /// </summary>
+    [IsoId("_TjR3hNp-Ed-ak6NoX_4Aeg_-593607819")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Per Attendee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PerAttendee { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PerAttendee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PerAttendee { get; init; } 
+    #else
+    public System.String PerAttendee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time for the payment of the premium.
     /// </summary>
+    [IsoId("_TjR3hdp-Ed-ak6NoX_4Aeg_-593607802")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat3Choice_? PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat3Choice_? PaymentDate { get; init; } 
+    #else
+    public DateFormat3Choice_? PaymentDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Description is IsoMax350Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        Amount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PerScty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(PerSecurity)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PerVote", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(PerVote)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PerAttndee", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PerAttendee)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (PaymentDate is DateFormat3Choice_ PaymentDateValue)
-        {
-            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-            PaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static IncentivePremium2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

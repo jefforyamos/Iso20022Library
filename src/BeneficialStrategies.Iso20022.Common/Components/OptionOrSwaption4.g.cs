@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Option or swaption related attributes.
 /// </summary>
+[IsoId("_5YqYgagAEeW_OId9wS8dsQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option Or Swaption")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OptionOrSwaption4
-     : IIsoXmlSerilizable<OptionOrSwaption4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the Option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [IsoId("_5xdTAagAEeW_OId9wS8dsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType2Code? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType2Code? OptionType { get; init; } 
+    #else
+    public OptionType2Code? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
+    [IsoId("_5xdTA6gAEeW_OId9wS8dsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice3Choice_? StrikePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionPrice3Choice_? StrikePrice { get; init; } 
+    #else
+    public SecuritiesTransactionPrice3Choice_? StrikePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
+    [IsoId("_5xdTB6gAEeW_OId9wS8dsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Exercise Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle6Code? OptionExerciseStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle6Code? OptionExerciseStyle { get; init; } 
+    #else
+    public OptionStyle6Code? OptionExerciseStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// In case of swaptions, maturity date of the underlying swap.
     /// </summary>
+    [IsoId("_5xdTCagAEeW_OId9wS8dsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date Of Underlying")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDateOfUnderlying { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? MaturityDateOfUnderlying { get; init; } 
+    #else
+    public System.DateOnly? MaturityDateOfUnderlying { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OptionType is OptionType2Code OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (StrikePrice is SecuritiesTransactionPrice3Choice_ StrikePriceValue)
-        {
-            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
-            StrikePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OptionExerciseStyle is OptionStyle6Code OptionExerciseStyleValue)
-        {
-            writer.WriteStartElement(null, "OptnExrcStyle", xmlNamespace );
-            writer.WriteValue(OptionExerciseStyleValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MaturityDateOfUnderlying is IsoISODate MaturityDateOfUnderlyingValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDtOfUndrlyg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateOfUnderlyingValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static OptionOrSwaption4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of different types of portfolio.
-/// </summary>
-[KnownType(typeof(FundPortfolio8Choice.TaxEfficientProduct))]
-[KnownType(typeof(FundPortfolio8Choice.GeneralInvestment))]
-[KnownType(typeof(FundPortfolio8Choice.Pension))]
-public abstract partial record FundPortfolio8Choice_ : IIsoXmlSerilizable<FundPortfolio8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of different types of portfolio.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FundPortfolio8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FundPortfolio8Choice.TaxEfficientProduct))]
+    [KnownType(typeof(FundPortfolio8Choice.GeneralInvestment))]
+    [KnownType(typeof(FundPortfolio8Choice.Pension))]
+    [IsoId("_X_g32elqEeuvhrZwLF0fDg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Portfolio 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FundPortfolio8Choice_
+    #else
+    public abstract partial class FundPortfolio8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "TaxEffcntPdct" => FundPortfolio8Choice.TaxEfficientProduct.Deserialize(elementWithPayload),
-             "GnlInvstmt" => FundPortfolio8Choice.GeneralInvestment.Deserialize(elementWithPayload),
-             "Pnsn" => FundPortfolio8Choice.Pension.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FundPortfolio8Choice choice.")
-        };
     }
 }

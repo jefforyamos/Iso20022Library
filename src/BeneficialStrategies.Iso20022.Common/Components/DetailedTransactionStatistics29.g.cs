@@ -7,77 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about number of transactions accepted and rejected and the reasons of the rejections.
 /// </summary>
+[IsoId("_x_mYtVyGEe24CqbZJK5XxA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Detailed Transaction Statistics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DetailedTransactionStatistics29
-     : IIsoXmlSerilizable<DetailedTransactionStatistics29>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DetailedTransactionStatistics29 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DetailedTransactionStatistics29( System.String reqTotalNumberOfTransactions,StatisticsPerActionType1 reqTotalNumberOfTransactionsAccepted,StatisticsPerActionType1 reqTotalNumberOfTransactionsRejected )
+    {
+        TotalNumberOfTransactions = reqTotalNumberOfTransactions;
+        TotalNumberOfTransactionsAccepted = reqTotalNumberOfTransactionsAccepted;
+        TotalNumberOfTransactionsRejected = reqTotalNumberOfTransactionsRejected;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
+    [IsoId("_yAw2UVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfTransactions { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TotalNumberOfTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TotalNumberOfTransactions { get; init; } 
+    #else
+    public System.String TotalNumberOfTransactions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of transactions accepted.
     /// </summary>
+    [IsoId("_yAw2U1yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Transactions Accepted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
+    #else
+    public StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of transactions rejected.
     /// </summary>
+    [IsoId("_yAw2VVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Transactions Rejected")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
+    #else
+    public StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty which were then corrected within ten business days.
     /// </summary>
+    [IsoId("_yAw2V1yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Corrected Rejections")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsPerActionType1? TotalCorrectedRejections { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatisticsPerActionType1? TotalCorrectedRejections { get; init; } 
+    #else
+    public StatisticsPerActionType1? TotalCorrectedRejections { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details on transactions rejected per error code.
     /// </summary>
+    [IsoId("_yAw2WVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transactions Rejections Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RejectionReason71? TransactionsRejectionsReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectionReason71? TransactionsRejectionsReason { get; init; } 
+    #else
+    public RejectionReason71? TransactionsRejectionsReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfTransactions)); // data type Max15NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlNbOfTxsAccptd", xmlNamespace );
-        TotalNumberOfTransactionsAccepted.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlNbOfTxsRjctd", xmlNamespace );
-        TotalNumberOfTransactionsRejected.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TotalCorrectedRejections is StatisticsPerActionType1 TotalCorrectedRejectionsValue)
-        {
-            writer.WriteStartElement(null, "TtlCrrctdRjctns", xmlNamespace );
-            TotalCorrectedRejectionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionsRejectionsReason is RejectionReason71 TransactionsRejectionsReasonValue)
-        {
-            writer.WriteStartElement(null, "TxsRjctnsRsn", xmlNamespace );
-            TransactionsRejectionsReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DetailedTransactionStatistics29 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

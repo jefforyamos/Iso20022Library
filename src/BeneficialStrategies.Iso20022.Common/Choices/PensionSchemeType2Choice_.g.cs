@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for a type of pension scheme.
-/// </summary>
-[KnownType(typeof(PensionSchemeType2Choice.Code))]
-[KnownType(typeof(PensionSchemeType2Choice.Proprietary))]
-public abstract partial record PensionSchemeType2Choice_ : IIsoXmlSerilizable<PensionSchemeType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for a type of pension scheme.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PensionSchemeType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PensionSchemeType2Choice.Code))]
+    [KnownType(typeof(PensionSchemeType2Choice.Proprietary))]
+    [IsoId("_CELmwTOUEeqLMcD_sEa8Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pension Scheme Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PensionSchemeType2Choice_
+    #else
+    public abstract partial class PensionSchemeType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => PensionSchemeType2Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => PensionSchemeType2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PensionSchemeType2Choice choice.")
-        };
     }
 }

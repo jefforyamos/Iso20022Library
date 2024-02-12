@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[IsoId("_DoJXEQgBEeSaceXTzyiZRg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unit Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnitPrice20
-     : IIsoXmlSerilizable<UnitPrice20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UnitPrice20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UnitPrice20( UnitPriceType2Choice_ reqPriceType,PriceValue1 reqValue )
+    {
+        PriceType = reqPriceType;
+        Value = reqValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of price.
     /// </summary>
+    [IsoId("_Iz8tkQgBEeSaceXTzyiZRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPriceType2Choice_ PriceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnitPriceType2Choice_ PriceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitPriceType2Choice_ PriceType { get; init; } 
+    #else
+    public UnitPriceType2Choice_ PriceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the price, that is, as a currency and value.
     /// </summary>
+    [IsoId("_EDeoOQgBEeSaceXTzyiZRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValue1 Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceValue1 Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue1 Value { get; init; } 
+    #else
+    public PriceValue1 Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [IsoId("_EDeoOwgBEeSaceXTzyiZRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceMethod1Code? PriceMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceMethod1Code? PriceMethod { get; init; } 
+    #else
+    public PriceMethod1Code? PriceMethod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PricTp", xmlNamespace );
-        PriceType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PriceMethod is PriceMethod1Code PriceMethodValue)
-        {
-            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
-            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static UnitPrice20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

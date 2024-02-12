@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Signed face amount and amortised value.
 /// </summary>
+[IsoId("_QzvvKdp-Ed-ak6NoX_4Aeg_-1494252441")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original And Current Quantities")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalAndCurrentQuantities2
-     : IIsoXmlSerilizable<OriginalAndCurrentQuantities2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OriginalAndCurrentQuantities2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OriginalAndCurrentQuantities2( ShortLong1Code reqShortLongPosition,System.Decimal reqFaceAmount,System.Decimal reqAmortisedValue )
+    {
+        ShortLongPosition = reqShortLongPosition;
+        FaceAmount = reqFaceAmount;
+        AmortisedValue = reqAmortisedValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
+    [IsoId("_QzvvKtp-Ed-ak6NoX_4Aeg_1141154635")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Long Position")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShortLong1Code ShortLongPosition { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ShortLong1Code ShortLongPosition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ShortLong1Code ShortLongPosition { get; init; } 
+    #else
+    public ShortLong1Code ShortLongPosition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity expressed as an amount representing the face amount, that is, the principal, of a debt instrument.
     /// </summary>
+    [IsoId("_QzvvK9p-Ed-ak6NoX_4Aeg_-1124847199")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Face Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount FaceAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal FaceAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal FaceAmount { get; init; } 
+    #else
+    public System.Decimal FaceAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
     /// </summary>
+    [IsoId("_QzvvLNp-Ed-ak6NoX_4Aeg_-1124846922")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amortised Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount AmortisedValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal AmortisedValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal AmortisedValue { get; init; } 
+    #else
+    public System.Decimal AmortisedValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
-        writer.WriteValue(ShortLongPosition.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FaceAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FaceAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AmtsdVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmortisedValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static OriginalAndCurrentQuantities2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

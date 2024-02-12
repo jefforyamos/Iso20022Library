@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Information about a party's account.
-/// </summary>
-[KnownType(typeof(AccountParties5Choice.PrimaryOwner))]
-[KnownType(typeof(AccountParties5Choice.Trustee))]
-[KnownType(typeof(AccountParties5Choice.CustodianForMinor))]
-[KnownType(typeof(AccountParties5Choice.Nominee))]
-[KnownType(typeof(AccountParties5Choice.JointOwner))]
-public abstract partial record AccountParties5Choice_ : IIsoXmlSerilizable<AccountParties5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Information about a party's account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountParties5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountParties5Choice.PrimaryOwner))]
+    [KnownType(typeof(AccountParties5Choice.Trustee))]
+    [KnownType(typeof(AccountParties5Choice.CustodianForMinor))]
+    [KnownType(typeof(AccountParties5Choice.Nominee))]
+    [KnownType(typeof(AccountParties5Choice.JointOwner))]
+    [IsoId("_Ff6rBQhDEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Parties 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountParties5Choice_
+    #else
+    public abstract partial class AccountParties5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PmryOwnr" => AccountParties5Choice.PrimaryOwner.Deserialize(elementWithPayload),
-             "Trstee" => AccountParties5Choice.Trustee.Deserialize(elementWithPayload),
-             "CtdnForMnr" => AccountParties5Choice.CustodianForMinor.Deserialize(elementWithPayload),
-             "Nmnee" => AccountParties5Choice.Nominee.Deserialize(elementWithPayload),
-             "JntOwnr" => AccountParties5Choice.JointOwner.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountParties5Choice choice.")
-        };
     }
 }

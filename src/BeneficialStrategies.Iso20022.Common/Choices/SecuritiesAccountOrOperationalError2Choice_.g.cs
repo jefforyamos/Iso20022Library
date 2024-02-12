@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Set of elements used to report between the securities account reference data or an operational error.
-/// </summary>
-[KnownType(typeof(SecuritiesAccountOrOperationalError2Choice.SecuritiesAccountReport))]
-[KnownType(typeof(SecuritiesAccountOrOperationalError2Choice.OperationalError))]
-public abstract partial record SecuritiesAccountOrOperationalError2Choice_ : IIsoXmlSerilizable<SecuritiesAccountOrOperationalError2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Set of elements used to report between the securities account reference data or an operational error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesAccountOrOperationalError2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesAccountOrOperationalError2Choice.SecuritiesAccountReport))]
+    [KnownType(typeof(SecuritiesAccountOrOperationalError2Choice.OperationalError))]
+    [IsoId("_txDqoeGEEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Or Operational Error 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesAccountOrOperationalError2Choice_
+    #else
+    public abstract partial class SecuritiesAccountOrOperationalError2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesAcctRpt" => SecuritiesAccountOrOperationalError2Choice.SecuritiesAccountReport.Deserialize(elementWithPayload),
-             "OprlErr" => SecuritiesAccountOrOperationalError2Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesAccountOrOperationalError2Choice choice.")
-        };
     }
 }

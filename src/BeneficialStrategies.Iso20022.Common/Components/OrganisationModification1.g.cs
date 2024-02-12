@@ -7,164 +7,310 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information which describes the organisation.
 /// </summary>
+[IsoId("_PMqLQQ4iEeK3IMoVvcTkkg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Organisation Modification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OrganisationModification1
-     : IIsoXmlSerilizable<OrganisationModification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OrganisationModification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OrganisationModification1( FullLegalNameModification1 reqFullLegalName,string reqCountryOfOperation,AddressModification1 reqLegalAddress,OrganisationIdentification8 reqOrganisationIdentification )
+    {
+        FullLegalName = reqFullLegalName;
+        CountryOfOperation = reqCountryOfOperation;
+        LegalAddress = reqLegalAddress;
+        OrganisationIdentification = reqOrganisationIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [IsoId("_Ph-T9Q4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Legal Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FullLegalNameModification1 FullLegalName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FullLegalNameModification1 FullLegalName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FullLegalNameModification1 FullLegalName { get; init; } 
+    #else
+    public FullLegalNameModification1 FullLegalName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
+    [IsoId("_Ph-T_A4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingNameModification1? TradingName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingNameModification1? TradingName { get; init; } 
+    #else
+    public TradingNameModification1? TradingName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which the organisation has its business activity.
     /// </summary>
+    [IsoId("_Ph-UAw4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Of Operation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode CountryOfOperation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string CountryOfOperation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string CountryOfOperation { get; init; } 
+    #else
+    public string CountryOfOperation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
+    [IsoId("_Ph-UCg4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RegistrationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? RegistrationDate { get; init; } 
+    #else
+    public System.DateOnly? RegistrationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Is an operational address, for example, of a shared services center.
     /// </summary>
+    [IsoId("_Ph-UEQ4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Operational Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressModification1? OperationalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressModification1? OperationalAddress { get; init; } 
+    #else
+    public AddressModification1? OperationalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Is the address where the business activity is taking place.
     /// </summary>
+    [IsoId("_Ph-UGA4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressModification1? BusinessAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressModification1? BusinessAddress { get; init; } 
+    #else
+    public AddressModification1? BusinessAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Is the address where the entity resides and is registered. More generically, it is the home address (Residential address).
     /// </summary>
+    [IsoId("_Ph-UHw4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddressModification1 LegalAddress { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AddressModification1 LegalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressModification1 LegalAddress { get; init; } 
+    #else
+    public AddressModification1 LegalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address where invoices must be sent.
     /// </summary>
+    [IsoId("_Ph-UJg4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressModification1? BillingAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressModification1? BillingAddress { get; init; } 
+    #else
+    public AddressModification1? BillingAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous way of identifying an organisation.
     /// </summary>
+    [IsoId("_Ph-ULQ4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Organisation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification8 OrganisationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrganisationIdentification8 OrganisationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification8 OrganisationIdentification { get; init; } 
+    #else
+    public OrganisationIdentification8 OrganisationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person in the customer's organisation who can be contacted by the account servicer in relation to the account(s) identified in this instruction.
     /// </summary>
+    [IsoId("_Ph-UNA4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Representative Officer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyModification1? RepresentativeOfficer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyModification1? RepresentativeOfficer { get; init; } 
+    #else
+    public PartyModification1? RepresentativeOfficer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person responsible of the treasury department within the customer’s organisation.
     /// </summary>
+    [IsoId("_Ph-UOw4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Treasury Manager")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyModification1? TreasuryManager { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyModification1? TreasuryManager { get; init; } 
+    #else
+    public PartyModification1? TreasuryManager { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person that has the mandate to delegate authority, to assign mandates to other individuals (mandate holders) to perform specific bank operations on the account.
     /// </summary>
+    [IsoId("_Ph-UQg4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Main Mandate Holder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyModification1? MainMandateHolder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyModification1? MainMandateHolder { get; init; } 
+    #else
+    public PartyModification1? MainMandateHolder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person that may be the potential sender of a message related to the life cycle of the account.
     /// </summary>
+    [IsoId("_Ph-USQ4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyModification1? Sender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyModification1? Sender { get; init; } 
+    #else
+    public PartyModification1? Sender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person that is officially and legally mandated to represent the organisation. Depending on legislation, the legal representative(s) might for instance be assigned by the Board, identified in the by-laws of the organisation, be publicly announced in the official journal of a country, etc.
     /// </summary>
+    [IsoId("_Ph-UUA4iEeK3IMoVvcTkkg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Representative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyModification1? LegalRepresentative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyModification1? LegalRepresentative { get; init; } 
+    #else
+    public PartyModification1? LegalRepresentative { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FullLglNm", xmlNamespace );
-        FullLegalName.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TradingName is TradingNameModification1 TradingNameValue)
-        {
-            writer.WriteStartElement(null, "TradgNm", xmlNamespace );
-            TradingNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtryOfOpr", xmlNamespace );
-        writer.WriteValue(CountryOfOperation.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (RegistrationDate is IsoISODate RegistrationDateValue)
-        {
-            writer.WriteStartElement(null, "RegnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (OperationalAddress is AddressModification1 OperationalAddressValue)
-        {
-            writer.WriteStartElement(null, "OprlAdr", xmlNamespace );
-            OperationalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BusinessAddress is AddressModification1 BusinessAddressValue)
-        {
-            writer.WriteStartElement(null, "BizAdr", xmlNamespace );
-            BusinessAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "LglAdr", xmlNamespace );
-        LegalAddress.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (BillingAddress is AddressModification1 BillingAddressValue)
-        {
-            writer.WriteStartElement(null, "BllgAdr", xmlNamespace );
-            BillingAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrgId", xmlNamespace );
-        OrganisationIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (RepresentativeOfficer is PartyModification1 RepresentativeOfficerValue)
-        {
-            writer.WriteStartElement(null, "RprtvOffcr", xmlNamespace );
-            RepresentativeOfficerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TreasuryManager is PartyModification1 TreasuryManagerValue)
-        {
-            writer.WriteStartElement(null, "TrsrMgr", xmlNamespace );
-            TreasuryManagerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MainMandateHolder is PartyModification1 MainMandateHolderValue)
-        {
-            writer.WriteStartElement(null, "MainMndtHldr", xmlNamespace );
-            MainMandateHolderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Sender is PartyModification1 SenderValue)
-        {
-            writer.WriteStartElement(null, "Sndr", xmlNamespace );
-            SenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalRepresentative is PartyModification1 LegalRepresentativeValue)
-        {
-            writer.WriteStartElement(null, "LglRprtv", xmlNamespace );
-            LegalRepresentativeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OrganisationModification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different formats of securities quantity.
-/// </summary>
-[KnownType(typeof(Quantity52Choice.Code))]
-[KnownType(typeof(Quantity52Choice.OriginalAndCurrentFaceAmount))]
-[KnownType(typeof(Quantity52Choice.Quantity))]
-public abstract partial record Quantity52Choice_ : IIsoXmlSerilizable<Quantity52Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different formats of securities quantity.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Quantity52Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Quantity52Choice.Code))]
+    [KnownType(typeof(Quantity52Choice.OriginalAndCurrentFaceAmount))]
+    [KnownType(typeof(Quantity52Choice.Quantity))]
+    [IsoId("_OT3o3RuyEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity 52 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Quantity52Choice_
+    #else
+    public abstract partial class Quantity52Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => Quantity52Choice.Code.Deserialize(elementWithPayload),
-             "OrgnlAndCurFaceAmt" => Quantity52Choice.OriginalAndCurrentFaceAmount.Deserialize(elementWithPayload),
-             "Qty" => Quantity52Choice.Quantity.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Quantity52Choice choice.")
-        };
     }
 }

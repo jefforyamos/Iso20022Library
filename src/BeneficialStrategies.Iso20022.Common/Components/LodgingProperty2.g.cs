@@ -7,136 +7,241 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Company in charge of a lodging establishment
 /// </summary>
+[IsoId("_-3z8AcWlEeuhguwJmlgagQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Lodging Property")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LodgingProperty2
-     : IIsoXmlSerilizable<LodgingProperty2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LodgingProperty2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LodgingProperty2( PartyIdentification258 reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of accommodations.
     /// </summary>
+    [IsoId("_-8GmIcWlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LodgingActivity1Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LodgingActivity1Code? Type { get; init; } 
+    #else
+    public LodgingActivity1Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of lodging establishment when Other National or Other Private is selected as a type code. 
     /// </summary>
+    [IsoId("_-8GmI8WlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherType { get; init; } 
+    #else
+    public System.String? OtherType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier that describes the lodging establishment as a prestigious property. 
     /// </summary>
+    [IsoId("_-8GmJcWlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Prestigious Property")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PrestigiousProperty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PrestigiousProperty { get; init; } 
+    #else
+    public System.String? PrestigiousProperty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the property.
     /// </summary>
+    [IsoId("_-8GmJ8WlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the lodging company.
     /// </summary>
+    [IsoId("_-8GmKcWlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification258 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification258 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification258 Identification { get; init; } 
+    #else
+    public PartyIdentification258 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address of the property.
     /// </summary>
+    [IsoId("_-8GmK8WlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Location4? Location { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Location4? Location { get; init; } 
+    #else
+    public Location4? Location { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party in charge of assigning the identification.
     /// </summary>
+    [IsoId("_-8GmLcWlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assigner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompanyAssigner2Code? Assigner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompanyAssigner2Code? Assigner { get; init; } 
+    #else
+    public CompanyAssigner2Code? Assigner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact details at property.
     /// </summary>
+    [IsoId("_-8GmL8WlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact3? Contact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact3? Contact { get; init; } 
+    #else
+    public Contact3? Contact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the property.
     /// ISO 3166
     /// </summary>
+    [IsoId("_-8GmMcWlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOMax3ACountryCode? Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Country { get; init; } 
+    #else
+    public string? Country { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not the lodging facility complies with the US Hotel and Motel Fire Safety Act of 1990 (PL101-391) or similar legislation.
     /// True = in compliance
     /// False = not in compliance
     /// </summary>
+    [IsoId("_-8GmM8WlEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fire Safety Act Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FireSafetyActIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FireSafetyActIndicator { get; init; } 
+    #else
+    public System.String? FireSafetyActIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is LodgingActivity1Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherType is IsoMax35Text OtherTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PrestigiousProperty is IsoMax35Text PrestigiousPropertyValue)
-        {
-            writer.WriteStartElement(null, "PrstgsPrprty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PrestigiousPropertyValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax35Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Location is Location4 LocationValue)
-        {
-            writer.WriteStartElement(null, "Lctn", xmlNamespace );
-            LocationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Assigner is CompanyAssigner2Code AssignerValue)
-        {
-            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
-            writer.WriteValue(AssignerValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Contact is Contact3 ContactValue)
-        {
-            writer.WriteStartElement(null, "Ctct", xmlNamespace );
-            ContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Country is ISOMax3ACountryCode CountryValue)
-        {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(CountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FireSafetyActIndicator is IsoTrueFalseIndicator FireSafetyActIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FireSftyActInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FireSafetyActIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static LodgingProperty2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

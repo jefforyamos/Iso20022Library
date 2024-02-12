@@ -7,130 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[IsoId("_CCuPcUUOEeaFv6weEmLwpA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fee")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Fee2
-     : IIsoXmlSerilizable<Fee2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Fee2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Fee2( ChargeType5Choice_ reqType,System.String reqInformativeIndicator )
+    {
+        Type = reqType;
+        InformativeIndicator = reqInformativeIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
+    [IsoId("_CcA5MUUOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeType5Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ChargeType5Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeType5Choice_ Type { get; init; } 
+    #else
+    public ChargeType5Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method used to calculate the fee (charge/commission).
     /// </summary>
+    [IsoId("_CcA5M0UOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBasis2Choice_? Basis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeBasis2Choice_? Basis { get; init; } 
+    #else
+    public ChargeBasis2Choice_? Basis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Standard fee (charge/commission) amount as specified in the fund prospectus or agreed for the account.
     /// </summary>
+    [IsoId("_CcA5NUUOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standard Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StandardAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? StandardAmount { get; init; } 
+    #else
+    public System.Decimal? StandardAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Standard fee (charge/commission) rate used to calculate the amount of the charge or fee, as specified in the fund prospectus or agreed for the account.
     /// </summary>
+    [IsoId("_CcA5N0UOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standard Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? StandardRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? StandardRate { get; init; } 
+    #else
+    public System.Decimal? StandardRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Discount or waiver applied to the fee (charge/commission).
     /// </summary>
+    [IsoId("_DREWEFiPEeaMNZxYNthMeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeOrCommissionDiscount1? DiscountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeOrCommissionDiscount1? DiscountDetails { get; init; } 
+    #else
+    public ChargeOrCommissionDiscount1? DiscountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fee (charge/commission) amount applied to the transaction.
     /// </summary>
+    [IsoId("_CcA5PUUOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applied Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AppliedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AppliedAmount { get; init; } 
+    #else
+    public System.Decimal? AppliedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Final rate used to calculate the fee (charge/commission) amount.
     /// </summary>
+    [IsoId("_CcA5P0UOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applied Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AppliedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AppliedRate { get; init; } 
+    #else
+    public System.Decimal? AppliedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to a sales agreement that overrides normal processing or the Service Level Agreement (SLA), such as a fee (charge/commission).
     /// </summary>
+    [IsoId("_CcA5QUUOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Standard SLA Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NonStandardSLAReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NonStandardSLAReference { get; init; } 
+    #else
+    public System.String? NonStandardSLAReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party entitled to the amount of money resulting from a fee (charge/commission).
     /// </summary>
+    [IsoId("_CcA5Q0UOEeaFv6weEmLwpA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification113? RecipientIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification113? RecipientIdentification { get; init; } 
+    #else
+    public PartyIdentification113? RecipientIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the information is provided for information purposes only. When the value is ‘false’ or ‘0’ the amount provided is taken into consideration in the transaction overhead. When the value is ‘true’ or ‘1’ the amount provided is not taken into consideration in the transaction overhead.
     /// </summary>
+    [IsoId("_zeC8QGVSEeaL1uBLI51YHQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Informative Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator InformativeIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InformativeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InformativeIndicator { get; init; } 
+    #else
+    public System.String InformativeIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Basis is ChargeBasis2Choice_ BasisValue)
-        {
-            writer.WriteStartElement(null, "Bsis", xmlNamespace );
-            BasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandardAmount is IsoActiveCurrencyAndAmount StandardAmountValue)
-        {
-            writer.WriteStartElement(null, "StdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StandardAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (StandardRate is IsoPercentageRate StandardRateValue)
-        {
-            writer.WriteStartElement(null, "StdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(StandardRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DiscountDetails is ChargeOrCommissionDiscount1 DiscountDetailsValue)
-        {
-            writer.WriteStartElement(null, "DscntDtls", xmlNamespace );
-            DiscountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AppliedAmount is IsoActiveCurrencyAndAmount AppliedAmountValue)
-        {
-            writer.WriteStartElement(null, "ApldAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AppliedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AppliedRate is IsoPercentageRate AppliedRateValue)
-        {
-            writer.WriteStartElement(null, "ApldRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AppliedRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NonStandardSLAReference is IsoMax35Text NonStandardSLAReferenceValue)
-        {
-            writer.WriteStartElement(null, "NonStdSLARef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NonStandardSLAReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RecipientIdentification is PartyIdentification113 RecipientIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcptId", xmlNamespace );
-            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InftvInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InformativeIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static Fee2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

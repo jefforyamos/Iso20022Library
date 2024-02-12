@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriodChoice;
-
-/// <summary>
-/// Period expressed with dates.
-/// </summary>
-public partial record Date : DateOrDateTimePeriodChoice_
-     , IIsoXmlSerilizable<Date>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriodChoice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Start date of the range.
+    /// Period expressed with dates.
     /// </summary>
-    public required IsoISODate FromDate { get; init; } 
-    /// <summary>
-    /// End date of the range.
-    /// </summary>
-    public required IsoISODate ToDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_T6Em7dp-Ed-ak6NoX_4Aeg_-1600112397")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Date : DateOrDateTimePeriodChoice_
+    #else
+    public partial class Date : DateOrDateTimePeriodChoice_
+    #endif
     {
-        writer.WriteStartElement(null, "FrDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(FromDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ToDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ToDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-    }
-    public static new Date Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Date instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Date( System.DateOnly reqFromDate,System.DateOnly reqToDate )
+        {
+            FromDate = reqFromDate;
+            ToDate = reqToDate;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Start date of the range.
+        /// </summary>
+        [IsoId("_T-soN9p-Ed-ak6NoX_4Aeg_330596075")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("From Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate FromDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly FromDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly FromDate { get; init; } 
+        #else
+        public System.DateOnly FromDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// End date of the range.
+        /// </summary>
+        [IsoId("_T-soONp-Ed-ak6NoX_4Aeg_330596076")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("To Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate ToDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly ToDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly ToDate { get; init; } 
+        #else
+        public System.DateOnly ToDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,80 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
+[IsoId("_hH4hcK4wEeWpsoxRhdX-8A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Recurring Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RecurringTransaction3
-     : IIsoXmlSerilizable<RecurringTransaction3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RecurringTransaction3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RecurringTransaction3( System.DateOnly reqStartDate,System.DateOnly reqEndDate )
+    {
+        StartDate = reqStartDate;
+        EndDate = reqEndDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date of first transfer.
     /// </summary>
+    [IsoId("_hUsOba4wEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate StartDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly StartDate { get; init; } 
+    #else
+    public System.DateOnly StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of transfers to perform.
     /// </summary>
+    [IsoId("_hUsOa64wEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Occurrences")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfOccurrences { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfOccurrences { get; init; } 
+    #else
+    public System.UInt64? NumberOfOccurrences { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of last transfer.
     /// </summary>
+    [IsoId("_CTLosK4xEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EndDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly EndDate { get; init; } 
+    #else
+    public System.DateOnly EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period of the recurring transfer.
     /// </summary>
+    [IsoId("_hUsOZ64wEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency3Code? PeriodUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency3Code? PeriodUnit { get; init; } 
+    #else
+    public Frequency3Code? PeriodUnit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Day of the period when the transfer will be performed.
     /// </summary>
+    [IsoId("_hUsOaa4wEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interval Day")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? IntervalDay { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? IntervalDay { get; init; } 
+    #else
+    public System.UInt64? IntervalDay { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "StartDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (NumberOfOccurrences is IsoNumber NumberOfOccurrencesValue)
-        {
-            writer.WriteStartElement(null, "NbOfOcrncs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOccurrencesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "EndDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EndDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (PeriodUnit is Frequency3Code PeriodUnitValue)
-        {
-            writer.WriteStartElement(null, "PrdUnit", xmlNamespace );
-            writer.WriteValue(PeriodUnitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (IntervalDay is IsoNumber IntervalDayValue)
-        {
-            writer.WriteStartElement(null, "IntrvlDay", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(IntervalDayValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static RecurringTransaction3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

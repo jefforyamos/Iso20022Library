@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Power-Off Card Reader Request message.
 /// </summary>
+[IsoId("_Kuev8VE7EeyApZmLzm74zA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Device Poweroff Card Reader Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DevicePoweroffCardReaderRequest4
-     : IIsoXmlSerilizable<DevicePoweroffCardReaderRequest4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
+    [IsoId("_K0vI8VE7EeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Power Off Maximum Waiting Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PowerOffMaximumWaitingTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PowerOffMaximumWaitingTime { get; init; } 
+    #else
+    public System.UInt64? PowerOffMaximumWaitingTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Optional message before Power-Off.
     /// </summary>
+    [IsoId("_K0vI81E7EeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Output")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage9? DisplayOutput { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionMessage9? DisplayOutput { get; init; } 
+    #else
+    public ActionMessage9? DisplayOutput { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PowerOffMaximumWaitingTime is IsoNumber PowerOffMaximumWaitingTimeValue)
-        {
-            writer.WriteStartElement(null, "PwrOffMaxWtgTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(PowerOffMaximumWaitingTimeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (DisplayOutput is ActionMessage9 DisplayOutputValue)
-        {
-            writer.WriteStartElement(null, "DispOutpt", xmlNamespace );
-            DisplayOutputValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DevicePoweroffCardReaderRequest4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

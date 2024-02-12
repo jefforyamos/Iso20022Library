@@ -7,128 +7,207 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details related to a credit transfer mandate signed between the creditor and the debtor.
 /// </summary>
+[IsoId("_EVj2MclqEem0vqvvoqYsqQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Credit Transfer Mandate Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CreditTransferMandateData1
-     : IIsoXmlSerilizable<CreditTransferMandateData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
+    [IsoId("_EgIuh8lqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MandateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MandateIdentification { get; init; } 
+    #else
+    public System.String? MandateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of mandate, such as paper, electronic or scheme.
     /// </summary>
+    [IsoId("_CLrtsclsEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateTypeInformation2? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateTypeInformation2? Type { get; init; } 
+    #else
+    public MandateTypeInformation2? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the credit transfer mandate has been signed by the debtor.
     /// </summary>
+    [IsoId("_EgIuiclqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DateOfSignature { get; init; } 
+    #else
+    public System.DateOnly? DateOfSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the credit transfer mandate has been verified.
     /// </summary>
+    [IsoId("_MBcj0MlqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DateOfVerification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DateOfVerification { get; init; } 
+    #else
+    public System.DateTime? DateOfVerification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional security provisions, such as a digital signature, as provided by the debtor.
     /// </summary>
+    [IsoId("_EgIuj8lqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? ElectronicSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ElectronicSignature { get; init; } 
+    #else
+    public System.Byte[]? ElectronicSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the first payment of a recurrent credit transfer as per the mandate.
     /// </summary>
+    [IsoId("_EgIukclqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FirstPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FirstPaymentDate { get; init; } 
+    #else
+    public System.DateOnly? FirstPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the final payment of a recurrent credit transfer as per the mandate.
     /// </summary>
+    [IsoId("_EgIuk8lqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FinalPaymentDate { get; init; } 
+    #else
+    public System.DateOnly? FinalPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regularity with which credit transfer instructions are to be created and processed.
     /// </summary>
+    [IsoId("_EgIulclqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency36Choice_? Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency36Choice_? Frequency { get; init; } 
+    #else
+    public Frequency36Choice_? Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the setup of the credit transfer mandate.
     /// Usage: 
     /// The reason will allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
+    [IsoId("_EgIul8lqEem0vqvvoqYsqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateSetupReason1Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateSetupReason1Choice_? Reason { get; init; } 
+    #else
+    public MandateSetupReason1Choice_? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MndtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is MandateTypeInformation2 TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateOfSignature is IsoISODate DateOfSignatureValue)
-        {
-            writer.WriteStartElement(null, "DtOfSgntr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfSignatureValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DateOfVerification is IsoISODateTime DateOfVerificationValue)
-        {
-            writer.WriteStartElement(null, "DtOfVrfctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateOfVerificationValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ElectronicSignature is IsoMax10KBinary ElectronicSignatureValue)
-        {
-            writer.WriteStartElement(null, "ElctrncSgntr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(ElectronicSignatureValue)); // data type Max10KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (FirstPaymentDate is IsoISODate FirstPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "FrstPmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FirstPaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (FinalPaymentDate is IsoISODate FinalPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "FnlPmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FinalPaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Frequency is Frequency36Choice_ FrequencyValue)
-        {
-            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-            FrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reason is MandateSetupReason1Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CreditTransferMandateData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

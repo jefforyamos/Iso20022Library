@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an ISODate or ISODateTime format or a date code or a date code and a time.
-/// </summary>
-[KnownType(typeof(DateFormat7Choice.Date))]
-[KnownType(typeof(DateFormat7Choice.DateCodeAndTime))]
-[KnownType(typeof(DateFormat7Choice.DateCode))]
-public abstract partial record DateFormat7Choice_ : IIsoXmlSerilizable<DateFormat7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an ISODate or ISODateTime format or a date code or a date code and a time.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateFormat7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateFormat7Choice.Date))]
+    [KnownType(typeof(DateFormat7Choice.DateCodeAndTime))]
+    [KnownType(typeof(DateFormat7Choice.DateCode))]
+    [IsoId("_Q237odp-Ed-ak6NoX_4Aeg_-834882523")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Format 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateFormat7Choice_
+    #else
+    public abstract partial class DateFormat7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => DateFormat7Choice.Date.Deserialize(elementWithPayload),
-             "DtCdAndTm" => DateFormat7Choice.DateCodeAndTime.Deserialize(elementWithPayload),
-             "DtCd" => DateFormat7Choice.DateCode.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateFormat7Choice choice.")
-        };
     }
 }

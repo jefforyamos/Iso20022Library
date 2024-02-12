@@ -7,276 +7,472 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
+[IsoId("_5nEZJ5NLEeWGlc8L7oPDIg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherAmounts34
-     : IIsoXmlSerilizable<OtherAmounts34>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [IsoId("_5nEZKZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accrued Interest Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? AccruedInterestAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? AccruedInterestAmount { get; init; } 
+    #else
+    public AmountAndDirection58? AccruedInterestAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
+    [IsoId("_5nEZMZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? ChargesFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? ChargesFees { get; init; } 
+    #else
+    public AmountAndDirection58? ChargesFees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of country, national or federal tax charged by the jurisdiction in which the account servicer is located.
     /// </summary>
+    [IsoId("_5nEZOZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country National Federal Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? CountryNationalFederalTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? CountryNationalFederalTax { get; init; } 
+    #else
+    public AmountAndDirection58? CountryNationalFederalTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
+    [IsoId("_5nEZQZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? TradeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? TradeAmount { get; init; } 
+    #else
+    public AmountAndDirection58? TradeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
+    [IsoId("_5nEZSZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Executing Broker Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? ExecutingBrokerAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? ExecutingBrokerAmount { get; init; } 
+    #else
+    public AmountAndDirection58? ExecutingBrokerAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money defined as a discount on a new issue or on a tranche of an existing issue.
     /// </summary>
+    [IsoId("_5nEZUZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Discount Allowance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? IssueDiscountAllowance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? IssueDiscountAllowance { get; init; } 
+    #else
+    public AmountAndDirection58? IssueDiscountAllowance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of payment levy tax.
     /// </summary>
+    [IsoId("_5nEZWZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Levy Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? PaymentLevyTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? PaymentLevyTax { get; init; } 
+    #else
+    public AmountAndDirection58? PaymentLevyTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
+    [IsoId("_5nEZYZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? LocalTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? LocalTax { get; init; } 
+    #else
+    public AmountAndDirection58? LocalTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of commission paid to a local broker.
     /// </summary>
+    [IsoId("_5nEZaZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Broker Commission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? LocalBrokerCommission { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? LocalBrokerCommission { get; init; } 
+    #else
+    public AmountAndDirection58? LocalBrokerCommission { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money deposited by the trading party in a margin account.
     /// </summary>
+    [IsoId("_5nEZcZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? Margin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? Margin { get; init; } 
+    #else
+    public AmountAndDirection58? Margin { get; set; } 
+    #endif
+    
     /// <summary>
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
+    [IsoId("_5nEZeZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? Other { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? Other { get; init; } 
+    #else
+    public AmountAndDirection58? Other { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, Securities and Exchange fees.
     /// </summary>
+    [IsoId("_5nEZgZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regulatory Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? RegulatoryAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? RegulatoryAmount { get; init; } 
+    #else
+    public AmountAndDirection58? RegulatoryAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// All costs related to the physical delivery of documents such as stamps, postage, carrier fees, insurances or messenger services.
     /// </summary>
+    [IsoId("_5nEZiZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipping Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? ShippingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? ShippingAmount { get; init; } 
+    #else
+    public AmountAndDirection58? ShippingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of drawdown or other reduction from or in addition to the deal price.
     /// </summary>
+    [IsoId("_5nEZkZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Special Concession")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? SpecialConcession { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? SpecialConcession { get; init; } 
+    #else
+    public AmountAndDirection58? SpecialConcession { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
+    [IsoId("_5nEZmZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stamp Duty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? StampDuty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? StampDuty { get; init; } 
+    #else
+    public AmountAndDirection58? StampDuty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of stock exchange tax.
     /// </summary>
+    [IsoId("_5nEZoZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stock Exchange Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? StockExchangeTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? StockExchangeTax { get; init; } 
+    #else
+    public AmountAndDirection58? StockExchangeTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of tax levied on a transfer of ownership of financial instrument.
     /// </summary>
+    [IsoId("_5nEZqZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? TransferTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? TransferTax { get; init; } 
+    #else
+    public AmountAndDirection58? TransferTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
+    [IsoId("_5nEZsZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? TransactionTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? TransactionTax { get; init; } 
+    #else
+    public AmountAndDirection58? TransactionTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of value-added tax.
     /// </summary>
+    [IsoId("_5nEZuZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Added Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? ValueAddedTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? ValueAddedTax { get; init; } 
+    #else
+    public AmountAndDirection58? ValueAddedTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
+    [IsoId("_5nEZwZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withholding Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? WithholdingTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? WithholdingTax { get; init; } 
+    #else
+    public AmountAndDirection58? WithholdingTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount representing the difference between the cost and the current price of a security. In the context of securities settlement, it is the amount paid or received when the instructions are netted or paired off.
     /// </summary>
+    [IsoId("_5nEZyZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Gain Loss")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? NetGainLoss { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? NetGainLoss { get; init; } 
+    #else
+    public AmountAndDirection58? NetGainLoss { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of consumption tax.
     /// </summary>
+    [IsoId("_5nEZ0ZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Consumption Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? ConsumptionTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? ConsumptionTax { get; init; } 
+    #else
+    public AmountAndDirection58? ConsumptionTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of unpaid interest (on bonds which have defaulted and have subsequently |restructured), which is capitalized and added to the original principal amount of the bond.
     /// </summary>
+    [IsoId("_5nEZ2ZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accrued Capitalisation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? AccruedCapitalisationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? AccruedCapitalisationAmount { get; init; } 
+    #else
+    public AmountAndDirection58? AccruedCapitalisationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cost of the securities. May be requested in some countries for tax purposes.
     /// </summary>
+    [IsoId("_5nEZ4ZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Book Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection58? BookValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection58? BookValue { get; init; } 
+    #else
+    public AmountAndDirection58? BookValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccruedInterestAmount is AmountAndDirection58 AccruedInterestAmountValue)
-        {
-            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
-            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargesFees is AmountAndDirection58 ChargesFeesValue)
-        {
-            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
-            ChargesFeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CountryNationalFederalTax is AmountAndDirection58 CountryNationalFederalTaxValue)
-        {
-            writer.WriteStartElement(null, "CtryNtlFdrlTax", xmlNamespace );
-            CountryNationalFederalTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeAmount is AmountAndDirection58 TradeAmountValue)
-        {
-            writer.WriteStartElement(null, "TradAmt", xmlNamespace );
-            TradeAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExecutingBrokerAmount is AmountAndDirection58 ExecutingBrokerAmountValue)
-        {
-            writer.WriteStartElement(null, "ExctgBrkrAmt", xmlNamespace );
-            ExecutingBrokerAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssueDiscountAllowance is AmountAndDirection58 IssueDiscountAllowanceValue)
-        {
-            writer.WriteStartElement(null, "IsseDscntAllwnc", xmlNamespace );
-            IssueDiscountAllowanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentLevyTax is AmountAndDirection58 PaymentLevyTaxValue)
-        {
-            writer.WriteStartElement(null, "PmtLevyTax", xmlNamespace );
-            PaymentLevyTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LocalTax is AmountAndDirection58 LocalTaxValue)
-        {
-            writer.WriteStartElement(null, "LclTax", xmlNamespace );
-            LocalTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LocalBrokerCommission is AmountAndDirection58 LocalBrokerCommissionValue)
-        {
-            writer.WriteStartElement(null, "LclBrkrComssn", xmlNamespace );
-            LocalBrokerCommissionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Margin is AmountAndDirection58 MarginValue)
-        {
-            writer.WriteStartElement(null, "Mrgn", xmlNamespace );
-            MarginValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Other is AmountAndDirection58 OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            OtherValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RegulatoryAmount is AmountAndDirection58 RegulatoryAmountValue)
-        {
-            writer.WriteStartElement(null, "RgltryAmt", xmlNamespace );
-            RegulatoryAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ShippingAmount is AmountAndDirection58 ShippingAmountValue)
-        {
-            writer.WriteStartElement(null, "ShppgAmt", xmlNamespace );
-            ShippingAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SpecialConcession is AmountAndDirection58 SpecialConcessionValue)
-        {
-            writer.WriteStartElement(null, "SpclCncssn", xmlNamespace );
-            SpecialConcessionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StampDuty is AmountAndDirection58 StampDutyValue)
-        {
-            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
-            StampDutyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StockExchangeTax is AmountAndDirection58 StockExchangeTaxValue)
-        {
-            writer.WriteStartElement(null, "StockXchgTax", xmlNamespace );
-            StockExchangeTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransferTax is AmountAndDirection58 TransferTaxValue)
-        {
-            writer.WriteStartElement(null, "TrfTax", xmlNamespace );
-            TransferTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionTax is AmountAndDirection58 TransactionTaxValue)
-        {
-            writer.WriteStartElement(null, "TxTax", xmlNamespace );
-            TransactionTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueAddedTax is AmountAndDirection58 ValueAddedTaxValue)
-        {
-            writer.WriteStartElement(null, "ValAddedTax", xmlNamespace );
-            ValueAddedTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WithholdingTax is AmountAndDirection58 WithholdingTaxValue)
-        {
-            writer.WriteStartElement(null, "WhldgTax", xmlNamespace );
-            WithholdingTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetGainLoss is AmountAndDirection58 NetGainLossValue)
-        {
-            writer.WriteStartElement(null, "NetGnLoss", xmlNamespace );
-            NetGainLossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConsumptionTax is AmountAndDirection58 ConsumptionTaxValue)
-        {
-            writer.WriteStartElement(null, "CsmptnTax", xmlNamespace );
-            ConsumptionTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccruedCapitalisationAmount is AmountAndDirection58 AccruedCapitalisationAmountValue)
-        {
-            writer.WriteStartElement(null, "AcrdCptlstnAmt", xmlNamespace );
-            AccruedCapitalisationAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BookValue is AmountAndDirection58 BookValueValue)
-        {
-            writer.WriteStartElement(null, "BookVal", xmlNamespace );
-            BookValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherAmounts34 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

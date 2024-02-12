@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice;
-
-/// <summary>
-/// Lower boundary of a range of amount values.
-/// </summary>
-public partial record FromAmount : ImpliedCurrencyAmountRangeChoice_
-     , IIsoXmlSerilizable<FromAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Amount value of the range limit.
+    /// Lower boundary of a range of amount values.
     /// </summary>
-    public required IsoImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
-    /// <summary>
-    /// Indicates whether the boundary amount is included in the range of amount values.
-    /// </summary>
-    public required IsoYesNoIndicator Included { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_PU-EC9p-Ed-ak6NoX_4Aeg_-1606264842")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record FromAmount : ImpliedCurrencyAmountRangeChoice_
+    #else
+    public partial class FromAmount : ImpliedCurrencyAmountRangeChoice_
+    #endif
     {
-        writer.WriteStartElement(null, "BdryAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(BoundaryAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Incl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static new FromAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a FromAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public FromAmount( System.Decimal reqBoundaryAmount,System.String reqIncluded )
+        {
+            BoundaryAmount = reqBoundaryAmount;
+            Included = reqIncluded;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Amount value of the range limit.
+        /// </summary>
+        [IsoId("_T4ItPNp-Ed-ak6NoX_4Aeg_-1036855293")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Boundary Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal BoundaryAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal BoundaryAmount { get; init; } 
+        #else
+        public System.Decimal BoundaryAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the boundary amount is included in the range of amount values.
+        /// </summary>
+        [IsoId("_T4SeMNp-Ed-ak6NoX_4Aeg_-1036855240")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Included")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator Included { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Included { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Included { get; init; } 
+        #else
+        public System.String Included { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

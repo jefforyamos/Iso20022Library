@@ -7,86 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference to the collateral management transaction (exposure) or the contract identification of  the sender (collateral taker) or the receiver (triparty agent)
 /// </summary>
+[IsoId("_dOIDYPkCEeicy5Zn42b9bg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Reference21
-     : IIsoXmlSerilizable<Reference21>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique reference identifying the collateral management transaction (exposure) from the collateral taker's or the collateral giver point of view.
     /// </summary>
+    [IsoId("_Z6qcoPkEEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? SenderCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the collateral management transaction (exposure)  from the triparty agent's point of view.
     /// </summary>
+    [IsoId("_o8Z9gPkEEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReceiverCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiverCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? ReceiverCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the collateral management contract from the collateral taker's or the collateral giver's point of view.
     /// </summary>
+    [IsoId("_eQJZsPkFEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Collateral Contract Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderCollateralContractIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderCollateralContractIdentification { get; init; } 
+    #else
+    public System.String? SenderCollateralContractIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the collateral management contract from the triparty agent's point of view.
     /// </summary>
+    [IsoId("_ihJU0PkFEeicy5Zn42b9bg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver Collateral Contract Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReceiverCollateralContractIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiverCollateralContractIdentification { get; init; } 
+    #else
+    public System.String? ReceiverCollateralContractIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the transaction/exposure or the contract.
     /// </summary>
+    [IsoId("_NZbooPogEeiAfJEqh4xF_Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommonTransactionIdentification { get; init; } 
+    #else
+    public System.String? CommonTransactionIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SenderCollateralTransactionIdentification is IsoMax35Text SenderCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SndrCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReceiverCollateralTransactionIdentification is IsoMax35Text ReceiverCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcvrCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReceiverCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SenderCollateralContractIdentification is IsoMax35Text SenderCollateralContractIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SndrCollCtrctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderCollateralContractIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReceiverCollateralContractIdentification is IsoMax35Text ReceiverCollateralContractIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcvrCollCtrctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReceiverCollateralContractIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CommonTransactionIdentification is IsoMax52Text CommonTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmonTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommonTransactionIdentificationValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Reference21 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

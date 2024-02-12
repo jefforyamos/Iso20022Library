@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information on the reversal reason of the transaction.
 /// </summary>
+[IsoId("_TPKBodp-Ed-ak6NoX_4Aeg_157540470")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reversal Reason Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReversalReasonInformation1
-     : IIsoXmlSerilizable<ReversalReasonInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party issuing the reversal.
     /// </summary>
+    [IsoId("_TPKBotp-Ed-ak6NoX_4Aeg_157540608")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? ReversalOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification8? ReversalOriginator { get; init; } 
+    #else
+    public PartyIdentification8? ReversalOriginator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
+    [IsoId("_TPKBo9p-Ed-ak6NoX_4Aeg_157540556")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalReason1Choice_? ReversalReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReversalReason1Choice_? ReversalReason { get; init; } 
+    #else
+    public ReversalReason1Choice_? ReversalReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the reversal reason.
     /// </summary>
+    [IsoId("_TPKBpNp-Ed-ak6NoX_4Aeg_157540512")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reversal Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalReversalReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReversalReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalReversalReasonInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReversalOriginator is PartyIdentification8 ReversalOriginatorValue)
-        {
-            writer.WriteStartElement(null, "RvslOrgtr", xmlNamespace );
-            ReversalOriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReversalReason is ReversalReason1Choice_ ReversalReasonValue)
-        {
-            writer.WriteStartElement(null, "RvslRsn", xmlNamespace );
-            ReversalReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReversalReasonInformation is IsoMax105Text AdditionalReversalReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRvslRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalReversalReasonInformationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReversalReasonInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

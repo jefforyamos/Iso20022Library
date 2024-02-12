@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
+[IsoId("_ReNoe9p-Ed-ak6NoX_4Aeg_939590328")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Value In Page And Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalValueInPageAndStatement1
-     : IIsoXmlSerilizable<TotalValueInPageAndStatement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TotalValueInPageAndStatement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TotalValueInPageAndStatement1( AmountAndDirection6 reqTotalHoldingsValueOfStatement )
+    {
+        TotalHoldingsValueOfStatement = reqTotalHoldingsValueOfStatement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total value of positions reported in this message.
     /// </summary>
+    [IsoId("_ReNofNp-Ed-ak6NoX_4Aeg_939590346")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Holdings Value Of Page")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection6? TotalHoldingsValueOfPage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection6? TotalHoldingsValueOfPage { get; init; } 
+    #else
+    public AmountAndDirection6? TotalHoldingsValueOfPage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [IsoId("_ReNofdp-Ed-ak6NoX_4Aeg_939590371")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Holdings Value Of Statement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
+    #else
+    public AmountAndDirection6 TotalHoldingsValueOfStatement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total book value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [IsoId("_ReWyYNp-Ed-ak6NoX_4Aeg_-210339509")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Book Value Of Statement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection6? TotalBookValueOfStatement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection6? TotalBookValueOfStatement { get; init; } 
+    #else
+    public AmountAndDirection6? TotalBookValueOfStatement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of the holdings eligible for collateral purposes reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [IsoId("_ReWyYdp-Ed-ak6NoX_4Aeg_969143960")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Eligible Collateral Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection6? TotalEligibleCollateralValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection6? TotalEligibleCollateralValue { get; init; } 
+    #else
+    public AmountAndDirection6? TotalEligibleCollateralValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalHoldingsValueOfPage is AmountAndDirection6 TotalHoldingsValueOfPageValue)
-        {
-            writer.WriteStartElement(null, "TtlHldgsValOfPg", xmlNamespace );
-            TotalHoldingsValueOfPageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlHldgsValOfStmt", xmlNamespace );
-        TotalHoldingsValueOfStatement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TotalBookValueOfStatement is AmountAndDirection6 TotalBookValueOfStatementValue)
-        {
-            writer.WriteStartElement(null, "TtlBookValOfStmt", xmlNamespace );
-            TotalBookValueOfStatementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalEligibleCollateralValue is AmountAndDirection6 TotalEligibleCollateralValueValue)
-        {
-            writer.WriteStartElement(null, "TtlElgblCollVal", xmlNamespace );
-            TotalEligibleCollateralValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalValueInPageAndStatement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,87 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax identification information.
 /// </summary>
+[IsoId("_ZEtY8QhGEeSUPbC7DbLJpQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxIdentification2
-     : IIsoXmlSerilizable<TaxIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TaxIdentification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TaxIdentification2( System.String reqIdentification,TaxIdentificationType1Choice_ reqTaxIdentificationType,string reqIssuerCountry )
+    {
+        Identification = reqIdentification;
+        TaxIdentificationType = reqTaxIdentificationType;
+        IssuerCountry = reqIssuerCountry;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Tax identification number or identifier.
     /// </summary>
+    [IsoId("_hD6rMQhGEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of tax identification number or identifier.
     /// </summary>
+    [IsoId("_ooC5EQhIEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Identification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
+    #else
+    public TaxIdentificationType1Choice_ TaxIdentificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
+    [IsoId("_BpuDRAhIEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Issuer { get; init; } 
+    #else
+    public System.String? Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
+    [IsoId("_BpuDRQhIEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? IssueDate { get; init; } 
+    #else
+    public System.DateOnly? IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
+    [IsoId("_BpuDRghIEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExpiryDate { get; init; } 
+    #else
+    public System.DateOnly? ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country that issued the tax identification.
     /// </summary>
+    [IsoId("_Zg-eNQhGEeSUPbC7DbLJpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode IssuerCountry { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string IssuerCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string IssuerCountry { get; init; } 
+    #else
+    public string IssuerCountry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TaxIdTp", xmlNamespace );
-        TaxIdentificationType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Issuer is IsoMax35Text IssuerValue)
-        {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (IssueDate is IsoISODate IssueDateValue)
-        {
-            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ExpiryDate is IsoISODate ExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
-        writer.WriteValue(IssuerCountry.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static TaxIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

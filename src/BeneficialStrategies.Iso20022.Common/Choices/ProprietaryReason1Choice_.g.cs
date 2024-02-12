@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Proprietary identification of the reason related to a status.
-/// </summary>
-[KnownType(typeof(ProprietaryReason1Choice.NoSpecifiedReason))]
-[KnownType(typeof(ProprietaryReason1Choice.Reason))]
-public abstract partial record ProprietaryReason1Choice_ : IIsoXmlSerilizable<ProprietaryReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Proprietary identification of the reason related to a status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProprietaryReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProprietaryReason1Choice.NoSpecifiedReason))]
+    [KnownType(typeof(ProprietaryReason1Choice.Reason))]
+    [IsoId("_uoL4YVhFEeOMYfRGLS0NbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProprietaryReason1Choice_
+    #else
+    public abstract partial class ProprietaryReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => ProprietaryReason1Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => ProprietaryReason1Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProprietaryReason1Choice choice.")
-        };
     }
 }

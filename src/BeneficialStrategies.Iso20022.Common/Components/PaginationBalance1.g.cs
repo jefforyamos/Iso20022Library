@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance of a financial instrument for a specific statement page.
 /// </summary>
+[IsoId("_RFBsYNp-Ed-ak6NoX_4Aeg_389014624")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Pagination Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaginationBalance1
-     : IIsoXmlSerilizable<PaginationBalance1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Opening balance of the financial instrument in the statement.
     /// </summary>
+    [IsoId("_RFBsYdp-Ed-ak6NoX_4Aeg_777817466")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Opening Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? FirstOpeningBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? FirstOpeningBalance { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? FirstOpeningBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Opening balance of this page only. It must be the interemdiary closing balance of the previous page (part of the same statement).
     /// </summary>
+    [IsoId("_RFBsYtp-Ed-ak6NoX_4Aeg_777817508")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Opening Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? IntermediaryOpeningBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? IntermediaryOpeningBalance { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? IntermediaryOpeningBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Closing balance of the financial instrument in the statement.
     /// </summary>
+    [IsoId("_RFBsY9p-Ed-ak6NoX_4Aeg_777817561")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Closing Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? FinalClosingBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? FinalClosingBalance { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? FinalClosingBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Closing Balance of this page only. Must be the interemdiary opening balance of the next page (part of the same statement).
     /// </summary>
+    [IsoId("_RFBsZNp-Ed-ak6NoX_4Aeg_777817933")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Closing Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? IntermediaryClosingBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? IntermediaryClosingBalance { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? IntermediaryClosingBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FirstOpeningBalance is FinancialInstrumentQuantity1 FirstOpeningBalanceValue)
-        {
-            writer.WriteStartElement(null, "FrstOpngBal", xmlNamespace );
-            FirstOpeningBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryOpeningBalance is FinancialInstrumentQuantity1 IntermediaryOpeningBalanceValue)
-        {
-            writer.WriteStartElement(null, "IntrmyOpngBal", xmlNamespace );
-            IntermediaryOpeningBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinalClosingBalance is FinancialInstrumentQuantity1 FinalClosingBalanceValue)
-        {
-            writer.WriteStartElement(null, "FnlClsgBal", xmlNamespace );
-            FinalClosingBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryClosingBalance is FinancialInstrumentQuantity1 IntermediaryClosingBalanceValue)
-        {
-            writer.WriteStartElement(null, "IntrmyClsgBal", xmlNamespace );
-            IntermediaryClosingBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaginationBalance1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

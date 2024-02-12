@@ -9,54 +9,119 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
-
-/// <summary>
-/// Proprietary identification of a security assigned by an institution or organisation.
-/// </summary>
-public partial record OtherProprietaryIdentification : SecurityIdentification3Choice_
-     , IIsoXmlSerilizable<OtherProprietaryIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identifier of a security.
+    /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
-    public required IsoMax35Text Identification { get; init; } 
-    /// <summary>
-    /// Country of the proprietary identification scheme.
-    /// </summary>
-    public required CountryCode DomesticIdentificationSource { get; init; } 
-    /// <summary>
-    /// Entity that issues the proprietary identification.
-    /// </summary>
-    public required IsoMax35Text ProprietaryIdentificationSource { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Qd1wldp-Ed-ak6NoX_4Aeg_1064399293")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Proprietary Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OtherProprietaryIdentification : SecurityIdentification3Choice_
+    #else
+    public partial class OtherProprietaryIdentification : SecurityIdentification3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DmstIdSrc", xmlNamespace );
-        writer.WriteValue(DomesticIdentificationSource.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrtryIdSrc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ProprietaryIdentificationSource)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static new OtherProprietaryIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OtherProprietaryIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OtherProprietaryIdentification( System.String reqIdentification,string reqDomesticIdentificationSource,System.String reqProprietaryIdentificationSource )
+        {
+            Identification = reqIdentification;
+            DomesticIdentificationSource = reqDomesticIdentificationSource;
+            ProprietaryIdentificationSource = reqProprietaryIdentificationSource;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identifier of a security.
+        /// </summary>
+        [IsoId("_Sk_qYNp-Ed-ak6NoX_4Aeg_-815168262")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Country of the proprietary identification scheme.
+        /// </summary>
+        [IsoId("_Sk_qYdp-Ed-ak6NoX_4Aeg_-815168264")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Domestic Identification Source")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CountryCode DomesticIdentificationSource { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string DomesticIdentificationSource { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string DomesticIdentificationSource { get; init; } 
+        #else
+        public string DomesticIdentificationSource { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Entity that issues the proprietary identification.
+        /// </summary>
+        [IsoId("_Sk_qYtp-Ed-ak6NoX_4Aeg_-815168263")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Proprietary Identification Source")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text ProprietaryIdentificationSource { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String ProprietaryIdentificationSource { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String ProprietaryIdentificationSource { get; init; } 
+        #else
+        public System.String ProprietaryIdentificationSource { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

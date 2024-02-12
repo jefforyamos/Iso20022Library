@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Local time offset to UTC (Coordinated Universal Time).
 /// </summary>
+[IsoId("_4KU98GpuEeSMqvBfBY1c9A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Local Date Time")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LocalDateTime1
-     : IIsoXmlSerilizable<LocalDateTime1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LocalDateTime1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LocalDateTime1( System.UInt64 reqUTCOffset )
+    {
+        UTCOffset = reqUTCOffset;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date time of the beginning of the period (inclusive).
     /// </summary>
+    [IsoId("_-wojkGpuEeSMqvBfBY1c9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FromDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? FromDateTime { get; init; } 
+    #else
+    public System.DateTime? FromDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date time of the end of the period (exclusive).
     /// </summary>
+    [IsoId("_GdqgsGpvEeSMqvBfBY1c9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("To Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ToDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ToDateTime { get; init; } 
+    #else
+    public System.DateTime? ToDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// UTC offset in minutes, of the local time during the period. For instance, 120 for Central European Time, -720 for Central Standard Time (North America).
     /// </summary>
+    [IsoId("_LJO38GpvEeSMqvBfBY1c9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("UTC Offset")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber UTCOffset { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 UTCOffset { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 UTCOffset { get; init; } 
+    #else
+    public System.UInt64 UTCOffset { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FromDateTime is IsoISODateTime FromDateTimeValue)
-        {
-            writer.WriteStartElement(null, "FrDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(FromDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ToDateTime is IsoISODateTime ToDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ToDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ToDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "UTCOffset", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(UTCOffset)); // data type Number System.UInt64
-        writer.WriteEndElement();
-    }
-    public static LocalDateTime1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

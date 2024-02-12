@@ -7,76 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the loyalty server during a loyalty transaction.
 /// </summary>
+[IsoId("_0ZN1QNxLEeioifFt1dhnJA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Loyalty Server Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LoyaltyServerData1
-     : IIsoXmlSerilizable<LoyaltyServerData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the loyalty Server.
     /// </summary>
+    [IsoId("__zNMUNxLEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Server Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LoyaltyServerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LoyaltyServerIdentification { get; init; } 
+    #else
+    public System.String? LoyaltyServerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Approval code assigned to a loyalty transaction by the Server.
     /// </summary>
+    [IsoId("_JAKEENxMEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Approval Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 6)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin6Max8Text? ApprovalCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ApprovalCode { get; init; } 
+    #else
+    public System.String? ApprovalCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the Loyalty transaction in an unambiguous way.
     /// </summary>
+    [IsoId("_sjFxENxMEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? LoyaltyTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1? LoyaltyTransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1? LoyaltyTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of a reconciliation period with a payment or loyalty host.
     /// </summary>
+    [IsoId("_7kPcENxMEeioifFt1dhnJA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? HostReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HostReconciliationIdentification { get; init; } 
+    #else
+    public System.String? HostReconciliationIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LoyaltyServerIdentification is IsoMax35Text LoyaltyServerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LltySvrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LoyaltyServerIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ApprovalCode is IsoMin6Max8Text ApprovalCodeValue)
-        {
-            writer.WriteStartElement(null, "ApprvlCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin6Max8Text(ApprovalCodeValue)); // data type Min6Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (LoyaltyTransactionIdentification is TransactionIdentifier1 LoyaltyTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LltyTxId", xmlNamespace );
-            LoyaltyTransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HostReconciliationIdentification is IsoMax35Text HostReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "HstRcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(HostReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static LoyaltyServerData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

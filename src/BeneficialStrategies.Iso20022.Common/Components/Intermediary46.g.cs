@@ -7,113 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party and its role.
 /// </summary>
+[IsoId("_kMs9xZQ_EemqYPWMBuVawg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intermediary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Intermediary46
-     : IIsoXmlSerilizable<Intermediary46>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Intermediary46 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Intermediary46( PartyIdentification177Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution.
     /// </summary>
+    [IsoId("_kgCwg5Q_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification177Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification177Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification177Choice_ Identification { get; init; } 
+    #else
+    public PartyIdentification177Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [IsoId("_kgCwhZQ_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Entity Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LegalEntityIdentifier { get; init; } 
+    #else
+    public System.String? LegalEntityIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [IsoId("_kgCwh5Q_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account32? Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Account32? Account { get; init; } 
+    #else
+    public Account32? Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Non-enforcement of the right to all or part of a commission by the party entitled to the commission.
     /// </summary>
+    [IsoId("_kgCwiZQ_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Waived Trailer Commission Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? WaivedTrailerCommissionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? WaivedTrailerCommissionIndicator { get; init; } 
+    #else
+    public System.String? WaivedTrailerCommissionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Role or function performed by the intermediary.
     /// </summary>
+    [IsoId("_kgCwi5Q_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyRole2Choice_? Role { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyRole2Choice_? Role { get; init; } 
+    #else
+    public PartyRole2Choice_? Role { get; set; } 
+    #endif
+    
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [IsoId("_kgCwjZQ_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Communication Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress6? PrimaryCommunicationAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationAddress6? PrimaryCommunicationAddress { get; init; } 
+    #else
+    public CommunicationAddress6? PrimaryCommunicationAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [IsoId("_kgCwj5Q_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Secondary Communication Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress6? SecondaryCommunicationAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationAddress6? SecondaryCommunicationAddress { get; init; } 
+    #else
+    public CommunicationAddress6? SecondaryCommunicationAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [IsoId("_kgCwkZQ_EemqYPWMBuVawg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name And Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress4? NameAndAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress4? NameAndAddress { get; init; } 
+    #else
+    public NameAndAddress4? NameAndAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
-        {
-            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Account is Account32 AccountValue)
-        {
-            writer.WriteStartElement(null, "Acct", xmlNamespace );
-            AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WaivedTrailerCommissionIndicator is IsoYesNoIndicator WaivedTrailerCommissionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "WvdTrlrComssnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WaivedTrailerCommissionIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Role is PartyRole2Choice_ RoleValue)
-        {
-            writer.WriteStartElement(null, "Role", xmlNamespace );
-            RoleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrimaryCommunicationAddress is CommunicationAddress6 PrimaryCommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
-            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondaryCommunicationAddress is CommunicationAddress6 SecondaryCommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
-            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NameAndAddress is NameAndAddress4 NameAndAddressValue)
-        {
-            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
-            NameAndAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Intermediary46 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

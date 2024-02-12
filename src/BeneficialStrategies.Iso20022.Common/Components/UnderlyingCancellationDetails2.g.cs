@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the status of the cancellation of the underlying payments event.
 /// </summary>
+[IsoId("_ro9XFIEmEei51tn2YGQhvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Underlying Cancellation Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnderlyingCancellationDetails2
-     : IIsoXmlSerilizable<UnderlyingCancellationDetails2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information from the cancellation request.
     /// </summary>
+    [IsoId("_ro9XFYEmEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Request Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationRequest1? CancellationRequestDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationRequest1? CancellationRequestDetails { get; init; } 
+    #else
+    public CancellationRequest1? CancellationRequestDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information from the cancellation response.
     /// </summary>
+    [IsoId("_ro9XFoEmEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Response Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationResponse1? CancellationResponseDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationResponse1? CancellationResponseDetails { get; init; } 
+    #else
+    public CancellationResponse1? CancellationResponseDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of the cancellation request.
     /// </summary>
+    [IsoId("_ro9XF4EmEei51tn2YGQhvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Request Tracking Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCancellationStatusReason2Code? CancellationRequestTrackingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCancellationStatusReason2Code? CancellationRequestTrackingStatus { get; init; } 
+    #else
+    public PaymentCancellationStatusReason2Code? CancellationRequestTrackingStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CancellationRequestDetails is CancellationRequest1 CancellationRequestDetailsValue)
-        {
-            writer.WriteStartElement(null, "CxlReqDtls", xmlNamespace );
-            CancellationRequestDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CancellationResponseDetails is CancellationResponse1 CancellationResponseDetailsValue)
-        {
-            writer.WriteStartElement(null, "CxlRspnDtls", xmlNamespace );
-            CancellationResponseDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CancellationRequestTrackingStatus is PaymentCancellationStatusReason2Code CancellationRequestTrackingStatusValue)
-        {
-            writer.WriteStartElement(null, "CxlReqTrckgSts", xmlNamespace );
-            writer.WriteValue(CancellationRequestTrackingStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static UnderlyingCancellationDetails2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

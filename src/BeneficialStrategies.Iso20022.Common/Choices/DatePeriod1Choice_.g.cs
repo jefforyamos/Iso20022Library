@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Period as a date, a month or a date time span for which the statement is provided.
-/// </summary>
-[KnownType(typeof(DatePeriod1Choice.Date))]
-[KnownType(typeof(DatePeriod1Choice.DateMonth))]
-[KnownType(typeof(DatePeriod1Choice.FromDateToDate))]
-public abstract partial record DatePeriod1Choice_ : IIsoXmlSerilizable<DatePeriod1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Period as a date, a month or a date time span for which the statement is provided.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DatePeriod1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DatePeriod1Choice.Date))]
+    [KnownType(typeof(DatePeriod1Choice.DateMonth))]
+    [KnownType(typeof(DatePeriod1Choice.FromDateToDate))]
+    [IsoId("_kaGgU579EeOieb-y7x0pFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Period 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DatePeriod1Choice_
+    #else
+    public abstract partial class DatePeriod1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => DatePeriod1Choice.Date.Deserialize(elementWithPayload),
-             "DtMnth" => DatePeriod1Choice.DateMonth.Deserialize(elementWithPayload),
-             "FrDtToDt" => DatePeriod1Choice.FromDateToDate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DatePeriod1Choice choice.")
-        };
     }
 }

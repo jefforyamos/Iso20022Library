@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
+[IsoId("_76B1cQvbEeK9Xewg3qiFQA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acceptor Configuration Content")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcceptorConfigurationContent2
-     : IIsoXmlSerilizable<AcceptorConfigurationContent2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
+    [IsoId("_8LlfgQvbEeK9Xewg3qiFQA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Protocol Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters3? AcquirerProtocolParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcquirerProtocolParameters3? AcquirerProtocolParameters { get; init; } 
+    #else
+    public AcquirerProtocolParameters3? AcquirerProtocolParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
+    [IsoId("_8LlfhQvbEeK9Xewg3qiFQA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? MerchantParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? MerchantParameters { get; init; } 
+    #else
+    public System.Byte[]? MerchantParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
+    [IsoId("_SrV3YCmnEeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? TerminalParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? TerminalParameters { get; init; } 
+    #else
+    public System.Byte[]? TerminalParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
+    [IsoId("_8LlfiQvbEeK9Xewg3qiFQA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicationParameters2? ApplicationParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ApplicationParameters2? ApplicationParameters { get; init; } 
+    #else
+    public ApplicationParameters2? ApplicationParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host.
     /// </summary>
+    [IsoId("_8LlfjQvbEeK9Xewg3qiFQA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Communication Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HostCommunicationParameter2? HostCommunicationParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HostCommunicationParameter2? HostCommunicationParameters { get; init; } 
+    #else
+    public HostCommunicationParameter2? HostCommunicationParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
+    [IsoId("_o360ACm3EeKIjpr--01h3Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityParameters1? SecurityParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityParameters1? SecurityParameters { get; init; } 
+    #else
+    public SecurityParameters1? SecurityParameters { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AcquirerProtocolParameters is AcquirerProtocolParameters3 AcquirerProtocolParametersValue)
-        {
-            writer.WriteStartElement(null, "AcqrrPrtcolParams", xmlNamespace );
-            AcquirerProtocolParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MerchantParameters is IsoMax10000Binary MerchantParametersValue)
-        {
-            writer.WriteStartElement(null, "MrchntParams", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(MerchantParametersValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (TerminalParameters is IsoMax10000Binary TerminalParametersValue)
-        {
-            writer.WriteStartElement(null, "TermnlParams", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(TerminalParametersValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (ApplicationParameters is ApplicationParameters2 ApplicationParametersValue)
-        {
-            writer.WriteStartElement(null, "ApplParams", xmlNamespace );
-            ApplicationParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HostCommunicationParameters is HostCommunicationParameter2 HostCommunicationParametersValue)
-        {
-            writer.WriteStartElement(null, "HstComParams", xmlNamespace );
-            HostCommunicationParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecurityParameters is SecurityParameters1 SecurityParametersValue)
-        {
-            writer.WriteStartElement(null, "SctyParams", xmlNamespace );
-            SecurityParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AcceptorConfigurationContent2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice;
-
-/// <summary>
-/// Information about head member of liquidity pool.
-/// </summary>
-public partial record HeadMemberDetails : LiquidityPoolMembers1Choice_
-     , IIsoXmlSerilizable<HeadMemberDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Account identifier.
+    /// Information about head member of liquidity pool.
     /// </summary>
-    public required CashAccount24 Account { get; init; } 
-    /// <summary>
-    /// Account owner identification.
-    /// </summary>
-    public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_zpIWcCDsEeav65mEytrgaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Head Member Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record HeadMemberDetails : LiquidityPoolMembers1Choice_
+    #else
+    public partial class HeadMemberDetails : LiquidityPoolMembers1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Acct", xmlNamespace );
-        Account.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-        AccountOwner.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new HeadMemberDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a HeadMemberDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public HeadMemberDetails( CashAccount24 reqAccount,FinancialInstitutionIdentification9 reqAccountOwner )
+        {
+            Account = reqAccount;
+            AccountOwner = reqAccountOwner;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Account identifier.
+        /// </summary>
+        [IsoId("_UhRGkCDsEeav65mEytrgaA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CashAccount24 Account { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CashAccount24 Account { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccount24 Account { get; init; } 
+        #else
+        public CashAccount24 Account { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Account owner identification.
+        /// </summary>
+        [IsoId("_eOrnECDsEeav65mEytrgaA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+        #else
+        public FinancialInstitutionIdentification9 AccountOwner { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

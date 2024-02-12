@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security parameters of the ATM for the initiated key download.
 /// </summary>
+[IsoId("_dfs4IbToEeeQy4o2AayYHg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityParameters9
-     : IIsoXmlSerilizable<SecurityParameters9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Cryptographic key used to protect the key download.
     /// </summary>
+    [IsoId("_doTagbToEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey12? Key { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CryptographicKey12? Key { get; init; } 
+    #else
+    public CryptographicKey12? Key { get; set; } 
+    #endif
+    
     /// <summary>
     /// Element containing the signature.
     /// </summary>
+    [IsoId("_doTag7ToEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Choice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSignature2Choice_? SignatureChoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSignature2Choice_? SignatureChoice { get; init; } 
+    #else
+    public ATMSignature2Choice_? SignatureChoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the ATM certificate.
     /// </summary>
+    [IsoId("_doTahbToEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? Certificate { get; init; } 
+    #else
+    public System.Byte[]? Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Random value from the ATM to avoid message replay.
     /// </summary>
+    [IsoId("_doTah7ToEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Challenge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? ATMChallenge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ATMChallenge { get; init; } 
+    #else
+    public System.Byte[]? ATMChallenge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested key for downloading, depending on the key hierarchy used by the host.
     /// </summary>
+    [IsoId("_doTaibToEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RequestedKey { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RequestedKey { get; init; } 
+    #else
+    public System.String? RequestedKey { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Key is CryptographicKey12 KeyValue)
-        {
-            writer.WriteStartElement(null, "Key", xmlNamespace );
-            KeyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SignatureChoice is ATMSignature2Choice_ SignatureChoiceValue)
-        {
-            writer.WriteStartElement(null, "SgntrChc", xmlNamespace );
-            SignatureChoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Certificate is IsoMax5000Binary CertificateValue)
-        {
-            writer.WriteStartElement(null, "Cert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(CertificateValue)); // data type Max5000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (ATMChallenge is IsoMax140Binary ATMChallengeValue)
-        {
-            writer.WriteStartElement(null, "ATMChllng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(ATMChallengeValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (RequestedKey is IsoMax35Text RequestedKeyValue)
-        {
-            writer.WriteStartElement(null, "ReqdKey", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestedKeyValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityParameters9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

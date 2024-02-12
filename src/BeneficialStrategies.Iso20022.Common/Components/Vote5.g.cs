@@ -7,100 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the number of voting rights cast to a resolution.
 /// </summary>
+[IsoId("_T5VABdp-Ed-ak6NoX_4Aeg_-129713306")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Vote")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Vote5
-     : IIsoXmlSerilizable<Vote5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Vote5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Vote5( System.String reqIssuerLabel,System.String reqAccepted )
+    {
+        IssuerLabel = reqIssuerLabel;
+        Accepted = reqAccepted;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [IsoId("_T5VABtp-Ed-ak6NoX_4Aeg_-129712899")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Label")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerLabel { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IssuerLabel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IssuerLabel { get; init; } 
+    #else
+    public System.String IssuerLabel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether a resolution is accepted or not.
     /// </summary>
+    [IsoId("_T5VAB9p-Ed-ak6NoX_4Aeg_-129712548")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accepted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Accepted { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Accepted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Accepted { get; init; } 
+    #else
+    public System.String Accepted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
+    [IsoId("_T5VACNp-Ed-ak6NoX_4Aeg_-129712633")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("For")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? For { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? For { get; init; } 
+    #else
+    public System.UInt64? For { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
+    [IsoId("_T5VACdp-Ed-ak6NoX_4Aeg_-129712608")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Against")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Against { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Against { get; init; } 
+    #else
+    public System.UInt64? Against { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes expressed as abstain.
     /// </summary>
+    [IsoId("_T5VACtp-Ed-ak6NoX_4Aeg_-129712591")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Abstain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Abstain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Abstain { get; init; } 
+    #else
+    public System.UInt64? Abstain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total votes withheld, eg in the case where a shareholder wishes not to endorse the election of a board member.
     /// </summary>
+    [IsoId("_T5exANp-Ed-ak6NoX_4Aeg_-129712573")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withhold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Withhold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Withhold { get; init; } 
+    #else
+    public System.UInt64? Withhold { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of votes for which no action has been taken.
     /// </summary>
+    [IsoId("_T5exAdp-Ed-ak6NoX_4Aeg_223997005")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("No Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NoAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NoAction { get; init; } 
+    #else
+    public System.UInt64? NoAction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Accptd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Accepted)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (For is IsoNumber ForValue)
-        {
-            writer.WriteStartElement(null, "For", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(ForValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Against is IsoNumber AgainstValue)
-        {
-            writer.WriteStartElement(null, "Agnst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(AgainstValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Abstain is IsoNumber AbstainValue)
-        {
-            writer.WriteStartElement(null, "Abstn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(AbstainValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Withhold is IsoNumber WithholdValue)
-        {
-            writer.WriteStartElement(null, "Wthhld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(WithholdValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (NoAction is IsoNumber NoActionValue)
-        {
-            writer.WriteStartElement(null, "NoActn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NoActionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static Vote5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

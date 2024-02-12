@@ -7,136 +7,223 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Floating rate related information.
 /// </summary>
+[IsoId("_WIFf0SJdEe2zWP9pqvmqdw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Floating Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FloatingRate13
-     : IIsoXmlSerilizable<FloatingRate13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifier of the security subject of the transaction
     /// </summary>
+    [IsoId("_WJf1EyJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// The full name of the interest rate as assigned by the index provider.
     /// </summary>
+    [IsoId("_WJf1FSJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
+    [IsoId("_WJf1FyJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FloatingRateIdentification8Choice_? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FloatingRateIdentification8Choice_? Rate { get; init; } 
+    #else
+    public FloatingRateIdentification8Choice_? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to reference period.
     /// </summary>
+    [IsoId("_WJf1GSJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateContractTerm4? ReferencePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateContractTerm4? ReferencePeriod { get; init; } 
+    #else
+    public InterestRateContractTerm4? ReferencePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
+    [IsoId("_WJf1GyJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice20Choice_? Spread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionPrice20Choice_? Spread { get; init; } 
+    #else
+    public SecuritiesTransactionPrice20Choice_? Spread { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
+    [IsoId("_WJf1HSJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Day Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat7? DayCount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestComputationMethodFormat7? DayCount { get; init; } 
+    #else
+    public InterestComputationMethodFormat7? DayCount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
+    [IsoId("_WJf1HyJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
+    #else
+    public InterestRateFrequency3Choice_? PaymentFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
+    [IsoId("_WJf1ISJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reset Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
+    #else
+    public InterestRateFrequency3Choice_? ResetFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the nearest date in the future at which the floating reference rate will be reset.
     /// </summary>
+    [IsoId("_WJf1IyJdEe2zWP9pqvmqdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Next Floating Reset")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResetDateAndValue1? NextFloatingReset { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResetDateAndValue1? NextFloatingReset { get; init; } 
+    #else
+    public ResetDateAndValue1? NextFloatingReset { get; set; } 
+    #endif
+    
     /// <summary>
     /// Most recent date and value at which the floating reference rate was reset.
     /// </summary>
+    [IsoId("_iXROYCReEe2VuKUpJ7HXPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Floating Reset")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResetDateAndValue1? LastFloatingReset { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResetDateAndValue1? LastFloatingReset { get; init; } 
+    #else
+    public ResetDateAndValue1? LastFloatingReset { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoISINOct2015Identifier IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentificationValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax350Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Rate is FloatingRateIdentification8Choice_ RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            RateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferencePeriod is InterestRateContractTerm4 ReferencePeriodValue)
-        {
-            writer.WriteStartElement(null, "RefPrd", xmlNamespace );
-            ReferencePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Spread is SecuritiesTransactionPrice20Choice_ SpreadValue)
-        {
-            writer.WriteStartElement(null, "Sprd", xmlNamespace );
-            SpreadValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DayCount is InterestComputationMethodFormat7 DayCountValue)
-        {
-            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
-            DayCountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentFrequency is InterestRateFrequency3Choice_ PaymentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
-            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResetFrequency is InterestRateFrequency3Choice_ ResetFrequencyValue)
-        {
-            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
-            ResetFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NextFloatingReset is ResetDateAndValue1 NextFloatingResetValue)
-        {
-            writer.WriteStartElement(null, "NxtFltgRst", xmlNamespace );
-            NextFloatingResetValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LastFloatingReset is ResetDateAndValue1 LastFloatingResetValue)
-        {
-            writer.WriteStartElement(null, "LastFltgRst", xmlNamespace );
-            LastFloatingResetValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FloatingRate13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a Money Purchase Annual Allowance (MPAA).
 /// </summary>
+[IsoId("_YYAkcFK7EeiSDqv62fL07g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Money Purchase Annual Allowance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MoneyPurchaseAnnualAllowance1
-     : IIsoXmlSerilizable<MoneyPurchaseAnnualAllowance1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MoneyPurchaseAnnualAllowance1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MoneyPurchaseAnnualAllowance1( System.String reqTriggered )
+    {
+        Triggered = reqTriggered;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the annual allowance has been triggered.
     /// </summary>
+    [IsoId("_havwQFK7EeiSDqv62fL07g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triggered")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Triggered { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Triggered { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Triggered { get; init; } 
+    #else
+    public System.String Triggered { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the annual allowance is taken.
     /// </summary>
+    [IsoId("_kmRREFK7EeiSDqv62fL07g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triggered Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TriggeredDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TriggeredDate { get; init; } 
+    #else
+    public System.DateOnly? TriggeredDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Trggrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Triggered)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (TriggeredDate is IsoISODate TriggeredDateValue)
-        {
-            writer.WriteStartElement(null, "TrggrdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TriggeredDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static MoneyPurchaseAnnualAllowance1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

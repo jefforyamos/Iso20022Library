@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the number of transactions that are reported with a specific transaction status.
 /// </summary>
+[IsoId("_4rGw9dHEEeaokquJJ-K6uA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Number Of Records Per Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NumberOfRecordsPerStatus1
-     : IIsoXmlSerilizable<NumberOfRecordsPerStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NumberOfRecordsPerStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NumberOfRecordsPerStatus1( System.String reqDetailedNumberOfRecords,ReportingRecordStatus1Code reqDetailedStatus )
+    {
+        DetailedNumberOfRecords = reqDetailedNumberOfRecords;
+        DetailedStatus = reqDetailedStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of individual records contained in the message, detailed per status.
     /// </summary>
+    [IsoId("_40TJMdHEEeaokquJJ-K6uA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Number Of Records")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText DetailedNumberOfRecords { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DetailedNumberOfRecords { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DetailedNumberOfRecords { get; init; } 
+    #else
+    public System.String DetailedNumberOfRecords { get; set; } 
+    #endif
+    
     /// <summary>
     /// Common transaction status for all individual records reported.
     /// </summary>
+    [IsoId("_40TJM9HEEeaokquJJ-K6uA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingRecordStatus1Code DetailedStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReportingRecordStatus1Code DetailedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingRecordStatus1Code DetailedStatus { get; init; } 
+    #else
+    public ReportingRecordStatus1Code DetailedStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DtldNbOfRcrds", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(DetailedNumberOfRecords)); // data type Max15NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DtldSts", xmlNamespace );
-        writer.WriteValue(DetailedStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static NumberOfRecordsPerStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

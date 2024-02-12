@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between either a short, long or a proprietary identification format.
-/// </summary>
-[KnownType(typeof(IdentificationFormat3Choice.ShortIdentification))]
-[KnownType(typeof(IdentificationFormat3Choice.LongIdentification))]
-[KnownType(typeof(IdentificationFormat3Choice.ProprietaryIdentification))]
-public abstract partial record IdentificationFormat3Choice_ : IIsoXmlSerilizable<IdentificationFormat3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between either a short, long or a proprietary identification format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IdentificationFormat3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IdentificationFormat3Choice.ShortIdentification))]
+    [KnownType(typeof(IdentificationFormat3Choice.LongIdentification))]
+    [KnownType(typeof(IdentificationFormat3Choice.ProprietaryIdentification))]
+    [IsoId("_qZTHkUEFEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Format 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IdentificationFormat3Choice_
+    #else
+    public abstract partial class IdentificationFormat3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ShrtId" => IdentificationFormat3Choice.ShortIdentification.Deserialize(elementWithPayload),
-             "LngId" => IdentificationFormat3Choice.LongIdentification.Deserialize(elementWithPayload),
-             "PrtryId" => IdentificationFormat3Choice.ProprietaryIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IdentificationFormat3Choice choice.")
-        };
     }
 }

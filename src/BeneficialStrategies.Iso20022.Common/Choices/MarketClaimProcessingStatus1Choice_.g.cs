@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different instruction processing statuses.
-/// </summary>
-[KnownType(typeof(MarketClaimProcessingStatus1Choice.Cancelled))]
-[KnownType(typeof(MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing))]
-[KnownType(typeof(MarketClaimProcessingStatus1Choice.Rejected))]
-[KnownType(typeof(MarketClaimProcessingStatus1Choice.Pending))]
-[KnownType(typeof(MarketClaimProcessingStatus1Choice.MatchingStatus))]
-[KnownType(typeof(MarketClaimProcessingStatus1Choice.ProprietaryStatus))]
-public abstract partial record MarketClaimProcessingStatus1Choice_ : IIsoXmlSerilizable<MarketClaimProcessingStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different instruction processing statuses.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MarketClaimProcessingStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MarketClaimProcessingStatus1Choice.Cancelled))]
+    [KnownType(typeof(MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing))]
+    [KnownType(typeof(MarketClaimProcessingStatus1Choice.Rejected))]
+    [KnownType(typeof(MarketClaimProcessingStatus1Choice.Pending))]
+    [KnownType(typeof(MarketClaimProcessingStatus1Choice.MatchingStatus))]
+    [KnownType(typeof(MarketClaimProcessingStatus1Choice.ProprietaryStatus))]
+    [IsoId("_YGaIftx4EeqESbVR5AloZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Claim Processing Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MarketClaimProcessingStatus1Choice_
+    #else
+    public abstract partial class MarketClaimProcessingStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Canc" => MarketClaimProcessingStatus1Choice.Cancelled.Deserialize(elementWithPayload),
-             "AccptdForFrthrPrcg" => MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing.Deserialize(elementWithPayload),
-             "Rjctd" => MarketClaimProcessingStatus1Choice.Rejected.Deserialize(elementWithPayload),
-             "Pdg" => MarketClaimProcessingStatus1Choice.Pending.Deserialize(elementWithPayload),
-             "MtchgSts" => MarketClaimProcessingStatus1Choice.MatchingStatus.Deserialize(elementWithPayload),
-             "PrtrySts" => MarketClaimProcessingStatus1Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MarketClaimProcessingStatus1Choice choice.")
-        };
     }
 }

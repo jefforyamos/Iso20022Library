@@ -9,47 +9,98 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.NumberCount1Choice;
-
-/// <summary>
-/// Total numbers of settlement transactions, receipts and deliveries, and the concerned settlement transaction number.
-/// </summary>
-public partial record TotalNumber : NumberCount1Choice_
-     , IIsoXmlSerilizable<TotalNumber>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.NumberCount1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Sequential number of the instruction in a range of linked settlement instructions.
+    /// Total numbers of settlement transactions, receipts and deliveries, and the concerned settlement transaction number.
     /// </summary>
-    public required IsoExact3NumericText CurrentInstructionNumber { get; init; } 
-    /// <summary>
-    /// Total number of settlement instructions that are linked together.
-    /// </summary>
-    public required IsoExact3NumericText TotalOfLinkedInstructions { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Qrsmadp-Ed-ak6NoX_4Aeg_-2040702072")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record TotalNumber : NumberCount1Choice_
+    #else
+    public partial class TotalNumber : NumberCount1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CurInstrNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(CurrentInstructionNumber)); // data type Exact3NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlOfLkdInstrs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(TotalOfLinkedInstructions)); // data type Exact3NumericText System.String
-        writer.WriteEndElement();
-    }
-    public static new TotalNumber Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a TotalNumber instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public TotalNumber( System.String reqCurrentInstructionNumber,System.String reqTotalOfLinkedInstructions )
+        {
+            CurrentInstructionNumber = reqCurrentInstructionNumber;
+            TotalOfLinkedInstructions = reqTotalOfLinkedInstructions;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Sequential number of the instruction in a range of linked settlement instructions.
+        /// </summary>
+        [IsoId("_Qr_hWdp-Ed-ak6NoX_4Aeg_-2082263388")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Current Instruction Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoExact3NumericText CurrentInstructionNumber { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String CurrentInstructionNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String CurrentInstructionNumber { get; init; } 
+        #else
+        public System.String CurrentInstructionNumber { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Total number of settlement instructions that are linked together.
+        /// </summary>
+        [IsoId("_Qr_hWtp-Ed-ak6NoX_4Aeg_-1935589206")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Total Of Linked Instructions")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoExact3NumericText TotalOfLinkedInstructions { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String TotalOfLinkedInstructions { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String TotalOfLinkedInstructions { get; init; } 
+        #else
+        public System.String TotalOfLinkedInstructions { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

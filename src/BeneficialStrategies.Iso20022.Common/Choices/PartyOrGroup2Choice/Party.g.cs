@@ -9,47 +9,85 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup2Choice;
-
-/// <summary>
-/// Specifies a party.
-/// </summary>
-public partial record Party : PartyOrGroup2Choice_
-     , IIsoXmlSerilizable<Party>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup2Choice
 {
-    #nullable enable
-    
-    public required PartyIdentification135 Value { get; init; } 
     /// <summary>
-    /// Security certificate used to sign electronically.
+    /// Specifies a party.
     /// </summary>
-    public IsoMax10KBinary? Certificate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_DDQTg249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Party : PartyOrGroup2Choice_
+    #else
+    public partial class Party : PartyOrGroup2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Pty", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Certificate is IsoMax10KBinary CertificateValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Party instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Party( PartyIdentification135 reqValue )
         {
-            writer.WriteStartElement(null, "Cert", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(CertificateValue)); // data type Max10KBinary System.Byte[]
-            writer.WriteEndElement();
+            Value = reqValue;
         }
-    }
-    public static new Party Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Entity involved in an activity.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyIdentification135 Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyIdentification135 Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification135 Value { get; init; } 
+        #else
+        public PartyIdentification135 Value { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Security certificate used to sign electronically.
+        /// </summary>
+        [IsoId("_DOvKw249EeiU9cctagi5ow")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Certificate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax10KBinary? Certificate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Byte[]? Certificate { get; init; } 
+        #else
+        public System.Byte[]? Certificate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

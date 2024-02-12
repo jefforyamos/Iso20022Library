@@ -9,40 +9,74 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice;
-
-/// <summary>
-/// Conditions applicable when the investor is not covered by the "de minimis" exemption.
-/// </summary>
-public partial record DeMinimusNotApplicable : DeMinimus1Choice_
-     , IIsoXmlSerilizable<DeMinimusNotApplicable>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reason for the restricted person.
+    /// Conditions applicable when the investor is not covered by the "de minimis" exemption.
     /// </summary>
-    public required IsoMax350Text RestrictedPersonReason { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_CgNiAwgqEeSUG-8hqXsVMQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("De Minimus Not Applicable")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DeMinimusNotApplicable : DeMinimus1Choice_
+    #else
+    public partial class DeMinimusNotApplicable : DeMinimus1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RstrctdPrsnRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(RestrictedPersonReason)); // data type Max350Text System.String
-        writer.WriteEndElement();
-    }
-    public static new DeMinimusNotApplicable Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DeMinimusNotApplicable instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DeMinimusNotApplicable( System.String reqRestrictedPersonReason )
+        {
+            RestrictedPersonReason = reqRestrictedPersonReason;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reason for the restricted person.
+        /// </summary>
+        [IsoId("_RSI7Wdp-Ed-ak6NoX_4Aeg_491616181")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Restricted Person Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax350Text RestrictedPersonReason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String RestrictedPersonReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String RestrictedPersonReason { get; init; } 
+        #else
+        public System.String RestrictedPersonReason { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

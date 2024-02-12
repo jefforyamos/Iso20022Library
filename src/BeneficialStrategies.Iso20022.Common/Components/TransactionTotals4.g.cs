@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals of the reconciliation.
 /// </summary>
+[IsoId("_BQQtQXu-EeSLmfFG0DG7zQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Totals")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionTotals4
-     : IIsoXmlSerilizable<TransactionTotals4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionTotals4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionTotals4( TransactionTotals5 reqTotalCredit,TransactionTotals5 reqTotalDebit )
+    {
+        TotalCredit = reqTotalCredit;
+        TotalDebit = reqTotalDebit;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total of credit transactions.
     /// </summary>
+    [IsoId("_9scLwHu-EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Credit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionTotals5 TotalCredit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionTotals5 TotalCredit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionTotals5 TotalCredit { get; init; } 
+    #else
+    public TransactionTotals5 TotalCredit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of debit transactions.
     /// </summary>
+    [IsoId("_pFQP4Hu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionTotals5 TotalDebit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionTotals5 TotalDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionTotals5 TotalDebit { get; init; } 
+    #else
+    public TransactionTotals5 TotalDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional count which may be utilised for reconciliation.
     /// </summary>
+    [IsoId("_5Y8g0Hu_EeSLmfFG0DG7zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionTotals6? TotalNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionTotals6? TotalNumber { get; init; } 
+    #else
+    public TransactionTotals6? TotalNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TtlCdt", xmlNamespace );
-        TotalCredit.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlDbt", xmlNamespace );
-        TotalDebit.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TotalNumber is TransactionTotals6 TotalNumberValue)
-        {
-            writer.WriteStartElement(null, "TtlNb", xmlNamespace );
-            TotalNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionTotals4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

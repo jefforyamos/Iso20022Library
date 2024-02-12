@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Restrictions applicable to the security.
 /// </summary>
+[IsoId("_cIeP8Wf9Eembv_9KtOEw8g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Restriction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityRestriction3
-     : IIsoXmlSerilizable<SecurityRestriction3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period during which the restriction applies.
     /// </summary>
+    [IsoId("_cVBeMWf9Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod2? EffectivePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod2? EffectivePeriod { get; init; } 
+    #else
+    public DateTimePeriod2? EffectivePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
+    [IsoId("_cVBeM2f9Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restriction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityRestrictionType2Choice_? RestrictionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityRestrictionType2Choice_? RestrictionType { get; init; } 
+    #else
+    public SecurityRestrictionType2Choice_? RestrictionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
+    [IsoId("_cVBeNWf9Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Restriction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegalRestrictions5Choice_? LegalRestrictionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LegalRestrictions5Choice_? LegalRestrictionType { get; init; } 
+    #else
+    public LegalRestrictions5Choice_? LegalRestrictionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the restriction to be applied is relevant for citizen, resident, country.
     /// </summary>
+    [IsoId("_cVBeN2f9Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor Restriction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorRestrictionType3Choice_? InvestorRestrictionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestorRestrictionType3Choice_? InvestorRestrictionType { get; init; } 
+    #else
+    public InvestorRestrictionType3Choice_? InvestorRestrictionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of investor that is allowed to hold the security.
     /// </summary>
+    [IsoId("_cVBeOWf9Eembv_9KtOEw8g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorType3Choice_? InvestorType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestorType3Choice_? InvestorType { get; init; } 
+    #else
+    public InvestorType3Choice_? InvestorType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EffectivePeriod is DateTimePeriod2 EffectivePeriodValue)
-        {
-            writer.WriteStartElement(null, "FctvPrd", xmlNamespace );
-            EffectivePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RestrictionType is SecurityRestrictionType2Choice_ RestrictionTypeValue)
-        {
-            writer.WriteStartElement(null, "RstrctnTp", xmlNamespace );
-            RestrictionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalRestrictionType is LegalRestrictions5Choice_ LegalRestrictionTypeValue)
-        {
-            writer.WriteStartElement(null, "LglRstrctnTp", xmlNamespace );
-            LegalRestrictionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestorRestrictionType is InvestorRestrictionType3Choice_ InvestorRestrictionTypeValue)
-        {
-            writer.WriteStartElement(null, "InvstrRstrctnTp", xmlNamespace );
-            InvestorRestrictionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestorType is InvestorType3Choice_ InvestorTypeValue)
-        {
-            writer.WriteStartElement(null, "InvstrTp", xmlNamespace );
-            InvestorTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityRestriction3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

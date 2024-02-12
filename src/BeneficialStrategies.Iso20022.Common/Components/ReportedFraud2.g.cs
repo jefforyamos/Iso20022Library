@@ -7,107 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fraud reporting type information
 /// </summary>
+[IsoId("_Nfi6oZjCEeefZKJHxQTztg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reported Fraud")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportedFraud2
-     : IIsoXmlSerilizable<ReportedFraud2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportedFraud2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportedFraud2( FraudType1Code reqFraudType,FraudReportingAction1Code reqFraudReportingAction,PartyType25Code reqReportingEntity )
+    {
+        FraudType = reqFraudType;
+        FraudReportingAction = reqFraudReportingAction;
+        ReportingEntity = reqReportingEntity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of fraud for which a report is established.
     /// </summary>
+    [IsoId("_NtFnYZjCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fraud Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FraudType1Code FraudType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FraudType1Code FraudType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FraudType1Code FraudType { get; init; } 
+    #else
+    public FraudType1Code FraudType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of fraud.
     /// </summary>
+    [IsoId("_NtFnY5jCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Fraud Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherFraudType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherFraudType { get; init; } 
+    #else
+    public System.String? OtherFraudType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the type of reported fraudulent transaction.
     /// </summary>
+    [IsoId("_NtFnZZjCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fraud Reporting Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FraudReportingAction1Code FraudReportingAction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FraudReportingAction1Code FraudReportingAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FraudReportingAction1Code FraudReportingAction { get; init; } 
+    #else
+    public FraudReportingAction1Code FraudReportingAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other fraud reporting action.
     /// </summary>
+    [IsoId("_NtFnZ5jCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Fraud Reporting Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherFraudReportingAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherFraudReportingAction { get; init; } 
+    #else
+    public System.String? OtherFraudReportingAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of fraud reporting entity.
     /// </summary>
+    [IsoId("_NtFnaZjCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyType25Code ReportingEntity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyType25Code ReportingEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyType25Code ReportingEntity { get; init; } 
+    #else
+    public PartyType25Code ReportingEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of fraud reporting entity.
     /// </summary>
+    [IsoId("_NtFna5jCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Reporting Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherReportingEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherReportingEntity { get; init; } 
+    #else
+    public System.String? OtherReportingEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the case as provided by the submitter.
     /// </summary>
+    [IsoId("_NtFnc5jCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Submitter Case Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubmitterCaseReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubmitterCaseReference { get; init; } 
+    #else
+    public System.String? SubmitterCaseReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to fraudulent case.
     /// </summary>
+    [IsoId("_NtFneZjCEeefZKJHxQTztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Case Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CaseReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CaseReference { get; init; } 
+    #else
+    public System.String? CaseReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FrdTp", xmlNamespace );
-        writer.WriteValue(FraudType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherFraudType is IsoMax35Text OtherFraudTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrFrdTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFraudTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FrdRptgActn", xmlNamespace );
-        writer.WriteValue(FraudReportingAction.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherFraudReportingAction is IsoMax35Text OtherFraudReportingActionValue)
-        {
-            writer.WriteStartElement(null, "OthrFrdRptgActn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFraudReportingActionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RptgNtty", xmlNamespace );
-        writer.WriteValue(ReportingEntity.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherReportingEntity is IsoMax35Text OtherReportingEntityValue)
-        {
-            writer.WriteStartElement(null, "OthrRptgNtty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherReportingEntityValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SubmitterCaseReference is IsoMax35Text SubmitterCaseReferenceValue)
-        {
-            writer.WriteStartElement(null, "SubmitrCaseRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubmitterCaseReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CaseReference is IsoMax35Text CaseReferenceValue)
-        {
-            writer.WriteStartElement(null, "CaseRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CaseReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportedFraud2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

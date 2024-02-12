@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Status is cancelled.
-/// </summary>
-[KnownType(typeof(CancellationStatus22Choice.Status))]
-[KnownType(typeof(CancellationStatus22Choice.Rejected))]
-public abstract partial record CancellationStatus22Choice_ : IIsoXmlSerilizable<CancellationStatus22Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Status is cancelled.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CancellationStatus22Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CancellationStatus22Choice.Status))]
+    [KnownType(typeof(CancellationStatus22Choice.Rejected))]
+    [IsoId("_kZs-EEgsEeaD2L_hzZaE0w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Status 22 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CancellationStatus22Choice_
+    #else
+    public abstract partial class CancellationStatus22Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Sts" => CancellationStatus22Choice.Status.Deserialize(elementWithPayload),
-             "Rjctd" => CancellationStatus22Choice.Rejected.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CancellationStatus22Choice choice.")
-        };
     }
 }

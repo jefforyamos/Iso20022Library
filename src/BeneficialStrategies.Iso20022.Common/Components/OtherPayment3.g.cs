@@ -7,84 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment related to elements not reported in dedicated fields.
 /// </summary>
+[IsoId("_R72T8XhSEeu3kecHd7QKUQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Payment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherPayment3
-     : IIsoXmlSerilizable<OtherPayment3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OtherPayment3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OtherPayment3( AmountAndDirection106 reqPaymentAmount )
+    {
+        PaymentAmount = reqPaymentAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money of any payment the reporting counterparty made or received.
     /// Usage: The negative symbol to be used to indicate that the payment was made, not received.
     /// </summary>
+    [IsoId("_SKRxgXhSEeu3kecHd7QKUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection106 PaymentAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection106 PaymentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection106 PaymentAmount { get; init; } 
+    #else
+    public AmountAndDirection106 PaymentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of other payment.
     /// </summary>
+    [IsoId("_SKRxg3hSEeu3kecHd7QKUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentType5Choice_? PaymentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentType5Choice_? PaymentType { get; init; } 
+    #else
+    public PaymentType5Choice_? PaymentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the unadjusted date on which the other payment is paid.
     /// </summary>
+    [IsoId("_SKRxhXhSEeu3kecHd7QKUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PaymentDate { get; init; } 
+    #else
+    public System.DateOnly? PaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the payer of the other payment amount.
     /// </summary>
+    [IsoId("_SKRxh3hSEeu3kecHd7QKUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Payer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification235Choice_? PaymentPayer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification235Choice_? PaymentPayer { get; init; } 
+    #else
+    public PartyIdentification235Choice_? PaymentPayer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the receiver of the other payment amount.
     /// </summary>
+    [IsoId("_SKRxiXhSEeu3kecHd7QKUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Receiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification235Choice_? PaymentReceiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification235Choice_? PaymentReceiver { get; init; } 
+    #else
+    public PartyIdentification235Choice_? PaymentReceiver { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PmtAmt", xmlNamespace );
-        PaymentAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PaymentType is PaymentType5Choice_ PaymentTypeValue)
-        {
-            writer.WriteStartElement(null, "PmtTp", xmlNamespace );
-            PaymentTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentDate is IsoISODate PaymentDateValue)
-        {
-            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PaymentPayer is PartyIdentification235Choice_ PaymentPayerValue)
-        {
-            writer.WriteStartElement(null, "PmtPyer", xmlNamespace );
-            PaymentPayerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentReceiver is PartyIdentification235Choice_ PaymentReceiverValue)
-        {
-            writer.WriteStartElement(null, "PmtRcvr", xmlNamespace );
-            PaymentReceiverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherPayment3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

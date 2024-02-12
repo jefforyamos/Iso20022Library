@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the information that is searched through specific criteria.
 /// </summary>
+[IsoId("_VKQvgTp9EemwKdP955WBJQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Balance Query Definition")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraBalanceQueryDefinition9
-     : IIsoXmlSerilizable<IntraBalanceQueryDefinition9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntraBalanceQueryDefinition9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntraBalanceQueryDefinition9( MovementResponseType1Code reqQueryType,IntraBalanceQueryCriteria9 reqSearchCriteria )
+    {
+        QueryType = reqQueryType;
+        SearchCriteria = reqSearchCriteria;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the type of query.
     /// </summary>
+    [IsoId("_VUPx8Tp9EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MovementResponseType1Code QueryType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MovementResponseType1Code QueryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MovementResponseType1Code QueryType { get; init; } 
+    #else
+    public MovementResponseType1Code QueryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria to extract the intra-balance movement instruction information.
     /// </summary>
+    [IsoId("_VUPx8zp9EemwKdP955WBJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Search Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
+    #else
+    public IntraBalanceQueryCriteria9 SearchCriteria { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "QryTp", xmlNamespace );
-        writer.WriteValue(QueryType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SchCrit", xmlNamespace );
-        SearchCriteria.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static IntraBalanceQueryDefinition9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Includes a set of dates (e.g. credit date) related to settlement of the financing amount.
 /// </summary>
+[IsoId("_T8KRktp-Ed-ak6NoX_4Aeg_1418174558")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financing Date Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancingDateDetails1
-     : IIsoXmlSerilizable<FinancingDateDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancingDateDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancingDateDetails1( System.DateOnly reqCreditDate )
+    {
+        CreditDate = reqCreditDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date on which the financing transaction has been booked in an account.
     /// </summary>
+    [IsoId("_T8KRk9p-Ed-ak6NoX_4Aeg_-558847054")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Book Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BookDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BookDate { get; init; } 
+    #else
+    public System.DateOnly? BookDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a financed amount has been credited.
     /// </summary>
+    [IsoId("_T8KRlNp-Ed-ak6NoX_4Aeg_-183898526")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate CreditDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly CreditDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly CreditDate { get; init; } 
+    #else
+    public System.DateOnly CreditDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which a financed amount has been debited.
     /// </summary>
+    [IsoId("_T8KRldp-Ed-ak6NoX_4Aeg_-69382352")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debit Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DebitDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DebitDate { get; init; } 
+    #else
+    public System.DateOnly? DebitDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BookDate is IsoISODate BookDateValue)
-        {
-            writer.WriteStartElement(null, "BookDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BookDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CdtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(CreditDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (DebitDate is IsoISODate DebitDateValue)
-        {
-            writer.WriteStartElement(null, "DbtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DebitDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancingDateDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

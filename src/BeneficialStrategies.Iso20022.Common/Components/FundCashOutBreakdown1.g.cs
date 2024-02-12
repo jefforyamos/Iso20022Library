@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Breakdown of cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
 /// </summary>
+[IsoId("_VBwAqtp-Ed-ak6NoX_4Aeg_-1800161519")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Cash Out Breakdown")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundCashOutBreakdown1
-     : IIsoXmlSerilizable<FundCashOutBreakdown1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of cash flow out, expressed as an amount of money.
     /// </summary>
+    [IsoId("_VB5xoNp-Ed-ak6NoX_4Aeg_-1260826368")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the cash flow out, expressed as a number of units.
     /// </summary>
+    [IsoId("_VB5xodp-Ed-ak6NoX_4Aeg_-724212157")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? UnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, eg, because it was received close to cut-off time.
     /// </summary>
+    [IsoId("_VB5xotp-Ed-ak6NoX_4Aeg_-1534527424")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Amount Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NewAmountIndicator { get; init; } 
+    #else
+    public System.String? NewAmountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of the cash movements out of a fund by transaction type, eg, redemption, switch-out.
     /// </summary>
+    [IsoId("_VB5xo9p-Ed-ak6NoX_4Aeg_-540871792")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Fund Transaction Out Type Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundTransactionOutType1? InvestmentFundTransactionOutTypeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentFundTransactionOutType1? InvestmentFundTransactionOutTypeDetails { get; init; } 
+    #else
+    public InvestmentFundTransactionOutType1? InvestmentFundTransactionOutTypeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of the cash movements into a fund by order type, eg, order by quantity of units or amount of money.
     /// </summary>
+    [IsoId("_VB5xpNp-Ed-ak6NoX_4Aeg_-925979586")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Order Quantity Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalOrderQuantityType1? OriginalOrderQuantityDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalOrderQuantityType1? OriginalOrderQuantityDetails { get; init; } 
+    #else
+    public OriginalOrderQuantityType1? OriginalOrderQuantityDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the commission applied to an order, eg, back-end or front-end commission.
     /// </summary>
+    [IsoId("_VB5xpdp-Ed-ak6NoX_4Aeg_1237784504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commission Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission4? CommissionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Commission4? CommissionDetails { get; init; } 
+    #else
+    public Commission4? CommissionDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Amount is IsoActiveOrHistoricCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnitsNumber is FinancialInstrumentQuantity1 UnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
-            UnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewAmountIndicator is IsoYesNoIndicator NewAmountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NewAmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewAmountIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InvestmentFundTransactionOutTypeDetails is InvestmentFundTransactionOutType1 InvestmentFundTransactionOutTypeDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtFndTxOutTpDtls", xmlNamespace );
-            InvestmentFundTransactionOutTypeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalOrderQuantityDetails is OriginalOrderQuantityType1 OriginalOrderQuantityDetailsValue)
-        {
-            writer.WriteStartElement(null, "OrgnlOrdrQtyDtls", xmlNamespace );
-            OriginalOrderQuantityDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommissionDetails is Commission4 CommissionDetailsValue)
-        {
-            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
-            CommissionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundCashOutBreakdown1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

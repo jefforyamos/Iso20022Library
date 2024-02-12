@@ -9,44 +9,74 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
-
-/// <summary>
-/// Value of track 2 data expressed in a hex binary form.
-/// Binary, length of 19 with maximum 37 hexadecimal text characters.
-/// When an odd number of hexadecimal text characters is present, a zero must be appended to the end of the string to pad to an even number of hexadecimal text characters.
-/// </summary>
-public partial record HexadecimalBinaryValue : Track2Data1Choice_
-     , IIsoXmlSerilizable<HexadecimalBinaryValue>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies a character string with a maximum length of 19 binary bytes (38 hexadecimal text characters). 
-    /// Used only for hex binary data only, supports only characters A-F and 0-9.
+    /// Value of track 2 data expressed in a hex binary form.
+    /// Binary, length of 19 with maximum 37 hexadecimal text characters.
+    /// When an odd number of hexadecimal text characters is present, a zero must be appended to the end of the string to pad to an even number of hexadecimal text characters.
     /// </summary>
-    public required IsoMax19HexBinaryText Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_jYXPMd8aEeeNTcLLmuYy-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hexadecimal Binary Value")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record HexadecimalBinaryValue : Track2Data1Choice_
+    #else
+    public partial class HexadecimalBinaryValue : Track2Data1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "HexBinryVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax19HexBinaryText(Value)); // data type Max19HexBinaryText System.String
-        writer.WriteEndElement();
-    }
-    public static new HexadecimalBinaryValue Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a HexadecimalBinaryValue instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public HexadecimalBinaryValue( System.String reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies a character string with a maximum length of 19 binary bytes (38 hexadecimal text characters). 
+        /// Used only for hex binary data only, supports only characters A-F and 0-9.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax19HexBinaryText Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Value { get; init; } 
+        #else
+        public System.String Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

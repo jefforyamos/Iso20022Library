@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an earliest shipment date and a latest shipment date.
 /// </summary>
+[IsoId("_Sp5_gtp-Ed-ak6NoX_4Aeg_-1649364101")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Shipment Date Range")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ShipmentDateRange1
-     : IIsoXmlSerilizable<ShipmentDateRange1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Earliest date whereby the goods must be shipped.
     /// </summary>
+    [IsoId("_Sp5_g9p-Ed-ak6NoX_4Aeg_-1349221863")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earliest Shipment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EarliestShipmentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? EarliestShipmentDate { get; init; } 
+    #else
+    public System.DateOnly? EarliestShipmentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Latest date whereby the goods must be shipped.
     /// </summary>
+    [IsoId("_Sp5_hNp-Ed-ak6NoX_4Aeg_-1302121318")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Latest Shipment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LatestShipmentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? LatestShipmentDate { get; init; } 
+    #else
+    public System.DateOnly? LatestShipmentDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EarliestShipmentDate is IsoISODate EarliestShipmentDateValue)
-        {
-            writer.WriteStartElement(null, "EarlstShipmntDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestShipmentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (LatestShipmentDate is IsoISODate LatestShipmentDateValue)
-        {
-            writer.WriteStartElement(null, "LatstShipmntDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(LatestShipmentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static ShipmentDateRange1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

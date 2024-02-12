@@ -7,73 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on an event that happened in a system.
 /// </summary>
+[IsoId("_Uslo-dp-Ed-ak6NoX_4Aeg_376982248")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Event1
-     : IIsoXmlSerilizable<Event1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Event1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Event1( System.String reqEventCode )
+    {
+        EventCode = reqEventCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Proprietary code used to specify an event that occurred in a system.
     /// </summary>
+    [IsoId("_Uslo-tp-Ed-ak6NoX_4Aeg_698369494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText EventCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String EventCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String EventCode { get; init; } 
+    #else
+    public System.String EventCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the parameters of an event which occurred in a system.
     /// </summary>
+    [IsoId("_Uslo-9p-Ed-ak6NoX_4Aeg_871066371")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Parameter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? EventParameter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventParameter { get; init; } 
+    #else
+    public System.String? EventParameter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free text used to describe an event which occurred in a system.
     /// </summary>
+    [IsoId("_Uslo_Np-Ed-ak6NoX_4Aeg_924628764")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? EventDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventDescription { get; init; } 
+    #else
+    public System.String? EventDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the event occurred.
     /// </summary>
+    [IsoId("_UsvZ8Np-Ed-ak6NoX_4Aeg_2008271246")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EventTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? EventTime { get; init; } 
+    #else
+    public System.DateTime? EventTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "EvtCd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(EventCode)); // data type Max4AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (EventParameter is IsoMax35Text EventParameterValue)
-        {
-            writer.WriteStartElement(null, "EvtParam", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(EventParameterValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (EventDescription is IsoMax350Text EventDescriptionValue)
-        {
-            writer.WriteStartElement(null, "EvtDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(EventDescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (EventTime is IsoISODateTime EventTimeValue)
-        {
-            writer.WriteStartElement(null, "EvtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(EventTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static Event1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

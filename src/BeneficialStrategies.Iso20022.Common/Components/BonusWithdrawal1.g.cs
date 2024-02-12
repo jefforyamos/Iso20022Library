@@ -7,93 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a bonus paid out or a withdrawal.
 /// </summary>
+[IsoId("_K37R0F23EeiFXdiLi_Nf4A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Bonus Withdrawal")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BonusWithdrawal1
-     : IIsoXmlSerilizable<BonusWithdrawal1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BonusWithdrawal1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BonusWithdrawal1( TypeOfAmount1Choice_ reqTypeOfAmount )
+    {
+        TypeOfAmount = reqTypeOfAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the amount is the result of a bonus paid, a withdrawal or other kind of amount.
     /// </summary>
+    [IsoId("_YnYO8F24EeiFXdiLi_Nf4A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
+    #else
+    public TypeOfAmount1Choice_ TypeOfAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the bonus paid or the claimed amount. For example, a claimed amount for a lifetime ISA (LISA) or a government bonus paid out.
     /// </summary>
+    [IsoId("_Q-AfRF23EeiFXdiLi_Nf4A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the bonus amount paid to or an amount withdrawn from the investment product.
     /// </summary>
+    [IsoId("_Q-AfRl23EeiFXdiLi_Nf4A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WithdrawalReason1Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public WithdrawalReason1Choice_? Reason { get; init; } 
+    #else
+    public WithdrawalReason1Choice_? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of an unclaimed bonus or an unclaimed withdrawal.
     /// </summary>
+    [IsoId("_Q-AfRV23EeiFXdiLi_Nf4A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unclaimed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnclaimedAmount { get; init; } 
+    #else
+    public System.Decimal? UnclaimedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is an outstanding bonus or withdrawal amount.
     /// </summary>
+    [IsoId("_Q-AfR123EeiFXdiLi_Nf4A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outstanding")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Outstanding { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Outstanding { get; init; } 
+    #else
+    public System.String? Outstanding { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the monies paid out or withdrawn.
     /// </summary>
+    [IsoId("_u-KIsZDGEeiQvr1XXv37hw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TpOfAmt", xmlNamespace );
-        TypeOfAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Amount is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Reason is WithdrawalReason1Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnclaimedAmount is IsoActiveOrHistoricCurrencyAnd13DecimalAmount UnclaimedAmountValue)
-        {
-            writer.WriteStartElement(null, "UclmdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(UnclaimedAmountValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Outstanding is IsoYesNoIndicator OutstandingValue)
-        {
-            writer.WriteStartElement(null, "Outsdng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OutstandingValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BonusWithdrawal1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment instrument for a type of order.
 /// </summary>
+[IsoId("_q3QsMF8rEeicg40_9gK9vQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Instrument")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentInstrument16
-     : IIsoXmlSerilizable<PaymentInstrument16>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentInstrument16 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentInstrument16( FundOrderType5Choice_ reqOrderType,FundPaymentType1Choice_ reqInstrumentType )
+    {
+        OrderType = reqOrderType;
+        InstrumentType = reqInstrumentType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of order to which the payment instrument applies.
     /// </summary>
+    [IsoId("_FhZzkF8sEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundOrderType5Choice_ OrderType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FundOrderType5Choice_ OrderType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundOrderType5Choice_ OrderType { get; init; } 
+    #else
+    public FundOrderType5Choice_ OrderType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment instrument for the order type.
     /// </summary>
+    [IsoId("_oIpUYF8sEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instrument Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundPaymentType1Choice_ InstrumentType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FundPaymentType1Choice_ InstrumentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundPaymentType1Choice_ InstrumentType { get; init; } 
+    #else
+    public FundPaymentType1Choice_ InstrumentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the payment.
     /// </summary>
+    [IsoId("_xXAigWAKEeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrdrTp", xmlNamespace );
-        OrderType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstrmTp", xmlNamespace );
-        InstrumentType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentInstrument16 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

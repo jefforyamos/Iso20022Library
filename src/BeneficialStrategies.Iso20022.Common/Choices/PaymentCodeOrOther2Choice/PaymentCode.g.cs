@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther2Choice;
-
-/// <summary>
-/// Specifies the payment period in coded form and a number of days.
-/// </summary>
-public partial record PaymentCode : PaymentCodeOrOther2Choice_
-     , IIsoXmlSerilizable<PaymentCode>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Code for the payment.
+    /// Specifies the payment period in coded form and a number of days.
     /// </summary>
-    public required PaymentTime4Code Code { get; init; } 
-    /// <summary>
-    /// Number of days after which the payment must be effected.
-    /// </summary>
-    public IsoNumber? NumberOfDays { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_R2KHERVgEeOrY9qSHVspCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Code")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PaymentCode : PaymentCodeOrOther2Choice_
+    #else
+    public partial class PaymentCode : PaymentCodeOrOther2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Code.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (NumberOfDays is IsoNumber NumberOfDaysValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a PaymentCode instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public PaymentCode( PaymentTime4Code reqCode )
         {
-            writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
+            Code = reqCode;
         }
-    }
-    public static new PaymentCode Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Code for the payment.
+        /// </summary>
+        [IsoId("_IRIGgRVgEeOrY9qSHVspCA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PaymentTime4Code Code { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PaymentTime4Code Code { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PaymentTime4Code Code { get; init; } 
+        #else
+        public PaymentTime4Code Code { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Number of days after which the payment must be effected.
+        /// </summary>
+        [IsoId("_IRIGgxVgEeOrY9qSHVspCA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Number Of Days")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoNumber? NumberOfDays { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? NumberOfDays { get; init; } 
+        #else
+        public System.UInt64? NumberOfDays { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

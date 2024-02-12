@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General cryptographic message syntax (CMS) containing authenticated data.
 /// </summary>
+[IsoId("_SvV__AEcEeCQm6a_G2yO_w_153583816")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Content Information Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ContentInformationType3
-     : IIsoXmlSerilizable<ContentInformationType3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ContentInformationType3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ContentInformationType3( ContentType1Code reqContentType )
+    {
+        ContentType = reqContentType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of data protection.
     /// </summary>
+    [IsoId("_SvV__QEcEeCQm6a_G2yO_w_39744750")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Content Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType1Code ContentType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ContentType1Code ContentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentType1Code ContentType { get; init; } 
+    #else
+    public ContentType1Code ContentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data protection by a message authentication code (MAC).
     /// </summary>
+    [IsoId("_SvV__gEcEeCQm6a_G2yO_w_-801238934")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authenticated Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthenticatedData1? AuthenticatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthenticatedData1? AuthenticatedData { get; init; } 
+    #else
+    public AuthenticatedData1? AuthenticatedData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
-        writer.WriteValue(ContentType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AuthenticatedData is AuthenticatedData1 AuthenticatedDataValue)
-        {
-            writer.WriteStartElement(null, "AuthntcdData", xmlNamespace );
-            AuthenticatedDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ContentInformationType3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

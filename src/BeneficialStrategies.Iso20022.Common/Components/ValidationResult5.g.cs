@@ -7,67 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed description of the differences.
 /// </summary>
+[IsoId("_Ra7q8dp-Ed-ak6NoX_4Aeg_-1034400483")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Validation Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ValidationResult5
-     : IIsoXmlSerilizable<ValidationResult5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ValidationResult5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ValidationResult5( System.UInt64 reqSequenceNumber,System.String reqRuleIdentification,System.String reqRuleDescription )
+    {
+        SequenceNumber = reqSequenceNumber;
+        RuleIdentification = reqRuleIdentification;
+        RuleDescription = reqRuleDescription;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sequential number assigned to the mismatch.
     /// </summary>
+    [IsoId("_Ra7q8tp-Ed-ak6NoX_4Aeg_-1034400369")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SequenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 SequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 SequenceNumber { get; init; } 
+    #else
+    public System.UInt64 SequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Coded identification of the matching rule that is violated.
     /// </summary>
+    [IsoId("_Ra7q89p-Ed-ak6NoX_4Aeg_-1034400461")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rule Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RuleIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RuleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RuleIdentification { get; init; } 
+    #else
+    public System.String RuleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed description of the rule.
     /// </summary>
+    [IsoId("_Ra7q9Np-Ed-ak6NoX_4Aeg_-1034400430")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rule Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text RuleDescription { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RuleDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RuleDescription { get; init; } 
+    #else
+    public System.String RuleDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the element that creates the mismatch.
     /// </summary>
+    [IsoId("_Ra7q9dp-Ed-ak6NoX_4Aeg_-1034400306")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mis Matched Element")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ElementIdentification1? MisMatchedElement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ElementIdentification1? MisMatchedElement { get; init; } 
+    #else
+    public ElementIdentification1? MisMatchedElement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RuleId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RuleIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RuleDesc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(RuleDescription)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (MisMatchedElement is ElementIdentification1 MisMatchedElementValue)
-        {
-            writer.WriteStartElement(null, "MisMtchdElmt", xmlNamespace );
-            MisMatchedElementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ValidationResult5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

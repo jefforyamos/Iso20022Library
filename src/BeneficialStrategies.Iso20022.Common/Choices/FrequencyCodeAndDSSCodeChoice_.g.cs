@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for the frequency.
-/// </summary>
-[KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
-[KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
-public abstract partial record FrequencyCodeAndDSSCodeChoice_ : IIsoXmlSerilizable<FrequencyCodeAndDSSCodeChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for the frequency.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FrequencyCodeAndDSSCodeChoice_ Deserialize(XElement element)
+    [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
+    [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
+    [IsoId("_UuhioNp-Ed-ak6NoX_4Aeg_400175868")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency Code And DSS Code Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FrequencyCodeAndDSSCodeChoice_
+    #else
+    public abstract partial class FrequencyCodeAndDSSCodeChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FrqcyAsCd" => FrequencyCodeAndDSSCodeChoice.FrequencyAsCode.Deserialize(elementWithPayload),
-             "FrqcyAsDSS" => FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FrequencyCodeAndDSSCodeChoice choice.")
-        };
     }
 }

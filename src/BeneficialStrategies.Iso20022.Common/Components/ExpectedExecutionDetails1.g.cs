@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Expected trade date and expected settlement date of the order execution.
 /// </summary>
+[IsoId("_VGhL7tp-Ed-ak6NoX_4Aeg_-1557006265")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Expected Execution Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExpectedExecutionDetails1
-     : IIsoXmlSerilizable<ExpectedExecutionDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Expected date or expected date and time at which a price will be applied according to the terms of the prospectus.
     /// </summary>
+    [IsoId("_VGhL79p-Ed-ak6NoX_4Aeg_-1370456351")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Trade Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expected date at which the financial instruments will be exchanged against cash.
     /// </summary>
+    [IsoId("_VGq84Np-Ed-ak6NoX_4Aeg_-1060152455")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExpectedSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? ExpectedSettlementDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ExpectedTradeDateTime is DateAndDateTimeChoice_ ExpectedTradeDateTimeValue)
-        {
-            writer.WriteStartElement(null, "XpctdTradDtTm", xmlNamespace );
-            ExpectedTradeDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExpectedSettlementDate is IsoISODate ExpectedSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "XpctdSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static ExpectedExecutionDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the type of restriction.
-/// </summary>
-[KnownType(typeof(SecurityRestrictionType2Choice.RestrictionType))]
-[KnownType(typeof(SecurityRestrictionType2Choice.ProprietaryRestriction))]
-public abstract partial record SecurityRestrictionType2Choice_ : IIsoXmlSerilizable<SecurityRestrictionType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the type of restriction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecurityRestrictionType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecurityRestrictionType2Choice.RestrictionType))]
+    [KnownType(typeof(SecurityRestrictionType2Choice.ProprietaryRestriction))]
+    [IsoId("_c8LMVeLxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Restriction Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecurityRestrictionType2Choice_
+    #else
+    public abstract partial class SecurityRestrictionType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RstrctnTp" => SecurityRestrictionType2Choice.RestrictionType.Deserialize(elementWithPayload),
-             "PrtryRstrctn" => SecurityRestrictionType2Choice.ProprietaryRestriction.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecurityRestrictionType2Choice choice.")
-        };
     }
 }

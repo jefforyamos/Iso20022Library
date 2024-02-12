@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the financial instruments details or the business error.
-/// </summary>
-[KnownType(typeof(SecurityOrBusinessError4Choice.SecurityReport))]
-[KnownType(typeof(SecurityOrBusinessError4Choice.BusinessError))]
-public abstract partial record SecurityOrBusinessError4Choice_ : IIsoXmlSerilizable<SecurityOrBusinessError4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the financial instruments details or the business error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecurityOrBusinessError4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecurityOrBusinessError4Choice.SecurityReport))]
+    [KnownType(typeof(SecurityOrBusinessError4Choice.BusinessError))]
+    [IsoId("_P5yGtZJKEeuAlLVx8pyt3w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Or Business Error 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecurityOrBusinessError4Choice_
+    #else
+    public abstract partial class SecurityOrBusinessError4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctyRpt" => SecurityOrBusinessError4Choice.SecurityReport.Deserialize(elementWithPayload),
-             "BizErr" => SecurityOrBusinessError4Choice.BusinessError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecurityOrBusinessError4Choice choice.")
-        };
     }
 }

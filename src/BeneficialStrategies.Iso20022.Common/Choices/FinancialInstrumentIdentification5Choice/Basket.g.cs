@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentification5Choice;
-
-/// <summary>
-/// Instrument consists of multiple instruments.
-/// </summary>
-public partial record Basket : FinancialInstrumentIdentification5Choice_
-     , IIsoXmlSerilizable<Basket>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentification5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identifies the financial instrument using an ISIN.
+    /// Instrument consists of multiple instruments.
     /// </summary>
-    public IsoISINOct2015Identifier? ISIN { get; init; } 
-    /// <summary>
-    /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
-    /// </summary>
-    public IsoLEIIdentifier? LEI { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_HQWTw35aEea2k7EBUopqxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Basket : FinancialInstrumentIdentification5Choice_
+    #else
+    public partial class Basket : FinancialInstrumentIdentification5Choice_
+    #endif
     {
-        if (ISIN is IsoISINOct2015Identifier ISINValue)
-        {
-            writer.WriteStartElement(null, "ISIN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (LEI is IsoLEIIdentifier LEIValue)
-        {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new Basket Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the financial instrument using an ISIN.
+        /// </summary>
+        [IsoId("_a46r4fBqEeWTAY6i--T_aA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("ISIN")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISINOct2015Identifier? ISIN { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ISIN { get; init; } 
+        #else
+        public System.String? ISIN { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
+        /// </summary>
+        [IsoId("_a46r4vBqEeWTAY6i--T_aA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("LEI")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoLEIIdentifier? LEI { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LEI { get; init; } 
+        #else
+        public System.String? LEI { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

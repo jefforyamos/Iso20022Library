@@ -7,146 +7,244 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
+[IsoId("_TCHyDQEcEeCQm6a_G2yO_w_-1177730425")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Terms")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTerms3
-     : IIsoXmlSerilizable<PaymentTerms3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Due date specified for the payment terms.
     /// </summary>
+    [IsoId("_TCHyDgEcEeCQm6a_G2yO_w_909551142")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DueDate { get; init; } 
+    #else
+    public System.DateOnly? DueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment period specified for these payment terms.
     /// </summary>
+    [IsoId("_TCHyDwEcEeCQm6a_G2yO_w_1401606121")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentPeriod1? PaymentPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentPeriod1? PaymentPeriod { get; init; } 
+    #else
+    public PaymentPeriod1? PaymentPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Textual description of these payment terms.
     /// </summary>
+    [IsoId("_TCHyEAEcEeCQm6a_G2yO_w_202278077")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Partial payment, expressed as a percentage, for the payment terms.
     /// </summary>
+    [IsoId("_TCRjAAEcEeCQm6a_G2yO_w_-716100957")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Partial Payment Percent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PartialPaymentPercent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PartialPaymentPercent { get; init; } 
+    #else
+    public System.Decimal? PartialPaymentPercent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Direct debit mandate identification specified for these payment terms.
     /// </summary>
+    [IsoId("_TCRjAQEcEeCQm6a_G2yO_w_-1812933723")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Direct Debit Mandate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DirectDebitMandateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DirectDebitMandateIdentification { get; init; } 
+    #else
+    public System.String? DirectDebitMandateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value used as a basis to calculate the discount in these payment terms.
     /// </summary>
+    [IsoId("_TCRjAgEcEeCQm6a_G2yO_w_1766790805")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? DiscountAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DiscountAmount { get; init; } 
+    #else
+    public System.Decimal? DiscountAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percent rate used to calculate the discount for these payment terms.
     /// </summary>
+    [IsoId("_TCRjAwEcEeCQm6a_G2yO_w_-774400512")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Percent Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? DiscountPercentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DiscountPercentRate { get; init; } 
+    #else
+    public System.Decimal? DiscountPercentRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value used as a basis to calculate the discount in these payment terms.
     /// </summary>
+    [IsoId("_TCRjBAEcEeCQm6a_G2yO_w_-1837790910")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Basis Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? DiscountBasisAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DiscountBasisAmount { get; init; } 
+    #else
+    public System.Decimal? DiscountBasisAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value used as a basis to calculate the penalty in the payment terms.
     /// </summary>
+    [IsoId("_TCRjBQEcEeCQm6a_G2yO_w_-189165825")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Penalty Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? PenaltyAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PenaltyAmount { get; init; } 
+    #else
+    public System.Decimal? PenaltyAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percent rate used to calculate the penalty for these payment terms.
     /// </summary>
+    [IsoId("_TCRjBgEcEeCQm6a_G2yO_w_499443934")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Penalty Percent Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PenaltyPercentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PenaltyPercentRate { get; init; } 
+    #else
+    public System.Decimal? PenaltyPercentRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount used as a basis to calculate the penalty amount.
     /// </summary>
+    [IsoId("_TCRjBwEcEeCQm6a_G2yO_w_-1503806956")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Penalty Basis Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? PenaltyBasisAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PenaltyBasisAmount { get; init; } 
+    #else
+    public System.Decimal? PenaltyBasisAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DueDate is IsoISODate DueDateValue)
-        {
-            writer.WriteStartElement(null, "DueDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (PaymentPeriod is PaymentPeriod1 PaymentPeriodValue)
-        {
-            writer.WriteStartElement(null, "PmtPrd", xmlNamespace );
-            PaymentPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Description is IsoMax140Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (PartialPaymentPercent is IsoPercentageRate PartialPaymentPercentValue)
-        {
-            writer.WriteStartElement(null, "PrtlPmtPct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PartialPaymentPercentValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DirectDebitMandateIdentification is IsoMax35Text DirectDebitMandateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DrctDbtMndtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DirectDebitMandateIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DiscountAmount is IsoCurrencyAndAmount DiscountAmountValue)
-        {
-            writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DiscountAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DiscountPercentRate is IsoPercentageRate DiscountPercentRateValue)
-        {
-            writer.WriteStartElement(null, "DscntPctRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(DiscountPercentRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DiscountBasisAmount is IsoCurrencyAndAmount DiscountBasisAmountValue)
-        {
-            writer.WriteStartElement(null, "DscntBsisAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DiscountBasisAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PenaltyAmount is IsoCurrencyAndAmount PenaltyAmountValue)
-        {
-            writer.WriteStartElement(null, "PnltyAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(PenaltyAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PenaltyPercentRate is IsoPercentageRate PenaltyPercentRateValue)
-        {
-            writer.WriteStartElement(null, "PnltyPctRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PenaltyPercentRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PenaltyBasisAmount is IsoCurrencyAndAmount PenaltyBasisAmountValue)
-        {
-            writer.WriteStartElement(null, "PnltyBsisAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(PenaltyBasisAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentTerms3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

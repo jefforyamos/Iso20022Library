@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Original and corrected price information of an investment fund.
 /// </summary>
+[IsoId("_RLuxVdp-Ed-ak6NoX_4Aeg_993416543")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Price Correction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PriceCorrection3
-     : IIsoXmlSerilizable<PriceCorrection3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PriceCorrection3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PriceCorrection3( PriceValuation3 reqPreviouslySentPriceDetails )
+    {
+        PreviouslySentPriceDetails = reqPreviouslySentPriceDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information related to the price valuation of a financial instrument sent in a previous price report.
     /// </summary>
+    [IsoId("_RLuxVtp-Ed-ak6NoX_4Aeg_993416821")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previously Sent Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValuation3 PreviouslySentPriceDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceValuation3 PreviouslySentPriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValuation3 PreviouslySentPriceDetails { get; init; } 
+    #else
+    public PriceValuation3 PreviouslySentPriceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the new price valuation of a financial instrument, which overrides previously sent information.
     /// </summary>
+    [IsoId("_RLuxV9p-Ed-ak6NoX_4Aeg_993416865")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corrected Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValuation3? CorrectedPriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValuation3? CorrectedPriceDetails { get; init; } 
+    #else
+    public PriceValuation3? CorrectedPriceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_RLuxWNp-Ed-ak6NoX_4Aeg_993416570")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrevslySntPricDtls", xmlNamespace );
-        PreviouslySentPriceDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CorrectedPriceDetails is PriceValuation3 CorrectedPriceDetailsValue)
-        {
-            writer.WriteStartElement(null, "CrrctdPricDtls", xmlNamespace );
-            CorrectedPriceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PriceCorrection3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

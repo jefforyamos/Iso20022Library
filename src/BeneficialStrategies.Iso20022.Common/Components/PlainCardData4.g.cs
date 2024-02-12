@@ -7,100 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
+[IsoId("_2Gul8S9mEeOlZIh7PImd0A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Plain Card Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PlainCardData4
-     : IIsoXmlSerilizable<PlainCardData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PlainCardData4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PlainCardData4( System.String reqPAN,System.String reqExpiryDate )
+    {
+        PAN = reqPAN;
+        ExpiryDate = reqExpiryDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card, or card number.
     /// </summary>
+    [IsoId("_2XsaIS9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PAN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin8Max28NumericText PAN { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PAN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PAN { get; init; } 
+    #else
+    public System.String PAN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a card inside a set of cards with the same card number (PAN).
     /// </summary>
+    [IsoId("_2XsaIy9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardSequenceNumber { get; init; } 
+    #else
+    public System.String? CardSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date from which the card can be used, expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
+    [IsoId("_2XsaJS9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EffectiveDate { get; init; } 
+    #else
+    public System.String? EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expiry date of the card expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
+    [IsoId("_2XsaJy9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text ExpiryDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExpiryDate { get; init; } 
+    #else
+    public System.String ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Services attached to the card, as defined in ISO 7813.
     /// </summary>
+    [IsoId("_2XsaKS9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? ServiceCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ServiceCode { get; init; } 
+    #else
+    public System.String? ServiceCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Magnetic track or equivalent payment card data.
     /// </summary>
+    [IsoId("_2XsaKy9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackData1? TrackData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackData1? TrackData { get; init; } 
+    #else
+    public TrackData1? TrackData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card security code (CSC) associated with the card performing the transaction.
     /// </summary>
+    [IsoId("_2XsaLS9mEeOlZIh7PImd0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Security Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardSecurityInformation1? CardSecurityCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardSecurityInformation1? CardSecurityCode { get; init; } 
+    #else
+    public CardSecurityInformation1? CardSecurityCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PAN", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(PAN)); // data type Min8Max28NumericText System.String
-        writer.WriteEndElement();
-        if (CardSequenceNumber is IsoMin2Max3NumericText CardSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "CardSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(CardSequenceNumberValue)); // data type Min2Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EffectiveDate is IsoMax10Text EffectiveDateValue)
-        {
-            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10Text(EffectiveDateValue)); // data type Max10Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10Text(ExpiryDate)); // data type Max10Text System.String
-        writer.WriteEndElement();
-        if (ServiceCode is IsoExact3NumericText ServiceCodeValue)
-        {
-            writer.WriteStartElement(null, "SvcCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(ServiceCodeValue)); // data type Exact3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TrackData is TrackData1 TrackDataValue)
-        {
-            writer.WriteStartElement(null, "TrckData", xmlNamespace );
-            TrackDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardSecurityCode is CardSecurityInformation1 CardSecurityCodeValue)
-        {
-            writer.WriteStartElement(null, "CardSctyCd", xmlNamespace );
-            CardSecurityCodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PlainCardData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

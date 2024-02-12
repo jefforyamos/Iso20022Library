@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the trade date code.
-/// </summary>
-[KnownType(typeof(TradeDateCode3Choice.Code))]
-[KnownType(typeof(TradeDateCode3Choice.Proprietary))]
-public abstract partial record TradeDateCode3Choice_ : IIsoXmlSerilizable<TradeDateCode3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the trade date code.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeDateCode3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeDateCode3Choice.Code))]
+    [KnownType(typeof(TradeDateCode3Choice.Proprietary))]
+    [IsoId("_HSmeHTqLEeWVrPy0StzzSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date Code 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeDateCode3Choice_
+    #else
+    public abstract partial class TradeDateCode3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TradeDateCode3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TradeDateCode3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeDateCode3Choice choice.")
-        };
     }
 }

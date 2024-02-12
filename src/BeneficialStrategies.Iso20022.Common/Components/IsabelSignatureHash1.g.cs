@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the hash data for the file signature.
 /// </summary>
+[IsoId("_c4XEYKA3EeWiJt5KdX5iuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Isabel Signature Hash")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IsabelSignatureHash1
-     : IIsoXmlSerilizable<IsabelSignatureHash1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IsabelSignatureHash1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IsabelSignatureHash1( System.Byte[] reqHash,System.String reqAlgorithm )
+    {
+        Hash = reqHash;
+        Algorithm = reqAlgorithm;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, that allows the detection of an accidental or intentional change to the data.
     /// </summary>
+    [IsoId("_t71FoKMaEeWZDvWHgGXs7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Binary Hash { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] Hash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] Hash { get; init; } 
+    #else
+    public System.Byte[] Hash { get; set; } 
+    #endif
+    
     /// <summary>
     /// Effective method for calculating the signature hash using a finite sequence of instructions.
     /// </summary>
+    [IsoId("_QFeEcKMbEeWZDvWHgGXs7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Algorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Algorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Algorithm { get; init; } 
+    #else
+    public System.String Algorithm { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Hash", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax50Binary(Hash)); // data type Max50Binary System.Byte[]
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Algo", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax105Text(Algorithm)); // data type Max105Text System.String
-        writer.WriteEndElement();
-    }
-    public static IsabelSignatureHash1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

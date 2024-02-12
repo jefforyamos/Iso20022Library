@@ -9,93 +9,152 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InterestRate23Choice;
-
-/// <summary>
-/// Attributes related specifically to floating rate of an interest rate contract.
-/// </summary>
-public partial record Floating : InterestRate23Choice_
-     , IIsoXmlSerilizable<Floating>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InterestRate23Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indication of the floating rate used.
+    /// Attributes related specifically to floating rate of an interest rate contract.
     /// </summary>
-    public FloatingRateIdentification4Choice_? Rate { get; init; } 
-    /// <summary>
-    /// Information related to reference period.
-    /// </summary>
-    public InterestRateContractTerm4? ReferencePeriod { get; init; } 
-    /// <summary>
-    /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
-    /// </summary>
-    public SecuritiesTransactionPrice13Choice_? Spread { get; init; } 
-    /// <summary>
-    /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
-    /// </summary>
-    public InterestComputationMethodFormat7? DayCount { get; init; } 
-    /// <summary>
-    /// Specifies the time unit associated with the frequency of payments.
-    /// </summary>
-    public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
-    /// <summary>
-    /// Information related to reset of payment frequency.
-    /// </summary>
-    public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_6ao5k1fREeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floating")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Floating : InterestRate23Choice_
+    #else
+    public partial class Floating : InterestRate23Choice_
+    #endif
     {
-        if (Rate is FloatingRateIdentification4Choice_ RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            RateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferencePeriod is InterestRateContractTerm4 ReferencePeriodValue)
-        {
-            writer.WriteStartElement(null, "RefPrd", xmlNamespace );
-            ReferencePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Spread is SecuritiesTransactionPrice13Choice_ SpreadValue)
-        {
-            writer.WriteStartElement(null, "Sprd", xmlNamespace );
-            SpreadValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DayCount is InterestComputationMethodFormat7 DayCountValue)
-        {
-            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
-            DayCountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentFrequency is InterestRateFrequency3Choice_ PaymentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
-            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResetFrequency is InterestRateFrequency3Choice_ ResetFrequencyValue)
-        {
-            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
-            ResetFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Floating Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indication of the floating rate used.
+        /// </summary>
+        [IsoId("_61uTE1fREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FloatingRateIdentification4Choice_? Rate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FloatingRateIdentification4Choice_? Rate { get; init; } 
+        #else
+        public FloatingRateIdentification4Choice_? Rate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to reference period.
+        /// </summary>
+        [IsoId("_61uTFVfREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reference Period")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateContractTerm4? ReferencePeriod { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateContractTerm4? ReferencePeriod { get; init; } 
+        #else
+        public InterestRateContractTerm4? ReferencePeriod { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
+        /// </summary>
+        [IsoId("_61uTF1fREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Spread")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesTransactionPrice13Choice_? Spread { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesTransactionPrice13Choice_? Spread { get; init; } 
+        #else
+        public SecuritiesTransactionPrice13Choice_? Spread { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
+        /// </summary>
+        [IsoId("_61uTGVfREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Day Count")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestComputationMethodFormat7? DayCount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestComputationMethodFormat7? DayCount { get; init; } 
+        #else
+        public InterestComputationMethodFormat7? DayCount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the time unit associated with the frequency of payments.
+        /// </summary>
+        [IsoId("_61uTG1fREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment Frequency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
+        #else
+        public InterestRateFrequency3Choice_? PaymentFrequency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to reset of payment frequency.
+        /// </summary>
+        [IsoId("_61uTHVfREeqqKf65rDYWYw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reset Frequency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
+        #else
+        public InterestRateFrequency3Choice_? ResetFrequency { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

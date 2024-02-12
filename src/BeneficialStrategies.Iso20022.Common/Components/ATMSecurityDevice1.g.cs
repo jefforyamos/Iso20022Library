@@ -7,80 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Hardware security module of the ATM.
 /// </summary>
+[IsoId("_6LYrIIr5EeSvuOJS0mmL0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Security Device")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMSecurityDevice1
-     : IIsoXmlSerilizable<ATMSecurityDevice1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMSecurityDevice1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMSecurityDevice1( ATMSecurityConfiguration1 reqCurrentConfiguration,ATMStatus2Code reqCurrentStatus )
+    {
+        CurrentConfiguration = reqCurrentConfiguration;
+        CurrentStatus = reqCurrentStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
+    [IsoId("_S4L8EIr6EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Device Property")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMEquipment2? DeviceProperty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMEquipment2? DeviceProperty { get; init; } 
+    #else
+    public ATMEquipment2? DeviceProperty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters in use by the security device.
     /// </summary>
+    [IsoId("_-uw6QIr6EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Configuration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
+    #else
+    public ATMSecurityConfiguration1 CurrentConfiguration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters supported by the security device.
     /// </summary>
+    [IsoId("_UjhfsIr-EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supported Configuration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration1? SupportedConfiguration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityConfiguration1? SupportedConfiguration { get; init; } 
+    #else
+    public ATMSecurityConfiguration1? SupportedConfiguration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current status of the security device.
     /// </summary>
+    [IsoId("_lPmbcIr-EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMStatus2Code CurrentStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMStatus2Code CurrentStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMStatus2Code CurrentStatus { get; init; } 
+    #else
+    public ATMStatus2Code CurrentStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Incident occurring on the device.
     /// </summary>
+    [IsoId("_DlxvsIr_EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incident")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FailureReason5Code? Incident { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FailureReason5Code? Incident { get; init; } 
+    #else
+    public FailureReason5Code? Incident { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DeviceProperty is ATMEquipment2 DevicePropertyValue)
-        {
-            writer.WriteStartElement(null, "DvcPrprty", xmlNamespace );
-            DevicePropertyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CurCfgtn", xmlNamespace );
-        CurrentConfiguration.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupportedConfiguration is ATMSecurityConfiguration1 SupportedConfigurationValue)
-        {
-            writer.WriteStartElement(null, "SpprtdCfgtn", xmlNamespace );
-            SupportedConfigurationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CurSts", xmlNamespace );
-        writer.WriteValue(CurrentStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Incident is FailureReason5Code IncidentValue)
-        {
-            writer.WriteStartElement(null, "Incdnt", xmlNamespace );
-            writer.WriteValue(IncidentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMSecurityDevice1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

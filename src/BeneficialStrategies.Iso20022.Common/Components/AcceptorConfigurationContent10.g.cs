@@ -7,146 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
+[IsoId("_VMUz4S1sEeuZtpnZJ4v-5Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acceptor Configuration Content")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcceptorConfigurationContent10
-     : IIsoXmlSerilizable<AcceptorConfigurationContent10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// True if the whole configuration related to the terminal manager has to be replaced by the configuration included in the message content.
     /// </summary>
+    [IsoId("_Va-68S1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Replace Configuration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReplaceConfiguration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReplaceConfiguration { get; init; } 
+    #else
+    public System.String? ReplaceConfiguration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
+    [IsoId("_Va-68y1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("TMS Protocol Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSProtocolParameters5? TMSProtocolParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TMSProtocolParameters5? TMSProtocolParameters { get; init; } 
+    #else
+    public TMSProtocolParameters5? TMSProtocolParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
+    [IsoId("_Va-69S1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Protocol Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters14? AcquirerProtocolParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AcquirerProtocolParameters14? AcquirerProtocolParameters { get; init; } 
+    #else
+    public AcquirerProtocolParameters14? AcquirerProtocolParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to a service provider.
     /// </summary>
+    [IsoId("_ZBVdIDAKEeugIJ3Gvoevmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Provider Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceProviderParameters1? ServiceProviderParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ServiceProviderParameters1? ServiceProviderParameters { get; init; } 
+    #else
+    public ServiceProviderParameters1? ServiceProviderParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
+    [IsoId("_Va-69y1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MerchantConfigurationParameters6? MerchantParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MerchantConfigurationParameters6? MerchantParameters { get; init; } 
+    #else
+    public MerchantConfigurationParameters6? MerchantParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
+    [IsoId("_Va-6-S1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTerminalParameters8? TerminalParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTerminalParameters8? TerminalParameters { get; init; } 
+    #else
+    public PaymentTerminalParameters8? TerminalParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
+    [IsoId("_Va-6-y1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicationParameters10? ApplicationParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ApplicationParameters10? ApplicationParameters { get; init; } 
+    #else
+    public ApplicationParameters10? ApplicationParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
+    [IsoId("_Va-6_S1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Communication Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HostCommunicationParameter6? HostCommunicationParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HostCommunicationParameter6? HostCommunicationParameters { get; init; } 
+    #else
+    public HostCommunicationParameter6? HostCommunicationParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
+    [IsoId("_Va-6_y1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityParameters13? SecurityParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityParameters13? SecurityParameters { get; init; } 
+    #else
+    public SecurityParameters13? SecurityParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters dedicated to protocols between a sale system and the POI.
     /// </summary>
+    [IsoId("_Va-7AS1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale To POI Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleToPOIProtocolParameter1? SaleToPOIParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SaleToPOIProtocolParameter1? SaleToPOIParameters { get; init; } 
+    #else
+    public SaleToPOIProtocolParameter1? SaleToPOIParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Group of software packages to transfer to a group of POIComponent of the POI System.
     /// </summary>
+    [IsoId("_Va-7Ay1sEeuZtpnZJ4v-5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Package")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalPackageType2? TerminalPackage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalPackageType2? TerminalPackage { get; init; } 
+    #else
+    public TerminalPackageType2? TerminalPackage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReplaceConfiguration is IsoTrueFalseIndicator ReplaceConfigurationValue)
-        {
-            writer.WriteStartElement(null, "RplcCfgtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReplaceConfigurationValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TMSProtocolParameters is TMSProtocolParameters5 TMSProtocolParametersValue)
-        {
-            writer.WriteStartElement(null, "TMSPrtcolParams", xmlNamespace );
-            TMSProtocolParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AcquirerProtocolParameters is AcquirerProtocolParameters14 AcquirerProtocolParametersValue)
-        {
-            writer.WriteStartElement(null, "AcqrrPrtcolParams", xmlNamespace );
-            AcquirerProtocolParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ServiceProviderParameters is ServiceProviderParameters1 ServiceProviderParametersValue)
-        {
-            writer.WriteStartElement(null, "SvcPrvdrParams", xmlNamespace );
-            ServiceProviderParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MerchantParameters is MerchantConfigurationParameters6 MerchantParametersValue)
-        {
-            writer.WriteStartElement(null, "MrchntParams", xmlNamespace );
-            MerchantParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TerminalParameters is PaymentTerminalParameters8 TerminalParametersValue)
-        {
-            writer.WriteStartElement(null, "TermnlParams", xmlNamespace );
-            TerminalParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ApplicationParameters is ApplicationParameters10 ApplicationParametersValue)
-        {
-            writer.WriteStartElement(null, "ApplParams", xmlNamespace );
-            ApplicationParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HostCommunicationParameters is HostCommunicationParameter6 HostCommunicationParametersValue)
-        {
-            writer.WriteStartElement(null, "HstComParams", xmlNamespace );
-            HostCommunicationParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecurityParameters is SecurityParameters13 SecurityParametersValue)
-        {
-            writer.WriteStartElement(null, "SctyParams", xmlNamespace );
-            SecurityParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SaleToPOIParameters is SaleToPOIProtocolParameter1 SaleToPOIParametersValue)
-        {
-            writer.WriteStartElement(null, "SaleToPOIParams", xmlNamespace );
-            SaleToPOIParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TerminalPackage is TerminalPackageType2 TerminalPackageValue)
-        {
-            writer.WriteStartElement(null, "TermnlPackg", xmlNamespace );
-            TerminalPackageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AcceptorConfigurationContent10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

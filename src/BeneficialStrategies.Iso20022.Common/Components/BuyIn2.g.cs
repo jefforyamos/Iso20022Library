@@ -7,90 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies elements related to the confirmation sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
+[IsoId("_Uot1ldp-Ed-ak6NoX_4Aeg_1022669122")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Buy In")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BuyIn2
-     : IIsoXmlSerilizable<BuyIn2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BuyIn2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BuyIn2( System.String reqBuyInIdentification,System.DateOnly reqDate )
+    {
+        BuyInIdentification = reqBuyInIdentification;
+        Date = reqDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
+    [IsoId("_Uot1ltp-Ed-ak6NoX_4Aeg_-1301593621")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Notification Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BuyInNotificationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BuyInNotificationIdentification { get; init; } 
+    #else
+    public System.String? BuyInNotificationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the reference id of the buy in.
     /// </summary>
+    [IsoId("_Uot1l9p-Ed-ak6NoX_4Aeg_1529026602")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BuyInIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String BuyInIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String BuyInIdentification { get; init; } 
+    #else
+    public System.String BuyInIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the date at which the buy occured.
     /// </summary>
+    [IsoId("_Uot1mNp-Ed-ak6NoX_4Aeg_1976267456")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly Date { get; init; } 
+    #else
+    public System.DateOnly Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the price of the buy-in.
     /// </summary>
+    [IsoId("_Uo3mkNp-Ed-ak6NoX_4Aeg_346078375")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Price { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price4? Price { get; init; } 
+    #else
+    public Price4? Price { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the elements related to the securities that the central counterparty had to buy in the context of the buy-in process.
     /// </summary>
+    [IsoId("_Uo3mkdp-Ed-ak6NoX_4Aeg_-1107722371")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Buy In")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCompensation1? SecuritiesBuyIn { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesCompensation1? SecuritiesBuyIn { get; init; } 
+    #else
+    public SecuritiesCompensation1? SecuritiesBuyIn { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details about the cash compensation required, in case the central counterparty could not buy the securities to cover the trade(s) that failed.
     /// </summary>
+    [IsoId("_Uo3mktp-Ed-ak6NoX_4Aeg_1388271978")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Required Cash Compensation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCompensation1? RequiredCashCompensation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashCompensation1? RequiredCashCompensation { get; init; } 
+    #else
+    public CashCompensation1? RequiredCashCompensation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BuyInNotificationIdentification is IsoMax35Text BuyInNotificationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BuyInNtfctnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BuyInNotificationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "BuyInId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(BuyInIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Dt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (Price is Price4 PriceValue)
-        {
-            writer.WriteStartElement(null, "Pric", xmlNamespace );
-            PriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesBuyIn is SecuritiesCompensation1 SecuritiesBuyInValue)
-        {
-            writer.WriteStartElement(null, "SctiesBuyIn", xmlNamespace );
-            SecuritiesBuyInValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequiredCashCompensation is CashCompensation1 RequiredCashCompensationValue)
-        {
-            writer.WriteStartElement(null, "ReqrdCshCompstn", xmlNamespace );
-            RequiredCashCompensationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BuyIn2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

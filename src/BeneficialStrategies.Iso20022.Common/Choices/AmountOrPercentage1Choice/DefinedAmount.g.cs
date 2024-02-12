@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice;
-
-/// <summary>
-/// Details related to a defined monetary amount.
-/// </summary>
-public partial record DefinedAmount : AmountOrPercentage1Choice_
-     , IIsoXmlSerilizable<DefinedAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Variation amount and currency.
+    /// Details related to a defined monetary amount.
     /// </summary>
-    public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
-    /// <summary>
-    /// Calculated undertaking available balance amount resulting from the application of the variation amount.
-    /// </summary>
-    public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_986x53ltEeG7BsjMvd1mEw_-1070364431")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Defined Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DefinedAmount : AmountOrPercentage1Choice_
+    #else
+    public partial class DefinedAmount : AmountOrPercentage1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "VartnAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(VariationAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (BalanceAmount is IsoActiveCurrencyAndAmount BalanceAmountValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DefinedAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DefinedAmount( System.Decimal reqVariationAmount )
         {
-            writer.WriteStartElement(null, "BalAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BalanceAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
+            VariationAmount = reqVariationAmount;
         }
-    }
-    public static new DefinedAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Variation amount and currency.
+        /// </summary>
+        [IsoId("_945NhHltEeG7BsjMvd1mEw_1236951493")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variation Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal VariationAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal VariationAmount { get; init; } 
+        #else
+        public System.Decimal VariationAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Calculated undertaking available balance amount resulting from the application of the variation amount.
+        /// </summary>
+        [IsoId("_95C-gHltEeG7BsjMvd1mEw_1336485232")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Balance Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? BalanceAmount { get; init; } 
+        #else
+        public System.Decimal? BalanceAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

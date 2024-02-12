@@ -7,145 +7,287 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency control document entry supporting the contract registration.
 /// </summary>
+[IsoId("_l1j-wbGJEeuSTr8k0UEM8A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Supporting Document Entry")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SupportingDocumentEntry2
-     : IIsoXmlSerilizable<SupportingDocumentEntry2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SupportingDocumentEntry2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SupportingDocumentEntry2( System.String reqEntryIdentification,DocumentIdentification22 reqOriginalDocument,System.String reqDocumentType,ShipmentAttribute2 reqShipmentAttributes )
+    {
+        EntryIdentification = reqEntryIdentification;
+        OriginalDocument = reqOriginalDocument;
+        DocumentType = reqDocumentType;
+        ShipmentAttributes = reqShipmentAttributes;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the supporting document entry.
     /// </summary>
+    [IsoId("_l2d9sbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text EntryIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String EntryIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String EntryIdentification { get; init; } 
+    #else
+    public System.String EntryIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the original document for which the supporting documents are provided.
     /// </summary>
+    [IsoId("_l2d9s7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification22 OriginalDocument { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification22 OriginalDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22 OriginalDocument { get; init; } 
+    #else
+    public DocumentIdentification22 OriginalDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document type in a coded form.
     /// TBC: Data must support "_".
     /// </summary>
+    [IsoId("_l2d9tbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericUnderscoreText DocumentType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DocumentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DocumentType { get; init; } 
+    #else
+    public System.String DocumentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the supporting document entry.
     /// </summary>
+    [IsoId("_l2d9t7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmount { get; init; } 
+    #else
+    public System.Decimal? TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount after shipment of the supporting document entry.
     /// </summary>
+    [IsoId("_l2d9ubGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount After Shipment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmountAfterShipment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountAfterShipment { get; init; } 
+    #else
+    public System.Decimal? TotalAmountAfterShipment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the supporting document entry in the currency of the contract.
     /// </summary>
+    [IsoId("_l2d9u7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount In Contract Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmountInContractCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountInContractCurrency { get; init; } 
+    #else
+    public System.Decimal? TotalAmountInContractCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount after shipment of the supporting document entry in the currency of the contract.
     /// </summary>
+    [IsoId("_l2d9vbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount After Shipment In Contract Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmountAfterShipmentInContractCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountAfterShipmentInContractCurrency { get; init; } 
+    #else
+    public System.Decimal? TotalAmountAfterShipmentInContractCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Conditions and attributes related to the shipment.
     /// </summary>
+    [IsoId("_l2d9v7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipment Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShipmentAttribute2 ShipmentAttributes { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ShipmentAttribute2 ShipmentAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ShipmentAttribute2 ShipmentAttributes { get; init; } 
+    #else
+    public ShipmentAttribute2 ShipmentAttributes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the document entry amendment.
     /// </summary>
+    [IsoId("_FnwlELP7Eeud-ZmjZVm7MA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry Amendment Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentEntryAmendment1? EntryAmendmentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentEntryAmendment1? EntryAmendmentIdentification { get; init; } 
+    #else
+    public DocumentEntryAmendment1? EntryAmendmentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication of contract obligations execution.
     /// </summary>
+    [IsoId("_xqX3ULP_Eeud-ZmjZVm7MA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MaturityData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MaturityData { get; init; } 
+    #else
+    public System.String? MaturityData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the supporting document entry.
     /// </summary>
+    [IsoId("_l2d9wbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 500 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Documents provided as attachments to the supporting document entry.
     /// </summary>
+    [IsoId("_l2d9w7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attachment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation5? Attachment { get; init; } 
+    #else
+    public DocumentGeneralInformation5? Attachment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NtryId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(EntryIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrgnlDoc", xmlNamespace );
-        OriginalDocument.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DocTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericUnderscoreText(DocumentType)); // data type Exact4AlphaNumericUnderscoreText System.String
-        writer.WriteEndElement();
-        if (TotalAmount is IsoActiveCurrencyAndAmount TotalAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalAmountAfterShipment is IsoActiveCurrencyAndAmount TotalAmountAfterShipmentValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtAftrShipmnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountAfterShipmentValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalAmountInContractCurrency is IsoActiveCurrencyAndAmount TotalAmountInContractCurrencyValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtInCtrctCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountInContractCurrencyValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalAmountAfterShipmentInContractCurrency is IsoActiveCurrencyAndAmount TotalAmountAfterShipmentInContractCurrencyValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtAftrShipmntInCtrctCcy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountAfterShipmentInContractCurrencyValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ShipmntAttrbts", xmlNamespace );
-        ShipmentAttributes.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EntryAmendmentIdentification is DocumentEntryAmendment1 EntryAmendmentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "NtryAmdmntId", xmlNamespace );
-            EntryAmendmentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaturityData is IsoMax35Text MaturityDataValue)
-        {
-            writer.WriteStartElement(null, "MtrtyData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MaturityDataValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
-            writer.WriteEndElement();
-        }
-        if (Attachment is DocumentGeneralInformation5 AttachmentValue)
-        {
-            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
-            AttachmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SupportingDocumentEntry2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

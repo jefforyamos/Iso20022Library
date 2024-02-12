@@ -7,64 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the invoice contained in the original request.
 /// </summary>
+[IsoId("_ThfHwtp-Ed-ak6NoX_4Aeg_1135889353")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original Invoice Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalInvoiceInformation1
-     : IIsoXmlSerilizable<OriginalInvoiceInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OriginalInvoiceInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OriginalInvoiceInformation1( System.String reqDocumentNumber,System.Decimal reqTotalInvoiceAmount,System.DateOnly reqIssueDate,System.DateOnly reqPaymentDueDate )
+    {
+        DocumentNumber = reqDocumentNumber;
+        TotalInvoiceAmount = reqTotalInvoiceAmount;
+        IssueDate = reqIssueDate;
+        PaymentDueDate = reqPaymentDueDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [IsoId("_ThfHw9p-Ed-ak6NoX_4Aeg_-710957131")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DocumentNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DocumentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DocumentNumber { get; init; } 
+    #else
+    public System.String DocumentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice additional amounts (allowances and charges) and total tax amounts.
     /// </summary>
+    [IsoId("_ThfHxNp-Ed-ak6NoX_4Aeg_-601981200")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Invoice Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalInvoiceAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalInvoiceAmount { get; init; } 
+    #else
+    public System.Decimal TotalInvoiceAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [IsoId("_ThfHxdp-Ed-ak6NoX_4Aeg_-255658965")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly IssueDate { get; init; } 
+    #else
+    public System.DateOnly IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Due date for the payment of the invoice.
     /// </summary>
+    [IsoId("_ThfHxtp-Ed-ak6NoX_4Aeg_696882678")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Due Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PaymentDueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly PaymentDueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly PaymentDueDate { get; init; } 
+    #else
+    public System.DateOnly PaymentDueDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DocNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlInvcAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInvoiceAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtDueDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-    }
-    public static OriginalInvoiceInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

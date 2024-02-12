@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between all accounts (GENR - General in ISO 15022) or one or more selected accounts and balance information.
-/// </summary>
-[KnownType(typeof(AccountIdentification42Choice.ForAllAccounts))]
-[KnownType(typeof(AccountIdentification42Choice.AccountsListAndBalanceDetails))]
-public abstract partial record AccountIdentification42Choice_ : IIsoXmlSerilizable<AccountIdentification42Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between all accounts (GENR - General in ISO 15022) or one or more selected accounts and balance information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountIdentification42Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountIdentification42Choice.ForAllAccounts))]
+    [KnownType(typeof(AccountIdentification42Choice.AccountsListAndBalanceDetails))]
+    [IsoId("_btgAxbXDEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification 42 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountIdentification42Choice_
+    #else
+    public abstract partial class AccountIdentification42Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ForAllAccts" => AccountIdentification42Choice.ForAllAccounts.Deserialize(elementWithPayload),
-             "AcctsListAndBalDtls" => AccountIdentification42Choice.AccountsListAndBalanceDetails.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountIdentification42Choice choice.")
-        };
     }
 }

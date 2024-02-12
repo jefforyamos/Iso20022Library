@@ -7,180 +7,328 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[IsoId("_Prgu8Rn2EeyroI8qKgB7Mg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionOption197
-     : IIsoXmlSerilizable<CorporateActionOption197>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionOption197 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionOption197( OptionNumber1Choice_ reqOptionNumber,CorporateActionOption41Choice_ reqOptionType )
+    {
+        OptionNumber = reqOptionNumber;
+        OptionType = reqOptionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [IsoId("_QBQ8ixn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #else
+    public OptionNumber1Choice_ OptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [IsoId("_QBQ8kxn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption41Choice_ OptionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionOption41Choice_ OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption41Choice_ OptionType { get; init; } 
+    #else
+    public CorporateActionOption41Choice_ OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
+    [IsoId("_QBQ8mxn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Features")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionFeaturesFormat25Choice_? OptionFeatures { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionFeaturesFormat25Choice_? OptionFeatures { get; init; } 
+    #else
+    public OptionFeaturesFormat25Choice_? OptionFeatures { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [IsoId("_QBQ8nRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification127Choice_? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification127Choice_? AccountOwner { get; init; } 
+    #else
+    public PartyIdentification127Choice_? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [IsoId("_QBQ8pRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SafekeepingAccount { get; init; } 
+    #else
+    public System.String? SafekeepingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [IsoId("_mrIzoiLOEeyNSNrMl2zWxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Chain Address Or Wallet")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? BlockChainAddressOrWallet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BlockChainAddressOrWallet { get; init; } 
+    #else
+    public System.String? BlockChainAddressOrWallet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
+    [IsoId("_QBQ8rRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
+    #else
+    public CashAccountIdentification5Choice_? CashAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [IsoId("_QBQ8tRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
+    #else
+    public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [IsoId("_QBQ8vRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
+    [IsoId("_QBQ8xRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Eligible Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat11? TotalEligibleBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat11? TotalEligibleBalance { get; init; } 
+    #else
+    public SignedQuantityFormat11? TotalEligibleBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
+    [IsoId("_QBQ8zRn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat11? InstructedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat11? InstructedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat11? InstructedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
+    [IsoId("_QBQ81Rn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Uninstructed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat11? UninstructedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat11? UninstructedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat11? UninstructedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of securities which are in protect status in a CSD operating a protect cover service.
     /// </summary>
+    [IsoId("_S9wi0Rn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat11? ProtectBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat11? ProtectBalance { get; init; } 
+    #else
+    public SignedQuantityFormat11? ProtectBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities that has been assigned the status indicated.
     /// </summary>
+    [IsoId("_QBQ83Rn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity51Choice_? StatusQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity51Choice_? StatusQuantity { get; init; } 
+    #else
+    public Quantity51Choice_? StatusQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of cash subscribed that has been assigned the status indicated.
     /// </summary>
+    [IsoId("_QBQ83xn2EeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Cash Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StatusCashAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? StatusCashAmount { get; init; } 
+    #else
+    public System.Decimal? StatusCashAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
-        OptionNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-        OptionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OptionFeatures is OptionFeaturesFormat25Choice_ OptionFeaturesValue)
-        {
-            writer.WriteStartElement(null, "OptnFeatrs", xmlNamespace );
-            OptionFeaturesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountOwner is PartyIdentification127Choice_ AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingAccount is IsoMax35Text SafekeepingAccountValue)
-        {
-            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccountValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (BlockChainAddressOrWallet is IsoMax140Text BlockChainAddressOrWalletValue)
-        {
-            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(BlockChainAddressOrWalletValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
-        {
-            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-            CashAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingPlace is SafekeepingPlaceFormat28Choice_ SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalEligibleBalance is SignedQuantityFormat11 TotalEligibleBalanceValue)
-        {
-            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
-            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructedBalance is SignedQuantityFormat11 InstructedBalanceValue)
-        {
-            writer.WriteStartElement(null, "InstdBal", xmlNamespace );
-            InstructedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UninstructedBalance is SignedQuantityFormat11 UninstructedBalanceValue)
-        {
-            writer.WriteStartElement(null, "UinstdBal", xmlNamespace );
-            UninstructedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProtectBalance is SignedQuantityFormat11 ProtectBalanceValue)
-        {
-            writer.WriteStartElement(null, "PrtctBal", xmlNamespace );
-            ProtectBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StatusQuantity is Quantity51Choice_ StatusQuantityValue)
-        {
-            writer.WriteStartElement(null, "StsQty", xmlNamespace );
-            StatusQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StatusCashAmount is IsoActiveCurrencyAndAmount StatusCashAmountValue)
-        {
-            writer.WriteStartElement(null, "StsCshAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StatusCashAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionOption197 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

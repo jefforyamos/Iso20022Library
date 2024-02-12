@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the details of the reported transaction.
-/// </summary>
-[KnownType(typeof(TransactionLoanData32Choice.RepurchaseTrade))]
-[KnownType(typeof(TransactionLoanData32Choice.BuySellBack))]
-[KnownType(typeof(TransactionLoanData32Choice.SecuritiesLending))]
-public abstract partial record TransactionLoanData32Choice_ : IIsoXmlSerilizable<TransactionLoanData32Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the details of the reported transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionLoanData32Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionLoanData32Choice.RepurchaseTrade))]
+    [KnownType(typeof(TransactionLoanData32Choice.BuySellBack))]
+    [KnownType(typeof(TransactionLoanData32Choice.SecuritiesLending))]
+    [IsoId("_J_G2Acz4EeufhKfUxzsnrQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Loan Data 32 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionLoanData32Choice_
+    #else
+    public abstract partial class TransactionLoanData32Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RpTrad" => TransactionLoanData32Choice.RepurchaseTrade.Deserialize(elementWithPayload),
-             "BuySellBck" => TransactionLoanData32Choice.BuySellBack.Deserialize(elementWithPayload),
-             "SctiesLndg" => TransactionLoanData32Choice.SecuritiesLending.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionLoanData32Choice choice.")
-        };
     }
 }

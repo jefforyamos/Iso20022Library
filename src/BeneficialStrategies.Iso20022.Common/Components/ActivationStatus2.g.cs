@@ -7,93 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the status of a debtor activation.
 /// </summary>
+[IsoId("_Ug_1x-H7Eeqbls7Gk4-ckA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Activation Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ActivationStatus2
-     : IIsoXmlSerilizable<ActivationStatus2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ActivationStatus2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ActivationStatus2( ServiceStatus1Choice_ reqStatus )
+    {
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
+    [IsoId("_UiH3I-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Business Instruction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
+    #else
+    public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the status of the request.
     /// </summary>
+    [IsoId("_UiH3JeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServiceStatus1Choice_ Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ServiceStatus1Choice_ Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ServiceStatus1Choice_ Status { get; init; } 
+    #else
+    public ServiceStatus1Choice_ Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the status of the debtor activation request.
     /// </summary>
+    [IsoId("_UiH3J-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtorActivationStatusReason2? StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DebtorActivationStatusReason2? StatusReason { get; init; } 
+    #else
+    public DebtorActivationStatusReason2? StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the reference of the original activation request.
     /// </summary>
+    [IsoId("_UiH3KeH7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Activation Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalActivation2Choice_? OriginalActivationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalActivation2Choice_? OriginalActivationReference { get; init; } 
+    #else
+    public OriginalActivation2Choice_? OriginalActivationReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Effective date when the debtor has been activated.
     /// </summary>
+    [IsoId("_17LFgeIGEeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Activation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EffectiveActivationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? EffectiveActivationDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? EffectiveActivationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_UiH3K-H7Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalBusinessInstruction is OriginalBusinessInstruction1 OriginalBusinessInstructionValue)
-        {
-            writer.WriteStartElement(null, "OrgnlBizInstr", xmlNamespace );
-            OriginalBusinessInstructionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        Status.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (StatusReason is DebtorActivationStatusReason2 StatusReasonValue)
-        {
-            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-            StatusReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalActivationReference is OriginalActivation2Choice_ OriginalActivationReferenceValue)
-        {
-            writer.WriteStartElement(null, "OrgnlActvtnRef", xmlNamespace );
-            OriginalActivationReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EffectiveActivationDate is DateAndDateTime2Choice_ EffectiveActivationDateValue)
-        {
-            writer.WriteStartElement(null, "FctvActvtnDt", xmlNamespace );
-            EffectiveActivationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ActivationStatus2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

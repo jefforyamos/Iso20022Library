@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action date.
 /// </summary>
+[IsoId("__FQ90TQKEe2o-K1dwNg8Gg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDate88
-     : IIsoXmlSerilizable<CorporateActionDate88>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
+    [IsoId("__cNeUzQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cover Expiration Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
+    #else
+    public DateFormat43Choice_? CoverExpirationDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
+    [IsoId("__cNeYzQKEe2o-K1dwNg8Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat43Choice_? TradingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat43Choice_? TradingDate { get; init; } 
+    #else
+    public DateFormat43Choice_? TradingDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CoverExpirationDeadline is DateFormat43Choice_ CoverExpirationDeadlineValue)
-        {
-            writer.WriteStartElement(null, "CoverXprtnDdln", xmlNamespace );
-            CoverExpirationDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingDate is DateFormat43Choice_ TradingDateValue)
-        {
-            writer.WriteStartElement(null, "TradgDt", xmlNamespace );
-            TradingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDate88 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -8,33 +8,22 @@ using BeneficialStrategies.Iso20022.Components;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.ExternalSchema;
 
 /// <summary>
 /// Specifies a data structure that allows to include any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'.
 /// The processContents value is 'lax' which according to the above specification and to Iso20022:2013 means: If the item has a uniquely determined declaration available, it must be ·valid· with respect to that definition, that is, ·validate· if you can, don't worry if you can't, i.e. it MAY be validated or not.
 /// </summary>
-public partial record LaxPayload : IIsoXmlSerilizable<LaxPayload>
+public partial record LaxPayload
 {
     #nullable enable
     
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-    }
-    public static LaxPayload Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

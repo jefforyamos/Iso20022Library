@@ -7,144 +7,286 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instructions information received for a given option.
 /// </summary>
+[IsoId("_pf87HTi7Eeydid5dcNPKvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option Instruction Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OptionInstructionDetails8
-     : IIsoXmlSerilizable<OptionInstructionDetails8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OptionInstructionDetails8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OptionInstructionDetails8( System.String reqInstructionIdentification,FinancialInstrumentQuantity36Choice_ reqInstructionQuantity,System.DateOnly reqInstructionDate,InstructionProcessingStatus48Choice_ reqInstructionStatus )
+    {
+        InstructionIdentification = reqInstructionIdentification;
+        InstructionQuantity = reqInstructionQuantity;
+        InstructionDate = reqInstructionDate;
+        InstructionStatus = reqInstructionStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the instruction or protect instruction.
     /// </summary>
+    [IsoId("_pf87Hzi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINMax15Text InstructionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructionIdentification { get; init; } 
+    #else
+    public System.String InstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the sequence number of the instruction.
     /// </summary>
+    [IsoId("_pf87ITi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? InstructionSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionSequenceNumber { get; init; } 
+    #else
+    public System.String? InstructionSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
+    [IsoId("_pf87Izi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectTransactionType2Code? ProtectIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProtectTransactionType2Code? ProtectIndicator { get; init; } 
+    #else
+    public ProtectTransactionType2Code? ProtectIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Securities quantity instructed in the instruction.
     /// </summary>
+    [IsoId("_pf87JTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the instruction.
     /// </summary>
+    [IsoId("_pf87Jzi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate InstructionDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly InstructionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly InstructionDate { get; init; } 
+    #else
+    public System.DateOnly InstructionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the client protect instruction.
     /// </summary>
+    [IsoId("_pf87KTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ProtectDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ProtectDate { get; init; } 
+    #else
+    public System.DateOnly? ProtectDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the cover protect Instruction
     /// </summary>
+    [IsoId("_pf87Kzi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cover Protect Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CoverProtectDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CoverProtectDate { get; init; } 
+    #else
+    public System.DateOnly? CoverProtectDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Bid price of the instruction.
     /// </summary>
+    [IsoId("_pf87LTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? BidPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat57Choice_? BidPrice { get; init; } 
+    #else
+    public PriceFormat57Choice_? BidPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Conditional quantity of the instruction.
     /// </summary>
+    [IsoId("_pf87Lzi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conditional Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity36Choice_? ConditionalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity36Choice_? ConditionalQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity36Choice_? ConditionalQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer related narrative information.
     /// </summary>
+    [IsoId("_pf87MTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 50 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax50Text? CustomerReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerReference { get; init; } 
+    #else
+    public System.String? CustomerReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Narrative information from the submitted instruction.
     /// </summary>
+    [IsoId("_pf87Mzi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Narrative")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? InstructionNarrative { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionNarrative { get; init; } 
+    #else
+    public System.String? InstructionNarrative { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of a particular instruction.
     /// </summary>
+    [IsoId("_pf87NTi7Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
+    #else
+    public InstructionProcessingStatus48Choice_ InstructionStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax15Text(InstructionIdentification)); // data type RestrictedFINMax15Text System.String
-        writer.WriteEndElement();
-        if (InstructionSequenceNumber is IsoMax3NumericText InstructionSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "InstrSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(InstructionSequenceNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ProtectIndicator is ProtectTransactionType2Code ProtectIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtctInd", xmlNamespace );
-            writer.WriteValue(ProtectIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstrQty", xmlNamespace );
-        InstructionQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstrDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(InstructionDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (ProtectDate is IsoISODate ProtectDateValue)
-        {
-            writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ProtectDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CoverProtectDate is IsoISODate CoverProtectDateValue)
-        {
-            writer.WriteStartElement(null, "CoverPrtctDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CoverProtectDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (BidPrice is PriceFormat57Choice_ BidPriceValue)
-        {
-            writer.WriteStartElement(null, "BidPric", xmlNamespace );
-            BidPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConditionalQuantity is FinancialInstrumentQuantity36Choice_ ConditionalQuantityValue)
-        {
-            writer.WriteStartElement(null, "CondlQty", xmlNamespace );
-            ConditionalQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustomerReference is IsoRestrictedFINMax50Text CustomerReferenceValue)
-        {
-            writer.WriteStartElement(null, "CstmrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax50Text(CustomerReferenceValue)); // data type RestrictedFINMax50Text System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionNarrative is IsoRestrictedFINXMax350Text InstructionNarrativeValue)
-        {
-            writer.WriteStartElement(null, "InstrNrrtv", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InstructionNarrativeValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstrSts", xmlNamespace );
-        InstructionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static OptionInstructionDetails8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

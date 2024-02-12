@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare for an active or historic currency and decimal amount.
 /// </summary>
+[IsoId("_Lm1CIE6nEeyEpI66tm807w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compare Active Or Historic Currency And Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CompareActiveOrHistoricCurrencyAndAmount4
-     : IIsoXmlSerilizable<CompareActiveOrHistoricCurrencyAndAmount4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [IsoId("_XA4DkE6nEeyEpI66tm807w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? Value1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Value1 { get; init; } 
+    #else
+    public System.Decimal? Value1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [IsoId("_aU_fsE6nEeyEpI66tm807w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? Value2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Value2 { get; init; } 
+    #else
+    public System.Decimal? Value2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Value1 is IsoActiveOrHistoricCurrencyAnd19DecimalAmount Value1Value)
-        {
-            writer.WriteStartElement(null, "Val1", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(Value1Value)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Value2 is IsoActiveOrHistoricCurrencyAnd19DecimalAmount Value2Value)
-        {
-            writer.WriteStartElement(null, "Val2", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(Value2Value)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CompareActiveOrHistoricCurrencyAndAmount4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

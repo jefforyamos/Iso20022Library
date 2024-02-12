@@ -9,48 +9,99 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
-
-/// <summary>
-/// Location on the earth specified by two numbers representing vertical and horizontal position.
-/// </summary>
-public partial record GeographicCoordinates : GeographicLocation1Choice_
-     , IIsoXmlSerilizable<GeographicCoordinates>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator (for example 48°51'29" N for the Eiffel Tower latitude).
+    /// Location on the earth specified by two numbers representing vertical and horizontal position.
     /// </summary>
-    public required IsoMax16Text Latitude { get; init; } 
-    /// <summary>
-    /// Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.
-    /// The longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west (for example 2°17'40" E for the Eiffel Tower longitude).
-    /// </summary>
-    public required IsoMax16Text Longitude { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_hutYMIn5EeShMpas3885ww")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Geographic Coordinates")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record GeographicCoordinates : GeographicLocation1Choice_
+    #else
+    public partial class GeographicCoordinates : GeographicLocation1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Lat", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax16Text(Latitude)); // data type Max16Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Long", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax16Text(Longitude)); // data type Max16Text System.String
-        writer.WriteEndElement();
-    }
-    public static new GeographicCoordinates Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a GeographicCoordinates instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public GeographicCoordinates( System.String reqLatitude,System.String reqLongitude )
+        {
+            Latitude = reqLatitude;
+            Longitude = reqLongitude;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator (for example 48°51'29" N for the Eiffel Tower latitude).
+        /// </summary>
+        [IsoId("_WtE2wIn5EeShMpas3885ww")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Latitude")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax16Text Latitude { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Latitude { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Latitude { get; init; } 
+        #else
+        public System.String Latitude { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.
+        /// The longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west (for example 2°17'40" E for the Eiffel Tower longitude).
+        /// </summary>
+        [IsoId("_a-iE4In5EeShMpas3885ww")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Longitude")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax16Text Longitude { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Longitude { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Longitude { get; init; } 
+        #else
+        public System.String Longitude { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

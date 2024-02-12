@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the quantities (such as securities) in the underlying transaction.
-/// </summary>
-[KnownType(typeof(TransactionQuantities3Choice.Quantity))]
-[KnownType(typeof(TransactionQuantities3Choice.OriginalAndCurrentFaceAmount))]
-[KnownType(typeof(TransactionQuantities3Choice.Proprietary))]
-public abstract partial record TransactionQuantities3Choice_ : IIsoXmlSerilizable<TransactionQuantities3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the quantities (such as securities) in the underlying transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionQuantities3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionQuantities3Choice.Quantity))]
+    [KnownType(typeof(TransactionQuantities3Choice.OriginalAndCurrentFaceAmount))]
+    [KnownType(typeof(TransactionQuantities3Choice.Proprietary))]
+    [IsoId("_dBfEgXkcEei6JsZKrqN0hQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Quantities 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionQuantities3Choice_
+    #else
+    public abstract partial class TransactionQuantities3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Qty" => TransactionQuantities3Choice.Quantity.Deserialize(elementWithPayload),
-             "OrgnlAndCurFaceAmt" => TransactionQuantities3Choice.OriginalAndCurrentFaceAmount.Deserialize(elementWithPayload),
-             "Prtry" => TransactionQuantities3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionQuantities3Choice choice.")
-        };
     }
 }

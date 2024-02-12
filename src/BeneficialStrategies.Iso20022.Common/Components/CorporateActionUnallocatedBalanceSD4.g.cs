@@ -7,96 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance types related to an unallocated redemption payment.
 /// </summary>
+[IsoId("_npjhEcnxEee6kIhZjMqQ2Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Unallocated Balance SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionUnallocatedBalanceSD4
-     : IIsoXmlSerilizable<CorporateActionUnallocatedBalanceSD4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_n69aIcnxEee6kIhZjMqQ2Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
+    [IsoId("_n69aI8nxEee6kIhZjMqQ2Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Eligible Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? TotalEligibleBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position held in DTC Segregated account. This position is ineligible for payment until released from pledgee.
     /// </summary>
+    [IsoId("_n69aMcnxEee6kIhZjMqQ2Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? PledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? PledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? PledgedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position held in DTC Segregated account also called account 18. This position is not eligible for instruction processing but will be eligible for payment on mandatory events.
     /// </summary>
+    [IsoId("_n69aM8nxEee6kIhZjMqQ2Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Pledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? InvestmentPledgedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position held in DTC Segregated account also called account 22. This position is not eligible for instruction processing but will be eligible for payment on mandatory events. 
     /// </summary>
+    [IsoId("_n69aNcnxEee6kIhZjMqQ2Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Unpledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position held in DTC Segregated account. This position is eligible for payment.
     /// </summary>
+    [IsoId("_n69aN8nxEee6kIhZjMqQ2Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Memo Segregation Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? MemoSegregationBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? MemoSegregationBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? MemoSegregationBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TotalEligibleBalance is SignedQuantityFormat9 TotalEligibleBalanceValue)
-        {
-            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
-            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PledgedBalance is SignedQuantityFormat9 PledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "PldgdBal", xmlNamespace );
-            PledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentPledgedBalance is SignedQuantityFormat9 InvestmentPledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "InvstmtPldgdBal", xmlNamespace );
-            InvestmentPledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentUnpledgedBalance is SignedQuantityFormat9 InvestmentUnpledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "InvstmtUpldgdBal", xmlNamespace );
-            InvestmentUnpledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MemoSegregationBalance is SignedQuantityFormat9 MemoSegregationBalanceValue)
-        {
-            writer.WriteStartElement(null, "MemoSgrtnBal", xmlNamespace );
-            MemoSegregationBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionUnallocatedBalanceSD4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

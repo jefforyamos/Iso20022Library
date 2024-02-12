@@ -7,113 +7,193 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of an investment plan.
 /// </summary>
+[IsoId("_iMh2EF8-Eeicg40_9gK9vQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Investment Plan Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvestmentPlanCharacteristics1
-     : IIsoXmlSerilizable<InvestmentPlanCharacteristics1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InvestmentPlanCharacteristics1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InvestmentPlanCharacteristics1( InvestmentFundPlanType1Choice_ reqPlanType )
+    {
+        PlanType = reqPlanType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of investment plan.
     /// </summary>
+    [IsoId("_rvZTcF8-Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plan Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundPlanType1Choice_ PlanType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvestmentFundPlanType1Choice_ PlanType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentFundPlanType1Choice_ PlanType { get; init; } 
+    #else
+    public InvestmentFundPlanType1Choice_ PlanType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency of the investment plan.
     /// </summary>
+    [IsoId("_ucICoF9CEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency20Choice_? Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency20Choice_? Frequency { get; init; } 
+    #else
+    public Frequency20Choice_? Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
+    [IsoId("_2xB4EV9CEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Instalments")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfInstalments { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfInstalments { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfInstalments { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum amount of the periodical payments. (If there is no maximum, then '0' must be specified for the Amount or Units.)
     /// </summary>
+    [IsoId("_Ag_WQV9DEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitsOrAmount1Choice_? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitsOrAmount1Choice_? Quantity { get; init; } 
+    #else
+    public UnitsOrAmount1Choice_? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether it is possible to continue the savings plan after the end date.
     /// </summary>
+    [IsoId("_MO0PUF9DEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plan Continuation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PlanContinuation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlanContinuation { get; init; } 
+    #else
+    public System.String? PlanContinuation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether it is possible to subscribe to additional instalments over and above that permitted by the savings plan frequency. 
     /// </summary>
+    [IsoId("_lmY7kF9DEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Subscription")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdditionalSubscription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalSubscription { get; init; } 
+    #else
+    public System.String? AdditionalSubscription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether any additional instalments will reduce the period of the life of the savings investment plan.
     /// </summary>
+    [IsoId("_CyIdAF9EEeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Subscription Function")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdditionalSubscriptionFunction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalSubscriptionFunction { get; init; } 
+    #else
+    public System.String? AdditionalSubscriptionFunction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the investment plan.
     /// </summary>
+    [IsoId("_qpMmsWAKEeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlanTp", xmlNamespace );
-        PlanType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Frequency is Frequency20Choice_ FrequencyValue)
-        {
-            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-            FrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfInstalments is IsoNumber TotalNumberOfInstalmentsValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfInstlmts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfInstalmentsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Quantity is UnitsOrAmount1Choice_ QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlanContinuation is IsoYesNoIndicator PlanContinuationValue)
-        {
-            writer.WriteStartElement(null, "PlanConttn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PlanContinuationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalSubscription is IsoYesNoIndicator AdditionalSubscriptionValue)
-        {
-            writer.WriteStartElement(null, "AddtlSbcpt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdditionalSubscriptionValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalSubscriptionFunction is IsoYesNoIndicator AdditionalSubscriptionFunctionValue)
-        {
-            writer.WriteStartElement(null, "AddtlSbcptFctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdditionalSubscriptionFunctionValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static InvestmentPlanCharacteristics1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

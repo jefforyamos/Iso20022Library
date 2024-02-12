@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the identification of a person or an organisation.
-/// </summary>
-[KnownType(typeof(PersonOrOrganisation2Choice.LEI))]
-[KnownType(typeof(PersonOrOrganisation2Choice.Person))]
-public abstract partial record PersonOrOrganisation2Choice_ : IIsoXmlSerilizable<PersonOrOrganisation2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the identification of a person or an organisation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PersonOrOrganisation2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PersonOrOrganisation2Choice.LEI))]
+    [KnownType(typeof(PersonOrOrganisation2Choice.Person))]
+    [IsoId("_9-fNkQkiEeWGouz230Xp5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Person Or Organisation 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PersonOrOrganisation2Choice_
+    #else
+    public abstract partial class PersonOrOrganisation2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "LEI" => PersonOrOrganisation2Choice.LEI.Deserialize(elementWithPayload),
-             "Prsn" => PersonOrOrganisation2Choice.Person.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PersonOrOrganisation2Choice choice.")
-        };
     }
 }

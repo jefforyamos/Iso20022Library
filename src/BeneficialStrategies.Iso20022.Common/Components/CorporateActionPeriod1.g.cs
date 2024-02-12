@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods.
 /// </summary>
+[IsoId("_Tfs_F9p-Ed-ak6NoX_4Aeg_780421229")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPeriod1
-     : IIsoXmlSerilizable<CorporateActionPeriod1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
+    [IsoId("_Tf2JANp-Ed-ak6NoX_4Aeg_251714373")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? ActionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? ActionPeriod { get; init; } 
+    #else
+    public Period1? ActionPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during a take-over where any outstanding equity must be purchased by the take-over company.
     /// </summary>
+    [IsoId("_Tf2JAdp-Ed-ak6NoX_4Aeg_884175340")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Compulsory Purchase Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? CompulsoryPurchasePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? CompulsoryPurchasePeriod { get; init; } 
+    #else
+    public Period1? CompulsoryPurchasePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the interest rate has been applied.
     /// </summary>
+    [IsoId("_Tf2JAtp-Ed-ak6NoX_4Aeg_1584193885")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? InterestPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? InterestPeriod { get; init; } 
+    #else
+    public Period1? InterestPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the security is blocked.
     /// </summary>
+    [IsoId("_Tf2JA9p-Ed-ak6NoX_4Aeg_786981224")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocking Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? BlockingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? BlockingPeriod { get; init; } 
+    #else
+    public Period1? BlockingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
+    [IsoId("_Tf2JBNp-Ed-ak6NoX_4Aeg_-1721808638")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Calculation Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? PriceCalculationPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? PriceCalculationPeriod { get; init; } 
+    #else
+    public Period1? PriceCalculationPeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ActionPeriod is Period1 ActionPeriodValue)
-        {
-            writer.WriteStartElement(null, "ActnPrd", xmlNamespace );
-            ActionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CompulsoryPurchasePeriod is Period1 CompulsoryPurchasePeriodValue)
-        {
-            writer.WriteStartElement(null, "CmplsryPurchsPrd", xmlNamespace );
-            CompulsoryPurchasePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterestPeriod is Period1 InterestPeriodValue)
-        {
-            writer.WriteStartElement(null, "IntrstPrd", xmlNamespace );
-            InterestPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockingPeriod is Period1 BlockingPeriodValue)
-        {
-            writer.WriteStartElement(null, "BlckgPrd", xmlNamespace );
-            BlockingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceCalculationPeriod is Period1 PriceCalculationPeriodValue)
-        {
-            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
-            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionPeriod1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

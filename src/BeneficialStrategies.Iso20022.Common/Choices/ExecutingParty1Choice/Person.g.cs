@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ExecutingParty1Choice;
-
-/// <summary>
-/// Identification of a person.
-/// </summary>
-public partial record Person : ExecutingParty1Choice_
-     , IIsoXmlSerilizable<Person>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ExecutingParty1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Branch where the trader is located.
+    /// Identification of a person.
     /// </summary>
-    public required CountryCode CountryOfBranch { get; init; } 
-    /// <summary>
-    /// Unique identification of a person, as assigned by an institution, using an identification scheme.
-    /// </summary>
-    public required GenericPersonIdentification1 Other { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Fhu_4ViJEea-d4CsgzjlAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Person")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Person : ExecutingParty1Choice_
+    #else
+    public partial class Person : ExecutingParty1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CtryOfBrnch", xmlNamespace );
-        writer.WriteValue(CountryOfBranch.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Othr", xmlNamespace );
-        Other.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Person Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Person instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Person( string reqCountryOfBranch,GenericPersonIdentification1 reqOther )
+        {
+            CountryOfBranch = reqCountryOfBranch;
+            Other = reqOther;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Branch where the trader is located.
+        /// </summary>
+        [IsoId("_elevo1yuEeWBopJHIRjb4g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Country Of Branch")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CountryCode CountryOfBranch { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string CountryOfBranch { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string CountryOfBranch { get; init; } 
+        #else
+        public string CountryOfBranch { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification of a person, as assigned by an institution, using an identification scheme.
+        /// </summary>
+        [IsoId("_elevoVyuEeWBopJHIRjb4g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericPersonIdentification1 Other { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericPersonIdentification1 Other { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericPersonIdentification1 Other { get; init; } 
+        #else
+        public GenericPersonIdentification1 Other { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,93 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement security details.
 /// </summary>
+[IsoId("_1T9p8TL3EeKU9IrkkToqcw_1018764700")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument Attributes SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrumentAttributesSD1
-     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialInstrumentAttributesSD1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialInstrumentAttributesSD1( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1T9p8jL3EeKU9IrkkToqcw_2098495270")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not the newly issued securities are transferable by the agent. This flag is specific to DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_1T9p8zL3EeKU9IrkkToqcw_1274549265")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Security Transferable Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCSecurityTransferableFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCSecurityTransferableFlag { get; init; } 
+    #else
+    public System.String? DTCSecurityTransferableFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of security that is being distributed as a result of a corporate action as declared by the issuer or offeror on the market.
     /// </summary>
+    [IsoId("_1T9p9DL3EeKU9IrkkToqcw_-1128294739")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Declared Disbursed Security Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributesSD2? DeclaredDisbursedSecurityDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentAttributesSD2? DeclaredDisbursedSecurityDetails { get; init; } 
+    #else
+    public FinancialInstrumentAttributesSD2? DeclaredDisbursedSecurityDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further classification of DTC disbursed security instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_1T9p9TL3EeKU9IrkkToqcw_-180315812")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Disbursed Security Asset Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAssetType1Code? DTCDisbursedSecurityAssetType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCAssetType1Code? DTCDisbursedSecurityAssetType { get; init; } 
+    #else
+    public DTCAssetType1Code? DTCDisbursedSecurityAssetType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of DTC disbursed security instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_1UHa8DL3EeKU9IrkkToqcw_-1739490163")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Disbursed Security Asset Class")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClass1Code? DTCDisbursedSecurityAssetClass { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClass1Code? DTCDisbursedSecurityAssetClass { get; init; } 
+    #else
+    public AssetClass1Code? DTCDisbursedSecurityAssetClass { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dollar amount attributed to the bond when the par value is less than 1000.
     /// </summary>
+    [IsoId("_1UHa8TL3EeKU9IrkkToqcw_-1764347640")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Baby Bond Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? BabyBondDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? BabyBondDenomination { get; init; } 
+    #else
+    public System.UInt64? BabyBondDenomination { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (DTCSecurityTransferableFlag is IsoYesNoIndicator DTCSecurityTransferableFlagValue)
-        {
-            writer.WriteStartElement(null, "DTCSctyTrfblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCSecurityTransferableFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DeclaredDisbursedSecurityDetails is FinancialInstrumentAttributesSD2 DeclaredDisbursedSecurityDetailsValue)
-        {
-            writer.WriteStartElement(null, "DclrdDsbrsdSctyDtls", xmlNamespace );
-            DeclaredDisbursedSecurityDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DTCDisbursedSecurityAssetType is DTCAssetType1Code DTCDisbursedSecurityAssetTypeValue)
-        {
-            writer.WriteStartElement(null, "DTCDsbrsdSctyAsstTp", xmlNamespace );
-            writer.WriteValue(DTCDisbursedSecurityAssetTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DTCDisbursedSecurityAssetClass is AssetClass1Code DTCDisbursedSecurityAssetClassValue)
-        {
-            writer.WriteStartElement(null, "DTCDsbrsdSctyAsstClss", xmlNamespace );
-            writer.WriteValue(DTCDisbursedSecurityAssetClassValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BabyBondDenomination is IsoDecimalNumber BabyBondDenominationValue)
-        {
-            writer.WriteStartElement(null, "BabyBdDnmtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(BabyBondDenominationValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrumentAttributesSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

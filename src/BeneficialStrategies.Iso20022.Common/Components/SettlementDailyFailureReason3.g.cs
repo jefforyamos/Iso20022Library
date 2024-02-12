@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the settlement failure reason as defined in the relevant regulation.
 /// </summary>
+[IsoId("_MQiA0TOmEeqX8uoQQ3KffQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Daily Failure Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementDailyFailureReason3
-     : IIsoXmlSerilizable<SettlementDailyFailureReason3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementDailyFailureReason3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementDailyFailureReason3( SettlementTotalData1Choice_ reqFailedSecurities,SettlementTotalData1Choice_ reqFailedCash )
+    {
+        FailedSecurities = reqFailedSecurities;
+        FailedCash = reqFailedCash;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Fails due to lack of securities.
     /// </summary>
+    [IsoId("_MRbYsTOmEeqX8uoQQ3KffQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Failed Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ FailedSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ FailedSecurities { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ FailedSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fails due to lack of cash.
     /// </summary>
+    [IsoId("_MRbYszOmEeqX8uoQQ3KffQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Failed Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ FailedCash { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ FailedCash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ FailedCash { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ FailedCash { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FaildScties", xmlNamespace );
-        FailedSecurities.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FaildCsh", xmlNamespace );
-        FailedCash.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static SettlementDailyFailureReason3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

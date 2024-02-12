@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity3Choice;
-
-/// <summary>
-/// Quantity of securities in the sub-balance and whether the balance is available.
-/// </summary>
-public partial record QuantityAndAvailability : SubBalanceQuantity3Choice_
-     , IIsoXmlSerilizable<QuantityAndAvailability>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Quantity of securities in the sub-balance.
+    /// Quantity of securities in the sub-balance and whether the balance is available.
     /// </summary>
-    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
-    /// <summary>
-    /// Indicates whether the quantity of securities on the sub-balance is available.
-    /// </summary>
-    public required IsoYesNoIndicator AvailabilityIndicator { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QYU-cNp-Ed-ak6NoX_4Aeg_1358952560")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity And Availability")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record QuantityAndAvailability : SubBalanceQuantity3Choice_
+    #else
+    public partial class QuantityAndAvailability : SubBalanceQuantity3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        Quantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AvlbtyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AvailabilityIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static new QuantityAndAvailability Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a QuantityAndAvailability instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public QuantityAndAvailability( FinancialInstrumentQuantity1Choice_ reqQuantity,System.String reqAvailabilityIndicator )
+        {
+            Quantity = reqQuantity;
+            AvailabilityIndicator = reqAvailabilityIndicator;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Quantity of securities in the sub-balance.
+        /// </summary>
+        [IsoId("_QZhRSNp-Ed-ak6NoX_4Aeg_-987951353")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quantity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+        #else
+        public FinancialInstrumentQuantity1Choice_ Quantity { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the quantity of securities on the sub-balance is available.
+        /// </summary>
+        [IsoId("_QZqbMNp-Ed-ak6NoX_4Aeg_-987951336")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Availability Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator AvailabilityIndicator { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String AvailabilityIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String AvailabilityIndicator { get; init; } 
+        #else
+        public System.String AvailabilityIndicator { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

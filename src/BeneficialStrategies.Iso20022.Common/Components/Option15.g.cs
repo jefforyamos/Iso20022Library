@@ -7,196 +7,331 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
+[IsoId("_PPNyoWp7EemmaZLSPtWX5A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Option15
-     : IIsoXmlSerilizable<Option15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the option contract settles at the open or close of the market.
     /// </summary>
+    [IsoId("_PbLyEWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Settlement Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettleStyle2Choice_? OptionSettlementStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettleStyle2Choice_? OptionSettlementStyle { get; init; } 
+    #else
+    public SettleStyle2Choice_? OptionSettlementStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deadline by which a convertible security must be converted according to the terms of the issue.
     /// </summary>
+    [IsoId("_PbLyE2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conversion Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ConversionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ConversionDate { get; init; } 
+    #else
+    public System.DateTime? ConversionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money for which goods, services or assets are offered, sold, or bought.
     /// </summary>
+    [IsoId("_PbLyFWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? StrikePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price8? StrikePrice { get; init; } 
+    #else
+    public Price8? StrikePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities that must be exercised.
     /// </summary>
+    [IsoId("_PbMZJWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
+    [IsoId("_PbMZJ2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conversion Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1Choice_? ConversionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1Choice_? ConversionPeriod { get; init; } 
+    #else
+    public DateTimePeriod1Choice_? ConversionPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
+    [IsoId("_PbMZKWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle1Choice_? OptionStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle1Choice_? OptionStyle { get; init; } 
+    #else
+    public OptionStyle1Choice_? OptionStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
+    [IsoId("_PbMZK2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType8Choice_? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType8Choice_? OptionType { get; init; } 
+    #else
+    public OptionType8Choice_? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used for derivatives. The number of shares/units for the financial instrument involved in the option trade.
     /// </summary>
+    [IsoId("_PbMZLWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? StrikeValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? StrikeValue { get; init; } 
+    #else
+    public System.UInt64? StrikeValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used for derivatives. Multiplier applied to the strike price for the purpose of calculating the settlement value.
     /// </summary>
+    [IsoId("_PbMZNWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Multiplier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? StrikeMultiplier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? StrikeMultiplier { get; init; } 
+    #else
+    public System.UInt64? StrikeMultiplier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method under which assignment was conducted.
     /// </summary>
+    [IsoId("_PbMZPWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instrument Assignment Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; init; } 
+    #else
+    public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number allocated by options exchanges to record that an option has undergone a change in its contract specifications (particularly adjustment of the strike price).
     /// </summary>
+    [IsoId("_PbMZRWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? VersionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? VersionNumber { get; init; } 
+    #else
+    public System.UInt64? VersionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
+    [IsoId("_PbMZTWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ExpiryLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExpiryLocation { get; init; } 
+    #else
+    public System.String? ExpiryLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.
     /// </summary>
+    [IsoId("_PbMZT2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standardisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Standardisation3Choice_? Standardisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Standardisation3Choice_? Standardisation { get; init; } 
+    #else
+    public Standardisation3Choice_? Standardisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
+    [IsoId("_PbMZUWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Party Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionParty3Choice_? TradingPartyRole { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionParty3Choice_? TradingPartyRole { get; init; } 
+    #else
+    public OptionParty3Choice_? TradingPartyRole { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
+    [IsoId("_PbMZU2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ContractSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ContractSize { get; init; } 
+    #else
+    public System.Decimal? ContractSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
+    [IsoId("_PbMZVWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Underlying Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
+    #else
+    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OptionSettlementStyle is SettleStyle2Choice_ OptionSettlementStyleValue)
-        {
-            writer.WriteStartElement(null, "OptnSttlmStyle", xmlNamespace );
-            OptionSettlementStyleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConversionDate is IsoISODateTime ConversionDateValue)
-        {
-            writer.WriteStartElement(null, "ConvsDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ConversionDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (StrikePrice is Price8 StrikePriceValue)
-        {
-            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
-            StrikePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblQty", xmlNamespace );
-            MinimumExercisableQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConversionPeriod is DateTimePeriod1Choice_ ConversionPeriodValue)
-        {
-            writer.WriteStartElement(null, "ConvsPrd", xmlNamespace );
-            ConversionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OptionStyle is OptionStyle1Choice_ OptionStyleValue)
-        {
-            writer.WriteStartElement(null, "OptnStyle", xmlNamespace );
-            OptionStyleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OptionType is OptionType8Choice_ OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            OptionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StrikeValue is IsoNumber StrikeValueValue)
-        {
-            writer.WriteStartElement(null, "StrkVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(StrikeValueValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (StrikeMultiplier is IsoNumber StrikeMultiplierValue)
-        {
-            writer.WriteStartElement(null, "StrkMltplr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(StrikeMultiplierValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (InstrumentAssignmentMethod is AssignmentMethod2Choice_ InstrumentAssignmentMethodValue)
-        {
-            writer.WriteStartElement(null, "InstrmAssgnmtMtd", xmlNamespace );
-            InstrumentAssignmentMethodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VersionNumber is IsoNumber VersionNumberValue)
-        {
-            writer.WriteStartElement(null, "VrsnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (ExpiryLocation is IsoMax4AlphaNumericText ExpiryLocationValue)
-        {
-            writer.WriteStartElement(null, "XpryLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ExpiryLocationValue)); // data type Max4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Standardisation is Standardisation3Choice_ StandardisationValue)
-        {
-            writer.WriteStartElement(null, "Stdstn", xmlNamespace );
-            StandardisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingPartyRole is OptionParty3Choice_ TradingPartyRoleValue)
-        {
-            writer.WriteStartElement(null, "TradgPtyRole", xmlNamespace );
-            TradingPartyRoleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractSize is IsoBaseOneRate ContractSizeValue)
-        {
-            writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ContractSizeValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdditionalUnderlyingAttributes is UnderlyingAttributes4 AdditionalUnderlyingAttributesValue)
-        {
-            writer.WriteStartElement(null, "AddtlUndrlygAttrbts", xmlNamespace );
-            AdditionalUnderlyingAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Option15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

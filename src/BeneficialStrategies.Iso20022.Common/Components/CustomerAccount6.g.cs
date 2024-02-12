@@ -7,193 +7,346 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account owned by a customer.
 /// </summary>
+[IsoId("_xSODMd_iEeWtWuYVXtphhA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Customer Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CustomerAccount6
-     : IIsoXmlSerilizable<CustomerAccount6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CustomerAccount6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CustomerAccount6( string reqCurrency )
+    {
+        Currency = reqCurrency;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the account.
     /// </summary>
+    [IsoId("_xdp3Id_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? Identification { get; init; } 
+    #else
+    public AccountIdentification4Choice_? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [IsoId("_xdp3I9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
+    [IsoId("_xdp3Jd_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountStatus3Code? Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountStatus3Code? Status { get; init; } 
+    #else
+    public AccountStatus3Code? Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the account.
     /// </summary>
+    [IsoId("_xdp3J9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountType2Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountType2Choice_? Type { get; init; } 
+    #else
+    public CashAccountType2Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [IsoId("_xdp3Kd_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode Currency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Currency { get; init; } 
+    #else
+    public string Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monthly average of the payment amounts (that is, payments going out) over a year.
     /// </summary>
+    [IsoId("_xdp3K9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Payment Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MonthlyPaymentValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MonthlyPaymentValue { get; init; } 
+    #else
+    public System.Decimal? MonthlyPaymentValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monthly average of the received amounts over a year (that is, payments coming in).
     /// </summary>
+    [IsoId("_xdp3Ld_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Received Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MonthlyReceivedValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MonthlyReceivedValue { get; init; } 
+    #else
+    public System.Decimal? MonthlyReceivedValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monthly average of the number of payments (coming in and going out) over a year.
     /// </summary>
+    [IsoId("_xdp3L9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Transaction Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? MonthlyTransactionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MonthlyTransactionNumber { get; init; } 
+    #else
+    public System.String? MonthlyTransactionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sum of the end of day balances over a month divided by the number of business days in the month.
     /// </summary>
+    [IsoId("_xdp3Md_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? AverageBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AverageBalance { get; init; } 
+    #else
+    public System.Decimal? AverageBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the purpose of the account.
     /// </summary>
+    [IsoId("_xdp3M9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AccountPurpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountPurpose { get; init; } 
+    #else
+    public System.String? AccountPurpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the value of the balance under which a notification will be sent to the account owner.
     /// </summary>
+    [IsoId("_xdp3Nd_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floor Notification Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FloorNotificationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FloorNotificationAmount { get; init; } 
+    #else
+    public System.Decimal? FloorNotificationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the value of the balance above which a notification will be sent to the account owner.
     /// </summary>
+    [IsoId("_xdp3N9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ceiling Notification Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CeilingNotificationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CeilingNotificationAmount { get; init; } 
+    #else
+    public System.Decimal? CeilingNotificationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how often statements (for audit purposes) will be sent, in which format, to which address.
     /// </summary>
+    [IsoId("_ivWkwd_kEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Frequency And Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatementFrequencyAndForm1? StatementFrequencyAndFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatementFrequencyAndForm1? StatementFrequencyAndFormat { get; init; } 
+    #else
+    public StatementFrequencyAndForm1? StatementFrequencyAndFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when the account will be or was closed.
     /// </summary>
+    [IsoId("_xdp3O9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ClosingDate { get; init; } 
+    #else
+    public System.DateOnly? ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
+    [IsoId("_xdp3Pd_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restriction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Restriction1? Restriction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Restriction1? Restriction { get; init; } 
+    #else
+    public Restriction1? Restriction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date when the account was opened.
     /// </summary>
+    [IsoId("_xdp3P9_iEeWtWuYVXtphhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OpeningDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? OpeningDate { get; init; } 
+    #else
+    public System.DateOnly? OpeningDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is AccountIdentification4Choice_ IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Status is AccountStatus3Code StatusValue)
-        {
-            writer.WriteStartElement(null, "Sts", xmlNamespace );
-            writer.WriteValue(StatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Type is CashAccountType2Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Ccy", xmlNamespace );
-        writer.WriteValue(Currency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MonthlyPaymentValue is IsoImpliedCurrencyAndAmount MonthlyPaymentValueValue)
-        {
-            writer.WriteStartElement(null, "MnthlyPmtVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MonthlyPaymentValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MonthlyReceivedValue is IsoImpliedCurrencyAndAmount MonthlyReceivedValueValue)
-        {
-            writer.WriteStartElement(null, "MnthlyRcvdVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MonthlyReceivedValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MonthlyTransactionNumber is IsoMax5NumericText MonthlyTransactionNumberValue)
-        {
-            writer.WriteStartElement(null, "MnthlyTxNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(MonthlyTransactionNumberValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AverageBalance is IsoImpliedCurrencyAndAmount AverageBalanceValue)
-        {
-            writer.WriteStartElement(null, "AvrgBal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AverageBalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AccountPurpose is IsoMax140Text AccountPurposeValue)
-        {
-            writer.WriteStartElement(null, "AcctPurp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AccountPurposeValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (FloorNotificationAmount is IsoImpliedCurrencyAndAmount FloorNotificationAmountValue)
-        {
-            writer.WriteStartElement(null, "FlrNtfctnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FloorNotificationAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CeilingNotificationAmount is IsoImpliedCurrencyAndAmount CeilingNotificationAmountValue)
-        {
-            writer.WriteStartElement(null, "ClngNtfctnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CeilingNotificationAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (StatementFrequencyAndFormat is StatementFrequencyAndForm1 StatementFrequencyAndFormatValue)
-        {
-            writer.WriteStartElement(null, "StmtFrqcyAndFrmt", xmlNamespace );
-            StatementFrequencyAndFormatValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosingDate is IsoISODate ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Restriction is Restriction1 RestrictionValue)
-        {
-            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
-            RestrictionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OpeningDate is IsoISODate OpeningDateValue)
-        {
-            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CustomerAccount6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

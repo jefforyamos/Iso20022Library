@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Indication whether a derivative contract is tranched.
-/// </summary>
-[KnownType(typeof(TrancheIndicator2Choice.Tranched))]
-[KnownType(typeof(TrancheIndicator2Choice.Untranched))]
-public abstract partial record TrancheIndicator2Choice_ : IIsoXmlSerilizable<TrancheIndicator2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Indication whether a derivative contract is tranched.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TrancheIndicator2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TrancheIndicator2Choice.Tranched))]
+    [KnownType(typeof(TrancheIndicator2Choice.Untranched))]
+    [IsoId("_5tB9YbyOEeaUov4jN5X9Qw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tranche Indicator 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TrancheIndicator2Choice_
+    #else
+    public abstract partial class TrancheIndicator2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Trnchd" => TrancheIndicator2Choice.Tranched.Deserialize(elementWithPayload),
-             "Utrnchd" => TrancheIndicator2Choice.Untranched.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TrancheIndicator2Choice choice.")
-        };
     }
 }

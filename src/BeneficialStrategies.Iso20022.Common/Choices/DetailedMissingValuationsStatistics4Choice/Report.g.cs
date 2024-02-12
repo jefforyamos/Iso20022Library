@@ -9,60 +9,126 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingValuationsStatistics4Choice;
-
-/// <summary>
-/// Detailed information on statistics per combination of counterparties.
-/// </summary>
-public partial record Report : DetailedMissingValuationsStatistics4Choice_
-     , IIsoXmlSerilizable<Report>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingValuationsStatistics4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Number of outstanding derivatives. 
+    /// Detailed information on statistics per combination of counterparties.
     /// </summary>
-    public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
-    /// <summary>
-    /// Number of outstanding derivatives for which valuation amount was never reported.
-    /// </summary>
-    public required IsoNumber NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
-    /// <summary>
-    /// Number of outstanding derivatives with outdated valuation.
-    /// </summary>
-    public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
-    /// <summary>
-    /// Details of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
-    /// </summary>
-    public MissingValuationsData2? Warnings { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _x2DbJlyGEe24CqbZJK5XxA
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_x1GY41yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Report : DetailedMissingValuationsStatistics4Choice_
+    #else
+    public partial class Report : DetailedMissingValuationsStatistics4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "NbOfOutsdngDerivs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivatives)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthNoValtn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithNoValuation)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthOutdtdValtn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithOutdatedValuation)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        // Not sure how to serialize Warnings, multiplicity Unknown
-    }
-    public static new Report Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Report instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Report( System.UInt64 reqNumberOfOutstandingDerivatives,System.UInt64 reqNumberOfOutstandingDerivativesWithNoValuation,System.UInt64 reqNumberOfOutstandingDerivativesWithOutdatedValuation )
+        {
+            NumberOfOutstandingDerivatives = reqNumberOfOutstandingDerivatives;
+            NumberOfOutstandingDerivativesWithNoValuation = reqNumberOfOutstandingDerivativesWithNoValuation;
+            NumberOfOutstandingDerivativesWithOutdatedValuation = reqNumberOfOutstandingDerivativesWithOutdatedValuation;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Number of outstanding derivatives. 
+        /// </summary>
+        [IsoId("_x2DbIFyGEe24CqbZJK5XxA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Number Of Outstanding Derivatives")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
+        #else
+        public System.UInt64 NumberOfOutstandingDerivatives { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Number of outstanding derivatives for which valuation amount was never reported.
+        /// </summary>
+        [IsoId("_x2DbIlyGEe24CqbZJK5XxA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Number Of Outstanding Derivatives With No Valuation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoNumber NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+        #else
+        public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Number of outstanding derivatives with outdated valuation.
+        /// </summary>
+        [IsoId("_x2DbJFyGEe24CqbZJK5XxA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Number Of Outstanding Derivatives With Outdated Valuation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+        #else
+        public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
+        /// </summary>
+        [IsoId("_x2DbJlyGEe24CqbZJK5XxA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Warnings")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public MissingValuationsData2? Warnings { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _x2DbJlyGEe24CqbZJK5XxA
+        
+        
+        #nullable disable
+        
     }
 }

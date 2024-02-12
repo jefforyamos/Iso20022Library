@@ -9,43 +9,70 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition4Choice;
-
-/// <summary>
-/// Trade conditions expressed in a coded form as published in an external list.
-/// </summary>
-public partial record Code : TradeTransactionCondition4Choice_
-     , IIsoXmlSerilizable<Code>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Contains the main value for the container.
-    /// Specifies the external Trade Transaction Condition code in the format of character string with a maximum length of 4 characters.
-    /// The list of valid codes is an external code list published separately.
-    /// External code sets can be downloaded from www.iso20022.org.
+    /// Trade conditions expressed in a coded form as published in an external list.
     /// </summary>
-    public required ExternalTradeTransactionCondition1Code Value { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_AcingNokEeC60axPepSq7g_-1258318149")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Code : TradeTransactionCondition4Choice_
+    #else
+    public partial class Code : TradeTransactionCondition4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Value.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new Code Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Code instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Code( ExternalTradeTransactionCondition1Code reqValue )
+        {
+            Value = reqValue;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Contains the main value for the container.
+        /// Specifies the external Trade Transaction Condition code in the format of character string with a maximum length of 4 characters.
+        /// The list of valid codes is an external code list published separately.
+        /// External code sets can be downloaded from www.iso20022.org.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ExternalTradeTransactionCondition1Code Value { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ExternalTradeTransactionCondition1Code Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ExternalTradeTransactionCondition1Code Value { get; init; } 
+        #else
+        public ExternalTradeTransactionCondition1Code Value { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

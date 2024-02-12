@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the expected collateral type and direction for the variation margin and optionaly the segregated independent amount.
 /// </summary>
+[IsoId("_UllpF9p-Ed-ak6NoX_4Aeg_217990249")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Expected Collateral")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExpectedCollateral1
-     : IIsoXmlSerilizable<ExpectedCollateral1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ExpectedCollateral1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ExpectedCollateral1( ExpectedCollateralMovement1 reqVariationMargin )
+    {
+        VariationMargin = reqVariationMargin;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the expected collateral type and direction for the variation margin.
     /// </summary>
+    [IsoId("_UlvaENp-Ed-ak6NoX_4Aeg_259803372")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExpectedCollateralMovement1 VariationMargin { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExpectedCollateralMovement1 VariationMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExpectedCollateralMovement1 VariationMargin { get; init; } 
+    #else
+    public ExpectedCollateralMovement1 VariationMargin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the expected collateral type and direction for the segregated independent amount.
     /// </summary>
+    [IsoId("_UlvaEdp-Ed-ak6NoX_4Aeg_-964605282")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Segregated Independent Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; init; } 
+    #else
+    public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
-        VariationMargin.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SegregatedIndependentAmount is ExpectedCollateralMovement1 SegregatedIndependentAmountValue)
-        {
-            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
-            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ExpectedCollateral1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

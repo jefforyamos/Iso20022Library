@@ -7,100 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the withdrawal transaction.
 /// </summary>
+[IsoId("_2LQFQa16EeWMg5rOByfExw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMEnvironment12
-     : IIsoXmlSerilizable<ATMEnvironment12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMEnvironment12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMEnvironment12( AutomatedTellerMachine2 reqATM,ATMCustomer5 reqCustomer )
+    {
+        ATM = reqATM;
+        Customer = reqCustomer;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Acquirer of the transactions, in charge of the funds settlement with the issuer.
     /// </summary>
+    [IsoId("_2XLBYa16EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer7? Acquirer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Acquirer7? Acquirer { get; init; } 
+    #else
+    public Acquirer7? Acquirer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Institution in charge of managing the ATM.
     /// </summary>
+    [IsoId("_2XLBY616EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Manager")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer8? ATMManager { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Acquirer8? ATMManager { get; init; } 
+    #else
+    public Acquirer8? ATMManager { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity hosting the ATM terminal.
     /// </summary>
+    [IsoId("_2XLBZa16EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hosting Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalHosting1? HostingEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalHosting1? HostingEntity { get; init; } 
+    #else
+    public TerminalHosting1? HostingEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// ATM information.
     /// </summary>
+    [IsoId("_2XLBZ616EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AutomatedTellerMachine2 ATM { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AutomatedTellerMachine2 ATM { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AutomatedTellerMachine2 ATM { get; init; } 
+    #else
+    public AutomatedTellerMachine2 ATM { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer involved in the transaction.
     /// </summary>
+    [IsoId("_2XLBaa16EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCustomer5 Customer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMCustomer5 Customer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCustomer5 Customer { get; init; } 
+    #else
+    public ATMCustomer5 Customer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encryption of the sensitive card data.
     /// </summary>
+    [IsoId("_2XLBa616EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType10? ProtectedCardData { get; init; } 
+    #else
+    public ContentInformationType10? ProtectedCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [IsoId("_2XLBba16EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plain Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData19? PlainCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlainCardData19? PlainCardData { get; init; } 
+    #else
+    public PlainCardData19? PlainCardData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Acquirer is Acquirer7 AcquirerValue)
-        {
-            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
-            AcquirerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ATMManager is Acquirer8 ATMManagerValue)
-        {
-            writer.WriteStartElement(null, "ATMMgr", xmlNamespace );
-            ATMManagerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HostingEntity is TerminalHosting1 HostingEntityValue)
-        {
-            writer.WriteStartElement(null, "HstgNtty", xmlNamespace );
-            HostingEntityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ATM", xmlNamespace );
-        ATM.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cstmr", xmlNamespace );
-        Customer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ProtectedCardData is ContentInformationType10 ProtectedCardDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
-            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlainCardData is PlainCardData19 PlainCardDataValue)
-        {
-            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
-            PlainCardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMEnvironment12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

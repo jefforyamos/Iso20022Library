@@ -9,118 +9,251 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeData13Choice;
-
-/// <summary>
-/// Information concerning the reporting at transaction level.
-/// </summary>
-public partial record State : TradeData13Choice_
-     , IIsoXmlSerilizable<State>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeData13Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identifier of a record in a message used as part of error management and status advice message.
+    /// Information concerning the reporting at transaction level.
     /// </summary>
-    public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
-    /// <summary>
-    /// Date and time of submission of the report to the trade repository.
-    /// </summary>
-    public required IsoISODateTime ReportingDateTime { get; init; } 
-    /// <summary>
-    /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
-    /// </summary>
-    public required IsoISODate EventDate { get; init; } 
-    /// <summary>
-    /// Data specific to counterparties of the reported transaction.
-    /// </summary>
-    public required Counterparty30 Counterparty { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identification of the collateral portfolio.
-    /// </summary>
-    public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
-    /// <summary>
-    /// Information on posted collateral and margin.
-    /// </summary>
-    public PostedMarginOrCollateral3? PostedMarginOrCollateral { get; init; } 
-    /// <summary>
-    /// Information on received collateral and margin.
-    /// </summary>
-    public ReceivedMarginOrCollateral3? ReceivedMarginOrCollateral { get; init; } 
-    /// <summary>
-    /// List of possible values for TRs reconciliation purposes.
-    /// </summary>
-    public ReconciliationFlag1? ReconciliationFlag { get; init; } 
-    /// <summary>
-    /// Contract modification details expressed as an action type and a reporting level type.
-    /// </summary>
-    public required ContractModification3 ContractModification { get; init; } 
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_x460U__mEemm3skPVSMJQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("State")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record State : TradeData13Choice_
+    #else
+    public partial class State : TradeData13Choice_
+    #endif
     {
-        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a State instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public State( System.DateTime reqReportingDateTime,System.DateOnly reqEventDate,Counterparty30 reqCounterparty,System.String reqCollateralPortfolioIdentification,ContractModification3 reqContractModification )
         {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
+            ReportingDateTime = reqReportingDateTime;
+            EventDate = reqEventDate;
+            Counterparty = reqCounterparty;
+            CollateralPortfolioIdentification = reqCollateralPortfolioIdentification;
+            ContractModification = reqContractModification;
         }
-        writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
-        Counterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollPrtflId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax52Text(CollateralPortfolioIdentification)); // data type Max52Text System.String
-        writer.WriteEndElement();
-        if (PostedMarginOrCollateral is PostedMarginOrCollateral3 PostedMarginOrCollateralValue)
-        {
-            writer.WriteStartElement(null, "PstdMrgnOrColl", xmlNamespace );
-            PostedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceivedMarginOrCollateral is ReceivedMarginOrCollateral3 ReceivedMarginOrCollateralValue)
-        {
-            writer.WriteStartElement(null, "RcvdMrgnOrColl", xmlNamespace );
-            ReceivedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationFlag is ReconciliationFlag1 ReconciliationFlagValue)
-        {
-            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
-            ReconciliationFlagValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtrctMod", xmlNamespace );
-        ContractModification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new State Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identifier of a record in a message used as part of error management and status advice message.
+        /// </summary>
+        [IsoId("_x-Irgf_mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Record Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TechnicalRecordIdentification { get; init; } 
+        #else
+        public System.String? TechnicalRecordIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time of submission of the report to the trade repository.
+        /// </summary>
+        [IsoId("_x-Irg__mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reporting Date Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime ReportingDateTime { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime ReportingDateTime { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime ReportingDateTime { get; init; } 
+        #else
+        public System.DateTime ReportingDateTime { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
+        /// </summary>
+        [IsoId("_x-Irhf_mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate EventDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly EventDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly EventDate { get; init; } 
+        #else
+        public System.DateOnly EventDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data specific to counterparties of the reported transaction.
+        /// </summary>
+        [IsoId("_x-Irh__mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required Counterparty30 Counterparty { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public Counterparty30 Counterparty { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Counterparty30 Counterparty { get; init; } 
+        #else
+        public Counterparty30 Counterparty { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identification of the collateral portfolio.
+        /// </summary>
+        [IsoId("_x-Irif_mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Portfolio Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String CollateralPortfolioIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String CollateralPortfolioIdentification { get; init; } 
+        #else
+        public System.String CollateralPortfolioIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information on posted collateral and margin.
+        /// </summary>
+        [IsoId("_x-Iri__mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Posted Margin Or Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PostedMarginOrCollateral3? PostedMarginOrCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostedMarginOrCollateral3? PostedMarginOrCollateral { get; init; } 
+        #else
+        public PostedMarginOrCollateral3? PostedMarginOrCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information on received collateral and margin.
+        /// </summary>
+        [IsoId("_x-Irjf_mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Received Margin Or Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ReceivedMarginOrCollateral3? ReceivedMarginOrCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReceivedMarginOrCollateral3? ReceivedMarginOrCollateral { get; init; } 
+        #else
+        public ReceivedMarginOrCollateral3? ReceivedMarginOrCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// List of possible values for TRs reconciliation purposes.
+        /// </summary>
+        [IsoId("_x-Irj__mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reconciliation Flag")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ReconciliationFlag1? ReconciliationFlag { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReconciliationFlag1? ReconciliationFlag { get; init; } 
+        #else
+        public ReconciliationFlag1? ReconciliationFlag { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Contract modification details expressed as an action type and a reporting level type.
+        /// </summary>
+        [IsoId("_x-Irkf_mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Contract Modification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ContractModification3 ContractModification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ContractModification3 ContractModification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ContractModification3 ContractModification { get; init; } 
+        #else
+        public ContractModification3 ContractModification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_x-Irk__mEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

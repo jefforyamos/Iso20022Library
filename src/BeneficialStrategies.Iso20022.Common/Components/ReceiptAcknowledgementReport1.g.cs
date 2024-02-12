@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the original request. Identifies the message being acknowledged and its status.
 /// </summary>
+[IsoId("_jHt69O5NEeCisYr99QEiWA_-1586267634")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Receipt Acknowledgement Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReceiptAcknowledgementReport1
-     : IIsoXmlSerilizable<ReceiptAcknowledgementReport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReceiptAcknowledgementReport1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReceiptAcknowledgementReport1( AdditionalReferences reqRelatedReference,RequestHandling1 reqRequestHandling )
+    {
+        RelatedReference = reqRelatedReference;
+        RequestHandling = reqRequestHandling;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference of the request.
     /// </summary>
+    [IsoId("_jH3E4O5NEeCisYr99QEiWA_-1954136940")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReferences RelatedReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AdditionalReferences RelatedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReferences RelatedReference { get; init; } 
+    #else
+    public AdditionalReferences RelatedReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
+    [IsoId("_jH3E4e5NEeCisYr99QEiWA_-375245615")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Handling")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestHandling1 RequestHandling { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RequestHandling1 RequestHandling { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RequestHandling1 RequestHandling { get; init; } 
+    #else
+    public RequestHandling1 RequestHandling { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the original message for which the acknowledgement is sent.
     /// </summary>
+    [IsoId("_jH3E4u5NEeCisYr99QEiWA_-864664947")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification6? OriginalMessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageIdentification6? OriginalMessageIdentification { get; init; } 
+    #else
+    public MessageIdentification6? OriginalMessageIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
-        RelatedReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReqHdlg", xmlNamespace );
-        RequestHandling.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OriginalMessageIdentification is MessageIdentification6 OriginalMessageIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
-            OriginalMessageIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReceiptAcknowledgementReport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

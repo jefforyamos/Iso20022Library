@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of quantity of assets.
-/// </summary>
-[KnownType(typeof(Quantity44Choice.Unit))]
-[KnownType(typeof(Quantity44Choice.PercentageRate))]
-[KnownType(typeof(Quantity44Choice.FaceAmount))]
-[KnownType(typeof(Quantity44Choice.AmortisedValue))]
-[KnownType(typeof(Quantity44Choice.CashAmount))]
-[KnownType(typeof(Quantity44Choice.OtherAsset))]
-public abstract partial record Quantity44Choice_ : IIsoXmlSerilizable<Quantity44Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of quantity of assets.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Quantity44Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Quantity44Choice.Unit))]
+    [KnownType(typeof(Quantity44Choice.PercentageRate))]
+    [KnownType(typeof(Quantity44Choice.FaceAmount))]
+    [KnownType(typeof(Quantity44Choice.AmortisedValue))]
+    [KnownType(typeof(Quantity44Choice.CashAmount))]
+    [KnownType(typeof(Quantity44Choice.OtherAsset))]
+    [IsoId("_Qfjh0U3WEeidB49bWZiS0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity 44 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Quantity44Choice_
+    #else
+    public abstract partial class Quantity44Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Unit" => Quantity44Choice.Unit.Deserialize(elementWithPayload),
-             "PctgRate" => Quantity44Choice.PercentageRate.Deserialize(elementWithPayload),
-             "FaceAmt" => Quantity44Choice.FaceAmount.Deserialize(elementWithPayload),
-             "AmtsdVal" => Quantity44Choice.AmortisedValue.Deserialize(elementWithPayload),
-             "CshAmt" => Quantity44Choice.CashAmount.Deserialize(elementWithPayload),
-             "OthrAsst" => Quantity44Choice.OtherAsset.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Quantity44Choice choice.")
-        };
     }
 }

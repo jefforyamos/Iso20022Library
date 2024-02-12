@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies information about a blocked holding.
 /// </summary>
+[IsoId("_GdlysxKeEeKj15WxqwlXPw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Blocked Holding Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BlockedHoldingDetails1
-     : IIsoXmlSerilizable<BlockedHoldingDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BlockedHoldingDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BlockedHoldingDetails1( Holding1Code reqBlockedHolding )
+    {
+        BlockedHolding = reqBlockedHolding;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies how the blocked account holding is defined.
     /// </summary>
+    [IsoId("_tExT0BKeEeKj15WxqwlXPw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked Holding")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Holding1Code BlockedHolding { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Holding1Code BlockedHolding { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Holding1Code BlockedHolding { get; init; } 
+    #else
+    public Holding1Code BlockedHolding { get; set; } 
+    #endif
+    
     /// <summary>
     /// When an account is blocked at the level of fund, partially, this is the number of units blocked.
     /// </summary>
+    [IsoId("_RGi48BKfEeKj15WxqwlXPw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Partial Holding Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? PartialHoldingUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PartialHoldingUnits { get; init; } 
+    #else
+    public System.UInt64? PartialHoldingUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// When an account is blocked at the level of fund, this specifies the certificate number of the blocked units.
     /// </summary>
+    [IsoId("_ZwACEBKfEeKj15WxqwlXPw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holding Certificate Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? HoldingCertificateNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HoldingCertificateNumber { get; init; } 
+    #else
+    public System.String? HoldingCertificateNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BlckdHldg", xmlNamespace );
-        writer.WriteValue(BlockedHolding.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (PartialHoldingUnits is IsoDecimalNumber PartialHoldingUnitsValue)
-        {
-            writer.WriteStartElement(null, "PrtlHldgUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PartialHoldingUnitsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (HoldingCertificateNumber is IsoMax35Text HoldingCertificateNumberValue)
-        {
-            writer.WriteStartElement(null, "HldgCertNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(HoldingCertificateNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static BlockedHoldingDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

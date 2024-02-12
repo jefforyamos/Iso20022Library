@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// New standing order values.
 /// </summary>
+[IsoId("_jVCsN5lPEee-Zps0fZQaFQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Standing Order")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StandingOrder5
-     : IIsoXmlSerilizable<StandingOrder5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
+    [IsoId("_jdqcs5lPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2Choice_? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2Choice_? Amount { get; init; } 
+    #else
+    public Amount2Choice_? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash account credited from a standing order mechanism.
     /// </summary>
+    [IsoId("_jdqctZlPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? CreditorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? CreditorAccount { get; init; } 
+    #else
+    public CashAccount24? CreditorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash account debited from a standing order mechanism.
     /// </summary>
+    [IsoId("_jdqct5lPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? DebtorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? DebtorAccount { get; init; } 
+    #else
+    public CashAccount24? DebtorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
+    [IsoId("_jdqcuZlPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExecutionType1Choice_? ExecutionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExecutionType1Choice_? ExecutionType { get; init; } 
+    #else
+    public ExecutionType1Choice_? ExecutionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regularity with which payment instructions are to be created and processed as a result of the standing order, such as daily, weekly, or monthly.
     /// </summary>
+    [IsoId("_jdqcu5lPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency2Code? Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency2Code? Frequency { get; init; } 
+    #else
+    public Frequency2Code? Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dates during which the standing order is in effect.
     /// </summary>
+    [IsoId("_jdqcvZlPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod2Choice_? ValidityPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriod2Choice_? ValidityPeriod { get; init; } 
+    #else
+    public DatePeriod2Choice_? ValidityPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the standing order is defined as a zero sweeping order. When true, the liquidity transfer standing order will transfer all amount of money out of the account so the resulting balance is zero.
     /// </summary>
+    [IsoId("_jdqcv5lPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Zero Sweep Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ZeroSweepIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ZeroSweepIndicator { get; init; } 
+    #else
+    public System.String? ZeroSweepIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Amount is Amount2Choice_ AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            AmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAccount is CashAccount24 CreditorAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
-            CreditorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAccount is CashAccount24 DebtorAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
-            DebtorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExecutionType is ExecutionType1Choice_ ExecutionTypeValue)
-        {
-            writer.WriteStartElement(null, "ExctnTp", xmlNamespace );
-            ExecutionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Frequency is Frequency2Code FrequencyValue)
-        {
-            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-            writer.WriteValue(FrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ValidityPeriod is DatePeriod2Choice_ ValidityPeriodValue)
-        {
-            writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
-            ValidityPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ZeroSweepIndicator is IsoTrueFalseIndicator ZeroSweepIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ZeroSweepInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ZeroSweepIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static StandingOrder5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

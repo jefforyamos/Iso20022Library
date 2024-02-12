@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the investigation results.
-/// </summary>
-[KnownType(typeof(InvestigationResult1Choice.Result))]
-[KnownType(typeof(InvestigationResult1Choice.InvestigationStatus))]
-public abstract partial record InvestigationResult1Choice_ : IIsoXmlSerilizable<InvestigationResult1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the investigation results.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InvestigationResult1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InvestigationResult1Choice.Result))]
+    [KnownType(typeof(InvestigationResult1Choice.InvestigationStatus))]
+    [IsoId("_TRkjcGgkEeGHuf0_3c6vdw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investigation Result 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InvestigationResult1Choice_
+    #else
+    public abstract partial class InvestigationResult1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rslt" => InvestigationResult1Choice.Result.Deserialize(elementWithPayload),
-             "InvstgtnSts" => InvestigationResult1Choice.InvestigationStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InvestigationResult1Choice choice.")
-        };
     }
 }

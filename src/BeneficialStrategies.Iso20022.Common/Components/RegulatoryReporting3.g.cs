@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed due to regulatory and/or statutory requirements.
 /// </summary>
+[IsoId("_SnYP99p-Ed-ak6NoX_4Aeg_-1655670600")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Regulatory Reporting")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RegulatoryReporting3
-     : IIsoXmlSerilizable<RegulatoryReporting3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.
     /// </summary>
+    [IsoId("_SnYP-Np-Ed-ak6NoX_4Aeg_-1655670598")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debit Credit Reporting Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; init; } 
+    #else
+    public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity requiring the regulatory reporting information.
     /// </summary>
+    [IsoId("_SnhZ4Np-Ed-ak6NoX_4Aeg_-1655670538")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegulatoryAuthority2? Authority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RegulatoryAuthority2? Authority { get; init; } 
+    #else
+    public RegulatoryAuthority2? Authority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide details on the regulatory reporting information.
     /// </summary>
+    [IsoId("_SnhZ4dp-Ed-ak6NoX_4Aeg_-1655670493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StructuredRegulatoryReporting3? Details { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StructuredRegulatoryReporting3? Details { get; init; } 
+    #else
+    public StructuredRegulatoryReporting3? Details { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DebitCreditReportingIndicator is RegulatoryReportingType1Code DebitCreditReportingIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DbtCdtRptgInd", xmlNamespace );
-            writer.WriteValue(DebitCreditReportingIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Authority is RegulatoryAuthority2 AuthorityValue)
-        {
-            writer.WriteStartElement(null, "Authrty", xmlNamespace );
-            AuthorityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Details is StructuredRegulatoryReporting3 DetailsValue)
-        {
-            writer.WriteStartElement(null, "Dtls", xmlNamespace );
-            DetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static RegulatoryReporting3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

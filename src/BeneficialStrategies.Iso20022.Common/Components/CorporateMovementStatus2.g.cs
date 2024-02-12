@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides status of the movement.
 /// </summary>
+[IsoId("_Ri-zttp-Ed-ak6NoX_4Aeg_728771721")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Movement Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateMovementStatus2
-     : IIsoXmlSerilizable<CorporateMovementStatus2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateMovementStatus2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateMovementStatus2( CorporationActionMovementProcessingStatus2 reqProcessedStatus,CorporateActionMovementRejectionStatus2 reqRejectedStatus )
+    {
+        ProcessedStatus = reqProcessedStatus;
+        RejectedStatus = reqRejectedStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information about the processing status of the cancellation request.
     /// </summary>
+    [IsoId("_Ri-zt9p-Ed-ak6NoX_4Aeg_1547012214")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processed Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
+    #else
+    public CorporationActionMovementProcessingStatus2 ProcessedStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
+    [IsoId("_Ri-zuNp-Ed-ak6NoX_4Aeg_1559018048")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
+    #else
+    public CorporateActionMovementRejectionStatus2 RejectedStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrcdSts", xmlNamespace );
-        ProcessedStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RjctdSts", xmlNamespace );
-        RejectedStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CorporateMovementStatus2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

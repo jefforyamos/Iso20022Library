@@ -7,116 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data common to all transactions of a data set.
 /// </summary>
+[IsoId("_qcR9EdpoEeearpaEPXv9UA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Common Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CommonData7
-     : IIsoXmlSerilizable<CommonData7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data related to the environment of the transaction, common to a set of transaction.
     /// </summary>
+    [IsoId("_qlVycdpoEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentEnvironment70? Environment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentEnvironment70? Environment { get; init; } 
+    #else
+    public CardPaymentEnvironment70? Environment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to the context of the transaction, common to a set of transaction.
     /// </summary>
+    [IsoId("_qlVyc9poEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentContext24? Context { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentContext24? Context { get; init; } 
+    #else
+    public CardPaymentContext24? Context { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of transaction being undertaken for the main service, common to a set of transaction.
     /// </summary>
+    [IsoId("_qlVyddpoEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType12Code? TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType12Code? TransactionType { get; init; } 
+    #else
+    public CardPaymentServiceType12Code? TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
+    [IsoId("_qlVyd9poEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType9Code? AdditionalService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType9Code? AdditionalService { get; init; } 
+    #else
+    public CardPaymentServiceType9Code? AdditionalService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
+    [IsoId("_qlVyedpoEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
+    #else
+    public CardPaymentServiceType3Code? ServiceAttribute { get; set; } 
+    #endif
+    
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [IsoId("_qlVye9poEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 3)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin3Max4Text? MerchantCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MerchantCategoryCode { get; init; } 
+    #else
+    public System.String? MerchantCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [IsoId("_qlVyfdpoEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationIdentification { get; init; } 
+    #else
+    public System.String? ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency associated with the set of transaction.
     /// </summary>
+    [IsoId("_qlVyf9poEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Environment is CardPaymentEnvironment70 EnvironmentValue)
-        {
-            writer.WriteStartElement(null, "Envt", xmlNamespace );
-            EnvironmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Context is CardPaymentContext24 ContextValue)
-        {
-            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-            ContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionType is CardPaymentServiceType12Code TransactionTypeValue)
-        {
-            writer.WriteStartElement(null, "TxTp", xmlNamespace );
-            writer.WriteValue(TransactionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalService is CardPaymentServiceType9Code AdditionalServiceValue)
-        {
-            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
-            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ServiceAttribute is CardPaymentServiceType3Code ServiceAttributeValue)
-        {
-            writer.WriteStartElement(null, "SvcAttr", xmlNamespace );
-            writer.WriteValue(ServiceAttributeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MerchantCategoryCode is IsoMin3Max4Text MerchantCategoryCodeValue)
-        {
-            writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin3Max4Text(MerchantCategoryCodeValue)); // data type Min3Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static CommonData7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

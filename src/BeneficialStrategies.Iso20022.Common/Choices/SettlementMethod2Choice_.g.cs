@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Settlement details to determine whether payment is a credit or debit.
-/// </summary>
-[KnownType(typeof(SettlementMethod2Choice.Credit))]
-[KnownType(typeof(SettlementMethod2Choice.Debit))]
-public abstract partial record SettlementMethod2Choice_ : IIsoXmlSerilizable<SettlementMethod2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Settlement details to determine whether payment is a credit or debit.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementMethod2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementMethod2Choice.Credit))]
+    [KnownType(typeof(SettlementMethod2Choice.Debit))]
+    [IsoId("_68jSJ248EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Method 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementMethod2Choice_
+    #else
+    public abstract partial class SettlementMethod2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cdt" => SettlementMethod2Choice.Credit.Deserialize(elementWithPayload),
-             "Dbt" => SettlementMethod2Choice.Debit.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementMethod2Choice choice.")
-        };
     }
 }

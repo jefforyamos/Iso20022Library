@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the matching status.
-/// </summary>
-[KnownType(typeof(MatchingStatus25Choice.Matched))]
-[KnownType(typeof(MatchingStatus25Choice.Unmatched))]
-[KnownType(typeof(MatchingStatus25Choice.Proprietary))]
-public abstract partial record MatchingStatus25Choice_ : IIsoXmlSerilizable<MatchingStatus25Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the matching status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MatchingStatus25Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MatchingStatus25Choice.Matched))]
+    [KnownType(typeof(MatchingStatus25Choice.Unmatched))]
+    [KnownType(typeof(MatchingStatus25Choice.Proprietary))]
+    [IsoId("_0XRhsTp4EeWVrPy0StzzSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching Status 25 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MatchingStatus25Choice_
+    #else
+    public abstract partial class MatchingStatus25Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Mtchd" => MatchingStatus25Choice.Matched.Deserialize(elementWithPayload),
-             "Umtchd" => MatchingStatus25Choice.Unmatched.Deserialize(elementWithPayload),
-             "Prtry" => MatchingStatus25Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MatchingStatus25Choice choice.")
-        };
     }
 }

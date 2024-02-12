@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loan offered by a group of lenders (called a syndicate) who work together to lend an amount of money to a single borrower.
 /// </summary>
+[IsoId("_0lm3AdOKEeSQ_-lmj1tzfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Syndicated Loan")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SyndicatedLoan1
-     : IIsoXmlSerilizable<SyndicatedLoan1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SyndicatedLoan1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SyndicatedLoan1( TradeParty2 reqBorrower )
+    {
+        Borrower = reqBorrower;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party which obtains the loan.
     /// </summary>
+    [IsoId("_DsfWkNOLEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Borrower")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty2 Borrower { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeParty2 Borrower { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty2 Borrower { get; init; } 
+    #else
+    public TradeParty2 Borrower { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party which provides an amount of money available to others to borrow.
     /// </summary>
+    [IsoId("_OmeSE-AnEeS-z4mncO1qQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty2? Lender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty2? Lender { get; init; } 
+    #else
+    public TradeParty2? Lender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the part in the syndicated loan.
     /// </summary>
+    [IsoId("_zxakgNOLEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Share of the part in the syndicated loan.
     /// </summary>
+    [IsoId("_4p1sAtOLEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentage? Share { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Share { get; init; } 
+    #else
+    public System.Decimal? Share { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the currency exchange rate and contract.
     /// </summary>
+    [IsoId("_sLJEwdONEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRate1? ExchangeRateInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeRate1? ExchangeRateInformation { get; init; } 
+    #else
+    public ExchangeRate1? ExchangeRateInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Brrwr", xmlNamespace );
-        Borrower.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Lender is TradeParty2 LenderValue)
-        {
-            writer.WriteStartElement(null, "Lndr", xmlNamespace );
-            LenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Share is IsoPercentage ShareValue)
-        {
-            writer.WriteStartElement(null, "Shr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentage(ShareValue)); // data type Percentage System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExchangeRateInformation is ExchangeRate1 ExchangeRateInformationValue)
-        {
-            writer.WriteStartElement(null, "XchgRateInf", xmlNamespace );
-            ExchangeRateInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SyndicatedLoan1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

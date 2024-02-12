@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Interest rate of the loan.
 /// </summary>
+[IsoId("_0_3dUc-nEeufOvGsyZiDWA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rates")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Rates3
-     : IIsoXmlSerilizable<Rates3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details of the fixed rate.
     /// </summary>
+    [IsoId("_1CZz88-nEeufOvGsyZiDWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fixed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Fixed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Fixed { get; init; } 
+    #else
+    public System.Decimal? Fixed { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details about the variable rate.
     /// </summary>
+    [IsoId("_1CZz9c-nEeufOvGsyZiDWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floating")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Floating { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Floating { get; init; } 
+    #else
+    public System.Decimal? Floating { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction by which a counterparty buys or sells securities, commodities, or guaranteed rights relating to title to securities or commodities, agreeing, respectively, to sell or to buy back securities, commodities or such guaranteed rights of the same description at a specified price on a future date, that transaction being a buy-sell back transaction for the counterparty buying the securities, commodities or guaranteed rights, and a sell-buy back transaction for the counterparty selling them, such buy-sell back transaction or sell-buy back transaction not being governed by a repurchase agreement or by a reverse-repurchase agreement.
     /// </summary>
+    [IsoId("_1CZz98-nEeufOvGsyZiDWA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy Sell Back")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice18Choice_? BuySellBack { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionPrice18Choice_? BuySellBack { get; init; } 
+    #else
+    public SecuritiesTransactionPrice18Choice_? BuySellBack { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Fixed is IsoPercentageRate FixedValue)
-        {
-            writer.WriteStartElement(null, "Fxd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FixedValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Floating is IsoPercentageRate FloatingValue)
-        {
-            writer.WriteStartElement(null, "Fltg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FloatingValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (BuySellBack is SecuritiesTransactionPrice18Choice_ BuySellBackValue)
-        {
-            writer.WriteStartElement(null, "BuySellBck", xmlNamespace );
-            BuySellBackValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Rates3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between types of reporting parameter.
-/// </summary>
-[KnownType(typeof(ReportParameter2Choice.Party))]
-[KnownType(typeof(ReportParameter2Choice.Country))]
-[KnownType(typeof(ReportParameter2Choice.Currency))]
-[KnownType(typeof(ReportParameter2Choice.UserDefined))]
-public abstract partial record ReportParameter2Choice_ : IIsoXmlSerilizable<ReportParameter2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between types of reporting parameter.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReportParameter2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReportParameter2Choice.Party))]
+    [KnownType(typeof(ReportParameter2Choice.Country))]
+    [KnownType(typeof(ReportParameter2Choice.Currency))]
+    [KnownType(typeof(ReportParameter2Choice.UserDefined))]
+    [IsoId("_U11EiNp-Ed-ak6NoX_4Aeg_-922147524")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Parameter 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReportParameter2Choice_
+    #else
+    public abstract partial class ReportParameter2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Pty" => ReportParameter2Choice.Party.Deserialize(elementWithPayload),
-             "Ctry" => ReportParameter2Choice.Country.Deserialize(elementWithPayload),
-             "Ccy" => ReportParameter2Choice.Currency.Deserialize(elementWithPayload),
-             "UsrDfnd" => ReportParameter2Choice.UserDefined.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReportParameter2Choice choice.")
-        };
     }
 }

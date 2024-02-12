@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the asymmetric encryption algorithm.
 /// </summary>
+[IsoId("_Uj1egds2Eee9e6xduATmQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Parameter10
-     : IIsoXmlSerilizable<Parameter10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
+    [IsoId("_UtuaUds2Eee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encryption Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptionFormat2Code? EncryptionFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EncryptionFormat2Code? EncryptionFormat { get; init; } 
+    #else
+    public EncryptionFormat2Code? EncryptionFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [IsoId("_UtuaU9s2Eee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm16Code? DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Algorithm16Code? DigestAlgorithm { get; init; } 
+    #else
+    public Algorithm16Code? DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
+    [IsoId("_UtuaVds2Eee9e6xduATmQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mask Generator Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification18? MaskGeneratorAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification18? MaskGeneratorAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification18? MaskGeneratorAlgorithm { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EncryptionFormat is EncryptionFormat2Code EncryptionFormatValue)
-        {
-            writer.WriteStartElement(null, "NcrptnFrmt", xmlNamespace );
-            writer.WriteValue(EncryptionFormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DigestAlgorithm is Algorithm16Code DigestAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MaskGeneratorAlgorithm is AlgorithmIdentification18 MaskGeneratorAlgorithmValue)
-        {
-            writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
-            MaskGeneratorAlgorithmValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Parameter10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

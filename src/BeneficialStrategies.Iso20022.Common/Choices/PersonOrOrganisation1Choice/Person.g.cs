@@ -9,61 +9,140 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation1Choice;
-
-/// <summary>
-/// Identification of a person.
-/// </summary>
-public partial record Person : PersonOrOrganisation1Choice_
-     , IIsoXmlSerilizable<Person>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// First name of a person (also known as given name).
+    /// Identification of a person.
     /// </summary>
-    public required IsoMax140Text FirstName { get; init; } 
-    /// <summary>
-    /// Name by which a party is known and which is usually used to identify that party.
-    /// </summary>
-    public required IsoMax140Text Name { get; init; } 
-    /// <summary>
-    /// Date on which a person is born.
-    /// </summary>
-    public required IsoISODate BirthDate { get; init; } 
-    /// <summary>
-    /// Unique identification of a person, as assigned by an institution, using an identification scheme.
-    /// </summary>
-    public required GenericPersonIdentification1 Other { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_z1JLgPPYEeS_qLctCs2aRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Person")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Person : PersonOrOrganisation1Choice_
+    #else
+    public partial class Person : PersonOrOrganisation1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "FrstNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(FirstName)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Nm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BirthDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(BirthDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Othr", xmlNamespace );
-        Other.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Person Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Person instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Person( System.String reqFirstName,System.String reqName,System.DateOnly reqBirthDate,GenericPersonIdentification1 reqOther )
+        {
+            FirstName = reqFirstName;
+            Name = reqName;
+            BirthDate = reqBirthDate;
+            Other = reqOther;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// First name of a person (also known as given name).
+        /// </summary>
+        [IsoId("_AifA0vPZEeS_qLctCs2aRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("First Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax140Text FirstName { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String FirstName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String FirstName { get; init; } 
+        #else
+        public System.String FirstName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name by which a party is known and which is usually used to identify that party.
+        /// </summary>
+        [IsoId("_AifA0_PZEeS_qLctCs2aRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax140Text Name { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Name { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Name { get; init; } 
+        #else
+        public System.String Name { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which a person is born.
+        /// </summary>
+        [IsoId("_BzRTQfPZEeS_qLctCs2aRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Birth Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate BirthDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly BirthDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly BirthDate { get; init; } 
+        #else
+        public System.DateOnly BirthDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification of a person, as assigned by an institution, using an identification scheme.
+        /// </summary>
+        [IsoId("_98J3xfPYEeS_qLctCs2aRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericPersonIdentification1 Other { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericPersonIdentification1 Other { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericPersonIdentification1 Other { get; init; } 
+        #else
+        public GenericPersonIdentification1 Other { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the document entry amendment.
 /// </summary>
+[IsoId("_rOYIcLP4Eeud-ZmjZVm7MA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Document Entry Amendment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DocumentEntryAmendment1
-     : IIsoXmlSerilizable<DocumentEntryAmendment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DocumentEntryAmendment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DocumentEntryAmendment1( System.UInt64 reqCorrectingEntryNumber,DocumentIdentification28 reqOriginalDocument )
+    {
+        CorrectingEntryNumber = reqCorrectingEntryNumber;
+        OriginalDocument = reqOriginalDocument;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of correcting entry.
     /// </summary>
+    [IsoId("_DlxxILP5Eeud-ZmjZVm7MA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Correcting Entry Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber CorrectingEntryNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 CorrectingEntryNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 CorrectingEntryNumber { get; init; } 
+    #else
+    public System.UInt64 CorrectingEntryNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to an original document.
     /// </summary>
+    [IsoId("_MnAhELP5Eeud-ZmjZVm7MA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification28 OriginalDocument { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification28 OriginalDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification28 OriginalDocument { get; init; } 
+    #else
+    public DocumentIdentification28 OriginalDocument { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CrrctgNtryNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(CorrectingEntryNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrgnlDoc", xmlNamespace );
-        OriginalDocument.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static DocumentEntryAmendment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code and proprietary code to specify the type of event in a series of predefined or planned events.
-/// </summary>
-[KnownType(typeof(EventSequenceTypeFormat1Choice.Code))]
-[KnownType(typeof(EventSequenceTypeFormat1Choice.Proprietary))]
-public abstract partial record EventSequenceTypeFormat1Choice_ : IIsoXmlSerilizable<EventSequenceTypeFormat1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code and proprietary code to specify the type of event in a series of predefined or planned events.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static EventSequenceTypeFormat1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(EventSequenceTypeFormat1Choice.Code))]
+    [KnownType(typeof(EventSequenceTypeFormat1Choice.Proprietary))]
+    [IsoId("_jkicELXIEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Sequence Type Format 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record EventSequenceTypeFormat1Choice_
+    #else
+    public abstract partial class EventSequenceTypeFormat1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => EventSequenceTypeFormat1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => EventSequenceTypeFormat1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid EventSequenceTypeFormat1Choice choice.")
-        };
     }
 }

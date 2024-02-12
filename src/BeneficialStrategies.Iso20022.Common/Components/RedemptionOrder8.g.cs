@@ -7,316 +7,628 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instruction from an investor to sell investment fund units back to the fund.
 /// </summary>
+[IsoId("_SCHmxdp-Ed-ak6NoX_4Aeg_37944764")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Redemption Order")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RedemptionOrder8
-     : IIsoXmlSerilizable<RedemptionOrder8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RedemptionOrder8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RedemptionOrder8( System.String reqOrderReference,FinancialInstrument10 reqFinancialInstrumentDetails,FinancialInstrumentQuantity1 reqUnitsNumber,System.Decimal reqGrossAmount,System.Decimal reqNetAmount,System.Decimal reqHoldingsRedemptionRate,System.String reqPhysicalDeliveryIndicator )
+    {
+        OrderReference = reqOrderReference;
+        FinancialInstrumentDetails = reqFinancialInstrumentDetails;
+        UnitsNumber = reqUnitsNumber;
+        GrossAmount = reqGrossAmount;
+        NetAmount = reqNetAmount;
+        HoldingsRedemptionRate = reqHoldingsRedemptionRate;
+        PhysicalDeliveryIndicator = reqPhysicalDeliveryIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_SCRXwNp-Ed-ak6NoX_4Aeg_37944991")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OrderReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OrderReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OrderReference { get; init; } 
+    #else
+    public System.String OrderReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [IsoId("_SCRXwdp-Ed-ak6NoX_4Aeg_37945024")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientReference { get; init; } 
+    #else
+    public System.String? ClientReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public ValueList<FundOrderType2> OrderType { get; init; } = [];
+    [IsoId("_SCRXwtp-Ed-ak6NoX_4Aeg_38865738")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<FundOrderType2> OrderType { get; init; } = new ValueList<FundOrderType2>(){};
+    
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
+    [IsoId("_SCRXw9p-Ed-ak6NoX_4Aeg_38865367")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument10 FinancialInstrumentDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrument10 FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument10 FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument10 FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subdivision of an account used to segregate specific holdings.
     /// </summary>
+    [IsoId("_SCRXxNp-Ed-ak6NoX_4Aeg_1022714760")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Account For Holding")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubAccount1? SubAccountForHolding { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubAccount1? SubAccountForHolding { get; init; } 
+    #else
+    public SubAccount1? SubAccountForHolding { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of investment fund units redeemed.
     /// </summary>
+    [IsoId("_SCRXxdp-Ed-ak6NoX_4Aeg_37945119")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1 UnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold, before deduction of charges, commissions, and taxes.|[Quantity * Price].
     /// </summary>
+    [IsoId("_SCRXxtp-Ed-ak6NoX_4Aeg_38865203")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount GrossAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal GrossAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal GrossAmount { get; init; } 
+    #else
+    public System.Decimal GrossAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money to be received following redemption after deduction of charges, commissions and taxes and used to derive the quantity of investment fund units to be sold.|[(Quantity * Price) - (Charges + Commissions +Taxes)].
     /// </summary>
+    [IsoId("_SCRXx9p-Ed-ak6NoX_4Aeg_38865150")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal NetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal NetAmount { get; init; } 
+    #else
+    public System.Decimal NetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
     /// </summary>
+    [IsoId("_SCRXyNp-Ed-ak6NoX_4Aeg_38865185")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holdings Redemption Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate HoldingsRedemptionRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal HoldingsRedemptionRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal HoldingsRedemptionRate { get; init; } 
+    #else
+    public System.Decimal HoldingsRedemptionRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
+    [IsoId("_SCRXydp-Ed-ak6NoX_4Aeg_38865168")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rounding")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RoundingDirection2Code? Rounding { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RoundingDirection2Code? Rounding { get; init; } 
+    #else
+    public RoundingDirection2Code? Rounding { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [IsoId("_SCbIwNp-Ed-ak6NoX_4Aeg_-161727731")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SettlementAmount { get; init; } 
+    #else
+    public System.Decimal? SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [IsoId("_SCbIwdp-Ed-ak6NoX_4Aeg_-161727636")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CashSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CashSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? CashSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [IsoId("_SCbIwtp-Ed-ak6NoX_4Aeg_-1877883033")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
+    #else
+    public DeliveryReceiptType2Code? SettlementMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
+    [IsoId("_SCbIw9p-Ed-ak6NoX_4Aeg_38865401")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ForeignExchangeTerms6? ForeignExchangeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ForeignExchangeTerms6? ForeignExchangeDetails { get; init; } 
+    #else
+    public ForeignExchangeTerms6? ForeignExchangeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [IsoId("_SCbIxNp-Ed-ak6NoX_4Aeg_38865228")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Preference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncomePreference1Code? IncomePreference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IncomePreference1Code? IncomePreference { get; init; } 
+    #else
+    public IncomePreference1Code? IncomePreference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [IsoId("_SCbIxdp-Ed-ak6NoX_4Aeg_38865245")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group 1 Or 2 Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
+    #else
+    public UKTaxGroupUnitCode? Group1Or2Units { get; set; } 
+    #endif
+    
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
+    [IsoId("_SCbIxtp-Ed-ak6NoX_4Aeg_38866064")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge17? ChargeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge17? ChargeDetails { get; init; } 
+    #else
+    public Charge17? ChargeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money due to a party as compensation for a service.
     /// </summary>
+    [IsoId("_SCbIx9p-Ed-ak6NoX_4Aeg_38866124")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commission Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission10? CommissionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Commission10? CommissionDetails { get; init; } 
+    #else
+    public Commission10? CommissionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
+    [IsoId("_SCbIyNp-Ed-ak6NoX_4Aeg_1147799801")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax16? TaxDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax16? TaxDetails { get; init; } 
+    #else
+    public Tax16? TaxDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
+    [IsoId("_SCbIydp-Ed-ak6NoX_4Aeg_38865678")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement And Custody Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundSettlementParameters3? SettlementAndCustodyDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundSettlementParameters3? SettlementAndCustodyDetails { get; init; } 
+    #else
+    public FundSettlementParameters3? SettlementAndCustodyDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [IsoId("_SCkSsNp-Ed-ak6NoX_4Aeg_38865263")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Delivery Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PhysicalDeliveryIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PhysicalDeliveryIndicator { get; init; } 
+    #else
+    public System.String PhysicalDeliveryIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to physical delivery of the securities.
     /// </summary>
+    [IsoId("_SCkSsdp-Ed-ak6NoX_4Aeg_38865636")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Delivery Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
+    #else
+    public DeliveryParameters3? PhysicalDeliveryDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [IsoId("_SCkSstp-Ed-ak6NoX_4Aeg_38865288")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? RequestedSettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedSettlementCurrency { get; init; } 
+    #else
+    public string? RequestedSettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [IsoId("_SCkSs9p-Ed-ak6NoX_4Aeg_38865305")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested NAV Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedNAVCurrency { get; init; } 
+    #else
+    public string? RequestedNAVCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
+    [IsoId("_SCkStNp-Ed-ak6NoX_4Aeg_38865773")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Settlement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction21? CashSettlementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTransaction21? CashSettlementDetails { get; init; } 
+    #else
+    public PaymentTransaction21? CashSettlementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
+    [IsoId("_SCkStdp-Ed-ak6NoX_4Aeg_38865323")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Standard Settlement Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NonStandardSettlementInformation { get; init; } 
+    #else
+    public System.String? NonStandardSettlementInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public ValueList<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; } = [];
+    [IsoId("_SCkSttp-Ed-ak6NoX_4Aeg_1831318287")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Staff Client Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(4)]
+    #endif
+    public ValueList<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; } = new ValueList<InvestmentFundsOrderBreakdown1>(){};
+    
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
+    [IsoId("_SCkSt9p-Ed-ak6NoX_4Aeg_1238617280")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Advice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialAdvice1Code? FinancialAdvice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialAdvice1Code? FinancialAdvice { get; init; } 
+    #else
+    public FinancialAdvice1Code? FinancialAdvice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the trade is negotiated.
     /// </summary>
+    [IsoId("_SCkSuNp-Ed-ak6NoX_4Aeg_-1144774982")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Negotiated Trade")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
+    #else
+    public NegotiatedTrade1Code? NegotiatedTrade { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public ValueList<Intermediary8> RelatedPartyDetails { get; init; } = [];
+    [IsoId("_SCkSudp-Ed-ak6NoX_4Aeg_38865721")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Party Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<Intermediary8> RelatedPartyDetails { get; init; } = new ValueList<Intermediary8>(){};
+    
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>
+    [IsoId("_SCuDsNp-Ed-ak6NoX_4Aeg_-469047396")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equalisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Equalisation1? Equalisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Equalisation1? Equalisation { get; init; } 
+    #else
+    public Equalisation1? Equalisation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ClientReference is IsoMax35Text ClientReferenceValue)
-        {
-            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrdrTp", xmlNamespace );
-        OrderType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SubAccountForHolding is SubAccount1 SubAccountForHoldingValue)
-        {
-            writer.WriteStartElement(null, "SubAcctForHldg", xmlNamespace );
-            SubAccountForHoldingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
-        UnitsNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "GrssAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(GrossAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NetAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "HldgsRedRate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(HoldingsRedemptionRate)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        if (Rounding is RoundingDirection2Code RoundingValue)
-        {
-            writer.WriteStartElement(null, "Rndg", xmlNamespace );
-            writer.WriteValue(RoundingValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashSettlementDate is IsoISODate CashSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SettlementMethod is DeliveryReceiptType2Code SettlementMethodValue)
-        {
-            writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
-            writer.WriteValue(SettlementMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ForeignExchangeDetails is ForeignExchangeTerms6 ForeignExchangeDetailsValue)
-        {
-            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
-            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
-        {
-            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
-            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Group1Or2Units is UKTaxGroupUnitCode Group1Or2UnitsValue)
-        {
-            writer.WriteStartElement(null, "Grp1Or2Units", xmlNamespace );
-            writer.WriteValue(Group1Or2UnitsValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ChargeDetails is Charge17 ChargeDetailsValue)
-        {
-            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
-            ChargeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CommissionDetails is Commission10 CommissionDetailsValue)
-        {
-            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
-            CommissionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxDetails is Tax16 TaxDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
-            TaxDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementAndCustodyDetails is FundSettlementParameters3 SettlementAndCustodyDetailsValue)
-        {
-            writer.WriteStartElement(null, "SttlmAndCtdyDtls", xmlNamespace );
-            SettlementAndCustodyDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PhysDlvryInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalDeliveryIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (PhysicalDeliveryDetails is DeliveryParameters3 PhysicalDeliveryDetailsValue)
-        {
-            writer.WriteStartElement(null, "PhysDlvryDtls", xmlNamespace );
-            PhysicalDeliveryDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestedSettlementCurrency is ActiveCurrencyCode RequestedSettlementCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdSttlmCcy", xmlNamespace );
-            writer.WriteValue(RequestedSettlementCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RequestedNAVCurrency is ActiveOrHistoricCurrencyCode RequestedNAVCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdNAVCcy", xmlNamespace );
-            writer.WriteValue(RequestedNAVCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CashSettlementDetails is PaymentTransaction21 CashSettlementDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshSttlmDtls", xmlNamespace );
-            CashSettlementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NonStandardSettlementInformation is IsoMax350Text NonStandardSettlementInformationValue)
-        {
-            writer.WriteStartElement(null, "NonStdSttlmInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NonStandardSettlementInformationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StffClntBrkdwn", xmlNamespace );
-        StaffClientBreakdown.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FinancialAdvice is FinancialAdvice1Code FinancialAdviceValue)
-        {
-            writer.WriteStartElement(null, "FinAdvc", xmlNamespace );
-            writer.WriteValue(FinancialAdviceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NegotiatedTrade is NegotiatedTrade1Code NegotiatedTradeValue)
-        {
-            writer.WriteStartElement(null, "NgtdTrad", xmlNamespace );
-            writer.WriteValue(NegotiatedTradeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
-        RelatedPartyDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Equalisation is Equalisation1 EqualisationValue)
-        {
-            writer.WriteStartElement(null, "Equlstn", xmlNamespace );
-            EqualisationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static RedemptionOrder8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

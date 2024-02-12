@@ -7,106 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Start or end of service.
 /// </summary>
+[IsoId("_rqeg4V1pEeeu75xdwwAXQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Service Start End")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ServiceStartEnd1
-     : IIsoXmlSerilizable<ServiceStartEnd1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Location of service (for example, Paris CDG, Paris Gare du Nord, etc.). 
     /// </summary>
+    [IsoId("_r1ooAV1pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Location { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Location { get; init; } 
+    #else
+    public System.String? Location { get; set; } 
+    #endif
+    
     /// <summary>
     /// Location code assigned to an airport or to a service location (for example, CDG, YUL, etc.).
     /// </summary>
+    [IsoId("_r1ooA11pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LocationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LocationCode { get; init; } 
+    #else
+    public System.String? LocationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address of service.
     /// </summary>
+    [IsoId("_r1ooBV1pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address1? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address1? Address { get; init; } 
+    #else
+    public Address1? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact details at location.
     /// </summary>
+    [IsoId("_r1ooB11pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact2? Contact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact2? Contact { get; init; } 
+    #else
+    public Contact2? Contact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of service.
     /// </summary>
+    [IsoId("_r1ooCV1pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DateAndTime { get; init; } 
+    #else
+    public System.DateTime? DateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period of day pertaining to the service location.
     /// </summary>
+    [IsoId("_r1ooC11pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Segment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeSegment1Code? TimeSegment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TimeSegment1Code? TimeSegment { get; init; } 
+    #else
+    public TimeSegment1Code? TimeSegment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Journey information related to the vehicle rental.
     /// </summary>
+    [IsoId("_r1ooDV1pEeeu75xdwwAXQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Journey Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public JourneyInformation1? JourneyInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public JourneyInformation1? JourneyInformation { get; init; } 
+    #else
+    public JourneyInformation1? JourneyInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Location is IsoMax35Text LocationValue)
-        {
-            writer.WriteStartElement(null, "Lctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LocationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LocationCode is IsoMax35Text LocationCodeValue)
-        {
-            writer.WriteStartElement(null, "LctnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LocationCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is Address1 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Contact is Contact2 ContactValue)
-        {
-            writer.WriteStartElement(null, "Ctct", xmlNamespace );
-            ContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateAndTime is IsoISODateTime DateAndTimeValue)
-        {
-            writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (TimeSegment is TimeSegment1Code TimeSegmentValue)
-        {
-            writer.WriteStartElement(null, "TmSgmt", xmlNamespace );
-            writer.WriteValue(TimeSegmentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (JourneyInformation is JourneyInformation1 JourneyInformationValue)
-        {
-            writer.WriteStartElement(null, "JrnyInf", xmlNamespace );
-            JourneyInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ServiceStartEnd1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

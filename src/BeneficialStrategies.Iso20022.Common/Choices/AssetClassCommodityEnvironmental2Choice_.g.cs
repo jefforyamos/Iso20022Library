@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines commodity attributes of a derivative where the type is environmental.
-/// </summary>
-[KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Emissions))]
-[KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Weather))]
-[KnownType(typeof(AssetClassCommodityEnvironmental2Choice.CarbonRelated))]
-[KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Other))]
-public abstract partial record AssetClassCommodityEnvironmental2Choice_ : IIsoXmlSerilizable<AssetClassCommodityEnvironmental2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines commodity attributes of a derivative where the type is environmental.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassCommodityEnvironmental2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Emissions))]
+    [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Weather))]
+    [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.CarbonRelated))]
+    [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Other))]
+    [IsoId("_gyGPgbvwEeiLRYqS-r-R-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Commodity Environmental 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassCommodityEnvironmental2Choice_
+    #else
+    public abstract partial class AssetClassCommodityEnvironmental2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Emssns" => AssetClassCommodityEnvironmental2Choice.Emissions.Deserialize(elementWithPayload),
-             "Wthr" => AssetClassCommodityEnvironmental2Choice.Weather.Deserialize(elementWithPayload),
-             "CrbnRltd" => AssetClassCommodityEnvironmental2Choice.CarbonRelated.Deserialize(elementWithPayload),
-             "Othr" => AssetClassCommodityEnvironmental2Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassCommodityEnvironmental2Choice choice.")
-        };
     }
 }

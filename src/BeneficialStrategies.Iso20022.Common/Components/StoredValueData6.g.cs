@@ -7,123 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the stored value card.
 /// </summary>
+[IsoId("_He7-QXGzEe2TbaNWBpRZpQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Stored Value Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StoredValueData6
-     : IIsoXmlSerilizable<StoredValueData6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StoredValueData6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StoredValueData6( StoredValueTransactionType2Code reqTransactionType )
+    {
+        TransactionType = reqTransactionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the provider of the stored value account load/reload.
     /// </summary>
+    [IsoId("_HlJT8XGzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Provider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Provider { get; init; } 
+    #else
+    public System.String? Provider { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of operation to proceed on the stored value account or the stored value card.
     /// </summary>
+    [IsoId("_HlJT83GzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StoredValueTransactionType2Code TransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StoredValueTransactionType2Code TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueTransactionType2Code TransactionType { get; init; } 
+    #else
+    public StoredValueTransactionType2Code TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the stored value account or the stored value card.
     /// </summary>
+    [IsoId("_HlJT9XGzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueAccount2? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StoredValueAccount2? AccountIdentification { get; init; } 
+    #else
+    public StoredValueAccount2? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a previous POI transaction.
     /// </summary>
+    [IsoId("_HlJT93GzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original POI Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction127? OriginalPOITransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentTransaction127? OriginalPOITransaction { get; init; } 
+    #else
+    public CardPaymentTransaction127? OriginalPOITransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Product code of item purchased with the transaction.
     /// </summary>
+    [IsoId("_HlJT-XGzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProductCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductCode { get; init; } 
+    #else
+    public System.String? ProductCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Standard European Article Number Universal Product Code of item purchased with the transaction.
     /// </summary>
+    [IsoId("_HlJT-3GzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EANUPC")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? EANUPC { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EANUPC { get; init; } 
+    #else
+    public System.String? EANUPC { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the item line.
     /// </summary>
+    [IsoId("_HlJT_XGzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ItemAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ItemAmount { get; init; } 
+    #else
+    public System.Decimal? ItemAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the monetary amount.
     /// </summary>
+    [IsoId("_HlJT_3GzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the transaction by the host in charge of the stored value transaction.
     /// </summary>
+    [IsoId("_HlJUAXGzEe2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? HostTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1? HostTransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1? HostTransactionIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Provider is IsoMax35Text ProviderValue)
-        {
-            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        writer.WriteValue(TransactionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AccountIdentification is StoredValueAccount2 AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalPOITransaction is CardPaymentTransaction127 OriginalPOITransactionValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPOITx", xmlNamespace );
-            OriginalPOITransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProductCode is IsoMax35Text ProductCodeValue)
-        {
-            writer.WriteStartElement(null, "PdctCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (EANUPC is IsoMax35NumericText EANUPCValue)
-        {
-            writer.WriteStartElement(null, "EANUPC", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(EANUPCValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ItemAmount is IsoImpliedCurrencyAndAmount ItemAmountValue)
-        {
-            writer.WriteStartElement(null, "ItmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ItemAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (HostTransactionIdentification is TransactionIdentifier1 HostTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "HstTxId", xmlNamespace );
-            HostTransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static StoredValueData6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

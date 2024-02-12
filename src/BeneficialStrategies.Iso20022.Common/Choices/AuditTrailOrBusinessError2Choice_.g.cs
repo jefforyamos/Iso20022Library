@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Report between the static data audit trail or a business error.
-/// </summary>
-[KnownType(typeof(AuditTrailOrBusinessError2Choice.AuditTrail))]
-[KnownType(typeof(AuditTrailOrBusinessError2Choice.BusinessError))]
-public abstract partial record AuditTrailOrBusinessError2Choice_ : IIsoXmlSerilizable<AuditTrailOrBusinessError2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Report between the static data audit trail or a business error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AuditTrailOrBusinessError2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AuditTrailOrBusinessError2Choice.AuditTrail))]
+    [KnownType(typeof(AuditTrailOrBusinessError2Choice.BusinessError))]
+    [IsoId("_BaOI8fAzEeWPfa2xBhBfLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Audit Trail Or Business Error 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AuditTrailOrBusinessError2Choice_
+    #else
+    public abstract partial class AuditTrailOrBusinessError2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AudtTrl" => AuditTrailOrBusinessError2Choice.AuditTrail.Deserialize(elementWithPayload),
-             "BizErr" => AuditTrailOrBusinessError2Choice.BusinessError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AuditTrailOrBusinessError2Choice choice.")
-        };
     }
 }

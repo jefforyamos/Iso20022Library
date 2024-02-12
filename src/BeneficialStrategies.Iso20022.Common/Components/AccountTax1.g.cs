@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes account taxing parameters.
 /// </summary>
+[IsoId("_6TYLKJqlEeGSON8vddiWzQ_-1311079011")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Tax")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountTax1
-     : IIsoXmlSerilizable<AccountTax1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountTax1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountTax1( BillingTaxCalculationMethod1Code reqCalculationMethod )
+    {
+        CalculationMethod = reqCalculationMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the calculation method on how the taxes are applied on the account.
     /// </summary>
+    [IsoId("_6TYLKZqlEeGSON8vddiWzQ_-1424918077")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
+    #else
+    public BillingTaxCalculationMethod1Code CalculationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the tax region in which the account resides.
     /// </summary>
+    [IsoId("_6TYLKpqlEeGSON8vddiWzQ_1872976866")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Region")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 40 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax40Text? Region { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Region { get; init; } 
+    #else
+    public System.String? Region { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the country of residence, when the account owner does not reside in the account's tax region.||Usage: If present, the account owner does not reside in the account's tax region.
     /// </summary>
+    [IsoId("_6TYLK5qlEeGSON8vddiWzQ_-765795978")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Residence Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResidenceLocation1Choice_? NonResidenceCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResidenceLocation1Choice_? NonResidenceCountry { get; init; } 
+    #else
+    public ResidenceLocation1Choice_? NonResidenceCountry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ClctnMtd", xmlNamespace );
-        writer.WriteValue(CalculationMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Region is IsoMax40Text RegionValue)
-        {
-            writer.WriteStartElement(null, "Rgn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax40Text(RegionValue)); // data type Max40Text System.String
-            writer.WriteEndElement();
-        }
-        if (NonResidenceCountry is ResidenceLocation1Choice_ NonResidenceCountryValue)
-        {
-            writer.WriteStartElement(null, "NonResCtry", xmlNamespace );
-            NonResidenceCountryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountTax1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,93 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// ATM cassette counter per unit value or globally.
 /// </summary>
+[IsoId("_sVeosIqgEeS4a4abTJTSSw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Cassette Counters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMCassetteCounters1
-     : IIsoXmlSerilizable<ATMCassetteCounters1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMCassetteCounters1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMCassetteCounters1( System.UInt64 reqCurrentNumber )
+    {
+        CurrentNumber = reqCurrentNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of one media unit, if the media type is valued.
     /// </summary>
+    [IsoId("_-kSigIqgEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnitValue { get; init; } 
+    #else
+    public System.Decimal? UnitValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the media, if the media type is valued and different from the currency of the requested amount.
     /// </summary>
+    [IsoId("_DeWBsIqhEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of notes.
     /// </summary>
+    [IsoId("_kdC3YIqhEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMNoteType2Code? ItemType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMNoteType2Code? ItemType { get; init; } 
+    #else
+    public ATMNoteType2Code? ItemType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Counters of media inside the cassette.
     /// </summary>
+    [IsoId("_-Ib3gIqhEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCassetteCounters2? Counter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCassetteCounters2? Counter { get; init; } 
+    #else
+    public ATMCassetteCounters2? Counter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current number of media present in the cassette.
     /// </summary>
+    [IsoId("_u-9sEIqjEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber CurrentNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 CurrentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 CurrentNumber { get; init; } 
+    #else
+    public System.UInt64 CurrentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current amount in the cassette.
     /// </summary>
+    [IsoId("_zbbQUIqjEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CurrentAmount { get; init; } 
+    #else
+    public System.Decimal? CurrentAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (UnitValue is IsoImpliedCurrencyAndAmount UnitValueValue)
-        {
-            writer.WriteStartElement(null, "UnitVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ItemType is ATMNoteType2Code ItemTypeValue)
-        {
-            writer.WriteStartElement(null, "ItmTp", xmlNamespace );
-            writer.WriteValue(ItemTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Counter is ATMCassetteCounters2 CounterValue)
-        {
-            writer.WriteStartElement(null, "Cntr", xmlNamespace );
-            CounterValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CurNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(CurrentNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (CurrentAmount is IsoImpliedCurrencyAndAmount CurrentAmountValue)
-        {
-            writer.WriteStartElement(null, "CurAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CurrentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMCassetteCounters1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

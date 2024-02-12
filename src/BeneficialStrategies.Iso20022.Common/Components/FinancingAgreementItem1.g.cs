@@ -7,134 +7,254 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes a financing relation between two parties, for example invoice, credit, financing request, cash accounts.
 /// </summary>
+[IsoId("_OTgzMzU2-AOSNFX-8224501")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financing Agreement Item")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancingAgreementItem1
-     : IIsoXmlSerilizable<FinancingAgreementItem1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancingAgreementItem1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancingAgreementItem1( FinancialItemParameters1 reqItemContext,System.String reqRating,System.String reqReopenIndication )
+    {
+        ItemContext = reqItemContext;
+        Rating = reqRating;
+        ReopenIndication = reqReopenIndication;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Parameters related to the context of the item.
     /// </summary>
+    [IsoId("_OTgzMzY4-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialItemParameters1 ItemContext { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialItemParameters1 ItemContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialItemParameters1 ItemContext { get; init; } 
+    #else
+    public FinancialItemParameters1 ItemContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code to indicate the action concerning the item.
     /// </summary>
+    [IsoId("_OTgzMzY5-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreementItemAction1Code? ItemAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreementItemAction1Code? ItemAction { get; init; } 
+    #else
+    public AgreementItemAction1Code? ItemAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Desired payment instruction to be used by buyer.
     /// </summary>
+    [IsoId("_OTgzMzcw-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrumentCode? PaymentInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInstrumentCode? PaymentInstrument { get; init; } 
+    #else
+    public PaymentInstrumentCode? PaymentInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Validation status of the item.
     /// </summary>
+    [IsoId("_OTgzMzcx-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validation Status Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #else
+    public ValidationStatusInformation1? ValidationStatusInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Guarantee is (to be) provided according current rating.
     /// </summary>
+    [IsoId("_OTgzMzcy-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rating")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Rating { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Rating { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Rating { get; init; } 
+    #else
+    public System.String Rating { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set to yes if the agreement was rejected and needs to be re-opened for arbitrage.
     /// </summary>
+    [IsoId("_OTgzMzcz-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reopen Indication")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ReopenIndication { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReopenIndication { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReopenIndication { get; init; } 
+    #else
+    public System.String ReopenIndication { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issuers, amounts and periods to be guaranteed. At a given date, the sum of all issuers is guaranteed, covered as specified by rank/position and excess. For each period, the maximum value at a given date is used.
     /// </summary>
+    [IsoId("_OTgzMzc1-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guarantee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GuaranteeDetails1? Guarantee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GuaranteeDetails1? Guarantee { get; init; } 
+    #else
+    public GuaranteeDetails1? Guarantee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of guarantee if applicable.
     /// </summary>
+    [IsoId("_OTgzMzc2-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guarantee Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? GuaranteeStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValidationStatusInformation1? GuaranteeStatus { get; init; } 
+    #else
+    public ValidationStatusInformation1? GuaranteeStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the guarantee letter issued by a guarantee provider.
     /// </summary>
+    [IsoId("_OTgzMzc3-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Guarantee Letter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedGuaranteeLetter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? RelatedGuaranteeLetter { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? RelatedGuaranteeLetter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Associated free form document.
     /// </summary>
+    [IsoId("_OTgzMzc4-AOSNFX-8224501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Associated Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? AssociatedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free form textual information related to the agreement.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_OTgzMzc5-AOSNFX-8224502")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ItmCntxt", xmlNamespace );
-        ItemContext.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ItemAction is AgreementItemAction1Code ItemActionValue)
-        {
-            writer.WriteStartElement(null, "ItmActn", xmlNamespace );
-            writer.WriteValue(ItemActionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PaymentInstrument is PaymentInstrumentCode PaymentInstrumentValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
-            writer.WriteValue(PaymentInstrumentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
-        {
-            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
-            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Ratg", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Rating)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReopIndctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReopenIndication)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Guarantee is GuaranteeDetails1 GuaranteeValue)
-        {
-            writer.WriteStartElement(null, "Grnt", xmlNamespace );
-            GuaranteeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GuaranteeStatus is ValidationStatusInformation1 GuaranteeStatusValue)
-        {
-            writer.WriteStartElement(null, "GrntSts", xmlNamespace );
-            GuaranteeStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RelatedGuaranteeLetter is QualifiedDocumentInformation1 RelatedGuaranteeLetterValue)
-        {
-            writer.WriteStartElement(null, "RltdGrntLttr", xmlNamespace );
-            RelatedGuaranteeLetterValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
-        {
-            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
-            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static FinancingAgreementItem1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

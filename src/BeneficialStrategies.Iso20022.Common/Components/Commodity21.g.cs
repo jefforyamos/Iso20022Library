@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to commodities and related fields used as a collateral.
 /// </summary>
+[IsoId("_EvTYIdR8EemZdYGWu384Zw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Commodity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Commodity21
-     : IIsoXmlSerilizable<Commodity21>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined asset class commodity are matching or not.
     /// </summary>
+    [IsoId("_EzO14dR8EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCommodityAssetClass2? Classification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareCommodityAssetClass2? Classification { get; init; } 
+    #else
+    public CompareCommodityAssetClass2? Classification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
+    [IsoId("_EzO149R8EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDecimalNumber2? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDecimalNumber2? Quantity { get; init; } 
+    #else
+    public CompareDecimalNumber2? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
+    [IsoId("_EzO15dR8EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice3? UnitPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareUnitPrice3? UnitPrice { get; init; } 
+    #else
+    public CompareUnitPrice3? UnitPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [IsoId("_EzO159R8EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
+    #else
+    public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as unit of measure code are matching or not.
     /// </summary>
+    [IsoId("_EzO16dR8EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitOfMeasure2? UnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareUnitOfMeasure2? UnitOfMeasure { get; init; } 
+    #else
+    public CompareUnitOfMeasure2? UnitOfMeasure { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Classification is CompareCommodityAssetClass2 ClassificationValue)
-        {
-            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
-            ClassificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Quantity is CompareDecimalNumber2 QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is CompareUnitPrice3 UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketValue is CompareActiveOrHistoricCurrencyAndAmount2 MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            MarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is CompareUnitOfMeasure2 UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Commodity21 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

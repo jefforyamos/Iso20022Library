@@ -7,107 +7,202 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the instruction.
 /// </summary>
+[IsoId("_RC8Bsdp-Ed-ak6NoX_4Aeg_927602263")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Instruction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Instruction2
-     : IIsoXmlSerilizable<Instruction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Instruction2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Instruction2( System.String reqInstructionIdentification,System.String reqVoteExecutionConfirmation,SafekeepingAccount4 reqAccountDetails )
+    {
+        InstructionIdentification = reqInstructionIdentification;
+        VoteExecutionConfirmation = reqVoteExecutionConfirmation;
+        AccountDetails = reqAccountDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the detailed instruction.
     /// </summary>
+    [IsoId("_RC8Bstp-Ed-ak6NoX_4Aeg_927602294")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InstructionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructionIdentification { get; init; } 
+    #else
+    public System.String InstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the instruction must be executed.
     /// </summary>
+    [IsoId("_RC8Bs9p-Ed-ak6NoX_4Aeg_927602324")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Execution Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RequestedExecutionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? RequestedExecutionDate { get; init; } 
+    #else
+    public System.DateTime? RequestedExecutionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that a Vote execution confirmation is requested.
     /// </summary>
+    [IsoId("_RC8BtNp-Ed-ak6NoX_4Aeg_927602634")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote Execution Confirmation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator VoteExecutionConfirmation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String VoteExecutionConfirmation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String VoteExecutionConfirmation { get; init; } 
+    #else
+    public System.String VoteExecutionConfirmation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
+    [IsoId("_RC8Btdp-Ed-ak6NoX_4Aeg_-496669798")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SafekeepingAccount4 AccountDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SafekeepingAccount4 AccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafekeepingAccount4 AccountDetails { get; init; } 
+    #else
+    public SafekeepingAccount4 AccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the person appointed by the security holder as proxy.
     /// </summary>
+    [IsoId("_RC8Bttp-Ed-ak6NoX_4Aeg_927603271")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proxy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Proxy4? Proxy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Proxy4? Proxy { get; init; } 
+    #else
+    public Proxy4? Proxy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies detailed voting instructions.
     /// </summary>
+    [IsoId("_RC8Bt9p-Ed-ak6NoX_4Aeg_-1103814182")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteDetails2? VoteDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VoteDetails2? VoteDetails { get; init; } 
+    #else
+    public VoteDetails2? VoteDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the security holder who will attend and vote at the meeting in person and/or a person assigned by the security holder to attend the meeting without having any voting rights or taking any action.
     /// </summary>
+    [IsoId("_RC8BuNp-Ed-ak6NoX_4Aeg_927603219")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Meeting Attendee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson17? MeetingAttendee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IndividualPerson17? MeetingAttendee { get; init; } 
+    #else
+    public IndividualPerson17? MeetingAttendee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
     /// </summary>
+    [IsoId("_RC8Budp-Ed-ak6NoX_4Aeg_927603189")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Specific Instruction Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecificInstructionRequest1? SpecificInstructionRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SpecificInstructionRequest1? SpecificInstructionRequest { get; init; } 
+    #else
+    public SpecificInstructionRequest1? SpecificInstructionRequest { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (RequestedExecutionDate is IsoISODateTime RequestedExecutionDateValue)
-        {
-            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(RequestedExecutionDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "VoteExctnConf", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(VoteExecutionConfirmation)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
-        AccountDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Proxy is Proxy4 ProxyValue)
-        {
-            writer.WriteStartElement(null, "Prxy", xmlNamespace );
-            ProxyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VoteDetails is VoteDetails2 VoteDetailsValue)
-        {
-            writer.WriteStartElement(null, "VoteDtls", xmlNamespace );
-            VoteDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MeetingAttendee is IndividualPerson17 MeetingAttendeeValue)
-        {
-            writer.WriteStartElement(null, "MtgAttndee", xmlNamespace );
-            MeetingAttendeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SpecificInstructionRequest is SpecificInstructionRequest1 SpecificInstructionRequestValue)
-        {
-            writer.WriteStartElement(null, "SpcfcInstrReq", xmlNamespace );
-            SpecificInstructionRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Instruction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

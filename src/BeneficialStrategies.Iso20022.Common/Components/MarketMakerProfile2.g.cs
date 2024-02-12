@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Market maker profile.
 /// </summary>
+[IsoId("_Zv1oMe6SEemVDc1WJaqofw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Market Maker Profile")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MarketMakerProfile2
-     : IIsoXmlSerilizable<MarketMakerProfile2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period of the contract.
     /// </summary>
+    [IsoId("_aDCRAe6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod2? ContractPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod2? ContractPeriod { get; init; } 
+    #else
+    public DateTimePeriod2? ContractPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the market maker is obligated to comply with the requirements of the contract it holds with the exchange or is exempt from these obligations.
     /// </summary>
+    [IsoId("_aDCRA-6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Compliance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Compliance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Compliance { get; init; } 
+    #else
+    public System.String? Compliance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the variation between the maximum accepted minimum and maximum value of an action.
     /// </summary>
+    [IsoId("_aDCRBe6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MaximumSpread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumSpread { get; init; } 
+    #else
+    public System.Decimal? MaximumSpread { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of discount.
     /// </summary>
+    [IsoId("_aDCRB-6SEemVDc1WJaqofw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Discount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Discount { get; init; } 
+    #else
+    public System.Decimal? Discount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ContractPeriod is DateTimePeriod2 ContractPeriodValue)
-        {
-            writer.WriteStartElement(null, "CtrctPrd", xmlNamespace );
-            ContractPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Compliance is IsoYesNoIndicator ComplianceValue)
-        {
-            writer.WriteStartElement(null, "Cmplc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ComplianceValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MaximumSpread is IsoPercentageRate MaximumSpreadValue)
-        {
-            writer.WriteStartElement(null, "MaxSprd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MaximumSpreadValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Discount is IsoPercentageRate DiscountValue)
-        {
-            writer.WriteStartElement(null, "Dscnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(DiscountValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static MarketMakerProfile2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

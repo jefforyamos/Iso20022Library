@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the reason for the cancellation request of a cheque presentment.
-/// </summary>
-[KnownType(typeof(ChequeCancellationReason1Choice.Code))]
-[KnownType(typeof(ChequeCancellationReason1Choice.Proprietary))]
-public abstract partial record ChequeCancellationReason1Choice_ : IIsoXmlSerilizable<ChequeCancellationReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the reason for the cancellation request of a cheque presentment.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ChequeCancellationReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ChequeCancellationReason1Choice.Code))]
+    [KnownType(typeof(ChequeCancellationReason1Choice.Proprietary))]
+    [IsoId("_kwwc-7tvEeq_cfXrH83Rcw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque Cancellation Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ChequeCancellationReason1Choice_
+    #else
+    public abstract partial class ChequeCancellationReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ChequeCancellationReason1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ChequeCancellationReason1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ChequeCancellationReason1Choice choice.")
-        };
     }
 }

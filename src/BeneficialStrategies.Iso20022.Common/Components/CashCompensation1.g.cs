@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the cash compensation such as the fees and the total settlement amount.
 /// </summary>
+[IsoId("_UokEmtp-Ed-ak6NoX_4Aeg_-1006073827")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Compensation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashCompensation1
-     : IIsoXmlSerilizable<CashCompensation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashCompensation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashCompensation1( AmountAndDirection20 reqSettlementAmount )
+    {
+        SettlementAmount = reqSettlementAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the original amount to be settled.
     /// </summary>
+    [IsoId("_UokEm9p-Ed-ak6NoX_4Aeg_1436012936")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 SettlementAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection20 SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection20 SettlementAmount { get; init; } 
+    #else
+    public AmountAndDirection20 SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of fees linked to the cash compensation process.
     /// </summary>
+    [IsoId("_UokEnNp-Ed-ak6NoX_4Aeg_796992332")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection20? Fees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection20? Fees { get; init; } 
+    #else
+    public AmountAndDirection20? Fees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the value date of the cash compensation.
     /// </summary>
+    [IsoId("_Uot1kNp-Ed-ak6NoX_4Aeg_1587929881")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValueDate { get; init; } 
+    #else
+    public System.DateOnly? ValueDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-        SettlementAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Fees is AmountAndDirection20 FeesValue)
-        {
-            writer.WriteStartElement(null, "Fees", xmlNamespace );
-            FeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is IsoISODate ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CashCompensation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

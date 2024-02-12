@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data of a Chip Card related to the reset of the chip.
 /// </summary>
+[IsoId("_SNfVUN7IEeiwsev40qZGEQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ICC Reset Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ICCResetData1
-     : IIsoXmlSerilizable<ICCResetData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value of the Answer To Reset of a chip card.
     /// </summary>
+    [IsoId("_ZUB6MN7IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATR Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? ATRValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ATRValue { get; init; } 
+    #else
+    public System.Byte[]? ATRValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of a smartcard response to a command (SW1-SW2).
     /// </summary>
+    [IsoId("_dbA9sN7IEeiwsev40qZGEQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? CardStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? CardStatus { get; init; } 
+    #else
+    public System.Byte[]? CardStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ATRValue is IsoMax140Binary ATRValueValue)
-        {
-            writer.WriteStartElement(null, "ATRVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(ATRValueValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (CardStatus is IsoMax35Binary CardStatusValue)
-        {
-            writer.WriteStartElement(null, "CardSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(CardStatusValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static ICCResetData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

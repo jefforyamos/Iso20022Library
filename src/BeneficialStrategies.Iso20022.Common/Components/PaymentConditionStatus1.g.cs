@@ -7,17 +7,45 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details on the status of the payment conditions.
 /// </summary>
+[IsoId("_IGiOt3VlEeiEU7thYTAN1w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Condition Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentConditionStatus1
-     : IIsoXmlSerilizable<PaymentConditionStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentConditionStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentConditionStatus1( System.String reqGuaranteedPayment,System.String reqEarlyPayment )
+    {
+        GuaranteedPayment = reqGuaranteedPayment;
+        EarlyPayment = reqEarlyPayment;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,44 +53,62 @@ public partial record PaymentConditionStatus1
     /// Usage:
     /// May only be present when AmountModificationAllowed is present in the request.
     /// </summary>
+    [IsoId("_p7y48HVlEeiEU7thYTAN1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accepted Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AcceptedAmount { get; init; } 
+    #else
+    public System.Decimal? AcceptedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the DebtorAgent guarantees the payment, assuming a payment guarantee contract exists between the different actors.
     /// </summary>
+    [IsoId("_IGiOvXVlEeiEU7thYTAN1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guaranteed Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator GuaranteedPayment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String GuaranteedPayment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String GuaranteedPayment { get; init; } 
+    #else
+    public System.String GuaranteedPayment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the debtor will pay before the requested execution date.
     /// </summary>
+    [IsoId("_IGiOuHVlEeiEU7thYTAN1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator EarlyPayment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String EarlyPayment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String EarlyPayment { get; init; } 
+    #else
+    public System.String EarlyPayment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AcceptedAmount is IsoActiveCurrencyAndAmount AcceptedAmountValue)
-        {
-            writer.WriteStartElement(null, "AccptdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AcceptedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "GrntedPmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(GuaranteedPayment)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EarlyPmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(EarlyPayment)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static PaymentConditionStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

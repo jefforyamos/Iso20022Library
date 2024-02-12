@@ -9,40 +9,74 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivative2Choice;
-
-/// <summary>
-/// Details specific to energy derivatives.
-/// </summary>
-public partial record Energy : CommodityDerivative2Choice_
-     , IIsoXmlSerilizable<Energy>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivative2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Place where the delivery and the cash settlement of the base product occurs. 
+    /// Details specific to energy derivatives.
     /// </summary>
-    public required IsoMax25Text SettlementLocation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_njM5U0-nEeiVsYLJl6hleg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Energy")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Energy : CommodityDerivative2Choice_
+    #else
+    public partial class Energy : CommodityDerivative2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SttlmLctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax25Text(SettlementLocation)); // data type Max25Text System.String
-        writer.WriteEndElement();
-    }
-    public static new Energy Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Energy instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Energy( System.String reqSettlementLocation )
+        {
+            SettlementLocation = reqSettlementLocation;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Place where the delivery and the cash settlement of the base product occurs. 
+        /// </summary>
+        [IsoId("_0qs7EU-nEeiVsYLJl6hleg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Location")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 25 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax25Text SettlementLocation { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String SettlementLocation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String SettlementLocation { get; init; } 
+        #else
+        public System.String SettlementLocation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

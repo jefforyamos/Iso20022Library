@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the settlement transaction unmatched reason.
-/// </summary>
-[KnownType(typeof(UnmatchedReason14Choice.Code))]
-[KnownType(typeof(UnmatchedReason14Choice.Proprietary))]
-public abstract partial record UnmatchedReason14Choice_ : IIsoXmlSerilizable<UnmatchedReason14Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the settlement transaction unmatched reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnmatchedReason14Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnmatchedReason14Choice.Code))]
+    [KnownType(typeof(UnmatchedReason14Choice.Proprietary))]
+    [IsoId("_Nrbv0SwZEeOEV5XHD-BKpw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unmatched Reason 14 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnmatchedReason14Choice_
+    #else
+    public abstract partial class UnmatchedReason14Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => UnmatchedReason14Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => UnmatchedReason14Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnmatchedReason14Choice choice.")
-        };
     }
 }

@@ -7,183 +7,319 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a drawdown tranche.
 /// </summary>
+[IsoId("_9IEgwFNcEeijdq8ilaxyOA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Drawdown")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Drawdown1
-     : IIsoXmlSerilizable<Drawdown1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Drawdown1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Drawdown1( DrawdownType1Choice_ reqTrancheType )
+    {
+        TrancheType = reqTrancheType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of drawdown tranche.
     /// </summary>
+    [IsoId("_K5HOwFNdEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tranche Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DrawdownType1Choice_ TrancheType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DrawdownType1Choice_ TrancheType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DrawdownType1Choice_ TrancheType { get; init; } 
+    #else
+    public DrawdownType1Choice_ TrancheType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the rules that are applicable to the drawdown. For example, in the UK market, the pre-A-day rule that was introduced on 6 April 2006.)
     /// </summary>
+    [IsoId("_YigxwVNfEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicable Rules")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicableRules1Choice_? ApplicableRules { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ApplicableRules1Choice_? ApplicableRules { get; init; } 
+    #else
+    public ApplicableRules1Choice_? ApplicableRules { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the total transfer value covered by the drawdown.
     /// </summary>
+    [IsoId("_mtcmcFNfEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Of Total Transfer Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfTotalTransferValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PercentageOfTotalTransferValue { get; init; } 
+    #else
+    public System.Decimal? PercentageOfTotalTransferValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount that was originally designated for drawdown.
     /// </summary>
+    [IsoId("_uPeNcFNfEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount Net Drawdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountNetDrawdown { get; init; } 
+    #else
+    public System.Decimal? TotalAmountNetDrawdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether any additional funds have been designated since the original arrangement.
     /// </summary>
+    [IsoId("_ClsfsFNgEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Funds Designated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdditionalFundsDesignated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalFundsDesignated { get; init; } 
+    #else
+    public System.String? AdditionalFundsDesignated { get; set; } 
+    #endif
+    
     /// <summary>
     /// Drawdown allowance check. For pensions that have a lifetime allowance, a check is made of the maximum value of benefits that may be taken from the pension without incurring a special tax. (This check or 'event' is known as the benefit crystallisation event in the UK market.)
     /// </summary>
+    [IsoId("_hNJmoFNfEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Drawdown Allowance Check")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DrawdownAllowanceCheck1? DrawdownAllowanceCheck { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DrawdownAllowanceCheck1? DrawdownAllowanceCheck { get; init; } 
+    #else
+    public DrawdownAllowanceCheck1? DrawdownAllowanceCheck { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the pension commencement lump sum (PCLS) remaining.
     /// </summary>
+    [IsoId("_hCjj8LpcEeij7vHPZxBWhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pension Commencement Lump Sum Remaining")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PensionCommencementLumpSumRemaining { get; init; } 
+    #else
+    public System.Decimal? PensionCommencementLumpSumRemaining { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which the pension commencement lump sum (PCLS) must be used.
     /// </summary>
+    [IsoId("_jYEp0LpcEeij7vHPZxBWhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pension Commencement Lump Sum Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PensionCommencementLumpSumDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PensionCommencementLumpSumDate { get; init; } 
+    #else
+    public System.DateOnly? PensionCommencementLumpSumDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates there have been multiple pension commencement lump sum (PCLS) payments. 
     /// </summary>
+    [IsoId("_tSJtULpcEeij7vHPZxBWhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multiple Pension Commencement Lump Sums")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? MultiplePensionCommencementLumpSums { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MultiplePensionCommencementLumpSums { get; init; } 
+    #else
+    public System.String? MultiplePensionCommencementLumpSums { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the lifetime allowance (LTA) used.
     /// </summary>
+    [IsoId("_2dgpobpcEeij7vHPZxBWhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lifetime Allowance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? LifetimeAllowance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LifetimeAllowance { get; init; } 
+    #else
+    public System.Decimal? LifetimeAllowance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates a person other than the original pension holder is the receiver of the drawdown payment.
     /// </summary>
+    [IsoId("_8_IcgLGpEeirN-C08vro8Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Of Drawdown Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RecipientOfDrawdownIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RecipientOfDrawdownIndicator { get; init; } 
+    #else
+    public System.String? RecipientOfDrawdownIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the recipient of the drawdown, when not the original pension holder.
     /// </summary>
+    [IsoId("_h9sdUFNgEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryDrawdown1? BeneficiaryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BeneficiaryDrawdown1? BeneficiaryDetails { get; init; } 
+    #else
+    public BeneficiaryDrawdown1? BeneficiaryDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Limits of the capped drawdown.
     /// </summary>
+    [IsoId("_1dK1IFNdEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Capped Limits")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Capped1? CappedLimits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Capped1? CappedLimits { get; init; } 
+    #else
+    public Capped1? CappedLimits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the drawdown was triggered when the drawdown type is flexible.
     /// </summary>
+    [IsoId("_HEE24FNdEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Flexible Drawdown Triggered Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FlexibleDrawdownTriggeredDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FlexibleDrawdownTriggeredDate { get; init; } 
+    #else
+    public System.DateOnly? FlexibleDrawdownTriggeredDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the drawdown.
     /// </summary>
+    [IsoId("_1Q6vkFNiEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TrchTp", xmlNamespace );
-        TrancheType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ApplicableRules is ApplicableRules1Choice_ ApplicableRulesValue)
-        {
-            writer.WriteStartElement(null, "AplblRules", xmlNamespace );
-            ApplicableRulesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PercentageOfTotalTransferValue is IsoPercentageRate PercentageOfTotalTransferValueValue)
-        {
-            writer.WriteStartElement(null, "PctgOfTtlTrfVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfTotalTransferValueValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalAmountNetDrawdown is IsoActiveCurrencyAnd13DecimalAmount TotalAmountNetDrawdownValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtNetDrwdwn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TotalAmountNetDrawdownValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdditionalFundsDesignated is IsoYesNoIndicator AdditionalFundsDesignatedValue)
-        {
-            writer.WriteStartElement(null, "AddtlFndsDsgntd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdditionalFundsDesignatedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DrawdownAllowanceCheck is DrawdownAllowanceCheck1 DrawdownAllowanceCheckValue)
-        {
-            writer.WriteStartElement(null, "DrwdwnAllwncChck", xmlNamespace );
-            DrawdownAllowanceCheckValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PensionCommencementLumpSumRemaining is IsoActiveCurrencyAnd13DecimalAmount PensionCommencementLumpSumRemainingValue)
-        {
-            writer.WriteStartElement(null, "PnsnCmcmntLumpSumRmng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(PensionCommencementLumpSumRemainingValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PensionCommencementLumpSumDate is IsoISODate PensionCommencementLumpSumDateValue)
-        {
-            writer.WriteStartElement(null, "PnsnCmcmntLumpSumDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PensionCommencementLumpSumDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MultiplePensionCommencementLumpSums is IsoYesNoIndicator MultiplePensionCommencementLumpSumsValue)
-        {
-            writer.WriteStartElement(null, "MltplPnsnCmcmntLumpSums", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MultiplePensionCommencementLumpSumsValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LifetimeAllowance is IsoPercentageRate LifetimeAllowanceValue)
-        {
-            writer.WriteStartElement(null, "LftmAllwnc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(LifetimeAllowanceValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RecipientOfDrawdownIndicator is IsoYesNoIndicator RecipientOfDrawdownIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RcptOfDrwdwnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RecipientOfDrawdownIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BeneficiaryDetails is BeneficiaryDrawdown1 BeneficiaryDetailsValue)
-        {
-            writer.WriteStartElement(null, "BnfcryDtls", xmlNamespace );
-            BeneficiaryDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CappedLimits is Capped1 CappedLimitsValue)
-        {
-            writer.WriteStartElement(null, "CapdLmts", xmlNamespace );
-            CappedLimitsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FlexibleDrawdownTriggeredDate is IsoISODate FlexibleDrawdownTriggeredDateValue)
-        {
-            writer.WriteStartElement(null, "FlxblDrwdwnTrggrdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FlexibleDrawdownTriggeredDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Drawdown1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

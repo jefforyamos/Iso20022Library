@@ -7,176 +7,310 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Passenger ticket summary information for the cardholder. 
 /// </summary>
+[IsoId("_UNtzYZGBEeukDPgU2BMkjQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Passenger Transport Summary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PassengerTransportSummary2
-     : IIsoXmlSerilizable<PassengerTransportSummary2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification number of the document.
     /// </summary>
+    [IsoId("_UUE6EZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DocumentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DocumentNumber { get; init; } 
+    #else
+    public System.String? DocumentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reservation number or identifier. 
     /// </summary>
+    [IsoId("_UUE6E5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reservation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationDetails3? Reservation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReservationDetails3? Reservation { get; init; } 
+    #else
+    public ReservationDetails3? Reservation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains a code provided to a travel agent by a company to authorise ticket issuance. 
     /// </summary>
+    [IsoId("_UUE6FZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Travel Authorisation Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TravelAuthorisationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TravelAuthorisationCode { get; init; } 
+    #else
+    public System.String? TravelAuthorisationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the issuing ticket agent. 
     /// </summary>
+    [IsoId("_UUE6F5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ticket Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TicketIssuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TicketIssuer { get; init; } 
+    #else
+    public System.String? TicketIssuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not the ticket is open or restricted.
     /// </summary>
+    [IsoId("_UUE6GZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Open Ticket Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OpenTicketIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OpenTicketIndicator { get; init; } 
+    #else
+    public System.String? OpenTicketIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains Customer Reference Values provided for this transaction and used for various reference processing at the customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
     /// </summary>
+    [IsoId("_UUE6G5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerReference1? CustomerReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerReference1? CustomerReference { get; init; } 
+    #else
+    public CustomerReference1? CustomerReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details of the passenger.
     /// </summary>
+    [IsoId("_UUE6HZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Passenger")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer8? Passenger { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Customer8? Passenger { get; init; } 
+    #else
+    public Customer8? Passenger { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains departure location, date and time. 
     /// </summary>
+    [IsoId("_UUE6H5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Departure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DepartureOrArrival1? Departure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DepartureOrArrival1? Departure { get; init; } 
+    #else
+    public DepartureOrArrival1? Departure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Duration of the trip in days.
     /// </summary>
+    [IsoId("_UUE6IZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Duration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? Duration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Duration { get; init; } 
+    #else
+    public System.String? Duration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [IsoId("_UUE6I5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Insurance Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InsuranceIndicator { get; init; } 
+    #else
+    public System.String? InsuranceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount.
     /// </summary>
+    [IsoId("_UUE6JZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountDetails2? TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountDetails2? TotalAmount { get; init; } 
+    #else
+    public AmountDetails2? TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_UUE6J5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
+    [IsoId("_UUE6KZGBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Programme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
+    #else
+    public LoyaltyProgramme2? LoyaltyProgramme { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional user-defined data pertaining to the transportation.
     /// </summary>
+    [IsoId("_UUE6K5GBEeukDPgU2BMkjQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DocumentNumber is IsoMax35Text DocumentNumberValue)
-        {
-            writer.WriteStartElement(null, "DocNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Reservation is ReservationDetails3 ReservationValue)
-        {
-            writer.WriteStartElement(null, "Rsvatn", xmlNamespace );
-            ReservationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TravelAuthorisationCode is IsoMax70Text TravelAuthorisationCodeValue)
-        {
-            writer.WriteStartElement(null, "TrvlAuthstnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(TravelAuthorisationCodeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (TicketIssuer is IsoMax35Text TicketIssuerValue)
-        {
-            writer.WriteStartElement(null, "TcktIssr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TicketIssuerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OpenTicketIndicator is IsoTrueFalseIndicator OpenTicketIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OpnTcktInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OpenTicketIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerReference is CustomerReference1 CustomerReferenceValue)
-        {
-            writer.WriteStartElement(null, "CstmrRef", xmlNamespace );
-            CustomerReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Passenger is Customer8 PassengerValue)
-        {
-            writer.WriteStartElement(null, "Pssngr", xmlNamespace );
-            PassengerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Departure is DepartureOrArrival1 DepartureValue)
-        {
-            writer.WriteStartElement(null, "Dprture", xmlNamespace );
-            DepartureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Duration is IsoMax4NumericText DurationValue)
-        {
-            writer.WriteStartElement(null, "Drtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(DurationValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TotalAmount is AmountDetails2 TotalAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-            TotalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LoyaltyProgramme is LoyaltyProgramme2 LoyaltyProgrammeValue)
-        {
-            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
-            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PassengerTransportSummary2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

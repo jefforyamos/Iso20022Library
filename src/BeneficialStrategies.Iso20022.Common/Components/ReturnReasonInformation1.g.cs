@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information on the return reason of the transaction.
 /// </summary>
+[IsoId("_TPKBpdp-Ed-ak6NoX_4Aeg_2976420")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Return Reason Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReturnReasonInformation1
-     : IIsoXmlSerilizable<ReturnReasonInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party issuing the return.
     /// </summary>
+    [IsoId("_TPKBptp-Ed-ak6NoX_4Aeg_1003149399")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? ReturnOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification8? ReturnOriginator { get; init; } 
+    #else
+    public PartyIdentification8? ReturnOriginator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
+    [IsoId("_TPKBp9p-Ed-ak6NoX_4Aeg_515527494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReturnReason1Choice_? ReturnReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReturnReason1Choice_? ReturnReason { get; init; } 
+    #else
+    public ReturnReason1Choice_? ReturnReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
+    [IsoId("_TPKBqNp-Ed-ak6NoX_4Aeg_84246003")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Return Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalReturnReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReturnReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalReturnReasonInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReturnOriginator is PartyIdentification8 ReturnOriginatorValue)
-        {
-            writer.WriteStartElement(null, "RtrOrgtr", xmlNamespace );
-            ReturnOriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnReason is ReturnReason1Choice_ ReturnReasonValue)
-        {
-            writer.WriteStartElement(null, "RtrRsn", xmlNamespace );
-            ReturnReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReturnReasonInformation is IsoMax105Text AdditionalReturnReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRtrRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalReturnReasonInformationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReturnReasonInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

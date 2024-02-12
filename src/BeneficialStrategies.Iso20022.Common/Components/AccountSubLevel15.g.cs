@@ -7,107 +7,199 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account and holding of the next sub-level (Level 5).
 /// </summary>
+[IsoId("_6kb08VjBEea1XpTdyimpLA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Sub Level")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountSubLevel15
-     : IIsoXmlSerilizable<AccountSubLevel15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountSubLevel15 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountSubLevel15( SecuritiesAccount19 reqAccountIdentification,PartyIdentification100 reqAccountOwner,PartyIdentification100 reqAccountServicer )
+    {
+        AccountIdentification = reqAccountIdentification;
+        AccountOwner = reqAccountOwner;
+        AccountServicer = reqAccountServicer;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the sub-account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_68-30VjBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    #else
+    public SecuritiesAccount19 AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that legally owns the sub-account.
     /// </summary>
+    [IsoId("_68-301jBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 AccountOwner { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification100 AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification100 AccountOwner { get; init; } 
+    #else
+    public PartyIdentification100 AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the sub-level account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_68-31VjBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 AccountServicer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification100 AccountServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification100 AccountServicer { get; init; } 
+    #else
+    public PartyIdentification100 AccountServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
+    [IsoId("_68-311jBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficial Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficialOwner2? BeneficialOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BeneficialOwner2? BeneficialOwner { get; init; } 
+    #else
+    public BeneficialOwner2? BeneficialOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account (sub-account level 5), for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
+    [IsoId("_97tSwVjBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateHoldingBalance3? BalanceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AggregateHoldingBalance3? BalanceDetails { get; init; } 
+    #else
+    public AggregateHoldingBalance3? BalanceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Holdings of level 5.
     /// </summary>
+    [IsoId("_68-321jBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Sub Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountSubLevel16? AccountSubLevel6 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountSubLevel16? AccountSubLevel6 { get; init; } 
+    #else
+    public AccountSubLevel16? AccountSubLevel6 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference in holdings between the safekeeping account and the sub-accounts of level 6.
     /// </summary>
+    [IsoId("_68-33VjBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Sub Level 6 Difference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateHoldingBalance2? AccountSubLevel6Difference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AggregateHoldingBalance2? AccountSubLevel6Difference { get; init; } 
+    #else
+    public AggregateHoldingBalance2? AccountSubLevel6Difference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_68-34VjBEea1XpTdyimpLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctId", xmlNamespace );
-        AccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-        AccountOwner.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
-        AccountServicer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (BeneficialOwner is BeneficialOwner2 BeneficialOwnerValue)
-        {
-            writer.WriteStartElement(null, "BnfclOwnr", xmlNamespace );
-            BeneficialOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BalanceDetails is AggregateHoldingBalance3 BalanceDetailsValue)
-        {
-            writer.WriteStartElement(null, "BalDtls", xmlNamespace );
-            BalanceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountSubLevel6 is AccountSubLevel16 AccountSubLevel6Value)
-        {
-            writer.WriteStartElement(null, "AcctSubLvl6", xmlNamespace );
-            AccountSubLevel6Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountSubLevel6Difference is AggregateHoldingBalance2 AccountSubLevel6DifferenceValue)
-        {
-            writer.WriteStartElement(null, "AcctSubLvl6Diff", xmlNamespace );
-            AccountSubLevel6DifferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountSubLevel15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

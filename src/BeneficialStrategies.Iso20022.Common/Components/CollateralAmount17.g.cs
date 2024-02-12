@@ -7,170 +7,304 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the collateral valuation.
 /// </summary>
+[IsoId("_Spl8ARInEeyZaPkaPAzTvQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralAmount17
-     : IIsoXmlSerilizable<CollateralAmount17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralAmount17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralAmount17( System.Decimal reqValueOfCollateralHeld,System.Decimal reqTotalExposure )
+    {
+        ValueOfCollateralHeld = reqValueOfCollateralHeld;
+        TotalExposure = reqTotalExposure;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total value of posted collateral (post-haircut) expressed in the reporting currency.
     /// </summary>
+    [IsoId("_TDEzARInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Of Collateral Held")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ValueOfCollateralHeld { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ValueOfCollateralHeld { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ValueOfCollateralHeld { get; init; } 
+    #else
+    public System.Decimal ValueOfCollateralHeld { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total exposure amount between the giver and taker expressed in the reporting currency. It includes the transaction amount and the accrued interests minus any  unsettled amount.
     /// </summary>
+    [IsoId("_TDEzAxInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Exposure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount TotalExposure { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalExposure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalExposure { get; init; } 
+    #else
+    public System.Decimal TotalExposure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction Amount as instructed by the client. 
     /// </summary>
+    [IsoId("_TDEzBRInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TransactionAmount { get; init; } 
+    #else
+    public System.Decimal? TransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of transaction amount (required value for the exposure)  into market value lots based on  the term for the underlying trades.
     /// </summary>
+    [IsoId("_TDEzBxInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralTransactionAmountBreakdown2? TransactionAmountBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralTransactionAmountBreakdown2? TransactionAmountBreakdown { get; init; } 
+    #else
+    public CollateralTransactionAmountBreakdown2? TransactionAmountBreakdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// The difference between the total collateral value and the total collateral required.
     /// </summary>
+    [IsoId("_TDEzCRInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? Margin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection53? Margin { get; init; } 
+    #else
+    public AmountAndDirection53? Margin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of money accrued interest computed in the case of interest bearing financial instruments.
     /// </summary>
+    [IsoId("_TDEzCxInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Accrued Interest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalAccruedInterest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAccruedInterest { get; init; } 
+    #else
+    public System.Decimal? TotalAccruedInterest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collateral is required to cover interest that accrues on the exposure. Margin amount would thus be the difference between collateral required and collateral value (that is COVA).
     /// </summary>
+    [IsoId("_TDEzDRInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Collateral Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCollateralRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalCollateralRequired { get; init; } 
+    #else
+    public System.Decimal? TotalCollateralRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of own collateral in the reporting currency.
     /// </summary>
+    [IsoId("_TDEzDxInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Value Of Own Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfOwnCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalValueOfOwnCollateral { get; init; } 
+    #else
+    public System.Decimal? TotalValueOfOwnCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of reused/rehypotheticated collateral in the reporting currency.
     /// </summary>
+    [IsoId("_TDEzERInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Value Of Reused Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfReusedCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalValueOfReusedCollateral { get; init; } 
+    #else
+    public System.Decimal? TotalValueOfReusedCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of incoming collateral, to be settled in the reporting currency.
     /// </summary>
+    [IsoId("_TDEzExInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Pending Collateral In")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalPendingCollateralIn { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalPendingCollateralIn { get; init; } 
+    #else
+    public System.Decimal? TotalPendingCollateralIn { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of outgoing collateral, to be settled in the reporting currency.
     /// </summary>
+    [IsoId("_TDEzFRInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Pending Collateral Out")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalPendingCollateralOut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalPendingCollateralOut { get; init; } 
+    #else
+    public System.Decimal? TotalPendingCollateralOut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of principals in the reporting currency.
     /// </summary>
+    [IsoId("_TDEzFxInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Of Principals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalOfPrincipals { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalOfPrincipals { get; init; } 
+    #else
+    public System.Decimal? TotalOfPrincipals { get; set; } 
+    #endif
+    
     /// <summary>
     /// Termination Transaction Amount 
     /// </summary>
+    [IsoId("_TDEzGRInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Termination Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TerminationTransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TerminationTransactionAmount { get; init; } 
+    #else
+    public System.Decimal? TerminationTransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of undelivered intended transaction cash amount.
     /// </summary>
+    [IsoId("_TDEzGxInEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Cash Failed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFailed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalCashFailed { get; init; } 
+    #else
+    public System.Decimal? TotalCashFailed { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ValOfCollHeld", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ValueOfCollateralHeld)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlXpsr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalExposure)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (TransactionAmount is IsoActiveOrHistoricCurrencyAndAmount TransactionAmountValue)
-        {
-            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TransactionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TransactionAmountBreakdown is CollateralTransactionAmountBreakdown2 TransactionAmountBreakdownValue)
-        {
-            writer.WriteStartElement(null, "TxAmtBrkdwn", xmlNamespace );
-            TransactionAmountBreakdownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Margin is AmountAndDirection53 MarginValue)
-        {
-            writer.WriteStartElement(null, "Mrgn", xmlNamespace );
-            MarginValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalAccruedInterest is IsoActiveOrHistoricCurrencyAndAmount TotalAccruedInterestValue)
-        {
-            writer.WriteStartElement(null, "TtlAcrdIntrst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalAccruedInterestValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalCollateralRequired is IsoActiveOrHistoricCurrencyAndAmount TotalCollateralRequiredValue)
-        {
-            writer.WriteStartElement(null, "TtlCollReqrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCollateralRequiredValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalValueOfOwnCollateral is IsoActiveOrHistoricCurrencyAndAmount TotalValueOfOwnCollateralValue)
-        {
-            writer.WriteStartElement(null, "TtlValOfOwnColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalValueOfOwnCollateralValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalValueOfReusedCollateral is IsoActiveOrHistoricCurrencyAndAmount TotalValueOfReusedCollateralValue)
-        {
-            writer.WriteStartElement(null, "TtlValOfReusdColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalValueOfReusedCollateralValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalPendingCollateralIn is IsoActiveOrHistoricCurrencyAndAmount TotalPendingCollateralInValue)
-        {
-            writer.WriteStartElement(null, "TtlPdgCollIn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalPendingCollateralInValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalPendingCollateralOut is IsoActiveOrHistoricCurrencyAndAmount TotalPendingCollateralOutValue)
-        {
-            writer.WriteStartElement(null, "TtlPdgCollOut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalPendingCollateralOutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalOfPrincipals is IsoActiveOrHistoricCurrencyAndAmount TotalOfPrincipalsValue)
-        {
-            writer.WriteStartElement(null, "TtlOfPrncpls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalOfPrincipalsValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TerminationTransactionAmount is IsoActiveOrHistoricCurrencyAndAmount TerminationTransactionAmountValue)
-        {
-            writer.WriteStartElement(null, "TermntnTxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TerminationTransactionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalCashFailed is IsoActiveOrHistoricCurrencyAndAmount TotalCashFailedValue)
-        {
-            writer.WriteStartElement(null, "TtlCshFaild", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCashFailedValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralAmount17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

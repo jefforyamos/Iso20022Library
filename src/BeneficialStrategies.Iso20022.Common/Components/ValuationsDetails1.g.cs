@@ -7,120 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation details for the securities position.
 /// </summary>
+[IsoId("_h4b_UMYeEeiSF9q-coWegA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Valuations Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ValuationsDetails1
-     : IIsoXmlSerilizable<ValuationsDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ValuationsDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ValuationsDetails1( CollateralAmount4 reqValuationDetailsAmount,ValuationFactorBreakdown1 reqValuationFactorBreakdown )
+    {
+        ValuationDetailsAmount = reqValuationDetailsAmount;
+        ValuationFactorBreakdown = reqValuationFactorBreakdown;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
+    [IsoId("_1mKU0MvJEeiWUeUVHQmKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price7? MarketPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price7? MarketPrice { get; init; } 
+    #else
+    public Price7? MarketPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Source of the price quotation.
     /// </summary>
+    [IsoId("_AFnWQMvKEeiWUeUVHQmKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Source Of Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification89? SourceOfPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketIdentification89? SourceOfPrice { get; init; } 
+    #else
+    public MarketIdentification89? SourceOfPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the financial instruments are to be delivered or received effectively (Effective Settlement Date and Time).
     /// </summary>
+    [IsoId("_YtBAEM4KEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? SettlementDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Securities collateral position valuation amounts.
     /// </summary>
+    [IsoId("_q4_dwM4JEeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Details Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAmount4 ValuationDetailsAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralAmount4 ValuationDetailsAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAmount4 ValuationDetailsAmount { get; init; } 
+    #else
+    public CollateralAmount4 ValuationDetailsAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of interest that has been accrued in between coupon payment periods for a given financial instrument.
     /// </summary>
+    [IsoId("_A_yTsTYgEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accrued Interest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AccruedInterest { get; init; } 
+    #else
+    public System.Decimal? AccruedInterest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price amount excluding the accrued interest for a given financial instrument.
     /// </summary>
+    [IsoId("_MfnNATYgEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clean Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? CleanPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CleanPrice { get; init; } 
+    #else
+    public System.Decimal? CleanPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Valuation factors.
     /// </summary>
+    [IsoId("_t-xx0DYoEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Factor Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValuationFactorBreakdown1 ValuationFactorBreakdown { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ValuationFactorBreakdown1 ValuationFactorBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValuationFactorBreakdown1 ValuationFactorBreakdown { get; init; } 
+    #else
+    public ValuationFactorBreakdown1 ValuationFactorBreakdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
+    [IsoId("_jGmV8M39EeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Days Accrued")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfDaysAccrued { get; init; } 
+    #else
+    public System.UInt64? NumberOfDaysAccrued { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days since the last pricing update.
     /// </summary>
+    [IsoId("_QWBWYM3-EeiirviLm7P0IA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quotation Age")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? QuotationAge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? QuotationAge { get; init; } 
+    #else
+    public System.UInt64? QuotationAge { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MarketPrice is Price7 MarketPriceValue)
-        {
-            writer.WriteStartElement(null, "MktPric", xmlNamespace );
-            MarketPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SourceOfPrice is MarketIdentification89 SourceOfPriceValue)
-        {
-            writer.WriteStartElement(null, "SrcOfPric", xmlNamespace );
-            SourceOfPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementDate is DateAndDateTime2Choice_ SettlementDateValue)
-        {
-            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-            SettlementDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ValtnDtlsAmt", xmlNamespace );
-        ValuationDetailsAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccruedInterest is IsoActiveOrHistoricCurrencyAndAmount AccruedInterestValue)
-        {
-            writer.WriteStartElement(null, "AcrdIntrst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AccruedInterestValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CleanPrice is IsoActiveOrHistoricCurrencyAndAmount CleanPriceValue)
-        {
-            writer.WriteStartElement(null, "CleanPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CleanPriceValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ValtnFctrBrkdwn", xmlNamespace );
-        ValuationFactorBreakdown.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
-        {
-            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (QuotationAge is IsoNumber QuotationAgeValue)
-        {
-            writer.WriteStartElement(null, "QtnAge", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(QuotationAgeValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ValuationsDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

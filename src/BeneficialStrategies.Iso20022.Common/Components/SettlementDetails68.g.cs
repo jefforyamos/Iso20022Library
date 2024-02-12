@@ -7,256 +7,436 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of settlement of a transaction.
 /// </summary>
+[IsoId("_6WCaASTwEeOSHvJr_wacAw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementDetails68
-     : IIsoXmlSerilizable<SettlementDetails68>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the type of securities transaction.
     /// </summary>
+    [IsoId("_6s9FFyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionType9Choice_? SecuritiesTransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionType9Choice_? SecuritiesTransactionType { get; init; } 
+    #else
+    public SecuritiesTransactionType9Choice_? SecuritiesTransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
+    [IsoId("_6s9FHyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Transaction Condition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTransactionCondition12Choice_? SettlementTransactionCondition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTransactionCondition12Choice_? SettlementTransactionCondition { get; init; } 
+    #else
+    public SettlementTransactionCondition12Choice_? SettlementTransactionCondition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
+    [IsoId("_6s9FJyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficial Ownership")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficialOwnership1Choice_? BeneficialOwnership { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BeneficialOwnership1Choice_? BeneficialOwnership { get; init; } 
+    #else
+    public BeneficialOwnership1Choice_? BeneficialOwnership { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
     /// </summary>
+    [IsoId("_6s9FLyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CCP Eligibility")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CentralCounterPartyEligibility1Choice_? CCPEligibility { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CentralCounterPartyEligibility1Choice_? CCPEligibility { get; init; } 
+    #else
+    public CentralCounterPartyEligibility1Choice_? CCPEligibility { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason of a delivery return.
     /// </summary>
+    [IsoId("_6s9FNyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Return Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryReturn1Choice_? DeliveryReturnReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryReturn1Choice_? DeliveryReturnReason { get; init; } 
+    #else
+    public DeliveryReturn1Choice_? DeliveryReturnReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the category of cash clearing system, for example, cheque clearing.
     /// </summary>
+    [IsoId("_6s9FPyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Clearing System")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashSettlementSystem1Choice_? CashClearingSystem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashSettlementSystem1Choice_? CashClearingSystem { get; init; } 
+    #else
+    public CashSettlementSystem1Choice_? CashClearingSystem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the collateral movement.
     /// </summary>
+    [IsoId("_6s9FRyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureType10Choice_? ExposureType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExposureType10Choice_? ExposureType { get; init; } 
+    #else
+    public ExposureType10Choice_? ExposureType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the forex standing instruction in place should apply.
     /// </summary>
+    [IsoId("_6s9FTyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("FX Standing Instruction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FXStandingInstruction1Choice_? FXStandingInstruction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FXStandingInstruction1Choice_? FXStandingInstruction { get; init; } 
+    #else
+    public FXStandingInstruction1Choice_? FXStandingInstruction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
+    [IsoId("_6s9FVyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Client Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketClientSide1Choice_? MarketClientSide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketClientSide1Choice_? MarketClientSide { get; init; } 
+    #else
+    public MarketClientSide1Choice_? MarketClientSide { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the settlement transaction is eligible for netting.
     /// </summary>
+    [IsoId("_6s9FXyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Netting Eligibility")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NettingEligibility1Choice_? NettingEligibility { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NettingEligibility1Choice_? NettingEligibility { get; init; } 
+    #else
+    public NettingEligibility1Choice_? NettingEligibility { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
+    [IsoId("_6s9FZyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Registration1Choice_? Registration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Registration1Choice_? Registration { get; init; } 
+    #else
+    public Registration1Choice_? Registration { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
+    [IsoId("_6s9FbyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Restrictions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Restriction1Choice_? LegalRestrictions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Restriction1Choice_? LegalRestrictions { get; init; } 
+    #else
+    public Restriction1Choice_? LegalRestrictions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
+    [IsoId("_6s9FdyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settling Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlingCapacity4Choice_? SettlingCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlingCapacity4Choice_? SettlingCapacity { get; init; } 
+    #else
+    public SettlingCapacity4Choice_? SettlingCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
+    [IsoId("_6s9FfyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
+    #else
+    public TaxCapacityParty1Choice_? TaxCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
+    [IsoId("_6s9FhyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stamp Duty Tax Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification20? StampDutyTaxBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification20? StampDutyTaxBasis { get; init; } 
+    #else
+    public GenericIdentification20? StampDutyTaxBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the loan and/or collateral is tracked.
     /// </summary>
+    [IsoId("_6s9FjyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracking")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tracking1Choice_? Tracking { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tracking1Choice_? Tracking { get; init; } 
+    #else
+    public Tracking1Choice_? Tracking { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether physical settlement may be executed using a letter of guarantee or if the physical certificates should be used.
     /// </summary>
+    [IsoId("_6s9FlyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Letter Of Guarantee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LetterOfGuarantee1Choice_? LetterOfGuarantee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LetterOfGuarantee1Choice_? LetterOfGuarantee { get; init; } 
+    #else
+    public LetterOfGuarantee1Choice_? LetterOfGuarantee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether, for a securities lending/borrowing settlement transaction, the lender will instruct the return leg as agreed with the borrower.
     /// </summary>
+    [IsoId("_6s9FnyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Leg")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ReturnLeg { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReturnLeg { get; init; } 
+    #else
+    public System.String? ReturnLeg { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether a third party is allowed to modify or cancel the transaction.
     /// </summary>
+    [IsoId("_6s9FpyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Cancellation Allowed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationCancellationAllowed1Choice_? ModificationCancellationAllowed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ModificationCancellationAllowed1Choice_? ModificationCancellationAllowed { get; init; } 
+    #else
+    public ModificationCancellationAllowed1Choice_? ModificationCancellationAllowed { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether securities should be included in the pool of securities eligible for collateral purposes.
     /// </summary>
+    [IsoId("_6s9FryTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligible For Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EligibleForCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EligibleForCollateral { get; init; } 
+    #else
+    public System.String? EligibleForCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
+    [IsoId("_6s9FtyTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Sub Balance Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification20? SecuritiesSubBalanceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification20? SecuritiesSubBalanceType { get; init; } 
+    #else
+    public GenericIdentification20? SecuritiesSubBalanceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the cash sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
+    [IsoId("_6s9FuSTwEeOSHvJr_wacAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Sub Balance Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification20? CashSubBalanceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification20? CashSubBalanceType { get; init; } 
+    #else
+    public GenericIdentification20? CashSubBalanceType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SecuritiesTransactionType is SecuritiesTransactionType9Choice_ SecuritiesTransactionTypeValue)
-        {
-            writer.WriteStartElement(null, "SctiesTxTp", xmlNamespace );
-            SecuritiesTransactionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementTransactionCondition is SettlementTransactionCondition12Choice_ SettlementTransactionConditionValue)
-        {
-            writer.WriteStartElement(null, "SttlmTxCond", xmlNamespace );
-            SettlementTransactionConditionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BeneficialOwnership is BeneficialOwnership1Choice_ BeneficialOwnershipValue)
-        {
-            writer.WriteStartElement(null, "BnfclOwnrsh", xmlNamespace );
-            BeneficialOwnershipValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CCPEligibility is CentralCounterPartyEligibility1Choice_ CCPEligibilityValue)
-        {
-            writer.WriteStartElement(null, "CCPElgblty", xmlNamespace );
-            CCPEligibilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryReturnReason is DeliveryReturn1Choice_ DeliveryReturnReasonValue)
-        {
-            writer.WriteStartElement(null, "DlvryRtrRsn", xmlNamespace );
-            DeliveryReturnReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashClearingSystem is CashSettlementSystem1Choice_ CashClearingSystemValue)
-        {
-            writer.WriteStartElement(null, "CshClrSys", xmlNamespace );
-            CashClearingSystemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExposureType is ExposureType10Choice_ ExposureTypeValue)
-        {
-            writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
-            ExposureTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FXStandingInstruction is FXStandingInstruction1Choice_ FXStandingInstructionValue)
-        {
-            writer.WriteStartElement(null, "FxStgInstr", xmlNamespace );
-            FXStandingInstructionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketClientSide is MarketClientSide1Choice_ MarketClientSideValue)
-        {
-            writer.WriteStartElement(null, "MktClntSd", xmlNamespace );
-            MarketClientSideValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NettingEligibility is NettingEligibility1Choice_ NettingEligibilityValue)
-        {
-            writer.WriteStartElement(null, "NetgElgblty", xmlNamespace );
-            NettingEligibilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Registration is Registration1Choice_ RegistrationValue)
-        {
-            writer.WriteStartElement(null, "Regn", xmlNamespace );
-            RegistrationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalRestrictions is Restriction1Choice_ LegalRestrictionsValue)
-        {
-            writer.WriteStartElement(null, "LglRstrctns", xmlNamespace );
-            LegalRestrictionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlingCapacity is SettlingCapacity4Choice_ SettlingCapacityValue)
-        {
-            writer.WriteStartElement(null, "SttlgCpcty", xmlNamespace );
-            SettlingCapacityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxCapacity is TaxCapacityParty1Choice_ TaxCapacityValue)
-        {
-            writer.WriteStartElement(null, "TaxCpcty", xmlNamespace );
-            TaxCapacityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StampDutyTaxBasis is GenericIdentification20 StampDutyTaxBasisValue)
-        {
-            writer.WriteStartElement(null, "StmpDtyTaxBsis", xmlNamespace );
-            StampDutyTaxBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Tracking is Tracking1Choice_ TrackingValue)
-        {
-            writer.WriteStartElement(null, "Trckg", xmlNamespace );
-            TrackingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LetterOfGuarantee is LetterOfGuarantee1Choice_ LetterOfGuaranteeValue)
-        {
-            writer.WriteStartElement(null, "LttrOfGrnt", xmlNamespace );
-            LetterOfGuaranteeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnLeg is IsoYesNoIndicator ReturnLegValue)
-        {
-            writer.WriteStartElement(null, "RtrLeg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReturnLegValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ModificationCancellationAllowed is ModificationCancellationAllowed1Choice_ ModificationCancellationAllowedValue)
-        {
-            writer.WriteStartElement(null, "ModCxlAllwd", xmlNamespace );
-            ModificationCancellationAllowedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EligibleForCollateral is IsoYesNoIndicator EligibleForCollateralValue)
-        {
-            writer.WriteStartElement(null, "ElgblForColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EligibleForCollateralValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesSubBalanceType is GenericIdentification20 SecuritiesSubBalanceTypeValue)
-        {
-            writer.WriteStartElement(null, "SctiesSubBalTp", xmlNamespace );
-            SecuritiesSubBalanceTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashSubBalanceType is GenericIdentification20 CashSubBalanceTypeValue)
-        {
-            writer.WriteStartElement(null, "CshSubBalTp", xmlNamespace );
-            CashSubBalanceTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementDetails68 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

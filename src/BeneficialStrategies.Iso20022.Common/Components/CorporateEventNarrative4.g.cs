@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides disclaimer narrative information about the event.
 /// </summary>
+[IsoId("_qwMS0RreEeyhRdHRjakS2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Event Narrative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateEventNarrative4
-     : IIsoXmlSerilizable<CorporateEventNarrative4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Issuer’s disclaimer notice relative to the meeting announcement information provided. It may be ignored for automated processing.
     /// </summary>
+    [IsoId("_rEmckRreEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Disclaimer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageSpecifiedNarrative1? Disclaimer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LanguageSpecifiedNarrative1? Disclaimer { get; init; } 
+    #else
+    public LanguageSpecifiedNarrative1? Disclaimer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information from the account servicer or a service provider solely intended for the next immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
+    [IsoId("_pSdwkRreEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Text For Next Intermediary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8000Text? ProcessingTextForNextIntermediary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProcessingTextForNextIntermediary { get; init; } 
+    #else
+    public System.String? ProcessingTextForNextIntermediary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Disclaimer is LanguageSpecifiedNarrative1 DisclaimerValue)
-        {
-            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
-            DisclaimerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingTextForNextIntermediary is IsoMax8000Text ProcessingTextForNextIntermediaryValue)
-        {
-            writer.WriteStartElement(null, "PrcgTxtForNxtIntrmy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8000Text(ProcessingTextForNextIntermediaryValue)); // data type Max8000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateEventNarrative4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,54 +7,44 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References3Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
-[KnownType(typeof(References3Choice.IntraPositionMovementConfirmationIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesBalanceAccountingReportIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesBalanceCustodyReportIdentification))]
-[KnownType(typeof(References3Choice.IntraPositionMovementPostingReportIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesFinancingConfirmationIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesTransactionPendingReportIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesTransactionPostingReportIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
-[KnownType(typeof(References3Choice.PortfolioTransferNotificationIdentification))]
-[KnownType(typeof(References3Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
-[KnownType(typeof(References3Choice.OtherMessageIdentification))]
-public abstract partial record References3Choice_ : IIsoXmlSerilizable<References3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References3Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
+    [KnownType(typeof(References3Choice.IntraPositionMovementConfirmationIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesBalanceAccountingReportIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesBalanceCustodyReportIdentification))]
+    [KnownType(typeof(References3Choice.IntraPositionMovementPostingReportIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesFinancingConfirmationIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesTransactionPendingReportIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesTransactionPostingReportIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
+    [KnownType(typeof(References3Choice.PortfolioTransferNotificationIdentification))]
+    [KnownType(typeof(References3Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
+    [KnownType(typeof(References3Choice.OtherMessageIdentification))]
+    [IsoId("_USqtF9p-Ed-ak6NoX_4Aeg_1744760474")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References3Choice_
+    #else
+    public abstract partial class References3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxConfId" => References3Choice.SecuritiesSettlementTransactionConfirmationIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntConfId" => References3Choice.IntraPositionMovementConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesBalAcctgRptId" => References3Choice.SecuritiesBalanceAccountingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesBalCtdyRptId" => References3Choice.SecuritiesBalanceCustodyReportIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntPstngRptId" => References3Choice.IntraPositionMovementPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesFincgConfId" => References3Choice.SecuritiesFinancingConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPdgRptId" => References3Choice.SecuritiesTransactionPendingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPstngRptId" => References3Choice.SecuritiesTransactionPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtRptId" => References3Choice.SecuritiesSettlementTransactionAllegementReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtNtfctnTxId" => References3Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification.Deserialize(elementWithPayload),
-             "PrtflTrfNtfctnId" => References3Choice.PortfolioTransferNotificationIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxGnrtnNtfctnId" => References3Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification.Deserialize(elementWithPayload),
-             "OthrMsgId" => References3Choice.OtherMessageIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References3Choice choice.")
-        };
     }
 }

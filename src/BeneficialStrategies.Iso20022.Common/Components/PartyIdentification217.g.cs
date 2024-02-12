@@ -7,100 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[IsoId("_Ezqs8DtsEemIf7eyjCwinw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyIdentification217
-     : IIsoXmlSerilizable<PartyIdentification217>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyIdentification217 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyIdentification217( PersonName3 reqNameAndAddress,NaturalPersonIdentification1 reqIdentification )
+    {
+        NameAndAddress = reqNameAndAddress;
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [IsoId("_ZI12UztsEemIf7eyjCwinw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name And Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PersonName3 NameAndAddress { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PersonName3 NameAndAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PersonName3 NameAndAddress { get; init; } 
+    #else
+    public PersonName3 NameAndAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [IsoId("_ZI12VDtsEemIf7eyjCwinw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Email Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? EmailAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EmailAddress { get; init; } 
+    #else
+    public System.String? EmailAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Natural person identification details.
     /// </summary>
+    [IsoId("_ZI12VTtsEemIf7eyjCwinw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NaturalPersonIdentification1 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NaturalPersonIdentification1 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NaturalPersonIdentification1 Identification { get; init; } 
+    #else
+    public NaturalPersonIdentification1 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nationality of the person.
     /// </summary>
+    [IsoId("_Bx0hAX1hEemTjI54yVVOfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nationality")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Nationality { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Nationality { get; init; } 
+    #else
+    public string? Nationality { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which and place at which a person is born.
     /// </summary>
+    [IsoId("_hnbAoX1hEemTjI54yVVOfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Place Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndPlaceOfBirth2? DateAndPlaceOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndPlaceOfBirth2? DateAndPlaceOfBirth { get; init; } 
+    #else
+    public DateAndPlaceOfBirth2? DateAndPlaceOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of investor.
     /// </summary>
+    [IsoId("_Y7oMQIk1EemZteIrPMIV3g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorType1Choice_? InvestorType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestorType1Choice_? InvestorType { get; init; } 
+    #else
+    public InvestorType1Choice_? InvestorType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the ownership on an asset.
     /// </summary>
+    [IsoId("_xi5zwYz1EemXJvzC2Wyt1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ownership")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Ownership1? Ownership { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Ownership1? Ownership { get; init; } 
+    #else
+    public Ownership1? Ownership { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
-        NameAndAddress.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EmailAddress is IsoMax256Text EmailAddressValue)
-        {
-            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Nationality is CountryCode NationalityValue)
-        {
-            writer.WriteStartElement(null, "Ntlty", xmlNamespace );
-            writer.WriteValue(NationalityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DateAndPlaceOfBirth is DateAndPlaceOfBirth2 DateAndPlaceOfBirthValue)
-        {
-            writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
-            DateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestorType is InvestorType1Choice_ InvestorTypeValue)
-        {
-            writer.WriteStartElement(null, "InvstrTp", xmlNamespace );
-            InvestorTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Ownership is Ownership1 OwnershipValue)
-        {
-            writer.WriteStartElement(null, "Ownrsh", xmlNamespace );
-            OwnershipValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyIdentification217 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

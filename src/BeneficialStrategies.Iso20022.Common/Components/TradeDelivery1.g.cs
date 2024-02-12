@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies how the supply chain shipping arrangements and the delivery of products and/or services as well as related documentation.
 /// </summary>
+[IsoId("_S5CHjgEcEeCQm6a_G2yO_w_-1855522854")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Delivery")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeDelivery1
-     : IIsoXmlSerilizable<TradeDelivery1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Actual delivery period of the products and/or services.
     /// </summary>
+    [IsoId("_S5CHjwEcEeCQm6a_G2yO_w_570290002")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? DeliveryPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? DeliveryPeriod { get; init; } 
+    #else
+    public Period1? DeliveryPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual delivery date/time of the products and/or services.
     /// </summary>
+    [IsoId("_S5CHkAEcEeCQm6a_G2yO_w_2097470377")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DeliveryDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DeliveryDateTime { get; init; } 
+    #else
+    public System.DateTime? DeliveryDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party from whom the goods are dispatched.
     /// </summary>
+    [IsoId("_S5CHkQEcEeCQm6a_G2yO_w_2113237791")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ship From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? ShipFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? ShipFrom { get; init; } 
+    #else
+    public TradeParty1? ShipFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to whom the goods are dispatched.
     /// </summary>
+    [IsoId("_S5CHkgEcEeCQm6a_G2yO_w_-667544958")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ship To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? ShipTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? ShipTo { get; init; } 
+    #else
+    public TradeParty1? ShipTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Final party to whom the goods are dispatched.
     /// </summary>
+    [IsoId("_S5LRYAEcEeCQm6a_G2yO_w_-645018365")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Ship To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty1? UltimateShipTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty1? UltimateShipTo { get; init; } 
+    #else
+    public TradeParty1? UltimateShipTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delivery note related to the delivery of the products and/or services.
     /// </summary>
+    [IsoId("_S5LRYQEcEeCQm6a_G2yO_w_1101392956")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Note")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? DeliveryNote { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? DeliveryNote { get; init; } 
+    #else
+    public DocumentIdentification22? DeliveryNote { get; set; } 
+    #endif
+    
     /// <summary>
     /// Physical consolidation of goods for transport.
     /// </summary>
+    [IsoId("_S5LRYgEcEeCQm6a_G2yO_w_-3919121")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Consignment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Consignment2? Consignment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Consignment2? Consignment { get; init; } 
+    #else
+    public Consignment2? Consignment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DeliveryPeriod is Period1 DeliveryPeriodValue)
-        {
-            writer.WriteStartElement(null, "DlvryPrd", xmlNamespace );
-            DeliveryPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryDateTime is IsoISODateTime DeliveryDateTimeValue)
-        {
-            writer.WriteStartElement(null, "DlvryDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeliveryDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ShipFrom is TradeParty1 ShipFromValue)
-        {
-            writer.WriteStartElement(null, "ShipFr", xmlNamespace );
-            ShipFromValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ShipTo is TradeParty1 ShipToValue)
-        {
-            writer.WriteStartElement(null, "ShipTo", xmlNamespace );
-            ShipToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UltimateShipTo is TradeParty1 UltimateShipToValue)
-        {
-            writer.WriteStartElement(null, "UltmtShipTo", xmlNamespace );
-            UltimateShipToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryNote is DocumentIdentification22 DeliveryNoteValue)
-        {
-            writer.WriteStartElement(null, "DlvryNote", xmlNamespace );
-            DeliveryNoteValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Consignment is Consignment2 ConsignmentValue)
-        {
-            writer.WriteStartElement(null, "Consgnmt", xmlNamespace );
-            ConsignmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeDelivery1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

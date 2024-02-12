@@ -7,83 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics, such as the identification or the creation date and time, specific to the message.
 /// </summary>
+[IsoId("_76joZ6MgEeCJ6YNENx4h-w_1740600575")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Message Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MessageHeader6
-     : IIsoXmlSerilizable<MessageHeader6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MessageHeader6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MessageHeader6( System.String reqMessageIdentification )
+    {
+        MessageIdentification = reqMessageIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the sender, to unambiguously identify the message.|Usage: The sender has to make sure that MessageIdentification is unique for a pre-agreed period.
     /// </summary>
+    [IsoId("_76joaKMgEeCJ6YNENx4h-w_-920198063")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageIdentification { get; init; } 
+    #else
+    public System.String MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [IsoId("_76syUKMgEeCJ6YNENx4h-w_2069750001")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CreationDateTime { get; init; } 
+    #else
+    public System.DateTime? CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the original query message.
     /// </summary>
+    [IsoId("_76syUaMgEeCJ6YNENx4h-w_119836232")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Business Query")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessQuery1? OriginalBusinessQuery { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalBusinessQuery1? OriginalBusinessQuery { get; init; } 
+    #else
+    public OriginalBusinessQuery1? OriginalBusinessQuery { get; set; } 
+    #endif
+    
     /// <summary>
     /// Recalls the criteria (search and return criteria) defined in a preceding query.
     /// </summary>
+    [IsoId("_76syUqMgEeCJ6YNENx4h-w_1583691968")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QueryName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? QueryName { get; init; } 
+    #else
+    public System.String? QueryName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific actions to be executed through the request.
     /// </summary>
+    [IsoId("_76syU6MgEeCJ6YNENx4h-w_-926174939")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RequestType3Choice_? RequestType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RequestType3Choice_? RequestType { get; init; } 
+    #else
+    public RequestType3Choice_? RequestType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (OriginalBusinessQuery is OriginalBusinessQuery1 OriginalBusinessQueryValue)
-        {
-            writer.WriteStartElement(null, "OrgnlBizQry", xmlNamespace );
-            OriginalBusinessQueryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QueryName is IsoMax35Text QueryNameValue)
-        {
-            writer.WriteStartElement(null, "QryNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RequestType is RequestType3Choice_ RequestTypeValue)
-        {
-            writer.WriteStartElement(null, "ReqTp", xmlNamespace );
-            RequestTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MessageHeader6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices related to a corporate action option.
 /// </summary>
+[IsoId("_x_J20R9REeuFz_FaCzCLgQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPrice71
-     : IIsoXmlSerilizable<CorporateActionPrice71>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
+    [IsoId("_x_J21R9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Lieu Of Share Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
+    #else
+    public PriceFormat57Choice_? CashInLieuOfSharePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
+    [IsoId("_x_J23R9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Over Subscription Deposit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
+    #else
+    public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum cash amount that may be instructed.
     /// </summary>
+    [IsoId("_x_J25R9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Cash To Instruct")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat62Choice_? MaximumCashToInstruct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat62Choice_? MaximumCashToInstruct { get; init; } 
+    #else
+    public PriceFormat62Choice_? MaximumCashToInstruct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum cash amount that may be instructed.
     /// </summary>
+    [IsoId("_x_J25x9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Cash To Instruct")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat62Choice_? MinimumCashToInstruct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat62Choice_? MinimumCashToInstruct { get; init; } 
+    #else
+    public PriceFormat62Choice_? MinimumCashToInstruct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple of a cash amount that may be instructed.
     /// </summary>
+    [IsoId("_x_J26R9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Multiple Cash To Instruct")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; init; } 
+    #else
+    public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
+    [IsoId("_x_J26x9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat44Choice_? MaximumPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat44Choice_? MaximumPrice { get; init; } 
+    #else
+    public PriceFormat44Choice_? MaximumPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
+    [IsoId("_x_J28x9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat44Choice_? MinimumPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat44Choice_? MinimumPrice { get; init; } 
+    #else
+    public PriceFormat44Choice_? MinimumPrice { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CashInLieuOfSharePrice is PriceFormat57Choice_ CashInLieuOfSharePriceValue)
-        {
-            writer.WriteStartElement(null, "CshInLieuOfShrPric", xmlNamespace );
-            CashInLieuOfSharePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OverSubscriptionDepositPrice is PriceFormat57Choice_ OverSubscriptionDepositPriceValue)
-        {
-            writer.WriteStartElement(null, "OverSbcptDpstPric", xmlNamespace );
-            OverSubscriptionDepositPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaximumCashToInstruct is PriceFormat62Choice_ MaximumCashToInstructValue)
-        {
-            writer.WriteStartElement(null, "MaxCshToInst", xmlNamespace );
-            MaximumCashToInstructValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumCashToInstruct is PriceFormat62Choice_ MinimumCashToInstructValue)
-        {
-            writer.WriteStartElement(null, "MinCshToInst", xmlNamespace );
-            MinimumCashToInstructValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumMultipleCashToInstruct is PriceFormat62Choice_ MinimumMultipleCashToInstructValue)
-        {
-            writer.WriteStartElement(null, "MinMltplCshToInst", xmlNamespace );
-            MinimumMultipleCashToInstructValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MaximumPrice is PriceFormat44Choice_ MaximumPriceValue)
-        {
-            writer.WriteStartElement(null, "MaxPric", xmlNamespace );
-            MaximumPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumPrice is PriceFormat44Choice_ MinimumPriceValue)
-        {
-            writer.WriteStartElement(null, "MinPric", xmlNamespace );
-            MinimumPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionPrice71 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

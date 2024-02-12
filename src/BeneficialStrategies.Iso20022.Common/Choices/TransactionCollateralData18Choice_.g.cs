@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides the details of the collateral used in the transaction.
-/// </summary>
-[KnownType(typeof(TransactionCollateralData18Choice.RepurchaseTrade))]
-[KnownType(typeof(TransactionCollateralData18Choice.BuySellBack))]
-[KnownType(typeof(TransactionCollateralData18Choice.SecuritiesLending))]
-[KnownType(typeof(TransactionCollateralData18Choice.MarginLending))]
-public abstract partial record TransactionCollateralData18Choice_ : IIsoXmlSerilizable<TransactionCollateralData18Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides the details of the collateral used in the transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionCollateralData18Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionCollateralData18Choice.RepurchaseTrade))]
+    [KnownType(typeof(TransactionCollateralData18Choice.BuySellBack))]
+    [KnownType(typeof(TransactionCollateralData18Choice.SecuritiesLending))]
+    [KnownType(typeof(TransactionCollateralData18Choice.MarginLending))]
+    [IsoId("_C5KZIcg5Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Collateral Data 18 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionCollateralData18Choice_
+    #else
+    public abstract partial class TransactionCollateralData18Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RpTrad" => TransactionCollateralData18Choice.RepurchaseTrade.Deserialize(elementWithPayload),
-             "BuySellBck" => TransactionCollateralData18Choice.BuySellBack.Deserialize(elementWithPayload),
-             "SctiesLndg" => TransactionCollateralData18Choice.SecuritiesLending.Deserialize(elementWithPayload),
-             "MrgnLndg" => TransactionCollateralData18Choice.MarginLending.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionCollateralData18Choice choice.")
-        };
     }
 }

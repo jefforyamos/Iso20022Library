@@ -7,79 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a type of identification requested for an organisation.
 /// </summary>
+[IsoId("_AGP6yeH5Eeqbls7Gk4-ckA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Organisation Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OrganisationType2
-     : IIsoXmlSerilizable<OrganisationType2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Business identification code of the organisation is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [IsoId("_AIL0ceH5Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Any BIC")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AnyBIC { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AnyBIC { get; init; } 
+    #else
+    public System.String? AnyBIC { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal entity identification as an alternate identification for a party is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [IsoId("_AIL0c-H5Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("LEI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? LEI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LEI { get; init; } 
+    #else
+    public System.String? LEI { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address for electronic mail (e-mail) is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [IsoId("_MfUwQeH5Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Email Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EmailAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EmailAddress { get; init; } 
+    #else
+    public System.String? EmailAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
+    [IsoId("_AIL0deH5Eeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericOrganisationType1? Other { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericOrganisationType1? Other { get; init; } 
+    #else
+    public GenericOrganisationType1? Other { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AnyBIC is IsoRequestedIndicator AnyBICValue)
-        {
-            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AnyBICValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LEI is IsoRequestedIndicator LEIValue)
-        {
-            writer.WriteStartElement(null, "LEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(LEIValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EmailAddress is IsoRequestedIndicator EmailAddressValue)
-        {
-            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EmailAddressValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Other is GenericOrganisationType1 OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            OtherValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OrganisationType2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

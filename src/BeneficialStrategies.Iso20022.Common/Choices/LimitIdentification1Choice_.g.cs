@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Limit details of one particular limit set by the member and managed by the transaction administrator.
-/// </summary>
-[KnownType(typeof(LimitIdentification1Choice.Current))]
-[KnownType(typeof(LimitIdentification1Choice.Default))]
-[KnownType(typeof(LimitIdentification1Choice.AllCurrent))]
-[KnownType(typeof(LimitIdentification1Choice.AllDefault))]
-public abstract partial record LimitIdentification1Choice_ : IIsoXmlSerilizable<LimitIdentification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Limit details of one particular limit set by the member and managed by the transaction administrator.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static LimitIdentification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(LimitIdentification1Choice.Current))]
+    [KnownType(typeof(LimitIdentification1Choice.Default))]
+    [KnownType(typeof(LimitIdentification1Choice.AllCurrent))]
+    [KnownType(typeof(LimitIdentification1Choice.AllDefault))]
+    [IsoId("_73bb56MgEeCJ6YNENx4h-w_-184786449")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Identification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record LimitIdentification1Choice_
+    #else
+    public abstract partial class LimitIdentification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cur" => LimitIdentification1Choice.Current.Deserialize(elementWithPayload),
-             "Dflt" => LimitIdentification1Choice.Default.Deserialize(elementWithPayload),
-             "AllCur" => LimitIdentification1Choice.AllCurrent.Deserialize(elementWithPayload),
-             "AllDflt" => LimitIdentification1Choice.AllDefault.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid LimitIdentification1Choice choice.")
-        };
     }
 }

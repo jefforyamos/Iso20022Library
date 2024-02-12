@@ -7,63 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensitive information related to the mobile phone.
 /// </summary>
+[IsoId("_U6ri8NtoEeipuvJHTHIw9A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sensitive Mobile Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SensitiveMobileData1
-     : IIsoXmlSerilizable<SensitiveMobileData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SensitiveMobileData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SensitiveMobileData1( System.String reqMSISDN )
+    {
+        MSISDN = reqMSISDN;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// identifies the mobile - Mobile Subscriber Integrated Service Digital Network (The SIM identifier).
     /// </summary>
+    [IsoId("_q4gFINtoEeipuvJHTHIw9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("MSISDN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35NumericText MSISDN { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MSISDN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MSISDN { get; init; } 
+    #else
+    public System.String MSISDN { get; set; } 
+    #endif
+    
     /// <summary>
     /// International Mobile Subscriber Identity is a unique number associated with the mobile phone user, containing the Mobile Country Code (MCC), the Mobile Network Code (MNC), and the Mobile Identification Number (MSIN).
     /// </summary>
+    [IsoId("_w87FsNtoEeipuvJHTHIw9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("IMSI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? IMSI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IMSI { get; init; } 
+    #else
+    public System.String? IMSI { get; set; } 
+    #endif
+    
     /// <summary>
     /// International Mobile Equipment Identity is a number usually unique to identify a mobile phone.
     /// </summary>
+    [IsoId("_1pDdoNtoEeipuvJHTHIw9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("IMEI")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? IMEI { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IMEI { get; init; } 
+    #else
+    public System.String? IMEI { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MSISDN", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35NumericText(MSISDN)); // data type Max35NumericText System.String
-        writer.WriteEndElement();
-        if (IMSI is IsoMax35NumericText IMSIValue)
-        {
-            writer.WriteStartElement(null, "IMSI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(IMSIValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (IMEI is IsoMax35NumericText IMEIValue)
-        {
-            writer.WriteStartElement(null, "IMEI", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(IMEIValue)); // data type Max35NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SensitiveMobileData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

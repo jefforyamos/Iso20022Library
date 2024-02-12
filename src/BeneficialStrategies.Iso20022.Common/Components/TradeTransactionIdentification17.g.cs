@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
+[IsoId("_u9LWocK4EeuFNp8LZAnorg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Transaction Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeTransactionIdentification17
-     : IIsoXmlSerilizable<TradeTransactionIdentification17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeTransactionIdentification17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeTransactionIdentification17( OrganisationIdentification15Choice_ reqReportingCounterparty,OrganisationIdentification15Choice_ reqReportSubmittingEntity )
+    {
+        ReportingCounterparty = reqReportingCounterparty;
+        ReportSubmittingEntity = reqReportSubmittingEntity;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [IsoId("_IjNagM3OEeuiU4QSC_BouQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
+    [IsoId("_u-3_wcK4EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_ ReportingCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
+    [IsoId("_u-3_w8K4EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Submitting Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_ ReportSubmittingEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique code identifying that the Financial counterparty responsible for reporting on behalf of the other counterparty.
     /// </summary>
+    [IsoId("_zY_aoMK4EeuFNp8LZAnorg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entity Responsible For Report")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
-        ReportingCounterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptSubmitgNtty", xmlNamespace );
-        ReportSubmittingEntity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EntityResponsibleForReport is OrganisationIdentification15Choice_ EntityResponsibleForReportValue)
-        {
-            writer.WriteStartElement(null, "NttyRspnsblForRpt", xmlNamespace );
-            EntityResponsibleForReportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeTransactionIdentification17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

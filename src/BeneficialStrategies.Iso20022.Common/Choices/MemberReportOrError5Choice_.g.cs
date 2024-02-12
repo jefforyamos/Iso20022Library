@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// It is used to provide information on transactions and booked entries held at the transaction administrator.
-/// </summary>
-[KnownType(typeof(MemberReportOrError5Choice.Report))]
-[KnownType(typeof(MemberReportOrError5Choice.OperationalError))]
-public abstract partial record MemberReportOrError5Choice_ : IIsoXmlSerilizable<MemberReportOrError5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// It is used to provide information on transactions and booked entries held at the transaction administrator.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MemberReportOrError5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MemberReportOrError5Choice.Report))]
+    [KnownType(typeof(MemberReportOrError5Choice.OperationalError))]
+    [IsoId("_jUbLIXSbEeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Member Report Or Error 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MemberReportOrError5Choice_
+    #else
+    public abstract partial class MemberReportOrError5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rpt" => MemberReportOrError5Choice.Report.Deserialize(elementWithPayload),
-             "OprlErr" => MemberReportOrError5Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MemberReportOrError5Choice choice.")
-        };
     }
 }

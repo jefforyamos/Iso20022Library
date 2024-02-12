@@ -7,134 +7,268 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer order attached to a customer, recorded in the POI system.
 /// </summary>
+[IsoId("_R4AvQNuAEeiXqq0XHEoNUA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Customer Order")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CustomerOrder1
-     : IIsoXmlSerilizable<CustomerOrder1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CustomerOrder1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CustomerOrder1( System.String reqCustomerOrderIdentification,System.String reqSaleReferenceIdentification,System.DateTime reqStartDate,System.Decimal reqForecastedAmount )
+    {
+        CustomerOrderIdentification = reqCustomerOrderIdentification;
+        SaleReferenceIdentification = reqSaleReferenceIdentification;
+        StartDate = reqStartDate;
+        ForecastedAmount = reqForecastedAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of a customer order.
     /// </summary>
+    [IsoId("_Z4JOkNuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Order Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CustomerOrderIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CustomerOrderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CustomerOrderIdentification { get; init; } 
+    #else
+    public System.String CustomerOrderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a Sale transaction for a sequence of related POI transactions.
     /// </summary>
+    [IsoId("_ewpOkNuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Reference Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SaleReferenceIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SaleReferenceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SaleReferenceIdentification { get; init; } 
+    #else
+    public System.String SaleReferenceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if a customer order is currently open.
     /// </summary>
+    [IsoId("_pcoQINuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Open Order State")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OpenOrderState { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OpenOrderState { get; init; } 
+    #else
+    public System.String? OpenOrderState { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date time of the beginning of an operation.
     /// </summary>
+    [IsoId("_vD5aoNuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime StartDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime StartDate { get; init; } 
+    #else
+    public System.DateTime StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date time of the end of an operation.
     /// </summary>
+    [IsoId("_yyOtkNuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? EndDate { get; init; } 
+    #else
+    public System.DateTime? EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit of amount.
     /// </summary>
+    [IsoId("_3d_SENuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountUnit1Code? Unit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountUnit1Code? Unit { get; init; } 
+    #else
+    public AmountUnit1Code? Unit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Initial or global amount of the order.
     /// </summary>
+    [IsoId("_7BbjoNuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Forecasted Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal ForecastedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal ForecastedAmount { get; init; } 
+    #else
+    public System.Decimal ForecastedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of all completed transactions of a customer order.
     /// </summary>
+    [IsoId("__wALkNuAEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CurrentAmount { get; init; } 
+    #else
+    public System.Decimal? CurrentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of monetary amount.
     /// </summary>
+    [IsoId("_DvlmkNuBEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of an entity accessing data to perform an operation.
     /// </summary>
+    [IsoId("_HYXEENuBEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accessed By")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccessedBy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccessedBy { get; init; } 
+    #else
+    public System.String? AccessedBy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unqualified information related to customer order.
     /// </summary>
+    [IsoId("_KkheENuBEeiXqq0XHEoNUA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CstmrOrdrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerOrderIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SaleRefId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (OpenOrderState is IsoTrueFalseIndicator OpenOrderStateValue)
-        {
-            writer.WriteStartElement(null, "OpnOrdrStat", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OpenOrderStateValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StartDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(StartDate)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (EndDate is IsoISODateTime EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(EndDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (Unit is AmountUnit1Code UnitValue)
-        {
-            writer.WriteStartElement(null, "Unit", xmlNamespace );
-            writer.WriteValue(UnitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FrcstdAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ForecastedAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (CurrentAmount is IsoImpliedCurrencyAndAmount CurrentAmountValue)
-        {
-            writer.WriteStartElement(null, "CurAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CurrentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AccessedBy is IsoMax35Text AccessedByValue)
-        {
-            writer.WriteStartElement(null, "AccsdBy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccessedByValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CustomerOrder1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

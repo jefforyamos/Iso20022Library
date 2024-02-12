@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a credit default swap index.
 /// </summary>
+[IsoId("_xtQzi35eEea2k7EBUopqxw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Credit Default Swap Derivative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CreditDefaultSwapDerivative3
-     : IIsoXmlSerilizable<CreditDefaultSwapDerivative3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CreditDefaultSwapDerivative3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CreditDefaultSwapDerivative3( System.String reqIndexName,CreditDefaultSwapIndex2 reqIndex )
+    {
+        IndexName = reqIndexName;
+        Index = reqIndex;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Derivative on a credit default swap with the ISIN code of the underlying index.
     /// </summary>
+    [IsoId("_x6DSUX5eEea2k7EBUopqxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Index Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? UnderlyingIndexIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UnderlyingIndexIdentification { get; init; } 
+    #else
+    public System.String? UnderlyingIndexIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// To be populated for derivatives on a CDS index with the standardized name of the index.
     /// </summary>
+    [IsoId("_x6DSU35eEea2k7EBUopqxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 25 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax25Text IndexName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String IndexName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String IndexName { get; init; } 
+    #else
+    public System.String IndexName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the Index specific details the derivative is being made on.
     /// </summary>
+    [IsoId("_x6DSVX5eEea2k7EBUopqxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDefaultSwapIndex2 Index { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDefaultSwapIndex2 Index { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDefaultSwapIndex2 Index { get; init; } 
+    #else
+    public CreditDefaultSwapIndex2 Index { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (UnderlyingIndexIdentification is IsoISINOct2015Identifier UnderlyingIndexIdentificationValue)
-        {
-            writer.WriteStartElement(null, "UndrlygIndxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(UnderlyingIndexIdentificationValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IndxNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax25Text(IndexName)); // data type Max25Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Indx", xmlNamespace );
-        Index.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CreditDefaultSwapDerivative3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

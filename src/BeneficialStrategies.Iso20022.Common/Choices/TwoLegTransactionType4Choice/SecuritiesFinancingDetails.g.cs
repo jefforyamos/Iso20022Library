@@ -9,433 +9,770 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TwoLegTransactionType4Choice;
-
-/// <summary>
-/// Provides details about the two leg transaction.
-/// </summary>
-public partial record SecuritiesFinancingDetails : TwoLegTransactionType4Choice_
-     , IIsoXmlSerilizable<SecuritiesFinancingDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TwoLegTransactionType4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date/Time at which rate change has taken place.
+    /// Provides details about the two leg transaction.
     /// </summary>
-    public IsoISODateTime? RateChangeDate { get; init; } 
-    /// <summary>
-    /// Specifies whether the rate is fixed or variable.
-    /// </summary>
-    public RateType35Choice_? RateType { get; init; } 
-    /// <summary>
-    /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
-    /// </summary>
-    public Revaluation3Choice_? Revaluation { get; init; } 
-    /// <summary>
-    /// Legal framework of the transaction.
-    /// </summary>
-    public LegalFramework1Code? LegalFramework { get; init; } 
-    /// <summary>
-    /// Identifies the computation method of accrued interest of the related financial instrument.
-    /// </summary>
-    public InterestComputationMethod3Choice_? InterestComputationMethod { get; init; } 
-    /// <summary>
-    /// Index or support rate used together with the spread to calculate the repurchase rate.
-    /// </summary>
-    public RateName1? VariableRateSupport { get; init; } 
-    /// <summary>
-    /// Repurchase rate used to calculate the repurchase amount.
-    /// </summary>
-    public Rate2? RepurchaseRate { get; init; } 
-    /// <summary>
-    /// Percentage mark-up on a loan consideration used to reflect the lender's risk.
-    /// </summary>
-    public Rate2? StockLoanMargin { get; init; } 
-    /// <summary>
-    /// Haircut or valuation factor on the security expressed as a percentage.
-    /// </summary>
-    public Rate2? SecuritiesHaircut { get; init; } 
-    /// <summary>
-    /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
-    /// </summary>
-    public RateOrName1Choice_? PricingRate { get; init; } 
-    /// <summary>
-    /// Margin over or under an index that determines the repurchase rate, expressed as a rate or an amount.
-    /// </summary>
-    public SpreadRate1? SpreadRate { get; init; } 
-    /// <summary>
-    /// Indicates whether or not the trade is callable.
-    /// </summary>
-    public IsoYesNoIndicator? CallableTradeIndicator { get; init; } 
-    /// <summary>
-    /// Minimum number of days' notice a counterparty needs for terminating the transaction.
-    /// </summary>
-    public IsoMax3NumericText? TransactionCallDelay { get; init; } 
-    /// <summary>
-    /// Interest amount that has accrued in between two periods, for example, in between interest payment periods.
-    /// </summary>
-    public AmountAndDirection5? AccruedInterestAmount { get; init; } 
-    /// <summary>
-    /// Interest rate that has been accrued in between coupon payment periods.
-    /// </summary>
-    public IsoPercentageRate? AccruedInterestPercentage { get; init; } 
-    /// <summary>
-    /// Fixed amount of money that has to be paid (instead of interest) in the case of a recall or at the closing date.
-    /// </summary>
-    public AmountAndDirection5? ForfeitAmount { get; init; } 
-    /// <summary>
-    /// Difference between the amount of money of the first leg and the amount of the second leg of the transaction.
-    /// </summary>
-    public AmountAndDirection5? PremiumAmount { get; init; } 
-    /// <summary>
-    /// Amount of money to be settled per piece of collateral to close the transaction.
-    /// </summary>
-    public AmountAndDirection5? ClosingAmountPerPiecesOfCollateral { get; init; } 
-    /// <summary>
-    /// Indicates the total Number of collateral instructions involved in the transaction.
-    /// </summary>
-    public IsoMax3NumericText? TotalNumberOfCollateralInstructions { get; init; } 
-    /// <summary>
-    /// Provides details for the securities financing transaction.
-    /// </summary>
-    public Agreement5? FinancingAgreement { get; init; } 
-    /// <summary>
-    /// Method applied to a lending transaction.
-    /// </summary>
-    public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; init; } 
-    /// <summary>
-    /// Indicates if the contract is with or without an exchange of collateral.
-    /// </summary>
-    public IsoYesNoIndicator? LendingWithCollateral { get; init; } 
-    /// <summary>
-    /// Identifies the underlying reason for the borrowing, for instance, sale on my behalf or on behalf of a third party.
-    /// </summary>
-    public BorrowingReason2Choice_? BorrowingReason { get; init; } 
-    /// <summary>
-    /// Indicates the type of collateral, for insatnce, security, bond, etc.
-    /// </summary>
-    public CollateralType4Choice_? CollateralType { get; init; } 
-    /// <summary>
-    /// Indicates whether or not the contract terms changed.
-    /// </summary>
-    public IsoYesNoIndicator? ContractTermsModificationChanged { get; init; } 
-    /// <summary>
-    /// Interest rate to be paid as agreed between the counterparties.
-    /// </summary>
-    public Rate2? InterestRate { get; init; } 
-    /// <summary>
-    /// Rate to be paid by the Borrower to the Lender for the securities borrowed.
-    /// </summary>
-    public Rate2? BorrowingRate { get; init; } 
-    /// <summary>
-    /// Method used to calculate the standard collateral amount.
-    /// </summary>
-    public Rate2? StandardCollateralRatio { get; init; } 
-    /// <summary>
-    /// Percentage of earnings paid to shareholders in dividends.
-    /// </summary>
-    public Rate2? DividendRatio { get; init; } 
-    /// <summary>
-    /// Number of days the securities are lent or borrowed where the contract has an agreed closing date.
-    /// </summary>
-    public Number24Choice_? NumberOfDaysLendingBorrowing { get; init; } 
-    /// <summary>
-    /// Specifies the standard collateral amount.
-    /// </summary>
-    public AmountAndDirection5? StandardCollateralAmount { get; init; } 
-    /// <summary>
-    /// Interest rate tax that has been accrued in between coupon payment periods.
-    /// </summary>
-    public IsoYesNoIndicator? AccruedInterestTax { get; init; } 
-    /// <summary>
-    /// Number of days accrued at the instant of closing trade.
-    /// </summary>
-    public IsoMax3Number? EndNumberOfDaysAccrued { get; init; } 
-    /// <summary>
-    /// End ratio of principal outstanding to the original balance.
-    /// </summary>
-    public IsoBaseOneRate? EndFactor { get; init; } 
-    /// <summary>
-    /// Type of securities lending.
-    /// </summary>
-    public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; init; } 
-    /// <summary>
-    /// Indicates the possibility to terminate the securitiesc lending contract either by the borrower or lender before the expiration date.
-    /// </summary>
-    public Reversible2Choice_? Reversible { get; init; } 
-    /// <summary>
-    /// This is the minimum date at which the Borrower is allowed to give back the securities.
-    /// </summary>
-    public IsoISODate? MinimumDateForCallBack { get; init; } 
-    /// <summary>
-    /// Indicates that the contract can be rolled over.
-    /// </summary>
-    public IsoYesNoIndicator? RollOver { get; init; } 
-    /// <summary>
-    /// Indicates whether the securities lending fees can be paid periodically or at the end of the contract.
-    /// </summary>
-    public IsoYesNoIndicator? PeriodicPayment { get; init; } 
-    /// <summary>
-    /// Indicates whether the trade is executed ex coupon.
-    /// </summary>
-    public IsoYesNoIndicator? ExCoupon { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_9KbWEwhKEe2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Financing Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SecuritiesFinancingDetails : TwoLegTransactionType4Choice_
+    #else
+    public partial class SecuritiesFinancingDetails : TwoLegTransactionType4Choice_
+    #endif
     {
-        if (RateChangeDate is IsoISODateTime RateChangeDateValue)
-        {
-            writer.WriteStartElement(null, "RateChngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(RateChangeDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (RateType is RateType35Choice_ RateTypeValue)
-        {
-            writer.WriteStartElement(null, "RateTp", xmlNamespace );
-            RateTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Revaluation is Revaluation3Choice_ RevaluationValue)
-        {
-            writer.WriteStartElement(null, "Rvaltn", xmlNamespace );
-            RevaluationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalFramework is LegalFramework1Code LegalFrameworkValue)
-        {
-            writer.WriteStartElement(null, "LglFrmwk", xmlNamespace );
-            writer.WriteValue(LegalFrameworkValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (InterestComputationMethod is InterestComputationMethod3Choice_ InterestComputationMethodValue)
-        {
-            writer.WriteStartElement(null, "IntrstCmptnMtd", xmlNamespace );
-            InterestComputationMethodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VariableRateSupport is RateName1 VariableRateSupportValue)
-        {
-            writer.WriteStartElement(null, "VarblRateSpprt", xmlNamespace );
-            VariableRateSupportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RepurchaseRate is Rate2 RepurchaseRateValue)
-        {
-            writer.WriteStartElement(null, "RpRate", xmlNamespace );
-            RepurchaseRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StockLoanMargin is Rate2 StockLoanMarginValue)
-        {
-            writer.WriteStartElement(null, "StockLnMrgn", xmlNamespace );
-            StockLoanMarginValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesHaircut is Rate2 SecuritiesHaircutValue)
-        {
-            writer.WriteStartElement(null, "SctiesHrcut", xmlNamespace );
-            SecuritiesHaircutValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PricingRate is RateOrName1Choice_ PricingRateValue)
-        {
-            writer.WriteStartElement(null, "PricgRate", xmlNamespace );
-            PricingRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SpreadRate is SpreadRate1 SpreadRateValue)
-        {
-            writer.WriteStartElement(null, "SprdRate", xmlNamespace );
-            SpreadRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CallableTradeIndicator is IsoYesNoIndicator CallableTradeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CllblTradInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CallableTradeIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionCallDelay is IsoMax3NumericText TransactionCallDelayValue)
-        {
-            writer.WriteStartElement(null, "TxCallDely", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionCallDelayValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (AccruedInterestAmount is AmountAndDirection5 AccruedInterestAmountValue)
-        {
-            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
-            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccruedInterestPercentage is IsoPercentageRate AccruedInterestPercentageValue)
-        {
-            writer.WriteStartElement(null, "AcrdIntrstPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AccruedInterestPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ForfeitAmount is AmountAndDirection5 ForfeitAmountValue)
-        {
-            writer.WriteStartElement(null, "FrftAmt", xmlNamespace );
-            ForfeitAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PremiumAmount is AmountAndDirection5 PremiumAmountValue)
-        {
-            writer.WriteStartElement(null, "PrmAmt", xmlNamespace );
-            PremiumAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosingAmountPerPiecesOfCollateral is AmountAndDirection5 ClosingAmountPerPiecesOfCollateralValue)
-        {
-            writer.WriteStartElement(null, "ClsgAmtPerPcsOfColl", xmlNamespace );
-            ClosingAmountPerPiecesOfCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfCollateralInstructions is IsoMax3NumericText TotalNumberOfCollateralInstructionsValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfCollInstrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TotalNumberOfCollateralInstructionsValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (FinancingAgreement is Agreement5 FinancingAgreementValue)
-        {
-            writer.WriteStartElement(null, "FincgAgrmt", xmlNamespace );
-            FinancingAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LendingTransactionMethod is LendingTransactionMethod2Choice_ LendingTransactionMethodValue)
-        {
-            writer.WriteStartElement(null, "LndgTxMtd", xmlNamespace );
-            LendingTransactionMethodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LendingWithCollateral is IsoYesNoIndicator LendingWithCollateralValue)
-        {
-            writer.WriteStartElement(null, "LndgWthColl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LendingWithCollateralValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BorrowingReason is BorrowingReason2Choice_ BorrowingReasonValue)
-        {
-            writer.WriteStartElement(null, "BrrwgRsn", xmlNamespace );
-            BorrowingReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralType is CollateralType4Choice_ CollateralTypeValue)
-        {
-            writer.WriteStartElement(null, "CollTp", xmlNamespace );
-            CollateralTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractTermsModificationChanged is IsoYesNoIndicator ContractTermsModificationChangedValue)
-        {
-            writer.WriteStartElement(null, "CtrctTermsModChngd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ContractTermsModificationChangedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InterestRate is Rate2 InterestRateValue)
-        {
-            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
-            InterestRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BorrowingRate is Rate2 BorrowingRateValue)
-        {
-            writer.WriteStartElement(null, "BrrwgRate", xmlNamespace );
-            BorrowingRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandardCollateralRatio is Rate2 StandardCollateralRatioValue)
-        {
-            writer.WriteStartElement(null, "StdCollRatio", xmlNamespace );
-            StandardCollateralRatioValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DividendRatio is Rate2 DividendRatioValue)
-        {
-            writer.WriteStartElement(null, "DvddRatio", xmlNamespace );
-            DividendRatioValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NumberOfDaysLendingBorrowing is Number24Choice_ NumberOfDaysLendingBorrowingValue)
-        {
-            writer.WriteStartElement(null, "NbOfDaysLndgBrrwg", xmlNamespace );
-            NumberOfDaysLendingBorrowingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandardCollateralAmount is AmountAndDirection5 StandardCollateralAmountValue)
-        {
-            writer.WriteStartElement(null, "StdCollAmt", xmlNamespace );
-            StandardCollateralAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccruedInterestTax is IsoYesNoIndicator AccruedInterestTaxValue)
-        {
-            writer.WriteStartElement(null, "AcrdIntrstTax", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccruedInterestTaxValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EndNumberOfDaysAccrued is IsoMax3Number EndNumberOfDaysAccruedValue)
-        {
-            writer.WriteStartElement(null, "EndNbOfDaysAcrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Number(EndNumberOfDaysAccruedValue)); // data type Max3Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EndFactor is IsoBaseOneRate EndFactorValue)
-        {
-            writer.WriteStartElement(null, "EndFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(EndFactorValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SecuritiesLendingType is SecuritiesLendingType2Choice_ SecuritiesLendingTypeValue)
-        {
-            writer.WriteStartElement(null, "SctiesLndgTp", xmlNamespace );
-            SecuritiesLendingTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reversible is Reversible2Choice_ ReversibleValue)
-        {
-            writer.WriteStartElement(null, "Rvsbl", xmlNamespace );
-            ReversibleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumDateForCallBack is IsoISODate MinimumDateForCallBackValue)
-        {
-            writer.WriteStartElement(null, "MinDtForCallBck", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MinimumDateForCallBackValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (RollOver is IsoYesNoIndicator RollOverValue)
-        {
-            writer.WriteStartElement(null, "RollOver", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RollOverValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PeriodicPayment is IsoYesNoIndicator PeriodicPaymentValue)
-        {
-            writer.WriteStartElement(null, "PrdcPmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PeriodicPaymentValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ExCoupon is IsoYesNoIndicator ExCouponValue)
-        {
-            writer.WriteStartElement(null, "ExCpn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExCouponValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new SecuritiesFinancingDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date/Time at which rate change has taken place.
+        /// </summary>
+        [IsoId("_1oSiB4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate Change Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODateTime? RateChangeDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime? RateChangeDate { get; init; } 
+        #else
+        public System.DateTime? RateChangeDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the rate is fixed or variable.
+        /// </summary>
+        [IsoId("_1oSiCY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RateType35Choice_? RateType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RateType35Choice_? RateType { get; init; } 
+        #else
+        public RateType35Choice_? RateType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
+        /// </summary>
+        [IsoId("_1oSiC4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Revaluation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Revaluation3Choice_? Revaluation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Revaluation3Choice_? Revaluation { get; init; } 
+        #else
+        public Revaluation3Choice_? Revaluation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Legal framework of the transaction.
+        /// </summary>
+        [IsoId("_1oSiDY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Legal Framework")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public LegalFramework1Code? LegalFramework { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LegalFramework1Code? LegalFramework { get; init; } 
+        #else
+        public LegalFramework1Code? LegalFramework { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the computation method of accrued interest of the related financial instrument.
+        /// </summary>
+        [IsoId("_1oSiD4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Interest Computation Method")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InterestComputationMethod3Choice_? InterestComputationMethod { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InterestComputationMethod3Choice_? InterestComputationMethod { get; init; } 
+        #else
+        public InterestComputationMethod3Choice_? InterestComputationMethod { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Index or support rate used together with the spread to calculate the repurchase rate.
+        /// </summary>
+        [IsoId("_1oSiEY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variable Rate Support")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RateName1? VariableRateSupport { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RateName1? VariableRateSupport { get; init; } 
+        #else
+        public RateName1? VariableRateSupport { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Repurchase rate used to calculate the repurchase amount.
+        /// </summary>
+        [IsoId("_1oSiE4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Repurchase Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? RepurchaseRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? RepurchaseRate { get; init; } 
+        #else
+        public Rate2? RepurchaseRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Percentage mark-up on a loan consideration used to reflect the lender's risk.
+        /// </summary>
+        [IsoId("_1oSiFY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Stock Loan Margin")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? StockLoanMargin { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? StockLoanMargin { get; init; } 
+        #else
+        public Rate2? StockLoanMargin { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Haircut or valuation factor on the security expressed as a percentage.
+        /// </summary>
+        [IsoId("_1oSiF4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Haircut")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? SecuritiesHaircut { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? SecuritiesHaircut { get; init; } 
+        #else
+        public Rate2? SecuritiesHaircut { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
+        /// </summary>
+        [IsoId("_1oSiGY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Pricing Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RateOrName1Choice_? PricingRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RateOrName1Choice_? PricingRate { get; init; } 
+        #else
+        public RateOrName1Choice_? PricingRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Margin over or under an index that determines the repurchase rate, expressed as a rate or an amount.
+        /// </summary>
+        [IsoId("_1oSiG4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Spread Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SpreadRate1? SpreadRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SpreadRate1? SpreadRate { get; init; } 
+        #else
+        public SpreadRate1? SpreadRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether or not the trade is callable.
+        /// </summary>
+        [IsoId("_1oSiHY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Callable Trade Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? CallableTradeIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CallableTradeIndicator { get; init; } 
+        #else
+        public System.String? CallableTradeIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Minimum number of days' notice a counterparty needs for terminating the transaction.
+        /// </summary>
+        [IsoId("_1oSiH4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Call Delay")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax3NumericText? TransactionCallDelay { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TransactionCallDelay { get; init; } 
+        #else
+        public System.String? TransactionCallDelay { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Interest amount that has accrued in between two periods, for example, in between interest payment periods.
+        /// </summary>
+        [IsoId("_1oSiIY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Accrued Interest Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AmountAndDirection5? AccruedInterestAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountAndDirection5? AccruedInterestAmount { get; init; } 
+        #else
+        public AmountAndDirection5? AccruedInterestAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Interest rate that has been accrued in between coupon payment periods.
+        /// </summary>
+        [IsoId("_1oSiI4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Accrued Interest Percentage")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPercentageRate? AccruedInterestPercentage { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? AccruedInterestPercentage { get; init; } 
+        #else
+        public System.Decimal? AccruedInterestPercentage { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Fixed amount of money that has to be paid (instead of interest) in the case of a recall or at the closing date.
+        /// </summary>
+        [IsoId("_1oSiJY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Forfeit Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AmountAndDirection5? ForfeitAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountAndDirection5? ForfeitAmount { get; init; } 
+        #else
+        public AmountAndDirection5? ForfeitAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Difference between the amount of money of the first leg and the amount of the second leg of the transaction.
+        /// </summary>
+        [IsoId("_1oSiJ4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Premium Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AmountAndDirection5? PremiumAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountAndDirection5? PremiumAmount { get; init; } 
+        #else
+        public AmountAndDirection5? PremiumAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of money to be settled per piece of collateral to close the transaction.
+        /// </summary>
+        [IsoId("_1oSiKY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Closing Amount Per Pieces Of Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AmountAndDirection5? ClosingAmountPerPiecesOfCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountAndDirection5? ClosingAmountPerPiecesOfCollateral { get; init; } 
+        #else
+        public AmountAndDirection5? ClosingAmountPerPiecesOfCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the total Number of collateral instructions involved in the transaction.
+        /// </summary>
+        [IsoId("_1oSiK4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Total Number Of Collateral Instructions")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax3NumericText? TotalNumberOfCollateralInstructions { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TotalNumberOfCollateralInstructions { get; init; } 
+        #else
+        public System.String? TotalNumberOfCollateralInstructions { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides details for the securities financing transaction.
+        /// </summary>
+        [IsoId("_1oSiLY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financing Agreement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Agreement5? FinancingAgreement { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Agreement5? FinancingAgreement { get; init; } 
+        #else
+        public Agreement5? FinancingAgreement { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Method applied to a lending transaction.
+        /// </summary>
+        [IsoId("_1oSiL4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Lending Transaction Method")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; init; } 
+        #else
+        public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates if the contract is with or without an exchange of collateral.
+        /// </summary>
+        [IsoId("_1oSiMY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Lending With Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? LendingWithCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? LendingWithCollateral { get; init; } 
+        #else
+        public System.String? LendingWithCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the underlying reason for the borrowing, for instance, sale on my behalf or on behalf of a third party.
+        /// </summary>
+        [IsoId("_1oSiM4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Borrowing Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BorrowingReason2Choice_? BorrowingReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BorrowingReason2Choice_? BorrowingReason { get; init; } 
+        #else
+        public BorrowingReason2Choice_? BorrowingReason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the type of collateral, for insatnce, security, bond, etc.
+        /// </summary>
+        [IsoId("_1oSiNY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralType4Choice_? CollateralType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralType4Choice_? CollateralType { get; init; } 
+        #else
+        public CollateralType4Choice_? CollateralType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether or not the contract terms changed.
+        /// </summary>
+        [IsoId("_1oSiN4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Contract Terms Modification Changed")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? ContractTermsModificationChanged { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ContractTermsModificationChanged { get; init; } 
+        #else
+        public System.String? ContractTermsModificationChanged { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Interest rate to be paid as agreed between the counterparties.
+        /// </summary>
+        [IsoId("_1oSiOY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Interest Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? InterestRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? InterestRate { get; init; } 
+        #else
+        public Rate2? InterestRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Rate to be paid by the Borrower to the Lender for the securities borrowed.
+        /// </summary>
+        [IsoId("_1oSiO4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Borrowing Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? BorrowingRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? BorrowingRate { get; init; } 
+        #else
+        public Rate2? BorrowingRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Method used to calculate the standard collateral amount.
+        /// </summary>
+        [IsoId("_1oSiPY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standard Collateral Ratio")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? StandardCollateralRatio { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? StandardCollateralRatio { get; init; } 
+        #else
+        public Rate2? StandardCollateralRatio { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Percentage of earnings paid to shareholders in dividends.
+        /// </summary>
+        [IsoId("_1oSiP4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Dividend Ratio")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Rate2? DividendRatio { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Rate2? DividendRatio { get; init; } 
+        #else
+        public Rate2? DividendRatio { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Number of days the securities are lent or borrowed where the contract has an agreed closing date.
+        /// </summary>
+        [IsoId("_1oSiQY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Number Of Days Lending Borrowing")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Number24Choice_? NumberOfDaysLendingBorrowing { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Number24Choice_? NumberOfDaysLendingBorrowing { get; init; } 
+        #else
+        public Number24Choice_? NumberOfDaysLendingBorrowing { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the standard collateral amount.
+        /// </summary>
+        [IsoId("_1oSiQ4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standard Collateral Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AmountAndDirection5? StandardCollateralAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountAndDirection5? StandardCollateralAmount { get; init; } 
+        #else
+        public AmountAndDirection5? StandardCollateralAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Interest rate tax that has been accrued in between coupon payment periods.
+        /// </summary>
+        [IsoId("_1oSiRY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Accrued Interest Tax")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? AccruedInterestTax { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AccruedInterestTax { get; init; } 
+        #else
+        public System.String? AccruedInterestTax { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Number of days accrued at the instant of closing trade.
+        /// </summary>
+        [IsoId("_1oSiR4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("End Number Of Days Accrued")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax3Number? EndNumberOfDaysAccrued { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? EndNumberOfDaysAccrued { get; init; } 
+        #else
+        public System.UInt64? EndNumberOfDaysAccrued { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// End ratio of principal outstanding to the original balance.
+        /// </summary>
+        [IsoId("_1oSiSY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("End Factor")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoBaseOneRate? EndFactor { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? EndFactor { get; init; } 
+        #else
+        public System.Decimal? EndFactor { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Type of securities lending.
+        /// </summary>
+        [IsoId("_1oSiS4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Lending Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; init; } 
+        #else
+        public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the possibility to terminate the securitiesc lending contract either by the borrower or lender before the expiration date.
+        /// </summary>
+        [IsoId("_1oSiTY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reversible")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Reversible2Choice_? Reversible { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Reversible2Choice_? Reversible { get; init; } 
+        #else
+        public Reversible2Choice_? Reversible { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// This is the minimum date at which the Borrower is allowed to give back the securities.
+        /// </summary>
+        [IsoId("_1oSiT4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Minimum Date For Call Back")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? MinimumDateForCallBack { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? MinimumDateForCallBack { get; init; } 
+        #else
+        public System.DateOnly? MinimumDateForCallBack { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates that the contract can be rolled over.
+        /// </summary>
+        [IsoId("_1oSiUY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Roll Over")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? RollOver { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? RollOver { get; init; } 
+        #else
+        public System.String? RollOver { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the securities lending fees can be paid periodically or at the end of the contract.
+        /// </summary>
+        [IsoId("_1oSiU4-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Periodic Payment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? PeriodicPayment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? PeriodicPayment { get; init; } 
+        #else
+        public System.String? PeriodicPayment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the trade is executed ex coupon.
+        /// </summary>
+        [IsoId("_1oSiVY-eEeaEa8S_GI1QNA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Ex Coupon")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? ExCoupon { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ExCoupon { get; init; } 
+        #else
+        public System.String? ExCoupon { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

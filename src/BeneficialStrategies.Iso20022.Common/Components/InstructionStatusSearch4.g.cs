@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to search for the status of the payment.
 /// </summary>
+[IsoId("_yttMb5lcEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Instruction Status Search")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InstructionStatusSearch4
-     : IIsoXmlSerilizable<InstructionStatusSearch4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status of a transfer.
     /// </summary>
+    [IsoId("_y1nyQ5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentStatusCodeSearch2Choice_? PaymentInstructionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentStatusCodeSearch2Choice_? PaymentInstructionStatus { get; init; } 
+    #else
+    public PaymentStatusCodeSearch2Choice_? PaymentInstructionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the status was assigned to the transfer.
     /// </summary>
+    [IsoId("_y1nyRZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Status Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1Choice_? PaymentInstructionStatusDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1Choice_? PaymentInstructionStatusDateTime { get; init; } 
+    #else
+    public DateTimePeriod1Choice_? PaymentInstructionStatusDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the reason that has been used by the Target2 SSP system to reject the transaction.
     /// </summary>
+    [IsoId("_y1nyR5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ProprietaryStatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProprietaryStatusReason { get; init; } 
+    #else
+    public System.String? ProprietaryStatusReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PaymentInstructionStatus is PaymentStatusCodeSearch2Choice_ PaymentInstructionStatusValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrSts", xmlNamespace );
-            PaymentInstructionStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentInstructionStatusDateTime is DateTimePeriod1Choice_ PaymentInstructionStatusDateTimeValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrStsDtTm", xmlNamespace );
-            PaymentInstructionStatusDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProprietaryStatusReason is IsoMax4AlphaNumericText ProprietaryStatusReasonValue)
-        {
-            writer.WriteStartElement(null, "PrtryStsRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProprietaryStatusReasonValue)); // data type Max4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InstructionStatusSearch4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

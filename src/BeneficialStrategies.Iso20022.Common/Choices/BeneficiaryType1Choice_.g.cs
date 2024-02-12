@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for a type of beneficiary.
-/// </summary>
-[KnownType(typeof(BeneficiaryType1Choice.Code))]
-[KnownType(typeof(BeneficiaryType1Choice.Proprietary))]
-public abstract partial record BeneficiaryType1Choice_ : IIsoXmlSerilizable<BeneficiaryType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for a type of beneficiary.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static BeneficiaryType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(BeneficiaryType1Choice.Code))]
+    [KnownType(typeof(BeneficiaryType1Choice.Proprietary))]
+    [IsoId("_xDPgIFNgEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record BeneficiaryType1Choice_
+    #else
+    public abstract partial class BeneficiaryType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => BeneficiaryType1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => BeneficiaryType1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid BeneficiaryType1Choice choice.")
-        };
     }
 }

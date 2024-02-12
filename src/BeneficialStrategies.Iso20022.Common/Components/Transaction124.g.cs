@@ -7,216 +7,435 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transactions reported.
 /// </summary>
+[IsoId("_M9-J0Ss9EeySlt9bF77XfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transaction124
-     : IIsoXmlSerilizable<Transaction124>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transaction124 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transaction124( System.String reqTripartyAgentServiceProviderCollateralTransactionIdentification,ExposureType23Choice_ reqExposureType,CollateralParties11 reqCollateralParties,ClosingDate4Choice_ reqExecutionRequestedDate,ClosingDate4Choice_ reqClosingDate,CollateralAmount17 reqValuationAmounts )
+    {
+        TripartyAgentServiceProviderCollateralTransactionIdentification = reqTripartyAgentServiceProviderCollateralTransactionIdentification;
+        ExposureType = reqExposureType;
+        CollateralParties = reqCollateralParties;
+        ExecutionRequestedDate = reqExecutionRequestedDate;
+        ClosingDate = reqClosingDate;
+        ValuationAmounts = reqValuationAmounts;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
+    [IsoId("_NVOMNSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Triparty Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientTripartyCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? ClientTripartyCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference identifying the triparty-agent/service-provider collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
+    [IsoId("_NVOMNys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent Service Provider Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String TripartyAgentServiceProviderCollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique collateral transaction reference assigned by counterparty.
     /// </summary>
+    [IsoId("_NVOMOSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Collateral Transaction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CounterpartyCollateralTransactionReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterpartyCollateralTransactionReference { get; init; } 
+    #else
+    public System.String? CounterpartyCollateralTransactionReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [IsoId("_NVOMOys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommonTransactionIdentification { get; init; } 
+    #else
+    public System.String? CommonTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
+    [IsoId("_NVOMPSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType23Choice_ ExposureType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExposureType23Choice_ ExposureType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExposureType23Choice_ ExposureType { get; init; } 
+    #else
+    public ExposureType23Choice_ ExposureType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
+    [IsoId("_NVOMPys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType6Choice_? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType6Choice_? OptionType { get; init; } 
+    #else
+    public OptionType6Choice_? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
+    [IsoId("_NVOMQSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Termination Option")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RepoTerminationOption1Code? TerminationOption { get; init; } 
+    #else
+    public RepoTerminationOption1Code? TerminationOption { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the baskets identification and the Eligiblity Set Profile.
     /// </summary>
+    [IsoId("_NVOMQys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket Identification And Eligibility Set Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
+    #else
+    public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the chain of collateral parties.
     /// </summary>
+    [IsoId("_NVOMRSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Parties")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralParties11 CollateralParties { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralParties11 CollateralParties { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralParties11 CollateralParties { get; init; } 
+    #else
+    public CollateralParties11 CollateralParties { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the party requested the initiation instruction to be executed.
     /// </summary>
+    [IsoId("_NVOMRys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Requested Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClosingDate4Choice_ ExecutionRequestedDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ClosingDate4Choice_ ExecutionRequestedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClosingDate4Choice_ ExecutionRequestedDate { get; init; } 
+    #else
+    public ClosingDate4Choice_ ExecutionRequestedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [IsoId("_NVOMSSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ClosingDate4Choice_ ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClosingDate4Choice_ ClosingDate { get; init; } 
+    #else
+    public ClosingDate4Choice_ ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
+    [IsoId("_NVOMSys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAmount17 ValuationAmounts { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralAmount17 ValuationAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAmount17 ValuationAmounts { get; init; } 
+    #else
+    public CollateralAmount17 ValuationAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
+    [IsoId("_NVOMTSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pricing Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateOrName4Choice_? PricingRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateOrName4Choice_? PricingRate { get; init; } 
+    #else
+    public RateOrName4Choice_? PricingRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
+    [IsoId("_NVOMTys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MarginRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarginRate { get; init; } 
+    #else
+    public System.Decimal? MarginRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Margin rate over or under an index.
     /// Feedback 
     /// </summary>
+    [IsoId("_NVOMUSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Spread Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SpreadRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SpreadRate { get; init; } 
+    #else
+    public System.Decimal? SpreadRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
+    [IsoId("_NVOMUys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Day Count Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
+    #else
+    public InterestComputationMethodFormat4Choice_? DayCountBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
+    [IsoId("_NVOMVSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Automatic Allocation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AutomaticAllocation { get; init; } 
+    #else
+    public System.String? AutomaticAllocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the status of a  transaction.
     /// </summary>
-    public ValueList<TransactionStatus6> TransactionStatus { get; init; } = [];
+    [IsoId("_NVOMVys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<TransactionStatus6> TransactionStatus { get; init; } = new ValueList<TransactionStatus6>(){};
+    
     /// <summary>
     /// Quantity of securities assigned as collateral position.
     /// </summary>
+    [IsoId("_NVOMWSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesBalance3? SecuritiesBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesBalance3? SecuritiesBalance { get; init; } 
+    #else
+    public SecuritiesBalance3? SecuritiesBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of cash assigned as collateral position.
     /// </summary>
+    [IsoId("_NVOMWys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalance15? CashBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalance15? CashBalance { get; init; } 
+    #else
+    public CashBalance15? CashBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ClientTripartyCollateralTransactionIdentification is IsoMax35Text ClientTripartyCollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntTrptyCollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientTripartyCollateralTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCollTxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderCollateralTransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CounterpartyCollateralTransactionReference is IsoMax35Text CounterpartyCollateralTransactionReferenceValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyCollTxRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyCollateralTransactionReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CommonTransactionIdentification is IsoMax52Text CommonTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmonTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommonTransactionIdentificationValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
-        ExposureType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OptionType is OptionType6Choice_ OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            OptionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TerminationOption is RepoTerminationOption1Code TerminationOptionValue)
-        {
-            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
-            writer.WriteValue(TerminationOptionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BasketIdentificationAndEligibilitySetProfile is BasketIdentificationAndEligibilitySetProfile1 BasketIdentificationAndEligibilitySetProfileValue)
-        {
-            writer.WriteStartElement(null, "BsktIdAndElgbltySetPrfl", xmlNamespace );
-            BasketIdentificationAndEligibilitySetProfileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CollPties", xmlNamespace );
-        CollateralParties.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ExctnReqdDt", xmlNamespace );
-        ExecutionRequestedDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-        ClosingDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnAmts", xmlNamespace );
-        ValuationAmounts.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PricingRate is RateOrName4Choice_ PricingRateValue)
-        {
-            writer.WriteStartElement(null, "PricgRate", xmlNamespace );
-            PricingRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarginRate is IsoPercentageRate MarginRateValue)
-        {
-            writer.WriteStartElement(null, "MrgnRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MarginRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SpreadRate is IsoPercentageRate SpreadRateValue)
-        {
-            writer.WriteStartElement(null, "SprdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DayCountBasis is InterestComputationMethodFormat4Choice_ DayCountBasisValue)
-        {
-            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
-            DayCountBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AutomaticAllocation is IsoYesNoIndicator AutomaticAllocationValue)
-        {
-            writer.WriteStartElement(null, "AutomtcAllcn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AutomaticAllocationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        TransactionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SecuritiesBalance is SecuritiesBalance3 SecuritiesBalanceValue)
-        {
-            writer.WriteStartElement(null, "SctiesBal", xmlNamespace );
-            SecuritiesBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashBalance is CashBalance15 CashBalanceValue)
-        {
-            writer.WriteStartElement(null, "CshBal", xmlNamespace );
-            CashBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Transaction124 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

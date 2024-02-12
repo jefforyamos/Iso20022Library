@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for the source of the cash.
-/// </summary>
-[KnownType(typeof(SourceOfCash1Choice.Code))]
-[KnownType(typeof(SourceOfCash1Choice.Proprietary))]
-public abstract partial record SourceOfCash1Choice_ : IIsoXmlSerilizable<SourceOfCash1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for the source of the cash.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SourceOfCash1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SourceOfCash1Choice.Code))]
+    [KnownType(typeof(SourceOfCash1Choice.Proprietary))]
+    [IsoId("_jxZG4DlEEealR6-8aQ15BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Source Of Cash 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SourceOfCash1Choice_
+    #else
+    public abstract partial class SourceOfCash1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SourceOfCash1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SourceOfCash1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SourceOfCash1Choice choice.")
-        };
     }
 }

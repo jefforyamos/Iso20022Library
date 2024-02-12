@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument1Choice;
-
-/// <summary>
-/// Identification of the cash asset.
-/// </summary>
-public partial record CashAsset : FinancialInstrument1Choice_
-     , IIsoXmlSerilizable<CashAsset>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of cash asset.
+    /// Identification of the cash asset.
     /// </summary>
-    public required CashAssetType1Choice_ CashAssetType { get; init; } 
-    /// <summary>
-    /// Additional information about the cash asset.
-    /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_vbukwEyGEeir2sRRVd9XhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Asset")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CashAsset : FinancialInstrument1Choice_
+    #else
+    public partial class CashAsset : FinancialInstrument1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CshAsstTp", xmlNamespace );
-        CashAssetType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CashAsset instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CashAsset( CashAssetType1Choice_ reqCashAssetType )
         {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            CashAssetType = reqCashAssetType;
         }
-    }
-    public static new CashAsset Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of cash asset.
+        /// </summary>
+        [IsoId("_VrtRYEyIEeir2sRRVd9XhA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Asset Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CashAssetType1Choice_ CashAssetType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CashAssetType1Choice_ CashAssetType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAssetType1Choice_ CashAssetType { get; init; } 
+        #else
+        public CashAssetType1Choice_ CashAssetType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the cash asset.
+        /// </summary>
+        [IsoId("_cMk9YEyIEeir2sRRVd9XhA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #else
+        public AdditionalInformation15? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

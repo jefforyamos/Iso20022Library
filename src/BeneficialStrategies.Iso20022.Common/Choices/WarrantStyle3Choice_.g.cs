@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for warrant style.
-/// </summary>
-[KnownType(typeof(WarrantStyle3Choice.Code))]
-[KnownType(typeof(WarrantStyle3Choice.Proprietary))]
-public abstract partial record WarrantStyle3Choice_ : IIsoXmlSerilizable<WarrantStyle3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for warrant style.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static WarrantStyle3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(WarrantStyle3Choice.Code))]
+    [KnownType(typeof(WarrantStyle3Choice.Proprietary))]
+    [IsoId("_qwaaSeLbEeWFtOV72FbX9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Warrant Style 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record WarrantStyle3Choice_
+    #else
+    public abstract partial class WarrantStyle3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => WarrantStyle3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => WarrantStyle3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid WarrantStyle3Choice choice.")
-        };
     }
 }

@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the underlying (group of) transaction(s) to which the investigation applies.
 /// </summary>
+[IsoId("_PmjjStp-Ed-ak6NoX_4Aeg_-1321126765")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Underlying Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnderlyingTransaction1
-     : IIsoXmlSerilizable<UnderlyingTransaction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide information on the original messsage, to which the cancellation refers.
     /// </summary>
+    [IsoId("_PmjjS9p-Ed-ak6NoX_4Aeg_-1321126455")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Group Information And Cancellation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupInformation23? OriginalGroupInformationAndCancellation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalGroupInformation23? OriginalGroupInformationAndCancellation { get; init; } 
+    #else
+    public OriginalGroupInformation23? OriginalGroupInformationAndCancellation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide information on the original (group of) transactions, to which the cancellation request refers.
     /// </summary>
+    [IsoId("_PmjjTNp-Ed-ak6NoX_4Aeg_-1321126363")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information And Cancellation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInformation4? OriginalPaymentInformationAndCancellation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalPaymentInformation4? OriginalPaymentInformationAndCancellation { get; init; } 
+    #else
+    public OriginalPaymentInformation4? OriginalPaymentInformationAndCancellation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalGroupInformationAndCancellation is OriginalGroupInformation23 OriginalGroupInformationAndCancellationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlGrpInfAndCxl", xmlNamespace );
-            OriginalGroupInformationAndCancellationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalPaymentInformationAndCancellation is OriginalPaymentInformation4 OriginalPaymentInformationAndCancellationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPmtInfAndCxl", xmlNamespace );
-            OriginalPaymentInformationAndCancellationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static UnderlyingTransaction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

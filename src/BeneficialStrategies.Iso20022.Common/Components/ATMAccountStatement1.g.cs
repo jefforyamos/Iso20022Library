@@ -7,64 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[IsoId("_1dwnkIq7EeSHjtO_wHA7PQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Account Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMAccountStatement1
-     : IIsoXmlSerilizable<ATMAccountStatement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMAccountStatement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMAccountStatement1( AccountIdentification31Choice_ reqAccountIdentifier )
+    {
+        AccountIdentifier = reqAccountIdentifier;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
+    [IsoId("_DT20sIq8EeSHjtO_wHA7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification31Choice_ AccountIdentifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountIdentification31Choice_ AccountIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification31Choice_ AccountIdentifier { get; init; } 
+    #else
+    public AccountIdentification31Choice_ AccountIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
+    [IsoId("_LL9ZYIq8EeSHjtO_wHA7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AccountName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountName { get; init; } 
+    #else
+    public System.String? AccountName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Statement information.
     /// </summary>
+    [IsoId("_XaRwYIq8EeSHjtO_wHA7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Statement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMAccountStatement2? AccountStatement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMAccountStatement2? AccountStatement { get; init; } 
+    #else
+    public ATMAccountStatement2? AccountStatement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctIdr", xmlNamespace );
-        AccountIdentifier.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountName is IsoMax70Text AccountNameValue)
-        {
-            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AccountNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountStatement is ATMAccountStatement2 AccountStatementValue)
-        {
-            writer.WriteStartElement(null, "AcctStmt", xmlNamespace );
-            AccountStatementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMAccountStatement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

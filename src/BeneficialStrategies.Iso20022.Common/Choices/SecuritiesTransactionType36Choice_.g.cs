@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the repair reason.
-/// </summary>
-[KnownType(typeof(SecuritiesTransactionType36Choice.Code))]
-[KnownType(typeof(SecuritiesTransactionType36Choice.Proprietary))]
-public abstract partial record SecuritiesTransactionType36Choice_ : IIsoXmlSerilizable<SecuritiesTransactionType36Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the repair reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesTransactionType36Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesTransactionType36Choice.Code))]
+    [KnownType(typeof(SecuritiesTransactionType36Choice.Proprietary))]
+    [IsoId("_1egQwaUoEee4_75LDmHZiQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Transaction Type 36 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesTransactionType36Choice_
+    #else
+    public abstract partial class SecuritiesTransactionType36Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SecuritiesTransactionType36Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SecuritiesTransactionType36Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesTransactionType36Choice choice.")
-        };
     }
 }

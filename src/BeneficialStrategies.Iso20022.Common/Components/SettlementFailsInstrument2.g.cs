@@ -7,99 +7,235 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of financial instruments that are initially recorded or centrally maintained in CSDs (central securities depositories) as defined in the relevant regulation.
 /// </summary>
+[IsoId("_ao5uNR2lEeqF2P5v-Rtejg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Fails Instrument")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementFailsInstrument2
-     : IIsoXmlSerilizable<SettlementFailsInstrument2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementFailsInstrument2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementFailsInstrument2( SettlementTotalData1Choice_ reqEquity,SettlementTotalData1Choice_ reqSovereignDebt,SettlementTotalData1Choice_ reqBond,SettlementTotalData1Choice_ reqOtherTransferableSecurities,SettlementTotalData1Choice_ reqExchangeTradedFunds,SettlementTotalData1Choice_ reqCollectiveInvestmentUndertakings,SettlementTotalData1Choice_ reqMoneyMarketInstrument,SettlementTotalData1Choice_ reqEmissionAllowance,SettlementTotalData1Choice_ reqOther )
+    {
+        Equity = reqEquity;
+        SovereignDebt = reqSovereignDebt;
+        Bond = reqBond;
+        OtherTransferableSecurities = reqOtherTransferableSecurities;
+        ExchangeTradedFunds = reqExchangeTradedFunds;
+        CollectiveInvestmentUndertakings = reqCollectiveInvestmentUndertakings;
+        MoneyMarketInstrument = reqMoneyMarketInstrument;
+        EmissionAllowance = reqEmissionAllowance;
+        Other = reqOther;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Shares in companies and other securities equivalent to shares in companies, partnerships or other entities, and depositary receipts in respect of share.
     /// </summary>
+    [IsoId("_apzGER2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ Equity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ Equity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ Equity { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ Equity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Debt instrument issued by a sovereign issuer.
     /// </summary>
+    [IsoId("_apzGEx2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sovereign Debt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ SovereignDebt { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ SovereignDebt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ SovereignDebt { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ SovereignDebt { get; set; } 
+    #endif
+    
     /// <summary>
     /// Bonds other than sovereign debt.
     /// </summary>
+    [IsoId("_apzGFR2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bond")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ Bond { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ Bond { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ Bond { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ Bond { get; set; } 
+    #endif
+    
     /// <summary>
     /// Securities meeting the criteria laid down in the relevant legislation.
     /// </summary>
+    [IsoId("_apzGFx2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Transferable Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ OtherTransferableSecurities { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ OtherTransferableSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ OtherTransferableSecurities { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ OtherTransferableSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Relates to a fund of which at least one unit or share class is traded throughout the day on at least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value, as referred to in the relevant legislation.
     /// </summary>
+    [IsoId("_apzGGR2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Traded Funds")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ ExchangeTradedFunds { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ ExchangeTradedFunds { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ ExchangeTradedFunds { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ ExchangeTradedFunds { get; set; } 
+    #endif
+    
     /// <summary>
     /// Units in collective investment undertakings, other than ETFs.
     /// </summary>
+    [IsoId("_apzGGx2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collective Investment Undertakings")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ CollectiveInvestmentUndertakings { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ CollectiveInvestmentUndertakings { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ CollectiveInvestmentUndertakings { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ CollectiveInvestmentUndertakings { get; set; } 
+    #endif
+    
     /// <summary>
     /// Money market instruments other than sovereign debts.
     /// </summary>
+    [IsoId("_apzGHR2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Money Market Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ MoneyMarketInstrument { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ MoneyMarketInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ MoneyMarketInstrument { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ MoneyMarketInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Relates to emission allowances which are tradable according to the relevant legislation.
     /// </summary>
+    [IsoId("_apzGHx2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Emission Allowance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ EmissionAllowance { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ EmissionAllowance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ EmissionAllowance { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ EmissionAllowance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Covers any financial instruments not covered as a dedicated category.
     /// </summary>
+    [IsoId("_apzGIR2lEeqF2P5v-Rtejg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1Choice_ Other { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementTotalData1Choice_ Other { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTotalData1Choice_ Other { get; init; } 
+    #else
+    public SettlementTotalData1Choice_ Other { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Eqty", xmlNamespace );
-        Equity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SvrgnDebt", xmlNamespace );
-        SovereignDebt.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Bd", xmlNamespace );
-        Bond.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OthrTrfblScties", xmlNamespace );
-        OtherTransferableSecurities.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XchgTraddFnds", xmlNamespace );
-        ExchangeTradedFunds.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CllctvInvstmtUdrtkgs", xmlNamespace );
-        CollectiveInvestmentUndertakings.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MnyMktInstrm", xmlNamespace );
-        MoneyMarketInstrument.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EmssnAllwnc", xmlNamespace );
-        EmissionAllowance.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Othr", xmlNamespace );
-        Other.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static SettlementFailsInstrument2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

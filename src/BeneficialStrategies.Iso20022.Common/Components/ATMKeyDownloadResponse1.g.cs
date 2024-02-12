@@ -7,77 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the response of an ATM key download from an ATM manager.
 /// </summary>
+[IsoId("_vxSi0ItREeST3ocKVc8_qA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Key Download Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMKeyDownloadResponse1
-     : IIsoXmlSerilizable<ATMKeyDownloadResponse1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMKeyDownloadResponse1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMKeyDownloadResponse1( ATMEnvironment7 reqEnvironment,ATMSecurityContext2 reqATMSecurityContext,SecurityParameters5 reqHostSecurityParameters )
+    {
+        Environment = reqEnvironment;
+        ATMSecurityContext = reqATMSecurityContext;
+        HostSecurityParameters = reqHostSecurityParameters;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Environment of the key download.
     /// </summary>
+    [IsoId("_FjRocItSEeST3ocKVc8_qA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment7 Environment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMEnvironment7 Environment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMEnvironment7 Environment { get; init; } 
+    #else
+    public ATMEnvironment7 Environment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context of the ATM for the key download.
     /// </summary>
+    [IsoId("_JsqfsItSEeST3ocKVc8_qA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Security Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityContext2 ATMSecurityContext { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMSecurityContext2 ATMSecurityContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMSecurityContext2 ATMSecurityContext { get; init; } 
+    #else
+    public ATMSecurityContext2 ATMSecurityContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Random value from the ATM provided during a previous exchange.
     /// </summary>
+    [IsoId("_Ppse0ItSEeST3ocKVc8_qA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Challenge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? ATMChallenge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ATMChallenge { get; init; } 
+    #else
+    public System.Byte[]? ATMChallenge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security parameters of the host downloading the key.
     /// </summary>
+    [IsoId("_pE7XgItcEeST3ocKVc8_qA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Security Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityParameters5 HostSecurityParameters { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityParameters5 HostSecurityParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityParameters5 HostSecurityParameters { get; init; } 
+    #else
+    public SecurityParameters5 HostSecurityParameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
+    [IsoId("_s6PKQIteEeST3ocKVc8_qA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand1? Command { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommand1? Command { get; init; } 
+    #else
+    public ATMCommand1? Command { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Envt", xmlNamespace );
-        Environment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ATMSctyCntxt", xmlNamespace );
-        ATMSecurityContext.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ATMChallenge is IsoMax140Binary ATMChallengeValue)
-        {
-            writer.WriteStartElement(null, "ATMChllng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Binary(ATMChallengeValue)); // data type Max140Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "HstSctyParams", xmlNamespace );
-        HostSecurityParameters.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Command is ATMCommand1 CommandValue)
-        {
-            writer.WriteStartElement(null, "Cmd", xmlNamespace );
-            CommandValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMKeyDownloadResponse1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

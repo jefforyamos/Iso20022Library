@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for the update type.
-/// </summary>
-[KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsCode))]
-[KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsDSS))]
-public abstract partial record StatementUpdateTypeCodeAndDSSCodeChoice_ : IIsoXmlSerilizable<StatementUpdateTypeCodeAndDSSCodeChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for the update type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static StatementUpdateTypeCodeAndDSSCodeChoice_ Deserialize(XElement element)
+    [KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsCode))]
+    [KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsDSS))]
+    [IsoId("_Q7Cp89p-Ed-ak6NoX_4Aeg_2025558930")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Update Type Code And DSS Code Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record StatementUpdateTypeCodeAndDSSCodeChoice_
+    #else
+    public abstract partial class StatementUpdateTypeCodeAndDSSCodeChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "StmtUpdTpAsCd" => StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsCode.Deserialize(elementWithPayload),
-             "StmtUpdTpAsDSS" => StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsDSS.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid StatementUpdateTypeCodeAndDSSCodeChoice choice.")
-        };
     }
 }

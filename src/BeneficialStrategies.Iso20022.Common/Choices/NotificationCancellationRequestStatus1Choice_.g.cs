@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between various statuses.
-/// </summary>
-[KnownType(typeof(NotificationCancellationRequestStatus1Choice.ProcessedStatus))]
-[KnownType(typeof(NotificationCancellationRequestStatus1Choice.RejectedStatus))]
-public abstract partial record NotificationCancellationRequestStatus1Choice_ : IIsoXmlSerilizable<NotificationCancellationRequestStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between various statuses.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NotificationCancellationRequestStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NotificationCancellationRequestStatus1Choice.ProcessedStatus))]
+    [KnownType(typeof(NotificationCancellationRequestStatus1Choice.RejectedStatus))]
+    [IsoId("_RiYWw9p-Ed-ak6NoX_4Aeg_-987032957")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Cancellation Request Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NotificationCancellationRequestStatus1Choice_
+    #else
+    public abstract partial class NotificationCancellationRequestStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PrcdSts" => NotificationCancellationRequestStatus1Choice.ProcessedStatus.Deserialize(elementWithPayload),
-             "RjctdSts" => NotificationCancellationRequestStatus1Choice.RejectedStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NotificationCancellationRequestStatus1Choice choice.")
-        };
     }
 }

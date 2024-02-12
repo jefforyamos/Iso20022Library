@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for an instruction processing status.
-/// </summary>
-[KnownType(typeof(InstructionProcessingStatus42Choice.PendingProcessing))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.CancellationRequested))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.AcknowledgedAccepted))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.Cancelled))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.Generated))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.Repair))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.PendingCancellation))]
-[KnownType(typeof(InstructionProcessingStatus42Choice.ModificationRequested))]
-public abstract partial record InstructionProcessingStatus42Choice_ : IIsoXmlSerilizable<InstructionProcessingStatus42Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for an instruction processing status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InstructionProcessingStatus42Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InstructionProcessingStatus42Choice.PendingProcessing))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.CancellationRequested))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.Cancelled))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.Generated))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.Repair))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.PendingCancellation))]
+    [KnownType(typeof(InstructionProcessingStatus42Choice.ModificationRequested))]
+    [IsoId("_7KKTcQpJEeup4r-PFG2T5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Processing Status 42 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InstructionProcessingStatus42Choice_
+    #else
+    public abstract partial class InstructionProcessingStatus42Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PdgPrcg" => InstructionProcessingStatus42Choice.PendingProcessing.Deserialize(elementWithPayload),
-             "CxlReqd" => InstructionProcessingStatus42Choice.CancellationRequested.Deserialize(elementWithPayload),
-             "AckdAccptd" => InstructionProcessingStatus42Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "Canc" => InstructionProcessingStatus42Choice.Cancelled.Deserialize(elementWithPayload),
-             "Gnrtd" => InstructionProcessingStatus42Choice.Generated.Deserialize(elementWithPayload),
-             "Rpr" => InstructionProcessingStatus42Choice.Repair.Deserialize(elementWithPayload),
-             "PdgCxl" => InstructionProcessingStatus42Choice.PendingCancellation.Deserialize(elementWithPayload),
-             "ModReqd" => InstructionProcessingStatus42Choice.ModificationRequested.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InstructionProcessingStatus42Choice choice.")
-        };
     }
 }

@@ -7,106 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
+[IsoId("_SlvRNtp-Ed-ak6NoX_4Aeg_-1975400876")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Calculation Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxCalculationInformation4
-     : IIsoXmlSerilizable<TaxCalculationInformation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [IsoId("_SlvRN9p-Ed-ak6NoX_4Aeg_-1975400840")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EU Capital Gain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUCapitalGain2Code? EUCapitalGain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EUCapitalGain2Code? EUCapitalGain { get; init; } 
+    #else
+    public EUCapitalGain2Code? EUCapitalGain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [IsoId("_SlvRONp-Ed-ak6NoX_4Aeg_-1153836760")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended EU Capital Gain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedEUCapitalGain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExtendedEUCapitalGain { get; init; } 
+    #else
+    public System.String? ExtendedEUCapitalGain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
+    [IsoId("_SlvROdp-Ed-ak6NoX_4Aeg_-1975400668")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Of Debt Claim")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PercentageOfDebtClaim { get; init; } 
+    #else
+    public System.Decimal? PercentageOfDebtClaim { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of grandfathered debt claim.
     /// </summary>
+    [IsoId("_SlvROtp-Ed-ak6NoX_4Aeg_-1975400608")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Grandfathered Debt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageGrandfatheredDebt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PercentageGrandfatheredDebt { get; init; } 
+    #else
+    public System.Decimal? PercentageGrandfatheredDebt { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [IsoId("_Sl4bINp-Ed-ak6NoX_4Aeg_-962659901")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxable Income Per Dividend")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxableIncomePerDividend { get; init; } 
+    #else
+    public System.Decimal? TaxableIncomePerDividend { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [IsoId("_Sl4bIdp-Ed-ak6NoX_4Aeg_-962659764")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EU Dividend Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUDividendStatus1Code? EUDividendStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EUDividendStatus1Code? EUDividendStatus { get; init; } 
+    #else
+    public EUDividendStatus1Code? EUDividendStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [IsoId("_Sl4bItp-Ed-ak6NoX_4Aeg_-962659408")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended EU Dividend Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedEUDividendStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExtendedEUDividendStatus { get; init; } 
+    #else
+    public System.String? ExtendedEUDividendStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EUCapitalGain is EUCapitalGain2Code EUCapitalGainValue)
-        {
-            writer.WriteStartElement(null, "EUCptlGn", xmlNamespace );
-            writer.WriteValue(EUCapitalGainValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExtendedEUCapitalGain is IsoExtended350Code ExtendedEUCapitalGainValue)
-        {
-            writer.WriteStartElement(null, "XtndedEUCptlGn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedEUCapitalGainValue)); // data type Extended350Code System.String
-            writer.WriteEndElement();
-        }
-        if (PercentageOfDebtClaim is IsoPercentageRate PercentageOfDebtClaimValue)
-        {
-            writer.WriteStartElement(null, "PctgOfDebtClm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfDebtClaimValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PercentageGrandfatheredDebt is IsoPercentageRate PercentageGrandfatheredDebtValue)
-        {
-            writer.WriteStartElement(null, "PctgGrdfthdDebt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageGrandfatheredDebtValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxableIncomePerDividend is IsoActiveOrHistoricCurrencyAnd13DecimalAmount TaxableIncomePerDividendValue)
-        {
-            writer.WriteStartElement(null, "TaxblIncmPerDvdd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(TaxableIncomePerDividendValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EUDividendStatus is EUDividendStatus1Code EUDividendStatusValue)
-        {
-            writer.WriteStartElement(null, "EUDvddSts", xmlNamespace );
-            writer.WriteValue(EUDividendStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExtendedEUDividendStatus is IsoExtended350Code ExtendedEUDividendStatusValue)
-        {
-            writer.WriteStartElement(null, "XtndedEUDvddSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedEUDividendStatusValue)); // data type Extended350Code System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TaxCalculationInformation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

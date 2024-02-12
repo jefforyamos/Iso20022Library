@@ -9,70 +9,128 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification45Choice;
-
-/// <summary>
-/// Selected safekeeping accounts list (and optionally balance information) to which the corporate action event applies.
-/// </summary>
-public partial record AccountsListAndBalanceDetails : AccountIdentification45Choice_
-     , IIsoXmlSerilizable<AccountsListAndBalanceDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification45Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Account where financial instruments are maintained.
+    /// Selected safekeeping accounts list (and optionally balance information) to which the corporate action event applies.
     /// </summary>
-    public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
-    /// <summary>
-    /// Party that legally owns the account.
-    /// </summary>
-    public PartyIdentification136Choice_? AccountOwner { get; init; } 
-    /// <summary>
-    /// Location where the financial instruments are/will be safekept.
-    /// </summary>
-    public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; init; } 
-    /// <summary>
-    /// Provides information about balance related to a corporate action.
-    /// </summary>
-    public CorporateActionBalanceDetails36? Balance { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_csxik_fSEeiNZp_PtLohLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accounts List And Balance Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AccountsListAndBalanceDetails : AccountIdentification45Choice_
+    #else
+    public partial class AccountsListAndBalanceDetails : AccountIdentification45Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(SafekeepingAccount)); // data type RestrictedFINXMax35Text System.String
-        writer.WriteEndElement();
-        if (AccountOwner is PartyIdentification136Choice_ AccountOwnerValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AccountsListAndBalanceDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AccountsListAndBalanceDetails( System.String reqSafekeepingAccount )
         {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            SafekeepingAccount = reqSafekeepingAccount;
         }
-        if (SafekeepingPlace is SafekeepingPlaceFormat32Choice_ SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Balance is CorporateActionBalanceDetails36 BalanceValue)
-        {
-            writer.WriteStartElement(null, "Bal", xmlNamespace );
-            BalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new AccountsListAndBalanceDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Account where financial instruments are maintained.
+        /// </summary>
+        [IsoId("_csxin_fSEeiNZp_PtLohLw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Safekeeping Account")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String SafekeepingAccount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String SafekeepingAccount { get; init; } 
+        #else
+        public System.String SafekeepingAccount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that legally owns the account.
+        /// </summary>
+        [IsoId("_csxip_fSEeiNZp_PtLohLw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification136Choice_? AccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification136Choice_? AccountOwner { get; init; } 
+        #else
+        public PartyIdentification136Choice_? AccountOwner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Location where the financial instruments are/will be safekept.
+        /// </summary>
+        [IsoId("_csxir_fSEeiNZp_PtLohLw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Safekeeping Place")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; init; } 
+        #else
+        public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides information about balance related to a corporate action.
+        /// </summary>
+        [IsoId("_csxit_fSEeiNZp_PtLohLw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Balance")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CorporateActionBalanceDetails36? Balance { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CorporateActionBalanceDetails36? Balance { get; init; } 
+        #else
+        public CorporateActionBalanceDetails36? Balance { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

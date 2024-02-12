@@ -7,111 +7,232 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a document.
 /// </summary>
+[IsoId("_Q1Ld4XR1EeiH1ZOt2UD8vQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Document")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Document12
-     : IIsoXmlSerilizable<Document12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Document12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Document12( DocumentType1Choice_ reqType,System.String reqIdentification,DateAndDateTime2Choice_ reqIssueDate,DocumentFormat1Choice_ reqFormat,System.Byte[] reqEnclosure )
+    {
+        Type = reqType;
+        Identification = reqIdentification;
+        IssueDate = reqIssueDate;
+        Format = reqFormat;
+        Enclosure = reqEnclosure;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of document or template.
     /// </summary>
+    [IsoId("_Q_AvUXR1EeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentType1Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentType1Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentType1Choice_ Type { get; init; } 
+    #else
+    public DocumentType1Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
+    [IsoId("_Q_AvU3R1EeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issue date or date time of the document.
     /// </summary>
+    [IsoId("_3iRlYXiJEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ IssueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTime2Choice_ IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_ IssueDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_ IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of document or transaction, for example, tax invoice.
     /// </summary>
+    [IsoId("_E_8EYniKEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier for a language used in the document.
     /// </summary>
+    [IsoId("_E_8EY3iKEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? LanguageCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LanguageCode { get; init; } 
+    #else
+    public string? LanguageCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
+    [IsoId("_Q_AvVXR1EeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentFormat1Choice_ Format { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentFormat1Choice_ Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentFormat1Choice_ Format { get; init; } 
+    #else
+    public DocumentFormat1Choice_ Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Technical name of the file.
     /// </summary>
+    [IsoId("_ZEDS8XiKEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("File Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? FileName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FileName { get; init; } 
+    #else
+    public System.String? FileName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signature of the enclosed binary file.
     /// </summary>
+    [IsoId("_Q_AvWXR1EeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature3? DigitalSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyAndSignature3? DigitalSignature { get; init; } 
+    #else
+    public PartyAndSignature3? DigitalSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>
+    [IsoId("_Q_AvV3R1EeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enclosure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10MbBinary Enclosure { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Byte[] Enclosure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[] Enclosure { get; init; } 
+    #else
+    public System.Byte[] Enclosure { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-        IssueDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Name is IsoMax140Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (LanguageCode is LanguageCode LanguageCodeValue)
-        {
-            writer.WriteStartElement(null, "LangCd", xmlNamespace );
-            writer.WriteValue(LanguageCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Frmt", xmlNamespace );
-        Format.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FileName is IsoMax140Text FileNameValue)
-        {
-            writer.WriteStartElement(null, "FileNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(FileNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (DigitalSignature is PartyAndSignature3 DigitalSignatureValue)
-        {
-            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
-            DigitalSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Nclsr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10MbBinary(Enclosure)); // data type Max10MbBinary System.Byte[]
-        writer.WriteEndElement();
-    }
-    public static Document12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

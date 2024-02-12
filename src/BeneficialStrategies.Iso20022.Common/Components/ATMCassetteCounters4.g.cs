@@ -7,123 +7,211 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Counters of media inside an ATM cassette.
 /// </summary>
+[IsoId("_5Ns1Qa4MEeWZgJQOa6iKCQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Cassette Counters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMCassetteCounters4
-     : IIsoXmlSerilizable<ATMCassetteCounters4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMCassetteCounters4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMCassetteCounters4( ATMCounterType1Code reqType )
+    {
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of counters.
     /// </summary>
+    [IsoId("_5Z6sUa4MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCounterType1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMCounterType1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCounterType1Code Type { get; init; } 
+    #else
+    public ATMCounterType1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of added media during servicing operations.
     /// </summary>
+    [IsoId("_5Z6sU64MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Added Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? AddedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? AddedNumber { get; init; } 
+    #else
+    public System.UInt64? AddedNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of removed media during servicing operations.
     /// </summary>
+    [IsoId("_5Z6sVa4MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Removed Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? RemovedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RemovedNumber { get; init; } 
+    #else
+    public System.UInt64? RemovedNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of media out of the cassette.
     /// </summary>
+    [IsoId("_5Z6sV64MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dispensed Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DispensedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? DispensedNumber { get; init; } 
+    #else
+    public System.UInt64? DispensedNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of media deposited in the cassette.
     /// </summary>
+    [IsoId("_5Z6sWa4MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deposited Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DepositedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? DepositedNumber { get; init; } 
+    #else
+    public System.UInt64? DepositedNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of recycled media from the cassette.
     /// </summary>
+    [IsoId("_5Z6sW64MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recycled Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? RecycledNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RecycledNumber { get; init; } 
+    #else
+    public System.UInt64? RecycledNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of retracted media originating from the cassette.
     /// </summary>
+    [IsoId("_5Z6sXa4MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Retracted Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? RetractedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RetractedNumber { get; init; } 
+    #else
+    public System.UInt64? RetractedNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of media from this cassette which are on the reject bin.
     /// </summary>
+    [IsoId("_5Z6sX64MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? RejectedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RejectedNumber { get; init; } 
+    #else
+    public System.UInt64? RejectedNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of media presented to the customer.
     /// </summary>
+    [IsoId("_5Z6sYa4MEeWZgJQOa6iKCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Presented Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PresentedNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? PresentedNumber { get; init; } 
+    #else
+    public System.UInt64? PresentedNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AddedNumber is IsoNumber AddedNumberValue)
-        {
-            writer.WriteStartElement(null, "AddedNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(AddedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RemovedNumber is IsoNumber RemovedNumberValue)
-        {
-            writer.WriteStartElement(null, "RmvdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(RemovedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (DispensedNumber is IsoNumber DispensedNumberValue)
-        {
-            writer.WriteStartElement(null, "DspnsdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(DispensedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (DepositedNumber is IsoNumber DepositedNumberValue)
-        {
-            writer.WriteStartElement(null, "DpstdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(DepositedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RecycledNumber is IsoNumber RecycledNumberValue)
-        {
-            writer.WriteStartElement(null, "RcycldNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(RecycledNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RetractedNumber is IsoNumber RetractedNumberValue)
-        {
-            writer.WriteStartElement(null, "RtrctdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(RetractedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RejectedNumber is IsoNumber RejectedNumberValue)
-        {
-            writer.WriteStartElement(null, "RjctdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(RejectedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PresentedNumber is IsoNumber PresentedNumberValue)
-        {
-            writer.WriteStartElement(null, "PresntdNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(PresentedNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMCassetteCounters4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

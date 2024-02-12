@@ -7,581 +7,1030 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
+[IsoId("_uuhp4Vc8EeunQrLahSRvvA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Payment Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerPaymentTransaction10
-     : IIsoXmlSerilizable<TrackerPaymentTransaction10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
+    [IsoId("_uu9uwVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracked Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
+    #else
+    public OriginalBusinessInstruction4? TrackedMessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that provides information on the status and related details of a transaction.
     /// </summary>
+    [IsoId("_uu9uw1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Informing Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
+    #else
+    public TrackerPartyIdentification2? TrackerInformingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that is updated on the status and related details of a transaction.
     /// </summary>
+    [IsoId("_uu9uxVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Informed Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
+    #else
+    public TrackerPartyIdentification2? TrackerInformedParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to reference a payment instruction.
     /// </summary>
+    [IsoId("_uu9ux1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentIdentification10? PaymentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentIdentification10? PaymentIdentification { get; init; } 
+    #else
+    public PaymentIdentification10? PaymentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
+    [IsoId("_uu9uyVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Type Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTypeInformation28? PaymentTypeInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTypeInformation28? PaymentTypeInformation { get; init; } 
+    #else
+    public PaymentTypeInformation28? PaymentTypeInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the business scenarios in which the payment is executed, such as customer credit transfer or cover payment.
     /// </summary>
+    [IsoId("_uu9uy1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Scenario")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? PaymentScenario { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentScenario { get; init; } 
+    #else
+    public System.String? PaymentScenario { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the details on how the settlement of the transaction(s) between the instructing agent and the instructed agent is completed.
     /// </summary>
+    [IsoId("_uu9uzVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementInstruction9? SettlementInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInstruction9? SettlementInformation { get; init; } 
+    #else
+    public SettlementInstruction9? SettlementInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [IsoId("_uu9uz1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? InstructingAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? InstructingAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? InstructingAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [IsoId("_uu9u0Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [IsoId("_uu9u01c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InterbankSettlementAmount { get; init; } 
+    #else
+    public System.Decimal? InterbankSettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [IsoId("_uu9u1Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterbankSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InterbankSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? InterbankSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the settlement instruction.
     /// </summary>
+    [IsoId("_uu9u11c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority3Code? SettlementPriority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Priority3Code? SettlementPriority { get; init; } 
+    #else
+    public Priority3Code? SettlementPriority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the occurred settlement time(s) of the payment transaction.
     /// </summary>
+    [IsoId("_uu9u2Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Time Indication")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementDateTimeIndication1? SettlementTimeIndication { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementDateTimeIndication1? SettlementTimeIndication { get; init; } 
+    #else
+    public SettlementDateTimeIndication1? SettlementTimeIndication { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the requested settlement time(s) of the payment instruction.
     /// </summary>
+    [IsoId("_uu9u21c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Time Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTimeRequest2? SettlementTimeRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTimeRequest2? SettlementTimeRequest { get; init; } 
+    #else
+    public SettlementTimeRequest2? SettlementTimeRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent. This means that the account servicing agent has received the payment order and has applied checks such as authorisation, availability of funds.
     /// </summary>
+    [IsoId("_uu9u3Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acceptance Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? AcceptanceDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? AcceptanceDateTime { get; init; } 
+    #else
+    public System.DateTime? AcceptanceDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date used for the correction of the value date of a cash pool movement that has been posted with a different value date.
     /// </summary>
+    [IsoId("_uu9u31c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pooling Adjustment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PoolingAdjustmentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PoolingAdjustmentDate { get; init; } 
+    #else
+    public System.DateOnly? PoolingAdjustmentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [IsoId("_uu9u4Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InstructedAmount { get; init; } 
+    #else
+    public System.Decimal? InstructedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
+    [IsoId("_uu9u41c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange15? ExchangeRateData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyExchange15? ExchangeRateData { get; init; } 
+    #else
+    public CurrencyExchange15? ExchangeRateData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
+    [IsoId("_uu9u5Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Bearer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeBearerType1Code? ChargeBearer { get; init; } 
+    #else
+    public ChargeBearerType1Code? ChargeBearer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
+    [IsoId("_uu9u51c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charges7? ChargesInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charges7? ChargesInformation { get; init; } 
+    #else
+    public Charges7? ChargesInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides tracker transaction information for a specific agent involved in the transaction chain. 
     /// </summary>
+    [IsoId("_Fp2WIVc9EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Record")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerRecord4? TrackerRecord { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerRecord4? TrackerRecord { get; init; } 
+    #else
+    public TrackerRecord4? TrackerRecord { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the tracking of the interbank transaction related to the payment.
     /// </summary>
+    [IsoId("_uu9u6Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tracker Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerData6? TrackerData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerData6? TrackerData { get; init; } 
+    #else
+    public TrackerData6? TrackerData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
+    [IsoId("_uu9u61c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Instructing Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent1 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9u7Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Instructing Agent 1 Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? PreviousInstructingAgent1Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? PreviousInstructingAgent1Account { get; init; } 
+    #else
+    public CashAccount38? PreviousInstructingAgent1Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
+    [IsoId("_uu9u71c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Instructing Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent2 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent2 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9u8Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Instructing Agent 2 Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? PreviousInstructingAgent2Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? PreviousInstructingAgent2Account { get; init; } 
+    #else
+    public CashAccount38? PreviousInstructingAgent2Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
+    [IsoId("_uu9u81c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Instructing Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent3 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent3 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent3 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9u9Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Instructing Agent 3 Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? PreviousInstructingAgent3Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? PreviousInstructingAgent3Account { get; init; } 
+    #else
+    public CashAccount38? PreviousInstructingAgent3Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
+    [IsoId("_uu9u91c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent1 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9u-Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent 1 Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? IntermediaryAgent1Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? IntermediaryAgent1Account { get; init; } 
+    #else
+    public CashAccount38? IntermediaryAgent1Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
+    [IsoId("_uu9u-1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent2 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent2 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9u_Vc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent 2 Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? IntermediaryAgent2Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? IntermediaryAgent2Account { get; init; } 
+    #else
+    public CashAccount38? IntermediaryAgent2Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
+    [IsoId("_uu9u_1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent3 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent3 { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent3 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 3 at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9vAVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Agent 3 Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? IntermediaryAgent3Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? IntermediaryAgent3Account { get; init; } 
+    #else
+    public CashAccount38? IntermediaryAgent3Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_uu9vA1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? UltimateDebtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification135? UltimateDebtor { get; init; } 
+    #else
+    public PartyIdentification135? UltimateDebtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that initiates the payment.|Usage: This can be either the debtor or a party that initiates the credit transfer on behalf of the debtor.
     /// </summary>
+    [IsoId("_uu9vBVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiating Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? InitiatingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification135? InitiatingParty { get; init; } 
+    #else
+    public PartyIdentification135? InitiatingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_uu9vB1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party40Choice_? Debtor { get; init; } 
+    #else
+    public Party40Choice_? Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
     /// </summary>
+    [IsoId("_uu9vCVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? DebtorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? DebtorAccount { get; init; } 
+    #else
+    public CashAccount38? DebtorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [IsoId("_uu9vC1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the debtor agent at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_uu9vDVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? DebtorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? DebtorAgentAccount { get; init; } 
+    #else
+    public CashAccount38? DebtorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [IsoId("_uu9vD1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? CreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? CreditorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? CreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
+    [IsoId("_uu9vEVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? CreditorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? CreditorAgentAccount { get; init; } 
+    #else
+    public CashAccount38? CreditorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [IsoId("_uu9vE1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party40Choice_? Creditor { get; init; } 
+    #else
+    public Party40Choice_? Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
+    [IsoId("_uu9vFVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? CreditorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? CreditorAccount { get; init; } 
+    #else
+    public CashAccount38? CreditorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [IsoId("_uu9vF1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ultimate Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? UltimateCreditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification135? UltimateCreditor { get; init; } 
+    #else
+    public PartyIdentification135? UltimateCreditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
+    [IsoId("_uu9vGVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction For Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionForCreditorAgent3? InstructionForCreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstructionForCreditorAgent3? InstructionForCreditorAgent { get; init; } 
+    #else
+    public InstructionForCreditorAgent3? InstructionForCreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the next agent. ||Usage: The next agent may not be the creditor agent.|The instruction can relate to a level of service, can be an instruction that has to be executed by the agent, or can be information required by the next agent.
     /// </summary>
+    [IsoId("_uu9vG1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction For Next Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionForNextAgent1? InstructionForNextAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstructionForNextAgent1? InstructionForNextAgent { get; init; } 
+    #else
+    public InstructionForNextAgent1? InstructionForNextAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Underlying reason for the payment transaction.|Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
+    [IsoId("_uu9vHVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Purpose2Choice_? Purpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Purpose2Choice_? Purpose { get; init; } 
+    #else
+    public Purpose2Choice_? Purpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    public ValueList<RegulatoryReporting3> RegulatoryReporting { get; init; } = [];
+    [IsoId("_uu9vH1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Regulatory Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<RegulatoryReporting3> RegulatoryReporting { get; init; } = new ValueList<RegulatoryReporting3>(){};
+    
     /// <summary>
     /// Provides details on the tax.
     /// </summary>
+    [IsoId("_uu9vIVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxInformation8? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxInformation8? Tax { get; init; } 
+    #else
+    public TaxInformation8? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public ValueList<RemittanceLocation7> RelatedRemittanceInformation { get; init; } = [];
+    [IsoId("_uu9vI1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Remittance Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<RemittanceLocation7> RelatedRemittanceInformation { get; init; } = new ValueList<RemittanceLocation7>(){};
+    
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
+    [IsoId("_uu9vJVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remittance Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceInformation16? RemittanceInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RemittanceInformation16? RemittanceInformation { get; init; } 
+    #else
+    public RemittanceInformation16? RemittanceInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the return reason.
     /// </summary>
+    [IsoId("_uu9vJ1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reject Return Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentRejectReturnReason1? RejectReturnReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentRejectReturnReason1? RejectReturnReason { get; init; } 
+    #else
+    public PaymentRejectReturnReason1? RejectReturnReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides all parties (agents and non-agents) involved in a return transaction.
     /// </summary>
+    [IsoId("_uu9vKVc8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Chain")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionParties8? ReturnChain { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionParties8? ReturnChain { get; init; } 
+    #else
+    public TransactionParties8? ReturnChain { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the underlying customer credit transfer for which cover is provided.
     /// </summary>
+    [IsoId("_uu9vK1c8EeunQrLahSRvvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Customer Credit Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditTransferTransaction46? UnderlyingCustomerCreditTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditTransferTransaction46? UnderlyingCustomerCreditTransfer { get; init; } 
+    #else
+    public CreditTransferTransaction46? UnderlyingCustomerCreditTransfer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TrackedMessageIdentification is OriginalBusinessInstruction4 TrackedMessageIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TrckdMsgId", xmlNamespace );
-            TrackedMessageIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TrackerInformingParty is TrackerPartyIdentification2 TrackerInformingPartyValue)
-        {
-            writer.WriteStartElement(null, "TrckrInfrmgPty", xmlNamespace );
-            TrackerInformingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TrackerInformedParty is TrackerPartyIdentification2 TrackerInformedPartyValue)
-        {
-            writer.WriteStartElement(null, "TrckrInfrmdPty", xmlNamespace );
-            TrackerInformedPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentIdentification is PaymentIdentification10 PaymentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PmtId", xmlNamespace );
-            PaymentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentTypeInformation is PaymentTypeInformation28 PaymentTypeInformationValue)
-        {
-            writer.WriteStartElement(null, "PmtTpInf", xmlNamespace );
-            PaymentTypeInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentScenario is IsoMax4Text PaymentScenarioValue)
-        {
-            writer.WriteStartElement(null, "PmtScnro", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(PaymentScenarioValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementInformation is SettlementInstruction9 SettlementInformationValue)
-        {
-            writer.WriteStartElement(null, "SttlmInf", xmlNamespace );
-            SettlementInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructingAgent is BranchAndFinancialInstitutionIdentification6 InstructingAgentValue)
-        {
-            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
-            InstructingAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructedAgent is BranchAndFinancialInstitutionIdentification6 InstructedAgentValue)
-        {
-            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
-            InstructedAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementAmount is IsoActiveCurrencyAndAmount InterbankSettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InterbankSettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SettlementPriority is Priority3Code SettlementPriorityValue)
-        {
-            writer.WriteStartElement(null, "SttlmPrty", xmlNamespace );
-            writer.WriteValue(SettlementPriorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SettlementTimeIndication is SettlementDateTimeIndication1 SettlementTimeIndicationValue)
-        {
-            writer.WriteStartElement(null, "SttlmTmIndctn", xmlNamespace );
-            SettlementTimeIndicationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementTimeRequest is SettlementTimeRequest2 SettlementTimeRequestValue)
-        {
-            writer.WriteStartElement(null, "SttlmTmReq", xmlNamespace );
-            SettlementTimeRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AcceptanceDateTime is IsoISODateTime AcceptanceDateTimeValue)
-        {
-            writer.WriteStartElement(null, "AccptncDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(AcceptanceDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (PoolingAdjustmentDate is IsoISODate PoolingAdjustmentDateValue)
-        {
-            writer.WriteStartElement(null, "PoolgAdjstmntDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PoolingAdjustmentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (InstructedAmount is IsoActiveOrHistoricCurrencyAndAmount InstructedAmountValue)
-        {
-            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExchangeRateData is CurrencyExchange15 ExchangeRateDataValue)
-        {
-            writer.WriteStartElement(null, "XchgRateData", xmlNamespace );
-            ExchangeRateDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
-        {
-            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
-            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ChargesInformation is Charges7 ChargesInformationValue)
-        {
-            writer.WriteStartElement(null, "ChrgsInf", xmlNamespace );
-            ChargesInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TrackerRecord is TrackerRecord4 TrackerRecordValue)
-        {
-            writer.WriteStartElement(null, "TrckrRcrd", xmlNamespace );
-            TrackerRecordValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TrackerData is TrackerData6 TrackerDataValue)
-        {
-            writer.WriteStartElement(null, "TrckrData", xmlNamespace );
-            TrackerDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousInstructingAgent1 is BranchAndFinancialInstitutionIdentification6 PreviousInstructingAgent1Value)
-        {
-            writer.WriteStartElement(null, "PrvsInstgAgt1", xmlNamespace );
-            PreviousInstructingAgent1Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousInstructingAgent1Account is CashAccount38 PreviousInstructingAgent1AccountValue)
-        {
-            writer.WriteStartElement(null, "PrvsInstgAgt1Acct", xmlNamespace );
-            PreviousInstructingAgent1AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousInstructingAgent2 is BranchAndFinancialInstitutionIdentification6 PreviousInstructingAgent2Value)
-        {
-            writer.WriteStartElement(null, "PrvsInstgAgt2", xmlNamespace );
-            PreviousInstructingAgent2Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousInstructingAgent2Account is CashAccount38 PreviousInstructingAgent2AccountValue)
-        {
-            writer.WriteStartElement(null, "PrvsInstgAgt2Acct", xmlNamespace );
-            PreviousInstructingAgent2AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousInstructingAgent3 is BranchAndFinancialInstitutionIdentification6 PreviousInstructingAgent3Value)
-        {
-            writer.WriteStartElement(null, "PrvsInstgAgt3", xmlNamespace );
-            PreviousInstructingAgent3Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousInstructingAgent3Account is CashAccount38 PreviousInstructingAgent3AccountValue)
-        {
-            writer.WriteStartElement(null, "PrvsInstgAgt3Acct", xmlNamespace );
-            PreviousInstructingAgent3AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent1 is BranchAndFinancialInstitutionIdentification6 IntermediaryAgent1Value)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
-            IntermediaryAgent1Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent1Account is CashAccount38 IntermediaryAgent1AccountValue)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt1Acct", xmlNamespace );
-            IntermediaryAgent1AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent2 is BranchAndFinancialInstitutionIdentification6 IntermediaryAgent2Value)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt2", xmlNamespace );
-            IntermediaryAgent2Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent2Account is CashAccount38 IntermediaryAgent2AccountValue)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt2Acct", xmlNamespace );
-            IntermediaryAgent2AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent3 is BranchAndFinancialInstitutionIdentification6 IntermediaryAgent3Value)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt3", xmlNamespace );
-            IntermediaryAgent3Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntermediaryAgent3Account is CashAccount38 IntermediaryAgent3AccountValue)
-        {
-            writer.WriteStartElement(null, "IntrmyAgt3Acct", xmlNamespace );
-            IntermediaryAgent3AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UltimateDebtor is PartyIdentification135 UltimateDebtorValue)
-        {
-            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
-            UltimateDebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InitiatingParty is PartyIdentification135 InitiatingPartyValue)
-        {
-            writer.WriteStartElement(null, "InitgPty", xmlNamespace );
-            InitiatingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Debtor is Party40Choice_ DebtorValue)
-        {
-            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-            DebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAccount is CashAccount38 DebtorAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
-            DebtorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAgent is BranchAndFinancialInstitutionIdentification6 DebtorAgentValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-            DebtorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAgentAccount is CashAccount38 DebtorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
-            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAgent is BranchAndFinancialInstitutionIdentification6 CreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-            CreditorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAgentAccount is CashAccount38 CreditorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
-            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Creditor is Party40Choice_ CreditorValue)
-        {
-            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-            CreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAccount is CashAccount38 CreditorAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
-            CreditorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UltimateCreditor is PartyIdentification135 UltimateCreditorValue)
-        {
-            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
-            UltimateCreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionForCreditorAgent is InstructionForCreditorAgent3 InstructionForCreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "InstrForCdtrAgt", xmlNamespace );
-            InstructionForCreditorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructionForNextAgent is InstructionForNextAgent1 InstructionForNextAgentValue)
-        {
-            writer.WriteStartElement(null, "InstrForNxtAgt", xmlNamespace );
-            InstructionForNextAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Purpose is Purpose2Choice_ PurposeValue)
-        {
-            writer.WriteStartElement(null, "Purp", xmlNamespace );
-            PurposeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RgltryRptg", xmlNamespace );
-        RegulatoryReporting.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Tax is TaxInformation8 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RltdRmtInf", xmlNamespace );
-        RelatedRemittanceInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (RemittanceInformation is RemittanceInformation16 RemittanceInformationValue)
-        {
-            writer.WriteStartElement(null, "RmtInf", xmlNamespace );
-            RemittanceInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RejectReturnReason is PaymentRejectReturnReason1 RejectReturnReasonValue)
-        {
-            writer.WriteStartElement(null, "RjctRtrRsn", xmlNamespace );
-            RejectReturnReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnChain is TransactionParties8 ReturnChainValue)
-        {
-            writer.WriteStartElement(null, "RtrChain", xmlNamespace );
-            ReturnChainValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnderlyingCustomerCreditTransfer is CreditTransferTransaction46 UnderlyingCustomerCreditTransferValue)
-        {
-            writer.WriteStartElement(null, "UndrlygCstmrCdtTrf", xmlNamespace );
-            UnderlyingCustomerCreditTransferValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TrackerPaymentTransaction10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

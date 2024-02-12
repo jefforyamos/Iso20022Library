@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of cash premium paid to the security holder when voting.
-/// </summary>
-[KnownType(typeof(IncentivePremiumType2Choice.PerSecurity))]
-[KnownType(typeof(IncentivePremiumType2Choice.PerVote))]
-[KnownType(typeof(IncentivePremiumType2Choice.PerAttendee))]
-public abstract partial record IncentivePremiumType2Choice_ : IIsoXmlSerilizable<IncentivePremiumType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of cash premium paid to the security holder when voting.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IncentivePremiumType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IncentivePremiumType2Choice.PerSecurity))]
+    [KnownType(typeof(IncentivePremiumType2Choice.PerVote))]
+    [KnownType(typeof(IncentivePremiumType2Choice.PerAttendee))]
+    [IsoId("_ui4e-_NBEeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incentive Premium Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IncentivePremiumType2Choice_
+    #else
+    public abstract partial class IncentivePremiumType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PerScty" => IncentivePremiumType2Choice.PerSecurity.Deserialize(elementWithPayload),
-             "PerVote" => IncentivePremiumType2Choice.PerVote.Deserialize(elementWithPayload),
-             "PerAttndee" => IncentivePremiumType2Choice.PerAttendee.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IncentivePremiumType2Choice choice.")
-        };
     }
 }

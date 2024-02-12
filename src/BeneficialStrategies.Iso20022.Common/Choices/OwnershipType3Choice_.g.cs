@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the owner type.
-/// </summary>
-[KnownType(typeof(OwnershipType3Choice.Code))]
-[KnownType(typeof(OwnershipType3Choice.Proprietary))]
-public abstract partial record OwnershipType3Choice_ : IIsoXmlSerilizable<OwnershipType3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the owner type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OwnershipType3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OwnershipType3Choice.Code))]
+    [KnownType(typeof(OwnershipType3Choice.Proprietary))]
+    [IsoId("_ZExBAIzhEemXJvzC2Wyt1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ownership Type 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OwnershipType3Choice_
+    #else
+    public abstract partial class OwnershipType3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => OwnershipType3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => OwnershipType3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OwnershipType3Choice choice.")
-        };
     }
 }

@@ -7,70 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction provided for verification in response.
 /// </summary>
+[IsoId("_Sp--2gEcEeCQm6a_G2yO_w_736718195")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Plain Card Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PlainCardData3
-     : IIsoXmlSerilizable<PlainCardData3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PlainCardData3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PlainCardData3( System.String reqPAN,System.UInt16 reqExpiryDate )
+    {
+        PAN = reqPAN;
+        ExpiryDate = reqExpiryDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card, or card number.
     /// </summary>
+    [IsoId("_Sp--2wEcEeCQm6a_G2yO_w_704747431")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PAN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin8Max28NumericText PAN { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PAN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PAN { get; init; } 
+    #else
+    public System.String PAN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identify a card inside a set of cards with the same card number (PAN).
     /// </summary>
+    [IsoId("_Sp--3AEcEeCQm6a_G2yO_w_-265175132")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardSequenceNumber { get; init; } 
+    #else
+    public System.String? CardSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date as from which the card can be used.
     /// </summary>
+    [IsoId("_Sp--3QEcEeCQm6a_G2yO_w_1590202939")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16? EffectiveDate { get; init; } 
+    #else
+    public System.UInt16? EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expiry date of the card.
     /// </summary>
+    [IsoId("_SqIIwAEcEeCQm6a_G2yO_w_-1367044960")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOYearMonth ExpiryDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt16 ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16 ExpiryDate { get; init; } 
+    #else
+    public System.UInt16 ExpiryDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PAN", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(PAN)); // data type Min8Max28NumericText System.String
-        writer.WriteEndElement();
-        if (CardSequenceNumber is IsoMin2Max3NumericText CardSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "CardSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(CardSequenceNumberValue)); // data type Min2Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EffectiveDate is IsoISOYearMonth EffectiveDateValue)
-        {
-            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(EffectiveDateValue)); // data type ISOYearMonth System.UInt16
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISOYearMonth(ExpiryDate)); // data type ISOYearMonth System.UInt16
-        writer.WriteEndElement();
-    }
-    public static PlainCardData3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

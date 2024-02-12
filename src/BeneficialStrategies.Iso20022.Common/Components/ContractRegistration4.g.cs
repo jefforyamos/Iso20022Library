@@ -7,117 +7,223 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Document that a user must file with an authorized servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
+[IsoId("_JNsckW49EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Contract Registration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ContractRegistration4
-     : IIsoXmlSerilizable<ContractRegistration4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ContractRegistration4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ContractRegistration4( System.String reqContractRegistrationOpeningIdentification,Priority2Code reqPriority,UnderlyingContract2Choice_ reqContract )
+    {
+        ContractRegistrationOpeningIdentification = reqContractRegistrationOpeningIdentification;
+        Priority = reqPriority;
+        Contract = reqContract;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the registered contract opening.
     /// </summary>
+    [IsoId("_JXX88W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Registration Opening Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ContractRegistrationOpeningIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ContractRegistrationOpeningIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ContractRegistrationOpeningIdentification { get; init; } 
+    #else
+    public System.String ContractRegistrationOpeningIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Priority requested for the opening of the registered contract.
     /// </summary>
+    [IsoId("_JXX8-W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Priority2Code Priority { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Priority2Code Priority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Priority2Code Priority { get; init; } 
+    #else
+    public Priority2Code Priority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the contract being registered.
     /// </summary>
+    [IsoId("_JXX8-249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingContract2Choice_ Contract { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnderlyingContract2Choice_ Contract { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingContract2Choice_ Contract { get; init; } 
+    #else
+    public UnderlyingContract2Choice_ Contract { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
+    [IsoId("_JXX8_W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractBalance1? ContractBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContractBalance1? ContractBalance { get; init; } 
+    #else
+    public ContractBalance1? ContractBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
+    [IsoId("_JXX8_249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Schedule Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
+    #else
+    public PaymentScheduleType1Choice_? PaymentScheduleType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of a previous contract registration.
     /// </summary>
+    [IsoId("_JXX9AW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Registration Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? PreviousRegistrationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? PreviousRegistrationIdentification { get; init; } 
+    #else
+    public DocumentIdentification22? PreviousRegistrationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the registered contract opening.
     /// </summary>
+    [IsoId("_JXX9A249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Documents provided as attachments to the contract registration request.
     /// </summary>
+    [IsoId("_JXX9BW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attachment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation3? Attachment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation3? Attachment { get; init; } 
+    #else
+    public DocumentGeneralInformation3? Attachment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_JXX9B249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CtrctRegnOpngId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ContractRegistrationOpeningIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Prty", xmlNamespace );
-        writer.WriteValue(Priority.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ctrct", xmlNamespace );
-        Contract.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ContractBalance is ContractBalance1 ContractBalanceValue)
-        {
-            writer.WriteStartElement(null, "CtrctBal", xmlNamespace );
-            ContractBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentScheduleType is PaymentScheduleType1Choice_ PaymentScheduleTypeValue)
-        {
-            writer.WriteStartElement(null, "PmtSchdlTp", xmlNamespace );
-            PaymentScheduleTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousRegistrationIdentification is DocumentIdentification22 PreviousRegistrationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrvsRegnId", xmlNamespace );
-            PreviousRegistrationIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-        if (Attachment is DocumentGeneralInformation3 AttachmentValue)
-        {
-            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
-            AttachmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ContractRegistration4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

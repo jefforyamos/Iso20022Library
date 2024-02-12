@@ -9,64 +9,131 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral1Choice;
-
-/// <summary>
-/// Identifies the collateral when the asset class pledged as collateral does not correspond to an ISIN.
-/// </summary>
-public partial record OtherCollateral : SecuredCollateral1Choice_
-     , IIsoXmlSerilizable<OtherCollateral>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies whether the collateral is a pool collateral or not.
+    /// Identifies the collateral when the asset class pledged as collateral does not correspond to an ISIN.
     /// </summary>
-    public required CollateralPool1Code PoolStatus { get; init; } 
-    /// <summary>
-    /// Identifies the asset class pledged as collateral, expressed as an ISO 10962 Classification of Financial Instrument (CFI).
-    /// </summary>
-    public required IsoCFIIdentifier Type { get; init; } 
-    /// <summary>
-    /// Provides the institutional sector, such as central government, central bank, etc. of the issuer of collateral.
-    /// </summary>
-    public required IsoSNA2008SectorIdentifier Sector { get; init; } 
-    /// <summary>
-    /// Nominal amount of money of the security pledged as collateral, when the collateral cannot be identified through an individual or basket ISIN.
-    /// </summary>
-    public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_aPU1wZgAEeSfnc-VXAEapg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Collateral")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OtherCollateral : SecuredCollateral1Choice_
+    #else
+    public partial class OtherCollateral : SecuredCollateral1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PoolSts", xmlNamespace );
-        writer.WriteValue(PoolStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCFIIdentifier(Type)); // data type CFIIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sctr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(Sector)); // data type SNA2008SectorIdentifier System.String
-        writer.WriteEndElement();
-        if (NominalAmount is IsoActiveCurrencyAndAmount NominalAmountValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OtherCollateral instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OtherCollateral( CollateralPool1Code reqPoolStatus,System.String reqType,System.String reqSector )
         {
-            writer.WriteStartElement(null, "NmnlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NominalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
+            PoolStatus = reqPoolStatus;
+            Type = reqType;
+            Sector = reqSector;
         }
-    }
-    public static new OtherCollateral Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies whether the collateral is a pool collateral or not.
+        /// </summary>
+        [IsoId("_gfxkUN7GEeSaBeqd_btViQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Pool Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CollateralPool1Code PoolStatus { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CollateralPool1Code PoolStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralPool1Code PoolStatus { get; init; } 
+        #else
+        public CollateralPool1Code PoolStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the asset class pledged as collateral, expressed as an ISO 10962 Classification of Financial Instrument (CFI).
+        /// </summary>
+        [IsoId("_5UkowZf7EeSfnc-VXAEapg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoCFIIdentifier Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Type { get; init; } 
+        #else
+        public System.String Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the institutional sector, such as central government, central bank, etc. of the issuer of collateral.
+        /// </summary>
+        [IsoId("_0ZPaYZf_EeSfnc-VXAEapg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sector")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoSNA2008SectorIdentifier Sector { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Sector { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Sector { get; init; } 
+        #else
+        public System.String Sector { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Nominal amount of money of the security pledged as collateral, when the collateral cannot be identified through an individual or basket ISIN.
+        /// </summary>
+        [IsoId("_DWHbp5f7EeSfnc-VXAEapg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Nominal Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? NominalAmount { get; init; } 
+        #else
+        public System.Decimal? NominalAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

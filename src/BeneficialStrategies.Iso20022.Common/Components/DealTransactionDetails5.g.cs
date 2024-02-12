@@ -7,153 +7,268 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the triparty collateral transaction deal.
 /// </summary>
+[IsoId("_udySIRIbEeyLzJfz3xPQNA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Deal Transaction Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DealTransactionDetails5
-     : IIsoXmlSerilizable<DealTransactionDetails5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DealTransactionDetails5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DealTransactionDetails5( ClosingDate4Choice_ reqClosingDate )
+    {
+        ClosingDate = reqClosingDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Place at which the instrument was traded.
     /// </summary>
+    [IsoId("_u1LedRIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Trade")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlaceOfTradeIdentification1? PlaceOfTrade { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlaceOfTradeIdentification1? PlaceOfTrade { get; init; } 
+    #else
+    public PlaceOfTradeIdentification1? PlaceOfTrade { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether a concentration limit applies to the transaction; if no limit applies, there is no constraint on how much of the collateral basket can be made up of one security.
     /// </summary>
+    [IsoId("_u1LedxIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Concentration Limit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConcentrationLimit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConcentrationLimit { get; init; } 
+    #else
+    public System.String? ConcentrationLimit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the number of days in which the cash investor and dealer can agree to revisit the terms of an agreement.
     /// </summary>
+    [IsoId("_u1LeeRIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Notice Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? MinimumNoticePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MinimumNoticePeriod { get; init; } 
+    #else
+    public System.String? MinimumNoticePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [IsoId("_u1LeexIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ClosingDate4Choice_ ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClosingDate4Choice_ ClosingDate { get; init; } 
+    #else
+    public ClosingDate4Choice_ ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the details for the deal amounts.
     /// </summary>
+    [IsoId("_u1LefRIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deal Details Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAmount18? DealDetailsAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAmount18? DealDetailsAmount { get; init; } 
+    #else
+    public CollateralAmount18? DealDetailsAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interest rate to be paid on the transaction amount as agreed between the counterparties and the tenor of the interest rate index.
     /// </summary>
+    [IsoId("_u1LefxIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pricing Rate And Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateOrName4Choice_? PricingRateAndIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateOrName4Choice_? PricingRateAndIndex { get; init; } 
+    #else
+    public RateOrName4Choice_? PricingRateAndIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates for a floating rate transaction if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied (default is N).
     /// </summary>
+    [IsoId("_u1LegRIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Overnight Frequency Rate Fixing")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FrequencyRateFixing1Choice_? OvernightFrequencyRateFixing { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FrequencyRateFixing1Choice_? OvernightFrequencyRateFixing { get; init; } 
+    #else
+    public FrequencyRateFixing1Choice_? OvernightFrequencyRateFixing { get; set; } 
+    #endif
+    
     /// <summary>
     /// Premium or discount applied on a given rate.
     /// </summary>
+    [IsoId("_u1LegxIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Spread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Spread { get; init; } 
+    #else
+    public System.Decimal? Spread { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
+    [IsoId("_u1LehRIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Day Count Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
+    #else
+    public InterestComputationMethodFormat4Choice_? DayCountBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the instruction is free or against payment.
     /// </summary>
+    [IsoId("_u1LehxIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryReceiptType2Code? Payment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryReceiptType2Code? Payment { get; init; } 
+    #else
+    public DeliveryReceiptType2Code? Payment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [IsoId("_u1LeiRIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType6Choice_? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType6Choice_? OptionType { get; init; } 
+    #else
+    public OptionType6Choice_? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
+    [IsoId("_u1LeixIbEeyLzJfz3xPQNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Termination Option")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RepoTerminationOption1Code? TerminationOption { get; init; } 
+    #else
+    public RepoTerminationOption1Code? TerminationOption { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceOfTrade is PlaceOfTradeIdentification1 PlaceOfTradeValue)
-        {
-            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
-            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConcentrationLimit is IsoYesNoIndicator ConcentrationLimitValue)
-        {
-            writer.WriteStartElement(null, "CncntrtnLmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConcentrationLimitValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MinimumNoticePeriod is IsoExact3NumericText MinimumNoticePeriodValue)
-        {
-            writer.WriteStartElement(null, "MinNtcePrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(MinimumNoticePeriodValue)); // data type Exact3NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-        ClosingDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DealDetailsAmount is CollateralAmount18 DealDetailsAmountValue)
-        {
-            writer.WriteStartElement(null, "DealDtlsAmt", xmlNamespace );
-            DealDetailsAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PricingRateAndIndex is RateOrName4Choice_ PricingRateAndIndexValue)
-        {
-            writer.WriteStartElement(null, "PricgRateAndIndx", xmlNamespace );
-            PricingRateAndIndexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OvernightFrequencyRateFixing is FrequencyRateFixing1Choice_ OvernightFrequencyRateFixingValue)
-        {
-            writer.WriteStartElement(null, "OvrnghtFrqcyRateFxg", xmlNamespace );
-            OvernightFrequencyRateFixingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Spread is IsoPercentageRate SpreadValue)
-        {
-            writer.WriteStartElement(null, "Sprd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DayCountBasis is InterestComputationMethodFormat4Choice_ DayCountBasisValue)
-        {
-            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
-            DayCountBasisValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Payment is DeliveryReceiptType2Code PaymentValue)
-        {
-            writer.WriteStartElement(null, "Pmt", xmlNamespace );
-            writer.WriteValue(PaymentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OptionType is OptionType6Choice_ OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            OptionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TerminationOption is RepoTerminationOption1Code TerminationOptionValue)
-        {
-            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
-            writer.WriteValue(TerminationOptionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static DealTransactionDetails5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

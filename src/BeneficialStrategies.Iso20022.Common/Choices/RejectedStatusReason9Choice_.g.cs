@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reason for which a transaction report is rejected.
-/// </summary>
-[KnownType(typeof(RejectedStatusReason9Choice.Reason))]
-[KnownType(typeof(RejectedStatusReason9Choice.ExtendedReason))]
-[KnownType(typeof(RejectedStatusReason9Choice.DataSourceScheme))]
-public abstract partial record RejectedStatusReason9Choice_ : IIsoXmlSerilizable<RejectedStatusReason9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reason for which a transaction report is rejected.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RejectedStatusReason9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RejectedStatusReason9Choice.Reason))]
+    [KnownType(typeof(RejectedStatusReason9Choice.ExtendedReason))]
+    [KnownType(typeof(RejectedStatusReason9Choice.DataSourceScheme))]
+    [IsoId("_RXWyh9p-Ed-ak6NoX_4Aeg_-1456677531")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Status Reason 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RejectedStatusReason9Choice_
+    #else
+    public abstract partial class RejectedStatusReason9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rsn" => RejectedStatusReason9Choice.Reason.Deserialize(elementWithPayload),
-             "XtndedRsn" => RejectedStatusReason9Choice.ExtendedReason.Deserialize(elementWithPayload),
-             "DataSrcSchme" => RejectedStatusReason9Choice.DataSourceScheme.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RejectedStatusReason9Choice choice.")
-        };
     }
 }

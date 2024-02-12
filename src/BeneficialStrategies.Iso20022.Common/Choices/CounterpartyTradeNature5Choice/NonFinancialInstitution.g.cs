@@ -9,63 +9,98 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature5Choice;
-
-/// <summary>
-/// Indicates that reporting counterparty is a non financial institution.
-/// </summary>
-public partial record NonFinancialInstitution : CounterpartyTradeNature5Choice_
-     , IIsoXmlSerilizable<NonFinancialInstitution>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
+    /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
-    public IsoNACEDomainIdentifier? Sector { get; init; } 
-    /// <summary>
-    /// Information whether the reporting counterparty is above the clearing threshold.
-    /// </summary>
-    public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
-    /// <summary>
-    /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the reporting counterparty's commercial or treasury financing activity.
-    /// </summary>
-    public IsoTrueFalseIndicator? DirectlyLinkedActivity { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_97ZDE7sAEea-m5tPqiasmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Financial Institution")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NonFinancialInstitution : CounterpartyTradeNature5Choice_
+    #else
+    public partial class NonFinancialInstitution : CounterpartyTradeNature5Choice_
+    #endif
     {
-        if (Sector is IsoNACEDomainIdentifier SectorValue)
-        {
-            writer.WriteStartElement(null, "Sctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNACEDomainIdentifier(SectorValue)); // data type NACEDomainIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingThreshold is IsoTrueFalseIndicator ClearingThresholdValue)
-        {
-            writer.WriteStartElement(null, "ClrThrshld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingThresholdValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DirectlyLinkedActivity is IsoTrueFalseIndicator DirectlyLinkedActivityValue)
-        {
-            writer.WriteStartElement(null, "DrctlyLkdActvty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DirectlyLinkedActivityValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new NonFinancialInstitution Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
+        /// </summary>
+        [IsoId("_Q2aJAcDyEeW6TPUXKSV6dQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sector")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoNACEDomainIdentifier? Sector { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Sector { get; init; } 
+        #else
+        public System.String? Sector { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information whether the reporting counterparty is above the clearing threshold.
+        /// </summary>
+        [IsoId("_Q2aJBcDyEeW6TPUXKSV6dQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Clearing Threshold")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ClearingThreshold { get; init; } 
+        #else
+        public System.String? ClearingThreshold { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the reporting counterparty's commercial or treasury financing activity.
+        /// </summary>
+        [IsoId("_Q2aJB8DyEeW6TPUXKSV6dQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Directly Linked Activity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoTrueFalseIndicator? DirectlyLinkedActivity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? DirectlyLinkedActivity { get; init; } 
+        #else
+        public System.String? DirectlyLinkedActivity { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,67 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason for a blocked status.
 /// </summary>
+[IsoId("__e0zUV1LEeagR5I1rq5oaw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Blocked Status Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BlockedStatusReason2
-     : IIsoXmlSerilizable<BlockedStatusReason2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BlockedStatusReason2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BlockedStatusReason2( TransactionType5Choice_ reqTransactionType,System.String reqBlocked,System.String reqAdditionalInformation )
+    {
+        TransactionType = reqTransactionType;
+        Blocked = reqBlocked;
+        AdditionalInformation = reqAdditionalInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of transaction for which the account has a blocked status.
     /// </summary>
+    [IsoId("__4jh8V1LEeagR5I1rq5oaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionType5Choice_ TransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionType5Choice_ TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionType5Choice_ TransactionType { get; init; } 
+    #else
+    public TransactionType5Choice_ TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
+    [IsoId("_E6gY4V1MEeagR5I1rq5oaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Blocked { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Blocked { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Blocked { get; init; } 
+    #else
+    public System.String Blocked { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the blocked status.
     /// </summary>
+    [IsoId("__4jh811LEeagR5I1rq5oaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockedReason2Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BlockedReason2Choice_? Reason { get; init; } 
+    #else
+    public BlockedReason2Choice_? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the blocked account status.
     /// </summary>
+    [IsoId("__4jh9V1LEeagR5I1rq5oaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text AdditionalInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AdditionalInformation { get; init; } 
+    #else
+    public System.String AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        TransactionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Blckd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Blocked)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Reason is BlockedReason2Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformation)); // data type Max350Text System.String
-        writer.WriteEndElement();
-    }
-    public static BlockedStatusReason2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

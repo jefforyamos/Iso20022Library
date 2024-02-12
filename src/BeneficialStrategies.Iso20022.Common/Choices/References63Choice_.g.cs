@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between references used to reference a previous transaction.
-/// </summary>
-[KnownType(typeof(References63Choice.PreviousReference))]
-[KnownType(typeof(References63Choice.OtherReference))]
-public abstract partial record References63Choice_ : IIsoXmlSerilizable<References63Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between references used to reference a previous transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References63Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References63Choice.PreviousReference))]
+    [KnownType(typeof(References63Choice.OtherReference))]
+    [IsoId("_buTXIYiiEeefvMoXmllHqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 63 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References63Choice_
+    #else
+    public abstract partial class References63Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PrvsRef" => References63Choice.PreviousReference.Deserialize(elementWithPayload),
-             "OthrRef" => References63Choice.OtherReference.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References63Choice choice.")
-        };
     }
 }

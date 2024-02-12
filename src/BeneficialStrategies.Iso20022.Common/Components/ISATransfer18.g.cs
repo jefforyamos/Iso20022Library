@@ -7,110 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[IsoId("_kiDyYQgMEeSFYfyUKDXKaw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ISA Transfer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ISATransfer18
-     : IIsoXmlSerilizable<ISATransfer18>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ISATransfer18 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ISATransfer18( System.String reqTransferIdentification,System.String reqAllOtherCash )
+    {
+        TransferIdentification = reqTransferIdentification;
+        AllOtherCash = reqAllOtherCash;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [IsoId("_k9SV0wgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MasterReference { get; init; } 
+    #else
+    public System.String? MasterReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification assigned to the transfer of asset, typically assigned by the transferee.
     /// </summary>
+    [IsoId("_k9SV1QgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransferIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransferIdentification { get; init; } 
+    #else
+    public System.String TransferIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the confirmation assigned by the transferor to the transfer.
     /// </summary>
+    [IsoId("_k9SV1wgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Confirmation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransferConfirmationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransferConfirmationIdentification { get; init; } 
+    #else
+    public System.String? TransferConfirmationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested date at which the assets should be transferred.
     /// </summary>
+    [IsoId("_k9SV2QgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Transfer Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
+    #else
+    public DateFormat1Choice_? RequestedTransferDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
+    [IsoId("_k9SV2wgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISAPortfolio1Choice_? Portfolio { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ISAPortfolio1Choice_? Portfolio { get; init; } 
+    #else
+    public ISAPortfolio1Choice_? Portfolio { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
+    [IsoId("_k9SV3QgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Residual Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResidualCash1Code? ResidualCash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResidualCash1Code? ResidualCash { get; init; } 
+    #else
+    public ResidualCash1Code? ResidualCash { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator that all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
+    [IsoId("_k9SV3wgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("All Other Cash")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AllOtherCash { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AllOtherCash { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AllOtherCash { get; init; } 
+    #else
+    public System.String AllOtherCash { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
+    [IsoId("_k9SV4QgMEeSFYfyUKDXKaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Asset For Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument39? FinancialInstrumentAssetForTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument39? FinancialInstrumentAssetForTransfer { get; init; } 
+    #else
+    public FinancialInstrument39? FinancialInstrumentAssetForTransfer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MasterReference is IsoMax35Text MasterReferenceValue)
-        {
-            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrfId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (TransferConfirmationIdentification is IsoMax35Text TransferConfirmationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TrfConfId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferConfirmationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RequestedTransferDate is DateFormat1Choice_ RequestedTransferDateValue)
-        {
-            writer.WriteStartElement(null, "ReqdTrfDt", xmlNamespace );
-            RequestedTransferDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Portfolio is ISAPortfolio1Choice_ PortfolioValue)
-        {
-            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
-            PortfolioValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResidualCash is ResidualCash1Code ResidualCashValue)
-        {
-            writer.WriteStartElement(null, "RsdlCsh", xmlNamespace );
-            writer.WriteValue(ResidualCashValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AllOthrCsh", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllOtherCash)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (FinancialInstrumentAssetForTransfer is FinancialInstrument39 FinancialInstrumentAssetForTransferValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmAsstForTrf", xmlNamespace );
-            FinancialInstrumentAssetForTransferValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ISATransfer18 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

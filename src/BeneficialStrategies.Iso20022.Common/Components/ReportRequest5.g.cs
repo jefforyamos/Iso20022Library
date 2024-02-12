@@ -7,87 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component define the environment, the context and the services to be used with this message.
 /// </summary>
+[IsoId("_9eR5cU6uEeyGi9JAv6wq7Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportRequest5
-     : IIsoXmlSerilizable<ReportRequest5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportRequest5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportRequest5( CardPaymentEnvironment78 reqEnvironment,CardPaymentContext29 reqContext,RetailerService6Code reqServiceContent )
+    {
+        Environment = reqEnvironment;
+        Context = reqContext;
+        ServiceContent = reqServiceContent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [IsoId("_9lRSQU6uEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment78 Environment { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentEnvironment78 Environment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentEnvironment78 Environment { get; init; } 
+    #else
+    public CardPaymentEnvironment78 Environment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [IsoId("_9lRSQ06uEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext29 Context { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentContext29 Context { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentContext29 Context { get; init; } 
+    #else
+    public CardPaymentContext29 Context { get; set; } 
+    #endif
+    
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
+    [IsoId("_9lRSRU6uEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService6Code ServiceContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RetailerService6Code ServiceContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerService6Code ServiceContent { get; init; } 
+    #else
+    public RetailerService6Code ServiceContent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Transaction Report Request message.
     /// </summary>
+    [IsoId("_9lRSR06uEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Transaction Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportTransactionRequest1? ReportTransactionRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportTransactionRequest1? ReportTransactionRequest { get; init; } 
+    #else
+    public ReportTransactionRequest1? ReportTransactionRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the Get Totals Request message.
     /// </summary>
+    [IsoId("_9lRSSU6uEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Get Totals Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportGetTotalsRequest1? ReportGetTotalsRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportGetTotalsRequest1? ReportGetTotalsRequest { get; init; } 
+    #else
+    public ReportGetTotalsRequest1? ReportGetTotalsRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
+    [IsoId("_9lRSS06uEeyGi9JAv6wq7Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Envt", xmlNamespace );
-        Environment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-        Context.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SvcCntt", xmlNamespace );
-        writer.WriteValue(ServiceContent.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ReportTransactionRequest is ReportTransactionRequest1 ReportTransactionRequestValue)
-        {
-            writer.WriteStartElement(null, "RptTxReq", xmlNamespace );
-            ReportTransactionRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportGetTotalsRequest is ReportGetTotalsRequest1 ReportGetTotalsRequestValue)
-        {
-            writer.WriteStartElement(null, "RptGetTtlsReq", xmlNamespace );
-            ReportGetTotalsRequestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportRequest5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

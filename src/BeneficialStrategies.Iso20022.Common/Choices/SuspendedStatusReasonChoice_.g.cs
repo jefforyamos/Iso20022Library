@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Suspended status reason.
-/// </summary>
-[KnownType(typeof(SuspendedStatusReasonChoice.Reason))]
-[KnownType(typeof(SuspendedStatusReasonChoice.Proprietary))]
-[KnownType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
-public abstract partial record SuspendedStatusReasonChoice_ : IIsoXmlSerilizable<SuspendedStatusReasonChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Suspended status reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SuspendedStatusReasonChoice_ Deserialize(XElement element)
+    [KnownType(typeof(SuspendedStatusReasonChoice.Reason))]
+    [KnownType(typeof(SuspendedStatusReasonChoice.Proprietary))]
+    [KnownType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
+    [IsoId("_RfGZSdp-Ed-ak6NoX_4Aeg_1537280901")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspended Status Reason Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SuspendedStatusReasonChoice_
+    #else
+    public abstract partial class SuspendedStatusReasonChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rsn" => SuspendedStatusReasonChoice.Reason.Deserialize(elementWithPayload),
-             "Prtry" => SuspendedStatusReasonChoice.Proprietary.Deserialize(elementWithPayload),
-             "NoSpcfdRsn" => SuspendedStatusReasonChoice.NoSpecifiedReason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SuspendedStatusReasonChoice choice.")
-        };
     }
 }

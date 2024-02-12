@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the identification of a financial instrument.
-/// </summary>
-[KnownType(typeof(SecurityIdentification26Choice.Identification))]
-[KnownType(typeof(SecurityIdentification26Choice.NotAvailable))]
-public abstract partial record SecurityIdentification26Choice_ : IIsoXmlSerilizable<SecurityIdentification26Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the identification of a financial instrument.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecurityIdentification26Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecurityIdentification26Choice.Identification))]
+    [KnownType(typeof(SecurityIdentification26Choice.NotAvailable))]
+    [IsoId("_OG6hAY7DEeaxxtxaoOwzAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification 26 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecurityIdentification26Choice_
+    #else
+    public abstract partial class SecurityIdentification26Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Id" => SecurityIdentification26Choice.Identification.Deserialize(elementWithPayload),
-             "NotAvlbl" => SecurityIdentification26Choice.NotAvailable.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecurityIdentification26Choice choice.")
-        };
     }
 }

@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identifies which information are involved by a modification request for party reference data.
-/// </summary>
-[KnownType(typeof(SystemPartyModification1Choice.SystemParty))]
-[KnownType(typeof(SystemPartyModification1Choice.PartyIdentification))]
-[KnownType(typeof(SystemPartyModification1Choice.PartyName))]
-[KnownType(typeof(SystemPartyModification1Choice.TechnicalAddress))]
-[KnownType(typeof(SystemPartyModification1Choice.PartyAddress))]
-[KnownType(typeof(SystemPartyModification1Choice.SystemRestriction))]
-[KnownType(typeof(SystemPartyModification1Choice.MarketSpecificAttribute))]
-public abstract partial record SystemPartyModification1Choice_ : IIsoXmlSerilizable<SystemPartyModification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identifies which information are involved by a modification request for party reference data.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SystemPartyModification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SystemPartyModification1Choice.SystemParty))]
+    [KnownType(typeof(SystemPartyModification1Choice.PartyIdentification))]
+    [KnownType(typeof(SystemPartyModification1Choice.PartyName))]
+    [KnownType(typeof(SystemPartyModification1Choice.TechnicalAddress))]
+    [KnownType(typeof(SystemPartyModification1Choice.PartyAddress))]
+    [KnownType(typeof(SystemPartyModification1Choice.SystemRestriction))]
+    [KnownType(typeof(SystemPartyModification1Choice.MarketSpecificAttribute))]
+    [IsoId("_kouas-5NEeCisYr99QEiWA_-2059945022")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Party Modification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SystemPartyModification1Choice_
+    #else
+    public abstract partial class SystemPartyModification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SysPty" => SystemPartyModification1Choice.SystemParty.Deserialize(elementWithPayload),
-             "PtyId" => SystemPartyModification1Choice.PartyIdentification.Deserialize(elementWithPayload),
-             "PtyNm" => SystemPartyModification1Choice.PartyName.Deserialize(elementWithPayload),
-             "TechAdr" => SystemPartyModification1Choice.TechnicalAddress.Deserialize(elementWithPayload),
-             "PtyAdr" => SystemPartyModification1Choice.PartyAddress.Deserialize(elementWithPayload),
-             "SysRstrctn" => SystemPartyModification1Choice.SystemRestriction.Deserialize(elementWithPayload),
-             "MktSpcfcAttr" => SystemPartyModification1Choice.MarketSpecificAttribute.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SystemPartyModification1Choice choice.")
-        };
     }
 }

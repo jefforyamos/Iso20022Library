@@ -7,136 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
+[IsoId("_ZHfZDx9REeuFz_FaCzCLgQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDate81
-     : IIsoXmlSerilizable<CorporateActionDate81>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date/time that the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. 
     /// </summary>
+    [IsoId("_ZHfZEx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Response Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? EarlyResponseDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? EarlyResponseDeadline { get; init; } 
+    #else
+    public DateFormat49Choice_? EarlyResponseDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
+    [IsoId("_ZHfZGx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cover Expiration Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
+    #else
+    public DateFormat43Choice_? CoverExpirationDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last date/time a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
     /// </summary>
+    [IsoId("_ZHfZIx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat43Choice_? ProtectDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat43Choice_? ProtectDeadline { get; init; } 
+    #else
+    public DateFormat43Choice_? ProtectDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Issuer or issuer's agent deadline to respond with an instruction to an outstanding offer or privilege.
     /// </summary>
+    [IsoId("_ZHfZKx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? MarketDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? MarketDeadline { get; init; } 
+    #else
+    public DateFormat49Choice_? MarketDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event.
     /// </summary>
+    [IsoId("_ZHfZMx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat54Choice_? ResponseDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat54Choice_? ResponseDeadline { get; init; } 
+    #else
+    public DateFormat54Choice_? ResponseDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which an order expires or on which a privilege or offer terminates.
     /// </summary>
+    [IsoId("_ZHfZOx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? ExpiryDate { get; init; } 
+    #else
+    public DateFormat49Choice_? ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time by which cash must be in place in order to take part in the event.
     /// </summary>
+    [IsoId("_ZHfZQx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscription Cost Debit Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? SubscriptionCostDebitDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? SubscriptionCostDebitDate { get; init; } 
+    #else
+    public DateFormat49Choice_? SubscriptionCostDebitDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day that a participant of the depository can deliver securities that it had elected on and/or previously protected.
     /// </summary>
+    [IsoId("_ZHfZSx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Cover Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? DepositoryCoverExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? DepositoryCoverExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? DepositoryCoverExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time set as the deadline to respond, with instructions, to an outstanding event, for which the underlying security is out on loan.
     /// </summary>
+    [IsoId("_ZHfZUx9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stock Lending Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? StockLendingDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? StockLendingDeadline { get; init; } 
+    #else
+    public DateFormat49Choice_? StockLendingDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the party borrowing stocks and the associated stock lending deadline assigned to the borrower.
     /// </summary>
+    [IsoId("_ZHfZVR9REeuFz_FaCzCLgQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Borrower Stock Lending Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BorrowerLendingDeadline6? BorrowerStockLendingDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BorrowerLendingDeadline6? BorrowerStockLendingDeadline { get; init; } 
+    #else
+    public BorrowerLendingDeadline6? BorrowerStockLendingDeadline { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EarlyResponseDeadline is DateFormat49Choice_ EarlyResponseDeadlineValue)
-        {
-            writer.WriteStartElement(null, "EarlyRspnDdln", xmlNamespace );
-            EarlyResponseDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CoverExpirationDeadline is DateFormat43Choice_ CoverExpirationDeadlineValue)
-        {
-            writer.WriteStartElement(null, "CoverXprtnDdln", xmlNamespace );
-            CoverExpirationDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProtectDeadline is DateFormat43Choice_ ProtectDeadlineValue)
-        {
-            writer.WriteStartElement(null, "PrtctDdln", xmlNamespace );
-            ProtectDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketDeadline is DateFormat49Choice_ MarketDeadlineValue)
-        {
-            writer.WriteStartElement(null, "MktDdln", xmlNamespace );
-            MarketDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResponseDeadline is DateFormat54Choice_ ResponseDeadlineValue)
-        {
-            writer.WriteStartElement(null, "RspnDdln", xmlNamespace );
-            ResponseDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExpiryDate is DateFormat49Choice_ ExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-            ExpiryDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubscriptionCostDebitDate is DateFormat49Choice_ SubscriptionCostDebitDateValue)
-        {
-            writer.WriteStartElement(null, "SbcptCostDbtDt", xmlNamespace );
-            SubscriptionCostDebitDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositoryCoverExpirationDate is DateFormat49Choice_ DepositoryCoverExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "DpstryCoverXprtnDt", xmlNamespace );
-            DepositoryCoverExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StockLendingDeadline is DateFormat49Choice_ StockLendingDeadlineValue)
-        {
-            writer.WriteStartElement(null, "StockLndgDdln", xmlNamespace );
-            StockLendingDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BorrowerStockLendingDeadline is BorrowerLendingDeadline6 BorrowerStockLendingDeadlineValue)
-        {
-            writer.WriteStartElement(null, "BrrwrStockLndgDdln", xmlNamespace );
-            BorrowerStockLendingDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDate81 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

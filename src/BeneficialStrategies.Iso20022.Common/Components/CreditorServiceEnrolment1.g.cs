@@ -7,96 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the service details for the creditor enrolment.
 /// </summary>
+[IsoId("_BcQ8kEWOEempSe_3C1a9EQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Creditor Service Enrolment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CreditorServiceEnrolment1
-     : IIsoXmlSerilizable<CreditorServiceEnrolment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CreditorServiceEnrolment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CreditorServiceEnrolment1( System.String reqServiceActivationAllowed )
+    {
+        ServiceActivationAllowed = reqServiceActivationAllowed;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Start date when the creditor enrolment becomes effective.
     /// </summary>
+    [IsoId("_OU4_YEWPEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enrolment Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EnrolmentStartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? EnrolmentStartDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? EnrolmentStartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// End date when the creditor enrolment becomes effective.
     /// </summary>
+    [IsoId("_OBkcwXFrEemaN4ndAVY1ZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enrolment End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EnrolmentEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? EnrolmentEndDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? EnrolmentEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the details of the visibility of the creditor enrolment as shown to the debtors.
     /// </summary>
+    [IsoId("_tZRS4EWOEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Visibility")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Visibilty1? Visibility { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Visibilty1? Visibility { get; init; } 
+    #else
+    public Visibilty1? Visibility { get; set; } 
+    #endif
+    
     /// <summary>
     /// Define the acceptance of activation requests through the scheme. 
     /// Usage: 
     /// When true, it is possible for the debtor to send activation requests through its payment service provider.
     /// When false, it is not possible for the debtor to send activation request through servicing messages. The creditor only accepts activation through another way(s).
     /// </summary>
+    [IsoId("_JMynsEWQEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Activation Allowed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ServiceActivationAllowed { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ServiceActivationAllowed { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ServiceActivationAllowed { get; init; } 
+    #else
+    public System.String ServiceActivationAllowed { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information web page, as provided by the creditor, to which the debtor can be linked for further information (Universal Resource Locator - URL).
     /// </summary>
+    [IsoId("_aDISsUWQEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Description Link")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? ServiceDescriptionLink { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ServiceDescriptionLink { get; init; } 
+    #else
+    public System.String? ServiceDescriptionLink { get; set; } 
+    #endif
+    
     /// <summary>
     /// Web page link provided by the Creditor, intended to the Debtors, to proceed to activation when  servicing messages can not be used.
     /// </summary>
+    [IsoId("__L-0oUWQEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Service Activation Link")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? CreditorServiceActivationLink { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditorServiceActivationLink { get; init; } 
+    #else
+    public System.String? CreditorServiceActivationLink { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EnrolmentStartDate is DateAndDateTime2Choice_ EnrolmentStartDateValue)
-        {
-            writer.WriteStartElement(null, "EnrlmntStartDt", xmlNamespace );
-            EnrolmentStartDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EnrolmentEndDate is DateAndDateTime2Choice_ EnrolmentEndDateValue)
-        {
-            writer.WriteStartElement(null, "EnrlmntEndDt", xmlNamespace );
-            EnrolmentEndDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Visibility is Visibilty1 VisibilityValue)
-        {
-            writer.WriteStartElement(null, "Vsblty", xmlNamespace );
-            VisibilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SvcActvtnAllwd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ServiceActivationAllowed)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (ServiceDescriptionLink is IsoMax2048Text ServiceDescriptionLinkValue)
-        {
-            writer.WriteStartElement(null, "SvcDescLk", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2048Text(ServiceDescriptionLinkValue)); // data type Max2048Text System.String
-            writer.WriteEndElement();
-        }
-        if (CreditorServiceActivationLink is IsoMax2048Text CreditorServiceActivationLinkValue)
-        {
-            writer.WriteStartElement(null, "CdtrSvcActvtnLk", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2048Text(CreditorServiceActivationLinkValue)); // data type Max2048Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CreditorServiceEnrolment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

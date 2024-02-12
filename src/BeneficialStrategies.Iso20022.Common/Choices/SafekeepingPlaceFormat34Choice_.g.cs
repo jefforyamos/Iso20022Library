@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for the place of safekeeping.
-/// </summary>
-[KnownType(typeof(SafekeepingPlaceFormat34Choice.Identification))]
-[KnownType(typeof(SafekeepingPlaceFormat34Choice.Country))]
-[KnownType(typeof(SafekeepingPlaceFormat34Choice.TypeAndIdentification))]
-[KnownType(typeof(SafekeepingPlaceFormat34Choice.Proprietary))]
-public abstract partial record SafekeepingPlaceFormat34Choice_ : IIsoXmlSerilizable<SafekeepingPlaceFormat34Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for the place of safekeeping.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SafekeepingPlaceFormat34Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SafekeepingPlaceFormat34Choice.Identification))]
+    [KnownType(typeof(SafekeepingPlaceFormat34Choice.Country))]
+    [KnownType(typeof(SafekeepingPlaceFormat34Choice.TypeAndIdentification))]
+    [KnownType(typeof(SafekeepingPlaceFormat34Choice.Proprietary))]
+    [IsoId("_9C3BB_fEEeiNZp_PtLohLw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place Format 34 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SafekeepingPlaceFormat34Choice_
+    #else
+    public abstract partial class SafekeepingPlaceFormat34Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Id" => SafekeepingPlaceFormat34Choice.Identification.Deserialize(elementWithPayload),
-             "Ctry" => SafekeepingPlaceFormat34Choice.Country.Deserialize(elementWithPayload),
-             "TpAndId" => SafekeepingPlaceFormat34Choice.TypeAndIdentification.Deserialize(elementWithPayload),
-             "Prtry" => SafekeepingPlaceFormat34Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SafekeepingPlaceFormat34Choice choice.")
-        };
     }
 }

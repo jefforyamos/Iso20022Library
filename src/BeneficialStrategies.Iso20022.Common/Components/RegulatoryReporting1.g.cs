@@ -7,196 +7,343 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Includes data elements that can be used for reporting to trade repositories, it is not to be used on regular trade confirmations. Although some fields, for example, unique transaction identifier and prior unique transaction identifier, might be used on regular confirmations.
 /// </summary>
+[IsoId("_SEtVEyi-EeKnA5P_jl2DUw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Regulatory Reporting")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RegulatoryReporting1
-     : IIsoXmlSerilizable<RegulatoryReporting1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the supervisory party to which the trade needs to be reported.
     /// </summary>
+    [IsoId("_koKpMCi-EeKnA5P_jl2DUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Jurisdiction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReportingJurisdiction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReportingJurisdiction { get; init; } 
+    #else
+    public System.String? ReportingJurisdiction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is responsible for reporting the trade to the trade repository.
     /// </summary>
+    [IsoId("_pU-WkCi-EeKnA5P_jl2DUw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? ReportingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? ReportingParty { get; init; } 
+    #else
+    public PartyIdentification73Choice_? ReportingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI).This is the UTI from the Trading Side party.
     /// </summary>
+    [IsoId("_Nqo4moKGEeKmtdhZXgREOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Side Unique Transaction Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UniqueTransactionIdentifier1? TradingSideUniqueTransactionIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UniqueTransactionIdentifier1? TradingSideUniqueTransactionIdentifier { get; init; } 
+    #else
+    public UniqueTransactionIdentifier1? TradingSideUniqueTransactionIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI).This is the UTI from the Counterparty Side party.
     /// </summary>
+    [IsoId("_o3u8CoKGEeKmtdhZXgREOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Side Unique Transaction Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UniqueTransactionIdentifier1? CounterpartySideUniqueTransactionIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UniqueTransactionIdentifier1? CounterpartySideUniqueTransactionIdentifier { get; init; } 
+    #else
+    public UniqueTransactionIdentifier1? CounterpartySideUniqueTransactionIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
+    [IsoId("_Bd_McC46EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Exception Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? ClearingExceptionParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification73Choice_? ClearingExceptionParty { get; init; } 
+    #else
+    public PartyIdentification73Choice_? ClearingExceptionParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
+    [IsoId("_v1MUUC46EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Broker Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
+    #else
+    public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the contract is above or below the clearing threshold. Where No indicates the contract is below the clearing threshold and Yes indicates the contract is above the clearing threshold.
     /// </summary>
+    [IsoId("_01RIsC5KEeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Threshold Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ClearingThresholdIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClearingThresholdIndicator { get; init; } 
+    #else
+    public System.String? ClearingThresholdIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reference number assigned by the Central Counterparty (CCP).
     /// </summary>
+    [IsoId("_iYdM8C47EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cleared Product Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClearedProductIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClearedProductIdentification { get; init; } 
+    #else
+    public System.String? ClearedProductIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying product type.
     /// </summary>
+    [IsoId("_NFyc0CjmEeK1Sbo8NpBROA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Product Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
+    #else
+    public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.
     /// </summary>
+    [IsoId("_OevXUCjnEeK1Sbo8NpBROA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allocation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AllocationIndicator1Code? AllocationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AllocationIndicator1Code? AllocationIndicator { get; init; } 
+    #else
+    public AllocationIndicator1Code? AllocationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the transaction is collateralised.
     /// </summary>
+    [IsoId("_6c0vcC48EeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
+    #else
+    public CollateralisationIndicator1Code? CollateralisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the trading venue of the transaction.
     /// </summary>
+    [IsoId("_luDhICjoEeK1Sbo8NpBROA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExecutionVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExecutionVenue { get; init; } 
+    #else
+    public System.String? ExecutionVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
+    [IsoId("_tj7RMCjoEeK1Sbo8NpBROA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Timestamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ExecutionTimestamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? ExecutionTimestamp { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? ExecutionTimestamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>
+    [IsoId("_MnF0kC5KEeK7-OZOLIksSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Standard Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NonStandardFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NonStandardFlag { get; init; } 
+    #else
+    public System.String? NonStandardFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the common reference or correlation identification for a swap transaction where the near and far leg are confirmed separately.
     /// </summary>
+    [IsoId("_U_yssCjrEeK1Sbo8NpBROA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Link Swap Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact42Text? LinkSwapIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LinkSwapIdentification { get; init; } 
+    #else
+    public System.String? LinkSwapIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies additional information that might be required by the regulator.
     /// </summary>
+    [IsoId("_ZGe_0CjsEeK1Sbo8NpBROA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reporting Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? AdditionalReportingInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReportingInformation { get; init; } 
+    #else
+    public System.String? AdditionalReportingInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportingJurisdiction is IsoMax35Text ReportingJurisdictionValue)
-        {
-            writer.WriteStartElement(null, "RptgJursdctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportingJurisdictionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReportingParty is PartyIdentification73Choice_ ReportingPartyValue)
-        {
-            writer.WriteStartElement(null, "RptgPty", xmlNamespace );
-            ReportingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingSideUniqueTransactionIdentifier is UniqueTransactionIdentifier1 TradingSideUniqueTransactionIdentifierValue)
-        {
-            writer.WriteStartElement(null, "TradgSdUnqTxIdr", xmlNamespace );
-            TradingSideUniqueTransactionIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CounterpartySideUniqueTransactionIdentifier is UniqueTransactionIdentifier1 CounterpartySideUniqueTransactionIdentifierValue)
-        {
-            writer.WriteStartElement(null, "CtrPtySdUnqTxIdr", xmlNamespace );
-            CounterpartySideUniqueTransactionIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingExceptionParty is PartyIdentification73Choice_ ClearingExceptionPartyValue)
-        {
-            writer.WriteStartElement(null, "ClrXcptnPty", xmlNamespace );
-            ClearingExceptionPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingBrokerIdentification is ClearingBrokerIdentification1 ClearingBrokerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrBrkrId", xmlNamespace );
-            ClearingBrokerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingThresholdIndicator is IsoYesNoIndicator ClearingThresholdIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ClrThrshldInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClearingThresholdIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ClearedProductIdentification is IsoMax35Text ClearedProductIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClrdPdctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearedProductIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (UnderlyingProductIdentifier is UnderlyingProductIdentifier1Code UnderlyingProductIdentifierValue)
-        {
-            writer.WriteStartElement(null, "UndrlygPdctIdr", xmlNamespace );
-            writer.WriteValue(UnderlyingProductIdentifierValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AllocationIndicator is AllocationIndicator1Code AllocationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AllcnInd", xmlNamespace );
-            writer.WriteValue(AllocationIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CollateralisationIndicator is CollateralisationIndicator1Code CollateralisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CollstnInd", xmlNamespace );
-            writer.WriteValue(CollateralisationIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExecutionVenue is IsoMax35Text ExecutionVenueValue)
-        {
-            writer.WriteStartElement(null, "ExctnVn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ExecutionVenueValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExecutionTimestamp is DateAndDateTimeChoice_ ExecutionTimestampValue)
-        {
-            writer.WriteStartElement(null, "ExctnTmstmp", xmlNamespace );
-            ExecutionTimestampValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NonStandardFlag is IsoYesNoIndicator NonStandardFlagValue)
-        {
-            writer.WriteStartElement(null, "NonStdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NonStandardFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LinkSwapIdentification is IsoExact42Text LinkSwapIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LkSwpId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact42Text(LinkSwapIdentificationValue)); // data type Exact42Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalReportingInformation is IsoMax210Text AdditionalReportingInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRptgInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReportingInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RegulatoryReporting1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

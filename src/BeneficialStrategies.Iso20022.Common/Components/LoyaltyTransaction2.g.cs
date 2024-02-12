@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the Loyalty Transaction.
 /// </summary>
+[IsoId("_F20XYQ0zEeqUVL7sB4m7NA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Loyalty Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LoyaltyTransaction2
-     : IIsoXmlSerilizable<LoyaltyTransaction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LoyaltyTransaction2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LoyaltyTransaction2( LoyaltyTransactionType1Code reqLoyaltyTransactionType )
+    {
+        LoyaltyTransactionType = reqLoyaltyTransactionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data related to the loyalty transaction.
     /// </summary>
+    [IsoId("_GCmwoQ0zEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
+    #else
+    public LoyaltyTransactionType1Code LoyaltyTransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the loyalty transaction.
     /// </summary>
+    [IsoId("_GCmwow0zEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
+    [IsoId("_GCmwpQ0zEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmount { get; init; } 
+    #else
+    public System.Decimal? TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data of a previous POI payment transaction.
     /// </summary>
+    [IsoId("_GCmwpw0zEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original POI Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction100? OriginalPOITransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentTransaction100? OriginalPOITransaction { get; init; } 
+    #else
+    public CardPaymentTransaction100? OriginalPOITransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
+    [IsoId("_GCmwqQ0zEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sale Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product6? SaleItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Product6? SaleItem { get; init; } 
+    #else
+    public Product6? SaleItem { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LltyTxTp", xmlNamespace );
-        writer.WriteValue(LoyaltyTransactionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OriginalPOITransaction is CardPaymentTransaction100 OriginalPOITransactionValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPOITx", xmlNamespace );
-            OriginalPOITransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SaleItem is Product6 SaleItemValue)
-        {
-            writer.WriteStartElement(null, "SaleItm", xmlNamespace );
-            SaleItemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static LoyaltyTransaction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

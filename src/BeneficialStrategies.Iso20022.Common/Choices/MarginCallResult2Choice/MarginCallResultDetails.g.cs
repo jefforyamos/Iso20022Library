@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult2Choice;
-
-/// <summary>
-/// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
-/// </summary>
-public partial record MarginCallResultDetails : MarginCallResult2Choice_
-     , IIsoXmlSerilizable<MarginCallResultDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides the summation of the call amounts for the variation margin amount only.
+    /// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
     /// </summary>
-    public required Result1 VariationMarginResult { get; init; } 
-    /// <summary>
-    /// Provides the summation of the call amounts for the segregated independent amount.
-    /// </summary>
-    public Result1? SegregatedIndependentAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_9boCQKMPEeCojJW5vEuTEQ_1384684121")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Call Result Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record MarginCallResultDetails : MarginCallResult2Choice_
+    #else
+    public partial class MarginCallResultDetails : MarginCallResult2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "VartnMrgnRslt", xmlNamespace );
-        VariationMarginResult.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SegregatedIndependentAmount is Result1 SegregatedIndependentAmountValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a MarginCallResultDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public MarginCallResultDetails( Result1 reqVariationMarginResult )
         {
-            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
-            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            VariationMarginResult = reqVariationMarginResult;
         }
-    }
-    public static new MarginCallResultDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides the summation of the call amounts for the variation margin amount only.
+        /// </summary>
+        [IsoId("_UlvaF9p-Ed-ak6NoX_4Aeg_-1196189794")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variation Margin Result")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required Result1 VariationMarginResult { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public Result1 VariationMarginResult { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Result1 VariationMarginResult { get; init; } 
+        #else
+        public Result1 VariationMarginResult { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the summation of the call amounts for the segregated independent amount.
+        /// </summary>
+        [IsoId("_UlvaGNp-Ed-ak6NoX_4Aeg_872246105")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Segregated Independent Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Result1? SegregatedIndependentAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Result1? SegregatedIndependentAmount { get; init; } 
+        #else
+        public Result1? SegregatedIndependentAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

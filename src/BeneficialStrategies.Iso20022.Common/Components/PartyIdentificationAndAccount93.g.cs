@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party involved in the settlement chain.
 /// </summary>
+[IsoId("_jbWzAxgDEeKqWJINzXcn5g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Identification And Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyIdentificationAndAccount93
-     : IIsoXmlSerilizable<PartyIdentificationAndAccount93>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyIdentificationAndAccount93 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyIdentificationAndAccount93( PartyIdentification2Choice_ reqPlaceOfSettlement )
+    {
+        PlaceOfSettlement = reqPlaceOfSettlement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [IsoId("_53wuoBgDEeKqWJINzXcn5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? PartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? PartyIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_? PartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [IsoId("_Mu9eIBgEEeKqWJINzXcn5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification1? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification1? AccountIdentification { get; init; } 
+    #else
+    public AccountIdentification1? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [IsoId("_VzsOABgEEeKqWJINzXcn5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Settlement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ PlaceOfSettlement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ PlaceOfSettlement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ PlaceOfSettlement { get; init; } 
+    #else
+    public PartyIdentification2Choice_ PlaceOfSettlement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PartyIdentification is PartyIdentification2Choice_ PartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PtyId", xmlNamespace );
-            PartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountIdentification is AccountIdentification1 AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PlcOfSttlm", xmlNamespace );
-        PlaceOfSettlement.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static PartyIdentificationAndAccount93 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

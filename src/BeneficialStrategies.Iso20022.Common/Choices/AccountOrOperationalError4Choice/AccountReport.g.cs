@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError4Choice;
-
-/// <summary>
-/// Reports either on the account information or on a business error.
-/// </summary>
-public partial record AccountReport : AccountOrOperationalError4Choice_
-     , IIsoXmlSerilizable<AccountReport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+    /// Reports either on the account information or on a business error.
     /// </summary>
-    public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
-    /// <summary>
-    /// Requested information on the account or business error when information has not been found.
-    /// </summary>
-    public required AccountOrBusinessError4Choice_ AccountOrError { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_MiVdEW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AccountReport : AccountOrOperationalError4Choice_
+    #else
+    public partial class AccountReport : AccountOrOperationalError4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "AcctId", xmlNamespace );
-        AccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctOrErr", xmlNamespace );
-        AccountOrError.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new AccountReport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AccountReport instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AccountReport( AccountIdentification4Choice_ reqAccountIdentification,AccountOrBusinessError4Choice_ reqAccountOrError )
+        {
+            AccountIdentification = reqAccountIdentification;
+            AccountOrError = reqAccountOrError;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+        /// </summary>
+        [IsoId("_MtNQU249EeiU9cctagi5ow")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AccountIdentification4Choice_ AccountIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountIdentification4Choice_ AccountIdentification { get; init; } 
+        #else
+        public AccountIdentification4Choice_ AccountIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Requested information on the account or business error when information has not been found.
+        /// </summary>
+        [IsoId("_MtNQVW49EeiU9cctagi5ow")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Or Error")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AccountOrBusinessError4Choice_ AccountOrError { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AccountOrBusinessError4Choice_ AccountOrError { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountOrBusinessError4Choice_ AccountOrError { get; init; } 
+        #else
+        public AccountOrBusinessError4Choice_ AccountOrError { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

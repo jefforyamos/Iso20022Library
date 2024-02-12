@@ -7,97 +7,182 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
+[IsoId("_F90zIVB9Ee2KGNXAcFL5RA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Instructed Balance Option Instruction SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionInstructedBalanceOptionInstructionSD5
-     : IIsoXmlSerilizable<CorporateActionInstructedBalanceOptionInstructionSD5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionInstructedBalanceOptionInstructionSD5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionInstructedBalanceOptionInstructionSD5( OptionNumber1Choice_ reqOptionNumber,DTCInstructionStatus2Code reqTransactionIdentificationStatus )
+    {
+        OptionNumber = reqOptionNumber;
+        TransactionIdentificationStatus = reqTransactionIdentificationStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_GXc0EVB9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [IsoId("_GXc0E1B9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    #else
+    public OptionNumber1Choice_ OptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
+    [IsoId("_GXc0G1B9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protect Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15Text? ProtectIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProtectIdentification { get; init; } 
+    #else
+    public System.String? ProtectIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contra CUSIP Identification of the option instruction.
     /// </summary>
+    [IsoId("_GXc0HVB9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Contra CUSIP")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherIdentification2? TransactionContraCUSIP { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherIdentification2? TransactionContraCUSIP { get; init; } 
+    #else
+    public OtherIdentification2? TransactionContraCUSIP { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
+    [IsoId("_GXc0H1B9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification Oversubscription Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the instruction.
     /// </summary>
+    [IsoId("_GXc0IVB9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
+    #else
+    public DTCInstructionStatus2Code TransactionIdentificationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
     /// </summary>
-    public ValueList<TaxCategory2> TaxCategory { get; init; } = [];
+    [IsoId("_IaSOgVB9Ee2KGNXAcFL5RA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(99)]
+    #endif
+    public ValueList<TaxCategory2> TaxCategory { get; init; } = new ValueList<TaxCategory2>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
-        OptionNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ProtectIdentification is IsoMax15Text ProtectIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrtctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15Text(ProtectIdentificationValue)); // data type Max15Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionContraCUSIP is OtherIdentification2 TransactionContraCUSIPValue)
-        {
-            writer.WriteStartElement(null, "TxContraCUSIP", xmlNamespace );
-            TransactionContraCUSIPValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentificationOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ TransactionIdentificationOversubscriptionQuantityValue)
-        {
-            writer.WriteStartElement(null, "TxIdOvrsbcptQty", xmlNamespace );
-            TransactionIdentificationOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxIdSts", xmlNamespace );
-        writer.WriteValue(TransactionIdentificationStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TaxCtgy", xmlNamespace );
-        TaxCategory.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CorporateActionInstructedBalanceOptionInstructionSD5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

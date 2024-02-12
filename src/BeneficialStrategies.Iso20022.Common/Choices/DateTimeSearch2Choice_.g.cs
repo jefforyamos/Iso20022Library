@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between search criteria based on dates and date ranges.
-/// </summary>
-[KnownType(typeof(DateTimeSearch2Choice.FromDateTime))]
-[KnownType(typeof(DateTimeSearch2Choice.ToDateTime))]
-[KnownType(typeof(DateTimeSearch2Choice.FromToDateTime))]
-[KnownType(typeof(DateTimeSearch2Choice.EqualDateTime))]
-[KnownType(typeof(DateTimeSearch2Choice.NotEqualDateTime))]
-public abstract partial record DateTimeSearch2Choice_ : IIsoXmlSerilizable<DateTimeSearch2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between search criteria based on dates and date ranges.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateTimeSearch2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateTimeSearch2Choice.FromDateTime))]
+    [KnownType(typeof(DateTimeSearch2Choice.ToDateTime))]
+    [KnownType(typeof(DateTimeSearch2Choice.FromToDateTime))]
+    [KnownType(typeof(DateTimeSearch2Choice.EqualDateTime))]
+    [KnownType(typeof(DateTimeSearch2Choice.NotEqualDateTime))]
+    [IsoId("_68F8RX3sEeibM9CPDGCw0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Time Search 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateTimeSearch2Choice_
+    #else
+    public abstract partial class DateTimeSearch2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FrDtTm" => DateTimeSearch2Choice.FromDateTime.Deserialize(elementWithPayload),
-             "ToDtTm" => DateTimeSearch2Choice.ToDateTime.Deserialize(elementWithPayload),
-             "FrToDtTm" => DateTimeSearch2Choice.FromToDateTime.Deserialize(elementWithPayload),
-             "EQDtTm" => DateTimeSearch2Choice.EqualDateTime.Deserialize(elementWithPayload),
-             "NEQDtTm" => DateTimeSearch2Choice.NotEqualDateTime.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateTimeSearch2Choice choice.")
-        };
     }
 }

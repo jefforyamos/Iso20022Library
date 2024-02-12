@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the authorisation.
 /// </summary>
+[IsoId("_aTE8MXuXEeSVeNXcmBQ4hQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Authorisation Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AuthorisationResult8
-     : IIsoXmlSerilizable<AuthorisationResult8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AuthorisationResult8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AuthorisationResult8( ResponseType2 reqTransactionResponse )
+    {
+        TransactionResponse = reqTransactionResponse;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
+    [IsoId("_agVVEXuXEeSVeNXcmBQ4hQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification75? AuthorisationEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification75? AuthorisationEntity { get; init; } 
+    #else
+    public GenericIdentification75? AuthorisationEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Response to an authorisation request.
     /// </summary>
+    [IsoId("_agVVE3uXEeSVeNXcmBQ4hQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType2 TransactionResponse { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType2 TransactionResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType2 TransactionResponse { get; init; } 
+    #else
+    public ResponseType2 TransactionResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of actions to be performed by the card acceptor.
     /// </summary>
+    [IsoId("_EJ63QHuYEeSVeNXcmBQ4hQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action4? Action { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Action4? Action { get; init; } 
+    #else
+    public Action4? Action { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value assigned by the authorising party.
     /// </summary>
+    [IsoId("_agVVFXuXEeSVeNXcmBQ4hQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 6)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthorisationCode { get; init; } 
+    #else
+    public System.String? AuthorisationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information relevant for the destination.
     /// </summary>
+    [IsoId("_qE0V4C-tEeWfYucYWs4iQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage3? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionMessage3? AdditionalInformation { get; init; } 
+    #else
+    public ActionMessage3? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AuthorisationEntity is GenericIdentification75 AuthorisationEntityValue)
-        {
-            writer.WriteStartElement(null, "AuthstnNtty", xmlNamespace );
-            AuthorisationEntityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
-        TransactionResponse.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Action is Action4 ActionValue)
-        {
-            writer.WriteStartElement(null, "Actn", xmlNamespace );
-            ActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AuthorisationCode is IsoMin6Max8Text AuthorisationCodeValue)
-        {
-            writer.WriteStartElement(null, "AuthstnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin6Max8Text(AuthorisationCodeValue)); // data type Min6Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is ActionMessage3 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AuthorisationResult8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,83 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the reason of the rejection.
 /// </summary>
+[IsoId("_UsSuA9p-Ed-ak6NoX_4Aeg_-521235445")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rejection Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RejectionReason2
-     : IIsoXmlSerilizable<RejectionReason2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RejectionReason2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RejectionReason2( System.String reqRejectingPartyReason )
+    {
+        RejectingPartyReason = reqRejectingPartyReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason of the rejection provided by the rejecting party.
     /// </summary>
+    [IsoId("_UsSuBNp-Ed-ak6NoX_4Aeg_-153673413")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejecting Party Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RejectingPartyReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RejectingPartyReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RejectingPartyReason { get; init; } 
+    #else
+    public System.String RejectingPartyReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the rejection was generated.
     /// </summary>
+    [IsoId("_UsSuBdp-Ed-ak6NoX_4Aeg_-897575826")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejection Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RejectionDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? RejectionDateTime { get; init; } 
+    #else
+    public System.DateTime? RejectionDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the precise location of the potential error in a message.
     /// </summary>
+    [IsoId("_UsSuBtp-Ed-ak6NoX_4Aeg_-147208766")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Error Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ErrorLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ErrorLocation { get; init; } 
+    #else
+    public System.String? ErrorLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed description of the rejection reason.
     /// </summary>
+    [IsoId("_UsSuB9p-Ed-ak6NoX_4Aeg_-90876576")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ReasonDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReasonDescription { get; init; } 
+    #else
+    public System.String? ReasonDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the rejection and meant to allow for the precise identification of the rejection reason. This could include a copy of the rejected message in part or in full.
     /// </summary>
+    [IsoId("_UsSuCNp-Ed-ak6NoX_4Aeg_-53011612")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RjctgPtyRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RejectingPartyReason)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (RejectionDateTime is IsoISODateTime RejectionDateTimeValue)
-        {
-            writer.WriteStartElement(null, "RjctnDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(RejectionDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ErrorLocation is IsoMax350Text ErrorLocationValue)
-        {
-            writer.WriteStartElement(null, "ErrLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ErrorLocationValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReasonDescription is IsoMax350Text ReasonDescriptionValue)
-        {
-            writer.WriteStartElement(null, "RsnDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ReasonDescriptionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax20000Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax20000Text(AdditionalDataValue)); // data type Max20000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RejectionReason2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

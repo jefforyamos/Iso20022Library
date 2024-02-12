@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the derivative contract not included in the general financial instrument attributes component.
 /// </summary>
+[IsoId("_UAL18Np-Ed-ak6NoX_4Aeg_-764187089")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Derivative Basic Attributes")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DerivativeBasicAttributes1
-     : IIsoXmlSerilizable<DerivativeBasicAttributes1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DerivativeBasicAttributes1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DerivativeBasicAttributes1( System.Decimal reqNotionalCurrencyAndAmount )
+    {
+        NotionalCurrencyAndAmount = reqNotionalCurrencyAndAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount underlying a financial derivatives contract necessary for calculating payments or receipts.
     /// </summary>
+    [IsoId("_UAL18dp-Ed-ak6NoX_4Aeg_-672759476")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notional Currency And Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal NotionalCurrencyAndAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal NotionalCurrencyAndAmount { get; init; } 
+    #else
+    public System.Decimal NotionalCurrencyAndAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the given derivative price includes a prorated accrued interest component.
     /// </summary>
+    [IsoId("_UAL18tp-Ed-ak6NoX_4Aeg_1385962501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Included In Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? InterestIncludedInPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterestIncludedInPrice { get; init; } 
+    #else
+    public System.String? InterestIncludedInPrice { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NtnlCcyAndAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NotionalCurrencyAndAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (InterestIncludedInPrice is IsoYesNoIndicator InterestIncludedInPriceValue)
-        {
-            writer.WriteStartElement(null, "IntrstInclInPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InterestIncludedInPriceValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DerivativeBasicAttributes1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

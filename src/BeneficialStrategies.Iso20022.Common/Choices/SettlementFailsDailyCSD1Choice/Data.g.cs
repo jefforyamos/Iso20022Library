@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice;
-
-/// <summary>
-/// Aggregated data of settlement instructions.
-/// </summary>
-public partial record Data : SettlementFailsDailyCSD1Choice_
-     , IIsoXmlSerilizable<Data>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Intra-CSD settlement instructions data.
+    /// Aggregated data of settlement instructions.
     /// </summary>
-    public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
-    /// <summary>
-    /// Cross-CSD settlement instructions data.
-    /// </summary>
-    public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Umrp4zOaEeqBfed1bmSPqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Data : SettlementFailsDailyCSD1Choice_
+    #else
+    public partial class Data : SettlementFailsDailyCSD1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "IntraCSD", xmlNamespace );
-        IntraCSD.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CrossCSD", xmlNamespace );
-        CrossCSD.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Data Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Data instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Data( SettlementFailsDailyInstructionType1Choice_ reqIntraCSD,SettlementFailsDailyInstructionType1Choice_ reqCrossCSD )
+        {
+            IntraCSD = reqIntraCSD;
+            CrossCSD = reqCrossCSD;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Intra-CSD settlement instructions data.
+        /// </summary>
+        [IsoId("_MUG5QTOmEeqX8uoQQ3KffQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Intra CSD")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
+        #else
+        public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Cross-CSD settlement instructions data.
+        /// </summary>
+        [IsoId("_MUG5QzOmEeqX8uoQQ3KffQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cross CSD")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
+        #else
+        public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

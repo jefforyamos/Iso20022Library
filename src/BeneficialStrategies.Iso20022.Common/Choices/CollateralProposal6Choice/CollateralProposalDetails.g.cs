@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal6Choice;
-
-/// <summary>
-/// Provides details about the proposal for the variation margin and optionally the segregated independent amount.
-/// </summary>
-public partial record CollateralProposalDetails : CollateralProposal6Choice_
-     , IIsoXmlSerilizable<CollateralProposalDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal6Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides details about the proposal for the variation margin.
+    /// Provides details about the proposal for the variation margin and optionally the segregated independent amount.
     /// </summary>
-    public required CollateralMovement12 VariationMargin { get; init; } 
-    /// <summary>
-    /// Provides details about the proposal for the segregated independent amount.
-    /// </summary>
-    public CollateralMovement12? SegregatedIndependentAmount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_5woB4SqREeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Proposal Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CollateralProposalDetails : CollateralProposal6Choice_
+    #else
+    public partial class CollateralProposalDetails : CollateralProposal6Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
-        VariationMargin.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SegregatedIndependentAmount is CollateralMovement12 SegregatedIndependentAmountValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CollateralProposalDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CollateralProposalDetails( CollateralMovement12 reqVariationMargin )
         {
-            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
-            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            VariationMargin = reqVariationMargin;
         }
-    }
-    public static new CollateralProposalDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides details about the proposal for the variation margin.
+        /// </summary>
+        [IsoId("_8XqVkSqREeyR9JrVGfaMKw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Variation Margin")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CollateralMovement12 VariationMargin { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CollateralMovement12 VariationMargin { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralMovement12 VariationMargin { get; init; } 
+        #else
+        public CollateralMovement12 VariationMargin { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides details about the proposal for the segregated independent amount.
+        /// </summary>
+        [IsoId("_8XqVkyqREeyR9JrVGfaMKw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Segregated Independent Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralMovement12? SegregatedIndependentAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralMovement12? SegregatedIndependentAmount { get; init; } 
+        #else
+        public CollateralMovement12? SegregatedIndependentAmount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

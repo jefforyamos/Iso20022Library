@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a payment term in a coded or free format.
-/// </summary>
-[KnownType(typeof(PaymentCodeOrOther2Choice.PaymentCode))]
-[KnownType(typeof(PaymentCodeOrOther2Choice.PaymentDueDate))]
-[KnownType(typeof(PaymentCodeOrOther2Choice.OtherPaymentTerms))]
-public abstract partial record PaymentCodeOrOther2Choice_ : IIsoXmlSerilizable<PaymentCodeOrOther2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a payment term in a coded or free format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PaymentCodeOrOther2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PaymentCodeOrOther2Choice.PaymentCode))]
+    [KnownType(typeof(PaymentCodeOrOther2Choice.PaymentDueDate))]
+    [KnownType(typeof(PaymentCodeOrOther2Choice.OtherPaymentTerms))]
+    [IsoId("_RfD1sRVgEeOrY9qSHVspCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Code Or Other 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PaymentCodeOrOther2Choice_
+    #else
+    public abstract partial class PaymentCodeOrOther2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PmtCd" => PaymentCodeOrOther2Choice.PaymentCode.Deserialize(elementWithPayload),
-             "PmtDueDt" => PaymentCodeOrOther2Choice.PaymentDueDate.Deserialize(elementWithPayload),
-             "OthrPmtTerms" => PaymentCodeOrOther2Choice.OtherPaymentTerms.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PaymentCodeOrOther2Choice choice.")
-        };
     }
 }

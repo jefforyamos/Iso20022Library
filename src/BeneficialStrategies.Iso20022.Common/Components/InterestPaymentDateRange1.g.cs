@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an expected date and a due date for the interest payment.
 /// </summary>
+[IsoId("_L71BetOJEeSQ_-lmj1tzfw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Interest Payment Date Range")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InterestPaymentDateRange1
-     : IIsoXmlSerilizable<InterestPaymentDateRange1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the interest payment schedule.
     /// </summary>
+    [IsoId("_L71BfdOJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Schedule Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InterestScheduleIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterestScheduleIdentification { get; init; } 
+    #else
+    public System.String? InterestScheduleIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expected interest payment date.
     /// </summary>
+    [IsoId("_L71Be9OJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExpectedDate { get; init; } 
+    #else
+    public System.DateOnly? ExpectedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Latest date whereby the interest must be paid.
     /// </summary>
+    [IsoId("_L71BfNOJEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DueDate { get; init; } 
+    #else
+    public System.DateOnly? DueDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InterestScheduleIdentification is IsoMax35Text InterestScheduleIdentificationValue)
-        {
-            writer.WriteStartElement(null, "IntrstSchdlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestScheduleIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExpectedDate is IsoISODate ExpectedDateValue)
-        {
-            writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DueDate is IsoISODate DueDateValue)
-        {
-            writer.WriteStartElement(null, "DueDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static InterestPaymentDateRange1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

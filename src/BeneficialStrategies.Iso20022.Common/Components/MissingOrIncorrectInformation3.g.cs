@@ -7,60 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide further information on the reason for the unable to apply investigation.
 /// </summary>
+[IsoId("_d3zpQUgqEeaGKYpLDboHPQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Missing Or Incorrect Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MissingOrIncorrectInformation3
-     : IIsoXmlSerilizable<MissingOrIncorrectInformation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the request is related to an AML (Anti Money Laundering) investigation or not.
     /// </summary>
+    [IsoId("_eA4sw0gqEeaGKYpLDboHPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Anti Money Laundering Request")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAMLIndicator? AntiMoneyLaunderingRequest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AntiMoneyLaunderingRequest { get; init; } 
+    #else
+    public System.String? AntiMoneyLaunderingRequest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    public ValueList<UnableToApplyMissing1> MissingInformation { get; init; } = [];
+    [IsoId("_eA4sxUgqEeaGKYpLDboHPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Missing Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<UnableToApplyMissing1> MissingInformation { get; init; } = new ValueList<UnableToApplyMissing1>(){};
+    
     /// <summary>
     /// Indicates, in a coded form, the incorrect information.
     /// </summary>
-    public ValueList<UnableToApplyIncorrect1> IncorrectInformation { get; init; } = [];
+    [IsoId("_eA4sx0gqEeaGKYpLDboHPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incorrect Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<UnableToApplyIncorrect1> IncorrectInformation { get; init; } = new ValueList<UnableToApplyIncorrect1>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AntiMoneyLaunderingRequest is IsoAMLIndicator AntiMoneyLaunderingRequestValue)
-        {
-            writer.WriteStartElement(null, "AMLReq", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAMLIndicator(AntiMoneyLaunderingRequestValue)); // data type AMLIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MssngInf", xmlNamespace );
-        MissingInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IncrrctInf", xmlNamespace );
-        IncorrectInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static MissingOrIncorrectInformation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

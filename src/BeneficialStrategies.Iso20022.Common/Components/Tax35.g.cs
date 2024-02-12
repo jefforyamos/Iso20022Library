@@ -7,90 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
+[IsoId("_-FSq8W1bEeiqaPNRWUnGNA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Tax35
-     : IIsoXmlSerilizable<Tax35>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Tax35 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Tax35( TaxType3Choice_ reqType,System.Decimal reqAppliedAmount )
+    {
+        Type = reqType;
+        AppliedAmount = reqAppliedAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of tax.
     /// </summary>
+    [IsoId("_-WZpE21bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxType3Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TaxType3Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxType3Choice_ Type { get; init; } 
+    #else
+    public TaxType3Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [IsoId("_-WZpFW1bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applied Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AppliedAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal AppliedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal AppliedAmount { get; init; } 
+    #else
+    public System.Decimal AppliedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [IsoId("_-WZpF21bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applied Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AppliedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AppliedRate { get; init; } 
+    #else
+    public System.Decimal? AppliedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country where the tax is due.
     /// </summary>
+    [IsoId("_-WZpGW1bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Country { get; init; } 
+    #else
+    public string? Country { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
+    [IsoId("_-WZpG21bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? RecipientIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification139? RecipientIdentification { get; init; } 
+    #else
+    public PartyIdentification139? RecipientIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>
+    [IsoId("_-WZpHW1bEeiqaPNRWUnGNA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Calculation Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCalculationInformation10? TaxCalculationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxCalculationInformation10? TaxCalculationDetails { get; init; } 
+    #else
+    public TaxCalculationInformation10? TaxCalculationDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ApldAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AppliedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (AppliedRate is IsoPercentageRate AppliedRateValue)
-        {
-            writer.WriteStartElement(null, "ApldRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AppliedRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Country is CountryCode CountryValue)
-        {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(CountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RecipientIdentification is PartyIdentification139 RecipientIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcptId", xmlNamespace );
-            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxCalculationDetails is TaxCalculationInformation10 TaxCalculationDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxClctnDtls", xmlNamespace );
-            TaxCalculationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Tax35 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

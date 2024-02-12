@@ -7,202 +7,404 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details on the payment transaction.
 /// </summary>
+[IsoId("_CJrfK6HsEeagRbKvRt3LnA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTransaction97
-     : IIsoXmlSerilizable<PaymentTransaction97>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentTransaction97 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentTransaction97( System.String reqUETR,PaymentScenario3Code reqPaymentScenarioReturned,System.String reqMyInstitution,PaymentsPartyType2Code reqRole,System.DateTime reqEventTime,PaymentStatus5 reqTransactionStatus,System.DateTime reqInitiationTime,System.DateTime reqLastUpdateTime )
+    {
+        UETR = reqUETR;
+        PaymentScenarioReturned = reqPaymentScenarioReturned;
+        MyInstitution = reqMyInstitution;
+        Role = reqRole;
+        EventTime = reqEventTime;
+        TransactionStatus = reqTransactionStatus;
+        InitiationTime = reqInitiationTime;
+        LastUpdateTime = reqLastUpdateTime;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
+    [IsoId("_-H68kaWeEeavY4aEtRQXnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("UETR")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoUUIDv4Identifier UETR { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String UETR { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String UETR { get; init; } 
+    #else
+    public System.String UETR { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies which payment scenario is returned by the search.
     /// </summary>
+    [IsoId("_MvpTsT5CEei1cqDe0mKAOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Scenario Returned")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentScenario3Code PaymentScenarioReturned { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentScenario3Code PaymentScenarioReturned { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentScenario3Code PaymentScenarioReturned { get; init; } 
+    #else
+    public PaymentScenario3Code PaymentScenarioReturned { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies an institution that is owned by the sender, for which the sender can ask payment transaction details.
     /// </summary>
+    [IsoId("_CITdUe4jEeaTc4E2tKngqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("My Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier MyInstitution { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MyInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MyInstitution { get; init; } 
+    #else
+    public System.String MyInstitution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the role of the party in the payment chain.
     /// </summary>
+    [IsoId("_2xsxce4iEeaTc4E2tKngqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentsPartyType2Code Role { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentsPartyType2Code Role { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentsPartyType2Code Role { get; init; } 
+    #else
+    public PaymentsPartyType2Code Role { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the time determined by the Role that the entity defined in MyInstitution is playing in this transaction.
     /// </summary>
+    [IsoId("_OMSMkO4jEeaTc4E2tKngqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime EventTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime EventTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime EventTime { get; init; } 
+    #else
+    public System.DateTime EventTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [IsoId("_CJsGNaHsEeagRbKvRt3LnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentStatus5 TransactionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentStatus5 TransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentStatus5 TransactionStatus { get; init; } 
+    #else
+    public PaymentStatus5 TransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the status of the cancellation of a payment transaction.
     /// </summary>
+    [IsoId("_ENq2IT5DEei1cqDe0mKAOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionCancellationStatus3? CancellationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTransactionCancellationStatus3? CancellationStatus { get; init; } 
+    #else
+    public PaymentTransactionCancellationStatus3? CancellationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial institution servicing an account for the debtor. 
     /// Usage:
     /// Debtor Agent in this case only refers to FI to FI Customer Credit Transfers.
     /// </summary>
+    [IsoId("_Wvbc4e4kEeaTc4E2tKngqg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DebtorAgent { get; init; } 
+    #else
+    public System.String? DebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that owes an amount of money to the (ultimate) creditor.
     /// Usage:
     /// Debtor in this case only refers to Financial Institution Credit Transfer with cover.
     /// </summary>
+    [IsoId("_0I9IcD5aEei1cqDe0mKAOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Debtor { get; init; } 
+    #else
+    public System.String? Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
+    [IsoId("_2D-m0bF8EeaMU5WacDgJBg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentEvent2? Agent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentEvent2? Agent { get; init; } 
+    #else
+    public PaymentEvent2? Agent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial institution servicing an account for the creditor.
     /// </summary>
+    [IsoId("_CJsGNKHsEeagRbKvRt3LnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditorAgent { get; init; } 
+    #else
+    public System.String? CreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party to which an amount of money is due.
     /// Usage:
     /// This role is only to be used in Financial Institution Credit Transfer with cover
     /// </summary>
+    [IsoId("_2QJpAD5bEei1cqDe0mKAOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Creditor { get; init; } 
+    #else
+    public System.String? Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date and time at which the message enters the Gpi system.
     /// </summary>
+    [IsoId("_CJrfLaHsEeagRbKvRt3LnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiation Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime InitiationTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime InitiationTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime InitiationTime { get; init; } 
+    #else
+    public System.DateTime InitiationTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time based on the creation date of the status confirmation containing a final status ACSC.
     /// </summary>
+    [IsoId("_CJsGMKHsEeagRbKvRt3LnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Completion Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CompletionTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? CompletionTime { get; init; } 
+    #else
+    public System.DateTime? CompletionTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage:
     /// This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [IsoId("_CJrfLKHsEeagRbKvRt3LnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InstructedAmount { get; init; } 
+    #else
+    public System.Decimal? InstructedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
     /// </summary>
+    [IsoId("_6XflcFyZEeewBcMu1EH_Gg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ConfirmedAmount { get; init; } 
+    #else
+    public System.Decimal? ConfirmedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the last date and time at which the status of this transaction was updated.
     /// </summary>
+    [IsoId("_CJsGN6HsEeagRbKvRt3LnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Update Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime LastUpdateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime LastUpdateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime LastUpdateTime { get; init; } 
+    #else
+    public System.DateTime LastUpdateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the payment events related to the underlying cover payment.
     /// </summary>
+    [IsoId("_OveT0T76EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cover Payment Event")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CoverPaymentEvent1? CoverPaymentEvent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CoverPaymentEvent1? CoverPaymentEvent { get; init; } 
+    #else
+    public CoverPaymentEvent1? CoverPaymentEvent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UETR", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETR)); // data type UUIDv4Identifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtScnroRtrd", xmlNamespace );
-        writer.WriteValue(PaymentScenarioReturned.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MyInstn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(MyInstitution)); // data type AnyBICIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Role", xmlNamespace );
-        writer.WriteValue(Role.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "EvtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(EventTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        TransactionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CancellationStatus is PaymentTransactionCancellationStatus3 CancellationStatusValue)
-        {
-            writer.WriteStartElement(null, "CxlSts", xmlNamespace );
-            CancellationStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAgent is IsoAnyBICIdentifier DebtorAgentValue)
-        {
-            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorAgentValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Debtor is IsoAnyBICIdentifier DebtorValue)
-        {
-            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Agent is PaymentEvent2 AgentValue)
-        {
-            writer.WriteStartElement(null, "Agt", xmlNamespace );
-            AgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAgent is IsoAnyBICIdentifier CreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorAgentValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (Creditor is IsoAnyBICIdentifier CreditorValue)
-        {
-            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InitnTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiationTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (CompletionTime is IsoISODateTime CompletionTimeValue)
-        {
-            writer.WriteStartElement(null, "CmpltnTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(CompletionTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (InstructedAmount is IsoActiveOrHistoricCurrencyAndAmount InstructedAmountValue)
-        {
-            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ConfirmedAmount is IsoActiveOrHistoricCurrencyAndAmount ConfirmedAmountValue)
-        {
-            writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ConfirmedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "LastUpdTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(LastUpdateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (CoverPaymentEvent is CoverPaymentEvent1 CoverPaymentEventValue)
-        {
-            writer.WriteStartElement(null, "CoverPmtEvt", xmlNamespace );
-            CoverPaymentEventValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentTransaction97 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

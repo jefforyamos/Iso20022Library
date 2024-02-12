@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the report level status advice.
 /// </summary>
+[IsoId("_CUoXKdGdEeaQk737TH1Fzw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Status Advice Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatusAdviceReport3
-     : IIsoXmlSerilizable<StatusAdviceReport3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StatusAdviceReport3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StatusAdviceReport3( ReportingMessageStatus1Code reqStatus )
+    {
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the status for the full message.
     /// </summary>
+    [IsoId("_CduBsdGdEeaQk737TH1Fzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingMessageStatus1Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReportingMessageStatus1Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingMessageStatus1Code Status { get; init; } 
+    #else
+    public ReportingMessageStatus1Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
+    [IsoId("_CduBs9GdEeaQk737TH1Fzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validation Rule")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
+    #else
+    public GenericValidationRuleIdentification1? ValidationRule { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the report date with the status advice message is related to.
     /// </summary>
+    [IsoId("_CduBtdGdEeaQk737TH1Fzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MessageDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? MessageDate { get; init; } 
+    #else
+    public System.DateOnly? MessageDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Statistical information on the results of the records processing.
     /// </summary>
+    [IsoId("_CduBt9GdEeaQk737TH1Fzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statistics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalReportStatistics3? Statistics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalReportStatistics3? Statistics { get; init; } 
+    #else
+    public OriginalReportStatistics3? Statistics { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ValidationRule is GenericValidationRuleIdentification1 ValidationRuleValue)
-        {
-            writer.WriteStartElement(null, "VldtnRule", xmlNamespace );
-            ValidationRuleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageDate is IsoISODate MessageDateValue)
-        {
-            writer.WriteStartElement(null, "MsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MessageDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Statistics is OriginalReportStatistics3 StatisticsValue)
-        {
-            writer.WriteStartElement(null, "Sttstcs", xmlNamespace );
-            StatisticsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static StatusAdviceReport3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

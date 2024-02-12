@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Detailed information of no margin or outdated margin information.
-/// </summary>
-[KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction))]
-[KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report))]
-public abstract partial record DetailedMissingMarginInformationStatistics4Choice_ : IIsoXmlSerilizable<DetailedMissingMarginInformationStatistics4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Detailed information of no margin or outdated margin information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DetailedMissingMarginInformationStatistics4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction))]
+    [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report))]
+    [IsoId("_rqy-iVowEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Missing Margin Information Statistics 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DetailedMissingMarginInformationStatistics4Choice_
+    #else
+    public abstract partial class DetailedMissingMarginInformationStatistics4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => DetailedMissingMarginInformationStatistics4Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Rpt" => DetailedMissingMarginInformationStatistics4Choice.Report.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DetailedMissingMarginInformationStatistics4Choice choice.")
-        };
     }
 }

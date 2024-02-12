@@ -9,54 +9,108 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.NDFOpeningFixing1Choice;
-
-/// <summary>
-/// Used to provide the opening information associated with an NDF trade.
-/// </summary>
-public partial record OpeningConditions : NDFOpeningFixing1Choice_
-     , IIsoXmlSerilizable<OpeningConditions>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.NDFOpeningFixing1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the settlement currency of the non deliverable trade.
+    /// Used to provide the opening information associated with an NDF trade.
     /// </summary>
-    public required ActiveCurrencyCode SettlementCurrency { get; init; } 
-    /// <summary>
-    /// Specifies the valuation date for a non deliverable trade.
-    /// </summary>
-    public required IsoISODate ValuationDate { get; init; } 
-    /// <summary>
-    /// Specifies the rate source associated with the non deliverable trade.
-    /// </summary>
-    public ValueList<SettlementRateSource1> SettlementRateSource { get; init; } = [];
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_hvh9oLC1EeaYscKJ1tWGRA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Conditions")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OpeningConditions : NDFOpeningFixing1Choice_
+    #else
+    public partial class OpeningConditions : NDFOpeningFixing1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
-        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValuationDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmRateSrc", xmlNamespace );
-        SettlementRateSource.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new OpeningConditions Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OpeningConditions instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OpeningConditions( string reqSettlementCurrency,System.DateOnly reqValuationDate )
+        {
+            SettlementCurrency = reqSettlementCurrency;
+            ValuationDate = reqValuationDate;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the settlement currency of the non deliverable trade.
+        /// </summary>
+        [IsoId("_teDWYJR-Eeak6e8_Fc5fQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveCurrencyCode SettlementCurrency { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string SettlementCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string SettlementCurrency { get; init; } 
+        #else
+        public string SettlementCurrency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the valuation date for a non deliverable trade.
+        /// </summary>
+        [IsoId("_XAtxMJR_Eeak6e8_Fc5fQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Valuation Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate ValuationDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly ValuationDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly ValuationDate { get; init; } 
+        #else
+        public System.DateOnly ValuationDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the rate source associated with the non deliverable trade.
+        /// </summary>
+        [IsoId("_q4iDMJUOEeak6e8_Fc5fQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Rate Source")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(1)]
+        [MaxLength(2)]
+        #endif
+        public ValueList<SettlementRateSource1> SettlementRateSource { get; init; } = new ValueList<SettlementRateSource1>(){};
+        
+        
+        #nullable disable
+        
     }
 }

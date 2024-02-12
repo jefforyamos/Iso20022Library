@@ -9,54 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice;
-
-/// <summary>
-/// Provides identification of the marfin reporting.
-/// </summary>
-public partial record MarginReporting : TransactionIdentification1Choice_
-     , IIsoXmlSerilizable<MarginReporting>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique code identifying the reporting counterparty.
+    /// Provides identification of the marfin reporting.
     /// </summary>
-    public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
-    /// <summary>
-    /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
-    /// </summary>
-    public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identification of the collateral portfolio.
-    /// </summary>
-    public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_pq7S4K7LEemZxoEFHjN-AQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Reporting")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record MarginReporting : TransactionIdentification1Choice_
+    #else
+    public partial class MarginReporting : TransactionIdentification1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
-        ReportingCounterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
-        OtherCounterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollPrtflId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax52Text(CollateralPortfolioIdentification)); // data type Max52Text System.String
-        writer.WriteEndElement();
-    }
-    public static new MarginReporting Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a MarginReporting instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public MarginReporting( OrganisationIdentification9Choice_ reqReportingCounterparty,OrganisationIdentification9Choice_ reqOtherCounterparty,System.String reqCollateralPortfolioIdentification )
+        {
+            ReportingCounterparty = reqReportingCounterparty;
+            OtherCounterparty = reqOtherCounterparty;
+            CollateralPortfolioIdentification = reqCollateralPortfolioIdentification;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique code identifying the reporting counterparty.
+        /// </summary>
+        [IsoId("_CsUTwa7MEemZxoEFHjN-AQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reporting Counterparty")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
+        #else
+        public OrganisationIdentification9Choice_ ReportingCounterparty { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
+        /// </summary>
+        [IsoId("_CsUTw67MEemZxoEFHjN-AQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Counterparty")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
+        #else
+        public OrganisationIdentification9Choice_ OtherCounterparty { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identification of the collateral portfolio.
+        /// </summary>
+        [IsoId("_URsPAa7MEemZxoEFHjN-AQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Portfolio Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String CollateralPortfolioIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String CollateralPortfolioIdentification { get; init; } 
+        #else
+        public System.String CollateralPortfolioIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

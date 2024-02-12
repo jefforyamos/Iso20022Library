@@ -7,130 +7,243 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[IsoId("_GrxD8d6CEeeCre2qFaLC2A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Postal Address")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PostalAddress22
-     : IIsoXmlSerilizable<PostalAddress22>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the nature of the postal address.
     /// </summary>
+    [IsoId("_G23gs96CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressType2Code? AddressType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressType2Code? AddressType { get; init; } 
+    #else
+    public AddressType2Code? AddressType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a division of a large organisation or building.
     /// </summary>
+    [IsoId("_G23gtd6CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Department")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Department { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Department { get; init; } 
+    #else
+    public System.String? Department { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a sub-division of a large organisation or building.
     /// </summary>
+    [IsoId("_G23gt96CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Department")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SubDepartment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubDepartment { get; init; } 
+    #else
+    public System.String? SubDepartment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public SimpleValueList<IsoMax70Text> AddressLine { get; init; } = [];
+    [IsoId("_G23gxd6CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address Line")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AddressLine { get; init; } = new SimpleValueList<System.String>(){};
+    
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [IsoId("_G23gud6CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Street Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? StreetName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StreetName { get; init; } 
+    #else
+    public System.String? StreetName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [IsoId("_G23gu96CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Building Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? BuildingNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BuildingNumber { get; init; } 
+    #else
+    public System.String? BuildingNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [IsoId("_G23gvd6CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Post Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? PostCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PostCode { get; init; } 
+    #else
+    public System.String? PostCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [IsoId("_G23gv96CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Town Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TownName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TownName { get; init; } 
+    #else
+    public System.String? TownName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a subdivision of a country such as state, region, county.
     /// </summary>
-    public SimpleValueList<IsoMax35Text> CountrySubDivision { get; init; } = [];
+    [IsoId("_G23gwd6CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Sub Division")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> CountrySubDivision { get; init; } = new SimpleValueList<System.String>(){};
+    
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [IsoId("_G23gw96CEeeCre2qFaLC2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? CountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CountryCode { get; init; } 
+    #else
+    public System.String? CountryCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AddressType is AddressType2Code AddressTypeValue)
-        {
-            writer.WriteStartElement(null, "AdrTp", xmlNamespace );
-            writer.WriteValue(AddressTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Department is IsoMax70Text DepartmentValue)
-        {
-            writer.WriteStartElement(null, "Dept", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(DepartmentValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (SubDepartment is IsoMax70Text SubDepartmentValue)
-        {
-            writer.WriteStartElement(null, "SubDept", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SubDepartmentValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AdrLine", xmlNamespace );
-        AddressLine.Serialize(writer, xmlNamespace, "Max70Text", SerializationFormatter.IsoMax70Text );
-        writer.WriteEndElement();
-        if (StreetName is IsoMax70Text StreetNameValue)
-        {
-            writer.WriteStartElement(null, "StrtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(StreetNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (BuildingNumber is IsoMax16Text BuildingNumberValue)
-        {
-            writer.WriteStartElement(null, "BldgNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax16Text(BuildingNumberValue)); // data type Max16Text System.String
-            writer.WriteEndElement();
-        }
-        if (PostCode is IsoMax16Text PostCodeValue)
-        {
-            writer.WriteStartElement(null, "PstCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax16Text(PostCodeValue)); // data type Max16Text System.String
-            writer.WriteEndElement();
-        }
-        if (TownName is IsoMax70Text TownNameValue)
-        {
-            writer.WriteStartElement(null, "TwnNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(TownNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtrySubDvsn", xmlNamespace );
-        CountrySubDivision.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
-        writer.WriteEndElement();
-        if (CountryCode is IsoMin2Max3AlphaText CountryCodeValue)
-        {
-            writer.WriteStartElement(null, "CtryCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(CountryCodeValue)); // data type Min2Max3AlphaText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PostalAddress22 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

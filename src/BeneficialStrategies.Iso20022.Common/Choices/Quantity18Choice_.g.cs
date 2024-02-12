@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different quantity of security formats.
-/// </summary>
-[KnownType(typeof(Quantity18Choice.OriginalAndCurrentFaceAmount))]
-[KnownType(typeof(Quantity18Choice.SignedQuantity))]
-public abstract partial record Quantity18Choice_ : IIsoXmlSerilizable<Quantity18Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different quantity of security formats.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Quantity18Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Quantity18Choice.OriginalAndCurrentFaceAmount))]
+    [KnownType(typeof(Quantity18Choice.SignedQuantity))]
+    [IsoId("_LyFLJzq5EeWQ1Y7f8kds2A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity 18 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Quantity18Choice_
+    #else
+    public abstract partial class Quantity18Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgnlAndCurFaceAmt" => Quantity18Choice.OriginalAndCurrentFaceAmount.Deserialize(elementWithPayload),
-             "SgndQty" => Quantity18Choice.SignedQuantity.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Quantity18Choice choice.")
-        };
     }
 }

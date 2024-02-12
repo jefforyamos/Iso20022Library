@@ -7,111 +7,223 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics that unambiguously identify the single invoice financing request.
 /// </summary>
+[IsoId("_RYGZZdp-Ed-ak6NoX_4Aeg_909721344")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Invoice Request Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvoiceRequestInformation1
-     : IIsoXmlSerilizable<InvoiceRequestInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InvoiceRequestInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InvoiceRequestInformation1( DocumentGeneralInformation1 reqInvoiceGeneralInformation,InvoiceTotals1 reqInvoiceTotalsInformation,PartyAndAccountIdentificationAndContactInformation1 reqSupplier,PartyIdentificationAndContactInformation1 reqBuyer,PaymentInformation15 reqInvoicePaymentInformation )
+    {
+        InvoiceGeneralInformation = reqInvoiceGeneralInformation;
+        InvoiceTotalsInformation = reqInvoiceTotalsInformation;
+        Supplier = reqSupplier;
+        Buyer = reqBuyer;
+        InvoicePaymentInformation = reqInvoicePaymentInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// General information that unambiguously identify the invoice to be financed, such as invoice type, invoice number and issue date.
     /// </summary>
+    [IsoId("_RYGZZtp-Ed-ak6NoX_4Aeg_-885319739")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice General Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
+    #else
+    public DocumentGeneralInformation1 InvoiceGeneralInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies totals related to the invoice, such as total invoice amount and total tax amount.
     /// </summary>
+    [IsoId("_RYGZZ9p-Ed-ak6NoX_4Aeg_88226197")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Totals Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
+    #else
+    public InvoiceTotals1 InvoiceTotalsInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of credit/debit note related to the invoice to be financed.
     /// </summary>
+    [IsoId("_RYGZaNp-Ed-ak6NoX_4Aeg_-1188229274")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Note Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CreditDebitNoteAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CreditDebitNoteAmount { get; init; } 
+    #else
+    public System.Decimal? CreditDebitNoteAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of a single instalment to be financed, related to an invoice settlement (amount, payment due date).
     /// </summary>
+    [IsoId("_RYQKYNp-Ed-ak6NoX_4Aeg_-1603772146")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment1? InstalmentInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Instalment1? InstalmentInformation { get; init; } 
+    #else
+    public Instalment1? InstalmentInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount requested by the requestor party, related to a single invoice to be financed.
     /// </summary>
+    [IsoId("_RYQKYdp-Ed-ak6NoX_4Aeg_-1318025183")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingRateOrAmountChoice_? RequestedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancingRateOrAmountChoice_? RequestedAmount { get; init; } 
+    #else
+    public FinancingRateOrAmountChoice_? RequestedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
+    [IsoId("_RYQKYtp-Ed-ak6NoX_4Aeg_475463417")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
+    #else
+    public PartyAndAccountIdentificationAndContactInformation1 Supplier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Person or organization that represents the debtor for the invoice to be financed.
     /// </summary>
+    [IsoId("_RYQKY9p-Ed-ak6NoX_4Aeg_1975466452")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndContactInformation1 Buyer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentificationAndContactInformation1 Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndContactInformation1 Buyer { get; init; } 
+    #else
+    public PartyIdentificationAndContactInformation1 Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies payment terms and conditions related to a single invoice to be financed, including identifier of possible account used for payment.
     /// </summary>
+    [IsoId("_RYQKZNp-Ed-ak6NoX_4Aeg_-1314868221")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Payment Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInformation15 InvoicePaymentInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentInformation15 InvoicePaymentInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentInformation15 InvoicePaymentInformation { get; init; } 
+    #else
+    public PaymentInformation15 InvoicePaymentInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about a document related to the invoice to be financed, in structured form.
     /// </summary>
+    [IsoId("_RYQKZdp-Ed-ak6NoX_4Aeg_497864820")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentInformation2? ReferredDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReferredDocumentInformation2? ReferredDocument { get; init; } 
+    #else
+    public ReferredDocumentInformation2? ReferredDocument { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InvcGnlInf", xmlNamespace );
-        InvoiceGeneralInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InvcTtlsInf", xmlNamespace );
-        InvoiceTotalsInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CreditDebitNoteAmount is IsoActiveCurrencyAndAmount CreditDebitNoteAmountValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtNoteAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CreditDebitNoteAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InstalmentInformation is Instalment1 InstalmentInformationValue)
-        {
-            writer.WriteStartElement(null, "InstlmtInf", xmlNamespace );
-            InstalmentInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestedAmount is FinancingRateOrAmountChoice_ RequestedAmountValue)
-        {
-            writer.WriteStartElement(null, "ReqdAmt", xmlNamespace );
-            RequestedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Spplr", xmlNamespace );
-        Supplier.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Buyr", xmlNamespace );
-        Buyer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InvcPmtInf", xmlNamespace );
-        InvoicePaymentInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ReferredDocument is ReferredDocumentInformation2 ReferredDocumentValue)
-        {
-            writer.WriteStartElement(null, "RfrdDoc", xmlNamespace );
-            ReferredDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static InvoiceRequestInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

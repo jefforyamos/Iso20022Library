@@ -7,81 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the parameters of the report.
 /// </summary>
+[IsoId("_QlScaNp-Ed-ak6NoX_4Aeg_1048103905")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportParameters3
-     : IIsoXmlSerilizable<ReportParameters3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportParameters3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportParameters3( System.String reqReportIdentification,DateAndDateTimeChoice_ reqReportDateAndTime,string reqReportCurrency,System.DateTime reqCalculationDateAndTime,EventFrequency6Code reqFrequency )
+    {
+        ReportIdentification = reqReportIdentification;
+        ReportDateAndTime = reqReportDateAndTime;
+        ReportCurrency = reqReportCurrency;
+        CalculationDateAndTime = reqCalculationDateAndTime;
+        Frequency = reqFrequency;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
+    [IsoId("_QlcNYNp-Ed-ak6NoX_4Aeg_928215481")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReportIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReportIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReportIdentification { get; init; } 
+    #else
+    public System.String ReportIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date (and time) and time of the report.
     /// </summary>
+    [IsoId("_QlcNYdp-Ed-ak6NoX_4Aeg_-419897874")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ ReportDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency used for the calculation of the margin.
     /// </summary>
+    [IsoId("_QlcNYtp-Ed-ak6NoX_4Aeg_-336611287")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode ReportCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ReportCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ReportCurrency { get; init; } 
+    #else
+    public string ReportCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of calculation of the margin.
     /// </summary>
+    [IsoId("_QlcNY9p-Ed-ak6NoX_4Aeg_-1305521230")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CalculationDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CalculationDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CalculationDateAndTime { get; init; } 
+    #else
+    public System.DateTime CalculationDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency of the report.
     /// </summary>
+    [IsoId("_QlcNZNp-Ed-ak6NoX_4Aeg_594389524")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventFrequency6Code Frequency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EventFrequency6Code Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventFrequency6Code Frequency { get; init; } 
+    #else
+    public EventFrequency6Code Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [IsoId("_QlcNZdp-Ed-ak6NoX_4Aeg_-1126454468")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact5NumericText? ReportNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReportNumber { get; init; } 
+    #else
+    public System.String? ReportNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RptId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptDtAndTm", xmlNamespace );
-        ReportDateAndTime.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptCcy", xmlNamespace );
-        writer.WriteValue(ReportCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClctnDtAndTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CalculationDateAndTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-        writer.WriteValue(Frequency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ReportNumber is IsoExact5NumericText ReportNumberValue)
-        {
-            writer.WriteStartElement(null, "RptNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact5NumericText(ReportNumberValue)); // data type Exact5NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportParameters3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

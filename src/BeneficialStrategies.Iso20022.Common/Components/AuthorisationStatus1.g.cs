@@ -7,17 +7,37 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Authorisation status about the fraudulent transaction.
 /// </summary>
+[IsoId("_HhcNkHbNEeef9c2nwgY9Xw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Authorisation Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AuthorisationStatus1
-     : IIsoXmlSerilizable<AuthorisationStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,50 +45,61 @@ public partial record AuthorisationStatus1
     /// False: transaction was not authorised
     /// True: transaction was authorised
     /// </summary>
+    [IsoId("_yZqtIHbNEeef9c2nwgY9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AuthorisationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthorisationIndicator { get; init; } 
+    #else
+    public System.String? AuthorisationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the entity which authorised the transaction (if relevant).
     /// </summary>
+    [IsoId("_9p_x4HbNEeef9c2nwgY9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType26Code? AuthorisationEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyType26Code? AuthorisationEntity { get; init; } 
+    #else
+    public PartyType26Code? AuthorisationEntity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of authorisation entity.
     /// </summary>
+    [IsoId("_jsIsQHbOEeef9c2nwgY9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Authorisation Entity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherAuthorisationEntity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherAuthorisationEntity { get; init; } 
+    #else
+    public System.String? OtherAuthorisationEntity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AuthorisationIndicator is IsoTrueFalseIndicator AuthorisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AuthstnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AuthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AuthorisationEntity is PartyType26Code AuthorisationEntityValue)
-        {
-            writer.WriteStartElement(null, "AuthstnNtty", xmlNamespace );
-            writer.WriteValue(AuthorisationEntityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherAuthorisationEntity is IsoMax35Text OtherAuthorisationEntityValue)
-        {
-            writer.WriteStartElement(null, "OthrAuthstnNtty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAuthorisationEntityValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AuthorisationStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

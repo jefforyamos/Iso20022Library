@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Rate is expressed as a percentage or a text.
-/// </summary>
-[KnownType(typeof(RateTypeChoice.PercentageRate))]
-[KnownType(typeof(RateTypeChoice.TextualRate))]
-public abstract partial record RateTypeChoice_ : IIsoXmlSerilizable<RateTypeChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Rate is expressed as a percentage or a text.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RateTypeChoice_ Deserialize(XElement element)
+    [KnownType(typeof(RateTypeChoice.PercentageRate))]
+    [KnownType(typeof(RateTypeChoice.TextualRate))]
+    [IsoId("_RIwV0dp-Ed-ak6NoX_4Aeg_-1267403783")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Type Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RateTypeChoice_
+    #else
+    public abstract partial class RateTypeChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PctgRate" => RateTypeChoice.PercentageRate.Deserialize(elementWithPayload),
-             "TxtlRate" => RateTypeChoice.TextualRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RateTypeChoice choice.")
-        };
     }
 }

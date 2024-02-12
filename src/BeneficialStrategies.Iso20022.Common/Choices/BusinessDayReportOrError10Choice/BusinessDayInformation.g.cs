@@ -9,63 +9,98 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError10Choice;
-
-/// <summary>
-/// Requested system details for a specific business day.
-/// </summary>
-public partial record BusinessDayInformation : BusinessDayReportOrError10Choice_
-     , IIsoXmlSerilizable<BusinessDayInformation>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError10Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date for which the availability information is provided.
+    /// Requested system details for a specific business day.
     /// </summary>
-    public DateAndDateTime2Choice_? SystemDate { get; init; } 
-    /// <summary>
-    /// Status of a system and the period of time during which the status is valid.
-    /// </summary>
-    public SystemStatus3? SystemStatus { get; init; } 
-    /// <summary>
-    /// Information relating to system operations and foreseen events relating to the operation of the system.
-    /// </summary>
-    public SystemAvailabilityAndEvents3? SystemInformationPerCurrency { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_OYVo4XXyEei3jO6riKEVXg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Day Information")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record BusinessDayInformation : BusinessDayReportOrError10Choice_
+    #else
+    public partial class BusinessDayInformation : BusinessDayReportOrError10Choice_
+    #endif
     {
-        if (SystemDate is DateAndDateTime2Choice_ SystemDateValue)
-        {
-            writer.WriteStartElement(null, "SysDt", xmlNamespace );
-            SystemDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SystemStatus is SystemStatus3 SystemStatusValue)
-        {
-            writer.WriteStartElement(null, "SysSts", xmlNamespace );
-            SystemStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SystemInformationPerCurrency is SystemAvailabilityAndEvents3 SystemInformationPerCurrencyValue)
-        {
-            writer.WriteStartElement(null, "SysInfPerCcy", xmlNamespace );
-            SystemInformationPerCurrencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new BusinessDayInformation Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date for which the availability information is provided.
+        /// </summary>
+        [IsoId("_OinmQXXyEei3jO6riKEVXg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("System Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DateAndDateTime2Choice_? SystemDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateAndDateTime2Choice_? SystemDate { get; init; } 
+        #else
+        public DateAndDateTime2Choice_? SystemDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Status of a system and the period of time during which the status is valid.
+        /// </summary>
+        [IsoId("_OinmQ3XyEei3jO6riKEVXg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("System Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemStatus3? SystemStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemStatus3? SystemStatus { get; init; } 
+        #else
+        public SystemStatus3? SystemStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information relating to system operations and foreseen events relating to the operation of the system.
+        /// </summary>
+        [IsoId("_OinmRXXyEei3jO6riKEVXg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("System Information Per Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemAvailabilityAndEvents3? SystemInformationPerCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemAvailabilityAndEvents3? SystemInformationPerCurrency { get; init; } 
+        #else
+        public SystemAvailabilityAndEvents3? SystemInformationPerCurrency { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

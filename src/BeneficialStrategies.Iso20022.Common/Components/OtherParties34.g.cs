@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of other parties.
 /// </summary>
+[IsoId("__eyZsdLCEeiN28wlpBQScw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherParties34
-     : IIsoXmlSerilizable<OtherParties34>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
+    [IsoId("__wyvtdLCEeiN28wlpBQScw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification149? Investor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification149? Investor { get; init; } 
+    #else
+    public PartyIdentification149? Investor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Foreign financial institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
+    [IsoId("__wyvvdLCEeiN28wlpBQScw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Qualified Foreign Intermediary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? QualifiedForeignIntermediary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? QualifiedForeignIntermediary { get; init; } 
+    #else
+    public PartyIdentification136? QualifiedForeignIntermediary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
+    [IsoId("__wyvxdLCEeiN28wlpBQScw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stock Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? StockExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? StockExchange { get; init; } 
+    #else
+    public PartyIdentification136? StockExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
+    [IsoId("__wyvzdLCEeiN28wlpBQScw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Regulator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? TradeRegulator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? TradeRegulator { get; init; } 
+    #else
+    public PartyIdentification136? TradeRegulator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party responsible for the administration of a tri-party collateral transaction including collateral allocation, marking to market and substitution of collateral.
     /// </summary>
+    [IsoId("__wyv1dLCEeiN28wlpBQScw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? TripartyAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? TripartyAgent { get; init; } 
+    #else
+    public PartyIdentification136? TripartyAgent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Investor is PartyIdentification149 InvestorValue)
-        {
-            writer.WriteStartElement(null, "Invstr", xmlNamespace );
-            InvestorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QualifiedForeignIntermediary is PartyIdentification136 QualifiedForeignIntermediaryValue)
-        {
-            writer.WriteStartElement(null, "QlfdFrgnIntrmy", xmlNamespace );
-            QualifiedForeignIntermediaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StockExchange is PartyIdentification136 StockExchangeValue)
-        {
-            writer.WriteStartElement(null, "StockXchg", xmlNamespace );
-            StockExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeRegulator is PartyIdentification136 TradeRegulatorValue)
-        {
-            writer.WriteStartElement(null, "TradRgltr", xmlNamespace );
-            TradeRegulatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TripartyAgent is PartyIdentification136 TripartyAgentValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
-            TripartyAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherParties34 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,87 +7,161 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the physical parameters of a shareholders meeting. Several dates and places can be defined for a meeting.
 /// </summary>
+[IsoId("_TKY2Y9p-Ed-ak6NoX_4Aeg_795834246")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Meeting")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Meeting2
-     : IIsoXmlSerilizable<Meeting2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Meeting2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Meeting2( DateFormat2Choice_ reqDateAndTime,System.String reqQuorumRequired )
+    {
+        DateAndTime = reqDateAndTime;
+        QuorumRequired = reqQuorumRequired;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
+    [IsoId("_TKY2ZNp-Ed-ak6NoX_4Aeg_795834504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat2Choice_ DateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateFormat2Choice_ DateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat2Choice_ DateAndTime { get; init; } 
+    #else
+    public DateFormat2Choice_ DateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the status of a meeting date.
     /// </summary>
+    [IsoId("_TKY2Zdp-Ed-ak6NoX_4Aeg_795834512")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingDateStatus1Code? DateStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MeetingDateStatus1Code? DateStatus { get; init; } 
+    #else
+    public MeetingDateStatus1Code? DateStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
+    [IsoId("_TKY2Ztp-Ed-ak6NoX_4Aeg_795834537")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quorum Required")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator QuorumRequired { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String QuorumRequired { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String QuorumRequired { get; init; } 
+    #else
+    public System.String QuorumRequired { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies location where meeting will take place.
     /// </summary>
-    public ValueList<LocationFormat1Choice_> Location { get; init; } = [];
+    [IsoId("_TKY2Z9p-Ed-ak6NoX_4Aeg_205631143")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(5)]
+    #endif
+    public ValueList<LocationFormat1Choice_> Location { get; init; } = new ValueList<LocationFormat1Choice_>(){};
+    
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
+    [IsoId("_TKY2aNp-Ed-ak6NoX_4Aeg_795834554")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quorum Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QuorumQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? QuorumQuantity { get; init; } 
+    #else
+    public System.String? QuorumQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities, expressed as a percentage, required to hold a meeting.
     /// </summary>
+    [IsoId("_TKY2adp-Ed-ak6NoX_4Aeg_795834597")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quorum Quantity Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? QuorumQuantityPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? QuorumQuantityPercentage { get; init; } 
+    #else
+    public System.Decimal? QuorumQuantityPercentage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
-        DateAndTime.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DateStatus is MeetingDateStatus1Code DateStatusValue)
-        {
-            writer.WriteStartElement(null, "DtSts", xmlNamespace );
-            writer.WriteValue(DateStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "QrmReqrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(QuorumRequired)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Lctn", xmlNamespace );
-        Location.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (QuorumQuantity is IsoMax35Text QuorumQuantityValue)
-        {
-            writer.WriteStartElement(null, "QrmQty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuorumQuantityValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (QuorumQuantityPercentage is IsoPercentageRate QuorumQuantityPercentageValue)
-        {
-            writer.WriteStartElement(null, "QrmQtyPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(QuorumQuantityPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static Meeting2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

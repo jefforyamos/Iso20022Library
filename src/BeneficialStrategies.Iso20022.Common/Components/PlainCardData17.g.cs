@@ -7,96 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensitive data associated with a payment card.
 /// </summary>
+[IsoId("_GIIq4ZbhEeW6aPG6p-lhQQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Plain Card Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PlainCardData17
-     : IIsoXmlSerilizable<PlainCardData17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card.
     /// </summary>
+    [IsoId("_GUNYAZbhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PAN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin8Max28NumericText? PAN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PAN { get; init; } 
+    #else
+    public System.String? PAN { get; set; } 
+    #endif
+    
     /// <summary>
     /// ISO track 1 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format is conform to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// </summary>
+    [IsoId("_GUNYC5bhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 76 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax76Text? Track1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Track1 { get; init; } 
+    #else
+    public System.String? Track1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content is conform to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// </summary>
+    [IsoId("_GUNYDZbhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 37 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax37Text? Track2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Track2 { get; init; } 
+    #else
+    public System.String? Track2 { get; set; } 
+    #endif
+    
     /// <summary>
     /// ISO track 3 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content is conform to ISO 4909, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// </summary>
+    [IsoId("_GUNYD5bhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 104 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax104Text? Track3 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Track3 { get; init; } 
+    #else
+    public System.String? Track3 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [IsoId("_TnrZMJbhEeW6aPG6p-lhQQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalCardData { get; init; } 
+    #else
+    public System.String? AdditionalCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entry mode of the card.
     /// </summary>
+    [IsoId("_Rs9WUJdMEeWhUvuI1bSHSA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading5Code? EntryMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardDataReading5Code? EntryMode { get; init; } 
+    #else
+    public CardDataReading5Code? EntryMode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PAN is IsoMin8Max28NumericText PANValue)
-        {
-            writer.WriteStartElement(null, "PAN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(PANValue)); // data type Min8Max28NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Track1 is IsoMax76Text Track1Value)
-        {
-            writer.WriteStartElement(null, "Trck1", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax76Text(Track1Value)); // data type Max76Text System.String
-            writer.WriteEndElement();
-        }
-        if (Track2 is IsoMax37Text Track2Value)
-        {
-            writer.WriteStartElement(null, "Trck2", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax37Text(Track2Value)); // data type Max37Text System.String
-            writer.WriteEndElement();
-        }
-        if (Track3 is IsoMax104Text Track3Value)
-        {
-            writer.WriteStartElement(null, "Trck3", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax104Text(Track3Value)); // data type Max104Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalCardData is IsoMax35Text AdditionalCardDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlCardData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalCardDataValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (EntryMode is CardDataReading5Code EntryModeValue)
-        {
-            writer.WriteStartElement(null, "NtryMd", xmlNamespace );
-            writer.WriteValue(EntryModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static PlainCardData17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

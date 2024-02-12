@@ -7,413 +7,748 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a securities account and its characteristics.
 /// </summary>
+[IsoId("_yf9dVyC6EeWPMvNwVtiMsA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Investment Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvestmentAccount49
-     : IIsoXmlSerilizable<InvestmentAccount49>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InvestmentAccount49 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InvestmentAccount49( OwnershipType2Choice_ reqOwnershipType )
+    {
+        OwnershipType = reqOwnershipType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_y8Y6iSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [IsoId("_y8Y6iyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
     /// </summary>
+    [IsoId("_y8Y6jSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Designation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Designation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Designation { get; init; } 
+    #else
+    public System.String? Designation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of account.
     /// </summary>
+    [IsoId("_y8Y6jyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountType2Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountType2Choice_? Type { get; init; } 
+    #else
+    public AccountType2Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ownership status of the account, for example, joint owners.
     /// </summary>
+    [IsoId("_y8Y6kSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ownership Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OwnershipType2Choice_ OwnershipType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OwnershipType2Choice_ OwnershipType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OwnershipType2Choice_ OwnershipType { get; init; } 
+    #else
+    public OwnershipType2Choice_ OwnershipType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax advantage specific to the account.
     /// </summary>
+    [IsoId("_y8Y6kyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Exemption")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
+    #else
+    public TaxExemptionReason2Choice_? TaxExemption { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency at which a statement is issued.
     /// </summary>
+    [IsoId("_y8Y6lSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatementFrequencyReason2Choice_? StatementFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatementFrequencyReason2Choice_? StatementFrequency { get; init; } 
+    #else
+    public StatementFrequencyReason2Choice_? StatementFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
+    [IsoId("_y8Y6lyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? ReferenceCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ReferenceCurrency { get; init; } 
+    #else
+    public string? ReferenceCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language for all communication concerning the account.
     /// </summary>
+    [IsoId("_y8Y6mSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? Language { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Language { get; init; } 
+    #else
+    public string? Language { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [IsoId("_y8Y6myC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Preference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncomePreference2Code? IncomePreference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IncomePreference2Code? IncomePreference { get; init; } 
+    #else
+    public IncomePreference2Code? IncomePreference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies, for income on the fund or security that is to be reinvested, parameters for the reinvestment. If the reinvestment percentage is less than one hundred percent, the remaining percentage will be invested according to the investor’s or account owner's subsequent instructions.
     /// </summary>
+    [IsoId("_y8Y6nSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvestment Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reinvestment2? ReinvestmentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Reinvestment2? ReinvestmentDetails { get; init; } 
+    #else
+    public Reinvestment2? ReinvestmentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method by which the tax (withholding tax) is to be processed, that is, either withheld at source or tax information is reported to tax authorities or tax information is reported due to the provision of a tax certificate.
     /// </summary>
+    [IsoId("_y8Y6nyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Withholding Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxWithholdingMethod3Code? TaxWithholdingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxWithholdingMethod3Code? TaxWithholdingMethod { get; init; } 
+    #else
+    public TaxWithholdingMethod3Code? TaxWithholdingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details for the reporting of tax, for example, the country of taxation.
     /// </summary>
+    [IsoId("_WgQXcSDCEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReporting1? TaxReporting { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxReporting1? TaxReporting { get; init; } 
+    #else
+    public TaxReporting1? TaxReporting { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the letter of intent.
     /// </summary>
+    [IsoId("_y8Y6oSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Letter Intent Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LetterIntent1? LetterIntentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LetterIntent1? LetterIntentDetails { get; init; } 
+    #else
+    public LetterIntent1? LetterIntentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference of an accumulation rights program, in which sales commissions are based on a customer's present purchases of shares and the aggregate quantity previously purchased by the customer. An accumulation rights program is mainly used in the US market.
     /// </summary>
+    [IsoId("_y8Y6oyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accumulation Right Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccumulationRightReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccumulationRightReference { get; init; } 
+    #else
+    public System.String? AccumulationRightReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of account owners or related parties required to authorise transactions on the account.
     /// </summary>
+    [IsoId("_y8Y6pSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Required Signatories Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? RequiredSignatoriesNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RequiredSignatoriesNumber { get; init; } 
+    #else
+    public System.UInt64? RequiredSignatoriesNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the investment fund family.
     /// </summary>
+    [IsoId("_y8Y6pyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Family Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FundFamilyName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FundFamilyName { get; init; } 
+    #else
+    public System.String? FundFamilyName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information about the investment fund or security associated to the account.
     /// </summary>
+    [IsoId("_y8Y6qSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument51? FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument51? FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument51? FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameters to be applied on deal amount for orders when the amount is a fractional number.
     /// </summary>
+    [IsoId("_y8Y6qyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rounding Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RoundingParameters1? RoundingDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RoundingParameters1? RoundingDetails { get; init; } 
+    #else
+    public RoundingParameters1? RoundingDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_y8Y6rSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification70Choice_? AccountServicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification70Choice_? AccountServicer { get; init; } 
+    #else
+    public PartyIdentification70Choice_? AccountServicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the account is blocked and other factors for the blocked account.
     /// </summary>
+    [IsoId("_y8Y6ryC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Blocked2? BlockedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Blocked2? BlockedStatus { get; init; } 
+    #else
+    public Blocked2? BlockedStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of usage of the account.
     /// </summary>
+    [IsoId("_y8Y6sSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Usage Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountUsageType2Choice_? AccountUsageType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountUsageType2Choice_? AccountUsageType { get; init; } 
+    #else
+    public AccountUsageType2Choice_? AccountUsageType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if documentary evidence has been provided for the foreign resident.
     /// </summary>
+    [IsoId("_y8Y6syC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Status Certification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Provided1Code? ForeignStatusCertification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Provided1Code? ForeignStatusCertification { get; init; } 
+    #else
+    public Provided1Code? ForeignStatusCertification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the investor or account owner signs the open account form.
     /// </summary>
+    [IsoId("_y8Y6tSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Signature Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? AccountSignatureDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? AccountSignatureDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? AccountSignatureDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the means by which the investor or account owner submits the open account form.
     /// </summary>
+    [IsoId("_y8Y6tyC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Channel Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
+    #else
+    public TransactionChannelType1Choice_? TransactionChannelType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the category of the account.
     /// </summary>
+    [IsoId("_y8Y6uSC6EeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountCategory1Choice_? InvestmentAccountCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountCategory1Choice_? InvestmentAccountCategory { get; init; } 
+    #else
+    public InvestmentAccountCategory1Choice_? InvestmentAccountCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the holdings in the account are eligible for pledging.
     /// </summary>
+    [IsoId("_Kv_D0yDBEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pledging")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Eligible1Code? Pledging { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Eligible1Code? Pledging { get; init; } 
+    #else
+    public Eligible1Code? Pledging { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the holdings in the account are used as collateral.
     /// </summary>
+    [IsoId("_Kv_D1CDBEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Collateral1Code? Collateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Collateral1Code? Collateral { get; init; } 
+    #else
+    public Collateral1Code? Collateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of third party rights.
     /// </summary>
+    [IsoId("_Kv_D1SDBEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Third Party Rights")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ThirdPartyRights1? ThirdPartyRights { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ThirdPartyRights1? ThirdPartyRights { get; init; } 
+    #else
+    public ThirdPartyRights1? ThirdPartyRights { get; set; } 
+    #endif
+    
     /// <summary>
     /// Functionality permitted to a third party in the actions that may be taken on an account on behalf of the investor.
     /// </summary>
+    [IsoId("_GfKc8CDDEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Power Of Attorney Level Of Control")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LevelOfControl1Choice_? PowerOfAttorneyLevelOfControl { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LevelOfControl1Choice_? PowerOfAttorneyLevelOfControl { get; init; } 
+    #else
+    public LevelOfControl1Choice_? PowerOfAttorneyLevelOfControl { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the account is regarded as domestic or non-domestic for reporting purposes.
     /// </summary>
+    [IsoId("_4Qb38CDDEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accounting Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountingStatus1Choice_? AccountingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountingStatus1Choice_? AccountingStatus { get; init; } 
+    #else
+    public AccountingStatus1Choice_? AccountingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal opening date for the account.
     /// </summary>
+    [IsoId("__TVdgCDEEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? OpeningDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? OpeningDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? OpeningDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal closing date for the account.
     /// </summary>
+    [IsoId("_Dmk0UCDFEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? ClosingDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the account can hold a negative position in a security.
     /// </summary>
+    [IsoId("_SFnQwCDFEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Negative Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NegativeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NegativeIndicator { get; init; } 
+    #else
+    public System.String? NegativeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Order in which securities are moved from the account.
     /// </summary>
+    [IsoId("_d7kyICDFEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionEffect3Code? ProcessingOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PositionEffect3Code? ProcessingOrder { get; init; } 
+    #else
+    public PositionEffect3Code? ProcessingOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the investor assumes responsibility for the liability.
     /// </summary>
+    [IsoId("_OAd8ICDMEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Liability")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Liability1Choice_? Liability { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Liability1Choice_? Liability { get; init; } 
+    #else
+    public Liability1Choice_? Liability { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information used to determine fees and types of operations that can be carried out on the account.
     /// </summary>
+    [IsoId("_StOwwCDNEeWPMvNwVtiMsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorProfile1? InvestorProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestorProfile1? InvestorProfile { get; init; } 
+    #else
+    public InvestorProfile1? InvestorProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fiscal year, when not the same as the calendar year.
     /// </summary>
+    [IsoId("_3C9scFxREeW8MLuBzR10cg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fiscal Year")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FiscalYear1Choice_? FiscalYear { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FiscalYear1Choice_? FiscalYear { get; init; } 
+    #else
+    public FiscalYear1Choice_? FiscalYear { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax35Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Designation is IsoMax35Text DesignationValue)
-        {
-            writer.WriteStartElement(null, "Dsgnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DesignationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is AccountType2Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OwnrshTp", xmlNamespace );
-        OwnershipType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TaxExemption is TaxExemptionReason2Choice_ TaxExemptionValue)
-        {
-            writer.WriteStartElement(null, "TaxXmptn", xmlNamespace );
-            TaxExemptionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StatementFrequency is StatementFrequencyReason2Choice_ StatementFrequencyValue)
-        {
-            writer.WriteStartElement(null, "StmtFrqcy", xmlNamespace );
-            StatementFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferenceCurrency is ActiveCurrencyCode ReferenceCurrencyValue)
-        {
-            writer.WriteStartElement(null, "RefCcy", xmlNamespace );
-            writer.WriteValue(ReferenceCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Language is LanguageCode LanguageValue)
-        {
-            writer.WriteStartElement(null, "Lang", xmlNamespace );
-            writer.WriteValue(LanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (IncomePreference is IncomePreference2Code IncomePreferenceValue)
-        {
-            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
-            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReinvestmentDetails is Reinvestment2 ReinvestmentDetailsValue)
-        {
-            writer.WriteStartElement(null, "RinvstmtDtls", xmlNamespace );
-            ReinvestmentDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxWithholdingMethod is TaxWithholdingMethod3Code TaxWithholdingMethodValue)
-        {
-            writer.WriteStartElement(null, "TaxWhldgMtd", xmlNamespace );
-            writer.WriteValue(TaxWithholdingMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TaxReporting is TaxReporting1 TaxReportingValue)
-        {
-            writer.WriteStartElement(null, "TaxRptg", xmlNamespace );
-            TaxReportingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LetterIntentDetails is LetterIntent1 LetterIntentDetailsValue)
-        {
-            writer.WriteStartElement(null, "LttrInttDtls", xmlNamespace );
-            LetterIntentDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccumulationRightReference is IsoMax35Text AccumulationRightReferenceValue)
-        {
-            writer.WriteStartElement(null, "AcmltnRghtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccumulationRightReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RequiredSignatoriesNumber is IsoNumber RequiredSignatoriesNumberValue)
-        {
-            writer.WriteStartElement(null, "ReqrdSgntriesNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(RequiredSignatoriesNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (FundFamilyName is IsoMax350Text FundFamilyNameValue)
-        {
-            writer.WriteStartElement(null, "FndFmlyNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(FundFamilyNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentDetails is FinancialInstrument51 FinancialInstrumentDetailsValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RoundingDetails is RoundingParameters1 RoundingDetailsValue)
-        {
-            writer.WriteStartElement(null, "RndgDtls", xmlNamespace );
-            RoundingDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountServicer is PartyIdentification70Choice_ AccountServicerValue)
-        {
-            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
-            AccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockedStatus is Blocked2 BlockedStatusValue)
-        {
-            writer.WriteStartElement(null, "BlckdSts", xmlNamespace );
-            BlockedStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountUsageType is AccountUsageType2Choice_ AccountUsageTypeValue)
-        {
-            writer.WriteStartElement(null, "AcctUsgTp", xmlNamespace );
-            AccountUsageTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ForeignStatusCertification is Provided1Code ForeignStatusCertificationValue)
-        {
-            writer.WriteStartElement(null, "FrgnStsCertfctn", xmlNamespace );
-            writer.WriteValue(ForeignStatusCertificationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AccountSignatureDateTime is DateAndDateTimeChoice_ AccountSignatureDateTimeValue)
-        {
-            writer.WriteStartElement(null, "AcctSgntrDtTm", xmlNamespace );
-            AccountSignatureDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionChannelType is TransactionChannelType1Choice_ TransactionChannelTypeValue)
-        {
-            writer.WriteStartElement(null, "TxChanlTp", xmlNamespace );
-            TransactionChannelTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentAccountCategory is InvestmentAccountCategory1Choice_ InvestmentAccountCategoryValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctCtgy", xmlNamespace );
-            InvestmentAccountCategoryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Pledging is Eligible1Code PledgingValue)
-        {
-            writer.WriteStartElement(null, "Pldgg", xmlNamespace );
-            writer.WriteValue(PledgingValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Collateral is Collateral1Code CollateralValue)
-        {
-            writer.WriteStartElement(null, "Coll", xmlNamespace );
-            writer.WriteValue(CollateralValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ThirdPartyRights is ThirdPartyRights1 ThirdPartyRightsValue)
-        {
-            writer.WriteStartElement(null, "ThrdPtyRghts", xmlNamespace );
-            ThirdPartyRightsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PowerOfAttorneyLevelOfControl is LevelOfControl1Choice_ PowerOfAttorneyLevelOfControlValue)
-        {
-            writer.WriteStartElement(null, "PwrOfAttnyLvlOfCtrl", xmlNamespace );
-            PowerOfAttorneyLevelOfControlValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountingStatus is AccountingStatus1Choice_ AccountingStatusValue)
-        {
-            writer.WriteStartElement(null, "AcctgSts", xmlNamespace );
-            AccountingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OpeningDate is DateAndDateTimeChoice_ OpeningDateValue)
-        {
-            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
-            OpeningDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosingDate is DateAndDateTimeChoice_ ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            ClosingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NegativeIndicator is IsoYesNoIndicator NegativeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NegInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NegativeIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ProcessingOrder is PositionEffect3Code ProcessingOrderValue)
-        {
-            writer.WriteStartElement(null, "PrcgOrdr", xmlNamespace );
-            writer.WriteValue(ProcessingOrderValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Liability is Liability1Choice_ LiabilityValue)
-        {
-            writer.WriteStartElement(null, "Lblty", xmlNamespace );
-            LiabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestorProfile is InvestorProfile1 InvestorProfileValue)
-        {
-            writer.WriteStartElement(null, "InvstrPrfl", xmlNamespace );
-            InvestorProfileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FiscalYear is FiscalYear1Choice_ FiscalYearValue)
-        {
-            writer.WriteStartElement(null, "FsclYr", xmlNamespace );
-            FiscalYearValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static InvestmentAccount49 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

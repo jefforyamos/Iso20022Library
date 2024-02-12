@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Element containing the key information.
-/// </summary>
-[KnownType(typeof(KeyChoiceValue2.EncryptedKeyValue))]
-[KnownType(typeof(KeyChoiceValue2.TRRelatedData))]
-public abstract partial record KeyChoiceValue2_ : IIsoXmlSerilizable<KeyChoiceValue2_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Element containing the key information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static KeyChoiceValue2_ Deserialize(XElement element)
+    [KnownType(typeof(KeyChoiceValue2.EncryptedKeyValue))]
+    [KnownType(typeof(KeyChoiceValue2.TRRelatedData))]
+    [IsoId("_Fav_cbTqEeeQy4o2AayYHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Choice Value")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record KeyChoiceValue2_
+    #else
+    public abstract partial class KeyChoiceValue2_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NcrptdKeyVal" => KeyChoiceValue2.EncryptedKeyValue.Deserialize(elementWithPayload),
-             "TRRltdData" => KeyChoiceValue2.TRRelatedData.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid KeyChoiceValue2 choice.")
-        };
     }
 }

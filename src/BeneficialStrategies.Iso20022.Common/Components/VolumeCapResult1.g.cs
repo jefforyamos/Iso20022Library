@@ -7,94 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of result of a volume capping.
 /// </summary>
+[IsoId("_U7tWsJuJEeaPcol5ibnfBQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Volume Cap Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VolumeCapResult1
-     : IIsoXmlSerilizable<VolumeCapResult1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a VolumeCapResult1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public VolumeCapResult1( System.String reqIdentification,Period4Choice_ reqReportingPeriod,System.Decimal reqTotalTradingVolume,System.Decimal reqTradingUnderWaiverPercentage )
+    {
+        Identification = reqIdentification;
+        ReportingPeriod = reqReportingPeriod;
+        TotalTradingVolume = reqTotalTradingVolume;
+        TradingUnderWaiverPercentage = reqTradingUnderWaiverPercentage;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [IsoId("_9ch6AJuJEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
+    [IsoId("_FV0KcJuKEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ReportingPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Period4Choice_ ReportingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_ ReportingPeriod { get; init; } 
+    #else
+    public Period4Choice_ ReportingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last date for which the data was updated for this instrument and reporting period.
     /// </summary>
+    [IsoId("_LBukYJuKEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Update Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LastUpdateDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? LastUpdateDate { get; init; } 
+    #else
+    public System.DateOnly? LastUpdateDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total traded volume of the instrument in this specific reporting period.
     /// </summary>
+    [IsoId("_V17t0JuKEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Trading Volume")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalTradingVolume { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalTradingVolume { get; init; } 
+    #else
+    public System.Decimal TotalTradingVolume { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total percentage of trading under waiver of the instrument in this specific reporting period.
     /// </summary>
+    [IsoId("_6AHBAJuKEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Under Waiver Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TradingUnderWaiverPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TradingUnderWaiverPercentage { get; init; } 
+    #else
+    public System.Decimal TradingUnderWaiverPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of trading under waiver of the instrument in this specific reporting period broken down by trading venue.
     /// </summary>
+    [IsoId("_dyll4JuLEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Under Waiver Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingUnderWaiversPercentage1? TradingUnderWaiverBreakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingUnderWaiversPercentage1? TradingUnderWaiverBreakdown { get; init; } 
+    #else
+    public TradingUnderWaiversPercentage1? TradingUnderWaiverBreakdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for interpreting the result.
     /// </summary>
+    [IsoId("_JNG6MJuMEeaPcol5ibnfBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Disclaimer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Disclaimer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Disclaimer { get; init; } 
+    #else
+    public System.String? Disclaimer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
-        ReportingPeriod.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LastUpdateDate is IsoISODate LastUpdateDateValue)
-        {
-            writer.WriteStartElement(null, "LastUpdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(LastUpdateDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlTradgVol", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTradingVolume)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradgUdrWvrPctg", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(TradingUnderWaiverPercentage)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        if (TradingUnderWaiverBreakdown is TradingUnderWaiversPercentage1 TradingUnderWaiverBreakdownValue)
-        {
-            writer.WriteStartElement(null, "TradgUdrWvrBrkdwn", xmlNamespace );
-            TradingUnderWaiverBreakdownValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Disclaimer is IsoMax350Text DisclaimerValue)
-        {
-            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(DisclaimerValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static VolumeCapResult1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,143 +7,247 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment Data Results.
 /// </summary>
+[IsoId("_C30GgS80Eeu125Ip9zFcsQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Retailer Payment Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RetailerPaymentResult3
-     : IIsoXmlSerilizable<RetailerPaymentResult3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RetailerPaymentResult3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RetailerPaymentResult3( CardPaymentServiceType12Code reqTransactionType )
+    {
+        TransactionType = reqTransactionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of payment transaction.
     /// </summary>
+    [IsoId("_DFCDIS80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentServiceType12Code TransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardPaymentServiceType12Code TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType12Code TransactionType { get; init; } 
+    #else
+    public CardPaymentServiceType12Code TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Service provided by the card payment transaction, in addition to the main service.
     /// </summary>
+    [IsoId("_DFCDIy80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType9Code? AdditionalService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType9Code? AdditionalService { get; init; } 
+    #else
+    public CardPaymentServiceType9Code? AdditionalService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
+    [IsoId("_DFCDJS80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
+    #else
+    public CardPaymentServiceType3Code? ServiceAttribute { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data associated with the Transaction.
     /// </summary>
+    [IsoId("_DFCDJy80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction110? RequestedTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentTransaction110? RequestedTransaction { get; init; } 
+    #else
+    public CardPaymentTransaction110? RequestedTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the transaction processing.
     /// </summary>
+    [IsoId("_DFCDKS80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Response")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction109? TransactionResponse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentTransaction109? TransactionResponse { get; init; } 
+    #else
+    public CardPaymentTransaction109? TransactionResponse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
+    [IsoId("_DFCDKy80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerOrder1? CustomerOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerOrder1? CustomerOrder { get; init; } 
+    #else
+    public CustomerOrder1? CustomerOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Numeric value of a handwritten signature.
     /// </summary>
+    [IsoId("_DFCDLS80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Image Captured Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CapturedSignature1? ImageCapturedSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CapturedSignature1? ImageCapturedSignature { get; init; } 
+    #else
+    public CapturedSignature1? ImageCapturedSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Protected value of a handwritten signature.
     /// </summary>
+    [IsoId("_DFCDLy80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Captured Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType28? ProtectedCapturedSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType28? ProtectedCapturedSignature { get; init; } 
+    #else
+    public ContentInformationType28? ProtectedCapturedSignature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicate that the Merchant forced the result of the payment to successful.
     /// </summary>
+    [IsoId("_DFCDMS80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Override Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MerchantOverrideFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MerchantOverrideFlag { get; init; } 
+    #else
+    public System.String? MerchantOverrideFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language used to display messages to the customer.
     /// </summary>
+    [IsoId("_DFCDMy80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? CustomerLanguage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CustomerLanguage { get; init; } 
+    #else
+    public string? CustomerLanguage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicate that the payment transaction processing has required the approval of an acquirer.
     /// </summary>
+    [IsoId("_DFCDNS80Eeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Online Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OnlineFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OnlineFlag { get; init; } 
+    #else
+    public System.String? OnlineFlag { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        writer.WriteValue(TransactionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalService is CardPaymentServiceType9Code AdditionalServiceValue)
-        {
-            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
-            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ServiceAttribute is CardPaymentServiceType3Code ServiceAttributeValue)
-        {
-            writer.WriteStartElement(null, "SvcAttr", xmlNamespace );
-            writer.WriteValue(ServiceAttributeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RequestedTransaction is CardPaymentTransaction110 RequestedTransactionValue)
-        {
-            writer.WriteStartElement(null, "ReqdTx", xmlNamespace );
-            RequestedTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionResponse is CardPaymentTransaction109 TransactionResponseValue)
-        {
-            writer.WriteStartElement(null, "TxRspn", xmlNamespace );
-            TransactionResponseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
-        {
-            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
-            CustomerOrderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ImageCapturedSignature is CapturedSignature1 ImageCapturedSignatureValue)
-        {
-            writer.WriteStartElement(null, "ImgCaptrdSgntr", xmlNamespace );
-            ImageCapturedSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProtectedCapturedSignature is ContentInformationType28 ProtectedCapturedSignatureValue)
-        {
-            writer.WriteStartElement(null, "PrtctdCaptrdSgntr", xmlNamespace );
-            ProtectedCapturedSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MerchantOverrideFlag is IsoTrueFalseIndicator MerchantOverrideFlagValue)
-        {
-            writer.WriteStartElement(null, "MrchntOvrrdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MerchantOverrideFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerLanguage is LanguageCode CustomerLanguageValue)
-        {
-            writer.WriteStartElement(null, "CstmrLang", xmlNamespace );
-            writer.WriteValue(CustomerLanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OnlineFlag is IsoTrueFalseIndicator OnlineFlagValue)
-        {
-            writer.WriteStartElement(null, "OnlnFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OnlineFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RetailerPaymentResult3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,90 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the original notification and to provide the status.
 /// </summary>
+[IsoId("_ZG1Zlx77EeSxevWRRWxNAg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original Notification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalNotification7
-     : IIsoXmlSerilizable<OriginalNotification7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OriginalNotification7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OriginalNotification7( System.String reqOriginalMessageIdentification,System.String reqOriginalNotificationIdentification )
+    {
+        OriginalMessageIdentification = reqOriginalMessageIdentification;
+        OriginalNotificationIdentification = reqOriginalNotificationIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original sender, to unambiguously identify the original notification to receive message.
     /// </summary>
+    [IsoId("_ZYMPMx77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalMessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalMessageIdentification { get; init; } 
+    #else
+    public System.String OriginalMessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [IsoId("_ZYMPNR77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? OriginalCreationDateTime { get; init; } 
+    #else
+    public System.DateTime? OriginalCreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the original notification.
     /// </summary>
+    [IsoId("_ZYMPNx77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Notification Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalNotificationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalNotificationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalNotificationIdentification { get; init; } 
+    #else
+    public System.String OriginalNotificationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of the notification in a coded form.
     /// </summary>
+    [IsoId("_ZYMPOR77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotificationStatus3Code? NotificationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NotificationStatus3Code? NotificationStatus { get; init; } 
+    #else
+    public NotificationStatus3Code? NotificationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of the notification status.
     /// </summary>
+    [IsoId("_ZYMPOx77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Status Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalStatusInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalStatusInformation { get; init; } 
+    #else
+    public System.String? AdditionalStatusInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the original notification item and provides the status.
     /// </summary>
+    [IsoId("_ZYMPPR77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Notification Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalNotificationReference5? OriginalNotificationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalNotificationReference5? OriginalNotificationReference { get; init; } 
+    #else
+    public OriginalNotificationReference5? OriginalNotificationReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrgnlNtfctnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalNotificationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (NotificationStatus is NotificationStatus3Code NotificationStatusValue)
-        {
-            writer.WriteStartElement(null, "NtfctnSts", xmlNamespace );
-            writer.WriteValue(NotificationStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalStatusInformation is IsoMax140Text AdditionalStatusInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlStsInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalStatusInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalNotificationReference is OriginalNotificationReference5 OriginalNotificationReferenceValue)
-        {
-            writer.WriteStartElement(null, "OrgnlNtfctnRef", xmlNamespace );
-            OriginalNotificationReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OriginalNotification7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

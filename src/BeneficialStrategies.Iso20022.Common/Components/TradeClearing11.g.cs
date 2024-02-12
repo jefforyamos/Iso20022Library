@@ -7,67 +7,95 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the clearing of the contract.
 /// </summary>
+[IsoId("_t_tvEQtuEe2eQ-C-GTDpFA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Clearing")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeClearing11
-     : IIsoXmlSerilizable<TradeClearing11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates, whether the reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation and both counterparties to the contract are subject to the clearing obligation, as of the time of execution of the contract.
     /// </summary>
+    [IsoId("_uC6NAwtuEe2eQ-C-GTDpFA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Obligation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingObligationType1Code? ClearingObligation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingObligationType1Code? ClearingObligation { get; init; } 
+    #else
+    public ClearingObligationType1Code? ClearingObligation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator of whether the transaction has been cleared, or is intended to be cleared, by a central counterparty.
     /// </summary>
+    [IsoId("_uC6NBQtuEe2eQ-C-GTDpFA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cleared23Choice_? ClearingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Cleared23Choice_? ClearingStatus { get; init; } 
+    #else
+    public Cleared23Choice_? ClearingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.
     /// </summary>
+    [IsoId("_uC6NBwtuEe2eQ-C-GTDpFA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intra Group")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IntraGroup { get; init; } 
+    #else
+    public System.String? IntraGroup { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ClearingObligation is ClearingObligationType1Code ClearingObligationValue)
-        {
-            writer.WriteStartElement(null, "ClrOblgtn", xmlNamespace );
-            writer.WriteValue(ClearingObligationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ClearingStatus is Cleared23Choice_ ClearingStatusValue)
-        {
-            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
-            ClearingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IntraGroup is IsoTrueFalseIndicator IntraGroupValue)
-        {
-            writer.WriteStartElement(null, "IntraGrp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IntraGroupValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeClearing11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

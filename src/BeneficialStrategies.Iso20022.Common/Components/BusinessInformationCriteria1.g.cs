@@ -7,66 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for business information and to report on the business information. A name may be given to the new query.
 /// </summary>
+[IsoId("_1dxAlZlZEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Business Information Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BusinessInformationCriteria1
-     : IIsoXmlSerilizable<BusinessInformationCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [IsoId("_1mEoA5lZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Query Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NewQueryName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NewQueryName { get; init; } 
+    #else
+    public System.String? NewQueryName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
+    [IsoId("_1mEoBZlZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Search Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralBusinessInformationSearchCriteria1? SearchCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GeneralBusinessInformationSearchCriteria1? SearchCriteria { get; init; } 
+    #else
+    public GeneralBusinessInformationSearchCriteria1? SearchCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the expected report.
     /// </summary>
+    [IsoId("_1mEoB5lZEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralBusinessInformationReturnCriteria1? ReturnCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GeneralBusinessInformationReturnCriteria1? ReturnCriteria { get; init; } 
+    #else
+    public GeneralBusinessInformationReturnCriteria1? ReturnCriteria { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NewQueryName is IsoMax35Text NewQueryNameValue)
-        {
-            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SearchCriteria is GeneralBusinessInformationSearchCriteria1 SearchCriteriaValue)
-        {
-            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
-            SearchCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnCriteria is GeneralBusinessInformationReturnCriteria1 ReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
-            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BusinessInformationCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

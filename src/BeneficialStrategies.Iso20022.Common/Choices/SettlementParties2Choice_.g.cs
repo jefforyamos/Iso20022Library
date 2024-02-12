@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides details on either the delivering or receiving parties.
-/// </summary>
-[KnownType(typeof(SettlementParties2Choice.DeliveringSettlementParties))]
-[KnownType(typeof(SettlementParties2Choice.ReceivingSettlementParties))]
-public abstract partial record SettlementParties2Choice_ : IIsoXmlSerilizable<SettlementParties2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides details on either the delivering or receiving parties.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementParties2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementParties2Choice.DeliveringSettlementParties))]
+    [KnownType(typeof(SettlementParties2Choice.ReceivingSettlementParties))]
+    [IsoId("_-an2laMOEeCojJW5vEuTEQ_-1750301164")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Parties 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementParties2Choice_
+    #else
+    public abstract partial class SettlementParties2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DlvrgSttlmPties" => SettlementParties2Choice.DeliveringSettlementParties.Deserialize(elementWithPayload),
-             "RcvgSttlmPties" => SettlementParties2Choice.ReceivingSettlementParties.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementParties2Choice choice.")
-        };
     }
 }

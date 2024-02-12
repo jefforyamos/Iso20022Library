@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[IsoId("_QBhoB9p-Ed-ak6NoX_4Aeg_-1749124449")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Citizenship Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CitizenshipInformation
-     : IIsoXmlSerilizable<CitizenshipInformation>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CitizenshipInformation instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CitizenshipInformation( string reqNationality,System.String reqMinorIndicator )
+    {
+        Nationality = reqNationality;
+        MinorIndicator = reqMinorIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the country where a person was born or is legally accepted as belonging to the country.
     /// </summary>
+    [IsoId("_QBhoCNp-Ed-ak6NoX_4Aeg_-1749124448")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nationality")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NationalityCode Nationality { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Nationality { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Nationality { get; init; } 
+    #else
+    public string Nationality { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the person is a legal minor. It may depend on the nationality, the domicile country or the transaction in which the person is involved.
     /// </summary>
+    [IsoId("_QBhoCdp-Ed-ak6NoX_4Aeg_-1749124447")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minor Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MinorIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MinorIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MinorIndicator { get; init; } 
+    #else
+    public System.String MinorIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ntlty", xmlNamespace );
-        writer.WriteValue(Nationality.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MnrInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MinorIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static CitizenshipInformation Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

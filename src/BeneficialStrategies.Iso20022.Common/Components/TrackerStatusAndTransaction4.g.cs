@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the transaction and it's status as updated in the tracker.
 /// </summary>
+[IsoId("_k0GOJ_Y0Eemf4dJxCjghNw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tracker Status And Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TrackerStatusAndTransaction4
-     : IIsoXmlSerilizable<TrackerStatusAndTransaction4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TrackerStatusAndTransaction4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TrackerStatusAndTransaction4( TrackerAlertNotificationStatus2 reqAlertStatus,TrackerPaymentTransaction4 reqTransaction )
+    {
+        AlertStatus = reqAlertStatus;
+        Transaction = reqTransaction;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides detailed information on the alert notification in the tracker.
     /// </summary>
+    [IsoId("_k0GOK_Y0Eemf4dJxCjghNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alert Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertNotificationStatus2 AlertStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TrackerAlertNotificationStatus2 AlertStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerAlertNotificationStatus2 AlertStatus { get; init; } 
+    #else
+    public TrackerAlertNotificationStatus2 AlertStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
+    [IsoId("_k0GOLfY0Eemf4dJxCjghNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerPaymentTransaction4 Transaction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TrackerPaymentTransaction4 Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TrackerPaymentTransaction4 Transaction { get; init; } 
+    #else
+    public TrackerPaymentTransaction4 Transaction { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AlrtSts", xmlNamespace );
-        AlertStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tx", xmlNamespace );
-        Transaction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static TrackerStatusAndTransaction4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

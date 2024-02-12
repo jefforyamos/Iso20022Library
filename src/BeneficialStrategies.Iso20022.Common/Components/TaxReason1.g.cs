@@ -7,50 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason why the service is taxed.
 /// </summary>
+[IsoId("_6TrGE5qlEeGSON8vddiWzQ_2115552253")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Tax Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TaxReason1
-     : IIsoXmlSerilizable<TaxReason1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TaxReason1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TaxReason1( System.String reqCode,System.String reqExplanation )
+    {
+        Code = reqCode;
+        Explanation = reqExplanation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason why the service is taxed, in a coded form.
     /// </summary>
+    [IsoId("_6TrGFJqlEeGSON8vddiWzQ_-393693755")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text Code { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Code { get; init; } 
+    #else
+    public System.String Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason why the service is taxed, in a free-text form.
     /// </summary>
+    [IsoId("_6TrGFZqlEeGSON8vddiWzQ_887562025")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Explanation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Explanation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Explanation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Explanation { get; init; } 
+    #else
+    public System.String Explanation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10Text(Code)); // data type Max10Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Expltn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax105Text(Explanation)); // data type Max105Text System.String
-        writer.WriteEndElement();
-    }
-    public static TaxReason1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

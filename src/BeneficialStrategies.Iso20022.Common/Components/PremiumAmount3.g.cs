@@ -7,85 +7,199 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Commercial agreement in which the buyer agrees to pay the seller an amount of cash. Some aspects of the payment may be defined in the agreement, for example, the method of the payment.
 /// </summary>
+[IsoId("_64s9gRF-EeSahYR-dAI4lQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Premium Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PremiumAmount3
-     : IIsoXmlSerilizable<PremiumAmount3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PremiumAmount3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PremiumAmount3( PremiumQuote1Choice_ reqPremiumQuote,string reqPremiumCurrency,System.Decimal reqAmount,System.UInt64 reqDecimalPlaces,System.DateOnly reqPremiumSettlementDate,System.String reqPayerPartyReference,System.String reqReceiverPartyReference )
+    {
+        PremiumQuote = reqPremiumQuote;
+        PremiumCurrency = reqPremiumCurrency;
+        Amount = reqAmount;
+        DecimalPlaces = reqDecimalPlaces;
+        PremiumSettlementDate = reqPremiumSettlementDate;
+        PayerPartyReference = reqPayerPartyReference;
+        ReceiverPartyReference = reqReceiverPartyReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the calculation method of the premium amount.
     /// </summary>
+    [IsoId("_7SevcxF-EeSahYR-dAI4lQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium Quote")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PremiumQuote1Choice_ PremiumQuote { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PremiumQuote1Choice_ PremiumQuote { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PremiumQuote1Choice_ PremiumQuote { get; init; } 
+    #else
+    public PremiumQuote1Choice_ PremiumQuote { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the premium currency in which the option is held. 
     /// </summary>
+    [IsoId("_mvqqIIaXEeSzIqahkBT6cQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode PremiumCurrency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string PremiumCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string PremiumCurrency { get; init; } 
+    #else
+    public string PremiumCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the calculation of the premium amount on the basis of the premium quote and one of the amounts of the underlying foreign exchange trade.
     /// </summary>
+    [IsoId("_7SevdRF-EeSahYR-dAI4lQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
+    [IsoId("_X0udMIGnEeSCANvq7-Awnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Decimal Places")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber DecimalPlaces { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 DecimalPlaces { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 DecimalPlaces { get; init; } 
+    #else
+    public System.UInt64 DecimalPlaces { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the premium must be settled.
     /// </summary>
+    [IsoId("_Ii_qMIcmEeSSpbtwQkzChA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PremiumSettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly PremiumSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly PremiumSettlementDate { get; init; } 
+    #else
+    public System.DateOnly PremiumSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Premium fee payer related information.
     /// </summary>
+    [IsoId("_BKYN8EUnEeSGWeX3z5zSZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payer Party Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PayerPartyReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PayerPartyReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PayerPartyReference { get; init; } 
+    #else
+    public System.String PayerPartyReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Premium fee receiver related information.
     /// </summary>
+    [IsoId("_ZC3igEUmEeSGWeX3z5zSZQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver Party Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReceiverPartyReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReceiverPartyReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReceiverPartyReference { get; init; } 
+    #else
+    public System.String ReceiverPartyReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrmQt", xmlNamespace );
-        PremiumQuote.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrmCcy", xmlNamespace );
-        writer.WriteValue(PremiumCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DcmlPlcs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(DecimalPlaces)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrmSttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(PremiumSettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PyerPtyRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PayerPartyReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RcvrPtyRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReceiverPartyReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static PremiumAmount3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

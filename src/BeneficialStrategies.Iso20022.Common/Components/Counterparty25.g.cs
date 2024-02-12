@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the counterparty identification.
 /// </summary>
+[IsoId("_f-cucZQDEeiILOjNP8ro1w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Counterparty")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Counterparty25
-     : IIsoXmlSerilizable<Counterparty25>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Counterparty25 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Counterparty25( OrganisationIdentification7Choice_ reqIdentification,CounterpartyTradeNature5Choice_ reqNature )
+    {
+        Identification = reqIdentification;
+        Nature = reqNature;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of the reporting counterparty of the contract.
     /// </summary>
+    [IsoId("_gJvYcZQDEeiILOjNP8ro1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification7Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrganisationIdentification7Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification7Choice_ Identification { get; init; } 
+    #else
+    public OrganisationIdentification7Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the nature of thereporting counterparty in accordance with regulation.
     /// </summary>
+    [IsoId("_gJvYc5QDEeiILOjNP8ro1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyTradeNature5Choice_ Nature { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CounterpartyTradeNature5Choice_ Nature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CounterpartyTradeNature5Choice_ Nature { get; init; } 
+    #else
+    public CounterpartyTradeNature5Choice_ Nature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
+    [IsoId("_gJvYdZQDEeiILOjNP8ro1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingCapacity7Code? TradingCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingCapacity7Code? TradingCapacity { get; init; } 
+    #else
+    public TradingCapacity7Code? TradingCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the reporting counterparty is a buyer or a seller.
     /// </summary>
+    [IsoId("_gJvYd5QDEeiILOjNP8ro1w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionParty1Code? CounterpartySide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionParty1Code? CounterpartySide { get; init; } 
+    #else
+    public OptionParty1Code? CounterpartySide { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ntr", xmlNamespace );
-        Nature.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TradingCapacity is TradingCapacity7Code TradingCapacityValue)
-        {
-            writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
-            writer.WriteValue(TradingCapacityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CounterpartySide is OptionParty1Code CounterpartySideValue)
-        {
-            writer.WriteStartElement(null, "CtrPtySd", xmlNamespace );
-            writer.WriteValue(CounterpartySideValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Counterparty25 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

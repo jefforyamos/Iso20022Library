@@ -7,136 +7,220 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a collection of monetary totals for this settlement.
 /// </summary>
+[IsoId("_S-ZInQEcEeCQm6a_G2yO_w_-2077201907")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Monetary Summation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementMonetarySummation1
-     : IIsoXmlSerilizable<SettlementMonetarySummation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Monetary value of the line amount total being reported for this settlement.
     /// </summary>
+    [IsoId("_S-ZIngEcEeCQm6a_G2yO_w_-1438063154")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Line Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? LineTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LineTotalAmount { get; init; } 
+    #else
+    public System.Decimal? LineTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the allowance total being reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5kAEcEeCQm6a_G2yO_w_-1976793835")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allowance Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? AllowanceTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AllowanceTotalAmount { get; init; } 
+    #else
+    public System.Decimal? AllowanceTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the total discount being reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5kQEcEeCQm6a_G2yO_w_427851198")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Discount Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TotalDiscountAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalDiscountAmount { get; init; } 
+    #else
+    public System.Decimal? TotalDiscountAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the charge amount total being reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5kgEcEeCQm6a_G2yO_w_1451423672")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charge Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ChargeTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ChargeTotalAmount { get; init; } 
+    #else
+    public System.Decimal? ChargeTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the total prepaid amount being reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5kwEcEeCQm6a_G2yO_w_1675528526")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Prepaid Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TotalPrepaidAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalPrepaidAmount { get; init; } 
+    #else
+    public System.Decimal? TotalPrepaidAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the total of all tax basis amounts being reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5lAEcEeCQm6a_G2yO_w_-1622081227")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TaxTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxTotalAmount { get; init; } 
+    #else
+    public System.Decimal? TaxTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the total of all tax basis amounts being reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5lQEcEeCQm6a_G2yO_w_1868239250")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Basis Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TaxBasisAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxBasisAmount { get; init; } 
+    #else
+    public System.Decimal? TaxBasisAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of a rounding amount being applied and reported for this settlement.
     /// </summary>
+    [IsoId("_S-i5lgEcEeCQm6a_G2yO_w_-575396775")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rounding Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? RoundingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RoundingAmount { get; init; } 
+    #else
+    public System.Decimal? RoundingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of the grand total being reported for this settlement, to include addition and subtraction of individual summation amounts.
     /// </summary>
+    [IsoId("_S-i5lwEcEeCQm6a_G2yO_w_-444855441")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Grand Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? GrandTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? GrandTotalAmount { get; init; } 
+    #else
+    public System.Decimal? GrandTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value of an amount being reported as information for this settlement.
     /// </summary>
+    [IsoId("_S-i5mAEcEeCQm6a_G2yO_w_310144010")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? InformationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InformationAmount { get; init; } 
+    #else
+    public System.Decimal? InformationAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LineTotalAmount is IsoCurrencyAndAmount LineTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "LineTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(LineTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AllowanceTotalAmount is IsoCurrencyAndAmount AllowanceTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "AllwncTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AllowanceTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalDiscountAmount is IsoCurrencyAndAmount TotalDiscountAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlDscntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalDiscountAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ChargeTotalAmount is IsoCurrencyAndAmount ChargeTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "ChrgTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ChargeTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalPrepaidAmount is IsoCurrencyAndAmount TotalPrepaidAmountValue)
-        {
-            writer.WriteStartElement(null, "TtlPrepdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalPrepaidAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxTotalAmount is IsoCurrencyAndAmount TaxTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxBasisAmount is IsoCurrencyAndAmount TaxBasisAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxBsisAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxBasisAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RoundingAmount is IsoCurrencyAndAmount RoundingAmountValue)
-        {
-            writer.WriteStartElement(null, "RndgAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(RoundingAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (GrandTotalAmount is IsoCurrencyAndAmount GrandTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "GrdTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(GrandTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InformationAmount is IsoCurrencyAndAmount InformationAmountValue)
-        {
-            writer.WriteStartElement(null, "InfAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(InformationAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementMonetarySummation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

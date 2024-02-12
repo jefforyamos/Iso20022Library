@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[IsoId("_QTjzOdp-Ed-ak6NoX_4Aeg_1222075847")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Sub Account Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SubAccountIdentification3
-     : IIsoXmlSerilizable<SubAccountIdentification3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SubAccountIdentification3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SubAccountIdentification3( AccountIdentificationFormatChoice_ reqIdentification,System.String reqFungibleIndicator,System.String reqActivityIndicator )
+    {
+        Identification = reqIdentification;
+        FungibleIndicator = reqFungibleIndicator;
+        ActivityIndicator = reqActivityIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_QTjzOtp-Ed-ak6NoX_4Aeg_1222075865")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentificationFormatChoice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountIdentificationFormatChoice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentificationFormatChoice_ Identification { get; init; } 
+    #else
+    public AccountIdentificationFormatChoice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the securities in the account are fungible, ie, interchangeable.
     /// </summary>
+    [IsoId("_QTs9INp-Ed-ak6NoX_4Aeg_1222075882")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fungible Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator FungibleIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FungibleIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FungibleIndicator { get; init; } 
+    #else
+    public System.String FungibleIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
+    [IsoId("_QTs9Idp-Ed-ak6NoX_4Aeg_1222075907")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Activity Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ActivityIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ActivityIndicator { get; init; } 
+    #else
+    public System.String ActivityIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
+    [IsoId("_QTs9Itp-Ed-ak6NoX_4Aeg_1222075942")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance For Sub Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateBalanceInformation3? BalanceForSubAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AggregateBalanceInformation3? BalanceForSubAccount { get; init; } 
+    #else
+    public AggregateBalanceInformation3? BalanceForSubAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FngbInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FungibleIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (BalanceForSubAccount is AggregateBalanceInformation3 BalanceForSubAccountValue)
-        {
-            writer.WriteStartElement(null, "BalForSubAcct", xmlNamespace );
-            BalanceForSubAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SubAccountIdentification3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

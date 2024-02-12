@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and related authorisation.
 /// </summary>
+[IsoId("_CtgGAW49EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party And Authorisation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyAndAuthorisation4
-     : IIsoXmlSerilizable<PartyAndAuthorisation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyAndAuthorisation4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyAndAuthorisation4( PartyOrGroup2Choice_ reqPartyOrGroup,Authorisation2 reqAuthorisation )
+    {
+        PartyOrGroup = reqPartyOrGroup;
+        Authorisation = reqAuthorisation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies a party or a group of parties.
     /// </summary>
+    [IsoId("_C3CccW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Or Group")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyOrGroup2Choice_ PartyOrGroup { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyOrGroup2Choice_ PartyOrGroup { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyOrGroup2Choice_ PartyOrGroup { get; init; } 
+    #else
+    public PartyOrGroup2Choice_ PartyOrGroup { get; set; } 
+    #endif
+    
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>
+    [IsoId("_C3Ccc249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Signature Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SignatureOrder { get; init; } 
+    #else
+    public System.String? SignatureOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Authorisation granted to a mandate holder.
     /// </summary>
+    [IsoId("_C3CcdW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Authorisation2 Authorisation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Authorisation2 Authorisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Authorisation2 Authorisation { get; init; } 
+    #else
+    public Authorisation2 Authorisation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PtyOrGrp", xmlNamespace );
-        PartyOrGroup.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SignatureOrder is IsoMax15PlusSignedNumericText SignatureOrderValue)
-        {
-            writer.WriteStartElement(null, "SgntrOrdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(SignatureOrderValue)); // data type Max15PlusSignedNumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Authstn", xmlNamespace );
-        Authorisation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static PartyAndAuthorisation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

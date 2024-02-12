@@ -7,73 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies whether or not the debit authorisation is granted.
 /// </summary>
+[IsoId("_T9pfVdp-Ed-ak6NoX_4Aeg_-1701633190")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Debit Authorisation Confirmation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DebitAuthorisationConfirmation2
-     : IIsoXmlSerilizable<DebitAuthorisationConfirmation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DebitAuthorisationConfirmation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DebitAuthorisationConfirmation2( System.String reqDebitAuthorisation )
+    {
+        DebitAuthorisation = reqDebitAuthorisation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Code expressing the decision taken by the account owner relative to the request for debit authorization.
     /// </summary>
+    [IsoId("_T9pfVtp-Ed-ak6NoX_4Aeg_-1701633188")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debit Authorisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator DebitAuthorisation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String DebitAuthorisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String DebitAuthorisation { get; init; } 
+    #else
+    public System.String DebitAuthorisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money authorised for debit. |Usage: The party approving the debit may want to authorise the amount less charges and may only be prepared to approve the debit for value today rather than the original value date.
     /// </summary>
+    [IsoId("_T9zQUNp-Ed-ak6NoX_4Aeg_-1701633129")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount To Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AmountToDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AmountToDebit { get; init; } 
+    #else
+    public System.Decimal? AmountToDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
+    [IsoId("_T9zQUdp-Ed-ak6NoX_4Aeg_-1701632850")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date To Debit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDateToDebit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValueDateToDebit { get; init; } 
+    #else
+    public System.DateOnly? ValueDateToDebit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the debit authorisation request.
     /// </summary>
+    [IsoId("_T9zQUtp-Ed-ak6NoX_4Aeg_-1701632820")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reason { get; init; } 
+    #else
+    public System.String? Reason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DbtAuthstn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DebitAuthorisation)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (AmountToDebit is IsoActiveCurrencyAndAmount AmountToDebitValue)
-        {
-            writer.WriteStartElement(null, "AmtToDbt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountToDebitValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ValueDateToDebit is IsoISODate ValueDateToDebitValue)
-        {
-            writer.WriteStartElement(null, "ValDtToDbt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateToDebitValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Reason is IsoMax140Text ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(ReasonValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static DebitAuthorisationConfirmation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

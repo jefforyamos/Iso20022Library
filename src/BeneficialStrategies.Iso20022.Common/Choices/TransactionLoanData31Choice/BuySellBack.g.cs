@@ -9,150 +9,272 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData31Choice;
-
-/// <summary>
-/// Details of the buy sell back transaction.
-/// </summary>
-public partial record BuySellBack : TransactionLoanData31Choice_
-     , IIsoXmlSerilizable<BuySellBack>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData31Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique trade Identifier (UTI) as agreed with the other counterparty.
+    /// Details of the buy sell back transaction.
     /// </summary>
-    public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
-    /// <summary>
-    /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
-    /// </summary>
-    public required IsoISODate EventDate { get; init; } 
-    /// <summary>
-    /// Indicates the date and time when the contract was executed.
-    /// </summary>
-    public IsoISODateTime? ExecutionDateTime { get; init; } 
-    /// <summary>
-    /// Indicates whether clearing of contract has taken place.
-    /// </summary>
-    public Cleared16Choice_? ClearingStatus { get; init; } 
-    /// <summary>
-    /// Identification of the trading venue where the transaction was executed.
-    /// </summary>
-    public IsoMICIdentifier? TradingVenue { get; init; } 
-    /// <summary>
-    /// Reference to master agreement under which the counterparties concluded a documented transaction.
-    /// </summary>
-    public MasterAgreement7? MasterAgreement { get; init; } 
-    /// <summary>
-    /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the opening leg (spot leg) of the secured financing transaction. In the case of rollover of open term transactions, this is the date on which the rollover settles, even if no exchange of cash takes place.
-    /// </summary>
-    public IsoISODate? ValueDate { get; init; } 
-    /// <summary>
-    /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the closing leg (forward leg) of the transaction.
-    /// </summary>
-    public IsoISODate? MaturityDate { get; init; } 
-    /// <summary>
-    /// Indication whether the transaction is subject to a general collateral arrangement.
-    /// </summary>
-    public SpecialCollateral1Code? GeneralCollateral { get; init; } 
-    /// <summary>
-    /// Amount of money to be settled as of the start date and maturity date of the transaction.
-    /// </summary>
-    public PrincipalAmount3? PrincipalAmount { get; init; } 
-    /// <summary>
-    /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
-    /// </summary>
-    public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
-    /// <summary>
-    /// Termination date in the case of a full early termination of the Securities Financing Transaction (SFT).
-    /// </summary>
-    public IsoISODate? TerminationDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_lod1I8zsEeux2uvSBFU54Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy Sell Back")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record BuySellBack : TransactionLoanData31Choice_
+    #else
+    public partial class BuySellBack : TransactionLoanData31Choice_
+    #endif
     {
-        if (UniqueTradeIdentifier is IsoMax52Text UniqueTradeIdentifierValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a BuySellBack instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public BuySellBack( System.DateOnly reqEventDate )
         {
-            writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifierValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
+            EventDate = reqEventDate;
         }
-        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (ExecutionDateTime is IsoISODateTime ExecutionDateTimeValue)
-        {
-            writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ClearingStatus is Cleared16Choice_ ClearingStatusValue)
-        {
-            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
-            ClearingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
-        {
-            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (MasterAgreement is MasterAgreement7 MasterAgreementValue)
-        {
-            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
-            MasterAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is IsoISODate ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MaturityDate is IsoISODate MaturityDateValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (GeneralCollateral is SpecialCollateral1Code GeneralCollateralValue)
-        {
-            writer.WriteStartElement(null, "GnlColl", xmlNamespace );
-            writer.WriteValue(GeneralCollateralValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PrincipalAmount is PrincipalAmount3 PrincipalAmountValue)
-        {
-            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
-            PrincipalAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is SecuritiesTransactionPrice19Choice_ UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TerminationDate is IsoISODate TerminationDateValue)
-        {
-            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static new BuySellBack Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique trade Identifier (UTI) as agreed with the other counterparty.
+        /// </summary>
+        [IsoId("_pl4F4czsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unique Trade Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? UniqueTradeIdentifier { get; init; } 
+        #else
+        public System.String? UniqueTradeIdentifier { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
+        /// </summary>
+        [IsoId("_pl4F48zsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate EventDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly EventDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly EventDate { get; init; } 
+        #else
+        public System.DateOnly EventDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the date and time when the contract was executed.
+        /// </summary>
+        [IsoId("_pl4F5czsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Execution Date Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODateTime? ExecutionDateTime { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime? ExecutionDateTime { get; init; } 
+        #else
+        public System.DateTime? ExecutionDateTime { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether clearing of contract has taken place.
+        /// </summary>
+        [IsoId("_pl4F58zsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Clearing Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Cleared16Choice_? ClearingStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Cleared16Choice_? ClearingStatus { get; init; } 
+        #else
+        public Cleared16Choice_? ClearingStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the trading venue where the transaction was executed.
+        /// </summary>
+        [IsoId("_pl4F6czsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Trading Venue")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMICIdentifier? TradingVenue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TradingVenue { get; init; } 
+        #else
+        public System.String? TradingVenue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reference to master agreement under which the counterparties concluded a documented transaction.
+        /// </summary>
+        [IsoId("_pl4F68zsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Master Agreement")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MasterAgreement7? MasterAgreement { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MasterAgreement7? MasterAgreement { get; init; } 
+        #else
+        public MasterAgreement7? MasterAgreement { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the opening leg (spot leg) of the secured financing transaction. In the case of rollover of open term transactions, this is the date on which the rollover settles, even if no exchange of cash takes place.
+        /// </summary>
+        [IsoId("_pl4F7czsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Value Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? ValueDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? ValueDate { get; init; } 
+        #else
+        public System.DateOnly? ValueDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the closing leg (forward leg) of the transaction.
+        /// </summary>
+        [IsoId("_pl4F78zsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Maturity Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? MaturityDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? MaturityDate { get; init; } 
+        #else
+        public System.DateOnly? MaturityDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indication whether the transaction is subject to a general collateral arrangement.
+        /// </summary>
+        [IsoId("_pl4F8czsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("General Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SpecialCollateral1Code? GeneralCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SpecialCollateral1Code? GeneralCollateral { get; init; } 
+        #else
+        public SpecialCollateral1Code? GeneralCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of money to be settled as of the start date and maturity date of the transaction.
+        /// </summary>
+        [IsoId("_pl4F88zsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Principal Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PrincipalAmount3? PrincipalAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PrincipalAmount3? PrincipalAmount { get; init; } 
+        #else
+        public PrincipalAmount3? PrincipalAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
+        /// </summary>
+        [IsoId("_pl4F9czsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Unit Price")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
+        #else
+        public SecuritiesTransactionPrice19Choice_? UnitPrice { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Termination date in the case of a full early termination of the Securities Financing Transaction (SFT).
+        /// </summary>
+        [IsoId("_pl4F98zsEeux2uvSBFU54Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Termination Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? TerminationDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? TerminationDate { get; init; } 
+        #else
+        public System.DateOnly? TerminationDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

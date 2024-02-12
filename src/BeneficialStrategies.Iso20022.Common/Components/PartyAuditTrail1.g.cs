@@ -7,66 +7,125 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes information needed to identify a change in the party related static data, the time when it was performed and the user requesting the change and approving it.
 /// </summary>
+[IsoId("_HK6rsWjHEeiCUdTMLdZoIg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Audit Trail")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyAuditTrail1
-     : IIsoXmlSerilizable<PartyAuditTrail1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyAuditTrail1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyAuditTrail1( System.DateTime reqOperationTimeStamp,System.String reqInstructingUser )
+    {
+        OperationTimeStamp = reqOperationTimeStamp;
+        InstructingUser = reqInstructingUser;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Individual record of the party audit trail.
     /// </summary>
+    [IsoId("_GLdVoWjOEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public UpdateLogPartyRecord1Choice_? Record { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _GLdVoWjOEeiRg5NzP0jkQg
+    
     /// <summary>
     /// Timestamp of the change.
     /// </summary>
+    [IsoId("_HZNmZ2jHEeiCUdTMLdZoIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Operation Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime OperationTimeStamp { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime OperationTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime OperationTimeStamp { get; init; } 
+    #else
+    public System.DateTime OperationTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// User who instructed the change.
     /// </summary>
+    [IsoId("_HZNmaWjHEeiCUdTMLdZoIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing User")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text InstructingUser { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructingUser { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructingUser { get; init; } 
+    #else
+    public System.String InstructingUser { get; set; } 
+    #endif
+    
     /// <summary>
     /// User who approved the change instructed by the instructing user.
     /// </summary>
+    [IsoId("_HZNma2jHEeiCUdTMLdZoIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Approving User")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? ApprovingUser { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ApprovingUser { get; init; } 
+    #else
+    public System.String? ApprovingUser { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize Record, multiplicity Unknown
-        writer.WriteStartElement(null, "OprTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(OperationTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstgUsr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(InstructingUser)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        if (ApprovingUser is IsoMax256Text ApprovingUserValue)
-        {
-            writer.WriteStartElement(null, "ApprvgUsr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(ApprovingUserValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyAuditTrail1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

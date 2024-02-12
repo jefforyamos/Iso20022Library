@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ways of identifying a payment instruction by its references and business identification.
-/// </summary>
-[KnownType(typeof(PaymentIdentification6Choice.TransactionIdentification))]
-[KnownType(typeof(PaymentIdentification6Choice.QueueIdentification))]
-[KnownType(typeof(PaymentIdentification6Choice.LongBusinessIdentification))]
-[KnownType(typeof(PaymentIdentification6Choice.ShortBusinessIdentification))]
-[KnownType(typeof(PaymentIdentification6Choice.ProprietaryIdentification))]
-public abstract partial record PaymentIdentification6Choice_ : IIsoXmlSerilizable<PaymentIdentification6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ways of identifying a payment instruction by its references and business identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PaymentIdentification6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PaymentIdentification6Choice.TransactionIdentification))]
+    [KnownType(typeof(PaymentIdentification6Choice.QueueIdentification))]
+    [KnownType(typeof(PaymentIdentification6Choice.LongBusinessIdentification))]
+    [KnownType(typeof(PaymentIdentification6Choice.ShortBusinessIdentification))]
+    [KnownType(typeof(PaymentIdentification6Choice.ProprietaryIdentification))]
+    [IsoId("_AW_FQ24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Identification 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PaymentIdentification6Choice_
+    #else
+    public abstract partial class PaymentIdentification6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "TxId" => PaymentIdentification6Choice.TransactionIdentification.Deserialize(elementWithPayload),
-             "QId" => PaymentIdentification6Choice.QueueIdentification.Deserialize(elementWithPayload),
-             "LngBizId" => PaymentIdentification6Choice.LongBusinessIdentification.Deserialize(elementWithPayload),
-             "ShrtBizId" => PaymentIdentification6Choice.ShortBusinessIdentification.Deserialize(elementWithPayload),
-             "PrtryId" => PaymentIdentification6Choice.ProprietaryIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PaymentIdentification6Choice choice.")
-        };
     }
 }

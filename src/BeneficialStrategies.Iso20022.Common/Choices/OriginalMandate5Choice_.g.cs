@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the mandate that is being accepted.
-/// </summary>
-[KnownType(typeof(OriginalMandate5Choice.OriginalMandateIdentification))]
-[KnownType(typeof(OriginalMandate5Choice.OriginalMandate))]
-public abstract partial record OriginalMandate5Choice_ : IIsoXmlSerilizable<OriginalMandate5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the mandate that is being accepted.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static OriginalMandate5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(OriginalMandate5Choice.OriginalMandateIdentification))]
+    [KnownType(typeof(OriginalMandate5Choice.OriginalMandate))]
+    [IsoId("_yur0cZR8EeazAtAtDSg0Nw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Mandate 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record OriginalMandate5Choice_
+    #else
+    public abstract partial class OriginalMandate5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgnlMndtId" => OriginalMandate5Choice.OriginalMandateIdentification.Deserialize(elementWithPayload),
-             "OrgnlMndt" => OriginalMandate5Choice.OriginalMandate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid OriginalMandate5Choice choice.")
-        };
     }
 }

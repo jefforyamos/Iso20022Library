@@ -7,156 +7,286 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information requested against money laundering for a transfer transaction.
 /// </summary>
+[IsoId("_jG3qgHs-EeSTS7uHCe8FPQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Anti Money Laundering")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AntiMoneyLaundering1
-     : IIsoXmlSerilizable<AntiMoneyLaundering1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the sender.
     /// </summary>
+    [IsoId("_ynk_UHs-EeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SenderName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderName { get; init; } 
+    #else
+    public System.String? SenderName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address of the sender.
     /// </summary>
+    [IsoId("_36d1QHs-EeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress18? SenderAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress18? SenderAddress { get; init; } 
+    #else
+    public PostalAddress18? SenderAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// National identifier number of the sender.
     /// </summary>
+    [IsoId("_JJhs0HtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender National Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderNationalIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderNationalIdentifier { get; init; } 
+    #else
+    public System.String? SenderNationalIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the national identifier (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [IsoId("_OnaR0HtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("National Identifier Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? NationalIdentifierCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NationalIdentifierCountry { get; init; } 
+    #else
+    public System.String? NationalIdentifierCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Passport number of the sender.
     /// </summary>
+    [IsoId("_R-MAYHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Passport Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderPassportNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderPassportNumber { get; init; } 
+    #else
+    public System.String? SenderPassportNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country issuing the passport (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [IsoId("_VDe9YHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Passport Issuing Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? PassportIssuingCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PassportIssuingCountry { get; init; } 
+    #else
+    public System.String? PassportIssuingCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax identifier of the sender.
     /// </summary>
+    [IsoId("_bkH_4HtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Tax Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderTaxIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderTaxIdentifier { get; init; } 
+    #else
+    public System.String? SenderTaxIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the tax (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [IsoId("_fQduwHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? TaxCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxCountry { get; init; } 
+    #else
+    public System.String? TaxCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer identifier of the sender.
     /// </summary>
+    [IsoId("_nfe-oHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Customer Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderCustomerIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SenderCustomerIdentifier { get; init; } 
+    #else
+    public System.String? SenderCustomerIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and place of birth of the sender.
     /// </summary>
+    [IsoId("_s2m0UHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender Date And Place Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndPlaceOfBirth? SenderDateAndPlaceOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndPlaceOfBirth? SenderDateAndPlaceOfBirth { get; init; } 
+    #else
+    public DateAndPlaceOfBirth? SenderDateAndPlaceOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the receiver.
     /// </summary>
+    [IsoId("_xrSrUHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ReceiverName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiverName { get; init; } 
+    #else
+    public System.String? ReceiverName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique transaction reference number for sender and the receiver.
     /// </summary>
+    [IsoId("_4Q5GUHtAEeSTS7uHCe8FPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionReference { get; init; } 
+    #else
+    public System.String? TransactionReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SenderName is IsoMax70Text SenderNameValue)
-        {
-            writer.WriteStartElement(null, "SndrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SenderNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (SenderAddress is PostalAddress18 SenderAddressValue)
-        {
-            writer.WriteStartElement(null, "SndrAdr", xmlNamespace );
-            SenderAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SenderNationalIdentifier is IsoMax35Text SenderNationalIdentifierValue)
-        {
-            writer.WriteStartElement(null, "SndrNtlIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderNationalIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (NationalIdentifierCountry is IsoMin2Max3AlphaText NationalIdentifierCountryValue)
-        {
-            writer.WriteStartElement(null, "NtlIdrCtry", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(NationalIdentifierCountryValue)); // data type Min2Max3AlphaText System.String
-            writer.WriteEndElement();
-        }
-        if (SenderPassportNumber is IsoMax35Text SenderPassportNumberValue)
-        {
-            writer.WriteStartElement(null, "SndrPsptNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderPassportNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PassportIssuingCountry is IsoMin2Max3AlphaText PassportIssuingCountryValue)
-        {
-            writer.WriteStartElement(null, "PsptIssgCtry", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(PassportIssuingCountryValue)); // data type Min2Max3AlphaText System.String
-            writer.WriteEndElement();
-        }
-        if (SenderTaxIdentifier is IsoMax35Text SenderTaxIdentifierValue)
-        {
-            writer.WriteStartElement(null, "SndrTaxIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderTaxIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxCountry is IsoMin2Max3AlphaText TaxCountryValue)
-        {
-            writer.WriteStartElement(null, "TaxCtry", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(TaxCountryValue)); // data type Min2Max3AlphaText System.String
-            writer.WriteEndElement();
-        }
-        if (SenderCustomerIdentifier is IsoMax35Text SenderCustomerIdentifierValue)
-        {
-            writer.WriteStartElement(null, "SndrCstmrIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderCustomerIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SenderDateAndPlaceOfBirth is DateAndPlaceOfBirth SenderDateAndPlaceOfBirthValue)
-        {
-            writer.WriteStartElement(null, "SndrDtAndPlcOfBirth", xmlNamespace );
-            SenderDateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceiverName is IsoMax70Text ReceiverNameValue)
-        {
-            writer.WriteStartElement(null, "RcvrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ReceiverNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionReference is IsoMax35Text TransactionReferenceValue)
-        {
-            writer.WriteStartElement(null, "TxRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AntiMoneyLaundering1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the values used to calculate positions.
 /// </summary>
+[IsoId("_hMufQcguEeuGrNSsxk3B0A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSet20
-     : IIsoXmlSerilizable<PositionSet20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PositionSet20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PositionSet20( PositionSetDimensions15 reqDimensions,PositionSetMetrics10 reqMetrics )
+    {
+        Dimensions = reqDimensions;
+        Metrics = reqMetrics;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Variables related to derivatives that are used to group derivatives together into positions.
     /// </summary>
+    [IsoId("_hOjEMcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dimensions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetDimensions15 Dimensions { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PositionSetDimensions15 Dimensions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PositionSetDimensions15 Dimensions { get; init; } 
+    #else
+    public PositionSetDimensions15 Dimensions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Variables used to quantify the different calculations.
     /// </summary>
+    [IsoId("_hOjEM8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Metrics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetMetrics10 Metrics { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PositionSetMetrics10 Metrics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PositionSetMetrics10 Metrics { get; init; } 
+    #else
+    public PositionSetMetrics10 Metrics { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Dmnsns", xmlNamespace );
-        Dimensions.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Mtrcs", xmlNamespace );
-        Metrics.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static PositionSet20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

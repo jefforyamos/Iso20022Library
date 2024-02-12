@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between details of the audit trail data or an operational error when the requested data cannot be retrieved.
-/// </summary>
-[KnownType(typeof(CalendarReportOrError1Choice.CalendarReport))]
-[KnownType(typeof(CalendarReportOrError1Choice.OperationalError))]
-public abstract partial record CalendarReportOrError1Choice_ : IIsoXmlSerilizable<CalendarReportOrError1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between details of the audit trail data or an operational error when the requested data cannot be retrieved.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CalendarReportOrError1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CalendarReportOrError1Choice.CalendarReport))]
+    [KnownType(typeof(CalendarReportOrError1Choice.OperationalError))]
+    [IsoId("_dVcQ4Ym7Eeipw6hHPgB4Sw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calendar Report Or Error 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CalendarReportOrError1Choice_
+    #else
+    public abstract partial class CalendarReportOrError1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CalRpt" => CalendarReportOrError1Choice.CalendarReport.Deserialize(elementWithPayload),
-             "OprlErr" => CalendarReportOrError1Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CalendarReportOrError1Choice choice.")
-        };
     }
 }

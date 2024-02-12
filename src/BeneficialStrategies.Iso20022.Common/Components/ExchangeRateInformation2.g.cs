@@ -7,96 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further detailed information on the exchange rate that has been used in or is related to the transaction.
 /// </summary>
+[IsoId("_ZGiv0INlEeuHqfO1LgkE9Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Exchange Rate Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExchangeRateInformation2
-     : IIsoXmlSerilizable<ExchangeRateInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the source of the rate information.
     /// </summary>
+    [IsoId("_FxfKMINmEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Provider")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Provider { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Provider { get; init; } 
+    #else
+    public System.String? Provider { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the specific rate, table or file that contains the rate information.
     /// </summary>
+    [IsoId("_NnqcQINmEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// The date the exchange rate data is effective.
     /// </summary>
+    [IsoId("_T8oaQINmEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// The time the exchange rate data is effective.
     /// </summary>
+    [IsoId("_Zsv-wINmEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? Time { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? Time { get; init; } 
+    #else
+    public System.TimeOnly? Time { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of a specific exchange rate
     /// </summary>
+    [IsoId("_VjbfUINuEeuHqfO1LgkE9Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate Detail")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRateDetail1? ExchangeRateDetail { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeRateDetail1? ExchangeRateDetail { get; init; } 
+    #else
+    public ExchangeRateDetail1? ExchangeRateDetail { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate lock details.
     /// </summary>
+    [IsoId("_wmRsQIZ8EeuSbct6WWD-Ng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Lock")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateLock1? RateLock { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateLock1? RateLock { get; init; } 
+    #else
+    public RateLock1? RateLock { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Provider is IsoMax70Text ProviderValue)
-        {
-            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProviderValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Identification is IsoMax70Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Time is IsoISOTime TimeValue)
-        {
-            writer.WriteStartElement(null, "Tm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (ExchangeRateDetail is ExchangeRateDetail1 ExchangeRateDetailValue)
-        {
-            writer.WriteStartElement(null, "XchgRateDtl", xmlNamespace );
-            ExchangeRateDetailValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RateLock is RateLock1 RateLockValue)
-        {
-            writer.WriteStartElement(null, "RateLck", xmlNamespace );
-            RateLockValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ExchangeRateInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

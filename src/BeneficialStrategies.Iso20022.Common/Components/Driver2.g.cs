@@ -7,126 +7,217 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fleet vehicle driver.
 /// </summary>
+[IsoId("_Xa1IQRytEey6gI8SKlv7rg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Driver")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Driver2
-     : IIsoXmlSerilizable<Driver2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of fleet driver.
     /// </summary>
+    [IsoId("_XkokgRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fleet driver identification.
     /// </summary>
+    [IsoId("_XkokgxytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Driving license details.
     /// </summary>
+    [IsoId("_XkokhRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driving License")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DrivingLicense2? DrivingLicense { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DrivingLicense2? DrivingLicense { get; init; } 
+    #else
+    public DrivingLicense2? DrivingLicense { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the employer information. 
     /// </summary>
+    [IsoId("_XkokhxytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Employer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Employer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Employer { get; init; } 
+    #else
+    public System.String? Employer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the employee identification number as assigned by the fleet operator. 
     /// </summary>
+    [IsoId("_XkokiRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Employee Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? EmployeeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EmployeeIdentification { get; init; } 
+    #else
+    public System.String? EmployeeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the fleet driver's department number as assigned by the fleet operator.
     /// </summary>
+    [IsoId("_XkokixytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Department Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DepartmentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DepartmentNumber { get; init; } 
+    #else
+    public System.String? DepartmentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional identification used for the driver.
     /// </summary>
+    [IsoId("_XkokjRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TravelDocument2? AdditionalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TravelDocument2? AdditionalIdentification { get; init; } 
+    #else
+    public TravelDocument2? AdditionalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of birth of vehicle rental driver. 
     /// </summary>
+    [IsoId("_XkokjxytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Birth")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfBirth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DateOfBirth { get; init; } 
+    #else
+    public System.DateOnly? DateOfBirth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional fleet summary-level information. 
     /// </summary>
+    [IsoId("_XkokkRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax70Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Identification is IsoMax70Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (DrivingLicense is DrivingLicense2 DrivingLicenseValue)
-        {
-            writer.WriteStartElement(null, "DrvgLic", xmlNamespace );
-            DrivingLicenseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Employer is IsoMax70Text EmployerValue)
-        {
-            writer.WriteStartElement(null, "Mplyr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(EmployerValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (EmployeeIdentification is IsoMax70Text EmployeeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MplyeeId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(EmployeeIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (DepartmentNumber is IsoMax35Text DepartmentNumberValue)
-        {
-            writer.WriteStartElement(null, "DeptNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DepartmentNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalIdentification is TravelDocument2 AdditionalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
-            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateOfBirth is IsoISODate DateOfBirthValue)
-        {
-            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Driver2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

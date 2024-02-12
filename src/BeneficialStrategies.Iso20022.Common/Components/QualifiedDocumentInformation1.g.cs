@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -23,129 +29,246 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The two latter identifiers are independent permitting to identify the same item in several lists.
 /// The element identification is of schema type ID, it can be referenced by IDREF typed elements (composite=false).
 /// </summary>
+[IsoId("_OTgzMjA0-AOSNFX-8224491")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Qualified Document Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record QualifiedDocumentInformation1
-     : IIsoXmlSerilizable<QualifiedDocumentInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a QualifiedDocumentInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public QualifiedDocumentInformation1( System.String reqIdentification,System.String reqElectronicOriginal )
+    {
+        Identification = reqIdentification;
+        ElectronicOriginal = reqElectronicOriginal;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Local identification to be used in IDREFs in this message.
     /// </summary>
+    [IsoId("_OTgzMjMz-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoID Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party issuing the reference.
     /// </summary>
+    [IsoId("_OTgzMjM0-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Issuer { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identifier relative to the issuing party of a list of items.
     /// </summary>
+    [IsoId("_OTgzMjM1-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item List Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ItemListIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ItemListIdentifier { get; init; } 
+    #else
+    public System.String? ItemListIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identifier relative to the issuing party of an item (independent of any list).
     /// </summary>
+    [IsoId("_OTgzMjM2-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ItemIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ItemIdentifier { get; init; } 
+    #else
+    public System.String? ItemIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of document or element. This may be used as a control value to indicate a specific version.
     /// </summary>
+    [IsoId("_OTgzMjM3-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the version of the document or element. This may be used as a control value to indicate a specific version.
     /// </summary>
+    [IsoId("_OTgzMjM4-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 6 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6Text? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Version { get; init; } 
+    #else
+    public System.String? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// If true, document is in its original form, otherwise it is a scanned version.
     /// </summary>
+    [IsoId("_OTgzMjM5-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Original")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ElectronicOriginal { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ElectronicOriginal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ElectronicOriginal { get; init; } 
+    #else
+    public System.String ElectronicOriginal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cryptographic hash of the document.
     /// </summary>
-    public ValueList<AlgorithmAndDigest1> Digest { get; init; } = [];
+    [IsoId("_OTgzMjQx-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<AlgorithmAndDigest1> Digest { get; init; } = new ValueList<AlgorithmAndDigest1>(){};
+    
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
+    [IsoId("_OTgzMjQy-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalDocumentType1Code? DocumentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentType1Code? DocumentType { get; init; } 
+    #else
+    public ExternalDocumentType1Code? DocumentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// URL (Uniform Resource Locator) where the document can be found.
     /// </summary>
+    [IsoId("_OTgzMjQz-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("URL")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? URL { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? URL { get; init; } 
+    #else
+    public System.String? URL { get; set; } 
+    #endif
+    
     /// <summary>
     /// Attached file for this document. The file must be in a self-describing format.
     /// </summary>
+    [IsoId("_OTgzMjQ0-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attached File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BinaryFile1? AttachedFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BinaryFile1? AttachedFile { get; init; } 
+    #else
+    public BinaryFile1? AttachedFile { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoID(Identification)); // data type ID System.String
-        writer.WriteEndElement();
-        if (Issuer is QualifiedPartyIdentification1 IssuerValue)
-        {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            IssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ItemListIdentifier is IsoMax35Text ItemListIdentifierValue)
-        {
-            writer.WriteStartElement(null, "ItmListIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemListIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ItemIdentifier is IsoMax35Text ItemIdentifierValue)
-        {
-            writer.WriteStartElement(null, "ItmIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Version is IsoMax6Text VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6Text(VersionValue)); // data type Max6Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ElctrncOrgnl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ElectronicOriginal)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Dgst", xmlNamespace );
-        Digest.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DocumentType is ExternalDocumentType1Code DocumentTypeValue)
-        {
-            writer.WriteStartElement(null, "DocTp", xmlNamespace );
-            writer.WriteValue(DocumentTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (URL is IsoMax2048Text URLValue)
-        {
-            writer.WriteStartElement(null, "URL", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2048Text(URLValue)); // data type Max2048Text System.String
-            writer.WriteEndElement();
-        }
-        if (AttachedFile is BinaryFile1 AttachedFileValue)
-        {
-            writer.WriteStartElement(null, "AttchdFile", xmlNamespace );
-            AttachedFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static QualifiedDocumentInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

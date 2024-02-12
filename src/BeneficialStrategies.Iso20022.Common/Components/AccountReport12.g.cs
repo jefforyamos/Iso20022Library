@@ -7,178 +7,332 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details of the account report.
 /// </summary>
+[IsoId("_trMNE1kyEeGeoaLUQk__nA_1823876123")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountReport12
-     : IIsoXmlSerilizable<AccountReport12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountReport12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountReport12( System.String reqIdentification,System.DateTime reqCreationDateTime,CashAccount25 reqAccount )
+    {
+        Identification = reqIdentification;
+        CreationDateTime = reqCreationDateTime;
+        Account = reqAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account report.
     /// </summary>
+    [IsoId("_trVXAFkyEeGeoaLUQk__nA_826803770")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the page number of the report.
     /// Usage: The pagination of the report is only allowed when agreed between the parties.
     /// </summary>
+    [IsoId("_trVXAVkyEeGeoaLUQk__nA_1084965358")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Pagination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination? ReportPagination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Pagination? ReportPagination { get; init; } 
+    #else
+    public Pagination? ReportPagination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequential number of the report, as assigned by the account servicer. |Usage: The sequential number is increased incrementally for each report sent electronically.
     /// </summary>
+    [IsoId("_trVXAlkyEeGeoaLUQk__nA_1075005211")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ElectronicSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? ElectronicSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal sequential number of the report, as assigned by the account servicer. It is increased incrementally for each report sent.
     /// </summary>
+    [IsoId("_trVXA1kyEeGeoaLUQk__nA_-805300429")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? LegalSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? LegalSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? LegalSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [IsoId("_trVXBFkyEeGeoaLUQk__nA_-299919801")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CreationDateTime { get; init; } 
+    #else
+    public System.DateTime CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of time between a start date and an end date for which the account report is issued.
     /// </summary>
+    [IsoId("_trfIAFkyEeGeoaLUQk__nA_1822784117")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails? FromToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriodDetails? FromToDate { get; init; } 
+    #else
+    public DateTimePeriodDetails? FromToDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [IsoId("_trfIAVkyEeGeoaLUQk__nA_460845352")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Copy Duplicate Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
+    #else
+    public CopyDuplicate1Code? CopyDuplicateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the application used to generate the reporting.
     /// </summary>
+    [IsoId("_trfIAlkyEeGeoaLUQk__nA_-1711418026")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingSource1Choice_? ReportingSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingSource1Choice_? ReportingSource { get; init; } 
+    #else
+    public ReportingSource1Choice_? ReportingSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
+    [IsoId("_trfIA1kyEeGeoaLUQk__nA_1489018315")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount25 Account { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount25 Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount25 Account { get; init; } 
+    #else
+    public CashAccount25 Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the parent account of the account for which the report has been issued.
     /// </summary>
+    [IsoId("_trfIBFkyEeGeoaLUQk__nA_1500879647")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? RelatedAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? RelatedAccount { get; init; } 
+    #else
+    public CashAccount24? RelatedAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
+    [IsoId("_tro5AFkyEeGeoaLUQk__nA_885199114")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountInterest3? Interest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountInterest3? Interest { get; init; } 
+    #else
+    public AccountInterest3? Interest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to define the balance as a numerical representation of the net increases and decreases in an account at a specific point in time.
     /// </summary>
+    [IsoId("_tro5AVkyEeGeoaLUQk__nA_-1303053405")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalance3? Balance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalance3? Balance { get; init; } 
+    #else
+    public CashBalance3? Balance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides summary information on entries.
     /// </summary>
+    [IsoId("_tro5AlkyEeGeoaLUQk__nA_1971081774")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transactions Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalTransactions3? TransactionsSummary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TotalTransactions3? TransactionsSummary { get; init; } 
+    #else
+    public TotalTransactions3? TransactionsSummary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to specify an entry in the report.|Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
+    [IsoId("_tro5A1kyEeGeoaLUQk__nA_1853804737")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportEntry3? Entry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportEntry3? Entry { get; init; } 
+    #else
+    public ReportEntry3? Entry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of the account report.
     /// </summary>
+    [IsoId("_tro5BFkyEeGeoaLUQk__nA_1912159654")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Report Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 500 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalReportInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReportInformation { get; init; } 
+    #else
+    public System.String? AdditionalReportInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ReportPagination is Pagination ReportPaginationValue)
-        {
-            writer.WriteStartElement(null, "RptPgntn", xmlNamespace );
-            ReportPaginationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ElectronicSequenceNumber is IsoNumber ElectronicSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "ElctrncSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(ElectronicSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (LegalSequenceNumber is IsoNumber LegalSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "LglSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(LegalSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (FromToDate is DateTimePeriodDetails FromToDateValue)
-        {
-            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
-            FromToDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CopyDuplicateIndicator is CopyDuplicate1Code CopyDuplicateIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CpyDplctInd", xmlNamespace );
-            writer.WriteValue(CopyDuplicateIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReportingSource is ReportingSource1Choice_ ReportingSourceValue)
-        {
-            writer.WriteStartElement(null, "RptgSrc", xmlNamespace );
-            ReportingSourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Acct", xmlNamespace );
-        Account.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (RelatedAccount is CashAccount24 RelatedAccountValue)
-        {
-            writer.WriteStartElement(null, "RltdAcct", xmlNamespace );
-            RelatedAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Interest is AccountInterest3 InterestValue)
-        {
-            writer.WriteStartElement(null, "Intrst", xmlNamespace );
-            InterestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Balance is CashBalance3 BalanceValue)
-        {
-            writer.WriteStartElement(null, "Bal", xmlNamespace );
-            BalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionsSummary is TotalTransactions3 TransactionsSummaryValue)
-        {
-            writer.WriteStartElement(null, "TxsSummry", xmlNamespace );
-            TransactionsSummaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Entry is ReportEntry3 EntryValue)
-        {
-            writer.WriteStartElement(null, "Ntry", xmlNamespace );
-            EntryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReportInformation is IsoMax500Text AdditionalReportInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRptInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalReportInformationValue)); // data type Max500Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountReport12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

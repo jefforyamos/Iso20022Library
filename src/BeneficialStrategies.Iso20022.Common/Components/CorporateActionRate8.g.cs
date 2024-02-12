@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rates related to a corporate action option.
 /// </summary>
+[IsoId("_TXznW9p-Ed-ak6NoX_4Aeg_-1470635815")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionRate8
-     : IIsoXmlSerilizable<CorporateActionRate8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
+    [IsoId("_TXznXNp-Ed-ak6NoX_4Aeg_-1111386502")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proposed Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ProposedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ProposedRate { get; init; } 
+    #else
+    public System.Decimal? ProposedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
+    [IsoId("_TX8xQNp-Ed-ak6NoX_4Aeg_-856494647")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Oversubscription Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat12Choice_? OversubscriptionRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat12Choice_? OversubscriptionRate { get; init; } 
+    #else
+    public RateAndAmountFormat12Choice_? OversubscriptionRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>
+    [IsoId("_TX8xQdp-Ed-ak6NoX_4Aeg_-802008412")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Taxation Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? RequestedTaxationRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RequestedTaxationRate { get; init; } 
+    #else
+    public System.Decimal? RequestedTaxationRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProposedRate is IsoPercentageRate ProposedRateValue)
-        {
-            writer.WriteStartElement(null, "PropsdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ProposedRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OversubscriptionRate is RateAndAmountFormat12Choice_ OversubscriptionRateValue)
-        {
-            writer.WriteStartElement(null, "OvrsbcptRate", xmlNamespace );
-            OversubscriptionRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestedTaxationRate is IsoPercentageRate RequestedTaxationRateValue)
-        {
-            writer.WriteStartElement(null, "ReqdTaxtnRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RequestedTaxationRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionRate8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

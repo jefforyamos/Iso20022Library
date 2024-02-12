@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choice;
-
-/// <summary>
-/// Price expressed as a monetary value.
-/// </summary>
-public partial record MonetaryValue : SecuritiesTransactionPrice19Choice_
-     , IIsoXmlSerilizable<MonetaryValue>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Amount of money in the cash entry.
+    /// Price expressed as a monetary value.
     /// </summary>
-    public required IsoActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; init; } 
-    /// <summary>
-    /// Indicates that the amount value is positive or negative.
-    /// </summary>
-    public IsoPlusOrMinusIndicator? Sign { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_fx9HMMgqEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monetary Value")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record MonetaryValue : SecuritiesTransactionPrice19Choice_
+    #else
+    public partial class MonetaryValue : SecuritiesTransactionPrice19Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(Amount)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a MonetaryValue instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public MonetaryValue( System.Decimal reqAmount )
         {
-            writer.WriteStartElement(null, "Sgn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
-            writer.WriteEndElement();
+            Amount = reqAmount;
         }
-    }
-    public static new MonetaryValue Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Amount of money in the cash entry.
+        /// </summary>
+        [IsoId("_XYj_4Mz3EeufhKfUxzsnrQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Amount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Amount { get; init; } 
+        #else
+        public System.Decimal Amount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates that the amount value is positive or negative.
+        /// </summary>
+        [IsoId("_ZY5f8Mz3EeufhKfUxzsnrQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sign")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPlusOrMinusIndicator? Sign { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Sign { get; init; } 
+        #else
+        public System.String? Sign { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

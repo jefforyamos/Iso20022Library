@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the baskets identification and the Eligibility Set Profile.
 /// </summary>
+[IsoId("_rh-hcLzTEeivTd4NUfCi2g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Basket Identification And Eligibility Set Profile")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BasketIdentificationAndEligibilitySetProfile1
-     : IIsoXmlSerilizable<BasketIdentificationAndEligibilitySetProfile1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number identifying the preferred collateral basket.
     /// </summary>
+    [IsoId("_uukj0LzUEeivTd4NUfCi2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Preferential Basket Identification Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? PreferentialBasketIdentificationNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? PreferentialBasketIdentificationNumber { get; init; } 
+    #else
+    public GenericIdentification1? PreferentialBasketIdentificationNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying the fallback starting collateral basket.
     /// </summary>
+    [IsoId("_80k1MLzUEeivTd4NUfCi2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fallback Starting Basket Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? FallbackStartingBasketIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? FallbackStartingBasketIdentification { get; init; } 
+    #else
+    public GenericIdentification1? FallbackStartingBasketIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying the collateral basket to be excluded.
     /// </summary>
+    [IsoId("_Nc55YLzVEeivTd4NUfCi2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exclusion Basket Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? ExclusionBasketIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? ExclusionBasketIdentification { get; init; } 
+    #else
+    public GenericIdentification1? ExclusionBasketIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
+    [IsoId("_UNrpoLzVEeivTd4NUfCi2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligibility Set Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? EligibilitySetProfile { get; init; } 
+    #else
+    public GenericIdentification1? EligibilitySetProfile { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PreferentialBasketIdentificationNumber is GenericIdentification1 PreferentialBasketIdentificationNumberValue)
-        {
-            writer.WriteStartElement(null, "PrfrntlBsktIdNb", xmlNamespace );
-            PreferentialBasketIdentificationNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FallbackStartingBasketIdentification is GenericIdentification1 FallbackStartingBasketIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FllbckStartgBsktId", xmlNamespace );
-            FallbackStartingBasketIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExclusionBasketIdentification is GenericIdentification1 ExclusionBasketIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ExclsnBsktId", xmlNamespace );
-            ExclusionBasketIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EligibilitySetProfile is GenericIdentification1 EligibilitySetProfileValue)
-        {
-            writer.WriteStartElement(null, "ElgbltySetPrfl", xmlNamespace );
-            EligibilitySetProfileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BasketIdentificationAndEligibilitySetProfile1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

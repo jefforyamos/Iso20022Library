@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the status or statement that is requested.
-/// </summary>
-[KnownType(typeof(StatusOrStatement8Choice.StatusAdvice))]
-[KnownType(typeof(StatusOrStatement8Choice.Statement))]
-public abstract partial record StatusOrStatement8Choice_ : IIsoXmlSerilizable<StatusOrStatement8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the status or statement that is requested.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static StatusOrStatement8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(StatusOrStatement8Choice.StatusAdvice))]
+    [KnownType(typeof(StatusOrStatement8Choice.Statement))]
+    [IsoId("_8RszhZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Or Statement 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record StatusOrStatement8Choice_
+    #else
+    public abstract partial class StatusOrStatement8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "StsAdvc" => StatusOrStatement8Choice.StatusAdvice.Deserialize(elementWithPayload),
-             "Stmt" => StatusOrStatement8Choice.Statement.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid StatusOrStatement8Choice choice.")
-        };
     }
 }

@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
+[IsoId("_4iN1MJNkEeytjZlcgApf6A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("UPI Query Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UPIQueryCriteria1
-     : IIsoXmlSerilizable<UPIQueryCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
+    [IsoId("_Ab3SAJNlEeytjZlcgApf6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Identifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identifier { get; init; } 
+    #else
+    public System.String? Identifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>
+    [IsoId("_D53p8JNlEeytjZlcgApf6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Not Reported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotReported1Code? NotReported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NotReported1Code? NotReported { get; init; } 
+    #else
+    public NotReported1Code? NotReported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identifier is IsoMax52Text IdentifierValue)
-        {
-            writer.WriteStartElement(null, "Idr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(IdentifierValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (NotReported is NotReported1Code NotReportedValue)
-        {
-            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
-            writer.WriteValue(NotReportedValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static UPIQueryCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

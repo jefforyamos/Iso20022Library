@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the order cancel request.
 /// </summary>
+[IsoId("_Q_qrQ9p-Ed-ak6NoX_4Aeg_213456320")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Reference9
-     : IIsoXmlSerilizable<Reference9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Reference9 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Reference9( System.String reqOriginalClientOrderIdentification )
+    {
+        OriginalClientOrderIdentification = reqOriginalClientOrderIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Client order identification of the previous non-rejected order (not the initial order of the day) when canceling or replacing an order.
     /// </summary>
+    [IsoId("_Q_qrRNp-Ed-ak6NoX_4Aeg_731552924")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Client Order Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalClientOrderIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalClientOrderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalClientOrderIdentification { get; init; } 
+    #else
+    public System.String OriginalClientOrderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of most recent order as assigned by sell-side (broker, exchange.).
     /// </summary>
+    [IsoId("_Q_qrRdp-Ed-ak6NoX_4Aeg_1075102845")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OrderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OrderIdentification { get; init; } 
+    #else
+    public System.String? OrderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// TransactionTime of the last state change that occurred to the original order. The original order modification time is provided as an optional field in the order modification request to identify that the state of the order has not changed since the request was issued.
     /// </summary>
+    [IsoId("_Q_qrRtp-Ed-ak6NoX_4Aeg_1493832227")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Order Modification Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OriginalOrderModificationTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? OriginalOrderModificationTime { get; init; } 
+    #else
+    public System.DateTime? OriginalOrderModificationTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrgnlClntOrdrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalClientOrderIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (OrderIdentification is IsoMax35Text OrderIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrdrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalOrderModificationTime is IsoISODateTime OriginalOrderModificationTimeValue)
-        {
-            writer.WriteStartElement(null, "OrgnlOrdrModTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalOrderModificationTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static Reference9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,226 +7,394 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the securities trade.
 /// </summary>
+[IsoId("_a76qmSAdEeuyDZ-ukt4YRg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Trade Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesTradeDetails132
-     : IIsoXmlSerilizable<SecuritiesTradeDetails132>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
+    [IsoId("_a76qqSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax52Text? TradeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradeIdentification { get; init; } 
+    #else
+    public System.String? TradeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of a collateral transaction as assigned by the instructing party.
     /// </summary>
+    [IsoId("_a76qrSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? CollateralTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralTransactionIdentification { get; init; } 
+    #else
+    public System.String? CollateralTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market in which a trade transaction has been executed.
     /// </summary>
+    [IsoId("_a76qsSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Trade")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlaceOfTradeIdentification2? PlaceOfTrade { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlaceOfTradeIdentification2? PlaceOfTrade { get; init; } 
+    #else
+    public PlaceOfTradeIdentification2? PlaceOfTrade { get; set; } 
+    #endif
+    
     /// <summary>
     /// Infrastructure which may be a component of a clearing house and which facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
     /// </summary>
+    [IsoId("_a76qtSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Clearing")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlaceOfClearingIdentification2? PlaceOfClearing { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlaceOfClearingIdentification2? PlaceOfClearing { get; init; } 
+    #else
+    public PlaceOfClearingIdentification2? PlaceOfClearing { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [IsoId("_a76quSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeDate9Choice_? TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeDate9Choice_? TradeDate { get; init; } 
+    #else
+    public TradeDate9Choice_? TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
+    [IsoId("_a76qvSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Late Delivery Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? LateDeliveryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? LateDeliveryDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? LateDeliveryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
+    [IsoId("_a76qwSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deal Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price11? DealPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price11? DealPrice { get; init; } 
+    #else
+    public Price11? DealPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
+    [IsoId("_a76qxSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Days Accrued")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? NumberOfDaysAccrued { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfDaysAccrued { get; init; } 
+    #else
+    public System.UInt64? NumberOfDaysAccrued { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies additional information relative to the processing of the trade.
     /// </summary>
+    [IsoId("_a76qySAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Closing")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OpeningClosing4Choice_? OpeningClosing { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OpeningClosing4Choice_? OpeningClosing { get; init; } 
+    #else
+    public OpeningClosing4Choice_? OpeningClosing { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
+    [IsoId("_a76qzSAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reporting9Choice_? Reporting { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Reporting9Choice_? Reporting { get; init; } 
+    #else
+    public Reporting9Choice_? Reporting { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
+    [IsoId("_a76q0SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Transaction Condition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeTransactionCondition6Choice_? TradeTransactionCondition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeTransactionCondition6Choice_? TradeTransactionCondition { get; init; } 
+    #else
+    public TradeTransactionCondition6Choice_? TradeTransactionCondition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the role of the investor in the transaction.
     /// </summary>
+    [IsoId("_a76q1SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investor Capacity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorCapacity5Choice_? InvestorCapacity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestorCapacity5Choice_? InvestorCapacity { get; init; } 
+    #else
+    public InvestorCapacity5Choice_? InvestorCapacity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the role of the trading party in the transaction.
     /// </summary>
+    [IsoId("_a76q2SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Originator Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeOriginator4Choice_? TradeOriginatorRole { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeOriginator4Choice_? TradeOriginatorRole { get; init; } 
+    #else
+    public TradeOriginator4Choice_? TradeOriginatorRole { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
+    [IsoId("_a76q3SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfPrice32Choice_? TypeOfPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfPrice32Choice_? TypeOfPrice { get; init; } 
+    #else
+    public TypeOfPrice32Choice_? TypeOfPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds or to sell the indicated currency in order to obtain the necessary currency to fund the transaction.
     /// </summary>
+    [IsoId("_a76q4SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency To Buy Or Sell")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyToBuyOrSell1Choice_? CurrencyToBuyOrSell { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyToBuyOrSell1Choice_? CurrencyToBuyOrSell { get; init; } 
+    #else
+    public CurrencyToBuyOrSell1Choice_? CurrencyToBuyOrSell { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
+    [IsoId("_a76q5SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus28Choice_? MatchingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MatchingStatus28Choice_? MatchingStatus { get; init; } 
+    #else
+    public MatchingStatus28Choice_? MatchingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of affirmation of a trade.
     /// </summary>
+    [IsoId("_a76q6SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Affirmation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AffirmationStatus9Choice_? AffirmationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AffirmationStatus9Choice_? AffirmationStatus { get; init; } 
+    #else
+    public AffirmationStatus9Choice_? AffirmationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional details pertaining to foreign exchange instructions.
     /// </summary>
+    [IsoId("_a76q7SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("FX Additional Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? FXAdditionalDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FXAdditionalDetails { get; init; } 
+    #else
+    public System.String? FXAdditionalDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [IsoId("_a76q8SAdEeuyDZ-ukt4YRg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Instruction Processing Additional Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? SettlementInstructionProcessingAdditionalDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementInstructionProcessingAdditionalDetails { get; init; } 
+    #else
+    public System.String? SettlementInstructionProcessingAdditionalDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TradeIdentification is IsoRestrictedFINXMax52Text TradeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TradId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax52Text(TradeIdentificationValue)); // data type RestrictedFINXMax52Text System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralTransactionIdentification is IsoRestrictedFINXMax16Text CollateralTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CollTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(CollateralTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
-            writer.WriteEndElement();
-        }
-        if (PlaceOfTrade is PlaceOfTradeIdentification2 PlaceOfTradeValue)
-        {
-            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
-            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlaceOfClearing is PlaceOfClearingIdentification2 PlaceOfClearingValue)
-        {
-            writer.WriteStartElement(null, "PlcOfClr", xmlNamespace );
-            PlaceOfClearingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeDate is TradeDate9Choice_ TradeDateValue)
-        {
-            writer.WriteStartElement(null, "TradDt", xmlNamespace );
-            TradeDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LateDeliveryDate is DateAndDateTime2Choice_ LateDeliveryDateValue)
-        {
-            writer.WriteStartElement(null, "LateDlvryDt", xmlNamespace );
-            LateDeliveryDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DealPrice is Price11 DealPriceValue)
-        {
-            writer.WriteStartElement(null, "DealPric", xmlNamespace );
-            DealPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NumberOfDaysAccrued is IsoMax3Number NumberOfDaysAccruedValue)
-        {
-            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Number(NumberOfDaysAccruedValue)); // data type Max3Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OpeningClosing is OpeningClosing4Choice_ OpeningClosingValue)
-        {
-            writer.WriteStartElement(null, "OpngClsg", xmlNamespace );
-            OpeningClosingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reporting is Reporting9Choice_ ReportingValue)
-        {
-            writer.WriteStartElement(null, "Rptg", xmlNamespace );
-            ReportingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeTransactionCondition is TradeTransactionCondition6Choice_ TradeTransactionConditionValue)
-        {
-            writer.WriteStartElement(null, "TradTxCond", xmlNamespace );
-            TradeTransactionConditionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestorCapacity is InvestorCapacity5Choice_ InvestorCapacityValue)
-        {
-            writer.WriteStartElement(null, "InvstrCpcty", xmlNamespace );
-            InvestorCapacityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeOriginatorRole is TradeOriginator4Choice_ TradeOriginatorRoleValue)
-        {
-            writer.WriteStartElement(null, "TradOrgtrRole", xmlNamespace );
-            TradeOriginatorRoleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TypeOfPrice is TypeOfPrice32Choice_ TypeOfPriceValue)
-        {
-            writer.WriteStartElement(null, "TpOfPric", xmlNamespace );
-            TypeOfPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CurrencyToBuyOrSell is CurrencyToBuyOrSell1Choice_ CurrencyToBuyOrSellValue)
-        {
-            writer.WriteStartElement(null, "CcyToBuyOrSell", xmlNamespace );
-            CurrencyToBuyOrSellValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MatchingStatus is MatchingStatus28Choice_ MatchingStatusValue)
-        {
-            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
-            MatchingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AffirmationStatus is AffirmationStatus9Choice_ AffirmationStatusValue)
-        {
-            writer.WriteStartElement(null, "AffirmSts", xmlNamespace );
-            AffirmationStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FXAdditionalDetails is IsoRestrictedFINXMax350Text FXAdditionalDetailsValue)
-        {
-            writer.WriteStartElement(null, "FxAddtlDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(FXAdditionalDetailsValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementInstructionProcessingAdditionalDetails is IsoRestrictedFINXMax350Text SettlementInstructionProcessingAdditionalDetailsValue)
-        {
-            writer.WriteStartElement(null, "SttlmInstrPrcgAddtlDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(SettlementInstructionProcessingAdditionalDetailsValue)); // data type RestrictedFINXMax350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesTradeDetails132 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

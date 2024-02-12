@@ -7,54 +7,44 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reason.
-/// </summary>
-[KnownType(typeof(Reason20Choice.RepoCallAcknowledgementReason))]
-[KnownType(typeof(Reason20Choice.CancellationReason))]
-[KnownType(typeof(Reason20Choice.PendingCancellationReason))]
-[KnownType(typeof(Reason20Choice.GeneratedReason))]
-[KnownType(typeof(Reason20Choice.DeniedReason))]
-[KnownType(typeof(Reason20Choice.AcknowledgedAcceptedReason))]
-[KnownType(typeof(Reason20Choice.PendingReason))]
-[KnownType(typeof(Reason20Choice.FailingReason))]
-[KnownType(typeof(Reason20Choice.PendingProcessingReason))]
-[KnownType(typeof(Reason20Choice.RejectionReason))]
-[KnownType(typeof(Reason20Choice.RepairReason))]
-[KnownType(typeof(Reason20Choice.PendingModificationReason))]
-[KnownType(typeof(Reason20Choice.UnmatchedReason))]
-public abstract partial record Reason20Choice_ : IIsoXmlSerilizable<Reason20Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Reason20Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Reason20Choice.RepoCallAcknowledgementReason))]
+    [KnownType(typeof(Reason20Choice.CancellationReason))]
+    [KnownType(typeof(Reason20Choice.PendingCancellationReason))]
+    [KnownType(typeof(Reason20Choice.GeneratedReason))]
+    [KnownType(typeof(Reason20Choice.DeniedReason))]
+    [KnownType(typeof(Reason20Choice.AcknowledgedAcceptedReason))]
+    [KnownType(typeof(Reason20Choice.PendingReason))]
+    [KnownType(typeof(Reason20Choice.FailingReason))]
+    [KnownType(typeof(Reason20Choice.PendingProcessingReason))]
+    [KnownType(typeof(Reason20Choice.RejectionReason))]
+    [KnownType(typeof(Reason20Choice.RepairReason))]
+    [KnownType(typeof(Reason20Choice.PendingModificationReason))]
+    [KnownType(typeof(Reason20Choice.UnmatchedReason))]
+    [IsoId("_gAQ5fTi8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason 20 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Reason20Choice_
+    #else
+    public abstract partial class Reason20Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RepoCallAckRsn" => Reason20Choice.RepoCallAcknowledgementReason.Deserialize(elementWithPayload),
-             "CxlRsn" => Reason20Choice.CancellationReason.Deserialize(elementWithPayload),
-             "PdgCxlRsn" => Reason20Choice.PendingCancellationReason.Deserialize(elementWithPayload),
-             "GnrtdRsn" => Reason20Choice.GeneratedReason.Deserialize(elementWithPayload),
-             "DndRsn" => Reason20Choice.DeniedReason.Deserialize(elementWithPayload),
-             "AckdAccptdRsn" => Reason20Choice.AcknowledgedAcceptedReason.Deserialize(elementWithPayload),
-             "PdgRsn" => Reason20Choice.PendingReason.Deserialize(elementWithPayload),
-             "FlngRsn" => Reason20Choice.FailingReason.Deserialize(elementWithPayload),
-             "PdgPrcgRsn" => Reason20Choice.PendingProcessingReason.Deserialize(elementWithPayload),
-             "RjctnRsn" => Reason20Choice.RejectionReason.Deserialize(elementWithPayload),
-             "RprRsn" => Reason20Choice.RepairReason.Deserialize(elementWithPayload),
-             "PdgModRsn" => Reason20Choice.PendingModificationReason.Deserialize(elementWithPayload),
-             "UmtchdRsn" => Reason20Choice.UnmatchedReason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Reason20Choice choice.")
-        };
     }
 }

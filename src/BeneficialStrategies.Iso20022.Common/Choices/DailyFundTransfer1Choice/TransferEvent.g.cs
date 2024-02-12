@@ -9,50 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice;
-
-/// <summary>
-/// Information about code and number of transfer.
-/// </summary>
-public partial record TransferEvent : DailyFundTransfer1Choice_
-     , IIsoXmlSerilizable<TransferEvent>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Code of fund transfer event.
+    /// Information about code and number of transfer.
     /// </summary>
-    public required IsoMax4Text EventCode { get; init; } 
-    /// <summary>
-    /// Event number related to the event code.
-    /// </summary>
-    public IsoMax3NumericText? EventNumber { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_WJO-ECc7Eea7avjfd7yDAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Event")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record TransferEvent : DailyFundTransfer1Choice_
+    #else
+    public partial class TransferEvent : DailyFundTransfer1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "EvtCd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax4Text(EventCode)); // data type Max4Text System.String
-        writer.WriteEndElement();
-        if (EventNumber is IsoMax3NumericText EventNumberValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a TransferEvent instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public TransferEvent( System.String reqEventCode )
         {
-            writer.WriteStartElement(null, "EvtNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EventNumberValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
+            EventCode = reqEventCode;
         }
-    }
-    public static new TransferEvent Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Code of fund transfer event.
+        /// </summary>
+        [IsoId("_Mmm70Cc8Eea7avjfd7yDAA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Code")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax4Text EventCode { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String EventCode { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String EventCode { get; init; } 
+        #else
+        public System.String EventCode { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Event number related to the event code.
+        /// </summary>
+        [IsoId("_ReAIkCc8Eea7avjfd7yDAA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Number")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax3NumericText? EventNumber { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EventNumber { get; init; } 
+        #else
+        public System.String? EventNumber { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

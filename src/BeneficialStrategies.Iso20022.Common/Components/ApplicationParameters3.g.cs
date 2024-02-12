@@ -7,70 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to a payment application of the point of interaction.
 /// </summary>
+[IsoId("_yOVVUTY7EeOYzMAJn8nuYA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Application Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ApplicationParameters3
-     : IIsoXmlSerilizable<ApplicationParameters3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ApplicationParameters3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ApplicationParameters3( System.String reqApplicationIdentification,System.String reqVersion )
+    {
+        ApplicationIdentification = reqApplicationIdentification;
+        Version = reqVersion;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the payment application.
     /// </summary>
+    [IsoId("_ydqKwTY7EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ApplicationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ApplicationIdentification { get; init; } 
+    #else
+    public System.String ApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the payment application configuration parameters.
     /// </summary>
+    [IsoId("_ydqKwzY7EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax16Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters used by the related payment application.
     /// </summary>
+    [IsoId("_ydqKxTY7EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? Parameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? Parameters { get; init; } 
+    #else
+    public System.Byte[]? Parameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sensitive parameters (sequence of parameters including the enveloppes) encrypted with a cryptographic key.
     /// </summary>
+    [IsoId("_ydqKxzY7EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encrypted Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType7? EncryptedParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType7? EncryptedParameters { get; init; } 
+    #else
+    public ContentInformationType7? EncryptedParameters { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ApplId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax16Text(Version)); // data type Max16Text System.String
-        writer.WriteEndElement();
-        if (Parameters is IsoMax100KBinary ParametersValue)
-        {
-            writer.WriteStartElement(null, "Params", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(ParametersValue)); // data type Max100KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (EncryptedParameters is ContentInformationType7 EncryptedParametersValue)
-        {
-            writer.WriteStartElement(null, "NcrptdParams", xmlNamespace );
-            EncryptedParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ApplicationParameters3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

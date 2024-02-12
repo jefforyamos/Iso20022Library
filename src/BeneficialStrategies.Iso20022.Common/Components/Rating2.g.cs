@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Rating and source of the rating of the financial instrument.
 /// </summary>
+[IsoId("_6xRCcL_IEeuexrfMa3dl_Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rating")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Rating2
-     : IIsoXmlSerilizable<Rating2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Rating2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Rating2( System.String reqRating,MarketIdentification89 reqSourceOfRating )
+    {
+        Rating = reqRating;
+        SourceOfRating = reqSourceOfRating;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the rating of the financial instrument.
     /// </summary>
+    [IsoId("_Bwe3Ub_JEeuexrfMa3dl_Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rating")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text Rating { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Rating { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Rating { get; init; } 
+    #else
+    public System.String Rating { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agency, which provides rating services, for example, Moody's and S&P.
     /// </summary>
+    [IsoId("_D8xvwb_JEeuexrfMa3dl_Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Source Of Rating")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketIdentification89 SourceOfRating { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MarketIdentification89 SourceOfRating { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketIdentification89 SourceOfRating { get; init; } 
+    #else
+    public MarketIdentification89 SourceOfRating { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ratg", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10Text(Rating)); // data type Max10Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SrcOfRatg", xmlNamespace );
-        SourceOfRating.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Rating2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

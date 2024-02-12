@@ -7,180 +7,322 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the CA security option.
 /// </summary>
+[IsoId("_UHVm2dp-Ed-ak6NoX_4Aeg_-583360205")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityOption1
-     : IIsoXmlSerilizable<SecurityOption1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecurityOption1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecurityOption1( FinancialInstrumentDescription3 reqSecurityIdentification,CreditDebitCode reqCreditDebitIndicator )
+    {
+        SecurityIdentification = reqSecurityIdentification;
+        CreditDebitIndicator = reqCreditDebitIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [IsoId("_UHVm2tp-Ed-ak6NoX_4Aeg_-527946931")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentDescription3 SecurityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentDescription3 SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentDescription3 SecurityIdentification { get; init; } 
+    #else
+    public FinancialInstrumentDescription3 SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
+    [IsoId("_UHVm29p-Ed-ak6NoX_4Aeg_-564889355")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
+    [IsoId("_UHfX0Np-Ed-ak6NoX_4Aeg_-454066333")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? SecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? SecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? SecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_UHfX0dp-Ed-ak6NoX_4Aeg_-121597685")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [IsoId("_UHfX0tp-Ed-ak6NoX_4Aeg_-81886522")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Exercisable Multiple Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// New denomination of the financial instrument following, eg, an increase or decrease in nominal value.
     /// </summary>
+    [IsoId("_UHfX09p-Ed-ak6NoX_4Aeg_2044074483")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Denomination Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
+    [IsoId("_UHfX1Np-Ed-ak6NoX_4Aeg_2044074761")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Board Lot Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the shares are ranking for dividend or pari passu.
     /// </summary>
+    [IsoId("_UHfX1dp-Ed-ak6NoX_4Aeg_-50486663")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Share Ranking")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShareRanking1FormatChoice_? ShareRanking { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ShareRanking1FormatChoice_? ShareRanking { get; init; } 
+    #else
+    public ShareRanking1FormatChoice_? ShareRanking { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
+    [IsoId("_UHfX1tp-Ed-ak6NoX_4Aeg_-2022112054")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Quantity For Subscribed Resultant Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityToQuantityRatio1? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityToQuantityRatio1? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    #else
+    public QuantityToQuantityRatio1? AdditionalQuantityForSubscribedResultantSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the dates related to a securities movement.
     /// </summary>
+    [IsoId("_UHfX19p-Ed-ak6NoX_4Aeg_-1191886959")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate3? DateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDate3? DateDetails { get; init; } 
+    #else
+    public CorporateActionDate3? DateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the prices related to a securities movement.
     /// </summary>
+    [IsoId("_UHfX2Np-Ed-ak6NoX_4Aeg_-96835735")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPrice4? PriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionPrice4? PriceDetails { get; init; } 
+    #else
+    public CorporateActionPrice4? PriceDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which intermediate securities are tradable in a secondary market.
     /// </summary>
+    [IsoId("_UHfX2dp-Ed-ak6NoX_4Aeg_-1841572303")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? TradingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1? TradingPeriod { get; init; } 
+    #else
+    public Period1? TradingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, eg, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
+    [IsoId("_UHohwNp-Ed-ak6NoX_4Aeg_-2022112115")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Quantity For Existing Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityToQuantityRatio1? AdditionalQuantityForExistingSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QuantityToQuantityRatio1? AdditionalQuantityForExistingSecurities { get; init; } 
+    #else
+    public QuantityToQuantityRatio1? AdditionalQuantityForExistingSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies that the security is a temporary security.
     /// </summary>
+    [IsoId("_UHohwdp-Ed-ak6NoX_4Aeg_-1246757948")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Temporary Financial Instrument Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TemporaryFinancialInstrumentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TemporaryFinancialInstrumentIndicator { get; init; } 
+    #else
+    public System.String? TemporaryFinancialInstrumentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
+    [IsoId("_UHohwtp-Ed-ak6NoX_4Aeg_-470689710")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fraction Disposition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
+    #else
+    public FractionDispositionType1FormatChoice_? FractionDisposition { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SctyId", xmlNamespace );
-        SecurityIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SecuritiesQuantity is UnitOrFaceAmount1Choice_ SecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
-            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableSecuritiesQuantity is UnitOrFaceAmount1Choice_ MinimumExercisableSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblSctiesQty", xmlNamespace );
-            MinimumExercisableSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumExercisableMultipleSecuritiesQuantity is UnitOrFaceAmount1Choice_ MinimumExercisableMultipleSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinExrcblMltplSctiesQty", xmlNamespace );
-            MinimumExercisableMultipleSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewDenominationSecuritiesQuantity is UnitOrFaceAmount1Choice_ NewDenominationSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewDnmtnSctiesQty", xmlNamespace );
-            NewDenominationSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewBoardLotSecuritiesQuantity is UnitOrFaceAmount1Choice_ NewBoardLotSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "NewBrdLotSctiesQty", xmlNamespace );
-            NewBoardLotSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ShareRanking is ShareRanking1FormatChoice_ ShareRankingValue)
-        {
-            writer.WriteStartElement(null, "ShrRnkg", xmlNamespace );
-            ShareRankingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalQuantityForSubscribedResultantSecurities is QuantityToQuantityRatio1 AdditionalQuantityForSubscribedResultantSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "AddtlQtyForSbcbdRsltntScties", xmlNamespace );
-            AdditionalQuantityForSubscribedResultantSecuritiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateDetails is CorporateActionDate3 DateDetailsValue)
-        {
-            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
-            DateDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceDetails is CorporateActionPrice4 PriceDetailsValue)
-        {
-            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
-            PriceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingPeriod is Period1 TradingPeriodValue)
-        {
-            writer.WriteStartElement(null, "TradgPrd", xmlNamespace );
-            TradingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalQuantityForExistingSecurities is QuantityToQuantityRatio1 AdditionalQuantityForExistingSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "AddtlQtyForExstgScties", xmlNamespace );
-            AdditionalQuantityForExistingSecuritiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TemporaryFinancialInstrumentIndicator is IsoYesNoIndicator TemporaryFinancialInstrumentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TempFinInstrmInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TemporaryFinancialInstrumentIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FractionDisposition is FractionDispositionType1FormatChoice_ FractionDispositionValue)
-        {
-            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
-            FractionDispositionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityOption1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

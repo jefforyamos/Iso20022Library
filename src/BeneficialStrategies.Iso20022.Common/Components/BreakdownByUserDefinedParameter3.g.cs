@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the cash-in and cash-out flows by a user defined parameter/s.
 /// </summary>
+[IsoId("_KigjuQatEeS3lpTattq7hg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Breakdown By User Defined Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BreakdownByUserDefinedParameter3
-     : IIsoXmlSerilizable<BreakdownByUserDefinedParameter3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party for which the cash flow is being reported.
     /// </summary>
+    [IsoId("_K78-YwatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount42? Party { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount42? Party { get; init; } 
+    #else
+    public InvestmentAccount42? Party { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country for which the cash flow is being reported.
     /// </summary>
+    [IsoId("_K78-ZQatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Country { get; init; } 
+    #else
+    public string? Country { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency for which the cash flow is being reported.
     /// </summary>
+    [IsoId("_K78-ZwatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Parameter for which the cash flow is being reported.
     /// </summary>
+    [IsoId("_K78-aQatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("User Defined")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataFormat2Choice_? UserDefined { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataFormat2Choice_? UserDefined { get; init; } 
+    #else
+    public DataFormat2Choice_? UserDefined { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash movement into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
+    [IsoId("_K78-awatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Forecast")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInForecast5? CashInForecast { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashInForecast5? CashInForecast { get; init; } 
+    #else
+    public CashInForecast5? CashInForecast { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash movement out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
+    [IsoId("_K78-bQatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Out Forecast")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOutForecast5? CashOutForecast { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashOutForecast5? CashOutForecast { get; init; } 
+    #else
+    public CashOutForecast5? CashOutForecast { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the user defined parameter.
     /// </summary>
+    [IsoId("_K78-bwatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Cash Forecast")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast4? NetCashForecast { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetCashForecast4? NetCashForecast { get; init; } 
+    #else
+    public NetCashForecast4? NetCashForecast { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Party is InvestmentAccount42 PartyValue)
-        {
-            writer.WriteStartElement(null, "Pty", xmlNamespace );
-            PartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Country is CountryCode CountryValue)
-        {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(CountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UserDefined is DataFormat2Choice_ UserDefinedValue)
-        {
-            writer.WriteStartElement(null, "UsrDfnd", xmlNamespace );
-            UserDefinedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashInForecast is CashInForecast5 CashInForecastValue)
-        {
-            writer.WriteStartElement(null, "CshInFcst", xmlNamespace );
-            CashInForecastValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashOutForecast is CashOutForecast5 CashOutForecastValue)
-        {
-            writer.WriteStartElement(null, "CshOutFcst", xmlNamespace );
-            CashOutForecastValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetCashForecast is NetCashForecast4 NetCashForecastValue)
-        {
-            writer.WriteStartElement(null, "NetCshFcst", xmlNamespace );
-            NetCashForecastValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BreakdownByUserDefinedParameter3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

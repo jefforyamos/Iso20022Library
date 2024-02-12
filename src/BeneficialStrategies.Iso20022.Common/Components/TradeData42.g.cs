@@ -7,91 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of a new trade transaction report.
 /// </summary>
+[IsoId("_2xV0kWEUEe2P-L9DBerEgA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeData42
-     : IIsoXmlSerilizable<TradeData42>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeData42 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeData42( CommonTradeDataReport69 reqCommonTradeData )
+    {
+        CommonTradeData = reqCommonTradeData;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    public ValueList<CounterpartySpecificData36> CounterpartySpecificData { get; init; } = [];
+    [IsoId("_2yMwMWEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Specific Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<CounterpartySpecificData36> CounterpartySpecificData { get; init; } = new ValueList<CounterpartySpecificData36>(){};
+    
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
+    [IsoId("_2yMwM2EUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Trade Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommonTradeDataReport69 CommonTradeData { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CommonTradeDataReport69 CommonTradeData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommonTradeDataReport69 CommonTradeData { get; init; } 
+    #else
+    public CommonTradeDataReport69 CommonTradeData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information concerning the reported transaction level type.
     /// Usage: The absence of the code will imply the default value Transaction (TCTN).
     /// </summary>
+    [IsoId("_2yMwNWEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationLevel1Code? Level { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ModificationLevel1Code? Level { get; init; } 
+    #else
+    public ModificationLevel1Code? Level { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies technical attributes of the message.
     /// </summary>
+    [IsoId("_2yMwN2EUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Attributes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TechnicalAttributes5? TechnicalAttributes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TechnicalAttributes5? TechnicalAttributes { get; init; } 
+    #else
+    public TechnicalAttributes5? TechnicalAttributes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information regarding the public dissemination of trade data.
     /// </summary>
+    [IsoId("_2yMwOWEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Public Dissemination Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisseminationData1? PublicDisseminationData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DisseminationData1? PublicDisseminationData { get; init; } 
+    #else
+    public DisseminationData1? PublicDisseminationData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
+    [IsoId("_2yMwO2EUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
-        CounterpartySpecificData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CmonTradData", xmlNamespace );
-        CommonTradeData.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Level is ModificationLevel1Code LevelValue)
-        {
-            writer.WriteStartElement(null, "Lvl", xmlNamespace );
-            writer.WriteValue(LevelValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TechnicalAttributes is TechnicalAttributes5 TechnicalAttributesValue)
-        {
-            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
-            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PublicDisseminationData is DisseminationData1 PublicDisseminationDataValue)
-        {
-            writer.WriteStartElement(null, "PblcDssmntnData", xmlNamespace );
-            PublicDisseminationDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeData42 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

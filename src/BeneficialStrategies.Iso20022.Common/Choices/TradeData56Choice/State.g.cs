@@ -9,149 +9,274 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeData56Choice;
-
-/// <summary>
-/// Information concerning the reporting at transaction level.
-/// </summary>
-public partial record State : TradeData56Choice_
-     , IIsoXmlSerilizable<State>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeData56Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date and time of submission of the report to the trade repository.
+    /// Information concerning the reporting at transaction level.
     /// </summary>
-    public IsoISODateTime? ReportingTimeStamp { get; init; } 
-    /// <summary>
-    /// Data specific to counterparties and related fields.
-    /// </summary>
-    public required TradeCounterpartyReport20 CounterpartyIdentification { get; init; } 
-    /// <summary>
-    /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
-    /// </summary>
-    public IsoISODate? EventDate { get; init; } 
-    /// <summary>
-    /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty. 
-    /// </summary>
-    public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
-    /// <summary>
-    /// Information related to collateral agreement existing between counterparties.
-    /// </summary>
-    public required MarginCollateralReport4 Collateral { get; init; } 
-    /// <summary>
-    /// Information on posted collateral and margin.
-    /// </summary>
-    public PostedMarginOrCollateral6? PostedMarginOrCollateral { get; init; } 
-    /// <summary>
-    /// Information on received collateral and margin.
-    /// </summary>
-    public ReceivedMarginOrCollateral6? ReceivedMarginOrCollateral { get; init; } 
-    /// <summary>
-    /// Indicates if a counterparty rating trigger is agreed by the counterparties for the collateral posted by the reporting counterparty.
-    /// Usage: If the element is not present, the CounterpartyRatingTrigger is False.
-    /// </summary>
-    public IsoTrueFalseIndicator? CounterpartyRatingTriggerIndicator { get; init; } 
-    /// <summary>
-    /// Indicates if a counterparty rating trigger includes a threshold that increases collateral requirements when the counterparty falls below the single-A rating or equivalent.
-    /// Usage: If the CounterpartyRatingTrigger indicator is false, this element is omitted.
-    /// </summary>
-    public IsoTrueFalseIndicator? CounterpartyRatingThresholdIndicator { get; init; } 
-    /// <summary>
-    /// Contract modification details expressed as an action type and a reporting level type.
-    /// </summary>
-    public ContractModification8? ContractModification { get; init; } 
-    /// <summary>
-    /// Specifies technical attributes of the message.
-    /// </summary>
-    public TechnicalAttributes6? TechnicalAttributes { get; init; } 
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_SBzrA152Ee2a_-MvhEjKmA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("State")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record State : TradeData56Choice_
+    #else
+    public partial class State : TradeData56Choice_
+    #endif
     {
-        if (ReportingTimeStamp is IsoISODateTime ReportingTimeStampValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a State instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public State( TradeCounterpartyReport20 reqCounterpartyIdentification,MarginCollateralReport4 reqCollateral )
         {
-            writer.WriteStartElement(null, "RptgTmStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingTimeStampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
+            CounterpartyIdentification = reqCounterpartyIdentification;
+            Collateral = reqCollateral;
         }
-        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-        CounterpartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (EventDate is IsoISODate EventDateValue)
-        {
-            writer.WriteStartElement(null, "EvtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(EventDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentification is UniqueTransactionIdentifier2Choice_ TransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxId", xmlNamespace );
-            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Coll", xmlNamespace );
-        Collateral.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PostedMarginOrCollateral is PostedMarginOrCollateral6 PostedMarginOrCollateralValue)
-        {
-            writer.WriteStartElement(null, "PstdMrgnOrColl", xmlNamespace );
-            PostedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceivedMarginOrCollateral is ReceivedMarginOrCollateral6 ReceivedMarginOrCollateralValue)
-        {
-            writer.WriteStartElement(null, "RcvdMrgnOrColl", xmlNamespace );
-            ReceivedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CounterpartyRatingTriggerIndicator is IsoTrueFalseIndicator CounterpartyRatingTriggerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyRatgTrggrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingTriggerIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CounterpartyRatingThresholdIndicator is IsoTrueFalseIndicator CounterpartyRatingThresholdIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyRatgThrshldInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingThresholdIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ContractModification is ContractModification8 ContractModificationValue)
-        {
-            writer.WriteStartElement(null, "CtrctMod", xmlNamespace );
-            ContractModificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TechnicalAttributes is TechnicalAttributes6 TechnicalAttributesValue)
-        {
-            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
-            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new State Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date and time of submission of the report to the trade repository.
+        /// </summary>
+        [IsoId("_SCx7YV52Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reporting Time Stamp")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODateTime? ReportingTimeStamp { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime? ReportingTimeStamp { get; init; } 
+        #else
+        public System.DateTime? ReportingTimeStamp { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data specific to counterparties and related fields.
+        /// </summary>
+        [IsoId("_SCx7Y152Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required TradeCounterpartyReport20 CounterpartyIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public TradeCounterpartyReport20 CounterpartyIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TradeCounterpartyReport20 CounterpartyIdentification { get; init; } 
+        #else
+        public TradeCounterpartyReport20 CounterpartyIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
+        /// </summary>
+        [IsoId("_SCx7ZV52Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Event Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? EventDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? EventDate { get; init; } 
+        #else
+        public System.DateOnly? EventDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty. 
+        /// </summary>
+        [IsoId("_SCx7Z152Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
+        #else
+        public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to collateral agreement existing between counterparties.
+        /// </summary>
+        [IsoId("_SCx7aV52Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required MarginCollateralReport4 Collateral { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public MarginCollateralReport4 Collateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MarginCollateralReport4 Collateral { get; init; } 
+        #else
+        public MarginCollateralReport4 Collateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information on posted collateral and margin.
+        /// </summary>
+        [IsoId("_SCx7a152Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Posted Margin Or Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PostedMarginOrCollateral6? PostedMarginOrCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostedMarginOrCollateral6? PostedMarginOrCollateral { get; init; } 
+        #else
+        public PostedMarginOrCollateral6? PostedMarginOrCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information on received collateral and margin.
+        /// </summary>
+        [IsoId("_SCx7bV52Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Received Margin Or Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ReceivedMarginOrCollateral6? ReceivedMarginOrCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReceivedMarginOrCollateral6? ReceivedMarginOrCollateral { get; init; } 
+        #else
+        public ReceivedMarginOrCollateral6? ReceivedMarginOrCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates if a counterparty rating trigger is agreed by the counterparties for the collateral posted by the reporting counterparty.
+        /// Usage: If the element is not present, the CounterpartyRatingTrigger is False.
+        /// </summary>
+        [IsoId("_SCx7b152Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Rating Trigger Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoTrueFalseIndicator? CounterpartyRatingTriggerIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CounterpartyRatingTriggerIndicator { get; init; } 
+        #else
+        public System.String? CounterpartyRatingTriggerIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates if a counterparty rating trigger includes a threshold that increases collateral requirements when the counterparty falls below the single-A rating or equivalent.
+        /// Usage: If the CounterpartyRatingTrigger indicator is false, this element is omitted.
+        /// </summary>
+        [IsoId("_SCx7cV52Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Rating Threshold Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoTrueFalseIndicator? CounterpartyRatingThresholdIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CounterpartyRatingThresholdIndicator { get; init; } 
+        #else
+        public System.String? CounterpartyRatingThresholdIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Contract modification details expressed as an action type and a reporting level type.
+        /// </summary>
+        [IsoId("_SCx7c152Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Contract Modification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ContractModification8? ContractModification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ContractModification8? ContractModification { get; init; } 
+        #else
+        public ContractModification8? ContractModification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies technical attributes of the message.
+        /// </summary>
+        [IsoId("_SCx7dV52Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Attributes")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TechnicalAttributes6? TechnicalAttributes { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TechnicalAttributes6? TechnicalAttributes { get; init; } 
+        #else
+        public TechnicalAttributes6? TechnicalAttributes { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_SCx7d152Ee2a_-MvhEjKmA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

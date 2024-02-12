@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between buyer and seller.
-/// </summary>
-[KnownType(typeof(Counterparty13Choice.Seller))]
-[KnownType(typeof(Counterparty13Choice.Buyer))]
-public abstract partial record Counterparty13Choice_ : IIsoXmlSerilizable<Counterparty13Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between buyer and seller.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Counterparty13Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Counterparty13Choice.Seller))]
+    [KnownType(typeof(Counterparty13Choice.Buyer))]
+    [IsoId("_9RmwddLCEeiN28wlpBQScw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty 13 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Counterparty13Choice_
+    #else
+    public abstract partial class Counterparty13Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Sellr" => Counterparty13Choice.Seller.Deserialize(elementWithPayload),
-             "Buyr" => Counterparty13Choice.Buyer.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Counterparty13Choice choice.")
-        };
     }
 }

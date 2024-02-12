@@ -7,97 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the transportation of goods that are part of a commercial trade agreement.
 /// </summary>
+[IsoId("_2DIaMTckEeSaC-PiOaz_KQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport Data Set")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportDataSet5
-     : IIsoXmlSerilizable<TransportDataSet5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransportDataSet5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransportDataSet5( DocumentIdentification1 reqDataSetIdentification,PartyIdentification26 reqConsignor,TransportDetails4 reqTransportInformation )
+    {
+        DataSetIdentification = reqDataSetIdentification;
+        Consignor = reqConsignor;
+        TransportInformation = reqTransportInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the submitted transport data set.
     /// </summary>
+    [IsoId("_2ZcocTckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    #else
+    public DocumentIdentification1 DataSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_2ZcoczckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26? Buyer { get; init; } 
+    #else
+    public PartyIdentification26? Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_2ZcodTckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26? Seller { get; init; } 
+    #else
+    public PartyIdentification26? Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party responsible for dispatching the goods.
     /// </summary>
+    [IsoId("_2ZcodzckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Consignor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Consignor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification26 Consignor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26 Consignor { get; init; } 
+    #else
+    public PartyIdentification26 Consignor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to whom the goods must be delivered.
     /// </summary>
+    [IsoId("_2ZcoeTckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Consignee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? Consignee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26? Consignee { get; init; } 
+    #else
+    public PartyIdentification26? Consignee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to whom the goods must be delivered in the end.
     /// </summary>
+    [IsoId("_2ZcoezckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ship To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? ShipTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification26? ShipTo { get; init; } 
+    #else
+    public PartyIdentification26? ShipTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the shipment date, the charges, the routing and the goods that are described in the transport document.
     /// </summary>
+    [IsoId("_2ZcofTckEeSaC-PiOaz_KQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transport Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransportDetails4 TransportInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransportDetails4 TransportInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportDetails4 TransportInformation { get; init; } 
+    #else
+    public TransportDetails4 TransportInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
-        DataSetIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Buyer is PartyIdentification26 BuyerValue)
-        {
-            writer.WriteStartElement(null, "Buyr", xmlNamespace );
-            BuyerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Seller is PartyIdentification26 SellerValue)
-        {
-            writer.WriteStartElement(null, "Sellr", xmlNamespace );
-            SellerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Consgnr", xmlNamespace );
-        Consignor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Consignee is PartyIdentification26 ConsigneeValue)
-        {
-            writer.WriteStartElement(null, "Consgn", xmlNamespace );
-            ConsigneeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ShipTo is PartyIdentification26 ShipToValue)
-        {
-            writer.WriteStartElement(null, "ShipTo", xmlNamespace );
-            ShipToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TrnsprtInf", xmlNamespace );
-        TransportInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static TransportDataSet5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

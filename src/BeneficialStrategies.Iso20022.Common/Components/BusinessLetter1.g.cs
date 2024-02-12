@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -20,221 +26,421 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// (2) - all elements defining qualified documents or references to them,
 /// (3) - the LegalContext element.
 /// </summary>
+[IsoId("_OTgzMTkz-AOSNFX-8224490")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Business Letter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BusinessLetter1
-     : IIsoXmlSerilizable<BusinessLetter1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BusinessLetter1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BusinessLetter1( QualifiedDocumentInformation1 reqLetterIdentifier,System.DateOnly reqDate,QualifiedPartyIdentification1 reqOriginator )
+    {
+        LetterIdentifier = reqLetterIdentifier;
+        Date = reqDate;
+        Originator = reqOriginator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Application context defined by users. This is typically the name of a product.
     /// </summary>
+    [IsoId("_OTgzMjAz-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ApplicationContext { get; init; } 
+    #else
+    public System.String? ApplicationContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identifier for this letter.
     /// </summary>
+    [IsoId("_OTgzMjA1-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Letter Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
+    #else
+    public QualifiedDocumentInformation1 LetterIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Purported creation date of the document.
     /// </summary>
+    [IsoId("_OTgzMjA2-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly Date { get; init; } 
+    #else
+    public System.DateOnly Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of a related letter.
     /// </summary>
+    [IsoId("_OTgzMjA3-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Letter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedLetter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? RelatedLetter { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? RelatedLetter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of a related message.
     /// </summary>
+    [IsoId("_OTgzMjA4-AOSNFX-822449")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? RelatedMessage { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? RelatedMessage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cross references the lists that are associated to this letter inside a message. The identifiers are relative to the Originator.
     /// </summary>
+    [IsoId("_OTgzMjA5-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Content Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ContentIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ContentIdentifier { get; init; } 
+    #else
+    public System.String? ContentIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the business letter to apply to the processing of the letter.
     /// </summary>
+    [IsoId("_OTgzMjEx-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority3Code? InstructionPriority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Priority3Code? InstructionPriority { get; init; } 
+    #else
+    public Priority3Code? InstructionPriority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the originating party of this letter.
     /// </summary>
+    [IsoId("_OTgzMjEz-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 Originator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public QualifiedPartyIdentification1 Originator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1 Originator { get; init; } 
+    #else
+    public QualifiedPartyIdentification1 Originator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Primary recipient of the business letter. The exact meaning is given by the users.
     /// </summary>
+    [IsoId("_OTgzMjE0-AOSNFX-8224491")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public QualifiedPartyIdentification1? PrimaryRecipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzMjE0-AOSNFX-8224491
+    
     /// <summary>
     /// Sender of the business letter. The exact meaning is given by the users.
     /// </summary>
+    [IsoId("_OTgzMjE1-AOSNFX-8224492")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Sender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Sender { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Sender { get; set; } 
+    #endif
+    
     /// <summary>
     /// User who, either individually or in concert with others, authorises the origination of a message.
     /// </summary>
+    [IsoId("_OTgzMjE2-AOSNFX-8224492")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation User")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public QualifiedPartyIdentification1? AuthorisationUser { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzMjE2-AOSNFX-8224492
+    
     /// <summary>
     /// Party to receive a reply to this letter.
     /// </summary>
+    [IsoId("_OTgzMjE3-AOSNFX-8224492")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? ResponseRecipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? ResponseRecipient { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? ResponseRecipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to receive a copy of the message.
     /// </summary>
+    [IsoId("_OTgzMjE4-AOSNFX-8224492")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Copy Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? CopyRecipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? CopyRecipient { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? CopyRecipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other party involved. This element is usable as a target for IDREFs.
     /// </summary>
+    [IsoId("_OTgzMjE5-AOSNFX-8224492")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? OtherParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? OtherParty { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? OtherParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Associated free form document.
     /// </summary>
+    [IsoId("_OTgzMjIw-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Associated Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? AssociatedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Governing contract.
     /// </summary>
+    [IsoId("_OTgzMjIx-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Governing Contract")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? GoverningContract { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? GoverningContract { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? GoverningContract { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rules and laws governing the letter.
     /// </summary>
+    [IsoId("_OTgzMjIz-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GovernanceRules2? LegalContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GovernanceRules2? LegalContext { get; init; } 
+    #else
+    public GovernanceRules2? LegalContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free form information about this message.
     /// </summary>
+    [IsoId("_OTgzMjI0-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free form information unrelated to the message for example advertising or a service notice.
     /// </summary>
+    [IsoId("_OTgzMjI1-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Notice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Notice { get; init; } 
+    #else
+    public System.String? Notice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of referenced messages or letters.
     /// </summary>
+    [IsoId("_OTgzMjI2-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validation Status Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #else
+    public ValidationStatusInformation1? ValidationStatusInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Digital signatures and signing parties of this letter or parts of it.
     /// </summary>
+    [IsoId("_OTgzMjI4-AOSNFX-8224493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digital Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyAndXMLSignature1? DigitalSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyAndXMLSignature1? DigitalSignature { get; init; } 
+    #else
+    public QualifiedPartyAndXMLSignature1? DigitalSignature { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ApplicationContext is IsoMax35Text ApplicationContextValue)
-        {
-            writer.WriteStartElement(null, "ApplCntxt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationContextValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "LttrIdr", xmlNamespace );
-        LetterIdentifier.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Dt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (RelatedLetter is QualifiedDocumentInformation1 RelatedLetterValue)
-        {
-            writer.WriteStartElement(null, "RltdLttr", xmlNamespace );
-            RelatedLetterValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RelatedMessage is QualifiedDocumentInformation1 RelatedMessageValue)
-        {
-            writer.WriteStartElement(null, "RltdMsg", xmlNamespace );
-            RelatedMessageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContentIdentifier is IsoMax35Text ContentIdentifierValue)
-        {
-            writer.WriteStartElement(null, "CnttIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ContentIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionPriority is Priority3Code InstructionPriorityValue)
-        {
-            writer.WriteStartElement(null, "InstrPrty", xmlNamespace );
-            writer.WriteValue(InstructionPriorityValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Orgtr", xmlNamespace );
-        Originator.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize PrimaryRecipient, multiplicity Unknown
-        if (Sender is QualifiedPartyIdentification1 SenderValue)
-        {
-            writer.WriteStartElement(null, "Sndr", xmlNamespace );
-            SenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize AuthorisationUser, multiplicity Unknown
-        if (ResponseRecipient is QualifiedPartyIdentification1 ResponseRecipientValue)
-        {
-            writer.WriteStartElement(null, "RspnRcpt", xmlNamespace );
-            ResponseRecipientValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CopyRecipient is QualifiedPartyIdentification1 CopyRecipientValue)
-        {
-            writer.WriteStartElement(null, "CpyRcpt", xmlNamespace );
-            CopyRecipientValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherParty is QualifiedPartyIdentification1 OtherPartyValue)
-        {
-            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
-            OtherPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
-        {
-            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
-            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GoverningContract is QualifiedDocumentInformation1 GoverningContractValue)
-        {
-            writer.WriteStartElement(null, "GovngCtrct", xmlNamespace );
-            GoverningContractValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalContext is GovernanceRules2 LegalContextValue)
-        {
-            writer.WriteStartElement(null, "LglCntxt", xmlNamespace );
-            LegalContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax2000Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(AdditionalInformationValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-        if (Notice is IsoMax350Text NoticeValue)
-        {
-            writer.WriteStartElement(null, "Ntce", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NoticeValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
-        {
-            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
-            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DigitalSignature is QualifiedPartyAndXMLSignature1 DigitalSignatureValue)
-        {
-            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
-            DigitalSignatureValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BusinessLetter1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

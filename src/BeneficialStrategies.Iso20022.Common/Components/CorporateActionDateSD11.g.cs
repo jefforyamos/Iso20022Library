@@ -7,126 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action options date details.
 /// </summary>
+[IsoId("_CPKmse2KEeiWtrflKsFqHg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDateSD11
-     : IIsoXmlSerilizable<CorporateActionDateSD11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [IsoId("_CzLSse2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlaceAndName { get; init; } 
+    #else
+    public System.String? PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual early expiration time as set by the issuer/offer/agent.
     /// </summary>
+    [IsoId("_CzLSs-2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Early Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualEarlyExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? ActualEarlyExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? ActualEarlyExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent.
     /// </summary>
+    [IsoId("_CzLSte2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Protect Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualProtectExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? ActualProtectExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? ActualProtectExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent for the early expiration.
     /// </summary>
+    [IsoId("_CzLSt-2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Early Protect Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualEarlyProtectExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? ActualEarlyProtectExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? ActualEarlyProtectExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day protect instructions can be submitted to DTC for the early expiration.
     /// </summary>
+    [IsoId("_CzLSue2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Early Protect Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? DTCEarlyProtectExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? DTCEarlyProtectExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? DTCEarlyProtectExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day cover early protect instructions can be submitted to the issuer / agent.
     /// </summary>
+    [IsoId("_CzLSu-2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Actual Early Cover Protect Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualEarlyCoverProtectExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? ActualEarlyCoverProtectExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? ActualEarlyCoverProtectExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day cover early protect instructions can be submitted to DTC.
     /// </summary>
+    [IsoId("_CzLSve2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Early Cover Protect Expiration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? DTCEarlyCoverProtectExpirationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? DTCEarlyCoverProtectExpirationDate { get; init; } 
+    #else
+    public DateFormat49Choice_? DTCEarlyCoverProtectExpirationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
+    [IsoId("_CzLSv-2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Process To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ProcessToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat49Choice_? ProcessToDate { get; init; } 
+    #else
+    public DateFormat49Choice_? ProcessToDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which DTC expects to receive funds for distribution from the issuer / offeror.  It will be used before payout details are available.
     /// </summary>
+    [IsoId("_ASDZwe2KEeiWtrflKsFqHg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Earliest Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DTCEarliestPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DTCEarliestPaymentDate { get; init; } 
+    #else
+    public System.DateOnly? DTCEarliestPaymentDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
-        {
-            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (ActualEarlyExpirationDate is DateFormat49Choice_ ActualEarlyExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "ActlEarlyXprtnDt", xmlNamespace );
-            ActualEarlyExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActualProtectExpirationDate is DateFormat49Choice_ ActualProtectExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "ActlPrtctXprtnDt", xmlNamespace );
-            ActualProtectExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActualEarlyProtectExpirationDate is DateFormat49Choice_ ActualEarlyProtectExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "ActlEarlyPrtctXprtnDt", xmlNamespace );
-            ActualEarlyProtectExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DTCEarlyProtectExpirationDate is DateFormat49Choice_ DTCEarlyProtectExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "DTCEarlyPrtctXprtnDt", xmlNamespace );
-            DTCEarlyProtectExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActualEarlyCoverProtectExpirationDate is DateFormat49Choice_ ActualEarlyCoverProtectExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "ActlEarlyCoverPrtctXprtnDt", xmlNamespace );
-            ActualEarlyCoverProtectExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DTCEarlyCoverProtectExpirationDate is DateFormat49Choice_ DTCEarlyCoverProtectExpirationDateValue)
-        {
-            writer.WriteStartElement(null, "DTCEarlyCoverPrtctXprtnDt", xmlNamespace );
-            DTCEarlyCoverProtectExpirationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessToDate is DateFormat49Choice_ ProcessToDateValue)
-        {
-            writer.WriteStartElement(null, "PrcToDt", xmlNamespace );
-            ProcessToDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DTCEarliestPaymentDate is IsoISODate DTCEarliestPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "DTCEarlstPmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DTCEarliestPaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDateSD11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

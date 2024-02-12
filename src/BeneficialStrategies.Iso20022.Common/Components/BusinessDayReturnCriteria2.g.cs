@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on business day information.
 /// </summary>
+[IsoId("_75XVlqMgEeCJ6YNENx4h-w_-59874421")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Business Day Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BusinessDayReturnCriteria2
-     : IIsoXmlSerilizable<BusinessDayReturnCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the system date is requested.
     /// </summary>
+    [IsoId("_75XVl6MgEeCJ6YNENx4h-w_-1794151342")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Date Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemDateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SystemDateIndicator { get; init; } 
+    #else
+    public System.String? SystemDateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the system status is requested.
     /// </summary>
+    [IsoId("_75XVmKMgEeCJ6YNENx4h-w_-173713487")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Status Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemStatusIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SystemStatusIndicator { get; init; } 
+    #else
+    public System.String? SystemStatusIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the system currency is requested.
     /// </summary>
+    [IsoId("_75XVmaMgEeCJ6YNENx4h-w_-734965435")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Currency Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemCurrencyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SystemCurrencyIndicator { get; init; } 
+    #else
+    public System.String? SystemCurrencyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the closure information is requested.
     /// </summary>
+    [IsoId("_75gfgKMgEeCJ6YNENx4h-w_1130036750")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closure Period Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ClosurePeriodIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClosurePeriodIndicator { get; init; } 
+    #else
+    public System.String? ClosurePeriodIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the events are requested.
     /// </summary>
+    [IsoId("_75gfgaMgEeCJ6YNENx4h-w_-1170785840")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EventIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventIndicator { get; init; } 
+    #else
+    public System.String? EventIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the session period is requested.
     /// </summary>
+    [IsoId("_75gfgqMgEeCJ6YNENx4h-w_2127109103")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Session Period Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SessionPeriodIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SessionPeriodIndicator { get; init; } 
+    #else
+    public System.String? SessionPeriodIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the system event type is requested.
     /// </summary>
+    [IsoId("_75gfg6MgEeCJ6YNENx4h-w_-1854786731")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EventTypeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EventTypeIndicator { get; init; } 
+    #else
+    public System.String? EventTypeIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SystemDateIndicator is IsoRequestedIndicator SystemDateIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SysDtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemDateIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SystemStatusIndicator is IsoRequestedIndicator SystemStatusIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SysStsInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemStatusIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SystemCurrencyIndicator is IsoRequestedIndicator SystemCurrencyIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SysCcyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemCurrencyIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ClosurePeriodIndicator is IsoRequestedIndicator ClosurePeriodIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ClsrPrdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ClosurePeriodIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EventIndicator is IsoRequestedIndicator EventIndicatorValue)
-        {
-            writer.WriteStartElement(null, "EvtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EventIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SessionPeriodIndicator is IsoRequestedIndicator SessionPeriodIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SsnPrdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SessionPeriodIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EventTypeIndicator is IsoRequestedIndicator EventTypeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "EvtTpInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EventTypeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static BusinessDayReturnCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about investment plans issued during previous years.
 /// </summary>
+[IsoId("_zhY78U7eEeifNrXGwadPmg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Previous Year")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PreviousYear4
-     : IIsoXmlSerilizable<PreviousYear4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PreviousYear4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PreviousYear4( PreviousYear1Choice_ reqPreviousYears )
+    {
+        PreviousYears = reqPreviousYears;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
+    [IsoId("_zxwTM07eEeifNrXGwadPmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreviousYear1Choice_ PreviousYears { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PreviousYear1Choice_ PreviousYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PreviousYear1Choice_ PreviousYears { get; init; } 
+    #else
+    public PreviousYear1Choice_ PreviousYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the product contains a cash asset for transfer from previous years.
     /// </summary>
+    [IsoId("_zxwTNU7eEeifNrXGwadPmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Component Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashComponentIndicator { get; init; } 
+    #else
+    public System.String? CashComponentIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
-        PreviousYears.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CashComponentIndicator is IsoYesNoIndicator CashComponentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PreviousYear4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

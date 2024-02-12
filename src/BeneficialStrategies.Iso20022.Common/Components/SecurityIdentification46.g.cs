@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
 /// </summary>
+[IsoId("_f72qkWEUEe2P-L9DBerEgA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityIdentification46
-     : IIsoXmlSerilizable<SecurityIdentification46>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
+    [IsoId("_f8tmM2EUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ISIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? ISIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ISIN { get; init; } 
+    #else
+    public System.String? ISIN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
+    [IsoId("_f8tmNWEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unique Product Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UniqueProductIdentifier2Choice_? UniqueProductIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UniqueProductIdentifier2Choice_? UniqueProductIdentifier { get; init; } 
+    #else
+    public UniqueProductIdentifier2Choice_? UniqueProductIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
+    [IsoId("_f8tmN2EUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternative Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AlternativeInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AlternativeInstrumentIdentification { get; init; } 
+    #else
+    public System.String? AlternativeInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies a human readable description of the product.
     /// </summary>
+    [IsoId("_f8tmOWEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? ProductDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductDescription { get; init; } 
+    #else
+    public System.String? ProductDescription { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ISIN is IsoISINOct2015Identifier ISINValue)
-        {
-            writer.WriteStartElement(null, "ISIN", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (UniqueProductIdentifier is UniqueProductIdentifier2Choice_ UniqueProductIdentifierValue)
-        {
-            writer.WriteStartElement(null, "UnqPdctIdr", xmlNamespace );
-            UniqueProductIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AlternativeInstrumentIdentification is IsoMax105Text AlternativeInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AltrntvInstrmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AlternativeInstrumentIdentificationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProductDescription is IsoMax1000Text ProductDescriptionValue)
-        {
-            writer.WriteStartElement(null, "PdctDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1000Text(ProductDescriptionValue)); // data type Max1000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityIdentification46 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

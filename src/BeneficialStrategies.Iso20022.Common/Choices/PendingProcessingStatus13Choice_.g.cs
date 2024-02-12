@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies whether the status is provided with a reason or not.
-/// </summary>
-[KnownType(typeof(PendingProcessingStatus13Choice.NoSpecifiedReason))]
-[KnownType(typeof(PendingProcessingStatus13Choice.Reason))]
-public abstract partial record PendingProcessingStatus13Choice_ : IIsoXmlSerilizable<PendingProcessingStatus13Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies whether the status is provided with a reason or not.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PendingProcessingStatus13Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PendingProcessingStatus13Choice.NoSpecifiedReason))]
+    [KnownType(typeof(PendingProcessingStatus13Choice.Reason))]
+    [IsoId("_rlGNoTq1EeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Processing Status 13 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PendingProcessingStatus13Choice_
+    #else
+    public abstract partial class PendingProcessingStatus13Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => PendingProcessingStatus13Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => PendingProcessingStatus13Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PendingProcessingStatus13Choice choice.")
-        };
     }
 }

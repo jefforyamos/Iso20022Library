@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ProductCategory1Choice;
-
-/// <summary>
-/// Specifies the type of product category.
-/// </summary>
-public partial record StructuredProductCategory : ProductCategory1Choice_
-     , IIsoXmlSerilizable<StructuredProductCategory>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ProductCategory1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the type of product category by means of a code.
+    /// Specifies the type of product category.
     /// </summary>
-    public required ProductCategory1Code Type { get; init; } 
-    /// <summary>
-    /// Specifies the category of a product.
-    /// </summary>
-    public required IsoMax35Text Category { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RbrR19p-Ed-ak6NoX_4Aeg_1854520026")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Structured Product Category")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record StructuredProductCategory : ProductCategory1Choice_
+    #else
+    public partial class StructuredProductCategory : ProductCategory1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ctgy", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Category)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static new StructuredProductCategory Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a StructuredProductCategory instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public StructuredProductCategory( ProductCategory1Code reqType,System.String reqCategory )
+        {
+            Type = reqType;
+            Category = reqCategory;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the type of product category by means of a code.
+        /// </summary>
+        [IsoId("_T5CFHNp-Ed-ak6NoX_4Aeg_-1686636659")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ProductCategory1Code Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ProductCategory1Code Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProductCategory1Code Type { get; init; } 
+        #else
+        public ProductCategory1Code Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the category of a product.
+        /// </summary>
+        [IsoId("_T5L2ENp-Ed-ak6NoX_4Aeg_-1658931027")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Category")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Category { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Category { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Category { get; init; } 
+        #else
+        public System.String Category { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

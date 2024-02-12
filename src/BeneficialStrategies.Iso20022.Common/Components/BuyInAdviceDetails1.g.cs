@@ -7,107 +7,199 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a buy-in.
 /// </summary>
+[IsoId("_fGNv0ZwREeqtp-LOti013g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Buy In Advice Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BuyInAdviceDetails1
-     : IIsoXmlSerilizable<BuyInAdviceDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BuyInAdviceDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BuyInAdviceDetails1( References23 reqReference,BuyInState1Code reqBuyInState,BuyInDeferral1Code reqBuyInDeferral )
+    {
+        Reference = reqReference;
+        BuyInState = reqBuyInState;
+        BuyInDeferral = reqBuyInDeferral;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// References of the failing transaction.
     /// </summary>
+    [IsoId("_fMwct5wREeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References23 Reference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public References23 Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public References23 Reference { get; init; } 
+    #else
+    public References23 Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the buy-in transaction.
     /// </summary>
+    [IsoId("_2kO5cJwREeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In State")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInState1Code BuyInState { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BuyInState1Code BuyInState { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BuyInState1Code BuyInState { get; init; } 
+    #else
+    public BuyInState1Code BuyInState { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the buy-in transaction was deferred or not.
     /// </summary>
+    [IsoId("_8gDXoJwREeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Deferral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInDeferral1Code BuyInDeferral { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BuyInDeferral1Code BuyInDeferral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BuyInDeferral1Code BuyInDeferral { get; init; } 
+    #else
+    public BuyInDeferral1Code BuyInDeferral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the financial instrument of the buy-in instruction.
     /// </summary>
+    [IsoId("_H0I7ApwSEeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument concerned by the buy-in transaction.
     /// </summary>
+    [IsoId("_JEf6MpwTEeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Price of the traded financial instrument in the buy-in transaction.
     /// </summary>
+    [IsoId("_aU_xoZwTEeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat39Choice_? BuyInPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat39Choice_? BuyInPrice { get; init; } 
+    #else
+    public RateAndAmountFormat39Choice_? BuyInPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that has to be paid by the failing trading party in case of an unsuccessful or partially successful buy-in transaction.
     /// </summary>
+    [IsoId("_kcLdAJwTEeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Compensation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection102? CashCompensationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection102? CashCompensationAmount { get; init; } 
+    #else
+    public AmountAndDirection102? CashCompensationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Settlement date of the buy-in. 
     /// </summary>
+    [IsoId("_vGqpwpwTEeqtp-LOti013g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? BuyInSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? BuyInSettlementDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? BuyInSettlementDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Ref", xmlNamespace );
-        Reference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BuyInStat", xmlNamespace );
-        writer.WriteValue(BuyInState.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BuyInDfrrl", xmlNamespace );
-        writer.WriteValue(BuyInDeferral.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Quantity is FinancialInstrumentQuantity1Choice_ QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BuyInPrice is RateAndAmountFormat39Choice_ BuyInPriceValue)
-        {
-            writer.WriteStartElement(null, "BuyInPric", xmlNamespace );
-            BuyInPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashCompensationAmount is AmountAndDirection102 CashCompensationAmountValue)
-        {
-            writer.WriteStartElement(null, "CshCompstnAmt", xmlNamespace );
-            CashCompensationAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BuyInSettlementDate is DateAndDateTime2Choice_ BuyInSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "BuyInSttlmDt", xmlNamespace );
-            BuyInSettlementDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BuyInAdviceDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

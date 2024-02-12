@@ -7,52 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information regarding the total amount of taxes.
 /// </summary>
+[IsoId("_U5QL9dp-Ed-ak6NoX_4Aeg_1827324489")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Taxes")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalTaxes2
-     : IIsoXmlSerilizable<TotalTaxes2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total value of the taxes for a specific order.
     /// </summary>
+    [IsoId("_U5QL9tp-Ed-ak6NoX_4Aeg_1827324679")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount Of Taxes")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalAmountOfTaxes { get; init; } 
+    #else
+    public System.Decimal? TotalAmountOfTaxes { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
+    [IsoId("_U5QL99p-Ed-ak6NoX_4Aeg_1827325403")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public Tax7? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _U5QL99p-Ed-ak6NoX_4Aeg_1827325403
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalAmountOfTaxes is IsoActiveCurrencyAnd13DecimalAmount TotalAmountOfTaxesValue)
-        {
-            writer.WriteStartElement(null, "TtlAmtOfTaxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TotalAmountOfTaxesValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize TaxDetails, multiplicity Unknown
-    }
-    public static TotalTaxes2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

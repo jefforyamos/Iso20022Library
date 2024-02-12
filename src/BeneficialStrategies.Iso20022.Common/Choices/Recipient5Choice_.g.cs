@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identification of a cryptographic asymmetric key.
-/// </summary>
-[KnownType(typeof(Recipient5Choice.IssuerAndSerialNumber))]
-[KnownType(typeof(Recipient5Choice.KeyIdentifier))]
-public abstract partial record Recipient5Choice_ : IIsoXmlSerilizable<Recipient5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identification of a cryptographic asymmetric key.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Recipient5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Recipient5Choice.IssuerAndSerialNumber))]
+    [KnownType(typeof(Recipient5Choice.KeyIdentifier))]
+    [IsoId("_0DRU0Wi0EeS87LmvcA55sg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Recipient5Choice_
+    #else
+    public abstract partial class Recipient5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IssrAndSrlNb" => Recipient5Choice.IssuerAndSerialNumber.Deserialize(elementWithPayload),
-             "KeyIdr" => Recipient5Choice.KeyIdentifier.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Recipient5Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a date or a date time pattern as search selection criteria.
-/// </summary>
-[KnownType(typeof(DateAndDateTimeSearch3Choice.DateTimeSearch))]
-[KnownType(typeof(DateAndDateTimeSearch3Choice.DateSearch))]
-public abstract partial record DateAndDateTimeSearch3Choice_ : IIsoXmlSerilizable<DateAndDateTimeSearch3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a date or a date time pattern as search selection criteria.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateAndDateTimeSearch3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateAndDateTimeSearch3Choice.DateTimeSearch))]
+    [KnownType(typeof(DateAndDateTimeSearch3Choice.DateSearch))]
+    [IsoId("_xs2zZ5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date And Date Time Search 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateAndDateTimeSearch3Choice_
+    #else
+    public abstract partial class DateAndDateTimeSearch3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DtTmSch" => DateAndDateTimeSearch3Choice.DateTimeSearch.Deserialize(elementWithPayload),
-             "DtSch" => DateAndDateTimeSearch3Choice.DateSearch.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateAndDateTimeSearch3Choice choice.")
-        };
     }
 }

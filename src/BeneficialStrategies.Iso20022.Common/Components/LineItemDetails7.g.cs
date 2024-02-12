@@ -7,197 +7,367 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
+[IsoId("_SqDwgdp-Ed-ak6NoX_4Aeg_-733825048")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Line Item Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LineItemDetails7
-     : IIsoXmlSerilizable<LineItemDetails7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LineItemDetails7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LineItemDetails7( System.String reqLineItemIdentification,Quantity4 reqQuantity,System.Decimal reqTotalAmount )
+    {
+        LineItemIdentification = reqLineItemIdentification;
+        Quantity = reqQuantity;
+        TotalAmount = reqTotalAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification assigned to a line item.
     /// </summary>
+    [IsoId("_SqDwgtp-Ed-ak6NoX_4Aeg_-733824910")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Line Item Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text LineItemIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String LineItemIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String LineItemIdentification { get; init; } 
+    #else
+    public System.String LineItemIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the quantity of goods on a line in a trade transaction.
     /// </summary>
+    [IsoId("_SqDwg9p-Ed-ak6NoX_4Aeg_-732903030")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity4 Quantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Quantity4 Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity4 Quantity { get; init; } 
+    #else
+    public Quantity4 Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Variance allowed in the quantity of goods.
     /// </summary>
+    [IsoId("_SqDwhNp-Ed-ak6NoX_4Aeg_-732904297")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Tolerance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageTolerance1? QuantityTolerance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PercentageTolerance1? QuantityTolerance { get; init; } 
+    #else
+    public PercentageTolerance1? QuantityTolerance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
+    [IsoId("_SqDwhdp-Ed-ak6NoX_4Aeg_-732904392")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitPrice9? UnitPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitPrice9? UnitPrice { get; init; } 
+    #else
+    public UnitPrice9? UnitPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Variance allowed on a price.
     /// </summary>
+    [IsoId("_SqDwhtp-Ed-ak6NoX_4Aeg_-732902437")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Tolerance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageTolerance1? PriceTolerance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PercentageTolerance1? PriceTolerance { get; init; } 
+    #else
+    public PercentageTolerance1? PriceTolerance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
+    [IsoId("_SqDwh9p-Ed-ak6NoX_4Aeg_-733824581")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ProductName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProductName { get; init; } 
+    #else
+    public System.String? ProductName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
+    [IsoId("_SqDwiNp-Ed-ak6NoX_4Aeg_-732903900")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
+    #else
+    public ProductIdentifier2Choice_? ProductIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the characteristics of a product.
     /// </summary>
+    [IsoId("_SqDwidp-Ed-ak6NoX_4Aeg_-732902953")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
+    #else
+    public ProductCharacteristics1Choice_? ProductCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
+    [IsoId("_SqM6cNp-Ed-ak6NoX_4Aeg_-732902516")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCategory1Choice_? ProductCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProductCategory1Choice_? ProductCategory { get; init; } 
+    #else
+    public ProductCategory1Choice_? ProductCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country from which the product originates.
     /// </summary>
+    [IsoId("_SqM6cdp-Ed-ak6NoX_4Aeg_-733824521")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Product Origin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? ProductOrigin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ProductOrigin { get; init; } 
+    #else
+    public string? ProductOrigin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the shipment schedule for the goods.
     /// </summary>
+    [IsoId("_SqM6ctp-Ed-ak6NoX_4Aeg_-314547877")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipment Schedule")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShipmentSchedule1Choice_? ShipmentSchedule { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ShipmentSchedule1Choice_? ShipmentSchedule { get; init; } 
+    #else
+    public ShipmentSchedule1Choice_? ShipmentSchedule { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
+    [IsoId("_SqM6c9p-Ed-ak6NoX_4Aeg_1596164645")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Routing Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportMeans1? RoutingSummary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransportMeans1? RoutingSummary { get; init; } 
+    #else
+    public TransportMeans1? RoutingSummary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the applicable Incoterms and associated location. Latest version of Incoterms in effect at the date of message creation.
     /// </summary>
+    [IsoId("_SqM6dNp-Ed-ak6NoX_4Aeg_-732902858")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incoterms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Incoterms1? Incoterms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Incoterms1? Incoterms { get; init; } 
+    #else
+    public Incoterms1? Incoterms { get; set; } 
+    #endif
+    
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
+    [IsoId("_SqM6ddp-Ed-ak6NoX_4Aeg_-732903385")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjustment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Adjustment3? Adjustment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Adjustment3? Adjustment { get; init; } 
+    #else
+    public Adjustment3? Adjustment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum charges related to the conveyance of goods.
     /// </summary>
+    [IsoId("_SqM6dtp-Ed-ak6NoX_4Aeg_-732903830")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Freight Charges")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge12? FreightCharges { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charge12? FreightCharges { get; init; } 
+    #else
+    public Charge12? FreightCharges { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
+    [IsoId("_SqM6d9p-Ed-ak6NoX_4Aeg_-732903480")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax13? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax13? Tax { get; init; } 
+    #else
+    public Tax13? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>
+    [IsoId("_SqM6eNp-Ed-ak6NoX_4Aeg_-733824858")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalAmount { get; init; } 
+    #else
+    public System.Decimal TotalAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LineItmId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax70Text(LineItemIdentification)); // data type Max70Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        Quantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (QuantityTolerance is PercentageTolerance1 QuantityToleranceValue)
-        {
-            writer.WriteStartElement(null, "QtyTlrnce", xmlNamespace );
-            QuantityToleranceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is UnitPrice9 UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PriceTolerance is PercentageTolerance1 PriceToleranceValue)
-        {
-            writer.WriteStartElement(null, "PricTlrnce", xmlNamespace );
-            PriceToleranceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProductName is IsoMax70Text ProductNameValue)
-        {
-            writer.WriteStartElement(null, "PdctNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProductIdentifier is ProductIdentifier2Choice_ ProductIdentifierValue)
-        {
-            writer.WriteStartElement(null, "PdctIdr", xmlNamespace );
-            ProductIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProductCharacteristics is ProductCharacteristics1Choice_ ProductCharacteristicsValue)
-        {
-            writer.WriteStartElement(null, "PdctChrtcs", xmlNamespace );
-            ProductCharacteristicsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProductCategory is ProductCategory1Choice_ ProductCategoryValue)
-        {
-            writer.WriteStartElement(null, "PdctCtgy", xmlNamespace );
-            ProductCategoryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProductOrigin is CountryCode ProductOriginValue)
-        {
-            writer.WriteStartElement(null, "PdctOrgn", xmlNamespace );
-            writer.WriteValue(ProductOriginValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ShipmentSchedule is ShipmentSchedule1Choice_ ShipmentScheduleValue)
-        {
-            writer.WriteStartElement(null, "ShipmntSchdl", xmlNamespace );
-            ShipmentScheduleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RoutingSummary is TransportMeans1 RoutingSummaryValue)
-        {
-            writer.WriteStartElement(null, "RtgSummry", xmlNamespace );
-            RoutingSummaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Incoterms is Incoterms1 IncotermsValue)
-        {
-            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
-            IncotermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Adjustment is Adjustment3 AdjustmentValue)
-        {
-            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
-            AdjustmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FreightCharges is Charge12 FreightChargesValue)
-        {
-            writer.WriteStartElement(null, "FrghtChrgs", xmlNamespace );
-            FreightChargesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Tax is Tax13 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static LineItemDetails7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

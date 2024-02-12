@@ -9,40 +9,71 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation3Choice;
-
-/// <summary>
-/// Indicates that contract was not confirmed.
-/// </summary>
-public partial record NonConfirmed : TradeConfirmation3Choice_
-     , IIsoXmlSerilizable<NonConfirmed>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies that the contract remains unconfirmed.
+    /// Indicates that contract was not confirmed.
     /// </summary>
-    public required TradeConfirmationType2Code Type { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_PQNwE1o3Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Confirmed")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NonConfirmed : TradeConfirmation3Choice_
+    #else
+    public partial class NonConfirmed : TradeConfirmation3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new NonConfirmed Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a NonConfirmed instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public NonConfirmed( TradeConfirmationType2Code reqType )
+        {
+            Type = reqType;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies that the contract remains unconfirmed.
+        /// </summary>
+        [IsoId("_8sHJ5w27EeWmAKKPnqYEVQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required TradeConfirmationType2Code Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public TradeConfirmationType2Code Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TradeConfirmationType2Code Type { get; init; } 
+        #else
+        public TradeConfirmationType2Code Type { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

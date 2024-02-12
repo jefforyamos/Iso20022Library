@@ -7,194 +7,356 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the reference and status on the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
+[IsoId("_bk-o0dcZEeqRFcf2R4bPBw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentTransaction132
-     : IIsoXmlSerilizable<PaymentTransaction132>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentTransaction132 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentTransaction132( OriginalGroupInformation29 reqOriginalGroupInformation )
+    {
+        OriginalGroupInformation = reqOriginalGroupInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a modification request status, as assigned by the assigner.
     /// Usage: The modification status identification can be used for reconciliation or to link tasks relating to the modification request.
     /// </summary>
+    [IsoId("_bpIwEdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Status Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ModificationStatusIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ModificationStatusIdentification { get; init; } 
+    #else
+    public System.String? ModificationStatusIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the resolved case.
     /// </summary>
+    [IsoId("_bpIwE9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resolved Case")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case5? ResolvedCase { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Case5? ResolvedCase { get; init; } 
+    #else
+    public Case5? ResolvedCase { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [IsoId("_bpIwFdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Group Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupInformation29 OriginalGroupInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OriginalGroupInformation29 OriginalGroupInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalGroupInformation29 OriginalGroupInformation { get; init; } 
+    #else
+    public OriginalGroupInformation29 OriginalGroupInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by the original sending party, to unambiguously identify the original payment information group.
     /// </summary>
+    [IsoId("_bpIwF9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalPaymentInformationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalPaymentInformationIdentification { get; init; } 
+    #else
+    public System.String? OriginalPaymentInformationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
+    [IsoId("_bpIwGdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalInstructionIdentification { get; init; } 
+    #else
+    public System.String? OriginalInstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [IsoId("_bpIwG9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original End To End Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalEndToEndIdentification { get; init; } 
+    #else
+    public System.String? OriginalEndToEndIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
     /// </summary>
+    [IsoId("_bpIwHdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalTransactionIdentification { get; init; } 
+    #else
+    public System.String? OriginalTransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference, as assigned by the original clearing system, to unambiguously identify the original instruction.
     /// </summary>
+    [IsoId("_bpIwH9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Clearing System Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalClearingSystemReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalClearingSystemReference { get; init; } 
+    #else
+    public System.String? OriginalClearingSystemReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Universally unique identifier to provide the original end-to-end reference of a payment transaction.
     /// </summary>
+    [IsoId("_bpIwIdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original UETR")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoUUIDv4Identifier? OriginalUETR { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalUETR { get; init; } 
+    #else
+    public System.String? OriginalUETR { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the modification status reason.
     /// </summary>
+    [IsoId("_bpIwI9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Status Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationStatusReason2? ModificationStatusReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ModificationStatusReason2? ModificationStatusReasonInformation { get; init; } 
+    #else
+    public ModificationStatusReason2? ModificationStatusReasonInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference of a return or a reversal transaction that is initiated to fix the case under investigation as part of the resolution.
     /// </summary>
+    [IsoId("_bpIwJdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resolution Related Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResolutionData3? ResolutionRelatedInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResolutionData3? ResolutionRelatedInformation { get; init; } 
+    #else
+    public ResolutionData3? ResolutionRelatedInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent, as provided in the original instruction.
     /// </summary>
+    [IsoId("_bpIwJ9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Interbank Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OriginalInterbankSettlementAmount { get; init; } 
+    #else
+    public System.Decimal? OriginalInterbankSettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date, as provided in the original transaction, on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [IsoId("_bpIwKdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Interbank Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OriginalInterbankSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? OriginalInterbankSettlementDate { get; init; } 
+    #else
+    public System.DateOnly? OriginalInterbankSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party who assigns the case.|Usage: This is also the agent that instructs the next party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
+    [IsoId("_bpIwK9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assigner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? Assigner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party40Choice_? Assigner { get; init; } 
+    #else
+    public Party40Choice_? Assigner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to which the case is assigned.|Usage: This is also the agent that is instructed by the previous party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
+    [IsoId("_bpIwLdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Assignee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? Assignee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Party40Choice_? Assignee { get; init; } 
+    #else
+    public Party40Choice_? Assignee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
+    [IsoId("_bpIwL9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Transaction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalTransactionReference35? OriginalTransactionReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalTransactionReference35? OriginalTransactionReference { get; init; } 
+    #else
+    public OriginalTransactionReference35? OriginalTransactionReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ModificationStatusIdentification is IsoMax35Text ModificationStatusIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ModStsId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModificationStatusIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ResolvedCase is Case5 ResolvedCaseValue)
-        {
-            writer.WriteStartElement(null, "RslvdCase", xmlNamespace );
-            ResolvedCaseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
-        OriginalGroupInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OriginalPaymentInformationIdentification is IsoMax35Text OriginalPaymentInformationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPmtInfId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalTransactionIdentification is IsoMax35Text OriginalTransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalTransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalClearingSystemReference is IsoMax35Text OriginalClearingSystemReferenceValue)
-        {
-            writer.WriteStartElement(null, "OrgnlClrSysRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalClearingSystemReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalUETR is IsoUUIDv4Identifier OriginalUETRValue)
-        {
-            writer.WriteStartElement(null, "OrgnlUETR", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(OriginalUETRValue)); // data type UUIDv4Identifier System.String
-            writer.WriteEndElement();
-        }
-        if (ModificationStatusReasonInformation is ModificationStatusReason2 ModificationStatusReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "ModStsRsnInf", xmlNamespace );
-            ModificationStatusReasonInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResolutionRelatedInformation is ResolutionData3 ResolutionRelatedInformationValue)
-        {
-            writer.WriteStartElement(null, "RsltnRltdInf", xmlNamespace );
-            ResolutionRelatedInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalInterbankSettlementAmount is IsoActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "OrgnlIntrBkSttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OriginalInterbankSettlementAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OriginalInterbankSettlementDate is IsoISODate OriginalInterbankSettlementDateValue)
-        {
-            writer.WriteStartElement(null, "OrgnlIntrBkSttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalInterbankSettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Assigner is Party40Choice_ AssignerValue)
-        {
-            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
-            AssignerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Assignee is Party40Choice_ AssigneeValue)
-        {
-            writer.WriteStartElement(null, "Assgne", xmlNamespace );
-            AssigneeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalTransactionReference is OriginalTransactionReference35 OriginalTransactionReferenceValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
-            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentTransaction132 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

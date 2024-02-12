@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[IsoId("_QtogFdp-Ed-ak6NoX_4Aeg_-113359788")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Linkages")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Linkages3
-     : IIsoXmlSerilizable<Linkages3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Linkages3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Linkages3( References6Choice_ reqReference )
+    {
+        Reference = reqReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction.
     /// </summary>
+    [IsoId("_QtogFtp-Ed-ak6NoX_4Aeg_-113359762")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Position")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition2Choice_? ProcessingPosition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingPosition2Choice_? ProcessingPosition { get; init; } 
+    #else
+    public ProcessingPosition2Choice_? ProcessingPosition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
+    [IsoId("_QtogF9p-Ed-ak6NoX_4Aeg_-113359746")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentNumber1Choice_? MessageNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentNumber1Choice_? MessageNumber { get; init; } 
+    #else
+    public DocumentNumber1Choice_? MessageNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
+    [IsoId("_QtogGNp-Ed-ak6NoX_4Aeg_-113359686")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References6Choice_ Reference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public References6Choice_ Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public References6Choice_ Reference { get; init; } 
+    #else
+    public References6Choice_ Reference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProcessingPosition is ProcessingPosition2Choice_ ProcessingPositionValue)
-        {
-            writer.WriteStartElement(null, "PrcgPos", xmlNamespace );
-            ProcessingPositionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MessageNumber is DocumentNumber1Choice_ MessageNumberValue)
-        {
-            writer.WriteStartElement(null, "MsgNb", xmlNamespace );
-            MessageNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Ref", xmlNamespace );
-        Reference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static Linkages3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

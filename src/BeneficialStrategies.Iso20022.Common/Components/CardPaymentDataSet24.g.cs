@@ -7,113 +7,212 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of the captured set of transactions.
 /// </summary>
+[IsoId("_1y1K4Qx4Eeqdx6buGpCCQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Data Set")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentDataSet24
-     : IIsoXmlSerilizable<CardPaymentDataSet24>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentDataSet24 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentDataSet24( DataSetIdentification5 reqDataSetIdentification,ResponseType10 reqDataSetResult,System.String reqRemoveDataSet )
+    {
+        DataSetIdentification = reqDataSetIdentification;
+        DataSetResult = reqDataSetResult;
+        RemoveDataSet = reqRemoveDataSet;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the data set.
     /// </summary>
+    [IsoId("_1-gPYQx4Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification5 DataSetIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DataSetIdentification5 DataSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataSetIdentification5 DataSetIdentification { get; init; } 
+    #else
+    public DataSetIdentification5 DataSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Result of the data set capture.
     /// </summary>
+    [IsoId("_1-gPYwx4Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType10 DataSetResult { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ResponseType10 DataSetResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseType10 DataSetResult { get; init; } 
+    #else
+    public ResponseType10 DataSetResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the data set must be removed from the POI (Point Of Interaction).
     /// </summary>
+    [IsoId("_1-gPZQx4Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remove Data Set")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator RemoveDataSet { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RemoveDataSet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RemoveDataSet { get; init; } 
+    #else
+    public System.String RemoveDataSet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Initiator of the data set.
     /// </summary>
+    [IsoId("_1-gPZwx4Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? DataSetInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification176? DataSetInitiator { get; init; } 
+    #else
+    public GenericIdentification176? DataSetInitiator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction totals of the batch.
     /// </summary>
+    [IsoId("_1-gPaQx4Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TransactionTotals7? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _1-gPaQx4Eeqdx6buGpCCQw
+    
     /// <summary>
     /// Transaction in the batch, whose capture has been rejected.
     /// </summary>
+    [IsoId("_9MPL8Qx5Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet25? RejectedTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentDataSet25? RejectedTransaction { get; init; } 
+    #else
+    public CardPaymentDataSet25? RejectedTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction in the batch, whose capture has been suspendeed.
     /// </summary>
+    [IsoId("_1-gPawx4Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspended Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet25? SuspendedTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentDataSet25? SuspendedTransaction { get; init; } 
+    #else
+    public CardPaymentDataSet25? SuspendedTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction in the batch, whose capture has been approved after suspension.
     /// </summary>
+    [IsoId("_90xLkQx5Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resumed Approval")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet25? ResumedApproval { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentDataSet25? ResumedApproval { get; init; } 
+    #else
+    public CardPaymentDataSet25? ResumedApproval { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction in the batch, whose capture has been rejected after suspension.
     /// </summary>
+    [IsoId("_-P-g4Qx5Eeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resumed Rejection")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet25? ResumedRejection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentDataSet25? ResumedRejection { get; init; } 
+    #else
+    public CardPaymentDataSet25? ResumedRejection { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
-        DataSetIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DataSetRslt", xmlNamespace );
-        DataSetResult.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RmvDataSet", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RemoveDataSet)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (DataSetInitiator is GenericIdentification176 DataSetInitiatorValue)
-        {
-            writer.WriteStartElement(null, "DataSetInitr", xmlNamespace );
-            DataSetInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize TransactionTotals, multiplicity Unknown
-        if (RejectedTransaction is CardPaymentDataSet25 RejectedTransactionValue)
-        {
-            writer.WriteStartElement(null, "RjctdTx", xmlNamespace );
-            RejectedTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SuspendedTransaction is CardPaymentDataSet25 SuspendedTransactionValue)
-        {
-            writer.WriteStartElement(null, "SspdTx", xmlNamespace );
-            SuspendedTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResumedApproval is CardPaymentDataSet25 ResumedApprovalValue)
-        {
-            writer.WriteStartElement(null, "RsmdApprvl", xmlNamespace );
-            ResumedApprovalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResumedRejection is CardPaymentDataSet25 ResumedRejectionValue)
-        {
-            writer.WriteStartElement(null, "RsmdRjctn", xmlNamespace );
-            ResumedRejectionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentDataSet24 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,70 +9,125 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Choice;
-
-/// <summary>
-/// Requested information on the value of the position for collateral purposes.
-/// </summary>
-public partial record CollateralValue : CollateralValueReportOrError6Choice_
-     , IIsoXmlSerilizable<CollateralValue>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date and time when the data was last accessed.
+    /// Requested information on the value of the position for collateral purposes.
     /// </summary>
-    public required IsoISODateTime DataAccessTime { get; init; } 
-    /// <summary>
-    /// Total value of the collateral valuation.
-    /// </summary>
-    public IsoActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
-    /// <summary>
-    /// Unique identification, as assigned by the account servicer, to unambiguously identify the securities account.
-    /// </summary>
-    public SecuritiesAccount19? SecuritiesAccount { get; init; } 
-    /// <summary>
-    /// Unique identification, as known by the account owner, to unambiguously identify the securities on which the collateral value position is requested.
-    /// </summary>
-    public SecurityCharacteristics3? Securities { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_EP0oozpyEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Value")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CollateralValue : CollateralValueReportOrError6Choice_
+    #else
+    public partial class CollateralValue : CollateralValueReportOrError6Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "DataAccsTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(DataAccessTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (TotalCollateralValuation is IsoActiveCurrencyAndAmount TotalCollateralValuationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CollateralValue instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CollateralValue( System.DateTime reqDataAccessTime )
         {
-            writer.WriteStartElement(null, "TtlCollValtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalCollateralValuationValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
+            DataAccessTime = reqDataAccessTime;
         }
-        if (SecuritiesAccount is SecuritiesAccount19 SecuritiesAccountValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcct", xmlNamespace );
-            SecuritiesAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Securities is SecurityCharacteristics3 SecuritiesValue)
-        {
-            writer.WriteStartElement(null, "Scties", xmlNamespace );
-            SecuritiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new CollateralValue Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date and time when the data was last accessed.
+        /// </summary>
+        [IsoId("_EbS40TpyEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Data Access Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime DataAccessTime { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime DataAccessTime { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime DataAccessTime { get; init; } 
+        #else
+        public System.DateTime DataAccessTime { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Total value of the collateral valuation.
+        /// </summary>
+        [IsoId("_EbS40zpyEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Total Collateral Valuation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? TotalCollateralValuation { get; init; } 
+        #else
+        public System.Decimal? TotalCollateralValuation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification, as assigned by the account servicer, to unambiguously identify the securities account.
+        /// </summary>
+        [IsoId("_EbS41TpyEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Account")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesAccount19? SecuritiesAccount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesAccount19? SecuritiesAccount { get; init; } 
+        #else
+        public SecuritiesAccount19? SecuritiesAccount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification, as known by the account owner, to unambiguously identify the securities on which the collateral value position is requested.
+        /// </summary>
+        [IsoId("_EbS41zpyEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecurityCharacteristics3? Securities { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecurityCharacteristics3? Securities { get; init; } 
+        #else
+        public SecurityCharacteristics3? Securities { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

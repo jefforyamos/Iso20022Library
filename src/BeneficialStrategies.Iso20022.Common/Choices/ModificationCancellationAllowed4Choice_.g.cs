@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the modification cancellation information.
-/// </summary>
-[KnownType(typeof(ModificationCancellationAllowed4Choice.Indicator))]
-[KnownType(typeof(ModificationCancellationAllowed4Choice.Proprietary))]
-public abstract partial record ModificationCancellationAllowed4Choice_ : IIsoXmlSerilizable<ModificationCancellationAllowed4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the modification cancellation information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ModificationCancellationAllowed4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ModificationCancellationAllowed4Choice.Indicator))]
+    [KnownType(typeof(ModificationCancellationAllowed4Choice.Proprietary))]
+    [IsoId("_421HATtFEeWRTLSN0i0tng")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Cancellation Allowed 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ModificationCancellationAllowed4Choice_
+    #else
+    public abstract partial class ModificationCancellationAllowed4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ind" => ModificationCancellationAllowed4Choice.Indicator.Deserialize(elementWithPayload),
-             "Prtry" => ModificationCancellationAllowed4Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ModificationCancellationAllowed4Choice choice.")
-        };
     }
 }

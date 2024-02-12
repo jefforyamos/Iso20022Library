@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports on reservations.
 /// </summary>
+[IsoId("_TjY2tZliEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Current And Default Reservation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CurrentAndDefaultReservation3
-     : IIsoXmlSerilizable<CurrentAndDefaultReservation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Report is given for a current reservation.
     /// </summary>
+    [IsoId("_Tr4EU5liEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Reservation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationReport5? CurrentReservation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReservationReport5? CurrentReservation { get; init; } 
+    #else
+    public ReservationReport5? CurrentReservation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Report is given for a default reservation.
     /// </summary>
+    [IsoId("_Tr4EVZliEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Default Reservation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationReport5? DefaultReservation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReservationReport5? DefaultReservation { get; init; } 
+    #else
+    public ReservationReport5? DefaultReservation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CurrentReservation is ReservationReport5 CurrentReservationValue)
-        {
-            writer.WriteStartElement(null, "CurRsvatn", xmlNamespace );
-            CurrentReservationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DefaultReservation is ReservationReport5 DefaultReservationValue)
-        {
-            writer.WriteStartElement(null, "DfltRsvatn", xmlNamespace );
-            DefaultReservationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CurrentAndDefaultReservation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

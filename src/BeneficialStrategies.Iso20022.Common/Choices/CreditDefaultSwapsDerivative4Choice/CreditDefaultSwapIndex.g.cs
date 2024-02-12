@@ -9,97 +9,180 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Choice;
-
-/// <summary>
-/// A credit default swap on an index.
-/// </summary>
-public partial record CreditDefaultSwapIndex : CreditDefaultSwapsDerivative4Choice_
-     , IIsoXmlSerilizable<CreditDefaultSwapIndex>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Derivative on a credit default swap with the ISIN code of the underlying index.
+    /// A credit default swap on an index.
     /// </summary>
-    public IsoISINOct2015Identifier? UnderlyingIndexIdentification { get; init; } 
-    /// <summary>
-    /// To be populated for derivatives on a CDS index with the standardized name of the index.
-    /// </summary>
-    public IsoMax25Text? UnderlyingIndexName { get; init; } 
-    /// <summary>
-    /// Series number of the composition of the index if applicable.
-    /// </summary>
-    public IsoNumber? Series { get; init; } 
-    /// <summary>
-    /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
-    /// </summary>
-    public IsoNumber? Version { get; init; } 
-    /// <summary>
-    /// All months when the roll is expected as established by the index provider for a given year. Field should be repeated for each month in the roll.
-    /// </summary>
-    public SimpleValueList<IsoRestrictedMonthExact2Number> RollMonth { get; init; } = [];
-    /// <summary>
-    /// To be populated in the case of a CDS Index or a derivative CDS Index with the next roll date of the index as established by the index provider.
-    /// </summary>
-    public IsoISODate? NextRollDate { get; init; } 
-    /// <summary>
-    /// Currency in which the notional is denominated.
-    /// </summary>
-    public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_xSzjUye0Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Default Swap Index")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CreditDefaultSwapIndex : CreditDefaultSwapsDerivative4Choice_
+    #else
+    public partial class CreditDefaultSwapIndex : CreditDefaultSwapsDerivative4Choice_
+    #endif
     {
-        if (UnderlyingIndexIdentification is IsoISINOct2015Identifier UnderlyingIndexIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CreditDefaultSwapIndex instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CreditDefaultSwapIndex( string reqNotionalCurrency )
         {
-            writer.WriteStartElement(null, "UndrlygIndxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(UnderlyingIndexIdentificationValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
+            NotionalCurrency = reqNotionalCurrency;
         }
-        if (UnderlyingIndexName is IsoMax25Text UnderlyingIndexNameValue)
-        {
-            writer.WriteStartElement(null, "UndrlygIndxNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax25Text(UnderlyingIndexNameValue)); // data type Max25Text System.String
-            writer.WriteEndElement();
-        }
-        if (Series is IsoNumber SeriesValue)
-        {
-            writer.WriteStartElement(null, "Srs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(SeriesValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RollMnth", xmlNamespace );
-        RollMonth.Serialize(writer, xmlNamespace, "RestrictedMonthExact2Number", SerializationFormatter.IsoRestrictedMonthExact2Number );
-        writer.WriteEndElement();
-        if (NextRollDate is IsoISODate NextRollDateValue)
-        {
-            writer.WriteStartElement(null, "NxtRollDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(NextRollDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
-        writer.WriteValue(NotionalCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new CreditDefaultSwapIndex Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Derivative on a credit default swap with the ISIN code of the underlying index.
+        /// </summary>
+        [IsoId("_wRgo8ie1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Underlying Index Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISINOct2015Identifier? UnderlyingIndexIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? UnderlyingIndexIdentification { get; init; } 
+        #else
+        public System.String? UnderlyingIndexIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// To be populated for derivatives on a CDS index with the standardized name of the index.
+        /// </summary>
+        [IsoId("_5bH40Ce1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Underlying Index Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 25 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax25Text? UnderlyingIndexName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? UnderlyingIndexName { get; init; } 
+        #else
+        public System.String? UnderlyingIndexName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Series number of the composition of the index if applicable.
+        /// </summary>
+        [IsoId("_qD_WwSe1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Series")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoNumber? Series { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? Series { get; init; } 
+        #else
+        public System.UInt64? Series { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
+        /// </summary>
+        [IsoId("_qD_Wwye1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Version")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoNumber? Version { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? Version { get; init; } 
+        #else
+        public System.UInt64? Version { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// All months when the roll is expected as established by the index provider for a given year. Field should be repeated for each month in the roll.
+        /// </summary>
+        [IsoId("_qD_WxSe1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Roll Month")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(12)]
+        #endif
+        public SimpleValueList<System.UInt64> RollMonth { get; init; } = new SimpleValueList<System.UInt64>(){};
+        
+        /// <summary>
+        /// To be populated in the case of a CDS Index or a derivative CDS Index with the next roll date of the index as established by the index provider.
+        /// </summary>
+        [IsoId("_qD_Wxye1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Next Roll Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? NextRollDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? NextRollDate { get; init; } 
+        #else
+        public System.DateOnly? NextRollDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Currency in which the notional is denominated.
+        /// </summary>
+        [IsoId("_qD_WySe1Eei12pGEsJIAeQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Notional Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string NotionalCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string NotionalCurrency { get; init; } 
+        #else
+        public string NotionalCurrency { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

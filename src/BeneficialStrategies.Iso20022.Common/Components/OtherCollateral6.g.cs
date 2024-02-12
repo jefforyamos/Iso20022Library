@@ -7,213 +7,379 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the letter of credit or bank guarantee, or other collateral, posted as collateral.
 /// </summary>
+[IsoId("_010s3YFvEeWtPe6Crjmeug")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Other Collateral")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OtherCollateral6
-     : IIsoXmlSerilizable<OtherCollateral6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OtherCollateral6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OtherCollateral6( System.Decimal reqCollateralValue )
+    {
+        CollateralValue = reqCollateralValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
+    [IsoId("_1LjFIYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AssetNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AssetNumber { get; init; } 
+    #else
+    public System.String? AssetNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the unique identification of the letter of credit.
     /// </summary>
+    [IsoId("_1LjFI4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Letter Of Credit Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LetterOfCreditIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LetterOfCreditIdentification { get; init; } 
+    #else
+    public System.String? LetterOfCreditIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the letter/documentary credit.
     /// </summary>
+    [IsoId("_1LjFJYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Letter Of Credit Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LetterOfCreditAmount { get; init; } 
+    #else
+    public System.Decimal? LetterOfCreditAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the bank guarantee.
     /// </summary>
+    [IsoId("_1LjFJ4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guarantee Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? GuaranteeAmount { get; init; } 
+    #else
+    public System.Decimal? GuaranteeAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides a description and an amount of another type of collateral.
     /// </summary>
+    [IsoId("_1LjFKYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Type Of Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherTypeOfCollateral2? OtherTypeOfCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherTypeOfCollateral2? OtherTypeOfCollateral { get; init; } 
+    #else
+    public OtherTypeOfCollateral2? OtherTypeOfCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the collateral is proprietarily owned or client owned.
     /// </summary>
+    [IsoId("_1LjFK4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Ownership")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralOwnership2? CollateralOwnership { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralOwnership2? CollateralOwnership { get; init; } 
+    #else
+    public CollateralOwnership2? CollateralOwnership { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the other collateral was issued.
     /// </summary>
+    [IsoId("_1LjFLYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat14Choice_? IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat14Choice_? IssueDate { get; init; } 
+    #else
+    public DateFormat14Choice_? IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the other collateral expires.
     /// </summary>
+    [IsoId("_1LjFL4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat14Choice_? ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat14Choice_? ExpiryDate { get; init; } 
+    #else
+    public DateFormat14Choice_? ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
+    [IsoId("_1LjFMYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limited Coverage Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LimitedCoverageIndicator { get; init; } 
+    #else
+    public System.String? LimitedCoverageIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that issues the bank guarantee or letter of / documentary credit.
     /// </summary>
+    [IsoId("_1LjFM4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100Choice_? Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification100Choice_? Issuer { get; init; } 
+    #else
+    public PartyIdentification100Choice_? Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity blocked by the central counterparty for any reasonable reason ( for example for judicial reasons). In this case the investor can not withdraw or distribute this collateral.
     /// </summary>
+    [IsoId("_1LjFNYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocked Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Valuation date of the other collateral when it was taken as collateral.
     /// </summary>
+    [IsoId("_1LjFN4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValueDate { get; init; } 
+    #else
+    public System.DateOnly? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exchange rate.
     /// </summary>
+    [IsoId("_1LjFOYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ExchangeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExchangeRate { get; init; } 
+    #else
+    public System.Decimal? ExchangeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the collateral based on current market prices.
     /// </summary>
+    [IsoId("_1LjFO4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MarketValue { get; init; } 
+    #else
+    public System.Decimal? MarketValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Haircut or valuation factor on the collateral expressed as a percentage.
     /// </summary>
+    [IsoId("_1LjFPYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Haircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Haircut { get; init; } 
+    #else
+    public System.Decimal? Haircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the collateral after taking into account the haircut, if any.
     /// </summary>
+    [IsoId("_1LjFP4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CollateralValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CollateralValue { get; init; } 
+    #else
+    public System.Decimal CollateralValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [IsoId("_1LjFQYFvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
+    #else
+    public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [IsoId("_1LjFQ4FvEeWtPe6Crjmeug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19? SafekeepingAccount { get; init; } 
+    #else
+    public SecuritiesAccount19? SafekeepingAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AssetNumber is IsoMax35Text AssetNumberValue)
-        {
-            writer.WriteStartElement(null, "AsstNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssetNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LetterOfCreditIdentification is IsoMax35Text LetterOfCreditIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LttrOfCdtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LetterOfCreditIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LetterOfCreditAmount is IsoActiveCurrencyAndAmount LetterOfCreditAmountValue)
-        {
-            writer.WriteStartElement(null, "LttrOfCdtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LetterOfCreditAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (GuaranteeAmount is IsoActiveCurrencyAndAmount GuaranteeAmountValue)
-        {
-            writer.WriteStartElement(null, "GrntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(GuaranteeAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OtherTypeOfCollateral is OtherTypeOfCollateral2 OtherTypeOfCollateralValue)
-        {
-            writer.WriteStartElement(null, "OthrTpOfColl", xmlNamespace );
-            OtherTypeOfCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralOwnership is CollateralOwnership2 CollateralOwnershipValue)
-        {
-            writer.WriteStartElement(null, "CollOwnrsh", xmlNamespace );
-            CollateralOwnershipValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssueDate is DateFormat14Choice_ IssueDateValue)
-        {
-            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-            IssueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExpiryDate is DateFormat14Choice_ ExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-            ExpiryDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LimitedCoverageIndicator is IsoYesNoIndicator LimitedCoverageIndicatorValue)
-        {
-            writer.WriteStartElement(null, "LtdCvrgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LimitedCoverageIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Issuer is PartyIdentification100Choice_ IssuerValue)
-        {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            IssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockedQuantity is FinancialInstrumentQuantity1Choice_ BlockedQuantityValue)
-        {
-            writer.WriteStartElement(null, "BlckdQty", xmlNamespace );
-            BlockedQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is IsoISODate ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ExchangeRate is IsoBaseOneRate ExchangeRateValue)
-        {
-            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRateValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MarketValue is IsoActiveCurrencyAndAmount MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MarketValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Haircut is IsoPercentageRate HaircutValue)
-        {
-            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CollVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (SafekeepingPlace is SafekeepingPlaceFormat10Choice_ SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
-        {
-            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OtherCollateral6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

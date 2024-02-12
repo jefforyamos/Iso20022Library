@@ -7,93 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
+[IsoId("_uzlg0YIDEeS7UOLM47txvA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cardholder Authentication")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardholderAuthentication7
-     : IIsoXmlSerilizable<CardholderAuthentication7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardholderAuthentication7 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardholderAuthentication7( AuthenticationMethod5Code reqAuthenticationMethod )
+    {
+        AuthenticationMethod = reqAuthenticationMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the cardholder or its card.
     /// </summary>
+    [IsoId("_vAjl0YIDEeS7UOLM47txvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationMethod5Code AuthenticationMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AuthenticationMethod5Code AuthenticationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthenticationMethod5Code AuthenticationMethod { get; init; } 
+    #else
+    public AuthenticationMethod5Code AuthenticationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value used to authenticate the cardholder.
     /// </summary>
+    [IsoId("_vAjl04IDEeS7UOLM47txvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AuthenticationValue { get; init; } 
+    #else
+    public System.Byte[]? AuthenticationValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Protection of the authentication value.
     /// </summary>
+    [IsoId("_vAjl1YIDEeS7UOLM47txvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Authentication Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedAuthenticationValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType10? ProtectedAuthenticationValue { get; init; } 
+    #else
+    public ContentInformationType10? ProtectedAuthenticationValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
+    [IsoId("_vAjl14IDEeS7UOLM47txvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder On Line PIN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN4? CardholderOnLinePIN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OnLinePIN4? CardholderOnLinePIN { get; init; } 
+    #else
+    public OnLinePIN4? CardholderOnLinePIN { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the cardholder to verify.
     /// </summary>
+    [IsoId("_vB3IkC-2EeWfYucYWs4iQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PersonIdentification7? CardholderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PersonIdentification7? CardholderIdentification { get; init; } 
+    #else
+    public PersonIdentification7? CardholderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Numeric characters of the cardholder's billing or shipping address for verification.
     /// </summary>
+    [IsoId("_vAjl2YIDEeS7UOLM47txvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressVerification1? AddressVerification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressVerification1? AddressVerification { get; init; } 
+    #else
+    public AddressVerification1? AddressVerification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AuthntcnMtd", xmlNamespace );
-        writer.WriteValue(AuthenticationMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AuthenticationValue is IsoMax5000Binary AuthenticationValueValue)
-        {
-            writer.WriteStartElement(null, "AuthntcnVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(AuthenticationValueValue)); // data type Max5000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (ProtectedAuthenticationValue is ContentInformationType10 ProtectedAuthenticationValueValue)
-        {
-            writer.WriteStartElement(null, "PrtctdAuthntcnVal", xmlNamespace );
-            ProtectedAuthenticationValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardholderOnLinePIN is OnLinePIN4 CardholderOnLinePINValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrOnLinePIN", xmlNamespace );
-            CardholderOnLinePINValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardholderIdentification is PersonIdentification7 CardholderIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrId", xmlNamespace );
-            CardholderIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AddressVerification is AddressVerification1 AddressVerificationValue)
-        {
-            writer.WriteStartElement(null, "AdrVrfctn", xmlNamespace );
-            AddressVerificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardholderAuthentication7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

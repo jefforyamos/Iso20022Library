@@ -7,122 +7,271 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of the individual orders of a bulk or multiple order that was previously received.
 /// </summary>
+[IsoId("_Uu1Eptp-Ed-ak6NoX_4Aeg_-1083249158")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Individual Order Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IndividualOrderStatusAndReason1
-     : IIsoXmlSerilizable<IndividualOrderStatusAndReason1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IndividualOrderStatusAndReason1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IndividualOrderStatusAndReason1( OrderStatus2Code reqStatus,CancelledStatus1 reqCancelled,ConditionallyAcceptedStatus1 reqConditionallyAccepted,InRepairStatus1 reqInRepair,RejectedStatus3 reqRejected,SuspendedStatus1 reqSuspended,RepairedConditions2 reqRepairedConditions,System.String reqOrderReference )
+    {
+        Status = reqStatus;
+        Cancelled = reqCancelled;
+        ConditionallyAccepted = reqConditionallyAccepted;
+        InRepair = reqInRepair;
+        Rejected = reqRejected;
+        Suspended = reqSuspended;
+        RepairedConditions = reqRepairedConditions;
+        OrderReference = reqOrderReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status of the order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
+    [IsoId("_Uu1Ep9p-Ed-ak6NoX_4Aeg_-1083249133")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderStatus2Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrderStatus2Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrderStatus2Code Status { get; init; } 
+    #else
+    public OrderStatus2Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the individual order details is cancelled.
     /// </summary>
+    [IsoId("_Uu1EqNp-Ed-ak6NoX_4Aeg_-1083248574")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancelled")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancelledStatus1 Cancelled { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CancelledStatus1 Cancelled { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancelledStatus1 Cancelled { get; init; } 
+    #else
+    public CancelledStatus1 Cancelled { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the individual order details is conditionally accepted.
     /// </summary>
+    [IsoId("_Uu1Eqdp-Ed-ak6NoX_4Aeg_-1083248754")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conditionally Accepted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
+    #else
+    public ConditionallyAcceptedStatus1 ConditionallyAccepted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the individual order details is in repair.
     /// </summary>
+    [IsoId("_Uu1Eqtp-Ed-ak6NoX_4Aeg_-1083248669")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("In Repair")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InRepairStatus1 InRepair { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InRepairStatus1 InRepair { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InRepairStatus1 InRepair { get; init; } 
+    #else
+    public InRepairStatus1 InRepair { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the individual order details is rejected.
     /// </summary>
+    [IsoId("_Uu-OkNp-Ed-ak6NoX_4Aeg_-1083248712")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatus3 Rejected { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectedStatus3 Rejected { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectedStatus3 Rejected { get; init; } 
+    #else
+    public RejectedStatus3 Rejected { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the individual order details is suspended.
     /// </summary>
+    [IsoId("_Uu-Okdp-Ed-ak6NoX_4Aeg_-1083248807")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspended")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SuspendedStatus1 Suspended { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SuspendedStatus1 Suspended { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SuspendedStatus1 Suspended { get; init; } 
+    #else
+    public SuspendedStatus1 Suspended { get; set; } 
+    #endif
+    
     /// <summary>
     /// Elements from the original individual order details that have been repaired so that the order can be accepted.
     /// </summary>
+    [IsoId("_Uu-Oktp-Ed-ak6NoX_4Aeg_-1083248634")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RepairedConditions2 RepairedConditions { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RepairedConditions2 RepairedConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RepairedConditions2 RepairedConditions { get; init; } 
+    #else
+    public RepairedConditions2 RepairedConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [IsoId("_Uu-Ok9p-Ed-ak6NoX_4Aeg_-1083249081")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OrderReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OrderReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OrderReference { get; init; } 
+    #else
+    public System.String OrderReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [IsoId("_Uu-OlNp-Ed-ak6NoX_4Aeg_-381805168")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
+    #else
+    public PartyIdentification2Choice_? StatusInitiator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Choice between the investment account and the financial instrument.
     /// </summary>
+    [IsoId("_Uu-Oldp-Ed-ak6NoX_4Aeg_-1083248185")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Or Financial Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOrFinancialInstrument1Choice_? InvestmentAccountOrFinancialInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccountOrFinancialInstrument1Choice_? InvestmentAccountOrFinancialInstrument { get; init; } 
+    #else
+    public InvestmentAccountOrFinancialInstrument1Choice_? InvestmentAccountOrFinancialInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information that has been added to the original order.
     /// </summary>
+    [IsoId("_Uu-Oltp-Ed-ak6NoX_4Aeg_-1083248280")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpectedExecutionDetails1? NewDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExpectedExecutionDetails1? NewDetails { get; init; } 
+    #else
+    public ExpectedExecutionDetails1? NewDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Canc", xmlNamespace );
-        Cancelled.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CondlyAccptd", xmlNamespace );
-        ConditionallyAccepted.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InRpr", xmlNamespace );
-        InRepair.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
-        Rejected.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sspd", xmlNamespace );
-        Suspended.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RprdConds", xmlNamespace );
-        RepairedConditions.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
-        {
-            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
-            StatusInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentAccountOrFinancialInstrument is InvestmentAccountOrFinancialInstrument1Choice_ InvestmentAccountOrFinancialInstrumentValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctOrFinInstrm", xmlNamespace );
-            InvestmentAccountOrFinancialInstrumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewDetails is ExpectedExecutionDetails1 NewDetailsValue)
-        {
-            writer.WriteStartElement(null, "NewDtls", xmlNamespace );
-            NewDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static IndividualOrderStatusAndReason1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

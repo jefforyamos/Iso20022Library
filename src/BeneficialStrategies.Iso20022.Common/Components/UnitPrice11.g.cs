@@ -7,67 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[IsoId("_QfLNU9p-Ed-ak6NoX_4Aeg_1382237696")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unit Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnitPrice11
-     : IIsoXmlSerilizable<UnitPrice11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UnitPrice11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UnitPrice11( TypeOfPrice10Code reqType,System.String reqExtendedType,PriceValue1 reqValue )
+    {
+        Type = reqType;
+        ExtendedType = reqExtendedType;
+        Value = reqValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [IsoId("_QfLNVNp-Ed-ak6NoX_4Aeg_1382237940")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice10Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TypeOfPrice10Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfPrice10Code Type { get; init; } 
+    #else
+    public TypeOfPrice10Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [IsoId("_QfLNVdp-Ed-ak6NoX_4Aeg_-1892239581")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedType { get; init; } 
+    #else
+    public System.String ExtendedType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_QfLNVtp-Ed-ak6NoX_4Aeg_1382237957")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValue1 Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceValue1 Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue1 Value { get; init; } 
+    #else
+    public PriceValue1 Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [IsoId("_QfLNV9p-Ed-ak6NoX_4Aeg_1382237974")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceMethod1Code? PriceMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceMethod1Code? PriceMethod { get; init; } 
+    #else
+    public PriceMethod1Code? PriceMethod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PriceMethod is PriceMethod1Code PriceMethodValue)
-        {
-            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
-            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static UnitPrice11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

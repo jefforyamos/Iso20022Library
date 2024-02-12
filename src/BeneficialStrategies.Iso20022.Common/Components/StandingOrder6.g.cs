@@ -7,230 +7,421 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the detailed attributes of a standing order.
 /// </summary>
+[IsoId("_87o_m249EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Standing Order")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StandingOrder6
-     : IIsoXmlSerilizable<StandingOrder6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StandingOrder6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StandingOrder6( Amount2Choice_ reqAmount,CreditDebitCode reqCreditDebitIndicator )
+    {
+        Amount = reqAmount;
+        CreditDebitIndicator = reqCreditDebitIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
+    [IsoId("_9GXo4249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2Choice_ Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Amount2Choice_ Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount2Choice_ Amount { get; init; } 
+    #else
+    public Amount2Choice_ Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
+    [IsoId("_9GXo5W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
+    [IsoId("_9GXo5249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the standing order.
     /// </summary>
+    [IsoId("_9GXo6W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StandingOrderType1Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StandingOrderType1Choice_? Type { get; init; } 
+    #else
+    public StandingOrderType1Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Liquidity transfer origin or destination account within the pool of accounts under management of the requestor.
     /// </summary>
+    [IsoId("_9GXo6249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Associated Pool Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? AssociatedPoolAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? AssociatedPoolAccount { get; init; } 
+    #else
+    public AccountIdentification4Choice_? AssociatedPoolAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
+    [IsoId("_9GXo7W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reference { get; init; } 
+    #else
+    public System.String? Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Regularity with which payment instructions are to be created and processed as a result of the standing order, such as daily, weekly, or monthly.
     /// </summary>
+    [IsoId("_9GXo7249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency2Code? Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency2Code? Frequency { get; init; } 
+    #else
+    public Frequency2Code? Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dates during which the standing order is in effect.
     /// </summary>
+    [IsoId("_9GXo8W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodDetails1? ValidityPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriodDetails1? ValidityPeriod { get; init; } 
+    #else
+    public DatePeriodDetails1? ValidityPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
+    [IsoId("_9GXo8249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Member")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? SystemMember { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? SystemMember { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? SystemMember { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_9GXo9W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? ResponsibleParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? ResponsibleParty { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? ResponsibleParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification to unambiguously identify the link set in which the standing order is defined. The link set is a collection of standing order defined in a specific sequence.
     /// </summary>
+    [IsoId("_9GXo9249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Link Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LinkSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LinkSetIdentification { get; init; } 
+    #else
+    public System.String? LinkSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification to unambiguously identify liquidity transfer standing order within the link set.
     /// </summary>
+    [IsoId("_9GXo-W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Link Set Order Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LinkSetOrderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LinkSetOrderIdentification { get; init; } 
+    #else
+    public System.String? LinkSetOrderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the sequence in which the system will execute the liquidity transfers standing order within the link set when additional liquidity is required.
     /// </summary>
+    [IsoId("_9GXo-249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Link Set Order Sequence")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? LinkSetOrderSequence { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? LinkSetOrderSequence { get; init; } 
+    #else
+    public System.UInt64? LinkSetOrderSequence { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
+    [IsoId("_9GXo_W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExecutionType1Choice_? ExecutionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExecutionType1Choice_? ExecutionType { get; init; } 
+    #else
+    public ExecutionType1Choice_? ExecutionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [IsoId("_nr_wYnXwEei3jO6riKEVXg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? Creditor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? Creditor { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? Creditor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash account credited from a standing order mechanism.
     /// </summary>
+    [IsoId("_9GXo_249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? CreditorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? CreditorAccount { get; init; } 
+    #else
+    public CashAccount38? CreditorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [IsoId("_nr_wY3XwEei3jO6riKEVXg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? Debtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? Debtor { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? Debtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash account debited from a standing order mechanism.
     /// </summary>
+    [IsoId("_9GXpAW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? DebtorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? DebtorAccount { get; init; } 
+    #else
+    public CashAccount38? DebtorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Overall amount of "not yet executed" predefined liquidity transfer orders or "defined" by a system participant in its sphere of responsibility within the system.
     /// </summary>
+    [IsoId("_9GXpA249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Totals Per Standing Order")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StandingOrderTotalAmount1? TotalsPerStandingOrder { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StandingOrderTotalAmount1? TotalsPerStandingOrder { get; init; } 
+    #else
+    public StandingOrderTotalAmount1? TotalsPerStandingOrder { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the liquidity transfer standing order is defined as a zero sweeping order. When true, the liquidity transfer standing order will transfer all amount of money out of the account so the resulting balance is zero.
     /// </summary>
+    [IsoId("_9GXpBW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Zero Sweep Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ZeroSweepIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ZeroSweepIndicator { get; init; } 
+    #else
+    public System.String? ZeroSweepIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        Amount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Type is StandingOrderType1Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AssociatedPoolAccount is AccountIdentification4Choice_ AssociatedPoolAccountValue)
-        {
-            writer.WriteStartElement(null, "AssoctdPoolAcct", xmlNamespace );
-            AssociatedPoolAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reference is IsoMax35Text ReferenceValue)
-        {
-            writer.WriteStartElement(null, "Ref", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Frequency is Frequency2Code FrequencyValue)
-        {
-            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-            writer.WriteValue(FrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ValidityPeriod is DatePeriodDetails1 ValidityPeriodValue)
-        {
-            writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
-            ValidityPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SystemMember is BranchAndFinancialInstitutionIdentification6 SystemMemberValue)
-        {
-            writer.WriteStartElement(null, "SysMmb", xmlNamespace );
-            SystemMemberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResponsibleParty is BranchAndFinancialInstitutionIdentification6 ResponsiblePartyValue)
-        {
-            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
-            ResponsiblePartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LinkSetIdentification is IsoMax35Text LinkSetIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LkSetId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkSetIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LinkSetOrderIdentification is IsoMax35Text LinkSetOrderIdentificationValue)
-        {
-            writer.WriteStartElement(null, "LkSetOrdrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkSetOrderIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LinkSetOrderSequence is IsoNumber LinkSetOrderSequenceValue)
-        {
-            writer.WriteStartElement(null, "LkSetOrdrSeq", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(LinkSetOrderSequenceValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (ExecutionType is ExecutionType1Choice_ ExecutionTypeValue)
-        {
-            writer.WriteStartElement(null, "ExctnTp", xmlNamespace );
-            ExecutionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Creditor is BranchAndFinancialInstitutionIdentification6 CreditorValue)
-        {
-            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
-            CreditorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorAccount is CashAccount38 CreditorAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
-            CreditorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Debtor is BranchAndFinancialInstitutionIdentification6 DebtorValue)
-        {
-            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
-            DebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebtorAccount is CashAccount38 DebtorAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
-            DebtorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalsPerStandingOrder is StandingOrderTotalAmount1 TotalsPerStandingOrderValue)
-        {
-            writer.WriteStartElement(null, "TtlsPerStgOrdr", xmlNamespace );
-            TotalsPerStandingOrderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ZeroSweepIndicator is IsoTrueFalseIndicator ZeroSweepIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ZeroSweepInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ZeroSweepIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static StandingOrder6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

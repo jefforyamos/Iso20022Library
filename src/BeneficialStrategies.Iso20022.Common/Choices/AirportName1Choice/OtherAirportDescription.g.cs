@@ -9,50 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice;
-
-/// <summary>
-/// Identifies an airport by its location and by its name.
-/// </summary>
-public partial record OtherAirportDescription : AirportName1Choice_
-     , IIsoXmlSerilizable<OtherAirportDescription>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identifies the town where the airport is located. For example: London.
+    /// Identifies an airport by its location and by its name.
     /// </summary>
-    public required IsoMax35Text Town { get; init; } 
-    /// <summary>
-    /// Identifies the airport by its name. For example: Heathrow.
-    /// </summary>
-    public IsoMax35Text? AirportName { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_SsSlJdp-Ed-ak6NoX_4Aeg_-564217545")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Airport Description")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OtherAirportDescription : AirportName1Choice_
+    #else
+    public partial class OtherAirportDescription : AirportName1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Twn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Town)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (AirportName is IsoMax35Text AirportNameValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OtherAirportDescription instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OtherAirportDescription( System.String reqTown )
         {
-            writer.WriteStartElement(null, "AirprtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AirportNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            Town = reqTown;
         }
-    }
-    public static new OtherAirportDescription Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the town where the airport is located. For example: London.
+        /// </summary>
+        [IsoId("_SsSlIdp-Ed-ak6NoX_4Aeg_-1352905988")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Town")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Town { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Town { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Town { get; init; } 
+        #else
+        public System.String Town { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the airport by its name. For example: Heathrow.
+        /// </summary>
+        [IsoId("_SsSlItp-Ed-ak6NoX_4Aeg_-1308575071")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Airport Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? AirportName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AirportName { get; init; } 
+        #else
+        public System.String? AirportName { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

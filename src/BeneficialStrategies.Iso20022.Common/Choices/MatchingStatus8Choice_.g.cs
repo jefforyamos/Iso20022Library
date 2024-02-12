@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the matching status.
-/// </summary>
-[KnownType(typeof(MatchingStatus8Choice.Code))]
-[KnownType(typeof(MatchingStatus8Choice.Proprietary))]
-public abstract partial record MatchingStatus8Choice_ : IIsoXmlSerilizable<MatchingStatus8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the matching status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MatchingStatus8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MatchingStatus8Choice.Code))]
+    [KnownType(typeof(MatchingStatus8Choice.Proprietary))]
+    [IsoId("_A0Fk09okEeC60axPepSq7g_-730589199")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching Status 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MatchingStatus8Choice_
+    #else
+    public abstract partial class MatchingStatus8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => MatchingStatus8Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => MatchingStatus8Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MatchingStatus8Choice choice.")
-        };
     }
 }

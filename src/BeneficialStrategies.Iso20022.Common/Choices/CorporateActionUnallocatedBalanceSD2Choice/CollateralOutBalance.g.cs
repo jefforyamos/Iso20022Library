@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CorporateActionUnallocatedBalanceSD2Choice;
-
-/// <summary>
-/// Quantity of securities in the sub-balance.
-/// </summary>
-public partial record CollateralOutBalance : CorporateActionUnallocatedBalanceSD2Choice_
-     , IIsoXmlSerilizable<CollateralOutBalance>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CorporateActionUnallocatedBalanceSD2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Sign of the quantity of security.
+    /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required ShortLong1Code ShortLongPosition { get; init; } 
-    /// <summary>
-    /// Quantity of security.
-    /// </summary>
-    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_3Aqoy6IQEeS6IulNYwkZBg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Out Balance")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CollateralOutBalance : CorporateActionUnallocatedBalanceSD2Choice_
+    #else
+    public partial class CollateralOutBalance : CorporateActionUnallocatedBalanceSD2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
-        writer.WriteValue(ShortLongPosition.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        Quantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new CollateralOutBalance Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CollateralOutBalance instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CollateralOutBalance( ShortLong1Code reqShortLongPosition,FinancialInstrumentQuantity15Choice_ reqQuantity )
+        {
+            ShortLongPosition = reqShortLongPosition;
+            Quantity = reqQuantity;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Sign of the quantity of security.
+        /// </summary>
+        [IsoId("_XXqIGNp-Ed-ak6NoX_4Aeg_-1296276978")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Short Long Position")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ShortLong1Code ShortLongPosition { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ShortLong1Code ShortLongPosition { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ShortLong1Code ShortLongPosition { get; init; } 
+        #else
+        public ShortLong1Code ShortLongPosition { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Quantity of security.
+        /// </summary>
+        [IsoId("_XXqIGdp-Ed-ak6NoX_4Aeg_1296503350")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quantity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
+        #else
+        public FinancialInstrumentQuantity15Choice_ Quantity { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

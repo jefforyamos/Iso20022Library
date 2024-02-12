@@ -7,67 +7,122 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Order confirmation details.
 /// </summary>
+[IsoId("_RNqrENp-Ed-ak6NoX_4Aeg_-910205350")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Subscription Order Confirmation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SubscriptionOrderConfirmation1
-     : IIsoXmlSerilizable<SubscriptionOrderConfirmation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SubscriptionOrderConfirmation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SubscriptionOrderConfirmation1( System.String reqAmendmentIndicator,SubscriptionMultipleExecution3 reqMultipleExecutionDetails )
+    {
+        AmendmentIndicator = reqAmendmentIndicator;
+        MultipleExecutionDetails = reqMultipleExecutionDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
     /// </summary>
+    [IsoId("_RN0cANp-Ed-ak6NoX_4Aeg_-1268607948")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amendment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AmendmentIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AmendmentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AmendmentIndicator { get; init; } 
+    #else
+    public System.String AmendmentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// General information related to the execution of investment fund order.
     /// </summary>
+    [IsoId("_RN0cAdp-Ed-ak6NoX_4Aeg_-909279847")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multiple Execution Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
+    #else
+    public SubscriptionMultipleExecution3 MultipleExecutionDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public ValueList<Intermediary9> RelatedPartyDetails { get; init; } = [];
+    [IsoId("_RN0cAtp-Ed-ak6NoX_4Aeg_-910202422")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Party Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<Intermediary9> RelatedPartyDetails { get; init; } = new ValueList<Intermediary9>(){};
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_RN0cA9p-Ed-ak6NoX_4Aeg_-909281259")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AmdmntInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmendmentIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MltplExctnDtls", xmlNamespace );
-        MultipleExecutionDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
-        RelatedPartyDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SubscriptionOrderConfirmation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

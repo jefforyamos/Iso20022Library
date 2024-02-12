@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the EventNotification message.
 /// </summary>
+[IsoId("_GN_x4VE8EeyApZmLzm74zA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Event Notification Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EventNotificationData4
-     : IIsoXmlSerilizable<EventNotificationData4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a EventNotificationData4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public EventNotificationData4( RetailerEvent4 reqRetailerEvent )
+    {
+        RetailerEvent = reqRetailerEvent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Content of the Retailer Event message.
     /// </summary>
+    [IsoId("_GUXfoVE8EeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Retailer Event")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerEvent4 RetailerEvent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RetailerEvent4 RetailerEvent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RetailerEvent4 RetailerEvent { get; init; } 
+    #else
+    public RetailerEvent4 RetailerEvent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the occurred event requires maintenance call or action.
     /// </summary>
+    [IsoId("_GUXfo1E8EeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maintenance Required Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MaintenanceRequiredFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MaintenanceRequiredFlag { get; init; } 
+    #else
+    public System.String? MaintenanceRequiredFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language of the Customer
     /// </summary>
+    [IsoId("_GUXfpVE8EeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? CustomerLanguage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CustomerLanguage { get; init; } 
+    #else
+    public string? CustomerLanguage { get; set; } 
+    #endif
+    
     /// <summary>
     /// To display an event message
     /// </summary>
+    [IsoId("_GUXfp1E8EeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Output")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage9? DisplayOutput { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionMessage9? DisplayOutput { get; init; } 
+    #else
+    public ActionMessage9? DisplayOutput { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RtlrEvt", xmlNamespace );
-        RetailerEvent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MaintenanceRequiredFlag is IsoTrueFalseIndicator MaintenanceRequiredFlagValue)
-        {
-            writer.WriteStartElement(null, "MntncReqrdFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MaintenanceRequiredFlagValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerLanguage is LanguageCode CustomerLanguageValue)
-        {
-            writer.WriteStartElement(null, "CstmrLang", xmlNamespace );
-            writer.WriteValue(CustomerLanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DisplayOutput is ActionMessage9 DisplayOutputValue)
-        {
-            writer.WriteStartElement(null, "DispOutpt", xmlNamespace );
-            DisplayOutputValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static EventNotificationData4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

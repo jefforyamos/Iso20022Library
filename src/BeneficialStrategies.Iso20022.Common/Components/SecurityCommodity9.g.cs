@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indication of the type of assets subject of the transaction.
 /// </summary>
+[IsoId("_97aFscg4Eeu4ecZgAYuz5w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security Commodity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecurityCommodity9
-     : IIsoXmlSerilizable<SecurityCommodity9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
+    [IsoId("_99ODk8g4Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Security51? Security { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Security51? Security { get; init; } 
+    #else
+    public Security51? Security { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
+    [IsoId("_99ODlcg4Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commodity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commodity43? Commodity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Commodity43? Commodity { get; init; } 
+    #else
+    public Commodity43? Commodity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Security is Security51 SecurityValue)
-        {
-            writer.WriteStartElement(null, "Scty", xmlNamespace );
-            SecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Commodity is Commodity43 CommodityValue)
-        {
-            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
-            CommodityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecurityCommodity9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of the type of underlying contract.
-/// </summary>
-[KnownType(typeof(UnderlyingContract1Choice.Loan))]
-[KnownType(typeof(UnderlyingContract1Choice.Trade))]
-public abstract partial record UnderlyingContract1Choice_ : IIsoXmlSerilizable<UnderlyingContract1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of the type of underlying contract.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UnderlyingContract1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UnderlyingContract1Choice.Loan))]
+    [KnownType(typeof(UnderlyingContract1Choice.Trade))]
+    [IsoId("_opBo8NLJEeSdq5yU2aaSNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Contract 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UnderlyingContract1Choice_
+    #else
+    public abstract partial class UnderlyingContract1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ln" => UnderlyingContract1Choice.Loan.Deserialize(elementWithPayload),
-             "Trad" => UnderlyingContract1Choice.Trade.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UnderlyingContract1Choice choice.")
-        };
     }
 }

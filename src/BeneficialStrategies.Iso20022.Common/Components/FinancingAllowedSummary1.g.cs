@@ -7,97 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary information about amount financed.
 /// </summary>
+[IsoId("_Th7zwdp-Ed-ak6NoX_4Aeg_-1462438308")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financing Allowed Summary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancingAllowedSummary1
-     : IIsoXmlSerilizable<FinancingAllowedSummary1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancingAllowedSummary1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancingAllowedSummary1( System.UInt64 reqFinancedItemNumber,System.Decimal reqTotalAcceptedItemsAmount,System.Decimal reqTotalFinancedAmount )
+    {
+        FinancedItemNumber = reqFinancedItemNumber;
+        TotalAcceptedItemsAmount = reqTotalAcceptedItemsAmount;
+        TotalFinancedAmount = reqTotalFinancedAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of invoices/instalments financed.
     /// </summary>
+    [IsoId("_Th7zwtp-Ed-ak6NoX_4Aeg_-1027457607")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financed Item Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber FinancedItemNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 FinancedItemNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 FinancedItemNumber { get; init; } 
+    #else
+    public System.UInt64 FinancedItemNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sum of the original total amounts of the invoices accepted for financing.
     /// </summary>
+    [IsoId("_Th7zw9p-Ed-ak6NoX_4Aeg_-525987159")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Accepted Items Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalAcceptedItemsAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalAcceptedItemsAmount { get; init; } 
+    #else
+    public System.Decimal TotalAcceptedItemsAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage rate applied to calculate the total amount financed related to the total amounts of the invoices accepted for financing. It represents the average percentage rate applied to all single invoice requests financed. It can be calculated as result of "TotalFinancedAmount" divided by "TotalAcceptedItemsAmount".
     /// </summary>
+    [IsoId("_TiFksNp-Ed-ak6NoX_4Aeg_2267645")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applied Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AppliedPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AppliedPercentage { get; init; } 
+    #else
+    public System.Decimal? AppliedPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount financed, defined as the entire financed amount of the requests.
     /// </summary>
+    [IsoId("_TiFksdp-Ed-ak6NoX_4Aeg_319034603")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Financed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal TotalFinancedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal TotalFinancedAmount { get; init; } 
+    #else
+    public System.Decimal TotalFinancedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of dates (eg book date, credit date) related to the crediting of the financed amount.
     /// </summary>
+    [IsoId("_TiFkstp-Ed-ak6NoX_4Aeg_-1526604541")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financing Date Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingDateDetails1? FinancingDateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancingDateDetails1? FinancingDateDetails { get; init; } 
+    #else
+    public FinancingDateDetails1? FinancingDateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account, held by Financing Requestor, actually used for crediting the amount financed.
     /// </summary>
+    [IsoId("_TiFks9p-Ed-ak6NoX_4Aeg_-434448310")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? CreditAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? CreditAccount { get; init; } 
+    #else
+    public CashAccount7? CreditAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the internal bank account actually used by First Agent to manage the line of credit granted to Financing Requestor.
     /// </summary>
+    [IsoId("_TiFktNp-Ed-ak6NoX_4Aeg_-1667612693")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financing Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? FinancingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? FinancingAccount { get; init; } 
+    #else
+    public CashAccount7? FinancingAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FincdItmNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(FinancedItemNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlAccptdItmsAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAcceptedItemsAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (AppliedPercentage is IsoPercentageRate AppliedPercentageValue)
-        {
-            writer.WriteStartElement(null, "ApldPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AppliedPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlFincdAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalFinancedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (FinancingDateDetails is FinancingDateDetails1 FinancingDateDetailsValue)
-        {
-            writer.WriteStartElement(null, "FincgDtDtls", xmlNamespace );
-            FinancingDateDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditAccount is CashAccount7 CreditAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtAcct", xmlNamespace );
-            CreditAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancingAccount is CashAccount7 FinancingAccountValue)
-        {
-            writer.WriteStartElement(null, "FincgAcct", xmlNamespace );
-            FinancingAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancingAllowedSummary1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats to express the calculation method for drawings.
-/// </summary>
-[KnownType(typeof(CorporateActionCalculationMethod1FormatChoice.Code))]
-[KnownType(typeof(CorporateActionCalculationMethod1FormatChoice.Proprietary))]
-public abstract partial record CorporateActionCalculationMethod1FormatChoice_ : IIsoXmlSerilizable<CorporateActionCalculationMethod1FormatChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats to express the calculation method for drawings.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CorporateActionCalculationMethod1FormatChoice_ Deserialize(XElement element)
+    [KnownType(typeof(CorporateActionCalculationMethod1FormatChoice.Code))]
+    [KnownType(typeof(CorporateActionCalculationMethod1FormatChoice.Proprietary))]
+    [IsoId("_Rl9PM9p-Ed-ak6NoX_4Aeg_-384222870")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Calculation Method 1 Format Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CorporateActionCalculationMethod1FormatChoice_
+    #else
+    public abstract partial class CorporateActionCalculationMethod1FormatChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => CorporateActionCalculationMethod1FormatChoice.Code.Deserialize(elementWithPayload),
-             "Prtry" => CorporateActionCalculationMethod1FormatChoice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CorporateActionCalculationMethod1FormatChoice choice.")
-        };
     }
 }

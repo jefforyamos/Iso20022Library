@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
-
-/// <summary>
-/// Information that locates and identifies a specific address.
-/// </summary>
-public partial record Address : UpdateLogPartyRecord1Choice_
-     , IIsoXmlSerilizable<Address>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Old value before change
+    /// Information that locates and identifies a specific address.
     /// </summary>
-    public required PostalAddress25 Old { get; init; } 
-    /// <summary>
-    /// New value after change
-    /// </summary>
-    public required PostalAddress25 New { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_xPt7gGjNEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Address : UpdateLogPartyRecord1Choice_
+    #else
+    public partial class Address : UpdateLogPartyRecord1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Od", xmlNamespace );
-        Old.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "New", xmlNamespace );
-        New.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Address Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Address instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Address( PostalAddress25 reqOld,PostalAddress25 reqNew )
+        {
+            Old = reqOld;
+            New = reqNew;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Old value before change
+        /// </summary>
+        [IsoId("_U5BZcGjSEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Old")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PostalAddress25 Old { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PostalAddress25 Old { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostalAddress25 Old { get; init; } 
+        #else
+        public PostalAddress25 Old { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// New value after change
+        /// </summary>
+        [IsoId("_SjDnoGjSEeiRg5NzP0jkQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PostalAddress25 New { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PostalAddress25 New { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PostalAddress25 New { get; init; } 
+        #else
+        public PostalAddress25 New { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

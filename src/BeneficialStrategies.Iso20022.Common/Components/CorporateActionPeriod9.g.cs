@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods.
 /// </summary>
+[IsoId("_1ncZMfZFEd-2Jsl2KtUQCw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPeriod9
-     : IIsoXmlSerilizable<CorporateActionPeriod9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
+    [IsoId("_1ncZM_ZFEd-2Jsl2KtUQCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Calculation Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period5? PriceCalculationPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period5? PriceCalculationPeriod { get; init; } 
+    #else
+    public Period5? PriceCalculationPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, for example, offer period.
     /// </summary>
+    [IsoId("_1ncZNfZFEd-2Jsl2KtUQCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period5? ActionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period5? ActionPeriod { get; init; } 
+    #else
+    public Period5? ActionPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, for example, consolidation of equity or splitting of equity.
     /// </summary>
+    [IsoId("_1ncZN_ZFEd-2Jsl2KtUQCw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parallel Trading Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period5? ParallelTradingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period5? ParallelTradingPeriod { get; init; } 
+    #else
+    public Period5? ParallelTradingPeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PriceCalculationPeriod is Period5 PriceCalculationPeriodValue)
-        {
-            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
-            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ActionPeriod is Period5 ActionPeriodValue)
-        {
-            writer.WriteStartElement(null, "ActnPrd", xmlNamespace );
-            ActionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ParallelTradingPeriod is Period5 ParallelTradingPeriodValue)
-        {
-            writer.WriteStartElement(null, "ParllTradgPrd", xmlNamespace );
-            ParallelTradingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionPeriod9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

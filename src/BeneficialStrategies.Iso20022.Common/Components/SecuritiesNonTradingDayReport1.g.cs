@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details the non-working days of an entity.
 /// </summary>
+[IsoId("_zms14Gw0EeWD9e8QDBgUOw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Non Trading Day Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesNonTradingDayReport1
-     : IIsoXmlSerilizable<SecuritiesNonTradingDayReport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesNonTradingDayReport1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesNonTradingDayReport1( TradingVenueIdentification1Choice_ reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the specific venue this relates to - operating MIC, segment MIC, NCA
     /// </summary>
+    [IsoId("_zmtc8Ww0EeWD9e8QDBgUOw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradingVenueIdentification1Choice_ Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradingVenueIdentification1Choice_ Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradingVenueIdentification1Choice_ Identification { get; init; } 
+    #else
+    public TradingVenueIdentification1Choice_ Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the non working days of the identified venue. Details on why it is a non working day are also captured.
     /// </summary>
+    [IsoId("_BieD0GxOEeWD9e8QDBgUOw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Working Day")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public SecuritiesNonTradingDay1? NonWorkingDay { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _BieD0GxOEeWD9e8QDBgUOw
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize NonWorkingDay, multiplicity Unknown
-    }
-    public static SecuritiesNonTradingDayReport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

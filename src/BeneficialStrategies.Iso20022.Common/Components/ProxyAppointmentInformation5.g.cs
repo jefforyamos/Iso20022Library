@@ -7,73 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the registration of a proxy.
 /// </summary>
+[IsoId("_fCkadfM7EeqRfth943bvEA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Proxy Appointment Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProxyAppointmentInformation5
-     : IIsoXmlSerilizable<ProxyAppointmentInformation5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies how to register the proxy.
     /// </summary>
+    [IsoId("_fWW5I_M7EeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? RegistrationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RegistrationMethod { get; init; } 
+    #else
+    public System.String? RegistrationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary.
     /// </summary>
+    [IsoId("_fWW5JfM7EeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? Deadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat58Choice_? Deadline { get; init; } 
+    #else
+    public DateFormat58Choice_? Deadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the issuer.
     /// </summary>
+    [IsoId("_fWW5J_M7EeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? MarketDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat58Choice_? MarketDeadline { get; init; } 
+    #else
+    public DateFormat58Choice_? MarketDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proxy person that is authorised by the issuer.
     /// </summary>
-    public ValueList<Proxy9> AuthorisedProxy { get; init; } = [];
+    [IsoId("_fWW5KfM7EeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorised Proxy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<Proxy9> AuthorisedProxy { get; init; } = new ValueList<Proxy9>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RegistrationMethod is IsoMax350Text RegistrationMethodValue)
-        {
-            writer.WriteStartElement(null, "RegnMtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(RegistrationMethodValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Deadline is DateFormat58Choice_ DeadlineValue)
-        {
-            writer.WriteStartElement(null, "Ddln", xmlNamespace );
-            DeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketDeadline is DateFormat58Choice_ MarketDeadlineValue)
-        {
-            writer.WriteStartElement(null, "MktDdln", xmlNamespace );
-            MarketDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AuthrsdPrxy", xmlNamespace );
-        AuthorisedProxy.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ProxyAppointmentInformation5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[IsoId("_MZb3LUEEEeWVgfuHGaKtRQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateAction33
-     : IIsoXmlSerilizable<CorporateAction33>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
+    [IsoId("_MlVlAUEEEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate49? DateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDate49? DateDetails { get; init; } 
+    #else
+    public CorporateActionDate49? DateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
+    [IsoId("_MlVlA0EEEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Stage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
+    #else
+    public CorporateActionEventStageFormat14Choice_? EventStage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the additional business process relates to a claim on the associated corporate action event.
     /// </summary>
+    [IsoId("_8GosNGXJEeWht50_j0HXAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Business Process Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalBusinessProcessFormat11Choice_? AdditionalBusinessProcessIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalBusinessProcessFormat11Choice_? AdditionalBusinessProcessIndicator { get; init; } 
+    #else
+    public AdditionalBusinessProcessFormat11Choice_? AdditionalBusinessProcessIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [IsoId("_MlVlBUEEEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lottery Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
+    #else
+    public LotteryTypeFormat4Choice_? LotteryType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DateDetails is CorporateActionDate49 DateDetailsValue)
-        {
-            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
-            DateDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EventStage is CorporateActionEventStageFormat14Choice_ EventStageValue)
-        {
-            writer.WriteStartElement(null, "EvtStag", xmlNamespace );
-            EventStageValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalBusinessProcessIndicator is AdditionalBusinessProcessFormat11Choice_ AdditionalBusinessProcessIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AddtlBizPrcInd", xmlNamespace );
-            AdditionalBusinessProcessIndicatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LotteryType is LotteryTypeFormat4Choice_ LotteryTypeValue)
-        {
-            writer.WriteStartElement(null, "LtryTp", xmlNamespace );
-            LotteryTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateAction33 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

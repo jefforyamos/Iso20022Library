@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of holding indicator and aggregated position of holdings.
-/// </summary>
-[KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator))]
-[KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance))]
-public abstract partial record FinancialInstrumentAggregateBalance1Choice_ : IIsoXmlSerilizable<FinancialInstrumentAggregateBalance1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of holding indicator and aggregated position of holdings.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrumentAggregateBalance1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator))]
+    [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance))]
+    [IsoId("_PW7ItqCCEeOEyO7fCl8lLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Aggregate Balance 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrumentAggregateBalance1Choice_
+    #else
+    public abstract partial class FinancialInstrumentAggregateBalance1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "HldgsInd" => FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator.Deserialize(elementWithPayload),
-             "HldgBal" => FinancialInstrumentAggregateBalance1Choice.HoldingBalance.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrumentAggregateBalance1Choice choice.")
-        };
     }
 }

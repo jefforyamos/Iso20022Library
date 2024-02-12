@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information related to the processing of the payment instruction that may need to be acted upon by the creditor's agent. The instruction may relate to a level of service, or may be an instruction that has to be executed by the creditor's agent, or may be information required by the creditor's agent.
 /// </summary>
+[IsoId("_PRQQx8QAEemsic1bQcEtLA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Instruction For Creditor Agent")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InstructionForCreditorAgent3
-     : IIsoXmlSerilizable<InstructionForCreditorAgent3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Coded information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor's agent.
     /// </summary>
+    [IsoId("_PdEe8cQAEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalCreditorAgentInstruction1Code? Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCreditorAgentInstruction1Code? Code { get; init; } 
+    #else
+    public ExternalCreditorAgentInstruction1Code? Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further information complementing the coded instruction or instruction to the creditor's agent that is bilaterally agreed or specific to a user community.
     /// </summary>
+    [IsoId("_PdEe88QAEemsic1bQcEtLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? InstructionInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionInformation { get; init; } 
+    #else
+    public System.String? InstructionInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Code is ExternalCreditorAgentInstruction1Code CodeValue)
-        {
-            writer.WriteStartElement(null, "Cd", xmlNamespace );
-            writer.WriteValue(CodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (InstructionInformation is IsoMax140Text InstructionInformationValue)
-        {
-            writer.WriteStartElement(null, "InstrInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(InstructionInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InstructionForCreditorAgent3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

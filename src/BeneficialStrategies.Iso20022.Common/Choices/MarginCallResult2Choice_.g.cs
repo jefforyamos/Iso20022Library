@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice to provide the summation of the call amounts for the variation margin and the segregated independent amount, or the segregated independent amount only.
-/// </summary>
-[KnownType(typeof(MarginCallResult2Choice.MarginCallResultDetails))]
-[KnownType(typeof(MarginCallResult2Choice.MarginCallAmount))]
-[KnownType(typeof(MarginCallResult2Choice.SegregatedIndependentAmount))]
-public abstract partial record MarginCallResult2Choice_ : IIsoXmlSerilizable<MarginCallResult2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice to provide the summation of the call amounts for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MarginCallResult2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MarginCallResult2Choice.MarginCallResultDetails))]
+    [KnownType(typeof(MarginCallResult2Choice.MarginCallAmount))]
+    [KnownType(typeof(MarginCallResult2Choice.SegregatedIndependentAmount))]
+    [IsoId("_9beRS6MPEeCojJW5vEuTEQ_-1338603652")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Call Result 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MarginCallResult2Choice_
+    #else
+    public abstract partial class MarginCallResult2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MrgnCallRsltDtls" => MarginCallResult2Choice.MarginCallResultDetails.Deserialize(elementWithPayload),
-             "MrgnCallAmt" => MarginCallResult2Choice.MarginCallAmount.Deserialize(elementWithPayload),
-             "SgrtdIndpdntAmt" => MarginCallResult2Choice.SegregatedIndependentAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MarginCallResult2Choice choice.")
-        };
     }
 }

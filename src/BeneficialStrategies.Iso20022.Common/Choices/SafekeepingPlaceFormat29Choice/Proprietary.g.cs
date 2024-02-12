@@ -9,50 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat29Choice;
-
-/// <summary>
-/// Place of safekeeping expressed with a propriety identification scheme.
-/// </summary>
-public partial record Proprietary : SafekeepingPlaceFormat29Choice_
-     , IIsoXmlSerilizable<Proprietary>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat29Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Proprietary information, often a code, issued by the data source scheme issuer.
+    /// Place of safekeeping expressed with a propriety identification scheme.
     /// </summary>
-    public required GenericIdentification30 Type { get; init; } 
-    /// <summary>
-    /// Name or number assigned by an entity to enable recognition of that entity, for example, account identifier.
-    /// </summary>
-    public IsoMax35Text? Identification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_XqXF-bXEEeiTob_PrFFUxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Proprietary : SafekeepingPlaceFormat29Choice_
+    #else
+    public partial class Proprietary : SafekeepingPlaceFormat29Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Identification is IsoMax35Text IdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Proprietary instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Proprietary( GenericIdentification30 reqType )
         {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            Type = reqType;
         }
-    }
-    public static new Proprietary Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Proprietary information, often a code, issued by the data source scheme issuer.
+        /// </summary>
+        [IsoId("_G3fcIx78EeWW2ZT-VTzGvw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericIdentification30 Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericIdentification30 Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification30 Type { get; init; } 
+        #else
+        public GenericIdentification30 Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name or number assigned by an entity to enable recognition of that entity, for example, account identifier.
+        /// </summary>
+        [IsoId("_G3fcJR78EeWW2ZT-VTzGvw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Identification { get; init; } 
+        #else
+        public System.String? Identification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

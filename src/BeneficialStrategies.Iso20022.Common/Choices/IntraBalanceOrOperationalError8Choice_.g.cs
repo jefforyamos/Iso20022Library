@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the report data or an operational error.
-/// </summary>
-[KnownType(typeof(IntraBalanceOrOperationalError8Choice.Modifications))]
-[KnownType(typeof(IntraBalanceOrOperationalError8Choice.OperationalError))]
-public abstract partial record IntraBalanceOrOperationalError8Choice_ : IIsoXmlSerilizable<IntraBalanceOrOperationalError8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the report data or an operational error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IntraBalanceOrOperationalError8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IntraBalanceOrOperationalError8Choice.Modifications))]
+    [KnownType(typeof(IntraBalanceOrOperationalError8Choice.OperationalError))]
+    [IsoId("_ZhRzuzneEem7JZMuWtwtsg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intra Balance Or Operational Error 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IntraBalanceOrOperationalError8Choice_
+    #else
+    public abstract partial class IntraBalanceOrOperationalError8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Mods" => IntraBalanceOrOperationalError8Choice.Modifications.Deserialize(elementWithPayload),
-             "OprlErr" => IntraBalanceOrOperationalError8Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IntraBalanceOrOperationalError8Choice choice.")
-        };
     }
 }

@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the settlement of the instruction.
 /// </summary>
+[IsoId("_QJIE0Np-Ed-ak6NoX_4Aeg_-1401894087")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementInformation14
-     : IIsoXmlSerilizable<SettlementInformation14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementInformation14 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementInformation14( SettlementMethod2Code reqSettlementMethod )
+    {
+        SettlementMethod = reqSettlementMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
+    [IsoId("_QJIE0dp-Ed-ak6NoX_4Aeg_-1401894056")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementMethod2Code SettlementMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementMethod2Code SettlementMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementMethod2Code SettlementMethod { get; init; } 
+    #else
+    public SettlementMethod2Code SettlementMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// A specific purpose account used to post debit and credit entries as a result of the transaction.
     /// </summary>
+    [IsoId("_QJIE0tp-Ed-ak6NoX_4Aeg_-1401893993")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount16? SettlementAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount16? SettlementAccount { get; init; } 
+    #else
+    public CashAccount16? SettlementAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
+    [IsoId("_QJIE09p-Ed-ak6NoX_4Aeg_-1401893685")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing System")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemIdentification3Choice_? ClearingSystem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingSystemIdentification3Choice_? ClearingSystem { get; init; } 
+    #else
+    public ClearingSystemIdentification3Choice_? ClearingSystem { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
-        writer.WriteValue(SettlementMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SettlementAccount is CashAccount16 SettlementAccountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAcct", xmlNamespace );
-            SettlementAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingSystem is ClearingSystemIdentification3Choice_ ClearingSystemValue)
-        {
-            writer.WriteStartElement(null, "ClrSys", xmlNamespace );
-            ClearingSystemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementInformation14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

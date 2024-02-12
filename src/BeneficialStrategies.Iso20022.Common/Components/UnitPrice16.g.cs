@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[IsoId("_QfxqStp-Ed-ak6NoX_4Aeg_394298835")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unit Price")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnitPrice16
-     : IIsoXmlSerilizable<UnitPrice16>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UnitPrice16 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UnitPrice16( UnitPriceType1Choice_ reqUnitPriceType,PriceValue1 reqValue )
+    {
+        UnitPriceType = reqUnitPriceType;
+        Value = reqValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of price.
     /// </summary>
+    [IsoId("_Qf60MNp-Ed-ak6NoX_4Aeg_-466354401")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPriceType1Choice_ UnitPriceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnitPriceType1Choice_ UnitPriceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitPriceType1Choice_ UnitPriceType { get; init; } 
+    #else
+    public UnitPriceType1Choice_ UnitPriceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_Qf60Mdp-Ed-ak6NoX_4Aeg_394299267")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValue1 Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PriceValue1 Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue1 Value { get; init; } 
+    #else
+    public PriceValue1 Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [IsoId("_Qf60Mtp-Ed-ak6NoX_4Aeg_1724434450")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxable Income Per Share")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxableIncomePerShare { get; init; } 
+    #else
+    public System.Decimal? TaxableIncomePerShare { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxable income per share calculated.
     /// </summary>
+    [IsoId("_Qf60M9p-Ed-ak6NoX_4Aeg_205901546")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxable Income Per Share Calculated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; init; } 
+    #else
+    public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UnitPricTp", xmlNamespace );
-        UnitPriceType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        Value.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TaxableIncomePerShare is IsoActiveCurrencyAnd13DecimalAmount TaxableIncomePerShareValue)
-        {
-            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TaxableIncomePerShareValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculatedType1Choice_ TaxableIncomePerShareCalculatedValue)
-        {
-            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
-            TaxableIncomePerShareCalculatedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static UnitPrice16 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,229 +7,415 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data captured from on board diagnostic systems
 /// </summary>
+[IsoId("_9D_nY9kGEeizh_fAW7LywQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("On Board Diagnostics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OnBoardDiagnostics1
-     : IIsoXmlSerilizable<OnBoardDiagnostics1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Current amount of time the vehicle engine has run idle (under no load) as determined by the vehicle monitoring system. 
     /// Expressed in hours
     /// </summary>
+    [IsoId("_u84Q0NkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Idle Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? EngineIdleTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? EngineIdleTime { get; init; } 
+    #else
+    public System.UInt64? EngineIdleTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of time the vehicle engine has run idle (under no load) since the last reset, as determined by the vehicle monitoring system.
     /// Expressed in hours
     /// </summary>
+    [IsoId("_wPuYwNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Total Idle Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? EngineTotalIdleTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? EngineTotalIdleTime { get; init; } 
+    #else
+    public System.UInt64? EngineTotalIdleTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of hours the engine has been running (including idle time) as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_R21uwNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Hours")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? EngineHours { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? EngineHours { get; init; } 
+    #else
+    public System.UInt64? EngineHours { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of time elapsed since the previous reset as determined by the vehicle monitoring system.
     /// Expressed in hours
     /// </summary>
+    [IsoId("_qG2WANkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Total Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? EngineTotalTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? EngineTotalTime { get; init; } 
+    #else
+    public System.UInt64? EngineTotalTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Engine load measured as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_mjVzANkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Load")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax12NumericText? EngineLoad { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EngineLoad { get; init; } 
+    #else
+    public System.String? EngineLoad { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum revolutions per minute experienced by the crankshaft of the vehicle engine as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_kxxuwNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine RPM")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? EngineRPM { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EngineRPM { get; init; } 
+    #else
+    public System.String? EngineRPM { get; set; } 
+    #endif
+    
     /// <summary>
     /// Temperature of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_oVyBANkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Oil Temperature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? EngineOilTemperature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? EngineOilTemperature { get; init; } 
+    #else
+    public System.UInt64? EngineOilTemperature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Pressure of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_x5PUQNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Oil Pressure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EngineOilPressure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EngineOilPressure { get; init; } 
+    #else
+    public System.String? EngineOilPressure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time remaining before next oil change expressed as a percentage, as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_z4z_UNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Engine Oil Life Remaining")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EngineOilLifeRemaining { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EngineOilLifeRemaining { get; init; } 
+    #else
+    public System.String? EngineOilLifeRemaining { get; set; } 
+    #endif
+    
     /// <summary>
     /// Check engine status as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_h77jANkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Check Engine Warning Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CheckEngineWarningStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CheckEngineWarningStatus { get; init; } 
+    #else
+    public System.String? CheckEngineWarningStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fuel tank start level reading as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_TvYkwNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fuel Tank Level Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? FuelTankLevelStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FuelTankLevelStart { get; init; } 
+    #else
+    public System.String? FuelTankLevelStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Current fuel tank gauge level reading as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_Vz3lANkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fuel Gauge Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? FuelGaugeLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FuelGaugeLevel { get; init; } 
+    #else
+    public System.String? FuelGaugeLevel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fuel economy expressed in terms of the amount of fuel consumed per unit of travel as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_jYVPkNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fuel Economy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? FuelEconomy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? FuelEconomy { get; init; } 
+    #else
+    public System.UInt64? FuelEconomy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of hours the refrigeration unit has been in operation.
     /// </summary>
+    [IsoId("_0T3D8f2kEeiS2rs-hXBB5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Refrigeration Hours")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? RefrigerationHours { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RefrigerationHours { get; init; } 
+    #else
+    public System.UInt64? RefrigerationHours { get; set; } 
+    #endif
+    
     /// <summary>
     /// Temperature of the refrigeration unit/trailer as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_OTQTQNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Refrigeration Temperature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? RefrigerationTemperature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? RefrigerationTemperature { get; init; } 
+    #else
+    public System.UInt64? RefrigerationTemperature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Temperature of the coolant as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_Z8DiYNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Coolant Temperature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? CoolantTemperature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? CoolantTemperature { get; init; } 
+    #else
+    public System.UInt64? CoolantTemperature { get; set; } 
+    #endif
+    
     /// <summary>
     /// Voltage of the vehicle battery as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_YdD00NkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Battery Voltage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? BatteryVoltage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BatteryVoltage { get; init; } 
+    #else
+    public System.String? BatteryVoltage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of occurrences of hard breaking as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_r8khgNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hard Braking")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? HardBraking { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HardBraking { get; init; } 
+    #else
+    public System.String? HardBraking { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of occurrences of hard acceleration as determined by the vehicle monitoring system.
     /// </summary>
+    [IsoId("_tgqxgNkIEeizh_fAW7LywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hard Acceleration")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? HardAcceleration { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? HardAcceleration { get; init; } 
+    #else
+    public System.String? HardAcceleration { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (EngineIdleTime is IsoMax10NumberFraction2 EngineIdleTimeValue)
-        {
-            writer.WriteStartElement(null, "NgnIdleTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(EngineIdleTimeValue)); // data type Max10NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EngineTotalIdleTime is IsoMax10NumberFraction2 EngineTotalIdleTimeValue)
-        {
-            writer.WriteStartElement(null, "NgnTtlIdleTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(EngineTotalIdleTimeValue)); // data type Max10NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EngineHours is IsoMax10NumberFraction2 EngineHoursValue)
-        {
-            writer.WriteStartElement(null, "NgnHrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(EngineHoursValue)); // data type Max10NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EngineTotalTime is IsoMax6NumberFraction2 EngineTotalTimeValue)
-        {
-            writer.WriteStartElement(null, "NgnTtlTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(EngineTotalTimeValue)); // data type Max6NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EngineLoad is IsoMax12NumericText EngineLoadValue)
-        {
-            writer.WriteStartElement(null, "NgnLd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax12NumericText(EngineLoadValue)); // data type Max12NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EngineRPM is IsoMax5NumericText EngineRPMValue)
-        {
-            writer.WriteStartElement(null, "NgnRPM", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(EngineRPMValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EngineOilTemperature is IsoMax6NumberFraction2 EngineOilTemperatureValue)
-        {
-            writer.WriteStartElement(null, "NgnOilTmprtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(EngineOilTemperatureValue)); // data type Max6NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EngineOilPressure is IsoMax3NumericText EngineOilPressureValue)
-        {
-            writer.WriteStartElement(null, "NgnOilPrssr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EngineOilPressureValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EngineOilLifeRemaining is IsoMax3NumericText EngineOilLifeRemainingValue)
-        {
-            writer.WriteStartElement(null, "NgnOilLifeRmng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EngineOilLifeRemainingValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CheckEngineWarningStatus is IsoMax35Text CheckEngineWarningStatusValue)
-        {
-            writer.WriteStartElement(null, "ChckNgnWrngSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckEngineWarningStatusValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FuelTankLevelStart is IsoMax4NumericText FuelTankLevelStartValue)
-        {
-            writer.WriteStartElement(null, "FuelTankLvlStart", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(FuelTankLevelStartValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (FuelGaugeLevel is IsoMax4NumericText FuelGaugeLevelValue)
-        {
-            writer.WriteStartElement(null, "FuelGaugeLvl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(FuelGaugeLevelValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (FuelEconomy is IsoMax6NumberFraction2 FuelEconomyValue)
-        {
-            writer.WriteStartElement(null, "FuelEcnmy", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(FuelEconomyValue)); // data type Max6NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RefrigerationHours is IsoMax10NumberFraction2 RefrigerationHoursValue)
-        {
-            writer.WriteStartElement(null, "RfrgrtnHrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(RefrigerationHoursValue)); // data type Max10NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (RefrigerationTemperature is IsoMax6NumberFraction2 RefrigerationTemperatureValue)
-        {
-            writer.WriteStartElement(null, "RfrgrtnTmprtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(RefrigerationTemperatureValue)); // data type Max6NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (CoolantTemperature is IsoMax6NumberFraction2 CoolantTemperatureValue)
-        {
-            writer.WriteStartElement(null, "CoolntTmprtr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(CoolantTemperatureValue)); // data type Max6NumberFraction2 System.UInt64
-            writer.WriteEndElement();
-        }
-        if (BatteryVoltage is IsoMax4NumericText BatteryVoltageValue)
-        {
-            writer.WriteStartElement(null, "BttryVltg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(BatteryVoltageValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (HardBraking is IsoMax4NumericText HardBrakingValue)
-        {
-            writer.WriteStartElement(null, "HardBrakg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(HardBrakingValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (HardAcceleration is IsoMax4NumericText HardAccelerationValue)
-        {
-            writer.WriteStartElement(null, "HardAcclrtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(HardAccelerationValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static OnBoardDiagnostics1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

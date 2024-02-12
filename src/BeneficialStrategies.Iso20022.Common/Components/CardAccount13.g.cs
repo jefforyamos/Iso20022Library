@@ -7,117 +7,191 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer account information.
 /// </summary>
+[IsoId("_1deaMa4zEeWpsoxRhdX-8A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardAccount13
-     : IIsoXmlSerilizable<CardAccount13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of account used for the transaction.
     /// </summary>
+    [IsoId("_1pjHU64zEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccountType3Code? AccountType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardAccountType3Code? AccountType { get; init; } 
+    #else
+    public CardAccountType3Code? AccountType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
+    [IsoId("_1pjHVa4zEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AccountName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountName { get; init; } 
+    #else
+    public System.String? AccountName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the currency in which the account is held.
     /// </summary>
+    [IsoId("_1pjHWa4zEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
+    [IsoId("_1pjHW64zEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
+    #else
+    public AccountIdentification31Choice_? AccountIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Internal account reference in case of credit account.
     /// </summary>
+    [IsoId("_LprWoK40EeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CreditReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditReference { get; init; } 
+    #else
+    public System.String? CreditReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [IsoId("_1pjHXa4zEeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Servicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification72Choice_? Servicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification72Choice_? Servicer { get; init; } 
+    #else
+    public PartyIdentification72Choice_? Servicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of the account before the transfer.
     /// </summary>
+    [IsoId("_SxcqkK40EeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Before")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection43? BalanceBefore { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection43? BalanceBefore { get; init; } 
+    #else
+    public AmountAndDirection43? BalanceBefore { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of the account after the transfer.
     /// </summary>
+    [IsoId("_VmsZYK40EeWpsoxRhdX-8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance After")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection43? BalanceAfter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection43? BalanceAfter { get; init; } 
+    #else
+    public AmountAndDirection43? BalanceAfter { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountType is CardAccountType3Code AccountTypeValue)
-        {
-            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
-            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AccountName is IsoMax70Text AccountNameValue)
-        {
-            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AccountNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AccountIdentifier is AccountIdentification31Choice_ AccountIdentifierValue)
-        {
-            writer.WriteStartElement(null, "AcctIdr", xmlNamespace );
-            AccountIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditReference is IsoMax35Text CreditReferenceValue)
-        {
-            writer.WriteStartElement(null, "CdtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Servicer is PartyIdentification72Choice_ ServicerValue)
-        {
-            writer.WriteStartElement(null, "Svcr", xmlNamespace );
-            ServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BalanceBefore is AmountAndDirection43 BalanceBeforeValue)
-        {
-            writer.WriteStartElement(null, "BalBfr", xmlNamespace );
-            BalanceBeforeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BalanceAfter is AmountAndDirection43 BalanceAfterValue)
-        {
-            writer.WriteStartElement(null, "BalAftr", xmlNamespace );
-            BalanceAfterValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardAccount13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

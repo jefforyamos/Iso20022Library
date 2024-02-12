@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References47Choice.SecuritiesSettlementTransactionIdentification))]
-[KnownType(typeof(References47Choice.PoolIdentification))]
-[KnownType(typeof(References47Choice.IntraPositionMovementIdentification))]
-[KnownType(typeof(References47Choice.AccountServicerTransactionIdentification))]
-[KnownType(typeof(References47Choice.OtherTransactionIdentification))]
-public abstract partial record References47Choice_ : IIsoXmlSerilizable<References47Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References47Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References47Choice.SecuritiesSettlementTransactionIdentification))]
+    [KnownType(typeof(References47Choice.PoolIdentification))]
+    [KnownType(typeof(References47Choice.IntraPositionMovementIdentification))]
+    [KnownType(typeof(References47Choice.AccountServicerTransactionIdentification))]
+    [KnownType(typeof(References47Choice.OtherTransactionIdentification))]
+    [IsoId("_JqlFATzbEeWeNtT0s2RbkQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 47 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References47Choice_
+    #else
+    public abstract partial class References47Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxId" => References47Choice.SecuritiesSettlementTransactionIdentification.Deserialize(elementWithPayload),
-             "PoolId" => References47Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntId" => References47Choice.IntraPositionMovementIdentification.Deserialize(elementWithPayload),
-             "AcctSvcrTxId" => References47Choice.AccountServicerTransactionIdentification.Deserialize(elementWithPayload),
-             "OthrTxId" => References47Choice.OtherTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References47Choice choice.")
-        };
     }
 }

@@ -7,62 +7,48 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of reference.
-/// </summary>
-[KnownType(typeof(References69Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
-[KnownType(typeof(References69Choice.IntraPositionMovementConfirmationIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesBalanceAccountingReportIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesBalanceCustodyReportIdentification))]
-[KnownType(typeof(References69Choice.IntraPositionMovementPostingReportIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesFinancingConfirmationIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesTransactionPendingReportIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesTransactionPostingReportIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
-[KnownType(typeof(References69Choice.PortfolioTransferNotificationIdentification))]
-[KnownType(typeof(References69Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
-[KnownType(typeof(References69Choice.OtherMessageIdentification))]
-[KnownType(typeof(References69Choice.TotalPortfolioValuationReportIdentification))]
-[KnownType(typeof(References69Choice.TripartyCollateralTransactionInstructionProcessingStatusAdviceIdentification))]
-[KnownType(typeof(References69Choice.TripartyCollateralStatusAdviceIdentification))]
-[KnownType(typeof(References69Choice.TripartyCollateralAndExposureReportIdentification))]
-public abstract partial record References69Choice_ : IIsoXmlSerilizable<References69Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of reference.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References69Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References69Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
+    [KnownType(typeof(References69Choice.IntraPositionMovementConfirmationIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesBalanceAccountingReportIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesBalanceCustodyReportIdentification))]
+    [KnownType(typeof(References69Choice.IntraPositionMovementPostingReportIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesFinancingConfirmationIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesTransactionPendingReportIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesTransactionPostingReportIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
+    [KnownType(typeof(References69Choice.PortfolioTransferNotificationIdentification))]
+    [KnownType(typeof(References69Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
+    [KnownType(typeof(References69Choice.OtherMessageIdentification))]
+    [KnownType(typeof(References69Choice.TotalPortfolioValuationReportIdentification))]
+    [KnownType(typeof(References69Choice.TripartyCollateralTransactionInstructionProcessingStatusAdviceIdentification))]
+    [KnownType(typeof(References69Choice.TripartyCollateralStatusAdviceIdentification))]
+    [KnownType(typeof(References69Choice.TripartyCollateralAndExposureReportIdentification))]
+    [IsoId("_zwc0sQzXEeuUZuaHWzkTew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 69 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References69Choice_
+    #else
+    public abstract partial class References69Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxConfId" => References69Choice.SecuritiesSettlementTransactionConfirmationIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntConfId" => References69Choice.IntraPositionMovementConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesBalAcctgRptId" => References69Choice.SecuritiesBalanceAccountingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesBalCtdyRptId" => References69Choice.SecuritiesBalanceCustodyReportIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntPstngRptId" => References69Choice.IntraPositionMovementPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesFincgConfId" => References69Choice.SecuritiesFinancingConfirmationIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPdgRptId" => References69Choice.SecuritiesTransactionPendingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesTxPstngRptId" => References69Choice.SecuritiesTransactionPostingReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtRptId" => References69Choice.SecuritiesSettlementTransactionAllegementReportIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxAllgmtNtfctnTxId" => References69Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification.Deserialize(elementWithPayload),
-             "PrtflTrfNtfctnId" => References69Choice.PortfolioTransferNotificationIdentification.Deserialize(elementWithPayload),
-             "SctiesSttlmTxGnrtnNtfctnId" => References69Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification.Deserialize(elementWithPayload),
-             "OthrMsgId" => References69Choice.OtherMessageIdentification.Deserialize(elementWithPayload),
-             "TtlPrtflValtnRptId" => References69Choice.TotalPortfolioValuationReportIdentification.Deserialize(elementWithPayload),
-             "TrptyCollTxInstrPrcgStsAdvcId" => References69Choice.TripartyCollateralTransactionInstructionProcessingStatusAdviceIdentification.Deserialize(elementWithPayload),
-             "TrptyCollStsAdvcId" => References69Choice.TripartyCollateralStatusAdviceIdentification.Deserialize(elementWithPayload),
-             "TrptyCollAndXpsrRptId" => References69Choice.TripartyCollateralAndExposureReportIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References69Choice choice.")
-        };
     }
 }

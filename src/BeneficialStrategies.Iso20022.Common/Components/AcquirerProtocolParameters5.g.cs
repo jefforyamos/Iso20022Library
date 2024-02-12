@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
+[IsoId("_C08NITY6EeOYzMAJn8nuYA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acquirer Protocol Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcquirerProtocolParameters5
-     : IIsoXmlSerilizable<AcquirerProtocolParameters5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AcquirerProtocolParameters5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AcquirerProtocolParameters5( FinancialCapture1Code reqFinancialCapture )
+    {
+        FinancialCapture = reqFinancialCapture;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Mode for the financial capture of the transaction by the acquirer.
     /// </summary>
+    [IsoId("_DEHRkTY6EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Capture")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialCapture1Code FinancialCapture { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialCapture1Code FinancialCapture { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialCapture1Code FinancialCapture { get; init; } 
+    #else
+    public FinancialCapture1Code FinancialCapture { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of the batch transfers.
     /// </summary>
+    [IsoId("_DEHRkzY6EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Batch Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeConfiguration4? BatchTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeConfiguration4? BatchTransfer { get; init; } 
+    #else
+    public ExchangeConfiguration4? BatchTransfer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters of completion exchanges.
     /// </summary>
+    [IsoId("_DEHRlTY6EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Completion Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeConfiguration5? CompletionExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExchangeConfiguration5? CompletionExchange { get; init; } 
+    #else
+    public ExchangeConfiguration5? CompletionExchange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of the cancellation exchanges.
     /// </summary>
+    [IsoId("_DEHRlzY6EeOYzMAJn8nuYA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Exchange")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationProcess1Code? CancellationExchange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationProcess1Code? CancellationExchange { get; init; } 
+    #else
+    public CancellationProcess1Code? CancellationExchange { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FinCaptr", xmlNamespace );
-        writer.WriteValue(FinancialCapture.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (BatchTransfer is ExchangeConfiguration4 BatchTransferValue)
-        {
-            writer.WriteStartElement(null, "BtchTrf", xmlNamespace );
-            BatchTransferValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CompletionExchange is ExchangeConfiguration5 CompletionExchangeValue)
-        {
-            writer.WriteStartElement(null, "CmpltnXchg", xmlNamespace );
-            CompletionExchangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CancellationExchange is CancellationProcess1Code CancellationExchangeValue)
-        {
-            writer.WriteStartElement(null, "CxlXchg", xmlNamespace );
-            writer.WriteValue(CancellationExchangeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static AcquirerProtocolParameters5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

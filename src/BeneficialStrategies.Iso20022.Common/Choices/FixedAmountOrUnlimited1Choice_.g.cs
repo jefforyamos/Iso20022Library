@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a fixed amount and an unlimited amount.
-/// </summary>
-[KnownType(typeof(FixedAmountOrUnlimited1Choice.Amount))]
-[KnownType(typeof(FixedAmountOrUnlimited1Choice.NotLimited))]
-public abstract partial record FixedAmountOrUnlimited1Choice_ : IIsoXmlSerilizable<FixedAmountOrUnlimited1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a fixed amount and an unlimited amount.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FixedAmountOrUnlimited1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FixedAmountOrUnlimited1Choice.Amount))]
+    [KnownType(typeof(FixedAmountOrUnlimited1Choice.NotLimited))]
+    [IsoId("_9m4ooEqAEeKw5sECfP82rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fixed Amount Or Unlimited 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FixedAmountOrUnlimited1Choice_
+    #else
+    public abstract partial class FixedAmountOrUnlimited1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Amt" => FixedAmountOrUnlimited1Choice.Amount.Deserialize(elementWithPayload),
-             "NotLtd" => FixedAmountOrUnlimited1Choice.NotLimited.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FixedAmountOrUnlimited1Choice choice.")
-        };
     }
 }

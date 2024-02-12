@@ -9,93 +9,180 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PartyReport1Choice;
-
-/// <summary>
-/// Creation or update of a party.
-/// </summary>
-public partial record Update : PartyReport1Choice_
-     , IIsoXmlSerilizable<Update>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PartyReport1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identifier of a record in a message used as part of error management and status advice messages.
+    /// Creation or update of a party.
     /// </summary>
-    public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
-    /// <summary>
-    /// Unique identification of the party.
-    /// </summary>
-    public required PartyIdentification136 Identification { get; init; } 
-    /// <summary>
-    /// Unique identification of the party, as previously defined.
-    /// </summary>
-    public PartyIdentification136? PreviousIdentification { get; init; } 
-    /// <summary>
-    /// Any other additional information about the party.
-    /// </summary>
-    public required PartyDetail1 Other { get; init; } 
-    /// <summary>
-    /// Information about decision taken by a relevant institution concerning the party.
-    /// </summary>
-    public StatusDetail1? Status { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _IffBgPH3Eeaz_YGUGLjP6A
-    /// <summary>
-    /// Period of time when the associated record is technically valid.
-    /// </summary>
-    public Period4Choice_? TechnicalValidityPeriod { get; init; } 
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_GejBEDbuEeeYhaZ6bvG1Xg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Update : PartyReport1Choice_
+    #else
+    public partial class Update : PartyReport1Choice_
+    #endif
     {
-        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Update instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Update( PartyIdentification136 reqIdentification,PartyDetail1 reqOther )
         {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
+            Other = reqOther;
         }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviousIdentification is PartyIdentification136 PreviousIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrvsId", xmlNamespace );
-            PreviousIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Othr", xmlNamespace );
-        Other.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize Status, multiplicity Unknown
-        if (TechnicalValidityPeriod is Period4Choice_ TechnicalValidityPeriodValue)
-        {
-            writer.WriteStartElement(null, "TechVldtyPrd", xmlNamespace );
-            TechnicalValidityPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Update Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identifier of a record in a message used as part of error management and status advice messages.
+        /// </summary>
+        [IsoId("_3j8_ITbvEeeYhaZ6bvG1Xg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Record Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TechnicalRecordIdentification { get; init; } 
+        #else
+        public System.String? TechnicalRecordIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification of the party.
+        /// </summary>
+        [IsoId("_7OkLIPmjEeak-cGuSQTPwg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyIdentification136 Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyIdentification136 Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification136 Identification { get; init; } 
+        #else
+        public PartyIdentification136 Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification of the party, as previously defined.
+        /// </summary>
+        [IsoId("_pemdMEn3EeexwKvkdw4OGA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Previous Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification136? PreviousIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification136? PreviousIdentification { get; init; } 
+        #else
+        public PartyIdentification136? PreviousIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Any other additional information about the party.
+        /// </summary>
+        [IsoId("_a3_3AvmkEeak-cGuSQTPwg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required PartyDetail1 Other { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public PartyDetail1 Other { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyDetail1 Other { get; init; } 
+        #else
+        public PartyDetail1 Other { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information about decision taken by a relevant institution concerning the party.
+        /// </summary>
+        [IsoId("_IffBgPH3Eeaz_YGUGLjP6A")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public StatusDetail1? Status { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _IffBgPH3Eeaz_YGUGLjP6A
+        
+        /// <summary>
+        /// Period of time when the associated record is technically valid.
+        /// </summary>
+        [IsoId("_BoOKUTb5EeeYhaZ6bvG1Xg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Technical Validity Period")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Period4Choice_? TechnicalValidityPeriod { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Period4Choice_? TechnicalValidityPeriod { get; init; } 
+        #else
+        public Period4Choice_? TechnicalValidityPeriod { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_5O9IYTbvEeeYhaZ6bvG1Xg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

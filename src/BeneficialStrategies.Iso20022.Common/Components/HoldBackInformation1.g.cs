@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about hold back.
 /// </summary>
+[IsoId("_SdsIetp-Ed-ak6NoX_4Aeg_1440751245")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Hold Back Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record HoldBackInformation1
-     : IIsoXmlSerilizable<HoldBackInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value of the redemption amount subject to hold back.
     /// </summary>
+    [IsoId("_SdsIe9p-Ed-ak6NoX_4Aeg_1820317430")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hold Back Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? HoldBackAmount { get; init; } 
+    #else
+    public System.Decimal? HoldBackAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the hold back amount is to be released.
     /// </summary>
+    [IsoId("_SdsIfNp-Ed-ak6NoX_4Aeg_-2030432920")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Hold Back Release Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? HoldBackReleaseDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? HoldBackReleaseDate { get; init; } 
+    #else
+    public System.DateOnly? HoldBackReleaseDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (HoldBackAmount is IsoActiveCurrencyAndAmount HoldBackAmountValue)
-        {
-            writer.WriteStartElement(null, "HldBckAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HoldBackAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (HoldBackReleaseDate is IsoISODate HoldBackReleaseDateValue)
-        {
-            writer.WriteStartElement(null, "HldBckRlsDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(HoldBackReleaseDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static HoldBackInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

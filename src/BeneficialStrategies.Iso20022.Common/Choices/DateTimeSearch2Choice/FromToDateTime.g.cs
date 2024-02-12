@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.DateTimeSearch2Choice;
-
-/// <summary>
-/// Particular time span specified between a start date and an end date.
-/// </summary>
-public partial record FromToDateTime : DateTimeSearch2Choice_
-     , IIsoXmlSerilizable<FromToDateTime>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.DateTimeSearch2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date and time at which the period starts.
+    /// Particular time span specified between a start date and an end date.
     /// </summary>
-    public required IsoISODateTime FromDateTime { get; init; } 
-    /// <summary>
-    /// Date and time at which the period ends.
-    /// </summary>
-    public required IsoISODateTime ToDateTime { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_7Gq0lX3sEeibM9CPDGCw0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From To Date Time")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record FromToDateTime : DateTimeSearch2Choice_
+    #else
+    public partial class FromToDateTime : DateTimeSearch2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "FrDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(FromDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ToDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ToDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-    }
-    public static new FromToDateTime Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a FromToDateTime instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public FromToDateTime( System.DateTime reqFromDateTime,System.DateTime reqToDateTime )
+        {
+            FromDateTime = reqFromDateTime;
+            ToDateTime = reqToDateTime;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date and time at which the period starts.
+        /// </summary>
+        [IsoId("_aeAZNPhvEeSLI7Du5Hk4iw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("From Date Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime FromDateTime { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime FromDateTime { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime FromDateTime { get; init; } 
+        #else
+        public System.DateTime FromDateTime { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date and time at which the period ends.
+        /// </summary>
+        [IsoId("_aeAZNfhvEeSLI7Du5Hk4iw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("To Date Time")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime ToDateTime { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime ToDateTime { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime ToDateTime { get; init; } 
+        #else
+        public System.DateTime ToDateTime { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

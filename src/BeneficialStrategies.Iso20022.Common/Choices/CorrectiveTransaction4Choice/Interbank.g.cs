@@ -9,97 +9,191 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction4Choice;
-
-/// <summary>
-/// Set of elements used to reference the details of the corrective interbank payment transaction.
-/// </summary>
-public partial record Interbank : CorrectiveTransaction4Choice_
-     , IIsoXmlSerilizable<Interbank>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Set of elements used to provide corrective information for the group header of the message under investigation.
+    /// Set of elements used to reference the details of the corrective interbank payment transaction.
     /// </summary>
-    public CorrectiveGroupInformation1? GroupHeader { get; init; } 
-    /// <summary>
-    /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.||Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
-    /// </summary>
-    public IsoMax35Text? InstructionIdentification { get; init; } 
-    /// <summary>
-    /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.||Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.||Usage: In case there are technical limitations to pass on multiple references, the end-to-end identification must be passed on throughout the entire end-to-end chain.
-    /// </summary>
-    public IsoMax35Text? EndToEndIdentification { get; init; } 
-    /// <summary>
-    /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain. |Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.
-    /// </summary>
-    public IsoMax35Text? TransactionIdentification { get; init; } 
-    /// <summary>
-    /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
-    /// </summary>
-    public IsoUUIDv4Identifier? UETR { get; init; } 
-    /// <summary>
-    /// Amount of money moved between the instructing agent and the instructed agent.
-    /// </summary>
-    public required IsoActiveOrHistoricCurrencyAndAmount InterbankSettlementAmount { get; init; } 
-    /// <summary>
-    /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
-    /// </summary>
-    public required IsoISODate InterbankSettlementDate { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_3rWFw3uSEeivKIBRHeTQRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Interbank : CorrectiveTransaction4Choice_
+    #else
+    public partial class Interbank : CorrectiveTransaction4Choice_
+    #endif
     {
-        if (GroupHeader is CorrectiveGroupInformation1 GroupHeaderValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Interbank instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Interbank( System.Decimal reqInterbankSettlementAmount,System.DateOnly reqInterbankSettlementDate )
         {
-            writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
-            GroupHeaderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            InterbankSettlementAmount = reqInterbankSettlementAmount;
+            InterbankSettlementDate = reqInterbankSettlementDate;
         }
-        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "InstrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
-        {
-            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (UETR is IsoUUIDv4Identifier UETRValue)
-        {
-            writer.WriteStartElement(null, "UETR", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InterbankSettlementAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-    }
-    public static new Interbank Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Set of elements used to provide corrective information for the group header of the message under investigation.
+        /// </summary>
+        [IsoId("_5s-mU3uSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Group Header")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CorrectiveGroupInformation1? GroupHeader { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CorrectiveGroupInformation1? GroupHeader { get; init; } 
+        #else
+        public CorrectiveGroupInformation1? GroupHeader { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.||Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
+        /// </summary>
+        [IsoId("_5s-mVXuSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Instruction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? InstructionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? InstructionIdentification { get; init; } 
+        #else
+        public System.String? InstructionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.||Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.||Usage: In case there are technical limitations to pass on multiple references, the end-to-end identification must be passed on throughout the entire end-to-end chain.
+        /// </summary>
+        [IsoId("_5s_NYXuSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("End To End Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? EndToEndIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EndToEndIdentification { get; init; } 
+        #else
+        public System.String? EndToEndIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain. |Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.
+        /// </summary>
+        [IsoId("_5s_NY3uSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? TransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? TransactionIdentification { get; init; } 
+        #else
+        public System.String? TransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
+        /// </summary>
+        [IsoId("_6j0uwXuSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("UETR")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoUUIDv4Identifier? UETR { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? UETR { get; init; } 
+        #else
+        public System.String? UETR { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of money moved between the instructing agent and the instructed agent.
+        /// </summary>
+        [IsoId("_5s_NZXuSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Interbank Settlement Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveOrHistoricCurrencyAndAmount InterbankSettlementAmount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal InterbankSettlementAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal InterbankSettlementAmount { get; init; } 
+        #else
+        public System.Decimal InterbankSettlementAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
+        /// </summary>
+        [IsoId("_5s_NZ3uSEeivKIBRHeTQRQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Interbank Settlement Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate InterbankSettlementDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly InterbankSettlementDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly InterbankSettlementDate { get; init; } 
+        #else
+        public System.DateOnly InterbankSettlementDate { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

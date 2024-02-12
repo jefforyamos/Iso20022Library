@@ -9,67 +9,128 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choice;
-
-/// <summary>
-/// Detailed statistics per counterparty.
-/// </summary>
-public partial record Report : StatisticsPerCounterparty15Choice_
-     , IIsoXmlSerilizable<Report>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reference date for statistics collection.
+    /// Detailed statistics per counterparty.
     /// </summary>
-    public required IsoISODate ReferenceDate { get; init; } 
-    /// <summary>
-    /// Different categories of statuses for a derivative.
-    /// </summary>
-    public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
-    /// <summary>
-    /// Number of all reports per status on derivatives submitted for reconciliation.
-    /// </summary>
-    public IsoNumber? TotalNumberOfTransactions { get; init; } 
-    /// <summary>
-    /// Details of derivatives submitted for reconciliation per counterparty pair.
-    /// </summary>
-    public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_cFghI1ovEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Report : StatisticsPerCounterparty15Choice_
+    #else
+    public partial class Report : StatisticsPerCounterparty15Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RefDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RcncltnCtgrs", xmlNamespace );
-        ReconciliationCategories.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TotalNumberOfTransactions is IsoNumber TotalNumberOfTransactionsValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Report instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Report( System.DateOnly reqReferenceDate,ReportingRequirement2Choice_ reqReconciliationCategories )
         {
-            writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTransactionsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
+            ReferenceDate = reqReferenceDate;
+            ReconciliationCategories = reqReconciliationCategories;
         }
-        if (TransactionDetails is ReconciliationCounterpartyPairStatistics6 TransactionDetailsValue)
-        {
-            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
-            TransactionDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Report Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reference date for statistics collection.
+        /// </summary>
+        [IsoId("_cHFOcVovEe23K4GXSpBSeg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reference Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate ReferenceDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly ReferenceDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly ReferenceDate { get; init; } 
+        #else
+        public System.DateOnly ReferenceDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Different categories of statuses for a derivative.
+        /// </summary>
+        [IsoId("_cHFOc1ovEe23K4GXSpBSeg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reconciliation Categories")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
+        #else
+        public ReportingRequirement2Choice_ ReconciliationCategories { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Number of all reports per status on derivatives submitted for reconciliation.
+        /// </summary>
+        [IsoId("_cHFOdVovEe23K4GXSpBSeg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Total Number Of Transactions")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoNumber? TotalNumberOfTransactions { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64? TotalNumberOfTransactions { get; init; } 
+        #else
+        public System.UInt64? TotalNumberOfTransactions { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details of derivatives submitted for reconciliation per counterparty pair.
+        /// </summary>
+        [IsoId("_cHFOd1ovEe23K4GXSpBSeg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init; } 
+        #else
+        public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

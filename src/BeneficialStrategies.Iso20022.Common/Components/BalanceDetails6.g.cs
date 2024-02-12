@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance related details for a portfolio.
 /// </summary>
+[IsoId("_m91ywPNBEeCuA5Tr22BnwA_934037418")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Balance Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BalanceDetails6
-     : IIsoXmlSerilizable<BalanceDetails6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BalanceDetails6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BalanceDetails6( AmountAndDirection31 reqAmount )
+    {
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Category of the financial asset balance type.
     /// </summary>
+    [IsoId("_m91ywfNBEeCuA5Tr22BnwA_889825506")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialAssetTypeCategory1Code? Category { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialAssetTypeCategory1Code? Category { get; init; } 
+    #else
+    public FinancialAssetTypeCategory1Code? Category { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance type.
     /// </summary>
+    [IsoId("_m91ywvNBEeCuA5Tr22BnwA_1249881108")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceType7Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceType7Choice_? Type { get; init; } 
+    #else
+    public BalanceType7Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unrealised gain or loss.
     /// </summary>
+    [IsoId("_m91yw_NBEeCuA5Tr22BnwA_1569419041")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unrealised")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Unrealised1Code? Unrealised { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Unrealised1Code? Unrealised { get; init; } 
+    #else
+    public Unrealised1Code? Unrealised { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance amount.
     /// </summary>
+    [IsoId("_m91yxPNBEeCuA5Tr22BnwA_-1195789251")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection31 Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection31 Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection31 Amount { get; init; } 
+    #else
+    public AmountAndDirection31 Amount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Category is FinancialAssetTypeCategory1Code CategoryValue)
-        {
-            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
-            writer.WriteValue(CategoryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Type is BalanceType7Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Unrealised is Unrealised1Code UnrealisedValue)
-        {
-            writer.WriteStartElement(null, "Urlsd", xmlNamespace );
-            writer.WriteValue(UnrealisedValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        Amount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static BalanceDetails6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

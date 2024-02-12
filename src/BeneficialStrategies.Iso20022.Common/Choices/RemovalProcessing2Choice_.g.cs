@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the removal processing change requested and the reason.
-/// </summary>
-[KnownType(typeof(RemovalProcessing2Choice.FinancialInstrumentIdentification))]
-[KnownType(typeof(RemovalProcessing2Choice.IndexIdentification))]
-[KnownType(typeof(RemovalProcessing2Choice.IssuerCountry))]
-public abstract partial record RemovalProcessing2Choice_ : IIsoXmlSerilizable<RemovalProcessing2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the removal processing change requested and the reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RemovalProcessing2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RemovalProcessing2Choice.FinancialInstrumentIdentification))]
+    [KnownType(typeof(RemovalProcessing2Choice.IndexIdentification))]
+    [KnownType(typeof(RemovalProcessing2Choice.IssuerCountry))]
+    [IsoId("__MbGwRIoEeyZaPkaPAzTvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Removal Processing 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RemovalProcessing2Choice_
+    #else
+    public abstract partial class RemovalProcessing2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FinInstrmId" => RemovalProcessing2Choice.FinancialInstrumentIdentification.Deserialize(elementWithPayload),
-             "IndxId" => RemovalProcessing2Choice.IndexIdentification.Deserialize(elementWithPayload),
-             "IssrCtry" => RemovalProcessing2Choice.IssuerCountry.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RemovalProcessing2Choice choice.")
-        };
     }
 }

@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of an intention to pay based on purchase orders or commercial invoice.
 /// </summary>
+[IsoId("_9-CfYRVaEeOCqpkCrPgk4g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intent To Pay")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntentToPay2
-     : IIsoXmlSerilizable<IntentToPay2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntentToPay2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntentToPay2( BreakDown1Choice_ reqBreakdown,System.DateOnly reqExpectedPaymentDate )
+    {
+        Breakdown = reqBreakdown;
+        ExpectedPaymentDate = reqExpectedPaymentDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies if breakdown is by purchase order or commercial invoice.
     /// </summary>
+    [IsoId("_Hn3ngBrZEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Breakdown")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BreakDown1Choice_ Breakdown { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BreakDown1Choice_ Breakdown { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BreakDown1Choice_ Breakdown { get; init; } 
+    #else
+    public BreakDown1Choice_ Breakdown { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the payment would be effected.
     /// </summary>
+    [IsoId("_-X0RVxVaEeOCqpkCrPgk4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpectedPaymentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ExpectedPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ExpectedPaymentDate { get; init; } 
+    #else
+    public System.DateOnly ExpectedPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the beneficiary's account information.
     /// </summary>
+    [IsoId("_-X0RWRVaEeOCqpkCrPgk4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Terms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTerms3? SettlementTerms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTerms3? SettlementTerms { get; init; } 
+    #else
+    public SettlementTerms3? SettlementTerms { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Brkdwn", xmlNamespace );
-        Breakdown.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpctdPmtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedPaymentDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (SettlementTerms is SettlementTerms3 SettlementTermsValue)
-        {
-            writer.WriteStartElement(null, "SttlmTerms", xmlNamespace );
-            SettlementTermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static IntentToPay2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

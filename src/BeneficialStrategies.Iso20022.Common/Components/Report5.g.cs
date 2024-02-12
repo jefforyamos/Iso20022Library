@@ -7,52 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the settlement obligation report.
 /// </summary>
+[IsoId("_7jLUES9dEeS94oXWDaBauA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Report5
-     : IIsoXmlSerilizable<Report5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the identification for the non-clearing member. This is mandatory if the clearing member identification equals a general clearing member.
     /// </summary>
+    [IsoId("_71U0AS9dEeS94oXWDaBauA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Clearing Member")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
+    #else
+    public PartyIdentificationAndAccount31? NonClearingMember { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the settlement obligation details.
     /// </summary>
+    [IsoId("_71U0Ay9dEeS94oXWDaBauA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Obligation Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public SettlementObligation8? SettlementObligationDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _71U0Ay9dEeS94oXWDaBauA
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
-        {
-            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
-            NonClearingMemberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize SettlementObligationDetails, multiplicity Unknown
-    }
-    public static Report5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

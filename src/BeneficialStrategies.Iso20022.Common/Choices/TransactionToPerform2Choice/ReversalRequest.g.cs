@@ -9,70 +9,125 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice;
-
-/// <summary>
-/// Content of the Reversal Request message.
-/// </summary>
-public partial record ReversalRequest : TransactionToPerform2Choice_
-     , IIsoXmlSerilizable<ReversalRequest>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Original transaction to reverse.
+    /// Content of the Reversal Request message.
     /// </summary>
-    public CardPaymentTransaction100? OriginalPaymentTransaction { get; init; } 
-    /// <summary>
-    /// Reason for this reversal.
-    /// </summary>
-    public required ReversalReason1Code ReversalReason { get; init; } 
-    /// <summary>
-    /// Amount to reverse (total or partial).
-    /// </summary>
-    public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
-    /// <summary>
-    /// Specific Customer Order linked with the reversal.
-    /// </summary>
-    public CustomerOrder1? CustomerOrder { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_ro9DxQxrEeqdx6buGpCCQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reversal Request")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ReversalRequest : TransactionToPerform2Choice_
+    #else
+    public partial class ReversalRequest : TransactionToPerform2Choice_
+    #endif
     {
-        if (OriginalPaymentTransaction is CardPaymentTransaction100 OriginalPaymentTransactionValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ReversalRequest instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ReversalRequest( ReversalReason1Code reqReversalReason )
         {
-            writer.WriteStartElement(null, "OrgnlPmtTx", xmlNamespace );
-            OriginalPaymentTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            ReversalReason = reqReversalReason;
         }
-        writer.WriteStartElement(null, "RvslRsn", xmlNamespace );
-        writer.WriteValue(ReversalReason.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ReversedAmount is IsoImpliedCurrencyAndAmount ReversedAmountValue)
-        {
-            writer.WriteStartElement(null, "RvsdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
-        {
-            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
-            CustomerOrderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new ReversalRequest Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Original transaction to reverse.
+        /// </summary>
+        [IsoId("_SlixIQ1REeqjM-rxn3HuXQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Original Payment Transaction")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CardPaymentTransaction100? OriginalPaymentTransaction { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentTransaction100? OriginalPaymentTransaction { get; init; } 
+        #else
+        public CardPaymentTransaction100? OriginalPaymentTransaction { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reason for this reversal.
+        /// </summary>
+        [IsoId("_SlixIw1REeqjM-rxn3HuXQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reversal Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ReversalReason1Code ReversalReason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ReversalReason1Code ReversalReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReversalReason1Code ReversalReason { get; init; } 
+        #else
+        public ReversalReason1Code ReversalReason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount to reverse (total or partial).
+        /// </summary>
+        [IsoId("_SlixJQ1REeqjM-rxn3HuXQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reversed Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? ReversedAmount { get; init; } 
+        #else
+        public System.Decimal? ReversedAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specific Customer Order linked with the reversal.
+        /// </summary>
+        [IsoId("_SlixJw1REeqjM-rxn3HuXQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Customer Order")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CustomerOrder1? CustomerOrder { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CustomerOrder1? CustomerOrder { get; init; } 
+        #else
+        public CustomerOrder1? CustomerOrder { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

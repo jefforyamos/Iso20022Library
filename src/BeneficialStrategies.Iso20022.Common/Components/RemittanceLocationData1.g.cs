@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional details on the remittance advice.
 /// </summary>
+[IsoId("_-LRmB24-EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Remittance Location Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RemittanceLocationData1
-     : IIsoXmlSerilizable<RemittanceLocationData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RemittanceLocationData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RemittanceLocationData1( RemittanceLocationMethod2Code reqMethod )
+    {
+        Method = reqMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Method used to deliver the remittance advice information.
     /// </summary>
+    [IsoId("_-VaZcW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RemittanceLocationMethod2Code Method { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RemittanceLocationMethod2Code Method { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RemittanceLocationMethod2Code Method { get; init; } 
+    #else
+    public RemittanceLocationMethod2Code Method { get; set; } 
+    #endif
+    
     /// <summary>
     /// Electronic address to which an agent is to send the remittance information.
     /// </summary>
+    [IsoId("_-VaZc24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? ElectronicAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ElectronicAddress { get; init; } 
+    #else
+    public System.String? ElectronicAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Postal address to which an agent is to send the remittance information.
     /// </summary>
+    [IsoId("_-VaZdW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Postal Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress16? PostalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress16? PostalAddress { get; init; } 
+    #else
+    public NameAndAddress16? PostalAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Mtd", xmlNamespace );
-        writer.WriteValue(Method.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ElectronicAddress is IsoMax2048Text ElectronicAddressValue)
-        {
-            writer.WriteStartElement(null, "ElctrncAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2048Text(ElectronicAddressValue)); // data type Max2048Text System.String
-            writer.WriteEndElement();
-        }
-        if (PostalAddress is NameAndAddress16 PostalAddressValue)
-        {
-            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-            PostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static RemittanceLocationData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

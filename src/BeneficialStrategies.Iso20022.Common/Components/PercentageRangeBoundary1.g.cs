@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit for a percentage rate range.
 /// </summary>
+[IsoId("_8Gekh6MgEeCJ6YNENx4h-w_1560024598")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Percentage Range Boundary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PercentageRangeBoundary1
-     : IIsoXmlSerilizable<PercentageRangeBoundary1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PercentageRangeBoundary1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PercentageRangeBoundary1( System.Decimal reqBoundaryRate,System.String reqIncluded )
+    {
+        BoundaryRate = reqBoundaryRate;
+        Included = reqIncluded;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Percentage rate of the range limit.
     /// </summary>
+    [IsoId("_8GekiKMgEeCJ6YNENx4h-w_1727044493")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Boundary Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate BoundaryRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal BoundaryRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal BoundaryRate { get; init; } 
+    #else
+    public System.Decimal BoundaryRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the boundary percentage rate is included in the range of percentage rates.
     /// </summary>
+    [IsoId("_8GekiaMgEeCJ6YNENx4h-w_-1807157650")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Included")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Included { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Included { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Included { get; init; } 
+    #else
+    public System.String Included { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BdryRate", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoPercentageRate(BoundaryRate)); // data type PercentageRate System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Incl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static PercentageRangeBoundary1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

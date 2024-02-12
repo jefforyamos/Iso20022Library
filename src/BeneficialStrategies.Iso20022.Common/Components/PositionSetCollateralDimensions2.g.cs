@@ -7,126 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for collateral position sets and currency collateral position sets reports. 
 /// </summary>
+[IsoId("_83N69eNfEeiTop2HXWk15w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set Collateral Dimensions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSetCollateralDimensions2
-     : IIsoXmlSerilizable<PositionSetCollateralDimensions2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [IsoId("_9BppUeNfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
+    #else
+    public TradeCounterpartyReport9? CounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information indicating the type of collateral agreement existing between counterparties.
     /// </summary>
+    [IsoId("_9BppU-NfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralisationType1Code? Collateralisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralisationType1Code? Collateralisation { get; init; } 
+    #else
+    public CollateralisationType1Code? Collateralisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// A unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
     /// </summary>
+    [IsoId("_9BppVeNfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Portfolio { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Portfolio { get; init; } 
+    #else
+    public System.String? Portfolio { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the initial margin posted by the reporting counterparty to the other counterparty.
     /// </summary>
+    [IsoId("_9BppV-NfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin Posted Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? InitialMarginPostedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? InitialMarginPostedCurrency { get; init; } 
+    #else
+    public string? InitialMarginPostedCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the variation margin posted, including cash settled, by the reporting counterparty to the other counterparty.
     /// </summary>
+    [IsoId("_9BppWeNfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Posted Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? VariationMarginPostedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? VariationMarginPostedCurrency { get; init; } 
+    #else
+    public string? VariationMarginPostedCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the initial margin received by the reporting counterparty from the other counterparty.
     /// </summary>
+    [IsoId("_9BppW-NfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin Received Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? InitialMarginReceivedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? InitialMarginReceivedCurrency { get; init; } 
+    #else
+    public string? InitialMarginReceivedCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the variation margin received, including cash settled, by the reporting counterparty from the other counterparty.
     /// </summary>
+    [IsoId("_9BppXeNfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Received Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? VariationMarginReceivedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? VariationMarginReceivedCurrency { get; init; } 
+    #else
+    public string? VariationMarginReceivedCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of collateral posted in excess of the required collateral.
     /// </summary>
+    [IsoId("_9BppX-NfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Excess Collateral Posted Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? ExcessCollateralPostedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ExcessCollateralPostedCurrency { get; init; } 
+    #else
+    public string? ExcessCollateralPostedCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of collateral received in excess of the required collateral.
     /// </summary>
+    [IsoId("_9BppYeNfEeiTop2HXWk15w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Excess Collateral Received Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? ExcessCollateralReceivedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ExcessCollateralReceivedCurrency { get; init; } 
+    #else
+    public string? ExcessCollateralReceivedCurrency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CounterpartyIdentification is TradeCounterpartyReport9 CounterpartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Collateralisation is CollateralisationType1Code CollateralisationValue)
-        {
-            writer.WriteStartElement(null, "Collstn", xmlNamespace );
-            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Portfolio is IsoMax52Text PortfolioValue)
-        {
-            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(PortfolioValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (InitialMarginPostedCurrency is ActiveOrHistoricCurrencyCode InitialMarginPostedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "InitlMrgnPstdCcy", xmlNamespace );
-            writer.WriteValue(InitialMarginPostedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (VariationMarginPostedCurrency is ActiveOrHistoricCurrencyCode VariationMarginPostedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "VartnMrgnPstdCcy", xmlNamespace );
-            writer.WriteValue(VariationMarginPostedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (InitialMarginReceivedCurrency is ActiveOrHistoricCurrencyCode InitialMarginReceivedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "InitlMrgnRcvdCcy", xmlNamespace );
-            writer.WriteValue(InitialMarginReceivedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (VariationMarginReceivedCurrency is ActiveOrHistoricCurrencyCode VariationMarginReceivedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "VartnMrgnRcvdCcy", xmlNamespace );
-            writer.WriteValue(VariationMarginReceivedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExcessCollateralPostedCurrency is ActiveOrHistoricCurrencyCode ExcessCollateralPostedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "XcssCollPstdCcy", xmlNamespace );
-            writer.WriteValue(ExcessCollateralPostedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExcessCollateralReceivedCurrency is ActiveOrHistoricCurrencyCode ExcessCollateralReceivedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "XcssCollRcvdCcy", xmlNamespace );
-            writer.WriteValue(ExcessCollateralReceivedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static PositionSetCollateralDimensions2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

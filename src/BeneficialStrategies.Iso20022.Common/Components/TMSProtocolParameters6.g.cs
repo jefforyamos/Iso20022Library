@@ -7,150 +7,311 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
 /// </summary>
+[IsoId("_oSdigVFMEeyApZmLzm74zA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("TMS Protocol Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TMSProtocolParameters6
-     : IIsoXmlSerilizable<TMSProtocolParameters6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TMSProtocolParameters6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TMSProtocolParameters6( TerminalManagementAction3Code reqActionType,GenericIdentification176 reqTerminalManagerIdentification,System.String reqVersion,System.String reqHostIdentification )
+    {
+        ActionType = reqActionType;
+        TerminalManagerIdentification = reqTerminalManagerIdentification;
+        Version = reqVersion;
+        HostIdentification = reqHostIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [IsoId("_oYyM8VFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TerminalManagementAction3Code ActionType { get; init; } 
+    #else
+    public TerminalManagementAction3Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager.
     /// </summary>
+    [IsoId("_oYyM81FMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Manager Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    #else
+    public GenericIdentification176 TerminalManagerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Protocol version to use when using these parameters.
     /// </summary>
+    [IsoId("_oYyM9VFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protocol Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ProtocolVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProtocolVersion { get; init; } 
+    #else
+    public System.String? ProtocolVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maintenance services provided by the terminal manager.
     /// </summary>
+    [IsoId("_oYyM91FMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maintenance Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public DataSetCategory10Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _oYyM91FMEeyApZmLzm74zA
+    
     /// <summary>
     /// Version of the TMS protocol parameters.
     /// </summary>
+    [IsoId("_oYyM-VFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
+    [IsoId("_oYyM-1FMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Application Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ApplicationIdentification { get; init; } 
+    #else
+    public System.String? ApplicationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the terminal manager host.
     /// </summary>
+    [IsoId("_oYyM_VFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Host Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text HostIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String HostIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String HostIdentification { get; init; } 
+    #else
+    public System.String HostIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// New identification of the POI for the terminal manager.
     /// </summary>
+    [IsoId("_oYyM_1FMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? POIIdentification { get; init; } 
+    #else
+    public System.String? POIIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// New identification of the initiating party to set in TMS messages with this terminal manager.
     /// </summary>
+    [IsoId("_oYyNAVFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initiating Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InitiatingPartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InitiatingPartyIdentification { get; init; } 
+    #else
+    public System.String? InitiatingPartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// New identification of the recipient party to set in TMS messages with this terminal manager.
     /// </summary>
+    [IsoId("_oYyNA1FMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RecipientPartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RecipientPartyIdentification { get; init; } 
+    #else
+    public System.String? RecipientPartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration parameters are exchanged per file transfer protocol rather than per message.
     /// </summary>
+    [IsoId("_oYyNBVFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("File Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FileTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FileTransfer { get; init; } 
+    #else
+    public System.String? FileTransfer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
+    [IsoId("_oYyNB1FMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageItemCondition1? MessageItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageItemCondition1? MessageItem { get; init; } 
+    #else
+    public MessageItemCondition1? MessageItem { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
+    [IsoId("_ljVCwFFMEeyApZmLzm74zA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Externally Type Supported")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? ExternallyTypeSupported { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExternallyTypeSupported { get; init; } 
+    #else
+    public System.String? ExternallyTypeSupported { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
-        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ProtocolVersion is IsoMax8Text ProtocolVersionValue)
-        {
-            writer.WriteStartElement(null, "PrtcolVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8Text(ProtocolVersionValue)); // data type Max8Text System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize MaintenanceService, multiplicity Unknown
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        if (ApplicationIdentification is IsoMax35Text ApplicationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ApplId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "HstId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (POIIdentification is IsoMax35Text POIIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InitiatingPartyIdentification is IsoMax35Text InitiatingPartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "InitgPtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InitiatingPartyIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RecipientPartyIdentification is IsoMax35Text RecipientPartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcptPtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RecipientPartyIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FileTransfer is IsoTrueFalseIndicator FileTransferValue)
-        {
-            writer.WriteStartElement(null, "FileTrf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FileTransferValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MessageItem is MessageItemCondition1 MessageItemValue)
-        {
-            writer.WriteStartElement(null, "MsgItm", xmlNamespace );
-            MessageItemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExternallyTypeSupported is IsoMax1025Text ExternallyTypeSupportedValue)
-        {
-            writer.WriteStartElement(null, "XtrnlyTpSpprtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ExternallyTypeSupportedValue)); // data type Max1025Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TMSProtocolParameters6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

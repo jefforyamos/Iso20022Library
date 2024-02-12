@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[IsoId("_QnOWE9p-Ed-ak6NoX_4Aeg_-1322304897")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Reference17
-     : IIsoXmlSerilizable<Reference17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Reference17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Reference17( System.String reqCollateralSubstitutionRequestIdentification )
+    {
+        CollateralSubstitutionRequestIdentification = reqCollateralSubstitutionRequestIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the collateral substitution request.
     /// </summary>
+    [IsoId("_QnOWFNp-Ed-ak6NoX_4Aeg_-1310311408")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Substitution Request Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CollateralSubstitutionRequestIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CollateralSubstitutionRequestIdentification { get; init; } 
+    #else
+    public System.String CollateralSubstitutionRequestIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the collateral substitution response.
     /// </summary>
+    [IsoId("_QnOWFdp-Ed-ak6NoX_4Aeg_2000246740")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Substitution Response Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CollateralSubstitutionResponseIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralSubstitutionResponseIdentification { get; init; } 
+    #else
+    public System.String? CollateralSubstitutionResponseIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CollSbstitnReqId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralSubstitutionRequestIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CollateralSubstitutionResponseIdentification is IsoMax35Text CollateralSubstitutionResponseIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CollSbstitnRspnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralSubstitutionResponseIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Reference17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

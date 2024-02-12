@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of price type.
-/// </summary>
-[KnownType(typeof(PriceType1Choice.Market))]
-[KnownType(typeof(PriceType1Choice.Indicative))]
-public abstract partial record PriceType1Choice_ : IIsoXmlSerilizable<PriceType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of price type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriceType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PriceType1Choice.Market))]
+    [KnownType(typeof(PriceType1Choice.Indicative))]
+    [IsoId("_RdnLhdp-Ed-ak6NoX_4Aeg_549795611")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriceType1Choice_
+    #else
+    public abstract partial class PriceType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Mkt" => PriceType1Choice.Market.Deserialize(elementWithPayload),
-             "Indctv" => PriceType1Choice.Indicative.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriceType1Choice choice.")
-        };
     }
 }

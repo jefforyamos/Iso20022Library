@@ -7,130 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Withdrawal transaction for which the completion is sent.
 /// </summary>
+[IsoId("_BgABgYqoEeS4a4abTJTSSw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransaction5
-     : IIsoXmlSerilizable<ATMTransaction5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMTransaction5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMTransaction5( TransactionIdentifier1 reqTransactionIdentification,ATMTransactionStatus1Code reqTransactionStatus )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        TransactionStatus = reqTransactionStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [IsoId("_BsEHkYqoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of the financial transaction for the customer.
     /// </summary>
+    [IsoId("_BsEHk4qoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransactionStatus1Code TransactionStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMTransactionStatus1Code TransactionStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMTransactionStatus1Code TransactionStatus { get; init; } 
+    #else
+    public ATMTransactionStatus1Code TransactionStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
+    [IsoId("_BsEHnYqoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incident")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FailureReason4Code? Incident { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FailureReason4Code? Incident { get; init; } 
+    #else
+    public FailureReason4Code? Incident { get; set; } 
+    #endif
+    
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
+    [IsoId("_AvPyoCvNEeW-qbryg71zJw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incident Detail")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? IncidentDetail { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IncidentDetail { get; init; } 
+    #else
+    public System.String? IncidentDetail { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [IsoId("_BsEHn4qoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationIdentification { get; init; } 
+    #else
+    public System.String? ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// True if the customer has requested a receipt.
     /// </summary>
+    [IsoId("_BsEHp4qoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Receipt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RequestedReceipt { get; init; } 
+    #else
+    public System.String? RequestedReceipt { get; set; } 
+    #endif
+    
     /// <summary>
     /// True if a receipt has been printed and presented to the customer.
     /// </summary>
+    [IsoId("_BsEHqYqoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receipt Printed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReceiptPrinted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiptPrinted { get; init; } 
+    #else
+    public System.String? ReceiptPrinted { get; set; } 
+    #endif
+    
     /// <summary>
     /// True when the card was captured by the ATM.
     /// </summary>
+    [IsoId("_BsEHq4qoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Captured Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CapturedCard { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CapturedCard { get; init; } 
+    #else
+    public System.String? CapturedCard { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of the withdrawal authorisation.
     /// </summary>
+    [IsoId("_BsEHsYqoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorisation Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthorisationResult9? AuthorisationResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthorisationResult9? AuthorisationResult { get; init; } 
+    #else
+    public AuthorisationResult9? AuthorisationResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [IsoId("_BsEHs4qoEeS4a4abTJTSSw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ICC Related Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? ICCRelatedData { get; init; } 
+    #else
+    public System.Byte[]? ICCRelatedData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxSts", xmlNamespace );
-        writer.WriteValue(TransactionStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Incident is FailureReason4Code IncidentValue)
-        {
-            writer.WriteStartElement(null, "Incdnt", xmlNamespace );
-            writer.WriteValue(IncidentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (IncidentDetail is IsoMax70Text IncidentDetailValue)
-        {
-            writer.WriteStartElement(null, "IncdntDtl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(IncidentDetailValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RequestedReceipt is IsoTrueFalseIndicator RequestedReceiptValue)
-        {
-            writer.WriteStartElement(null, "ReqdRct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequestedReceiptValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ReceiptPrinted is IsoTrueFalseIndicator ReceiptPrintedValue)
-        {
-            writer.WriteStartElement(null, "RctPrtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReceiptPrintedValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CapturedCard is IsoTrueFalseIndicator CapturedCardValue)
-        {
-            writer.WriteStartElement(null, "CaptrdCard", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CapturedCardValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AuthorisationResult is AuthorisationResult9 AuthorisationResultValue)
-        {
-            writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
-            AuthorisationResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
-        {
-            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransaction5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

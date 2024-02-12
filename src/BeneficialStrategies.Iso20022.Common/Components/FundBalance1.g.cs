@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balances of units and cash derived from investment fund orders.
 /// </summary>
+[IsoId("_zGdM0QdEEeSyIPzOZ6VzBQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundBalance1
-     : IIsoXmlSerilizable<FundBalance1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total number of units from orders placed in units.
     /// </summary>
+    [IsoId("_DmM8wAdFEeSyIPzOZ6VzBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Units From Unit Orders")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsFromUnitOrders { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? TotalUnitsFromUnitOrders { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? TotalUnitsFromUnitOrders { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of units derived from orders placed in cash.
     /// </summary>
+    [IsoId("_UwVtgAdFEeSyIPzOZ6VzBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Units From Cash Orders")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsFromCashOrders { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? TotalUnitsFromCashOrders { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? TotalUnitsFromCashOrders { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of cash derived from orders placed as units.
     /// </summary>
+    [IsoId("_MLMcoAdFEeSyIPzOZ6VzBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Cash From Unit Orders")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalCashFromUnitOrders { get; init; } 
+    #else
+    public System.Decimal? TotalCashFromUnitOrders { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of cash from orders placed in cash.
     /// </summary>
+    [IsoId("_RgyoUAdFEeSyIPzOZ6VzBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Cash From Cash Orders")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalCashFromCashOrders { get; init; } 
+    #else
+    public System.Decimal? TotalCashFromCashOrders { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalUnitsFromUnitOrders is FinancialInstrumentQuantity1 TotalUnitsFromUnitOrdersValue)
-        {
-            writer.WriteStartElement(null, "TtlUnitsFrUnitOrdrs", xmlNamespace );
-            TotalUnitsFromUnitOrdersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalUnitsFromCashOrders is FinancialInstrumentQuantity1 TotalUnitsFromCashOrdersValue)
-        {
-            writer.WriteStartElement(null, "TtlUnitsFrCshOrdrs", xmlNamespace );
-            TotalUnitsFromCashOrdersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalCashFromUnitOrders is IsoActiveOrHistoricCurrencyAndAmount TotalCashFromUnitOrdersValue)
-        {
-            writer.WriteStartElement(null, "TtlCshFrUnitOrdrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCashFromUnitOrdersValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalCashFromCashOrders is IsoActiveOrHistoricCurrencyAndAmount TotalCashFromCashOrdersValue)
-        {
-            writer.WriteStartElement(null, "TtlCshFrCshOrdrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCashFromCashOrdersValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static FundBalance1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

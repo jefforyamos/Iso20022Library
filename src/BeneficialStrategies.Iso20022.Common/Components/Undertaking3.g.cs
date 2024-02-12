@@ -7,301 +7,604 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
+[IsoId("_90kuMnltEeG7BsjMvd1mEw_-642295687")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Undertaking3
-     : IIsoXmlSerilizable<Undertaking3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Undertaking3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Undertaking3( System.String reqIdentification,UndertakingIssuanceName1Code reqName,IssuanceType1Code reqIssuanceType,PartyIdentification43 reqIssuer,System.DateOnly reqDateOfIssuance,UndertakingAmount1 reqUndertakingAmount,ExpiryDetails1 reqExpiryDetails,GovernanceRules1 reqGovernanceRulesAndLaw )
+    {
+        Identification = reqIdentification;
+        Name = reqName;
+        IssuanceType = reqIssuanceType;
+        Issuer = reqIssuer;
+        DateOfIssuance = reqDateOfIssuance;
+        UndertakingAmount = reqUndertakingAmount;
+        ExpiryDetails = reqExpiryDetails;
+        GovernanceRulesAndLaw = reqGovernanceRulesAndLaw;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the issuer to the undertaking, for example the guarantee or standby number.
     /// </summary>
+    [IsoId("_90kuM3ltEeG7BsjMvd1mEw_1282240890")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of undertaking such as, demand guarantee, standby letter of credit.
     /// </summary>
+    [IsoId("_90kuNHltEeG7BsjMvd1mEw_-1574689593")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingIssuanceName1Code Name { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingIssuanceName1Code Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingIssuanceName1Code Name { get; init; } 
+    #else
+    public UndertakingIssuanceName1Code Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of undertaking, for example, performance, payment.
     /// </summary>
+    [IsoId("_90kuNXltEeG7BsjMvd1mEw_-320799075")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingType1Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingType1Choice_? Type { get; init; } 
+    #else
+    public UndertakingType1Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the undertaking issuance.
     /// </summary>
+    [IsoId("_90kuNnltEeG7BsjMvd1mEw_-775223111")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuance Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IssuanceType1Code IssuanceType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public IssuanceType1Code IssuanceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IssuanceType1Code IssuanceType { get; init; } 
+    #else
+    public IssuanceType1Code IssuanceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party named in the undertaking as the “applicant”.
     /// </summary>
+    [IsoId("_90ufMHltEeG7BsjMvd1mEw_-1105882178")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicant")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Applicant { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? Applicant { get; init; } 
+    #else
+    public PartyIdentification43? Applicant { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking).
     /// </summary>
+    [IsoId("_90ufMXltEeG7BsjMvd1mEw_1179128260")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Issuer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification43 Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43 Issuer { get; init; } 
+    #else
+    public PartyIdentification43 Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party in whose favour the undertaking (or counter-undertaking) is issued.
     /// </summary>
+    [IsoId("_90ufMnltEeG7BsjMvd1mEw_1504245767")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public PartyIdentification43? Beneficiary { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _90ufMnltEeG7BsjMvd1mEw_1504245767
+    
     /// <summary>
     /// Date on which the undertaking is issued.
     /// </summary>
+    [IsoId("_90ufM3ltEeG7BsjMvd1mEw_-776484199")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Of Issuance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DateOfIssuance { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly DateOfIssuance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly DateOfIssuance { get; init; } 
+    #else
+    public System.DateOnly DateOfIssuance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Location which is to be regarded as the place from which the undertaking is issued.
     /// </summary>
+    [IsoId("_90ufNHltEeG7BsjMvd1mEw_-164292819")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Issue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress12? PlaceOfIssue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress12? PlaceOfIssue { get; init; } 
+    #else
+    public PostalAddress12? PlaceOfIssue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party asked to advise the undertaking to the beneficiary or to another advising party at the request of the issuer.
     /// </summary>
+    [IsoId("_90ufNXltEeG7BsjMvd1mEw_188094849")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Advising Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? AdvisingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? AdvisingParty { get; init; } 
+    #else
+    public PartyIdentification43? AdvisingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional party asked to advise the undertaking.
     /// </summary>
+    [IsoId("_903pIHltEeG7BsjMvd1mEw_-1729409632")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Second Advising Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? SecondAdvisingParty { get; init; } 
+    #else
+    public PartyIdentification43? SecondAdvisingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the amount of the undertaking.
     /// </summary>
+    [IsoId("_903pIXltEeG7BsjMvd1mEw_-460655972")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmount1 UndertakingAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingAmount1 UndertakingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingAmount1 UndertakingAmount { get; init; } 
+    #else
+    public UndertakingAmount1 UndertakingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the expiry of the undertaking.
     /// </summary>
+    [IsoId("_903pInltEeG7BsjMvd1mEw_1815536700")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExpiryDetails1 ExpiryDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExpiryDetails1 ExpiryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExpiryDetails1 ExpiryDetails { get; init; } 
+    #else
+    public ExpiryDetails1 ExpiryDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not the advising bank (confirmer) is requested to add its confirmation to the undertaking.
     /// </summary>
+    [IsoId("_903pI3ltEeG7BsjMvd1mEw_-1282634856")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConfirmationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConfirmationIndicator { get; init; } 
+    #else
+    public System.String? ConfirmationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of party requested to add its confirmation to the undertaking.
     /// </summary>
+    [IsoId("_903pJHltEeG7BsjMvd1mEw_-497049183")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Party Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? ConfirmationPartyType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTypeOfParty1Code? ConfirmationPartyType { get; init; } 
+    #else
+    public ExternalTypeOfParty1Code? ConfirmationPartyType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party, in addition to the other parties specified in the undertaking, that is also related to the undertaking.
     /// </summary>
+    [IsoId("_91BaIHltEeG7BsjMvd1mEw_-1201686871")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndType1? AdditionalParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyAndType1? AdditionalParty { get; init; } 
+    #else
+    public PartyAndType1? AdditionalParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rules and laws governing the undertaking.
     /// </summary>
+    [IsoId("_91BaIXltEeG7BsjMvd1mEw_1314439670")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Governance Rules And Law")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
+    #else
+    public GovernanceRules1 GovernanceRulesAndLaw { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
+    [IsoId("_91BaInltEeG7BsjMvd1mEw_575458194")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingTradeTransaction1? UnderlyingTransaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingTradeTransaction1? UnderlyingTransaction { get; init; } 
+    #else
+    public UnderlyingTradeTransaction1? UnderlyingTransaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Presentation details related to the undertaking.
     /// </summary>
+    [IsoId("_91BaI3ltEeG7BsjMvd1mEw_-499300389")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Presentation Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Presentation1? PresentationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Presentation1? PresentationDetails { get; init; } 
+    #else
+    public Presentation1? PresentationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Terms and conditions of the undertaking.
     /// </summary>
+    [IsoId("_91BaJHltEeG7BsjMvd1mEw_1083323567")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Terms And Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public Narrative1? UndertakingTermsAndConditions { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _91BaJHltEeG7BsjMvd1mEw_1083323567
+    
     /// <summary>
     /// Indicates that multiple demands are not permitted.
     /// </summary>
+    [IsoId("_91LLIHltEeG7BsjMvd1mEw_-1758524165")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Multiple Demand Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? MultipleDemandIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MultipleDemandIndicator { get; init; } 
+    #else
+    public System.String? MultipleDemandIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that partial demands/drawings are not permitted.
     /// </summary>
+    [IsoId("_91LLIXltEeG7BsjMvd1mEw_-1433406658")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Partial Demand Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PartialDemandIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PartialDemandIndicator { get; init; } 
+    #else
+    public System.String? PartialDemandIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
+    [IsoId("_91LLInltEeG7BsjMvd1mEw_-1434307037")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Charges Payable By")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
+    #else
+    public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the transfer charges.
     /// </summary>
+    [IsoId("_91LLI3ltEeG7BsjMvd1mEw_611229394")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Charges Payable By")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; init; } 
+    #else
+    public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
+    [IsoId("_91LLJHltEeG7BsjMvd1mEw_1235192092")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Automatic Amount Variation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AutomaticVariation1? AutomaticAmountVariation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AutomaticVariation1? AutomaticAmountVariation { get; init; } 
+    #else
+    public AutomaticVariation1? AutomaticAmountVariation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the communication channel.
     /// </summary>
+    [IsoId("__-dh438KEeGvEbxvurqpIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Channel")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationChannel1? DeliveryChannel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationChannel1? DeliveryChannel { get; init; } 
+    #else
+    public CommunicationChannel1? DeliveryChannel { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the undertaking is transferable.
     /// </summary>
+    [IsoId("_91UVEHltEeG7BsjMvd1mEw_-737334082")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransferIndicator { get; init; } 
+    #else
+    public System.String? TransferIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document or template enclosed in the undertaking directly related to the issued undertaking.
     /// </summary>
+    [IsoId("_91UVEXltEeG7BsjMvd1mEw_-1334688304")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enclosed File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document9? EnclosedFile { get; init; } 
+    #else
+    public Document9? EnclosedFile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the undertaking.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_91UVEnltEeG7BsjMvd1mEw_-1357279647")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     /// <summary>
     /// Details of the local or ancillary undertaking requested to be issued by a local or other issuing institution.
     /// </summary>
+    [IsoId("_91UVFHltEeG7BsjMvd1mEw_-1115655388")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Local Undertaking")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Undertaking4? RequestedLocalUndertaking { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Undertaking4? RequestedLocalUndertaking { get; init; } 
+    #else
+    public Undertaking4? RequestedLocalUndertaking { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Nm", xmlNamespace );
-        writer.WriteValue(Name.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Type is UndertakingType1Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IssncTp", xmlNamespace );
-        writer.WriteValue(IssuanceType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Applicant is PartyIdentification43 ApplicantValue)
-        {
-            writer.WriteStartElement(null, "Applcnt", xmlNamespace );
-            ApplicantValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Issr", xmlNamespace );
-        Issuer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize Beneficiary, multiplicity Unknown
-        writer.WriteStartElement(null, "DtOfIssnc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(DateOfIssuance)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (PlaceOfIssue is PostalAddress12 PlaceOfIssueValue)
-        {
-            writer.WriteStartElement(null, "PlcOfIsse", xmlNamespace );
-            PlaceOfIssueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdvisingParty is PartyIdentification43 AdvisingPartyValue)
-        {
-            writer.WriteStartElement(null, "AdvsgPty", xmlNamespace );
-            AdvisingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondAdvisingParty is PartyIdentification43 SecondAdvisingPartyValue)
-        {
-            writer.WriteStartElement(null, "ScndAdvsgPty", xmlNamespace );
-            SecondAdvisingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "UdrtkgAmt", xmlNamespace );
-        UndertakingAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpryDtls", xmlNamespace );
-        ExpiryDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ConfirmationIndicator is IsoYesNoIndicator ConfirmationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ConfInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConfirmationIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ConfirmationPartyType is ExternalTypeOfParty1Code ConfirmationPartyTypeValue)
-        {
-            writer.WriteStartElement(null, "ConfPtyTp", xmlNamespace );
-            writer.WriteValue(ConfirmationPartyTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalParty is PartyAndType1 AdditionalPartyValue)
-        {
-            writer.WriteStartElement(null, "AddtlPty", xmlNamespace );
-            AdditionalPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "GovncRulesAndLaw", xmlNamespace );
-        GovernanceRulesAndLaw.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UnderlyingTransaction is UnderlyingTradeTransaction1 UnderlyingTransactionValue)
-        {
-            writer.WriteStartElement(null, "UndrlygTx", xmlNamespace );
-            UnderlyingTransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PresentationDetails is Presentation1 PresentationDetailsValue)
-        {
-            writer.WriteStartElement(null, "PresntnDtls", xmlNamespace );
-            PresentationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize UndertakingTermsAndConditions, multiplicity Unknown
-        if (MultipleDemandIndicator is IsoYesNoIndicator MultipleDemandIndicatorValue)
-        {
-            writer.WriteStartElement(null, "MltplDmndInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MultipleDemandIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PartialDemandIndicator is IsoYesNoIndicator PartialDemandIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtlDmndInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PartialDemandIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ConfirmationChargesPayableBy is ExternalTypeOfParty1Code ConfirmationChargesPayableByValue)
-        {
-            writer.WriteStartElement(null, "ConfChrgsPyblBy", xmlNamespace );
-            writer.WriteValue(ConfirmationChargesPayableByValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TransferChargesPayableBy is ExternalTypeOfParty1Code TransferChargesPayableByValue)
-        {
-            writer.WriteStartElement(null, "TrfChrgsPyblBy", xmlNamespace );
-            writer.WriteValue(TransferChargesPayableByValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AutomaticAmountVariation is AutomaticVariation1 AutomaticAmountVariationValue)
-        {
-            writer.WriteStartElement(null, "AutomtcAmtVartn", xmlNamespace );
-            AutomaticAmountVariationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliveryChannel is CommunicationChannel1 DeliveryChannelValue)
-        {
-            writer.WriteStartElement(null, "DlvryChanl", xmlNamespace );
-            DeliveryChannelValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransferIndicator is IsoYesNoIndicator TransferIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TrfInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EnclosedFile is Document9 EnclosedFileValue)
-        {
-            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
-            EnclosedFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-        if (RequestedLocalUndertaking is Undertaking4 RequestedLocalUndertakingValue)
-        {
-            writer.WriteStartElement(null, "ReqdLclUdrtkg", xmlNamespace );
-            RequestedLocalUndertakingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Undertaking3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

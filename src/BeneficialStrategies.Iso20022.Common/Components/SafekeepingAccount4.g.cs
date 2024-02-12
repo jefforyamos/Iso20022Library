@@ -7,77 +7,138 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// A safekeeping account is an account on which a securities entry is made.
 /// </summary>
+[IsoId("_QTQRM9p-Ed-ak6NoX_4Aeg_1467329706")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Safekeeping Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SafekeepingAccount4
-     : IIsoXmlSerilizable<SafekeepingAccount4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SafekeepingAccount4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SafekeepingAccount4( System.String reqAccountIdentification )
+    {
+        AccountIdentification = reqAccountIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_QTQRNNp-Ed-ak6NoX_4Aeg_1467329736")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AccountIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AccountIdentification { get; init; } 
+    #else
+    public System.String AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [IsoId("_QTQRNdp-Ed-ak6NoX_4Aeg_1467330169")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification9Choice_? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification9Choice_? AccountOwner { get; init; } 
+    #else
+    public PartyIdentification9Choice_? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
+    [IsoId("_QTQRNtp-Ed-ak6NoX_4Aeg_1467330108")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubAccount2? SubAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SubAccount2? SubAccountDetails { get; init; } 
+    #else
+    public SubAccount2? SubAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public ValueList<HoldingBalance5> InstructedBalance { get; init; } = [];
+    [IsoId("_QTQRN9p-Ed-ak6NoX_4Aeg_1467329798")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<HoldingBalance5> InstructedBalance { get; init; } = new ValueList<HoldingBalance5>(){};
+    
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public ValueList<PartyIdentification9Choice_> RightsHolder { get; init; } = [];
+    [IsoId("_QTQRONp-Ed-ak6NoX_4Aeg_1467330478")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rights Holder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(10)]
+    #endif
+    public ValueList<PartyIdentification9Choice_> RightsHolder { get; init; } = new ValueList<PartyIdentification9Choice_>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (AccountOwner is PartyIdentification9Choice_ AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubAccountDetails is SubAccount2 SubAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
-            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstdBal", xmlNamespace );
-        InstructedBalance.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RghtsHldr", xmlNamespace );
-        RightsHolder.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static SafekeepingAccount4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

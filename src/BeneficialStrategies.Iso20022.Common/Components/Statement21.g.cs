@@ -7,108 +7,232 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
+[IsoId("_QpwstNp-Ed-ak6NoX_4Aeg_1655325945")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Statement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Statement21
-     : IIsoXmlSerilizable<Statement21>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Statement21 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Statement21( DateAndDateTimeChoice_ reqStatementDateTime,Frequency4Choice_ reqFrequency,UpdateType2Choice_ reqUpdateType,StatementBasis3Choice_ reqStatementBasis,System.String reqActivityIndicator,System.String reqSubAccountIndicator )
+    {
+        StatementDateTime = reqStatementDateTime;
+        Frequency = reqFrequency;
+        UpdateType = reqUpdateType;
+        StatementBasis = reqStatementBasis;
+        ActivityIndicator = reqActivityIndicator;
+        SubAccountIndicator = reqSubAccountIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [IsoId("_Qpwstdp-Ed-ak6NoX_4Aeg_544414526")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Number3Choice_? ReportNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Number3Choice_? ReportNumber { get; init; } 
+    #else
+    public Number3Choice_? ReportNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
+    [IsoId("_Qpwsttp-Ed-ak6NoX_4Aeg_1541486879")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QueryReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? QueryReference { get; init; } 
+    #else
+    public System.String? QueryReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
+    [IsoId("_Qpwst9p-Ed-ak6NoX_4Aeg_-452657827")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatementIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StatementIdentification { get; init; } 
+    #else
+    public System.String? StatementIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
+    [IsoId("_QpwsuNp-Ed-ak6NoX_4Aeg_-1449730180")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ StatementDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ StatementDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ StatementDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [IsoId("_Qpwsudp-Ed-ak6NoX_4Aeg_1962003829")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency4Choice_ Frequency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Frequency4Choice_ Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency4Choice_ Frequency { get; init; } 
+    #else
+    public Frequency4Choice_ Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [IsoId("_Qpwsutp-Ed-ak6NoX_4Aeg_1848164763")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UpdateType2Choice_ UpdateType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UpdateType2Choice_ UpdateType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdateType2Choice_ UpdateType { get; init; } 
+    #else
+    public UpdateType2Choice_ UpdateType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
+    [IsoId("_Qp52oNp-Ed-ak6NoX_4Aeg_851092410")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementBasis3Choice_ StatementBasis { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StatementBasis3Choice_ StatementBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatementBasis3Choice_ StatementBasis { get; init; } 
+    #else
+    public StatementBasis3Choice_ StatementBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [IsoId("_Qp52odp-Ed-ak6NoX_4Aeg_964931476")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Activity Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ActivityIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ActivityIndicator { get; init; } 
+    #else
+    public System.String ActivityIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
+    [IsoId("_Qp52otp-Ed-ak6NoX_4Aeg_1627698872")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Account Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SubAccountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SubAccountIndicator { get; init; } 
+    #else
+    public System.String SubAccountIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportNumber is Number3Choice_ ReportNumberValue)
-        {
-            writer.WriteStartElement(null, "RptNb", xmlNamespace );
-            ReportNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (QueryReference is IsoMax35Text QueryReferenceValue)
-        {
-            writer.WriteStartElement(null, "QryRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (StatementIdentification is IsoMax35Text StatementIdentificationValue)
-        {
-            writer.WriteStartElement(null, "StmtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "StmtDtTm", xmlNamespace );
-        StatementDateTime.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-        Frequency.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
-        UpdateType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StmtBsis", xmlNamespace );
-        StatementBasis.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SubAcctInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SubAccountIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static Statement21 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration of the cryptographic keys.
 /// </summary>
+[IsoId("_Di0fIYr7EeSvuOJS0mmL0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Security Configuration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMSecurityConfiguration2
-     : IIsoXmlSerilizable<ATMSecurityConfiguration2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Maximum number of symmetric keys the security module is able to manage.
     /// </summary>
+    [IsoId("_QbPjEIr7EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Symmetric Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumSymmetricKey { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumSymmetricKey { get; init; } 
+    #else
+    public System.UInt64? MaximumSymmetricKey { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of asymmetric keys the security module is able to manage.
     /// </summary>
+    [IsoId("_T46j0Ir7EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Asymmetric Key")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumAsymmetricKey { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumAsymmetricKey { get; init; } 
+    #else
+    public System.UInt64? MaximumAsymmetricKey { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum RSA key length (in number of bytes), the security module is able to manage.
     /// </summary>
+    [IsoId("_XJMBwIr7EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum RSA Key Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumRSAKeyLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumRSAKeyLength { get; init; } 
+    #else
+    public System.UInt64? MaximumRSAKeyLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum RSA root key length (in number of bytes), the security module is able to manage, if different from the maximum RSA key length.
     /// </summary>
+    [IsoId("_acT_YIr7EeSvuOJS0mmL0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Root Key Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumRootKeyLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumRootKeyLength { get; init; } 
+    #else
+    public System.UInt64? MaximumRootKeyLength { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MaximumSymmetricKey is IsoNumber MaximumSymmetricKeyValue)
-        {
-            writer.WriteStartElement(null, "MaxSmmtrcKey", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumSymmetricKeyValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaximumAsymmetricKey is IsoNumber MaximumAsymmetricKeyValue)
-        {
-            writer.WriteStartElement(null, "MaxAsmmtrcKey", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumAsymmetricKeyValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaximumRSAKeyLength is IsoNumber MaximumRSAKeyLengthValue)
-        {
-            writer.WriteStartElement(null, "MaxRSAKeyLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumRSAKeyLengthValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaximumRootKeyLength is IsoNumber MaximumRootKeyLengthValue)
-        {
-            writer.WriteStartElement(null, "MaxRootKeyLngth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumRootKeyLengthValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMSecurityConfiguration2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

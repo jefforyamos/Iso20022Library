@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
+[IsoId("_fYx5UWmREeS7iYydEtv3Ug")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Parameter8
-     : IIsoXmlSerilizable<Parameter8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Parameter8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Parameter8( Algorithm11Code reqDigestAlgorithm,AlgorithmIdentification12 reqMaskGeneratorAlgorithm,System.UInt64 reqSaltLength )
+    {
+        DigestAlgorithm = reqDigestAlgorithm;
+        MaskGeneratorAlgorithm = reqMaskGeneratorAlgorithm;
+        SaltLength = reqSaltLength;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [IsoId("_fmEuc2mREeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Digest Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm11Code DigestAlgorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Algorithm11Code DigestAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Algorithm11Code DigestAlgorithm { get; init; } 
+    #else
+    public Algorithm11Code DigestAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
+    [IsoId("_fmEudWmREeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mask Generator Algorithm")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
+    #else
+    public AlgorithmIdentification12 MaskGeneratorAlgorithm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Length of the salt to include in the signature.
     /// </summary>
+    [IsoId("_3JFFwGmREeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Salt Length")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SaltLength { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 SaltLength { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 SaltLength { get; init; } 
+    #else
+    public System.UInt64 SaltLength { get; set; } 
+    #endif
+    
     /// <summary>
     /// Trailer field number.
     /// </summary>
+    [IsoId("_9NBlMGmREeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trailer Field")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TrailerField { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TrailerField { get; init; } 
+    #else
+    public System.UInt64? TrailerField { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
-        writer.WriteValue(DigestAlgorithm.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
-        MaskGeneratorAlgorithm.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SaltLngth", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(SaltLength)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (TrailerField is IsoNumber TrailerFieldValue)
-        {
-            writer.WriteStartElement(null, "TrlrFld", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TrailerFieldValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static Parameter8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

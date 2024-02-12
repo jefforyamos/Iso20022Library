@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare related to payment data attributes not reported in dedicated fields.
 /// </summary>
+[IsoId("_5w6zAYpbEeyVdPSarESe_A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compare Other Payment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CompareOtherPayment1
-     : IIsoXmlSerilizable<CompareOtherPayment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the other payment types are matching or not.
     /// </summary>
+    [IsoId("_LD9oIIpcEeyVdPSarESe_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Payment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOtherPaymentType1? OtherPaymentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareOtherPaymentType1? OtherPaymentType { get; init; } 
+    #else
+    public CompareOtherPaymentType1? OtherPaymentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the other payment amounts are matching or not.
     /// </summary>
+    [IsoId("_O1IMoIpcEeyVdPSarESe_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Payment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? OtherPaymentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareAmountAndDirection3? OtherPaymentAmount { get; init; } 
+    #else
+    public CompareAmountAndDirection3? OtherPaymentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the other payment dates are matching or not.
     /// </summary>
+    [IsoId("_SP2AAIpcEeyVdPSarESe_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? OtherPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDate3? OtherPaymentDate { get; init; } 
+    #else
+    public CompareDate3? OtherPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the other payment payers are matching or not.
     /// </summary>
+    [IsoId("_WcZgAIpcEeyVdPSarESe_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Payment Payer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification7? OtherPaymentPayer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareOrganisationIdentification7? OtherPaymentPayer { get; init; } 
+    #else
+    public CompareOrganisationIdentification7? OtherPaymentPayer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the information on the other payment receivers are matching or not.
     /// </summary>
+    [IsoId("_Z0F0kIpcEeyVdPSarESe_A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Payment Receiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification7? OtherPaymentReceiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareOrganisationIdentification7? OtherPaymentReceiver { get; init; } 
+    #else
+    public CompareOrganisationIdentification7? OtherPaymentReceiver { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OtherPaymentType is CompareOtherPaymentType1 OtherPaymentTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrPmtTp", xmlNamespace );
-            OtherPaymentTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherPaymentAmount is CompareAmountAndDirection3 OtherPaymentAmountValue)
-        {
-            writer.WriteStartElement(null, "OthrPmtAmt", xmlNamespace );
-            OtherPaymentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherPaymentDate is CompareDate3 OtherPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "OthrPmtDt", xmlNamespace );
-            OtherPaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherPaymentPayer is CompareOrganisationIdentification7 OtherPaymentPayerValue)
-        {
-            writer.WriteStartElement(null, "OthrPmtPyer", xmlNamespace );
-            OtherPaymentPayerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherPaymentReceiver is CompareOrganisationIdentification7 OtherPaymentReceiverValue)
-        {
-            writer.WriteStartElement(null, "OthrPmtRcvr", xmlNamespace );
-            OtherPaymentReceiverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CompareOtherPayment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

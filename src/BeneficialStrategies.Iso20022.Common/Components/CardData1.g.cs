@@ -7,198 +7,370 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Non-protected sensitive data associated with the card or payment token performing the transaction.
 /// </summary>
+[IsoId("_0VngAVTtEeeeIYOiLZFQGg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardData1
-     : IIsoXmlSerilizable<CardData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardData1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardData1( System.String reqPAN )
+    {
+        PAN = reqPAN;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card or a surrogate of the PAN such as a payment token.
     /// ISO 8583 bit 2
     /// </summary>
+    [IsoId("_0hEiEVTtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("PAN")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax19NumericText PAN { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PAN { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PAN { get; init; } 
+    #else
+    public System.String PAN { get; set; } 
+    #endif
+    
     /// <summary>
     /// To indicate whether the PAN is using ProtectedData for encryption or not.
     /// False: The PAN is used in plain text 
     /// True: The PAN is encrypted by using ProtectedData
     /// Default: False
     /// </summary>
+    [IsoId("_HYYGQBWAEeiTbY4xN42WAw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected PAN Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ProtectedPANIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProtectedPANIndicator { get; init; } 
+    #else
+    public System.String? ProtectedPANIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Distinguishes between instances of the same payment card.
     /// ISO 8583 bit 23
     /// </summary>
+    [IsoId("_0hEiE1TtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardSequenceNumber { get; init; } 
+    #else
+    public System.String? CardSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date as from which the card can be used, expressed in one of the following formats: YYYY-MM-DD, YYYY-MM, YY-MM-DD.
     /// ISO 8583:93 & ISO 8583:2003-1 bit 13
     /// </summary>
+    [IsoId("_0hEiFVTtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EffectiveDate { get; init; } 
+    #else
+    public System.String? EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expiry date of the card or payment token.
     /// ISO 8583 bit 14.
     /// </summary>
+    [IsoId("_0hEiF1TtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExpiryDate { get; init; } 
+    #else
+    public System.String? ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Service attached to the card as defined in ISO 7813.
     /// ISO 8583 bit 40.
     /// </summary>
+    [IsoId("_0hEiGVTtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? ServiceCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ServiceCode { get; init; } 
+    #else
+    public System.String? ServiceCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// ISO track 1 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 45
     /// </summary>
+    [IsoId("_0hEiG1TtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 76 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax76Text? Track1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Track1 { get; init; } 
+    #else
+    public System.String? Track1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format  conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 35
     /// </summary>
+    [IsoId("_0hEiHVTtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Track2Data1Choice_? Track2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Track2Data1Choice_? Track2 { get; init; } 
+    #else
+    public Track2Data1Choice_? Track2 { get; set; } 
+    #endif
+    
     /// <summary>
     /// ISO track 3 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content conforms to ISO 4909, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 36
     /// </summary>
+    [IsoId("_0hEiH1TtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Track")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 104 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax104Text? Track3 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Track3 { get; init; } 
+    #else
+    public System.String? Track3 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique non-financial reference assigned to a given PAN. May be used to link the transaction activity to that PAN.
     /// ISO 8583:87 bit 56 (TLV tag 01/dataset 71)
     /// ISO 8583:93 bit 112 (TLV tag 01/dataset 71)
     /// ISO 8583:2003 bit 51 (TLV tag 01/dataset 71)
     /// </summary>
+    [IsoId("_0hEiIVTtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Account Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PaymentAccountReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentAccountReference { get; init; } 
+    #else
+    public System.String? PaymentAccountReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// ISO 8583 bit 20
     /// </summary>
+    [IsoId("_wOcxUALUEemY3fGHca_J_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCountryCode? CardCountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CardCountryCode { get; init; } 
+    #else
+    public string? CardCountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of card product.
     /// </summary>
+    [IsoId("_wOcxUQLUEemY3fGHca_J_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Product Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardProductType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardProductType { get; init; } 
+    #else
+    public System.String? CardProductType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subtype of card product.
     /// </summary>
+    [IsoId("_wOcxUgLUEemY3fGHca_J_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Product Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardProductSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardProductSubType { get; init; } 
+    #else
+    public System.String? CardProductSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the card portfolio. 
     /// </summary>
+    [IsoId("_KOXaAJaQEemfCcEf5rVTyg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Portfolio Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardPortfolioIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardPortfolioIdentifier { get; init; } 
+    #else
+    public System.String? CardPortfolioIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [IsoId("_0hEiN1TtEeeeIYOiLZFQGg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalCardData { get; init; } 
+    #else
+    public System.String? AdditionalCardData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PAN", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax19NumericText(PAN)); // data type Max19NumericText System.String
-        writer.WriteEndElement();
-        if (ProtectedPANIndicator is IsoTrueFalseIndicator ProtectedPANIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtctdPANInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ProtectedPANIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CardSequenceNumber is IsoMin2Max3NumericText CardSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "CardSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(CardSequenceNumberValue)); // data type Min2Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (EffectiveDate is IsoMax10Text EffectiveDateValue)
-        {
-            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax10Text(EffectiveDateValue)); // data type Max10Text System.String
-            writer.WriteEndElement();
-        }
-        if (ExpiryDate is IsoExact4NumericText ExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(ExpiryDateValue)); // data type Exact4NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (ServiceCode is IsoExact3NumericText ServiceCodeValue)
-        {
-            writer.WriteStartElement(null, "SvcCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(ServiceCodeValue)); // data type Exact3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Track1 is IsoMax76Text Track1Value)
-        {
-            writer.WriteStartElement(null, "Trck1", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax76Text(Track1Value)); // data type Max76Text System.String
-            writer.WriteEndElement();
-        }
-        if (Track2 is Track2Data1Choice_ Track2Value)
-        {
-            writer.WriteStartElement(null, "Trck2", xmlNamespace );
-            Track2Value.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Track3 is IsoMax104Text Track3Value)
-        {
-            writer.WriteStartElement(null, "Trck3", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax104Text(Track3Value)); // data type Max104Text System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentAccountReference is IsoMax35Text PaymentAccountReferenceValue)
-        {
-            writer.WriteStartElement(null, "PmtAcctRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentAccountReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardCountryCode is ISO3NumericCountryCode CardCountryCodeValue)
-        {
-            writer.WriteStartElement(null, "CardCtryCd", xmlNamespace );
-            writer.WriteValue(CardCountryCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CardProductType is IsoMax35Text CardProductTypeValue)
-        {
-            writer.WriteStartElement(null, "CardPdctTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardProductTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardProductSubType is IsoMax35Text CardProductSubTypeValue)
-        {
-            writer.WriteStartElement(null, "CardPdctSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardProductSubTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardPortfolioIdentifier is IsoMax35Text CardPortfolioIdentifierValue)
-        {
-            writer.WriteStartElement(null, "CardPrtflIdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardPortfolioIdentifierValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalCardData is IsoMax70Text AdditionalCardDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlCardData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalCardDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CardData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

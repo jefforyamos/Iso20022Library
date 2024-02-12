@@ -7,170 +7,304 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation information of the portfolio.
 /// </summary>
+[IsoId("_m_CFkvNBEeCuA5Tr22BnwA_780606232")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Portfolio Valuation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalPortfolioValuation1
-     : IIsoXmlSerilizable<TotalPortfolioValuation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TotalPortfolioValuation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TotalPortfolioValuation1( AmountAndDirection30 reqTotalPortfolioValue,AmountAndDirection30 reqTotalBookValue )
+    {
+        TotalPortfolioValue = reqTotalPortfolioValue;
+        TotalBookValue = reqTotalBookValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total value of the portfolio (sum of the assets, liabilities and unrealised gain/loss) calculated according to the accounting rules.
     /// </summary>
+    [IsoId("_m_CFk_NBEeCuA5Tr22BnwA_-2081055548")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Portfolio Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection30 TotalPortfolioValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection30 TotalPortfolioValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30 TotalPortfolioValue { get; init; } 
+    #else
+    public AmountAndDirection30 TotalPortfolioValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous total value of the portfolio.
     /// </summary>
+    [IsoId("_m_CFlPNBEeCuA5Tr22BnwA_-1809538819")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Total Portfolio Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? PreviousTotalPortfolioValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? PreviousTotalPortfolioValue { get; init; } 
+    #else
+    public AmountAndDirection30? PreviousTotalPortfolioValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference or change between the previous total portfolio value and the current total portfolio value.
     /// </summary>
+    [IsoId("_m_CFlfNBEeCuA5Tr22BnwA_-1783681209")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Portfolio Value Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndRate2? TotalPortfolioValueChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndRate2? TotalPortfolioValueChange { get; init; } 
+    #else
+    public AmountAndRate2? TotalPortfolioValueChange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net asset on balance sheet - total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
+    [IsoId("_m_L2kPNBEeCuA5Tr22BnwA_-1605443459")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Book Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection30 TotalBookValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection30 TotalBookValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30 TotalBookValue { get; init; } 
+    #else
+    public AmountAndDirection30 TotalBookValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous net asset on balance sheet.
     /// </summary>
+    [IsoId("_m_L2kfNBEeCuA5Tr22BnwA_-1581429193")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Total Book Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? PreviousTotalBookValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? PreviousTotalBookValue { get; init; } 
+    #else
+    public AmountAndDirection30? PreviousTotalBookValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference or change between the previous net asset on balance sheet and the current net asset on balance sheet.
     /// </summary>
+    [IsoId("_m_L2kvNBEeCuA5Tr22BnwA_-1554647332")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Book Value Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndRate2? TotalBookValueChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndRate2? TotalBookValueChange { get; init; } 
+    #else
+    public AmountAndRate2? TotalBookValueChange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total receipts attributable to the portfolio.
     /// </summary>
+    [IsoId("_m_L2k_NBEeCuA5Tr22BnwA_-1322844654")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Receipts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? TotalReceipts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? TotalReceipts { get; init; } 
+    #else
+    public AmountAndDirection30? TotalReceipts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total disbursements attributable to the portfolio.
     /// </summary>
+    [IsoId("_m_L2lPNBEeCuA5Tr22BnwA_-1266509842")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Disbursements")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? TotalDisbursements { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? TotalDisbursements { get; init; } 
+    #else
+    public AmountAndDirection30? TotalDisbursements { get; set; } 
+    #endif
+    
     /// <summary>
     /// Income attributable to the portfolio.
     /// </summary>
+    [IsoId("_m_L2lfNBEeCuA5Tr22BnwA_-1232341560")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Received")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? IncomeReceived { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? IncomeReceived { get; init; } 
+    #else
+    public AmountAndDirection30? IncomeReceived { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expenses attributable to the portfolio.
     /// </summary>
+    [IsoId("_m_L2lvNBEeCuA5Tr22BnwA_-1209251117")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expenses Paid")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? ExpensesPaid { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? ExpensesPaid { get; init; } 
+    #else
+    public AmountAndDirection30? ExpensesPaid { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference between the holding value and the book value of the portfolio.
     /// </summary>
+    [IsoId("_m_VAgPNBEeCuA5Tr22BnwA_-1129086978")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unrealised Gain Or Loss")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection31? UnrealisedGainOrLoss { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection31? UnrealisedGainOrLoss { get; init; } 
+    #else
+    public AmountAndDirection31? UnrealisedGainOrLoss { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference between the realised value caused by the actual trade/re-evaluation and the book value of the portfolio.
     /// </summary>
+    [IsoId("_m_VAgfNBEeCuA5Tr22BnwA_-1917324279")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Realised Gain Or Loss")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection31? RealisedGainOrLoss { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection31? RealisedGainOrLoss { get; init; } 
+    #else
+    public AmountAndDirection31? RealisedGainOrLoss { get; set; } 
+    #endif
+    
     /// <summary>
     /// Accrued income.
     /// </summary>
+    [IsoId("_m_VAgvNBEeCuA5Tr22BnwA_-887865170")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Accrued Income")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? AccruedIncome { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection30? AccruedIncome { get; init; } 
+    #else
+    public AmountAndDirection30? AccruedIncome { get; set; } 
+    #endif
+    
     /// <summary>
     /// Valuation information of the investment fund or investment fund share class.
     /// </summary>
+    [IsoId("_m_VAg_NBEeCuA5Tr22BnwA_-867400971")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Fund Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFund1? InvestmentFundDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentFund1? InvestmentFundDetails { get; init; } 
+    #else
+    public InvestmentFund1? InvestmentFundDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TtlPrtflVal", xmlNamespace );
-        TotalPortfolioValue.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviousTotalPortfolioValue is AmountAndDirection30 PreviousTotalPortfolioValueValue)
-        {
-            writer.WriteStartElement(null, "PrvsTtlPrtflVal", xmlNamespace );
-            PreviousTotalPortfolioValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalPortfolioValueChange is AmountAndRate2 TotalPortfolioValueChangeValue)
-        {
-            writer.WriteStartElement(null, "TtlPrtflValChng", xmlNamespace );
-            TotalPortfolioValueChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TtlBookVal", xmlNamespace );
-        TotalBookValue.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviousTotalBookValue is AmountAndDirection30 PreviousTotalBookValueValue)
-        {
-            writer.WriteStartElement(null, "PrvsTtlBookVal", xmlNamespace );
-            PreviousTotalBookValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalBookValueChange is AmountAndRate2 TotalBookValueChangeValue)
-        {
-            writer.WriteStartElement(null, "TtlBookValChng", xmlNamespace );
-            TotalBookValueChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalReceipts is AmountAndDirection30 TotalReceiptsValue)
-        {
-            writer.WriteStartElement(null, "TtlRcts", xmlNamespace );
-            TotalReceiptsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalDisbursements is AmountAndDirection30 TotalDisbursementsValue)
-        {
-            writer.WriteStartElement(null, "TtlDsbrsmnts", xmlNamespace );
-            TotalDisbursementsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncomeReceived is AmountAndDirection30 IncomeReceivedValue)
-        {
-            writer.WriteStartElement(null, "IncmRcvd", xmlNamespace );
-            IncomeReceivedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExpensesPaid is AmountAndDirection30 ExpensesPaidValue)
-        {
-            writer.WriteStartElement(null, "ExpnssPd", xmlNamespace );
-            ExpensesPaidValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnrealisedGainOrLoss is AmountAndDirection31 UnrealisedGainOrLossValue)
-        {
-            writer.WriteStartElement(null, "UrlsdGnOrLoss", xmlNamespace );
-            UnrealisedGainOrLossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RealisedGainOrLoss is AmountAndDirection31 RealisedGainOrLossValue)
-        {
-            writer.WriteStartElement(null, "RealsdGnOrLoss", xmlNamespace );
-            RealisedGainOrLossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccruedIncome is AmountAndDirection30 AccruedIncomeValue)
-        {
-            writer.WriteStartElement(null, "AcrdIncm", xmlNamespace );
-            AccruedIncomeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentFundDetails is InvestmentFund1 InvestmentFundDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtFndDtls", xmlNamespace );
-            InvestmentFundDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalPortfolioValuation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

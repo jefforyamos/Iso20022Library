@@ -7,779 +7,2525 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// </summary>
+[IsoId("_3toyJW_HEe2g-IPZC9d7tA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("All External Master Registered Code Sets")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AllExternalMasterRegisteredCodeSets1
-     : IIsoXmlSerilizable<AllExternalMasterRegisteredCodeSets1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AllExternalMasterRegisteredCodeSets1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AllExternalMasterRegisteredCodeSets1( ExternalAcceptedReasonCode reqExternalAcceptedReasonCode,ExternalAccountIdentificationCode reqExternalAccountIdentificationCode,ExternalAgentInstructionCode reqExternalAgentInstructionCode,ExternalAgreementTypeCode reqExternalAgreementTypeCode,ExternalAuthenticationChannelCode reqExternalAuthenticationChannelCode,string reqExternalAuthenticationMethodCode,ExternalAuthorityExchangeReasonCode reqExternalAuthorityExchangeReasonCode,ExternalAuthorityIdentificationCode reqExternalAuthorityIdentificationCode,ExternalBalanceSubTypeCode reqExternalBalanceSubTypeCode,ExternalBalanceTypeCode reqExternalBalanceTypeCode,string reqExternalBankTransactionDomainCode,string reqExternalBankTransactionFamilyCode,string reqExternalBankTransactionSubFamilyCode,ExternalBillingBalanceTypeCode reqExternalBillingBalanceTypeCode,ExternalBillingCompensationTypeCode reqExternalBillingCompensationTypeCode,ExternalBillingRateIdentificationCode reqExternalBillingRateIdentificationCode,ExternalCancellationReasonCode reqExternalCancellationReasonCode,string reqExternalCardTransactionCategoryCode,ExternalCashAccountTypeCode reqExternalCashAccountTypeCode,ExternalCashClearingSystemCode reqExternalCashClearingSystemCode,ExternalCategoryPurposeCode reqExternalCategoryPurposeCode,ExternalChannelCode reqExternalChannelCode,ExternalChargeTypeCode reqExternalChargeTypeCode,string reqExternalChequeAgentInstructionCode,string reqExternalChequeCancellationReasonCode,string reqExternalChequeCancellationStatusCode,ExternalClaimNonReceiptRejectionCode reqExternalClaimNonReceiptRejectionCode,ExternalClearingSystemIdentificationCode reqExternalClearingSystemIdentificationCode,string reqExternalClearingSystemMemberCode,string reqExternalCommunicationFormatCode,ExternalContractBalanceTypeCode reqExternalContractBalanceTypeCode,ExternalContractClosureReasonCode reqExternalContractClosureReasonCode,string reqExternalCreditLineTypeCode,ExternalCreditorAgentInstructionCode reqExternalCreditorAgentInstructionCode,ExternalCreditorEnrolmentAmendmentReasonCode reqExternalCreditorEnrolmentAmendmentReasonCode,ExternalCreditorEnrolmentCancellationReasonCode reqExternalCreditorEnrolmentCancellationReasonCode,ExternalCreditorEnrolmentStatusReasonCode reqExternalCreditorEnrolmentStatusReasonCode,ExternalDateFrequencyCode reqExternalDateFrequencyCode,ExternalDebtorActivationAmendmentReasonCode reqExternalDebtorActivationAmendmentReasonCode,ExternalDebtorActivationCancellationReasonCode reqExternalDebtorActivationCancellationReasonCode,ExternalDebtorActivationStatusReasonCode reqExternalDebtorActivationStatusReasonCode,ExternalDebtorAgentInstructionCode reqExternalDebtorAgentInstructionCode,ExternalDiscountAmountTypeCode reqExternalDiscountAmountTypeCode,string reqExternalDiscrepancyCode,ExternalDocumentFormatCode reqExternalDocumentFormatCode,ExternalDocumentLineTypeCode reqExternalDocumentLineTypeCode,ExternalDocumentPurposeCode reqExternalDocumentPurposeCode,ExternalDocumentTypeCode reqExternalDocumentTypeCode,ExternalEffectiveDateParameterCode reqExternalEffectiveDateParameterCode,ExternalEncryptedElementIdentificationCode reqExternalEncryptedElementIdentificationCode,ExternalEnquiryRequestTypeCode reqExternalEnquiryRequestTypeCode,ExternalEntryStatusCode reqExternalEntryStatusCode,string reqExternalFinancialInstitutionIdentificationCode,ExternalFinancialInstrumentIdentificationTypeCode reqExternalFinancialInstrumentIdentificationTypeCode,string reqExternalFinancialInstrumentProductTypeCode,ExternalGarnishmentTypeCode reqExternalGarnishmentTypeCode,ExternalIncotermsCode reqExternalIncotermsCode,ExternalInformationTypeCode reqExternalInformationTypeCode,string reqExternalInstructedAgentInstructionCode,string reqExternalInvalidEventReasonCode,string reqExternalInvalidPaymentsEventCode,ExternalInvestigationExecutionConfirmationCode reqExternalInvestigationExecutionConfirmationCode,ExternalLetterTypeCode reqExternalLetterTypeCode,ExternalLocalInstrumentCode reqExternalLocalInstrumentCode,ExternalMandateReasonCode reqExternalMandateReasonCode,string reqExternalMandateSetupReasonCode,ExternalMandateStatusCode reqExternalMandateStatusCode,ExternalMandateSuspensionReasonCode reqExternalMandateSuspensionReasonCode,ExternalMarketInfrastructureCode reqExternalMarketInfrastructureCode,ExternalModelFormIdentificationCode reqExternalModelFormIdentificationCode,ExternalNarrativeTypeCode reqExternalNarrativeTypeCode,string reqExternalNotificationCancellationReasonCode,ExternalOrganisationIdentificationCode reqExternalOrganisationIdentificationCode,ExternalPackagingTypeCode reqExternalPackagingTypeCode,ExternalPaymentCancellationRejectionCode reqExternalPaymentCancellationRejectionCode,ExternalPaymentCompensationReasonCode reqExternalPaymentCompensationReasonCode,ExternalPaymentControlRequestTypeCode reqExternalPaymentControlRequestTypeCode,ExternalPaymentGroupStatusCode reqExternalPaymentGroupStatusCode,ExternalPaymentModificationRejectionCode reqExternalPaymentModificationRejectionCode,ExternalPaymentRoleCode reqExternalPaymentRoleCode,ExternalPaymentStatusReasonCode reqExternalPaymentStatusReasonCode,ExternalPaymentTransactionStatusCode reqExternalPaymentTransactionStatusCode,ExternalPendingProcessingReasonCode reqExternalPendingProcessingReasonCode,ExternalPersonIdentificationCode reqExternalPersonIdentificationCode,ExternalProxyAccountTypeCode reqExternalProxyAccountTypeCode,ExternalPurposeAndMarketAreaCode reqExternalPurposeAndMarketAreaCode,ExternalPurposeCode reqExternalPurposeCode,ExternalRatesAndTenorsCode reqExternalRatesAndTenorsCode,ExternalReceivedReasonCode reqExternalReceivedReasonCode,ExternalRejectedReasonCode reqExternalRejectedReasonCode,ExternalRelativeToCode reqExternalRelativeToCode,ExternalReportingSourceCode reqExternalReportingSourceCode,ExternalRePresentmentReasonCode reqExternalRePresentmentReasonCode,ExternalReservationTypeCode reqExternalReservationTypeCode,ExternalReturnReasonCode reqExternalReturnReasonCode,ExternalReversalReasonCode reqExternalReversalReasonCode,string reqExternalSecuritiesLendingTypeCode,ExternalSecuritiesPurpose1Code reqExternalSecuritiesPurpose1Code,string reqExternalSecuritiesUpdateReasonCode,ExternalServiceLevelCode reqExternalServiceLevelCode,ExternalShipmentConditionCode reqExternalShipmentConditionCode,ExternalStatusReasonCode reqExternalStatusReasonCode,ExternalSystemBalanceTypeCode reqExternalSystemBalanceTypeCode,ExternalSystemErrorHandlingCode reqExternalSystemErrorHandlingCode,ExternalSystemEventTypeCode reqExternalSystemEventTypeCode,ExternalSystemMemberTypeCode reqExternalSystemMemberTypeCode,string reqExternalSystemPartyTypeCode,ExternalTaxAmountTypeCode reqExternalTaxAmountTypeCode,ExternalTechnicalInputChannelCode reqExternalTechnicalInputChannelCode,ExternalTradeMarketCode reqExternalTradeMarketCode,ExternalTradeTransactionConditionCode reqExternalTradeTransactionConditionCode,ExternalTypeOfPartyCode reqExternalTypeOfPartyCode,ExternalUnableToApplyIncorrectDataCode reqExternalUnableToApplyIncorrectDataCode,ExternalUnableToApplyMissingDataCode reqExternalUnableToApplyMissingDataCode,ExternalUnderlyingTradeTransactionTypeCode reqExternalUnderlyingTradeTransactionTypeCode,ExternalUndertakingAmountTypeCode reqExternalUndertakingAmountTypeCode,ExternalUndertakingDocumentTypeCode reqExternalUndertakingDocumentTypeCode,ExternalUndertakingStatusCategoryCode reqExternalUndertakingStatusCategoryCode,ExternalUndertakingTypeCode reqExternalUndertakingTypeCode,ExternalValidationRuleIdentificationCode reqExternalValidationRuleIdentificationCode,ExternalVerificationReasonCode reqExternalVerificationReasonCode,ExternalBenchmarkCurveNameCode reqExternalBenchmarkCurveNameCode,string reqExternalPartyRelationshipTypeCode,ExternalUnitOfMeasureCode reqExternalUnitOfMeasureCode )
+    {
+        ExternalAcceptedReasonCode = reqExternalAcceptedReasonCode;
+        ExternalAccountIdentificationCode = reqExternalAccountIdentificationCode;
+        ExternalAgentInstructionCode = reqExternalAgentInstructionCode;
+        ExternalAgreementTypeCode = reqExternalAgreementTypeCode;
+        ExternalAuthenticationChannelCode = reqExternalAuthenticationChannelCode;
+        ExternalAuthenticationMethodCode = reqExternalAuthenticationMethodCode;
+        ExternalAuthorityExchangeReasonCode = reqExternalAuthorityExchangeReasonCode;
+        ExternalAuthorityIdentificationCode = reqExternalAuthorityIdentificationCode;
+        ExternalBalanceSubTypeCode = reqExternalBalanceSubTypeCode;
+        ExternalBalanceTypeCode = reqExternalBalanceTypeCode;
+        ExternalBankTransactionDomainCode = reqExternalBankTransactionDomainCode;
+        ExternalBankTransactionFamilyCode = reqExternalBankTransactionFamilyCode;
+        ExternalBankTransactionSubFamilyCode = reqExternalBankTransactionSubFamilyCode;
+        ExternalBillingBalanceTypeCode = reqExternalBillingBalanceTypeCode;
+        ExternalBillingCompensationTypeCode = reqExternalBillingCompensationTypeCode;
+        ExternalBillingRateIdentificationCode = reqExternalBillingRateIdentificationCode;
+        ExternalCancellationReasonCode = reqExternalCancellationReasonCode;
+        ExternalCardTransactionCategoryCode = reqExternalCardTransactionCategoryCode;
+        ExternalCashAccountTypeCode = reqExternalCashAccountTypeCode;
+        ExternalCashClearingSystemCode = reqExternalCashClearingSystemCode;
+        ExternalCategoryPurposeCode = reqExternalCategoryPurposeCode;
+        ExternalChannelCode = reqExternalChannelCode;
+        ExternalChargeTypeCode = reqExternalChargeTypeCode;
+        ExternalChequeAgentInstructionCode = reqExternalChequeAgentInstructionCode;
+        ExternalChequeCancellationReasonCode = reqExternalChequeCancellationReasonCode;
+        ExternalChequeCancellationStatusCode = reqExternalChequeCancellationStatusCode;
+        ExternalClaimNonReceiptRejectionCode = reqExternalClaimNonReceiptRejectionCode;
+        ExternalClearingSystemIdentificationCode = reqExternalClearingSystemIdentificationCode;
+        ExternalClearingSystemMemberCode = reqExternalClearingSystemMemberCode;
+        ExternalCommunicationFormatCode = reqExternalCommunicationFormatCode;
+        ExternalContractBalanceTypeCode = reqExternalContractBalanceTypeCode;
+        ExternalContractClosureReasonCode = reqExternalContractClosureReasonCode;
+        ExternalCreditLineTypeCode = reqExternalCreditLineTypeCode;
+        ExternalCreditorAgentInstructionCode = reqExternalCreditorAgentInstructionCode;
+        ExternalCreditorEnrolmentAmendmentReasonCode = reqExternalCreditorEnrolmentAmendmentReasonCode;
+        ExternalCreditorEnrolmentCancellationReasonCode = reqExternalCreditorEnrolmentCancellationReasonCode;
+        ExternalCreditorEnrolmentStatusReasonCode = reqExternalCreditorEnrolmentStatusReasonCode;
+        ExternalDateFrequencyCode = reqExternalDateFrequencyCode;
+        ExternalDebtorActivationAmendmentReasonCode = reqExternalDebtorActivationAmendmentReasonCode;
+        ExternalDebtorActivationCancellationReasonCode = reqExternalDebtorActivationCancellationReasonCode;
+        ExternalDebtorActivationStatusReasonCode = reqExternalDebtorActivationStatusReasonCode;
+        ExternalDebtorAgentInstructionCode = reqExternalDebtorAgentInstructionCode;
+        ExternalDiscountAmountTypeCode = reqExternalDiscountAmountTypeCode;
+        ExternalDiscrepancyCode = reqExternalDiscrepancyCode;
+        ExternalDocumentFormatCode = reqExternalDocumentFormatCode;
+        ExternalDocumentLineTypeCode = reqExternalDocumentLineTypeCode;
+        ExternalDocumentPurposeCode = reqExternalDocumentPurposeCode;
+        ExternalDocumentTypeCode = reqExternalDocumentTypeCode;
+        ExternalEffectiveDateParameterCode = reqExternalEffectiveDateParameterCode;
+        ExternalEncryptedElementIdentificationCode = reqExternalEncryptedElementIdentificationCode;
+        ExternalEnquiryRequestTypeCode = reqExternalEnquiryRequestTypeCode;
+        ExternalEntryStatusCode = reqExternalEntryStatusCode;
+        ExternalFinancialInstitutionIdentificationCode = reqExternalFinancialInstitutionIdentificationCode;
+        ExternalFinancialInstrumentIdentificationTypeCode = reqExternalFinancialInstrumentIdentificationTypeCode;
+        ExternalFinancialInstrumentProductTypeCode = reqExternalFinancialInstrumentProductTypeCode;
+        ExternalGarnishmentTypeCode = reqExternalGarnishmentTypeCode;
+        ExternalIncotermsCode = reqExternalIncotermsCode;
+        ExternalInformationTypeCode = reqExternalInformationTypeCode;
+        ExternalInstructedAgentInstructionCode = reqExternalInstructedAgentInstructionCode;
+        ExternalInvalidEventReasonCode = reqExternalInvalidEventReasonCode;
+        ExternalInvalidPaymentsEventCode = reqExternalInvalidPaymentsEventCode;
+        ExternalInvestigationExecutionConfirmationCode = reqExternalInvestigationExecutionConfirmationCode;
+        ExternalLetterTypeCode = reqExternalLetterTypeCode;
+        ExternalLocalInstrumentCode = reqExternalLocalInstrumentCode;
+        ExternalMandateReasonCode = reqExternalMandateReasonCode;
+        ExternalMandateSetupReasonCode = reqExternalMandateSetupReasonCode;
+        ExternalMandateStatusCode = reqExternalMandateStatusCode;
+        ExternalMandateSuspensionReasonCode = reqExternalMandateSuspensionReasonCode;
+        ExternalMarketInfrastructureCode = reqExternalMarketInfrastructureCode;
+        ExternalModelFormIdentificationCode = reqExternalModelFormIdentificationCode;
+        ExternalNarrativeTypeCode = reqExternalNarrativeTypeCode;
+        ExternalNotificationCancellationReasonCode = reqExternalNotificationCancellationReasonCode;
+        ExternalOrganisationIdentificationCode = reqExternalOrganisationIdentificationCode;
+        ExternalPackagingTypeCode = reqExternalPackagingTypeCode;
+        ExternalPaymentCancellationRejectionCode = reqExternalPaymentCancellationRejectionCode;
+        ExternalPaymentCompensationReasonCode = reqExternalPaymentCompensationReasonCode;
+        ExternalPaymentControlRequestTypeCode = reqExternalPaymentControlRequestTypeCode;
+        ExternalPaymentGroupStatusCode = reqExternalPaymentGroupStatusCode;
+        ExternalPaymentModificationRejectionCode = reqExternalPaymentModificationRejectionCode;
+        ExternalPaymentRoleCode = reqExternalPaymentRoleCode;
+        ExternalPaymentStatusReasonCode = reqExternalPaymentStatusReasonCode;
+        ExternalPaymentTransactionStatusCode = reqExternalPaymentTransactionStatusCode;
+        ExternalPendingProcessingReasonCode = reqExternalPendingProcessingReasonCode;
+        ExternalPersonIdentificationCode = reqExternalPersonIdentificationCode;
+        ExternalProxyAccountTypeCode = reqExternalProxyAccountTypeCode;
+        ExternalPurposeAndMarketAreaCode = reqExternalPurposeAndMarketAreaCode;
+        ExternalPurposeCode = reqExternalPurposeCode;
+        ExternalRatesAndTenorsCode = reqExternalRatesAndTenorsCode;
+        ExternalReceivedReasonCode = reqExternalReceivedReasonCode;
+        ExternalRejectedReasonCode = reqExternalRejectedReasonCode;
+        ExternalRelativeToCode = reqExternalRelativeToCode;
+        ExternalReportingSourceCode = reqExternalReportingSourceCode;
+        ExternalRePresentmentReasonCode = reqExternalRePresentmentReasonCode;
+        ExternalReservationTypeCode = reqExternalReservationTypeCode;
+        ExternalReturnReasonCode = reqExternalReturnReasonCode;
+        ExternalReversalReasonCode = reqExternalReversalReasonCode;
+        ExternalSecuritiesLendingTypeCode = reqExternalSecuritiesLendingTypeCode;
+        ExternalSecuritiesPurpose1Code = reqExternalSecuritiesPurpose1Code;
+        ExternalSecuritiesUpdateReasonCode = reqExternalSecuritiesUpdateReasonCode;
+        ExternalServiceLevelCode = reqExternalServiceLevelCode;
+        ExternalShipmentConditionCode = reqExternalShipmentConditionCode;
+        ExternalStatusReasonCode = reqExternalStatusReasonCode;
+        ExternalSystemBalanceTypeCode = reqExternalSystemBalanceTypeCode;
+        ExternalSystemErrorHandlingCode = reqExternalSystemErrorHandlingCode;
+        ExternalSystemEventTypeCode = reqExternalSystemEventTypeCode;
+        ExternalSystemMemberTypeCode = reqExternalSystemMemberTypeCode;
+        ExternalSystemPartyTypeCode = reqExternalSystemPartyTypeCode;
+        ExternalTaxAmountTypeCode = reqExternalTaxAmountTypeCode;
+        ExternalTechnicalInputChannelCode = reqExternalTechnicalInputChannelCode;
+        ExternalTradeMarketCode = reqExternalTradeMarketCode;
+        ExternalTradeTransactionConditionCode = reqExternalTradeTransactionConditionCode;
+        ExternalTypeOfPartyCode = reqExternalTypeOfPartyCode;
+        ExternalUnableToApplyIncorrectDataCode = reqExternalUnableToApplyIncorrectDataCode;
+        ExternalUnableToApplyMissingDataCode = reqExternalUnableToApplyMissingDataCode;
+        ExternalUnderlyingTradeTransactionTypeCode = reqExternalUnderlyingTradeTransactionTypeCode;
+        ExternalUndertakingAmountTypeCode = reqExternalUndertakingAmountTypeCode;
+        ExternalUndertakingDocumentTypeCode = reqExternalUndertakingDocumentTypeCode;
+        ExternalUndertakingStatusCategoryCode = reqExternalUndertakingStatusCategoryCode;
+        ExternalUndertakingTypeCode = reqExternalUndertakingTypeCode;
+        ExternalValidationRuleIdentificationCode = reqExternalValidationRuleIdentificationCode;
+        ExternalVerificationReasonCode = reqExternalVerificationReasonCode;
+        ExternalBenchmarkCurveNameCode = reqExternalBenchmarkCurveNameCode;
+        ExternalPartyRelationshipTypeCode = reqExternalPartyRelationshipTypeCode;
+        ExternalUnitOfMeasureCode = reqExternalUnitOfMeasureCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// </summary>
+    [IsoId("_3toyLG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Accepted Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
+    #else
+    public ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnA2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Account Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
+    #else
+    public ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_9W_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Agent Instruction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
+    #else
+    public ExternalAgentInstructionCode ExternalAgentInstructionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAa2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Agreement Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
+    #else
+    public ExternalAgreementTypeCode ExternalAgreementTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAXG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Authentication Channel Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
+    #else
+    public ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyOG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Authentication Method Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthenticationMethodCode ExternalAuthenticationMethodCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalAuthenticationMethodCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalAuthenticationMethodCode { get; init; } 
+    #else
+    public string ExternalAuthenticationMethodCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqATW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Authority Exchange Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
+    #else
+    public ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAKm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Authority Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
+    #else
+    public ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnG2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Balance Sub Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
+    #else
+    public ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAHG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Balance Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
+    #else
+    public ExternalBalanceTypeCode ExternalBalanceTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAaG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Bank Transaction Domain Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionDomainCode ExternalBankTransactionDomainCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalBankTransactionDomainCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalBankTransactionDomainCode { get; init; } 
+    #else
+    public string ExternalBankTransactionDomainCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_8W_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Bank Transaction Family Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionFamilyCode ExternalBankTransactionFamilyCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalBankTransactionFamilyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalBankTransactionFamilyCode { get; init; } 
+    #else
+    public string ExternalBankTransactionFamilyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAIm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Bank Transaction Sub Family Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionSubFamilyCode ExternalBankTransactionSubFamilyCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalBankTransactionSubFamilyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalBankTransactionSubFamilyCode { get; init; } 
+    #else
+    public string ExternalBankTransactionSubFamilyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY7m_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Billing Balance Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
+    #else
+    public ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAJm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Billing Compensation Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
+    #else
+    public ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY72_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Billing Rate Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
+    #else
+    public ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAD2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Cancellation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
+    #else
+    public ExternalCancellationReasonCode ExternalCancellationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyMW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Card Transaction Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCardTransactionCategoryCode ExternalCardTransactionCategoryCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalCardTransactionCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalCardTransactionCategoryCode { get; init; } 
+    #else
+    public string ExternalCardTransactionCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnEG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Cash Account Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
+    #else
+    public ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnKG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Cash Clearing System Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
+    #else
+    public ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAGW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Category Purpose Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
+    #else
+    public ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyVm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Channel Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChannelCode ExternalChannelCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalChannelCode ExternalChannelCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalChannelCode ExternalChannelCode { get; init; } 
+    #else
+    public ExternalChannelCode ExternalChannelCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyOW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Charge Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
+    #else
+    public ExternalChargeTypeCode ExternalChargeTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAN2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Cheque Agent Instruction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChequeAgentInstructionCode ExternalChequeAgentInstructionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalChequeAgentInstructionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalChequeAgentInstructionCode { get; init; } 
+    #else
+    public string ExternalChequeAgentInstructionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqASm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Cheque Cancellation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChequeCancellationReasonCode ExternalChequeCancellationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalChequeCancellationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalChequeCancellationReasonCode { get; init; } 
+    #else
+    public string ExternalChequeCancellationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyNm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Cheque Cancellation Status Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChequeCancellationStatusCode ExternalChequeCancellationStatusCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalChequeCancellationStatusCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalChequeCancellationStatusCode { get; init; } 
+    #else
+    public string ExternalChequeCancellationStatusCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnDm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Claim Non Receipt Rejection Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
+    #else
+    public ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAAm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Clearing System Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
+    #else
+    public ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAI2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Clearing System Member Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalClearingSystemMemberCode ExternalClearingSystemMemberCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalClearingSystemMemberCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalClearingSystemMemberCode { get; init; } 
+    #else
+    public string ExternalClearingSystemMemberCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAH2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Communication Format Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCommunicationFormatCode ExternalCommunicationFormatCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalCommunicationFormatCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalCommunicationFormatCode { get; init; } 
+    #else
+    public string ExternalCommunicationFormatCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAYm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Contract Balance Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
+    #else
+    public ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAA2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Contract Closure Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
+    #else
+    public ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_9m_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Credit Line Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditLineTypeCode ExternalCreditLineTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalCreditLineTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalCreditLineTypeCode { get; init; } 
+    #else
+    public string ExternalCreditLineTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOHm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Creditor Agent Instruction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
+    #else
+    public ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqARG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Creditor Enrolment Amendment Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
+    #else
+    public ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqATm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Creditor Enrolment Cancellation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
+    #else
+    public ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyVG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Creditor Enrolment Status Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
+    #else
+    public ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY52_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Date Frequency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
+    #else
+    public ExternalDateFrequencyCode ExternalDateFrequencyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_8G_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Debtor Activation Amendment Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
+    #else
+    public ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOEW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Debtor Activation Cancellation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
+    #else
+    public ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyT2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Debtor Activation Status Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
+    #else
+    public ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqADW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Debtor Agent Instruction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
+    #else
+    public ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqABG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Discount Amount Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
+    #else
+    public ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyQ2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Discrepancy Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDiscrepancyCode ExternalDiscrepancyCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalDiscrepancyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalDiscrepancyCode { get; init; } 
+    #else
+    public string ExternalDiscrepancyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOEG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Document Format Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
+    #else
+    public ExternalDocumentFormatCode ExternalDocumentFormatCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAIW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Document Line Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
+    #else
+    public ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAUG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Document Purpose Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
+    #else
+    public ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnHm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Document Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
+    #else
+    public ExternalDocumentTypeCode ExternalDocumentTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqALG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Effective Date Parameter Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
+    #else
+    public ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnFG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Encrypted Element Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
+    #else
+    public ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAPm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Enquiry Request Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
+    #else
+    public ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyO2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Entry Status Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
+    #else
+    public ExternalEntryStatusCode ExternalEntryStatusCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOG2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Financial Institution Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalFinancialInstitutionIdentificationCode ExternalFinancialInstitutionIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalFinancialInstitutionIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalFinancialInstitutionIdentificationCode { get; init; } 
+    #else
+    public string ExternalFinancialInstitutionIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnCG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Financial Instrument Identification Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
+    #else
+    public ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyQW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Financial Instrument Product Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalFinancialInstrumentProductTypeCode ExternalFinancialInstrumentProductTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalFinancialInstrumentProductTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalFinancialInstrumentProductTypeCode { get; init; } 
+    #else
+    public string ExternalFinancialInstrumentProductTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAY2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Garnishment Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
+    #else
+    public ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAOm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Incoterms Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
+    #else
+    public ExternalIncotermsCode ExternalIncotermsCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnCm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Information Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
+    #else
+    public ExternalInformationTypeCode ExternalInformationTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAEG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Instructed Agent Instruction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInstructedAgentInstructionCode ExternalInstructedAgentInstructionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalInstructedAgentInstructionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalInstructedAgentInstructionCode { get; init; } 
+    #else
+    public string ExternalInstructedAgentInstructionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyQm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Invalid Event Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvalidEventReasonCode ExternalInvalidEventReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalInvalidEventReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalInvalidEventReasonCode { get; init; } 
+    #else
+    public string ExternalInvalidEventReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyN2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Invalid Payments Event Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvalidPaymentsEventCode ExternalInvalidPaymentsEventCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalInvalidPaymentsEventCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalInvalidPaymentsEventCode { get; init; } 
+    #else
+    public string ExternalInvalidPaymentsEventCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAU2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Investigation Execution Confirmation Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
+    #else
+    public ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqACm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Letter Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
+    #else
+    public ExternalLetterTypeCode ExternalLetterTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnLG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Local Instrument Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
+    #else
+    public ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAAG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Mandate Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
+    #else
+    public ExternalMandateReasonCode ExternalMandateReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAEm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Mandate Setup Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateSetupReasonCode ExternalMandateSetupReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalMandateSetupReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalMandateSetupReasonCode { get; init; } 
+    #else
+    public string ExternalMandateSetupReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnDG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Mandate Status Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
+    #else
+    public ExternalMandateStatusCode ExternalMandateStatusCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOE2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Mandate Suspension Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
+    #else
+    public ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOGW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Market Infrastructure Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
+    #else
+    public ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY5m_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Model Form Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
+    #else
+    public ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAYG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Narrative Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
+    #else
+    public ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqALm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Notification Cancellation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalNotificationCancellationReasonCode ExternalNotificationCancellationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalNotificationCancellationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalNotificationCancellationReasonCode { get; init; } 
+    #else
+    public string ExternalNotificationCancellationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqADm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Organisation Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
+    #else
+    public ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_82_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Packaging Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
+    #else
+    public ExternalPackagingTypeCode ExternalPackagingTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAaW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Cancellation Rejection Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
+    #else
+    public ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyNW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Compensation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
+    #else
+    public ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqARm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Control Request Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
+    #else
+    public ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnCW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Group Status Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
+    #else
+    public ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnJG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Modification Rejection Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
+    #else
+    public ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAT2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Role Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
+    #else
+    public ExternalPaymentRoleCode ExternalPaymentRoleCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY8G_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Status Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
+    #else
+    public ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAb2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Payment Transaction Status Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
+    #else
+    public ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyKG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Pending Processing Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
+    #else
+    public ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_9G_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Person Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
+    #else
+    public ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_-m_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Proxy Account Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
+    #else
+    public ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_-2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Purpose And Market Area Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
+    #else
+    public ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnKW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Purpose Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPurposeCode ExternalPurposeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalPurposeCode ExternalPurposeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalPurposeCode ExternalPurposeCode { get; init; } 
+    #else
+    public ExternalPurposeCode ExternalPurposeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAVm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Rates And Tenors Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
+    #else
+    public ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAZ2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Received Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
+    #else
+    public ExternalReceivedReasonCode ExternalReceivedReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAV2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Rejected Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
+    #else
+    public ExternalRejectedReasonCode ExternalRejectedReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAOG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Relative To Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
+    #else
+    public ExternalRelativeToCode ExternalRelativeToCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAB2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Reporting Source Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
+    #else
+    public ExternalReportingSourceCode ExternalReportingSourceCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAR2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Re Presentment Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
+    #else
+    public ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnD2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Reservation Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
+    #else
+    public ExternalReservationTypeCode ExternalReservationTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyJ2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Return Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
+    #else
+    public ExternalReturnReasonCode ExternalReturnReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY5G_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Reversal Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
+    #else
+    public ExternalReversalReasonCode ExternalReversalReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOF2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Securities Lending Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSecuritiesLendingTypeCode ExternalSecuritiesLendingTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalSecuritiesLendingTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalSecuritiesLendingTypeCode { get; init; } 
+    #else
+    public string ExternalSecuritiesLendingTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY6W_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Securities Purpose 1 Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
+    #else
+    public ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAYW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Securities Update Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSecuritiesUpdateReasonCode ExternalSecuritiesUpdateReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalSecuritiesUpdateReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalSecuritiesUpdateReasonCode { get; init; } 
+    #else
+    public string ExternalSecuritiesUpdateReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tp_-G_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Service Level Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
+    #else
+    public ExternalServiceLevelCode ExternalServiceLevelCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyK2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Shipment Condition Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
+    #else
+    public ExternalShipmentConditionCode ExternalShipmentConditionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyLW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Status Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
+    #else
+    public ExternalStatusReasonCode ExternalStatusReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAJW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External System Balance Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
+    #else
+    public ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyUW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External System Error Handling Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
+    #else
+    public ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqACW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External System Event Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
+    #else
+    public ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqANG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External System Member Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
+    #else
+    public ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY4m_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External System Party Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemPartyTypeCode ExternalSystemPartyTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalSystemPartyTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalSystemPartyTypeCode { get; init; } 
+    #else
+    public string ExternalSystemPartyTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyU2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Tax Amount Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
+    #else
+    public ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnLm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Technical Input Channel Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
+    #else
+    public ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAHm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Trade Market Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
+    #else
+    public ExternalTradeMarketCode ExternalTradeMarketCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqnHG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Trade Transaction Condition Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
+    #else
+    public ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAC2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Type Of Party Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
+    #else
+    public ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAEW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Unable To Apply Incorrect Data Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
+    #else
+    public ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqANW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Unable To Apply Missing Data Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
+    #else
+    public ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3toyS2_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Underlying Trade Transaction Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
+    #else
+    public ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAFW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Undertaking Amount Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
+    #else
+    public ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOFm_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Undertaking Document Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
+    #else
+    public ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAKG_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Undertaking Status Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
+    #else
+    public ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tqAUW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Undertaking Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
+    #else
+    public ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3tpY7G_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Validation Rule Identification Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
+    #else
+    public ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_3trOFW_HEe2g-IPZC9d7tA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Verification Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
+    #else
+    public ExternalVerificationReasonCode ExternalVerificationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_xi3wc3C-Ee2QDe42vpiOiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Benchmark Curve Name Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
+    #else
+    public ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_xi3wdHC-Ee2QDe42vpiOiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Party Relationship Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPartyRelationshipTypeCode ExternalPartyRelationshipTypeCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string ExternalPartyRelationshipTypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string ExternalPartyRelationshipTypeCode { get; init; } 
+    #else
+    public string ExternalPartyRelationshipTypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// </summary>
+    [IsoId("_xi3wdXC-Ee2QDe42vpiOiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("External Unit Of Measure Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
+    #else
+    public ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "XtrnlAccptdRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalAcceptedReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAcctIdCd", xmlNamespace );
-        writer.WriteValue(ExternalAccountIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAgtInstrCd", xmlNamespace );
-        writer.WriteValue(ExternalAgentInstructionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAgrmtTpCd", xmlNamespace );
-        writer.WriteValue(ExternalAgreementTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAuthntcnChanlCd", xmlNamespace );
-        writer.WriteValue(ExternalAuthenticationChannelCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAuthntcnMtdCd", xmlNamespace );
-        writer.WriteValue(ExternalAuthenticationMethodCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAuthrtyXchgRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalAuthorityExchangeReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlAuthrtyIdCd", xmlNamespace );
-        writer.WriteValue(ExternalAuthorityIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBalSubTpCd", xmlNamespace );
-        writer.WriteValue(ExternalBalanceSubTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBalTpCd", xmlNamespace );
-        writer.WriteValue(ExternalBalanceTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBkTxDomnCd", xmlNamespace );
-        writer.WriteValue(ExternalBankTransactionDomainCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBkTxFmlyCd", xmlNamespace );
-        writer.WriteValue(ExternalBankTransactionFamilyCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBkTxSubFmlyCd", xmlNamespace );
-        writer.WriteValue(ExternalBankTransactionSubFamilyCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBllgBalTpCd", xmlNamespace );
-        writer.WriteValue(ExternalBillingBalanceTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBllgCompstnTpCd", xmlNamespace );
-        writer.WriteValue(ExternalBillingCompensationTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBllgRateIdCd", xmlNamespace );
-        writer.WriteValue(ExternalBillingRateIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCxlRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalCancellationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCardTxCtgyCd", xmlNamespace );
-        writer.WriteValue(ExternalCardTransactionCategoryCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCshAcctTpCd", xmlNamespace );
-        writer.WriteValue(ExternalCashAccountTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCshClrSysCd", xmlNamespace );
-        writer.WriteValue(ExternalCashClearingSystemCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCtgyPurpCd", xmlNamespace );
-        writer.WriteValue(ExternalCategoryPurposeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlChanlCd", xmlNamespace );
-        writer.WriteValue(ExternalChannelCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlChrgTpCd", xmlNamespace );
-        writer.WriteValue(ExternalChargeTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlChqAgtInstrCd", xmlNamespace );
-        writer.WriteValue(ExternalChequeAgentInstructionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlChqCxlRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalChequeCancellationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlChqCxlStsCd", xmlNamespace );
-        writer.WriteValue(ExternalChequeCancellationStatusCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlClmNonRctRjctnCd", xmlNamespace );
-        writer.WriteValue(ExternalClaimNonReceiptRejectionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlClrSysIdCd", xmlNamespace );
-        writer.WriteValue(ExternalClearingSystemIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlClrSysMmbCd", xmlNamespace );
-        writer.WriteValue(ExternalClearingSystemMemberCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlComFrmtCd", xmlNamespace );
-        writer.WriteValue(ExternalCommunicationFormatCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCtrctBalTpCd", xmlNamespace );
-        writer.WriteValue(ExternalContractBalanceTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCtrctClsrRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalContractClosureReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCdtLineTpCd", xmlNamespace );
-        writer.WriteValue(ExternalCreditLineTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCdtrAgtInstrCd", xmlNamespace );
-        writer.WriteValue(ExternalCreditorAgentInstructionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCdtrEnrlmntAmdmntRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalCreditorEnrolmentAmendmentReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCdtrEnrlmntCxlRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalCreditorEnrolmentCancellationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlCdtrEnrlmntStsRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalCreditorEnrolmentStatusReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDtFrqcyCd", xmlNamespace );
-        writer.WriteValue(ExternalDateFrequencyCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDbtrActvtnAmdmntRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalDebtorActivationAmendmentReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDbtrActvtnCxlRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalDebtorActivationCancellationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDbtrActvtnStsRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalDebtorActivationStatusReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDbtrAgtInstrCd", xmlNamespace );
-        writer.WriteValue(ExternalDebtorAgentInstructionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDscntAmtTpCd", xmlNamespace );
-        writer.WriteValue(ExternalDiscountAmountTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDscrpncyCd", xmlNamespace );
-        writer.WriteValue(ExternalDiscrepancyCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDocFrmtCd", xmlNamespace );
-        writer.WriteValue(ExternalDocumentFormatCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDocLineTpCd", xmlNamespace );
-        writer.WriteValue(ExternalDocumentLineTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDocPurpCd", xmlNamespace );
-        writer.WriteValue(ExternalDocumentPurposeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlDocTpCd", xmlNamespace );
-        writer.WriteValue(ExternalDocumentTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlFctvDtParamCd", xmlNamespace );
-        writer.WriteValue(ExternalEffectiveDateParameterCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlNcrptdElmtIdCd", xmlNamespace );
-        writer.WriteValue(ExternalEncryptedElementIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlEnqryReqTpCd", xmlNamespace );
-        writer.WriteValue(ExternalEnquiryRequestTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlNtryStsCd", xmlNamespace );
-        writer.WriteValue(ExternalEntryStatusCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlFIIdCd", xmlNamespace );
-        writer.WriteValue(ExternalFinancialInstitutionIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlFinInstrmIdTpCd", xmlNamespace );
-        writer.WriteValue(ExternalFinancialInstrumentIdentificationTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlFinInstrmPdctTpCd", xmlNamespace );
-        writer.WriteValue(ExternalFinancialInstrumentProductTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlGrnshmtTpCd", xmlNamespace );
-        writer.WriteValue(ExternalGarnishmentTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlIncotrmsCd", xmlNamespace );
-        writer.WriteValue(ExternalIncotermsCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlInfTpCd", xmlNamespace );
-        writer.WriteValue(ExternalInformationTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlInstdAgtInstrCd", xmlNamespace );
-        writer.WriteValue(ExternalInstructedAgentInstructionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlInvldEvtRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalInvalidEventReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlInvldPmtsEvtCd", xmlNamespace );
-        writer.WriteValue(ExternalInvalidPaymentsEventCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlInvstgtnExctnConfCd", xmlNamespace );
-        writer.WriteValue(ExternalInvestigationExecutionConfirmationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlLttrTpCd", xmlNamespace );
-        writer.WriteValue(ExternalLetterTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlLclInstrmCd", xmlNamespace );
-        writer.WriteValue(ExternalLocalInstrumentCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlMndtRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalMandateReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlMndtStpRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalMandateSetupReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlMndtStsCd", xmlNamespace );
-        writer.WriteValue(ExternalMandateStatusCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlMndtSspnsnRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalMandateSuspensionReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlMktInfrstrctrCd", xmlNamespace );
-        writer.WriteValue(ExternalMarketInfrastructureCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlMdlFormIdCd", xmlNamespace );
-        writer.WriteValue(ExternalModelFormIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlNrrtvTpCd", xmlNamespace );
-        writer.WriteValue(ExternalNarrativeTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlNtfctnCxlRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalNotificationCancellationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlOrgIdCd", xmlNamespace );
-        writer.WriteValue(ExternalOrganisationIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPackgngTpCd", xmlNamespace );
-        writer.WriteValue(ExternalPackagingTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtCxlRjctnCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentCancellationRejectionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtCompstnRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentCompensationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtCtrlReqTpCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentControlRequestTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtGrpStsCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentGroupStatusCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtModRjctnCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentModificationRejectionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtRoleCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentRoleCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtStsRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentStatusReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPmtTxStsCd", xmlNamespace );
-        writer.WriteValue(ExternalPaymentTransactionStatusCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPdgPrcgRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalPendingProcessingReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPrsnIdCd", xmlNamespace );
-        writer.WriteValue(ExternalPersonIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPrxyAcctTpCd", xmlNamespace );
-        writer.WriteValue(ExternalProxyAccountTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPurpAndMktAreaCd", xmlNamespace );
-        writer.WriteValue(ExternalPurposeAndMarketAreaCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPurpCd", xmlNamespace );
-        writer.WriteValue(ExternalPurposeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRatesAndTnrsCd", xmlNamespace );
-        writer.WriteValue(ExternalRatesAndTenorsCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRcvdRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalReceivedReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRjctdRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalRejectedReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRltvToCd", xmlNamespace );
-        writer.WriteValue(ExternalRelativeToCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRptgSrcCd", xmlNamespace );
-        writer.WriteValue(ExternalReportingSourceCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRePresntmntRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalRePresentmentReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRsvatnTpCd", xmlNamespace );
-        writer.WriteValue(ExternalReservationTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRtrRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalReturnReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlRvslRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalReversalReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSctiesLndgTpCd", xmlNamespace );
-        writer.WriteValue(ExternalSecuritiesLendingTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSctiesPurp1Cd", xmlNamespace );
-        writer.WriteValue(ExternalSecuritiesPurpose1Code.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSctiesUpdRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalSecuritiesUpdateReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSvcLvlCd", xmlNamespace );
-        writer.WriteValue(ExternalServiceLevelCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlShipmntCondCd", xmlNamespace );
-        writer.WriteValue(ExternalShipmentConditionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlStsRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalStatusReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSysBalTpCd", xmlNamespace );
-        writer.WriteValue(ExternalSystemBalanceTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSysErrHdlgCd", xmlNamespace );
-        writer.WriteValue(ExternalSystemErrorHandlingCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSysEvtTpCd", xmlNamespace );
-        writer.WriteValue(ExternalSystemEventTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSysMmbTpCd", xmlNamespace );
-        writer.WriteValue(ExternalSystemMemberTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlSysPtyTpCd", xmlNamespace );
-        writer.WriteValue(ExternalSystemPartyTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlTaxAmtTpCd", xmlNamespace );
-        writer.WriteValue(ExternalTaxAmountTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlTechInptChanlCd", xmlNamespace );
-        writer.WriteValue(ExternalTechnicalInputChannelCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlTradMktCd", xmlNamespace );
-        writer.WriteValue(ExternalTradeMarketCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlTradTxCondCd", xmlNamespace );
-        writer.WriteValue(ExternalTradeTransactionConditionCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlTpOfPtyCd", xmlNamespace );
-        writer.WriteValue(ExternalTypeOfPartyCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUblToApplyIncrrctDataCd", xmlNamespace );
-        writer.WriteValue(ExternalUnableToApplyIncorrectDataCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUblToApplyMssngDataCd", xmlNamespace );
-        writer.WriteValue(ExternalUnableToApplyMissingDataCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUndrlygTradTxTpCd", xmlNamespace );
-        writer.WriteValue(ExternalUnderlyingTradeTransactionTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUdrtkgAmtTpCd", xmlNamespace );
-        writer.WriteValue(ExternalUndertakingAmountTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUdrtkgDocTpCd", xmlNamespace );
-        writer.WriteValue(ExternalUndertakingDocumentTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUdrtkgStsCtgyCd", xmlNamespace );
-        writer.WriteValue(ExternalUndertakingStatusCategoryCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUdrtkgTpCd", xmlNamespace );
-        writer.WriteValue(ExternalUndertakingTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlVldtnRuleIdCd", xmlNamespace );
-        writer.WriteValue(ExternalValidationRuleIdentificationCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlVrfctnRsnCd", xmlNamespace );
-        writer.WriteValue(ExternalVerificationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlBchmkCrvNmCd", xmlNamespace );
-        writer.WriteValue(ExternalBenchmarkCurveNameCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlPtyRltshTpCd", xmlNamespace );
-        writer.WriteValue(ExternalPartyRelationshipTypeCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtrnlUnitOfMeasrCd", xmlNamespace );
-        writer.WriteValue(ExternalUnitOfMeasureCode.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static AllExternalMasterRegisteredCodeSets1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

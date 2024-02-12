@@ -7,96 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Telecom services summary component carries summary level telephony billing data. 
 /// </summary>
+[IsoId("_3YH6X_e-Eei89sMSHxl1ew")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Telecom Services Summary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TelecomServicesSummary1
-     : IIsoXmlSerilizable<TelecomServicesSummary1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the details of the customer. Also known as the user of the service.
     /// </summary>
+    [IsoId("_3YK9qfe-Eei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer6? Customer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Customer6? Customer { get; init; } 
+    #else
+    public Customer6? Customer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the billing period start date for telecommunication or related services.
     /// </summary>
+    [IsoId("_3YIhYve-Eei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Statement Period Start")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BillingStatementPeriodStart { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BillingStatementPeriodStart { get; init; } 
+    #else
+    public System.DateOnly? BillingStatementPeriodStart { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the billing period end date for telecommunication or related services.
     /// </summary>
+    [IsoId("_tFwnwffAEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Statement Period End")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BillingStatementPeriodEnd { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BillingStatementPeriodEnd { get; init; } 
+    #else
+    public System.DateOnly? BillingStatementPeriodEnd { get; set; } 
+    #endif
+    
     /// <summary>
     /// Summary of the charges associated with the billing event. 
     /// </summary>
+    [IsoId("_3YK9p_e-Eei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Event")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount10? BillingEvent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount10? BillingEvent { get; init; } 
+    #else
+    public Amount10? BillingEvent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of taxes applicable to the billing amount.
     /// </summary>
+    [IsoId("_sjf9UffCEei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? TotalTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax33? TotalTax { get; init; } 
+    #else
+    public Tax33? TotalTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional user-defined data pertaining to the shipment.
     /// </summary>
+    [IsoId("_3YK9oPe-Eei89sMSHxl1ew")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Customer is Customer6 CustomerValue)
-        {
-            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
-            CustomerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BillingStatementPeriodStart is IsoISODate BillingStatementPeriodStartValue)
-        {
-            writer.WriteStartElement(null, "BllgStmtPrdStart", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BillingStatementPeriodStartValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (BillingStatementPeriodEnd is IsoISODate BillingStatementPeriodEndValue)
-        {
-            writer.WriteStartElement(null, "BllgStmtPrdEnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BillingStatementPeriodEndValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (BillingEvent is Amount10 BillingEventValue)
-        {
-            writer.WriteStartElement(null, "BllgEvt", xmlNamespace );
-            BillingEventValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalTax is Tax33 TotalTaxValue)
-        {
-            writer.WriteStartElement(null, "TtlTax", xmlNamespace );
-            TotalTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TelecomServicesSummary1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for an authentication channel.
-/// </summary>
-[KnownType(typeof(AuthenticationChannel1Choice.Code))]
-[KnownType(typeof(AuthenticationChannel1Choice.Proprietary))]
-public abstract partial record AuthenticationChannel1Choice_ : IIsoXmlSerilizable<AuthenticationChannel1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for an authentication channel.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AuthenticationChannel1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AuthenticationChannel1Choice.Code))]
+    [KnownType(typeof(AuthenticationChannel1Choice.Proprietary))]
+    [IsoId("_U4Y945dgEea1K6JAcAwoVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication Channel 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AuthenticationChannel1Choice_
+    #else
+    public abstract partial class AuthenticationChannel1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AuthenticationChannel1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AuthenticationChannel1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AuthenticationChannel1Choice choice.")
-        };
     }
 }

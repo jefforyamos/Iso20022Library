@@ -7,59 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sequence of terminal management actions to be performed by a point of interaction (POI).
 /// </summary>
+[IsoId("_LYnu1H1DEeCF8NjrBemJWQ_327413113")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Management Plan")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ManagementPlan1
-     : IIsoXmlSerilizable<ManagementPlan1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ManagementPlan1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ManagementPlan1( GenericIdentification35 reqTerminalManagerIdentification )
+    {
+        TerminalManagerIdentification = reqTerminalManagerIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the point of interaction for terminal management.
     /// </summary>
+    [IsoId("_LYnu1X1DEeCF8NjrBemJWQ_-1510703256")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification35? POIIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification35? POIIdentification { get; init; } 
+    #else
+    public GenericIdentification35? POIIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the management plan.
     /// </summary>
+    [IsoId("_LYnu1n1DEeCF8NjrBemJWQ_2053974420")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Manager Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification35 TerminalManagerIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification35 TerminalManagerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification35 TerminalManagerIdentification { get; init; } 
+    #else
+    public GenericIdentification35 TerminalManagerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data set related to the sequence of actions to be performed by a point of interaction (POI).
     /// </summary>
+    [IsoId("_LYnu131DEeCF8NjrBemJWQ_-223303412")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TerminalManagementDataSet2? DataSet { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LYnu131DEeCF8NjrBemJWQ_-223303412
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (POIIdentification is GenericIdentification35 POIIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIId", xmlNamespace );
-            POIIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
-        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize DataSet, multiplicity Unknown
-    }
-    public static ManagementPlan1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

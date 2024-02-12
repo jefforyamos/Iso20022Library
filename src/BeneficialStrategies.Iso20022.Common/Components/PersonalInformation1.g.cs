@@ -7,66 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the identification of a person.
 /// </summary>
+[IsoId("_KaECoDnlEeW7UoCHqpiMaQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Personal Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PersonalInformation1
-     : IIsoXmlSerilizable<PersonalInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the father of the individual person.
     /// </summary>
+    [IsoId("_ZTjmcDnlEeW7UoCHqpiMaQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Of Father")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NameOfFather { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NameOfFather { get; init; } 
+    #else
+    public System.String? NameOfFather { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maiden (unmarried) name of the mother of the individual person.
     /// </summary>
+    [IsoId("_ZTjmcTnlEeW7UoCHqpiMaQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maiden Name Of Mother")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MaidenNameOfMother { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MaidenNameOfMother { get; init; } 
+    #else
+    public System.String? MaidenNameOfMother { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the partner of the individual person.
     /// </summary>
+    [IsoId("_ZTjmcjnlEeW7UoCHqpiMaQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name Of Partner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NameOfPartner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NameOfPartner { get; init; } 
+    #else
+    public System.String? NameOfPartner { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NameOfFather is IsoMax35Text NameOfFatherValue)
-        {
-            writer.WriteStartElement(null, "NmOfFthr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameOfFatherValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MaidenNameOfMother is IsoMax35Text MaidenNameOfMotherValue)
-        {
-            writer.WriteStartElement(null, "MdnNmOfMthr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MaidenNameOfMotherValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (NameOfPartner is IsoMax35Text NameOfPartnerValue)
-        {
-            writer.WriteStartElement(null, "NmOfPrtnr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameOfPartnerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PersonalInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

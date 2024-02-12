@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for the identification of the financial instruments.
-/// </summary>
-[KnownType(typeof(FinancialInstrumentIdentification9Choice.ISIN))]
-[KnownType(typeof(FinancialInstrumentIdentification9Choice.Index))]
-public abstract partial record FinancialInstrumentIdentification9Choice_ : IIsoXmlSerilizable<FinancialInstrumentIdentification9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for the identification of the financial instruments.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrumentIdentification9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrumentIdentification9Choice.ISIN))]
+    [KnownType(typeof(FinancialInstrumentIdentification9Choice.Index))]
+    [IsoId("_26V3lZ3DEeuwmdq0KtnICg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrumentIdentification9Choice_
+    #else
+    public abstract partial class FinancialInstrumentIdentification9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => FinancialInstrumentIdentification9Choice.ISIN.Deserialize(elementWithPayload),
-             "Indx" => FinancialInstrumentIdentification9Choice.Index.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrumentIdentification9Choice choice.")
-        };
     }
 }

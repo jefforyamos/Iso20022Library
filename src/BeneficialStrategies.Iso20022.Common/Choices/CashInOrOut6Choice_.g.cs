@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of a payment instrument for the cash-in flow or cash-out flow.
-/// </summary>
-[KnownType(typeof(CashInOrOut6Choice.CashInPaymentInstrument))]
-[KnownType(typeof(CashInOrOut6Choice.CashOutPaymentInstrument))]
-public abstract partial record CashInOrOut6Choice_ : IIsoXmlSerilizable<CashInOrOut6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of a payment instrument for the cash-in flow or cash-out flow.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CashInOrOut6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CashInOrOut6Choice.CashInPaymentInstrument))]
+    [KnownType(typeof(CashInOrOut6Choice.CashOutPaymentInstrument))]
+    [IsoId("_SBhw6Np-Ed-ak6NoX_4Aeg_885994005")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Or Out 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CashInOrOut6Choice_
+    #else
+    public abstract partial class CashInOrOut6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CshInPmtInstrm" => CashInOrOut6Choice.CashInPaymentInstrument.Deserialize(elementWithPayload),
-             "CshOutPmtInstrm" => CashInOrOut6Choice.CashOutPaymentInstrument.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CashInOrOut6Choice choice.")
-        };
     }
 }

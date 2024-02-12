@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data about participant migration to new payment system process.
 /// </summary>
+[IsoId("_g8InkCG3EeaZx5-Tw7BKeQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Migration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemMigration1
-     : IIsoXmlSerilizable<SystemMigration1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the participant is a member of a new payment system.
     /// </summary>
+    [IsoId("_TqHo0CHAEeaZx5-Tw7BKeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("NPS Participant Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NPSParticipantIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NPSParticipantIndicator { get; init; } 
+    #else
+    public System.String? NPSParticipantIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Planned migration date.
     /// </summary>
+    [IsoId("_Z_SbICHAEeaZx5-Tw7BKeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Planned Migration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? PlannedMigrationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? PlannedMigrationDate { get; init; } 
+    #else
+    public System.DateTime? PlannedMigrationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the balance was received.
     /// </summary>
+    [IsoId("_WYk3UCG5EeaZx5-Tw7BKeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Received Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BalanceReceivedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BalanceReceivedIndicator { get; init; } 
+    #else
+    public System.String? BalanceReceivedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the participant was migrated.
     /// </summary>
+    [IsoId("_ruxDsCG3EeaZx5-Tw7BKeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Migrated")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Migrated { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Migrated { get; init; } 
+    #else
+    public System.String? Migrated { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the latest RABIS service.
     /// </summary>
+    [IsoId("_ze70YCG3EeaZx5-Tw7BKeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? LastDate { get; init; } 
+    #else
+    public System.DateTime? LastDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NPSParticipantIndicator is IsoYesNoIndicator NPSParticipantIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NPSPtcptInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NPSParticipantIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PlannedMigrationDate is IsoISODateTime PlannedMigrationDateValue)
-        {
-            writer.WriteStartElement(null, "PlandMgrtnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(PlannedMigrationDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (BalanceReceivedIndicator is IsoYesNoIndicator BalanceReceivedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "BalRcvdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BalanceReceivedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Migrated is IsoYesNoIndicator MigratedValue)
-        {
-            writer.WriteStartElement(null, "Mgrtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MigratedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LastDate is IsoISODateTime LastDateValue)
-        {
-            writer.WriteStartElement(null, "LastDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(LastDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemMigration1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

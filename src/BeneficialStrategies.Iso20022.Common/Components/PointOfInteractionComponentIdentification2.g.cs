@@ -7,76 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a POI (Point of Interaction) component.
 /// </summary>
+[IsoId("_fu8XwS8REeu125Ip9zFcsQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Point Of Interaction Component Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PointOfInteractionComponentIdentification2
-     : IIsoXmlSerilizable<PointOfInteractionComponentIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Hierarchical identification of a hardware component inside all the hardware component of the POI. It is composed of all item numbers of the upper level components, separated by the '.' character, ended by the item number of the current component.
     /// </summary>
+    [IsoId("_f6KwUS8REeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ItemNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ItemNumber { get; init; } 
+    #else
+    public System.String? ItemNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the provider of the software, hardware or parameters of the POI component.
     /// </summary>
+    [IsoId("_f6KwUy8REeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Provider Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProviderIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProviderIdentification { get; init; } 
+    #else
+    public System.String? ProviderIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the POI component assigned by its provider.
     /// </summary>
+    [IsoId("_f6KwVS8REeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Serial number identifying an occurrence of an hardware component.
     /// </summary>
+    [IsoId("_f6KwVy8REeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Serial Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? SerialNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SerialNumber { get; init; } 
+    #else
+    public System.String? SerialNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ItemNumber is IsoMax35Text ItemNumberValue)
-        {
-            writer.WriteStartElement(null, "ItmNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProviderIdentification is IsoMax35Text ProviderIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrvdrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Identification is IsoMax256Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(IdentificationValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (SerialNumber is IsoMax256Text SerialNumberValue)
-        {
-            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(SerialNumberValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PointOfInteractionComponentIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

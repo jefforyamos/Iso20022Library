@@ -7,67 +7,95 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the visibility of the creditor enrolment as shown to the debtors.
 /// </summary>
+[IsoId("_FnUAsEWOEempSe_3C1a9EQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Visibilty")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Visibilty1
-     : IIsoXmlSerilizable<Visibilty1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Start date when the information will be shown to the debtors.
     /// </summary>
+    [IsoId("_NQ95sEWOEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? StartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? StartDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? StartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// End date when the information will be shown to the debtors.
     /// </summary>
+    [IsoId("_RliGMEWOEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? EndDate { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? EndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the information is shown to the debtors or not.
     /// Usage: when absent, the default value is no limited visibility (false).
     /// </summary>
+    [IsoId("_cjMGkEWOEempSe_3C1a9EQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limited Visibility")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? LimitedVisibility { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LimitedVisibility { get; init; } 
+    #else
+    public System.String? LimitedVisibility { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (StartDate is DateAndDateTime2Choice_ StartDateValue)
-        {
-            writer.WriteStartElement(null, "StartDt", xmlNamespace );
-            StartDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EndDate is DateAndDateTime2Choice_ EndDateValue)
-        {
-            writer.WriteStartElement(null, "EndDt", xmlNamespace );
-            EndDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LimitedVisibility is IsoTrueFalseIndicator LimitedVisibilityValue)
-        {
-            writer.WriteStartElement(null, "LtdVsblty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LimitedVisibilityValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Visibilty1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

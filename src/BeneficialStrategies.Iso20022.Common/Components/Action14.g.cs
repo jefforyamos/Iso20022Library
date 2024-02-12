@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of actions to be performed by the POI (Point Of Interaction) system.
 /// </summary>
+[IsoId("_jdDcsXG4Ee2TbaNWBpRZpQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Action")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Action14
-     : IIsoXmlSerilizable<Action14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Action14 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Action14( ActionType13Code reqActionType )
+    {
+        ActionType = reqActionType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of action to be performed by the POI (Point Of Interaction) system.
     /// </summary>
+    [IsoId("_jjQLUXG4Ee2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionType13Code ActionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ActionType13Code ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionType13Code ActionType { get; init; } 
+    #else
+    public ActionType13Code ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message to be displayed to the cardholder or the cashier.
     /// </summary>
+    [IsoId("_jjQLU3G4Ee2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message To Present")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage10? MessageToPresent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionMessage10? MessageToPresent { get; init; } 
+    #else
+    public ActionMessage10? MessageToPresent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Access information to reach the target host.
     /// </summary>
+    [IsoId("_fNvHIHG5Ee2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remote Access")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters7? RemoteAccess { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters7? RemoteAccess { get; init; } 
+    #else
+    public NetworkParameters7? RemoteAccess { get; set; } 
+    #endif
+    
     /// <summary>
     /// Definition of retry process if activation of an action fails.
     /// </summary>
+    [IsoId("_FdK2oHG6Ee2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Retry")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessRetry3? Retry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessRetry3? Retry { get; init; } 
+    #else
+    public ProcessRetry3? Retry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Timing condition for periodic exchanges.
     /// </summary>
+    [IsoId("_o_CMoHG6Ee2TbaNWBpRZpQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Condition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessTiming6? TimeCondition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessTiming6? TimeCondition { get; init; } 
+    #else
+    public ProcessTiming6? TimeCondition { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-        writer.WriteValue(ActionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MessageToPresent is ActionMessage10 MessageToPresentValue)
-        {
-            writer.WriteStartElement(null, "MsgToPres", xmlNamespace );
-            MessageToPresentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemoteAccess is NetworkParameters7 RemoteAccessValue)
-        {
-            writer.WriteStartElement(null, "RmotAccs", xmlNamespace );
-            RemoteAccessValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Retry is ProcessRetry3 RetryValue)
-        {
-            writer.WriteStartElement(null, "Rtry", xmlNamespace );
-            RetryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TimeCondition is ProcessTiming6 TimeConditionValue)
-        {
-            writer.WriteStartElement(null, "TmCond", xmlNamespace );
-            TimeConditionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Action14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

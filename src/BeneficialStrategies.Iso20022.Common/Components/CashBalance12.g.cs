@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
+[IsoId("_6nhacX3sEeibM9CPDGCw0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashBalance12
-     : IIsoXmlSerilizable<CashBalance12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashBalance12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashBalance12( BalanceCounterparty1Code reqCounterpartyType )
+    {
+        CounterpartyType = reqCounterpartyType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
+    [IsoId("_6yG5133sEeibM9CPDGCw0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceType11Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceType11Choice_? Type { get; init; } 
+    #else
+    public BalanceType11Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
+    [IsoId("_6yG52X3sEeibM9CPDGCw0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceCounterparty1Code CounterpartyType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BalanceCounterparty1Code CounterpartyType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceCounterparty1Code CounterpartyType { get; init; } 
+    #else
+    public BalanceCounterparty1Code CounterpartyType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
+    [IsoId("_6yG5233sEeibM9CPDGCw0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? CounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? CounterpartyIdentification { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? CounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
+    [IsoId("_6yG53X3sEeibM9CPDGCw0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch4Choice_? ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeSearch4Choice_? ValueDate { get; init; } 
+    #else
+    public DateAndDateTimeSearch4Choice_? ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
+    [IsoId("_HyosAbwWEeioUZ07TzVRmA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch4Choice_? ProcessingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeSearch4Choice_? ProcessingDate { get; init; } 
+    #else
+    public DateAndDateTimeSearch4Choice_? ProcessingDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is BalanceType11Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CtrPtyTp", xmlNamespace );
-        writer.WriteValue(CounterpartyType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (CounterpartyIdentification is BranchAndFinancialInstitutionIdentification6 CounterpartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValueDate is DateAndDateTimeSearch4Choice_ ValueDateValue)
-        {
-            writer.WriteStartElement(null, "ValDt", xmlNamespace );
-            ValueDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingDate is DateAndDateTimeSearch4Choice_ ProcessingDateValue)
-        {
-            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
-            ProcessingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashBalance12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

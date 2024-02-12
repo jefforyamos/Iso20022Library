@@ -9,60 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.References64Choice;
-
-/// <summary>
-/// Reference to a linked proprietary message or reference of a system that was previously received.
-/// </summary>
-public partial record OtherReference : References64Choice_
-     , IIsoXmlSerilizable<OtherReference>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.References64Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reference issued by a party to identify an instruction, transaction or a message.
+    /// Reference to a linked proprietary message or reference of a system that was previously received.
     /// </summary>
-    public required IsoMax35Text Reference { get; init; } 
-    /// <summary>
-    /// Issuer of the reference.
-    /// </summary>
-    public PartyIdentification139? ReferenceIssuer { get; init; } 
-    /// <summary>
-    /// Name of the message.
-    /// </summary>
-    public IsoMax35Text? MessageName { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_5wfiQ2pYEeipaMTLlhaKMQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Reference")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record OtherReference : References64Choice_
+    #else
+    public partial class OtherReference : References64Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Ref", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ReferenceIssuer is PartyIdentification139 ReferenceIssuerValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a OtherReference instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public OtherReference( System.String reqReference )
         {
-            writer.WriteStartElement(null, "RefIssr", xmlNamespace );
-            ReferenceIssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Reference = reqReference;
         }
-        if (MessageName is IsoMax35Text MessageNameValue)
-        {
-            writer.WriteStartElement(null, "MsgNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new OtherReference Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reference issued by a party to identify an instruction, transaction or a message.
+        /// </summary>
+        [IsoId("_ZSms42pTEeipaMTLlhaKMQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Reference { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Reference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Reference { get; init; } 
+        #else
+        public System.String Reference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Issuer of the reference.
+        /// </summary>
+        [IsoId("_ZSms5WpTEeipaMTLlhaKMQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reference Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification139? ReferenceIssuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification139? ReferenceIssuer { get; init; } 
+        #else
+        public PartyIdentification139? ReferenceIssuer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Name of the message.
+        /// </summary>
+        [IsoId("_ZSms52pTEeipaMTLlhaKMQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Message Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? MessageName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? MessageName { get; init; } 
+        #else
+        public System.String? MessageName { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

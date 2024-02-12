@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the old and new values for a technical address identification.
 /// </summary>
+[IsoId("_pAXiM2jSEeiRg5NzP0jkQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Update Log Technical Address")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UpdateLogTechnicalAddress1
-     : IIsoXmlSerilizable<UpdateLogTechnicalAddress1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UpdateLogTechnicalAddress1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UpdateLogTechnicalAddress1( TechnicalIdentification2Choice_ reqOld,TechnicalIdentification2Choice_ reqNew )
+    {
+        Old = reqOld;
+        New = reqNew;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Old value before the update.
     /// </summary>
+    [IsoId("_pAXiNGjSEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Old")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TechnicalIdentification2Choice_ Old { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TechnicalIdentification2Choice_ Old { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TechnicalIdentification2Choice_ Old { get; init; } 
+    #else
+    public TechnicalIdentification2Choice_ Old { get; set; } 
+    #endif
+    
     /// <summary>
     /// New value after the update.
     /// </summary>
+    [IsoId("_pAXiNWjSEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TechnicalIdentification2Choice_ New { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TechnicalIdentification2Choice_ New { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TechnicalIdentification2Choice_ New { get; init; } 
+    #else
+    public TechnicalIdentification2Choice_ New { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Od", xmlNamespace );
-        Old.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "New", xmlNamespace );
-        New.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static UpdateLogTechnicalAddress1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

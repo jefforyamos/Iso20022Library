@@ -9,67 +9,128 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument63Choice;
-
-/// <summary>
-/// Identification of the cash asset.
-/// </summary>
-public partial record CashAsset : FinancialInstrument63Choice_
-     , IIsoXmlSerilizable<CashAsset>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument63Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of cash asset.
+    /// Identification of the cash asset.
     /// </summary>
-    public required CashAssetType1Choice_ CashAssetType { get; init; } 
-    /// <summary>
-    /// Currency of the asset in the holding.
-    /// </summary>
-    public required ActiveCurrencyCode HoldingCurrency { get; init; } 
-    /// <summary>
-    /// Currency of the asset in another currency.
-    /// </summary>
-    public ActiveCurrencyCode? TransferCurrency { get; init; } 
-    /// <summary>
-    /// Additional information about the cash asset.
-    /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_nj5gM6PvEemf4IaGqCtquA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Asset")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CashAsset : FinancialInstrument63Choice_
+    #else
+    public partial class CashAsset : FinancialInstrument63Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CshAsstTp", xmlNamespace );
-        CashAssetType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "HldgCcy", xmlNamespace );
-        writer.WriteValue(HoldingCurrency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (TransferCurrency is ActiveCurrencyCode TransferCurrencyValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CashAsset instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CashAsset( CashAssetType1Choice_ reqCashAssetType,string reqHoldingCurrency )
         {
-            writer.WriteStartElement(null, "TrfCcy", xmlNamespace );
-            writer.WriteValue(TransferCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
+            CashAssetType = reqCashAssetType;
+            HoldingCurrency = reqHoldingCurrency;
         }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new CashAsset Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of cash asset.
+        /// </summary>
+        [IsoId("_UKrowaPvEemf4IaGqCtquA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Asset Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CashAssetType1Choice_ CashAssetType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CashAssetType1Choice_ CashAssetType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAssetType1Choice_ CashAssetType { get; init; } 
+        #else
+        public CashAssetType1Choice_ CashAssetType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Currency of the asset in the holding.
+        /// </summary>
+        [IsoId("_UKrow6PvEemf4IaGqCtquA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Holding Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ActiveCurrencyCode HoldingCurrency { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public string HoldingCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string HoldingCurrency { get; init; } 
+        #else
+        public string HoldingCurrency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Currency of the asset in another currency.
+        /// </summary>
+        [IsoId("_UKroxaPvEemf4IaGqCtquA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transfer Currency")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ActiveCurrencyCode? TransferCurrency { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? TransferCurrency { get; init; } 
+        #else
+        public string? TransferCurrency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the cash asset.
+        /// </summary>
+        [IsoId("_UKrox6PvEemf4IaGqCtquA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AdditionalInformation15? AdditionalInformation { get; init; } 
+        #else
+        public AdditionalInformation15? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

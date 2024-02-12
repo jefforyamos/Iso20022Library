@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[IsoId("_SVDJ0dp-Ed-ak6NoX_4Aeg_-76711377")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Value")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Value
-     : IIsoXmlSerilizable<Value>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Value instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Value( System.Decimal reqBaseCurrencyItem )
+    {
+        BaseCurrencyItem = reqBaseCurrencyItem;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the amount in the base currency of the receiver.
     /// </summary>
+    [IsoId("_SVDJ0tp-Ed-ak6NoX_4Aeg_-37000375")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Currency Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal BaseCurrencyItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal BaseCurrencyItem { get; init; } 
+    #else
+    public System.Decimal BaseCurrencyItem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amount in another currency.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? AlternateCurrencyItem { get; init;  } // Warning: Don't know multiplicity.
+    [IsoId("_SVDJ09p-Ed-ak6NoX_4Aeg_249291013")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Currency Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    public System.Decimal? AlternateCurrencyItem { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SVDJ09p-Ed-ak6NoX_4Aeg_249291013
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BaseCcyItm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(BaseCurrencyItem)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        // Not sure how to serialize AlternateCurrencyItem, multiplicity Unknown
-    }
-    public static Value Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

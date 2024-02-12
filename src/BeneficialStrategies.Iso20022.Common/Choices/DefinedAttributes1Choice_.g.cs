@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the choice between different types of derivative.
-/// </summary>
-[KnownType(typeof(DefinedAttributes1Choice.QuantityDefinedAttributes))]
-[KnownType(typeof(DefinedAttributes1Choice.ValueDefinedAttributes))]
-public abstract partial record DefinedAttributes1Choice_ : IIsoXmlSerilizable<DefinedAttributes1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the choice between different types of derivative.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DefinedAttributes1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DefinedAttributes1Choice.QuantityDefinedAttributes))]
+    [KnownType(typeof(DefinedAttributes1Choice.ValueDefinedAttributes))]
+    [IsoId("_wa3m8OPJEea7_eMQH225xA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Defined Attributes 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DefinedAttributes1Choice_
+    #else
+    public abstract partial class DefinedAttributes1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "QtyDfndAttrbts" => DefinedAttributes1Choice.QuantityDefinedAttributes.Deserialize(elementWithPayload),
-             "ValDfndAttrbts" => DefinedAttributes1Choice.ValueDefinedAttributes.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DefinedAttributes1Choice choice.")
-        };
     }
 }

@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
 /// </summary>
+[IsoId("_3gNXVEXfEeGY6MkiuzuPOA_-2106668594")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Previous Year")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PreviousYear2
-     : IIsoXmlSerilizable<PreviousYear2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PreviousYear2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PreviousYear2( PreviousYear1Choice_ reqPreviousYears,System.String reqCashComponentIndicator )
+    {
+        PreviousYears = reqPreviousYears;
+        CashComponentIndicator = reqCashComponentIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
+    [IsoId("_3gXIUUXfEeGY6MkiuzuPOA_1869042413")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Years")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreviousYear1Choice_ PreviousYears { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PreviousYear1Choice_ PreviousYears { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PreviousYear1Choice_ PreviousYears { get; init; } 
+    #else
+    public PreviousYear1Choice_ PreviousYears { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
+    [IsoId("_3gXIUEXfEeGY6MkiuzuPOA_194153996")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Component Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CashComponentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CashComponentIndicator { get; init; } 
+    #else
+    public System.String CashComponentIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
-        PreviousYears.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static PreviousYear2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

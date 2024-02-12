@@ -9,90 +9,161 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Choice;
-
-/// <summary>
-/// Provides information specific to the collateral value reports included in the message.
-/// </summary>
-public partial record BusinessReport : CollateralValueReportOrError5Choice_
-     , IIsoXmlSerilizable<BusinessReport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identification, as assigned by the account servicer, to unambiguously identify the account on which information is requested.
+    /// Provides information specific to the collateral value reports included in the message.
     /// </summary>
-    public required CashAccount38 CashAccount { get; init; } 
-    /// <summary>
-    /// Party that legally owns the account.
-    /// </summary>
-    public SystemPartyIdentification11? CashAccountOwner { get; init; } 
-    /// <summary>
-    /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
-    /// </summary>
-    public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identification of the securities account owner.
-    /// </summary>
-    public SystemPartyIdentification8? SecuritiesAccountOwner { get; init; } 
-    /// <summary>
-    /// Party that manages the securities account on behalf of the account owner.
-    /// </summary>
-    public PartyIdentification136? SecuritiesAccountServicer { get; init; } 
-    /// <summary>
-    /// Provides information specific to the report on collateral value positions.
-    /// </summary>
-    public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-DiXcTpvEemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record BusinessReport : CollateralValueReportOrError5Choice_
+    #else
+    public partial class BusinessReport : CollateralValueReportOrError5Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "CshAcct", xmlNamespace );
-        CashAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CashAccountOwner is SystemPartyIdentification11 CashAccountOwnerValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a BusinessReport instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public BusinessReport( CashAccount38 reqCashAccount )
         {
-            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
-            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            CashAccount = reqCashAccount;
         }
-        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
-        {
-            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
-            CashAccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesAccountOwner is SystemPartyIdentification8 SecuritiesAccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcctOwnr", xmlNamespace );
-            SecuritiesAccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesAccountServicer is PartyIdentification136 SecuritiesAccountServicerValue)
-        {
-            writer.WriteStartElement(null, "SctiesAcctSvcr", xmlNamespace );
-            SecuritiesAccountServicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralValueReport is CollateralValueReportOrError6Choice_ CollateralValueReportValue)
-        {
-            writer.WriteStartElement(null, "CollValRpt", xmlNamespace );
-            CollateralValueReportValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new BusinessReport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identification, as assigned by the account servicer, to unambiguously identify the account on which information is requested.
+        /// </summary>
+        [IsoId("_-ORAwTpvEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Account")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CashAccount38 CashAccount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CashAccount38 CashAccount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccount38 CashAccount { get; init; } 
+        #else
+        public CashAccount38 CashAccount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that legally owns the account.
+        /// </summary>
+        [IsoId("_wBoGcjpwEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemPartyIdentification11? CashAccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemPartyIdentification11? CashAccountOwner { get; init; } 
+        #else
+        public SystemPartyIdentification11? CashAccountOwner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
+        /// </summary>
+        [IsoId("_wBoGczpwEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Account Servicer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
+        #else
+        public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identification of the securities account owner.
+        /// </summary>
+        [IsoId("_-ORAwzpvEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemPartyIdentification8? SecuritiesAccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemPartyIdentification8? SecuritiesAccountOwner { get; init; } 
+        #else
+        public SystemPartyIdentification8? SecuritiesAccountOwner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Party that manages the securities account on behalf of the account owner.
+        /// </summary>
+        [IsoId("_-ORAxTpvEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Account Servicer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification136? SecuritiesAccountServicer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification136? SecuritiesAccountServicer { get; init; } 
+        #else
+        public PartyIdentification136? SecuritiesAccountServicer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides information specific to the report on collateral value positions.
+        /// </summary>
+        [IsoId("_-ORAxzpvEemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Value Report")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init; } 
+        #else
+        public CollateralValueReportOrError6Choice_? CollateralValueReport { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

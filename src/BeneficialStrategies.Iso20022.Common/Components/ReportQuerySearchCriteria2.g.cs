@@ -7,123 +7,217 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a report.
 /// </summary>
+[IsoId("_3b6DFZb6Eee4htziCyV8eA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Query Search Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportQuerySearchCriteria2
-     : IIsoXmlSerilizable<ReportQuerySearchCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportQuerySearchCriteria2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportQuerySearchCriteria2( PartyIdentification136 reqPartyIdentification )
+    {
+        PartyIdentification = reqPartyIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_3pS-0Zb6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentificationSearchCriteria2Choice_? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentificationSearchCriteria2Choice_? AccountIdentification { get; init; } 
+    #else
+    public AccountIdentificationSearchCriteria2Choice_? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
     /// </summary>
+    [IsoId("_3pS-05b6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalance12? Balance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalance12? Balance { get; init; } 
+    #else
+    public CashBalance12? Balance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Values of possible reports.
     /// </summary>
+    [IsoId("_3pS-1Zb6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ReportName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReportName { get; init; } 
+    #else
+    public System.String? ReportName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the query message name identifier to which the message refers.
     /// </summary>
+    [IsoId("_S1RJ0Fg7Eeiv7OYKCzUSAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Name Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageNameIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MessageNameIdentification { get; init; } 
+    #else
+    public System.String? MessageNameIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Report owning party.
     /// </summary>
+    [IsoId("_3pS-15b6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 PartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification136 PartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136 PartyIdentification { get; init; } 
+    #else
+    public PartyIdentification136 PartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Responsible Party of the report owning party.
     /// </summary>
+    [IsoId("_3pS-2Zb6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Responsible Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
+    #else
+    public PartyIdentification136? ResponsiblePartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time when the report was created.
     /// </summary>
+    [IsoId("_3pS-25b6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Search")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? DateSearch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DatePeriodSearch1Choice_? DateSearch { get; init; } 
+    #else
+    public DatePeriodSearch1Choice_? DateSearch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time when the (business) event, which triggered the report, was scheduled.
     /// </summary>
+    [IsoId("_3pS-3Zb6Eee4htziCyV8eA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scheduled Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1Choice_? ScheduledTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriod1Choice_? ScheduledTime { get; init; } 
+    #else
+    public DateTimePeriod1Choice_? ScheduledTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Execution type is executed based on an event driven trigger.
     /// </summary>
+    [IsoId("_mEwyoVg9Eeiv7OYKCzUSAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventType1Choice_? Event { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventType1Choice_? Event { get; init; } 
+    #else
+    public EventType1Choice_? Event { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountIdentification is AccountIdentificationSearchCriteria2Choice_ AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Balance is CashBalance12 BalanceValue)
-        {
-            writer.WriteStartElement(null, "Bal", xmlNamespace );
-            BalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportName is IsoMax4AlphaNumericText ReportNameValue)
-        {
-            writer.WriteStartElement(null, "RptNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ReportNameValue)); // data type Max4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (MessageNameIdentification is IsoMax35Text MessageNameIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PtyId", xmlNamespace );
-        PartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ResponsiblePartyIdentification is PartyIdentification136 ResponsiblePartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
-            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateSearch is DatePeriodSearch1Choice_ DateSearchValue)
-        {
-            writer.WriteStartElement(null, "DtSch", xmlNamespace );
-            DateSearchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ScheduledTime is DateTimePeriod1Choice_ ScheduledTimeValue)
-        {
-            writer.WriteStartElement(null, "SchdldTm", xmlNamespace );
-            ScheduledTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Event is EventType1Choice_ EventValue)
-        {
-            writer.WriteStartElement(null, "Evt", xmlNamespace );
-            EventValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportQuerySearchCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

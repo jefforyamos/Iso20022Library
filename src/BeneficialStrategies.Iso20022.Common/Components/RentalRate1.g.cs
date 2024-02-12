@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vehicle rental rate
 /// </summary>
+[IsoId("_jy_0d_S2Eeife6veM7daYw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rental Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RentalRate1
-     : IIsoXmlSerilizable<RentalRate1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unit of measure used to compute the rental rate.
     /// </summary>
+    [IsoId("_jy_0e_S2Eeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PeriodUnit3Code? Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PeriodUnit3Code? Period { get; init; } 
+    #else
+    public PeriodUnit3Code? Period { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other unit of measure used to compute the rental rate.
     /// </summary>
+    [IsoId("_jy_0fPS2Eeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherPeriod { get; init; } 
+    #else
+    public System.String? OtherPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate applied to the vehicle rental for the specified period. 
     /// </summary>
+    [IsoId("_jy_0evS2Eeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Rate { get; init; } 
+    #else
+    public System.Decimal? Rate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Duration of the period for which the rental rate is calculated. 
     /// </summary>
+    [IsoId("_jy_0ffS2Eeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? PeriodCount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PeriodCount { get; init; } 
+    #else
+    public System.String? PeriodCount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Period is PeriodUnit3Code PeriodValue)
-        {
-            writer.WriteStartElement(null, "Prd", xmlNamespace );
-            writer.WriteValue(PeriodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherPeriod is IsoMax35Text OtherPeriodValue)
-        {
-            writer.WriteStartElement(null, "OthrPrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPeriodValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Rate is IsoImpliedCurrencyAndAmount RateValue)
-        {
-            writer.WriteStartElement(null, "Rate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(RateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PeriodCount is IsoMax4NumericText PeriodCountValue)
-        {
-            writer.WriteStartElement(null, "PrdCnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(PeriodCountValue)); // data type Max4NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RentalRate1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

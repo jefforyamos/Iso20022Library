@@ -7,82 +7,131 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction for which the exception is sent.
 /// </summary>
+[IsoId("_KIj5ca5FEeWCgYcWSNgX5g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransaction27
-     : IIsoXmlSerilizable<ATMTransaction27>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [IsoId("_KTvOs65FEeWCgYcWSNgX5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentifier1? TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentifier1? TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the reconciliation period.
     /// </summary>
+    [IsoId("_KTvOta5FEeWCgYcWSNgX5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reconciliation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReconciliationIdentification { get; init; } 
+    #else
+    public System.String? ReconciliationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exception occurring outside the service.
     /// </summary>
+    [IsoId("_fA9EoK5FEeWCgYcWSNgX5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exception")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public FailureReason8Code? Exception { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _fA9EoK5FEeWCgYcWSNgX5g
+    
     /// <summary>
     /// Explanation of the exception.
     /// </summary>
+    [IsoId("_57VncK5FEeWCgYcWSNgX5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exception Detail")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ExceptionDetail { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExceptionDetail { get; init; } 
+    #else
+    public System.String? ExceptionDetail { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance of the captured card or epurse if available.
     /// </summary>
+    [IsoId("_CX6yMK5GEeWCgYcWSNgX5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Purse Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ElectronicPurseBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ElectronicPurseBalance { get; init; } 
+    #else
+    public System.Decimal? ElectronicPurseBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TransactionIdentification is TransactionIdentifier1 TransactionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TxId", xmlNamespace );
-            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize Exception, multiplicity Unknown
-        if (ExceptionDetail is IsoMax70Text ExceptionDetailValue)
-        {
-            writer.WriteStartElement(null, "XcptnDtl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ExceptionDetailValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ElectronicPurseBalance is IsoCurrencyAndAmount ElectronicPurseBalanceValue)
-        {
-            writer.WriteStartElement(null, "ElctrncPrsBal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ElectronicPurseBalanceValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransaction27 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

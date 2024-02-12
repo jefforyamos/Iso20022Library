@@ -7,57 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Conditions to be met by the holder.
 /// </summary>
+[IsoId("_Y41SoA7zEeuZI5Sr_GAcuA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option Conditions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OptionConditions1
-     : IIsoXmlSerilizable<OptionConditions1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OptionConditions1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OptionConditions1( System.UInt64 reqConditionNumber,System.String reqConditionText,System.String reqConditionRequiredFlag )
+    {
+        ConditionNumber = reqConditionNumber;
+        ConditionText = reqConditionText;
+        ConditionRequiredFlag = reqConditionRequiredFlag;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of the condition.
     /// </summary>
+    [IsoId("_ogHwkA7zEeuZI5Sr_GAcuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax1Number ConditionNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 ConditionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 ConditionNumber { get; init; } 
+    #else
+    public System.UInt64 ConditionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the condition.
     /// </summary>
+    [IsoId("_Dj-YcA70EeuZI5Sr_GAcuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition Text")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 520 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax520Text ConditionText { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ConditionText { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ConditionText { get; init; } 
+    #else
+    public System.String ConditionText { get; set; } 
+    #endif
+    
     /// <summary>
     /// States whether the condition must be acknowledged. Conditions with a No ("false" or "0") do not need acknowledgement.
     /// </summary>
+    [IsoId("_NpNjEA70EeuZI5Sr_GAcuA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition Required Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ConditionRequiredFlag { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ConditionRequiredFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ConditionRequiredFlag { get; init; } 
+    #else
+    public System.String ConditionRequiredFlag { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CondNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax1Number(ConditionNumber)); // data type Max1Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CondTxt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax520Text(ConditionText)); // data type RestrictedFINXMax520Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CondReqrdFlg", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConditionRequiredFlag)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static OptionConditions1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

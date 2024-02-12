@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation details for the cash position.
 /// </summary>
+[IsoId("_LuJTafGMEei2UYJ62ws-Fw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Valuations Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ValuationsDetails2
-     : IIsoXmlSerilizable<ValuationsDetails2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ValuationsDetails2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ValuationsDetails2( System.Decimal reqHaircut )
+    {
+        Haircut = reqHaircut;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Securities collateral position valuation amounts.
     /// </summary>
+    [IsoId("_LuJTcfGMEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Details Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public CollateralAmount9? ValuationDetailsAmount { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LuJTcfGMEei2UYJ62ws-Fw
+    
     /// <summary>
     /// Haircut or margin on the security  expressed as a percentage.
     /// </summary>
+    [IsoId("_ZyuksTYnEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate Haircut { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Haircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Haircut { get; init; } 
+    #else
+    public System.Decimal Haircut { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        // Not sure how to serialize ValuationDetailsAmount, multiplicity Unknown
-        writer.WriteStartElement(null, "Hrcut", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(Haircut)); // data type BaseOneRate System.Decimal
-        writer.WriteEndElement();
-    }
-    public static ValuationsDetails2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,44 +7,39 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of personal identification type.
-/// </summary>
-[KnownType(typeof(PersonIdentificationType1Choice.PassportNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.TaxIdentificationNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.SocialSecurityNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.EmployerIdentificationNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.DriversLicenseNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.AlienRegistrationNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.IdentityCardNumber))]
-[KnownType(typeof(PersonIdentificationType1Choice.OtherIdentification))]
-public abstract partial record PersonIdentificationType1Choice_ : IIsoXmlSerilizable<PersonIdentificationType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of personal identification type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PersonIdentificationType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PersonIdentificationType1Choice.PassportNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.TaxIdentificationNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.SocialSecurityNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.EmployerIdentificationNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.DriversLicenseNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.AlienRegistrationNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.IdentityCardNumber))]
+    [KnownType(typeof(PersonIdentificationType1Choice.OtherIdentification))]
+    [IsoId("_QEW5kdp-Ed-ak6NoX_4Aeg_-1681666932")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Person Identification Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PersonIdentificationType1Choice_
+    #else
+    public abstract partial class PersonIdentificationType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PsptNb" => PersonIdentificationType1Choice.PassportNumber.Deserialize(elementWithPayload),
-             "TaxIdNb" => PersonIdentificationType1Choice.TaxIdentificationNumber.Deserialize(elementWithPayload),
-             "SclSctyNb" => PersonIdentificationType1Choice.SocialSecurityNumber.Deserialize(elementWithPayload),
-             "MplyrIdNb" => PersonIdentificationType1Choice.EmployerIdentificationNumber.Deserialize(elementWithPayload),
-             "DrvrsLicNb" => PersonIdentificationType1Choice.DriversLicenseNumber.Deserialize(elementWithPayload),
-             "AlnRegnNb" => PersonIdentificationType1Choice.AlienRegistrationNumber.Deserialize(elementWithPayload),
-             "IdntyCardNb" => PersonIdentificationType1Choice.IdentityCardNumber.Deserialize(elementWithPayload),
-             "OthrId" => PersonIdentificationType1Choice.OtherIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PersonIdentificationType1Choice choice.")
-        };
     }
 }

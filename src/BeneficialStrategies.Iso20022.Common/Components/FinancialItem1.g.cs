@@ -7,138 +7,257 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies information about a financing relation between two parties represented by a document, for example invoice, credit.
 /// The component may include an external document describing details of the underlying trade object using an external schema.
 /// </summary>
+[IsoId("_OTgzMzMy-AOSNFX-8224500")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Item")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialItem1
-     : IIsoXmlSerilizable<FinancialItem1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialItem1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialItem1( FinancialItemParameters1 reqItemContext,CreditDebitCode reqCreditDebitIndicator,InvoiceTotals1 reqTotalAmount )
+    {
+        ItemContext = reqItemContext;
+        CreditDebitIndicator = reqCreditDebitIndicator;
+        TotalAmount = reqTotalAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Parameters identifying the context of the item.
     /// </summary>
+    [IsoId("_OTgzMzk3-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialItemParameters1 ItemContext { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialItemParameters1 ItemContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialItemParameters1 ItemContext { get; init; } 
+    #else
+    public FinancialItemParameters1 ItemContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of financial document that is the base document for this item, for example an invoice number.
     /// </summary>
+    [IsoId("_OTgzMzk4-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Document Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? FinancialDocumentReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? FinancialDocumentReference { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? FinancialDocumentReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the value is a debit or credit.
     /// </summary>
+    [IsoId("_OTgzMzk5-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the total amount related to the financial document.
     /// </summary>
+    [IsoId("_OTgzNDAw-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTotals1 TotalAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvoiceTotals1 TotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvoiceTotals1 TotalAmount { get; init; } 
+    #else
+    public InvoiceTotals1 TotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the remaining monetary amount.
     /// </summary>
+    [IsoId("_OTgzNDAx-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DueAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DueAmount { get; init; } 
+    #else
+    public System.Decimal? DueAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instalment information for payment.
     /// </summary>
+    [IsoId("_OTgzNDAy-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment2? InstalmentInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Instalment2? InstalmentInformation { get; init; } 
+    #else
+    public Instalment2? InstalmentInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional proprietary textual information concerning the item.
     /// </summary>
+    [IsoId("_OTgzNDA1-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Associated free form document, for example a delivery confirmation.
     /// </summary>
+    [IsoId("_OTgzNDA2-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Associated Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? AssociatedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Validation status of the item.
     /// </summary>
+    [IsoId("_OTgzNDA3-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validation Status Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #else
+    public ValidationStatusInformation1? ValidationStatusInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financing status if applicable for the item.
     /// </summary>
+    [IsoId("_OTgzNDA4-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingInformationAndStatus1? FinancingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancingInformationAndStatus1? FinancingStatus { get; init; } 
+    #else
+    public FinancingInformationAndStatus1? FinancingStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Structured proprietary information concerning details of the financial item.
     /// </summary>
+    [IsoId("_OTgzNDA0-AOSNFX-8224503")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? ProprietaryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? ProprietaryDetails { get; init; } 
+    #else
+    public SupplementaryData1? ProprietaryDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ItmCntxt", xmlNamespace );
-        ItemContext.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FinancialDocumentReference is QualifiedDocumentInformation1 FinancialDocumentReferenceValue)
-        {
-            writer.WriteStartElement(null, "FinDocRef", xmlNamespace );
-            FinancialDocumentReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
-        TotalAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DueAmount is IsoActiveCurrencyAndAmount DueAmountValue)
-        {
-            writer.WriteStartElement(null, "DueAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DueAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InstalmentInformation is Instalment2 InstalmentInformationValue)
-        {
-            writer.WriteStartElement(null, "InstlmtInf", xmlNamespace );
-            InstalmentInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax2000Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(AdditionalInformationValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
-        {
-            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
-            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
-        {
-            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
-            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancingStatus is FinancingInformationAndStatus1 FinancingStatusValue)
-        {
-            writer.WriteStartElement(null, "FincgSts", xmlNamespace );
-            FinancingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProprietaryDetails is SupplementaryData1 ProprietaryDetailsValue)
-        {
-            writer.WriteStartElement(null, "PrtryDtls", xmlNamespace );
-            ProprietaryDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialItem1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

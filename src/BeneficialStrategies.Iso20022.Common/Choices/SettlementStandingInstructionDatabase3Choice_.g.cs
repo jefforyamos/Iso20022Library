@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the standing settlement instruction information.
-/// </summary>
-[KnownType(typeof(SettlementStandingInstructionDatabase3Choice.Code))]
-[KnownType(typeof(SettlementStandingInstructionDatabase3Choice.Proprietary))]
-public abstract partial record SettlementStandingInstructionDatabase3Choice_ : IIsoXmlSerilizable<SettlementStandingInstructionDatabase3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the standing settlement instruction information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementStandingInstructionDatabase3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementStandingInstructionDatabase3Choice.Code))]
+    [KnownType(typeof(SettlementStandingInstructionDatabase3Choice.Proprietary))]
+    [IsoId("_AbWUtdokEeC60axPepSq7g_-1066698614")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Standing Instruction Database 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementStandingInstructionDatabase3Choice_
+    #else
+    public abstract partial class SettlementStandingInstructionDatabase3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SettlementStandingInstructionDatabase3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SettlementStandingInstructionDatabase3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementStandingInstructionDatabase3Choice choice.")
-        };
     }
 }

@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment system operational information, such as opening, closure, session period or events, given per currency.
 /// </summary>
+[IsoId("_w64j5ZlcEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Business Day")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BusinessDay7
-     : IIsoXmlSerilizable<BusinessDay7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
+    [IsoId("_xCzJwZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SystemDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SystemDate { get; init; } 
+    #else
+    public System.DateOnly? SystemDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of a system and the period of time during which the status is valid.
     /// </summary>
+    [IsoId("_xCzJw5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemStatus3? SystemStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemStatus3? SystemStatus { get; init; } 
+    #else
+    public SystemStatus3? SystemStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information relating to system operations and foreseen events relating to the operation of the system.
     /// </summary>
+    [IsoId("_xCzJxZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Information Per Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init; } 
+    #else
+    public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SystemDate is IsoISODate SystemDateValue)
-        {
-            writer.WriteStartElement(null, "SysDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SystemDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SystemStatus is SystemStatus3 SystemStatusValue)
-        {
-            writer.WriteStartElement(null, "SysSts", xmlNamespace );
-            SystemStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SystemInformationPerCurrency is SystemAvailabilityAndEvents2 SystemInformationPerCurrencyValue)
-        {
-            writer.WriteStartElement(null, "SysInfPerCcy", xmlNamespace );
-            SystemInformationPerCurrencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BusinessDay7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

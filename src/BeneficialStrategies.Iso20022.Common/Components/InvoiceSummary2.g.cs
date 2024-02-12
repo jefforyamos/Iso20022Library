@@ -7,136 +7,229 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary information about the sale
 /// </summary>
+[IsoId("_BzO2McWkEeuhguwJmlgagQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Invoice Summary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvoiceSummary2
-     : IIsoXmlSerilizable<InvoiceSummary2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the invoice number.
     /// </summary>
+    [IsoId("_B3u7scWkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? InvoiceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InvoiceNumber { get; init; } 
+    #else
+    public System.String? InvoiceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Supplier or the provider of the goods or services.
     /// </summary>
+    [IsoId("_B3u7s8WkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification259? Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification259? Seller { get; init; } 
+    #else
+    public PartyIdentification259? Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// Buyer or company buying the goods or services.
     /// </summary>
+    [IsoId("_B3u7tcWkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification259? Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification259? Buyer { get; init; } 
+    #else
+    public PartyIdentification259? Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Effective billing date.
     /// </summary>
+    [IsoId("_B3u7t8WkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InvoiceDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InvoiceDate { get; init; } 
+    #else
+    public System.DateOnly? InvoiceDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the date and time the electronic invoice was created.
     /// </summary>
+    [IsoId("_B3u7ucWkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoice Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? InvoiceCreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? InvoiceCreationDateTime { get; init; } 
+    #else
+    public System.DateTime? InvoiceCreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_B3u7u8WkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the freight charges for the entire purchase. 
     /// </summary>
+    [IsoId("_B3u7vcWkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Freight Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FreightAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FreightAmount { get; init; } 
+    #else
+    public System.Decimal? FreightAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
+    [IsoId("_B3u7v8WkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Total")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax39? TaxTotal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax39? TaxTotal { get; init; } 
+    #else
+    public Tax39? TaxTotal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code that identifies the disposition of the tax reclaim invoice.
     /// </summary>
+    [IsoId("_B3u7wcWkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Reclaim Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReclaimMethod1Code? TaxReclaimMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxReclaimMethod1Code? TaxReclaimMethod { get; init; } 
+    #else
+    public TaxReclaimMethod1Code? TaxReclaimMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional details.
     /// </summary>
+    [IsoId("_B3u7w8WkEeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InvoiceNumber is IsoMax70Text InvoiceNumberValue)
-        {
-            writer.WriteStartElement(null, "InvcNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(InvoiceNumberValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Seller is PartyIdentification259 SellerValue)
-        {
-            writer.WriteStartElement(null, "Sellr", xmlNamespace );
-            SellerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Buyer is PartyIdentification259 BuyerValue)
-        {
-            writer.WriteStartElement(null, "Buyr", xmlNamespace );
-            BuyerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvoiceDate is IsoISODate InvoiceDateValue)
-        {
-            writer.WriteStartElement(null, "InvcDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InvoiceDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (InvoiceCreationDateTime is IsoISODateTime InvoiceCreationDateTimeValue)
-        {
-            writer.WriteStartElement(null, "InvcCreDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(InvoiceCreationDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FreightAmount is IsoImpliedCurrencyAndAmount FreightAmountValue)
-        {
-            writer.WriteStartElement(null, "FrghtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FreightAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxTotal is Tax39 TaxTotalValue)
-        {
-            writer.WriteStartElement(null, "TaxTtl", xmlNamespace );
-            TaxTotalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxReclaimMethod is TaxReclaimMethod1Code TaxReclaimMethodValue)
-        {
-            writer.WriteStartElement(null, "TaxRclmMtd", xmlNamespace );
-            writer.WriteValue(TaxReclaimMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static InvoiceSummary2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Information on reusability of previously submitted data.
-/// </summary>
-[KnownType(typeof(ReuseDataReport3Choice.New))]
-[KnownType(typeof(ReuseDataReport3Choice.Error))]
-[KnownType(typeof(ReuseDataReport3Choice.Correction))]
-[KnownType(typeof(ReuseDataReport3Choice.CollateralReuseUpdate))]
-public abstract partial record ReuseDataReport3Choice_ : IIsoXmlSerilizable<ReuseDataReport3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Information on reusability of previously submitted data.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReuseDataReport3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReuseDataReport3Choice.New))]
+    [KnownType(typeof(ReuseDataReport3Choice.Error))]
+    [KnownType(typeof(ReuseDataReport3Choice.Correction))]
+    [KnownType(typeof(ReuseDataReport3Choice.CollateralReuseUpdate))]
+    [IsoId("_0hwiga4bEemB_csI4yyKLA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reuse Data Report 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReuseDataReport3Choice_
+    #else
+    public abstract partial class ReuseDataReport3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "New" => ReuseDataReport3Choice.New.Deserialize(elementWithPayload),
-             "Err" => ReuseDataReport3Choice.Error.Deserialize(elementWithPayload),
-             "Crrctn" => ReuseDataReport3Choice.Correction.Deserialize(elementWithPayload),
-             "CollReuseUpd" => ReuseDataReport3Choice.CollateralReuseUpdate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReuseDataReport3Choice choice.")
-        };
     }
 }

@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structured information supplied to fully identify the documents referred to in the remittance information.
 /// </summary>
+[IsoId("_T3sBSNp-Ed-ak6NoX_4Aeg_402190265")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Referred Document Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReferredDocumentInformation1
-     : IIsoXmlSerilizable<ReferredDocumentInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the type of the referred document.
     /// </summary>
+    [IsoId("_T3sBSdp-Ed-ak6NoX_4Aeg_1319309617")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentType1? ReferredDocumentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReferredDocumentType1? ReferredDocumentType { get; init; } 
+    #else
+    public ReferredDocumentType1? ReferredDocumentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification number of the referred document.
     /// </summary>
+    [IsoId("_T31yQNp-Ed-ak6NoX_4Aeg_402190318")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReferredDocumentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReferredDocumentNumber { get; init; } 
+    #else
+    public System.String? ReferredDocumentNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReferredDocumentType is ReferredDocumentType1 ReferredDocumentTypeValue)
-        {
-            writer.WriteStartElement(null, "RfrdDocTp", xmlNamespace );
-            ReferredDocumentTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferredDocumentNumber is IsoMax35Text ReferredDocumentNumberValue)
-        {
-            writer.WriteStartElement(null, "RfrdDocNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferredDocumentNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReferredDocumentInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

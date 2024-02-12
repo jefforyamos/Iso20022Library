@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reporting of position or transaction for trade lifecycle events.
-/// </summary>
-[KnownType(typeof(TradeData57Choice.DataSetAction))]
-[KnownType(typeof(TradeData57Choice.Report))]
-public abstract partial record TradeData57Choice_ : IIsoXmlSerilizable<TradeData57Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reporting of position or transaction for trade lifecycle events.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeData57Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeData57Choice.DataSetAction))]
+    [KnownType(typeof(TradeData57Choice.Report))]
+    [IsoId("_xXUb4WEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Data 57 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeData57Choice_
+    #else
+    public abstract partial class TradeData57Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => TradeData57Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Rpt" => TradeData57Choice.Report.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeData57Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format between an ISO 20022 code and a proprietary code.
-/// </summary>
-[KnownType(typeof(CodeOrProprietary1Choice.Code))]
-[KnownType(typeof(CodeOrProprietary1Choice.Proprietary))]
-public abstract partial record CodeOrProprietary1Choice_ : IIsoXmlSerilizable<CodeOrProprietary1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format between an ISO 20022 code and a proprietary code.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CodeOrProprietary1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CodeOrProprietary1Choice.Code))]
+    [KnownType(typeof(CodeOrProprietary1Choice.Proprietary))]
+    [IsoId("_Qotj1tp-Ed-ak6NoX_4Aeg_-1810617673")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code Or Proprietary 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CodeOrProprietary1Choice_
+    #else
+    public abstract partial class CodeOrProprietary1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => CodeOrProprietary1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => CodeOrProprietary1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CodeOrProprietary1Choice choice.")
-        };
     }
 }

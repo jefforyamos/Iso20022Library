@@ -7,113 +7,185 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
 /// </summary>
+[IsoId("_W8isJx77EeSxevWRRWxNAg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Structured Remittance Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StructuredRemittanceInformation12
-     : IIsoXmlSerilizable<StructuredRemittanceInformation12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Set of elements used to identify the documents referred to in the remittance information.
     /// </summary>
+    [IsoId("_XN5h4x77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentInformation6? ReferredDocumentInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReferredDocumentInformation6? ReferredDocumentInformation { get; init; } 
+    #else
+    public ReferredDocumentInformation6? ReferredDocumentInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the amounts of the referred document.
     /// </summary>
+    [IsoId("_XN5h5R77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceAmount2? ReferredDocumentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RemittanceAmount2? ReferredDocumentAmount { get; init; } 
+    #else
+    public RemittanceAmount2? ReferredDocumentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference information provided by the creditor to allow the identification of the underlying documents.
     /// </summary>
+    [IsoId("_XN5h5x77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Reference Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorReferenceInformation2? CreditorReferenceInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditorReferenceInformation2? CreditorReferenceInformation { get; init; } 
+    #else
+    public CreditorReferenceInformation2? CreditorReferenceInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor.
     /// </summary>
+    [IsoId("_XN5h6R77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoicer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Invoicer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? Invoicer { get; init; } 
+    #else
+    public PartyIdentification43? Invoicer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
     /// </summary>
+    [IsoId("_XN5h6x77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invoicee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Invoicee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? Invoicee { get; init; } 
+    #else
+    public PartyIdentification43? Invoicee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides remittance information about a payment made for tax-related purposes.
     /// </summary>
+    [IsoId("_WWEskh78EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Remittance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxInformation4? TaxRemittance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxInformation4? TaxRemittance { get; init; } 
+    #else
+    public TaxInformation4? TaxRemittance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides remittance information about a payment for garnishment-related purposes.
     /// </summary>
+    [IsoId("_WWKzMB78EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Garnishment Remittance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Garnishment1? GarnishmentRemittance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Garnishment1? GarnishmentRemittance { get; init; } 
+    #else
+    public Garnishment1? GarnishmentRemittance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
-    public SimpleValueList<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
+    [IsoId("_XN5h7R77EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Remittance Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(3)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalRemittanceInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReferredDocumentInformation is ReferredDocumentInformation6 ReferredDocumentInformationValue)
-        {
-            writer.WriteStartElement(null, "RfrdDocInf", xmlNamespace );
-            ReferredDocumentInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReferredDocumentAmount is RemittanceAmount2 ReferredDocumentAmountValue)
-        {
-            writer.WriteStartElement(null, "RfrdDocAmt", xmlNamespace );
-            ReferredDocumentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditorReferenceInformation is CreditorReferenceInformation2 CreditorReferenceInformationValue)
-        {
-            writer.WriteStartElement(null, "CdtrRefInf", xmlNamespace );
-            CreditorReferenceInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Invoicer is PartyIdentification43 InvoicerValue)
-        {
-            writer.WriteStartElement(null, "Invcr", xmlNamespace );
-            InvoicerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Invoicee is PartyIdentification43 InvoiceeValue)
-        {
-            writer.WriteStartElement(null, "Invcee", xmlNamespace );
-            InvoiceeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxRemittance is TaxInformation4 TaxRemittanceValue)
-        {
-            writer.WriteStartElement(null, "TaxRmt", xmlNamespace );
-            TaxRemittanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GarnishmentRemittance is Garnishment1 GarnishmentRemittanceValue)
-        {
-            writer.WriteStartElement(null, "GrnshmtRmt", xmlNamespace );
-            GarnishmentRemittanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlRmtInf", xmlNamespace );
-        AdditionalRemittanceInformation.Serialize(writer, xmlNamespace, "Max140Text", SerializationFormatter.IsoMax140Text );
-        writer.WriteEndElement();
-    }
-    public static StructuredRemittanceInformation12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

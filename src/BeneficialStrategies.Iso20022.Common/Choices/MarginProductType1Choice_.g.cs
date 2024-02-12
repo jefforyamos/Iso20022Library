@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides specification for the underlying product of the margin.
-/// </summary>
-[KnownType(typeof(MarginProductType1Choice.Code))]
-[KnownType(typeof(MarginProductType1Choice.Proprietary))]
-public abstract partial record MarginProductType1Choice_ : IIsoXmlSerilizable<MarginProductType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides specification for the underlying product of the margin.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MarginProductType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MarginProductType1Choice.Code))]
+    [KnownType(typeof(MarginProductType1Choice.Proprietary))]
+    [IsoId("_Qk_hdNp-Ed-ak6NoX_4Aeg_1848984262")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Product Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MarginProductType1Choice_
+    #else
+    public abstract partial class MarginProductType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => MarginProductType1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => MarginProductType1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MarginProductType1Choice choice.")
-        };
     }
 }

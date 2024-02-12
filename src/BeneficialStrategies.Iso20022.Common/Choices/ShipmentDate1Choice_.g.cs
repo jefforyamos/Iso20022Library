@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between proposed and actual shipment date.
-/// </summary>
-[KnownType(typeof(ShipmentDate1Choice.ProposedShipmentDate))]
-[KnownType(typeof(ShipmentDate1Choice.ActualShipmentDate))]
-public abstract partial record ShipmentDate1Choice_ : IIsoXmlSerilizable<ShipmentDate1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between proposed and actual shipment date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ShipmentDate1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ShipmentDate1Choice.ProposedShipmentDate))]
+    [KnownType(typeof(ShipmentDate1Choice.ActualShipmentDate))]
+    [IsoId("_qi4msDATEeOKib24wnHaFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipment Date 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ShipmentDate1Choice_
+    #else
+    public abstract partial class ShipmentDate1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PropsdShipmntDt" => ShipmentDate1Choice.ProposedShipmentDate.Deserialize(elementWithPayload),
-             "ActlShipmntDt" => ShipmentDate1Choice.ActualShipmentDate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ShipmentDate1Choice choice.")
-        };
     }
 }

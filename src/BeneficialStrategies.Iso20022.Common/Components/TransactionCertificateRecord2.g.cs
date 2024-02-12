@@ -7,80 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate record in which all currency control transactions are registered.
 /// </summary>
+[IsoId("_gTmyEbGJEeuSTr8k0UEM8A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Certificate Record")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionCertificateRecord2
-     : IIsoXmlSerilizable<TransactionCertificateRecord2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionCertificateRecord2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionCertificateRecord2( System.String reqCertificateRecordIdentification,TransactionCertificate5 reqTransaction )
+    {
+        CertificateRecordIdentification = reqCertificateRecordIdentification;
+        Transaction = reqTransaction;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the certificate record.
     /// </summary>
+    [IsoId("_gUj0UbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CertificateRecordIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CertificateRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CertificateRecordIdentification { get; init; } 
+    #else
+    public System.String CertificateRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication of procedure for submitting documents.
     /// </summary>
+    [IsoId("_uZqkULMqEeueudaIbClZbQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Submitting Procedure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? DocumentSubmittingProcedure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DocumentSubmittingProcedure { get; init; } 
+    #else
+    public System.String? DocumentSubmittingProcedure { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the transaction for which the record has been generated.
     /// </summary>
+    [IsoId("_gUj0U7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionCertificate5 Transaction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionCertificate5 Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionCertificate5 Transaction { get; init; } 
+    #else
+    public TransactionCertificate5 Transaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contract registration details related to the certificate record.
     /// </summary>
+    [IsoId("_gUj0VbGJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionCertificateContract2? Contract { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionCertificateContract2? Contract { get; init; } 
+    #else
+    public TransactionCertificateContract2? Contract { get; set; } 
+    #endif
+    
     /// <summary>
     /// Documents provided as attachments to the registered contract.
     /// </summary>
+    [IsoId("_gUj0V7GJEeuSTr8k0UEM8A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attachment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation5? Attachment { get; init; } 
+    #else
+    public DocumentGeneralInformation5? Attachment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CertRcrdId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateRecordIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (DocumentSubmittingProcedure is IsoExact1NumericText DocumentSubmittingProcedureValue)
-        {
-            writer.WriteStartElement(null, "DocSubmitgPrcdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(DocumentSubmittingProcedureValue)); // data type Exact1NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Tx", xmlNamespace );
-        Transaction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Contract is TransactionCertificateContract2 ContractValue)
-        {
-            writer.WriteStartElement(null, "Ctrct", xmlNamespace );
-            ContractValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Attachment is DocumentGeneralInformation5 AttachmentValue)
-        {
-            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
-            AttachmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionCertificateRecord2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

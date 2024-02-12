@@ -7,96 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Delivery information
 /// </summary>
+[IsoId("_1qvqUcW3EeuhguwJmlgagQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Delivery Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeliveryInformation4
-     : IIsoXmlSerilizable<DeliveryInformation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the number identifying an individual delivery note. 
     /// </summary>
+    [IsoId("_1vSzIcW3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Note Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DeliveryNoteNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeliveryNoteNumber { get; init; } 
+    #else
+    public System.String? DeliveryNoteNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Delivery address.
     /// </summary>
+    [IsoId("_1vSzI8W3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address2? Address { get; init; } 
+    #else
+    public Address2? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact for delivery.
     /// </summary>
+    [IsoId("_1vSzJcW3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact6? Contact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact6? Contact { get; init; } 
+    #else
+    public Contact6? Contact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Special instructions. 
     /// </summary>
+    [IsoId("_1vSzJ8W3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Instructions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Instructions { get; init; } 
+    #else
+    public System.String? Instructions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the package delivery date.
     /// </summary>
+    [IsoId("_1vSzKcW3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the package delivery time.
     /// </summary>
+    [IsoId("_1vSzK8W3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? Time { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? Time { get; init; } 
+    #else
+    public System.TimeOnly? Time { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DeliveryNoteNumber is IsoMax35Text DeliveryNoteNumberValue)
-        {
-            writer.WriteStartElement(null, "DlvryNoteNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(DeliveryNoteNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is Address2 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Contact is Contact6 ContactValue)
-        {
-            writer.WriteStartElement(null, "Ctct", xmlNamespace );
-            ContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Instructions is IsoMax350Text InstructionsValue)
-        {
-            writer.WriteStartElement(null, "Instrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Time is IsoISOTime TimeValue)
-        {
-            writer.WriteStartElement(null, "Tm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static DeliveryInformation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

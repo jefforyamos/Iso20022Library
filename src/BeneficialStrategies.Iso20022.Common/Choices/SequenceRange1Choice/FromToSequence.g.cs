@@ -9,47 +9,98 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice;
-
-/// <summary>
-/// Particular sequence range specified between a start sequence and an end sequence.
-/// </summary>
-public partial record FromToSequence : SequenceRange1Choice_
-     , IIsoXmlSerilizable<FromToSequence>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Start sequence of the range.
+    /// Particular sequence range specified between a start sequence and an end sequence.
     /// </summary>
-    public required IsoMax35Text FromSequence { get; init; } 
-    /// <summary>
-    /// End sequence of the range.
-    /// </summary>
-    public required IsoMax35Text ToSequence { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_64OLoIy3EeeGkvZr3jtnCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From To Sequence")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record FromToSequence : SequenceRange1Choice_
+    #else
+    public partial class FromToSequence : SequenceRange1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "FrSeq", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(FromSequence)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ToSeq", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ToSequence)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static new FromToSequence Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a FromToSequence instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public FromToSequence( System.String reqFromSequence,System.String reqToSequence )
+        {
+            FromSequence = reqFromSequence;
+            ToSequence = reqToSequence;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Start sequence of the range.
+        /// </summary>
+        [IsoId("_9nPeAIy0EeeGkvZr3jtnCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("From Sequence")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text FromSequence { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String FromSequence { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String FromSequence { get; init; } 
+        #else
+        public System.String FromSequence { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// End sequence of the range.
+        /// </summary>
+        [IsoId("__3Gn0Iy0EeeGkvZr3jtnCQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("To Sequence")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text ToSequence { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String ToSequence { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String ToSequence { get; init; } 
+        #else
+        public System.String ToSequence { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

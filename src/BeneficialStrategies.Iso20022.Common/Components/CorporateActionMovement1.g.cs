@@ -7,107 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the movement instruction.
 /// </summary>
+[IsoId("_UIh5p9p-Ed-ak6NoX_4Aeg_378115287")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Movement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionMovement1
-     : IIsoXmlSerilizable<CorporateActionMovement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionMovement1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionMovement1( DistributionInstructionType1Code reqOrderType,System.String reqHighPriorityIndicator,System.DateOnly reqRequestedExecutionDate )
+    {
+        OrderType = reqOrderType;
+        HighPriorityIndicator = reqHighPriorityIndicator;
+        RequestedExecutionDate = reqRequestedExecutionDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of movement instruction.
     /// </summary>
+    [IsoId("_UIh5qNp-Ed-ak6NoX_4Aeg_-2043026968")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DistributionInstructionType1Code OrderType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DistributionInstructionType1Code OrderType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionInstructionType1Code OrderType { get; init; } 
+    #else
+    public DistributionInstructionType1Code OrderType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the movement is a high priority or not.|Meaning when true: High priority|Meaning when false: Standard.
     /// </summary>
+    [IsoId("_UIh5qdp-Ed-ak6NoX_4Aeg_1947921085")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("High Priority Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator HighPriorityIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String HighPriorityIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String HighPriorityIndicator { get; init; } 
+    #else
+    public System.String HighPriorityIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [IsoId("_UIh5qtp-Ed-ak6NoX_4Aeg_1390292817")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? OptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OptionNumber { get; init; } 
+    #else
+    public System.String? OptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [IsoId("_UIh5q9p-Ed-ak6NoX_4Aeg_1390292847")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
+    #else
+    public CorporateActionOption1FormatChoice_? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the distribution movement must be executed.
     /// </summary>
+    [IsoId("_UIh5rNp-Ed-ak6NoX_4Aeg_1481723517")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Execution Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate RequestedExecutionDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly RequestedExecutionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly RequestedExecutionDate { get; init; } 
+    #else
+    public System.DateOnly RequestedExecutionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [IsoId("_UIrqoNp-Ed-ak6NoX_4Aeg_-780577191")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the account.
     /// </summary>
+    [IsoId("_UIrqodp-Ed-ak6NoX_4Aeg_1208775765")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountIdentification { get; init; } 
+    #else
+    public System.String? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities in the confirmed balance, ie, the balance to which the credit of the outturned resources applies.
     /// </summary>
+    [IsoId("_UIrqotp-Ed-ak6NoX_4Aeg_-298927794")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmed Balance Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? ConfirmedBalanceSecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? ConfirmedBalanceSecuritiesQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? ConfirmedBalanceSecuritiesQuantity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrdrTp", xmlNamespace );
-        writer.WriteValue(OrderType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "HghPrtyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(HighPriorityIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (OptionNumber is IsoExact3NumericText OptionNumberValue)
-        {
-            writer.WriteStartElement(null, "OptnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumberValue)); // data type Exact3NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (OptionType is CorporateActionOption1FormatChoice_ OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            OptionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(RequestedExecutionDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
-            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ConfirmedBalanceSecuritiesQuantity is UnitOrFaceAmount1Choice_ ConfirmedBalanceSecuritiesQuantityValue)
-        {
-            writer.WriteStartElement(null, "ConfdBalSctiesQty", xmlNamespace );
-            ConfirmedBalanceSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionMovement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

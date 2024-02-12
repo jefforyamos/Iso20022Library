@@ -9,60 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.References4Choice;
-
-/// <summary>
-/// Unambiguous identification of the securities settlement transaction.
-/// </summary>
-public partial record SecuritiesSettlementTransactionIdentification : References4Choice_
-     , IIsoXmlSerilizable<SecuritiesSettlementTransactionIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.References4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides unambiguous transaction identification information.
+    /// Unambiguous identification of the securities settlement transaction.
     /// </summary>
-    public required IsoMax35Text TransactionIdentification { get; init; } 
-    /// <summary>
-    /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
-    /// </summary>
-    public ReceiveDelivery1Code? SecuritiesMovementType { get; init; } 
-    /// <summary>
-    /// Specifies how the transaction is to be settled, for example, against payment.
-    /// </summary>
-    public DeliveryReceiptType2Code? Payment { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UR6fLtp-Ed-ak6NoX_4Aeg_-255591591")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Settlement Transaction Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SecuritiesSettlementTransactionIdentification : References4Choice_
+    #else
+    public partial class SecuritiesSettlementTransactionIdentification : References4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (SecuritiesMovementType is ReceiveDelivery1Code SecuritiesMovementTypeValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a SecuritiesSettlementTransactionIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public SecuritiesSettlementTransactionIdentification( System.String reqTransactionIdentification )
         {
-            writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
-            writer.WriteValue(SecuritiesMovementTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
+            TransactionIdentification = reqTransactionIdentification;
         }
-        if (Payment is DeliveryReceiptType2Code PaymentValue)
-        {
-            writer.WriteStartElement(null, "Pmt", xmlNamespace );
-            writer.WriteValue(PaymentValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static new SecuritiesSettlementTransactionIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides unambiguous transaction identification information.
+        /// </summary>
+        [IsoId("_Ui6Ihtp-Ed-ak6NoX_4Aeg_-1040201391")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text TransactionIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String TransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String TransactionIdentification { get; init; } 
+        #else
+        public System.String TransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
+        /// </summary>
+        [IsoId("_Ui6Ih9p-Ed-ak6NoX_4Aeg_-2037273744")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Movement Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ReceiveDelivery1Code? SecuritiesMovementType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReceiveDelivery1Code? SecuritiesMovementType { get; init; } 
+        #else
+        public ReceiveDelivery1Code? SecuritiesMovementType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies how the transaction is to be settled, for example, against payment.
+        /// </summary>
+        [IsoId("_Ui6IiNp-Ed-ak6NoX_4Aeg_1552578937")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DeliveryReceiptType2Code? Payment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DeliveryReceiptType2Code? Payment { get; init; } 
+        #else
+        public DeliveryReceiptType2Code? Payment { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

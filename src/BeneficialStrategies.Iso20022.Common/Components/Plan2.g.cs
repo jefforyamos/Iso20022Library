@@ -7,206 +7,355 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of the instalment plan.
 /// </summary>
+[IsoId("_0uO7YZJJEeuuktRxxQZoNQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Plan")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Plan2
-     : IIsoXmlSerilizable<Plan2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the instalment plan.
     /// </summary>
+    [IsoId("_00pscZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plan Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? PlanIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PlanIdentification { get; init; } 
+    #else
+    public System.String? PlanIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of plan owners.
     /// </summary>
+    [IsoId("_00qTgZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plan Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlanOwner1Code? PlanOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlanOwner1Code? PlanOwner { get; init; } 
+    #else
+    public PlanOwner1Code? PlanOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other plan owner, used when PlanOwner is OtherNational or OtherPrivate.
     /// </summary>
+    [IsoId("_00qTg5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Plan Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherPlanOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherPlanOwner { get; init; } 
+    #else
+    public System.String? OtherPlanOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instalment payment type.
     /// </summary>
+    [IsoId("_00qThZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment Payment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InstalmentPaymentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstalmentPaymentType { get; init; } 
+    #else
+    public System.String? InstalmentPaymentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicate a deferred Instalment plan.
     /// </summary>
+    [IsoId("_qVTp4CuCEeyg-aG5nXcnfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deferred Instalment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DeferredInstalmentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DeferredInstalmentIndicator { get; init; } 
+    #else
+    public System.String? DeferredInstalmentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period unit between consecutive payments.
     /// </summary>
+    [IsoId("_00qTh5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency18Code? PeriodUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency18Code? PeriodUnit { get; init; } 
+    #else
+    public Frequency18Code? PeriodUnit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of period units between consecutive payments.
     /// </summary>
+    [IsoId("_00qTiZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Periods")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfPeriods { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfPeriods { get; init; } 
+    #else
+    public System.UInt64? NumberOfPeriods { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the interest rate.
     /// </summary>
+    [IsoId("_00qTi5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateDetails2? InterestRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateDetails2? InterestRate { get; init; } 
+    #else
+    public InterestRateDetails2? InterestRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the first payment.
     /// </summary>
+    [IsoId("_00qTjZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FirstPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FirstPaymentDate { get; init; } 
+    #else
+    public System.DateOnly? FirstPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the first payment when different from the subsequent payments.
     /// </summary>
+    [IsoId("_00qTj5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FirstAmount { get; init; } 
+    #else
+    public System.Decimal? FirstAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Normal payment amount.
     /// </summary>
+    [IsoId("_00qTkZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Normal Payment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? NormalPaymentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NormalPaymentAmount { get; init; } 
+    #else
+    public System.Decimal? NormalPaymentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of instalment payments.
     /// </summary>
+    [IsoId("_00qTk5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Payments")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfPayments { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfPayments { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfPayments { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency code associated with the instalment amount.  ISO 4217 "Codes for the representation of currencies and funds".
     /// </summary>
+    [IsoId("_00qTlZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? InstalmentCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? InstalmentCurrency { get; init; } 
+    #else
+    public string? InstalmentCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains grace period details.
     /// </summary>
+    [IsoId("_00qTl5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Grace Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GracePeriod2? GracePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GracePeriod2? GracePeriod { get; init; } 
+    #else
+    public GracePeriod2? GracePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the amount details of an instalment plan.
     /// </summary>
+    [IsoId("_00qTmZJJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstalmentAmountDetails2? AmountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstalmentAmountDetails2? AmountDetails { get; init; } 
+    #else
+    public InstalmentAmountDetails2? AmountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of the instalment including charges, insurance and taxes in addition to the funded amount.
     /// </summary>
+    [IsoId("_00qTm5JJEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Grand Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? GrandTotalAmount { get; init; } 
+    #else
+    public System.Decimal? GrandTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional plan data
     /// </summary>
+    [IsoId("_5Q7OAJJKEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlanIdentification is IsoMax70Text PlanIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PlanId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(PlanIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (PlanOwner is PlanOwner1Code PlanOwnerValue)
-        {
-            writer.WriteStartElement(null, "PlanOwnr", xmlNamespace );
-            writer.WriteValue(PlanOwnerValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherPlanOwner is IsoMax35Text OtherPlanOwnerValue)
-        {
-            writer.WriteStartElement(null, "OthrPlanOwnr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPlanOwnerValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (InstalmentPaymentType is IsoMax35Text InstalmentPaymentTypeValue)
-        {
-            writer.WriteStartElement(null, "InstlmtPmtTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstalmentPaymentTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DeferredInstalmentIndicator is IsoTrueFalseIndicator DeferredInstalmentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DfrrdInstlmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DeferredInstalmentIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PeriodUnit is Frequency18Code PeriodUnitValue)
-        {
-            writer.WriteStartElement(null, "PrdUnit", xmlNamespace );
-            writer.WriteValue(PeriodUnitValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NumberOfPeriods is IsoNumber NumberOfPeriodsValue)
-        {
-            writer.WriteStartElement(null, "NbOfPrds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfPeriodsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (InterestRate is InterestRateDetails2 InterestRateValue)
-        {
-            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
-            InterestRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FirstPaymentDate is IsoISODate FirstPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "FrstPmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FirstPaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (FirstAmount is IsoImpliedCurrencyAndAmount FirstAmountValue)
-        {
-            writer.WriteStartElement(null, "FrstAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FirstAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NormalPaymentAmount is IsoImpliedCurrencyAndAmount NormalPaymentAmountValue)
-        {
-            writer.WriteStartElement(null, "NrmlPmtAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(NormalPaymentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfPayments is IsoNumber TotalNumberOfPaymentsValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfPmts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfPaymentsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (InstalmentCurrency is ISO3NumericCurrencyCode InstalmentCurrencyValue)
-        {
-            writer.WriteStartElement(null, "InstlmtCcy", xmlNamespace );
-            writer.WriteValue(InstalmentCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (GracePeriod is GracePeriod2 GracePeriodValue)
-        {
-            writer.WriteStartElement(null, "GracePrd", xmlNamespace );
-            GracePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AmountDetails is InstalmentAmountDetails2 AmountDetailsValue)
-        {
-            writer.WriteStartElement(null, "AmtDtls", xmlNamespace );
-            AmountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GrandTotalAmount is IsoImpliedCurrencyAndAmount GrandTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "GrdTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(GrandTotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Plan2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

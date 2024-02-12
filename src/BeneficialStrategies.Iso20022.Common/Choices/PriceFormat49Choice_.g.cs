@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a percentage price or an amount price or an unspecified price or an amount price per amount or an amount price per financial instrument quantity.
-/// </summary>
-[KnownType(typeof(PriceFormat49Choice.PercentagePrice))]
-[KnownType(typeof(PriceFormat49Choice.AmountPrice))]
-[KnownType(typeof(PriceFormat49Choice.NotSpecifiedPrice))]
-[KnownType(typeof(PriceFormat49Choice.AmountPricePerFinancialInstrumentQuantity))]
-[KnownType(typeof(PriceFormat49Choice.AmountPricePerAmount))]
-[KnownType(typeof(PriceFormat49Choice.IndexPoints))]
-public abstract partial record PriceFormat49Choice_ : IIsoXmlSerilizable<PriceFormat49Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a percentage price or an amount price or an unspecified price or an amount price per amount or an amount price per financial instrument quantity.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriceFormat49Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PriceFormat49Choice.PercentagePrice))]
+    [KnownType(typeof(PriceFormat49Choice.AmountPrice))]
+    [KnownType(typeof(PriceFormat49Choice.NotSpecifiedPrice))]
+    [KnownType(typeof(PriceFormat49Choice.AmountPricePerFinancialInstrumentQuantity))]
+    [KnownType(typeof(PriceFormat49Choice.AmountPricePerAmount))]
+    [KnownType(typeof(PriceFormat49Choice.IndexPoints))]
+    [IsoId("_qHKnJUELEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Format 49 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriceFormat49Choice_
+    #else
+    public abstract partial class PriceFormat49Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PctgPric" => PriceFormat49Choice.PercentagePrice.Deserialize(elementWithPayload),
-             "AmtPric" => PriceFormat49Choice.AmountPrice.Deserialize(elementWithPayload),
-             "NotSpcfdPric" => PriceFormat49Choice.NotSpecifiedPrice.Deserialize(elementWithPayload),
-             "AmtPricPerFinInstrmQty" => PriceFormat49Choice.AmountPricePerFinancialInstrumentQuantity.Deserialize(elementWithPayload),
-             "AmtPricPerAmt" => PriceFormat49Choice.AmountPricePerAmount.Deserialize(elementWithPayload),
-             "IndxPts" => PriceFormat49Choice.IndexPoints.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriceFormat49Choice choice.")
-        };
     }
 }

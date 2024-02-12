@@ -7,87 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the tranches defined for the loan contract.
 /// </summary>
+[IsoId("_3sV2tNNDEeSDLevdaFPXHw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Loan Contract Tranche")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LoanContractTranche1
-     : IIsoXmlSerilizable<LoanContractTranche1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LoanContractTranche1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LoanContractTranche1( System.UInt64 reqTrancheNumber,System.DateOnly reqExpectedDate,System.Decimal reqAmount )
+    {
+        TrancheNumber = reqTrancheNumber;
+        ExpectedDate = reqExpectedDate;
+        Amount = reqAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique sequence number of the tranche.
     /// </summary>
+    [IsoId("_3sV2tdNDEeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tranche Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TrancheNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 TrancheNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 TrancheNumber { get; init; } 
+    #else
+    public System.UInt64 TrancheNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Expected tranche payment date.
     /// </summary>
+    [IsoId("_FdOzsNNEEeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpectedDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ExpectedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ExpectedDate { get; init; } 
+    #else
+    public System.DateOnly ExpectedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the tranche as defined in the loan contract.
     /// </summary>
+    [IsoId("_JBwDUNNEEeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal Amount { get; init; } 
+    #else
+    public System.Decimal Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loan tranche due date.
     /// </summary>
+    [IsoId("_mz8FotOEEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DueDate { get; init; } 
+    #else
+    public System.DateOnly? DueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loan tranche duration in a coded form.
     /// </summary>
+    [IsoId("_8Ty5cdOEEeSQ_-lmj1tzfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Duration Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? DurationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DurationCode { get; init; } 
+    #else
+    public System.String? DurationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether this tranche is the last tranche of the full report.
     /// </summary>
+    [IsoId("_3sV2ttNDEeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Tranche Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LastTrancheIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LastTrancheIndicator { get; init; } 
+    #else
+    public System.String? LastTrancheIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TrchNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(TrancheNumber)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (DueDate is IsoISODate DueDateValue)
-        {
-            writer.WriteStartElement(null, "DueDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DurationCode is IsoExact1NumericText DurationCodeValue)
-        {
-            writer.WriteStartElement(null, "DrtnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(DurationCodeValue)); // data type Exact1NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (LastTrancheIndicator is IsoYesNoIndicator LastTrancheIndicatorValue)
-        {
-            writer.WriteStartElement(null, "LastTrchInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastTrancheIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static LoanContractTranche1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the choice between the listed and the proprietary error codes.
-/// </summary>
-[KnownType(typeof(ErrorHandling3Choice.Code))]
-[KnownType(typeof(ErrorHandling3Choice.Proprietary))]
-public abstract partial record ErrorHandling3Choice_ : IIsoXmlSerilizable<ErrorHandling3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the choice between the listed and the proprietary error codes.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ErrorHandling3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ErrorHandling3Choice.Code))]
+    [KnownType(typeof(ErrorHandling3Choice.Proprietary))]
+    [IsoId("_RA_79XhdEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Error Handling 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ErrorHandling3Choice_
+    #else
+    public abstract partial class ErrorHandling3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => ErrorHandling3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => ErrorHandling3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ErrorHandling3Choice choice.")
-        };
     }
 }

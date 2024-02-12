@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Nature of the amount and currency on a document referred to in the remittance section, typically either the original amount due/payable or the amount actually remitted for the referenced document.
-/// </summary>
-[KnownType(typeof(ReferredDocumentAmount1Choice.DuePayableAmount))]
-[KnownType(typeof(ReferredDocumentAmount1Choice.DiscountAppliedAmount))]
-[KnownType(typeof(ReferredDocumentAmount1Choice.RemittedAmount))]
-[KnownType(typeof(ReferredDocumentAmount1Choice.CreditNoteAmount))]
-[KnownType(typeof(ReferredDocumentAmount1Choice.TaxAmount))]
-public abstract partial record ReferredDocumentAmount1Choice_ : IIsoXmlSerilizable<ReferredDocumentAmount1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Nature of the amount and currency on a document referred to in the remittance section, typically either the original amount due/payable or the amount actually remitted for the referenced document.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReferredDocumentAmount1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReferredDocumentAmount1Choice.DuePayableAmount))]
+    [KnownType(typeof(ReferredDocumentAmount1Choice.DiscountAppliedAmount))]
+    [KnownType(typeof(ReferredDocumentAmount1Choice.RemittedAmount))]
+    [KnownType(typeof(ReferredDocumentAmount1Choice.CreditNoteAmount))]
+    [KnownType(typeof(ReferredDocumentAmount1Choice.TaxAmount))]
+    [IsoId("_QGJCQtp-Ed-ak6NoX_4Aeg_-888106501")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Referred Document Amount 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReferredDocumentAmount1Choice_
+    #else
+    public abstract partial class ReferredDocumentAmount1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DuePyblAmt" => ReferredDocumentAmount1Choice.DuePayableAmount.Deserialize(elementWithPayload),
-             "DscntApldAmt" => ReferredDocumentAmount1Choice.DiscountAppliedAmount.Deserialize(elementWithPayload),
-             "RmtdAmt" => ReferredDocumentAmount1Choice.RemittedAmount.Deserialize(elementWithPayload),
-             "CdtNoteAmt" => ReferredDocumentAmount1Choice.CreditNoteAmount.Deserialize(elementWithPayload),
-             "TaxAmt" => ReferredDocumentAmount1Choice.TaxAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReferredDocumentAmount1Choice choice.")
-        };
     }
 }

@@ -7,109 +7,188 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
+[IsoId("_VUO3wtp-Ed-ak6NoX_4Aeg_-215103151")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Subscription Bulk Execution")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SubscriptionBulkExecution2
-     : IIsoXmlSerilizable<SubscriptionBulkExecution2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SubscriptionBulkExecution2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SubscriptionBulkExecution2( FinancialInstrument6 reqFinancialInstrumentDetails )
+    {
+        FinancialInstrumentDetails = reqFinancialInstrumentDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [IsoId("_VUO3w9p-Ed-ak6NoX_4Aeg_-215102838")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Trade")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? PlaceOfTrade { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? PlaceOfTrade { get; init; } 
+    #else
+    public string? PlaceOfTrade { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [IsoId("_VUO3xNp-Ed-ak6NoX_4Aeg_-215103149")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OrderDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? OrderDateTime { get; init; } 
+    #else
+    public System.DateTime? OrderDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [IsoId("_VUO3xdp-Ed-ak6NoX_4Aeg_-215103073")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Right")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationRight1? CancellationRight { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationRight1? CancellationRight { get; init; } 
+    #else
+    public CancellationRight1? CancellationRight { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment fund class to which an investment fund order execution is related.
     /// </summary>
+    [IsoId("_VUO3xtp-Ed-ak6NoX_4Aeg_-215102812")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument6 FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Execution of a subscription order.
     /// </summary>
+    [IsoId("_VUO3x9p-Ed-ak6NoX_4Aeg_-215102764")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Execution Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public SubscriptionExecution3? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _VUO3x9p-Ed-ak6NoX_4Aeg_-215102764
+    
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [IsoId("_VUO3yNp-Ed-ak6NoX_4Aeg_-215103134")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Settlement Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedSettlementCurrency { get; init; } 
+    #else
+    public string? RequestedSettlementCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [IsoId("_VUO3ydp-Ed-ak6NoX_4Aeg_-215103090")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested NAV Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RequestedNAVCurrency { get; init; } 
+    #else
+    public string? RequestedNAVCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [IsoId("_VUO3ytp-Ed-ak6NoX_4Aeg_-215102742")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bulk Cash Settlement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction16? BulkCashSettlementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTransaction16? BulkCashSettlementDetails { get; init; } 
+    #else
+    public PaymentTransaction16? BulkCashSettlementDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PlaceOfTrade is CountryCode PlaceOfTradeValue)
-        {
-            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
-            writer.WriteValue(PlaceOfTradeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OrderDateTime is IsoISODateTime OrderDateTimeValue)
-        {
-            writer.WriteStartElement(null, "OrdrDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(OrderDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (CancellationRight is CancellationRight1 CancellationRightValue)
-        {
-            writer.WriteStartElement(null, "CxlRght", xmlNamespace );
-            CancellationRightValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize IndividualExecutionDetails, multiplicity Unknown
-        if (RequestedSettlementCurrency is CurrencyCode RequestedSettlementCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdSttlmCcy", xmlNamespace );
-            writer.WriteValue(RequestedSettlementCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RequestedNAVCurrency is CurrencyCode RequestedNAVCurrencyValue)
-        {
-            writer.WriteStartElement(null, "ReqdNAVCcy", xmlNamespace );
-            writer.WriteValue(RequestedNAVCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BulkCashSettlementDetails is PaymentTransaction16 BulkCashSettlementDetailsValue)
-        {
-            writer.WriteStartElement(null, "BlkCshSttlmDtls", xmlNamespace );
-            BulkCashSettlementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SubscriptionBulkExecution2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

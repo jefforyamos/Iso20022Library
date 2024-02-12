@@ -7,73 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information.
 /// </summary>
+[IsoId("_ho71Md1BEeqW_oCeEFhoHw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalInformation25
-     : IIsoXmlSerilizable<AdditionalInformation25>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AdditionalInformation25 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AdditionalInformation25( System.String reqQuery )
+    {
+        Query = reqQuery;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of query.
     /// </summary>
+    [IsoId("_h9nrwd1BEeqW_oCeEFhoHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification36? QueryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification36? QueryType { get; init; } 
+    #else
+    public GenericIdentification36? QueryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the query.
     /// </summary>
+    [IsoId("_h9nrw91BEeqW_oCeEFhoHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Query { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Query { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Query { get; init; } 
+    #else
+    public System.String Query { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for the query.
     /// </summary>
+    [IsoId("_t-VEkN1BEeqW_oCeEFhoHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Query Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? QueryReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? QueryReason { get; init; } 
+    #else
+    public System.String? QueryReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason the instruction was rejected.
     /// </summary>
+    [IsoId("_x1W5IN1EEeqW_oCeEFhoHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejection Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RejectedReason33Choice_? RejectionReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectedReason33Choice_? RejectionReason { get; init; } 
+    #else
+    public RejectedReason33Choice_? RejectionReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (QueryType is GenericIdentification36 QueryTypeValue)
-        {
-            writer.WriteStartElement(null, "QryTp", xmlNamespace );
-            QueryTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Qry", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(Query)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (QueryReason is IsoMax350Text QueryReasonValue)
-        {
-            writer.WriteStartElement(null, "QryRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(QueryReasonValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (RejectionReason is RejectedReason33Choice_ RejectionReasonValue)
-        {
-            writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
-            RejectionReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalInformation25 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

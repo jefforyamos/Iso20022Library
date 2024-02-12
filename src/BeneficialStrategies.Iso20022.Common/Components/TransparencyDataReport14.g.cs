@@ -7,17 +7,44 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting calculation results of non equity instruments as part of transparency.
 /// </summary>
+[IsoId("_ZwG6IWlSEeaLAKoEUNsD9g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transparency Data Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransparencyDataReport14
-     : IIsoXmlSerilizable<TransparencyDataReport14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransparencyDataReport14 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransparencyDataReport14( System.String reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,129 +52,212 @@ public partial record TransparencyDataReport14
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [IsoId("_Z5jKA2lSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [IsoId("_Z5jKBWlSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
+    [IsoId("_Z5jKB2lSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FullName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FullName { get; init; } 
+    #else
+    public System.String? FullName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
+    [IsoId("_Z5jKCWlSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradingVenue { get; init; } 
+    #else
+    public System.String? TradingVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
+    [IsoId("_Z5jKC2lSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ReportingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_? ReportingPeriod { get; init; } 
+    #else
+    public Period4Choice_? ReportingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
     /// When not present, this field should be treated as not applicable.
     /// </summary>
+    [IsoId("_Z5jKDWlSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Liquidity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Liquidity { get; init; } 
+    #else
+    public System.String? Liquidity { get; set; } 
+    #endif
+    
     /// <summary>
     /// The pre-trade Large in Scale threshold.
     /// </summary>
+    [IsoId("_Z5jKD2lSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Trade Large In Scale Threshold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; init; } 
+    #else
+    public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; set; } 
+    #endif
+    
     /// <summary>
     /// The post-trade Large in Scale threshold.
     /// </summary>
+    [IsoId("_Z5jKEWlSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Post Trade Large In Scale Threshold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; init; } 
+    #else
+    public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; set; } 
+    #endif
+    
     /// <summary>
     /// The pre-trade Size Specific to an Instrument threshold.
     /// </summary>
+    [IsoId("_Z5jKE2lSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Trade Instrument Size Specific Threshold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
+    #else
+    public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; set; } 
+    #endif
+    
     /// <summary>
     /// The post-trade Size Specific to an Instrument threshold.
     /// </summary>
+    [IsoId("_Z5jKFWlSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Post Trade Instrument Size Specific Threshold")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
+    #else
+    public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; set; } 
+    #endif
+    
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
+    [IsoId("_Z5jKF2lSEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statistics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsTransparency2? Statistics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatisticsTransparency2? Statistics { get; init; } 
+    #else
+    public StatisticsTransparency2? Statistics { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        if (FullName is IsoMax350Text FullNameValue)
-        {
-            writer.WriteStartElement(null, "FullNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
-        {
-            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (ReportingPeriod is Period4Choice_ ReportingPeriodValue)
-        {
-            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
-            ReportingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Liquidity is IsoTrueFalseIndicator LiquidityValue)
-        {
-            writer.WriteStartElement(null, "Lqdty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LiquidityValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PreTradeLargeInScaleThreshold is TonsOrCurrency2Choice_ PreTradeLargeInScaleThresholdValue)
-        {
-            writer.WriteStartElement(null, "PreTradLrgInScaleThrshld", xmlNamespace );
-            PreTradeLargeInScaleThresholdValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PostTradeLargeInScaleThreshold is TonsOrCurrency2Choice_ PostTradeLargeInScaleThresholdValue)
-        {
-            writer.WriteStartElement(null, "PstTradLrgInScaleThrshld", xmlNamespace );
-            PostTradeLargeInScaleThresholdValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreTradeInstrumentSizeSpecificThreshold is TonsOrCurrency2Choice_ PreTradeInstrumentSizeSpecificThresholdValue)
-        {
-            writer.WriteStartElement(null, "PreTradInstrmSzSpcfcThrshld", xmlNamespace );
-            PreTradeInstrumentSizeSpecificThresholdValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PostTradeInstrumentSizeSpecificThreshold is TonsOrCurrency2Choice_ PostTradeInstrumentSizeSpecificThresholdValue)
-        {
-            writer.WriteStartElement(null, "PstTradInstrmSzSpcfcThrshld", xmlNamespace );
-            PostTradeInstrumentSizeSpecificThresholdValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Statistics is StatisticsTransparency2 StatisticsValue)
-        {
-            writer.WriteStartElement(null, "Sttstcs", xmlNamespace );
-            StatisticsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransparencyDataReport14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

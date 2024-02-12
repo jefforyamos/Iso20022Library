@@ -7,184 +7,349 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash movements from or to a fund as a result of investment funds transactions, eg, subscriptions or redemptions.
 /// </summary>
+[IsoId("_SjWrndp-Ed-ak6NoX_4Aeg_-222208527")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Cash Forecast")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundCashForecast4
-     : IIsoXmlSerilizable<FundCashForecast4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FundCashForecast4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FundCashForecast4( System.String reqIdentification,DateAndDateTimeChoice_ reqTradeDateTime,FinancialInstrument9 reqFinancialInstrumentDetails,System.String reqExceptionalNetCashFlowIndicator )
+    {
+        Identification = reqIdentification;
+        TradeDateTime = reqTradeDateTime;
+        FinancialInstrumentDetails = reqFinancialInstrumentDetails;
+        ExceptionalNetCashFlowIndicator = reqExceptionalNetCashFlowIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique technical identifier for an instance of a fund cash forecast within a fund cash forecast report as assigned by the issuer of the report.
     /// </summary>
+    [IsoId("_Sjf1gNp-Ed-ak6NoX_4Aeg_-99942813")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
+    [IsoId("_Sjf1gdp-Ed-ak6NoX_4Aeg_-222208517")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ TradeDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
+    [IsoId("_Sjf1gtp-Ed-ak6NoX_4Aeg_-222208483")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Trade Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment fund class to which the cash flow is related.
     /// </summary>
+    [IsoId("_Sjf1g9p-Ed-ak6NoX_4Aeg_-221287131")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument9 FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [IsoId("_Sjf1hNp-Ed-ak6NoX_4Aeg_-222208466")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total NAV")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalNAV { get; init; } 
+    #else
+    public System.Decimal? TotalNAV { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [IsoId("_Sjf1hdp-Ed-ak6NoX_4Aeg_-222208231")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Total NAV")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousTotalNAV { get; init; } 
+    #else
+    public System.Decimal? PreviousTotalNAV { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of investment fund class units that have been issued.
     /// </summary>
+    [IsoId("_Sjf1htp-Ed-ak6NoX_4Aeg_-222208206")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? TotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous total number of investment fund class units that have been issued.
     /// </summary>
+    [IsoId("_SjpmgNp-Ed-ak6NoX_4Aeg_-222208189")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of change of the net asset value.
     /// </summary>
+    [IsoId("_Sjpmgdp-Ed-ak6NoX_4Aeg_-222208146")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total NAV Change Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TotalNAVChangeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalNAVChangeRate { get; init; } 
+    #else
+    public System.Decimal? TotalNAVChangeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
+    [IsoId("_Sjpmgtp-Ed-ak6NoX_4Aeg_-222208129")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? InvestmentCurrency { get; init; } 
+    #else
+    public string? InvestmentCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net cash movements per financial instrument.
     /// </summary>
+    [IsoId("_Sjpmg9p-Ed-ak6NoX_4Aeg_-222207648")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Cash Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast2? NetCashForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetCashForecast2? NetCashForecastDetails { get; init; } 
+    #else
+    public NetCashForecast2? NetCashForecastDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the net cash flow is exceptional.
     /// </summary>
+    [IsoId("_SjpmhNp-Ed-ak6NoX_4Aeg_-222207786")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exceptional Net Cash Flow Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ExceptionalNetCashFlowIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExceptionalNetCashFlowIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExceptionalNetCashFlowIndicator { get; init; } 
+    #else
+    public System.String ExceptionalNetCashFlowIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash flow by country.
     /// </summary>
+    [IsoId("_Sjpmhdp-Ed-ak6NoX_4Aeg_-761081801")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Breakdown By Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByCountry1? BreakdownByCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BreakdownByCountry1? BreakdownByCountry { get; init; } 
+    #else
+    public BreakdownByCountry1? BreakdownByCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash flow by currency.
     /// </summary>
+    [IsoId("_Sjpmhtp-Ed-ak6NoX_4Aeg_-755543099")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Breakdown By Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByCurrency1? BreakdownByCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BreakdownByCurrency1? BreakdownByCurrency { get; init; } 
+    #else
+    public BreakdownByCurrency1? BreakdownByCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash flow by party.
     /// </summary>
+    [IsoId("_Sjpmh9p-Ed-ak6NoX_4Aeg_243049335")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Breakdown By Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByParty1? BreakdownByParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BreakdownByParty1? BreakdownByParty { get; init; } 
+    #else
+    public BreakdownByParty1? BreakdownByParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash flow by a user defined parameter/s.
     /// </summary>
+    [IsoId("_SjpmiNp-Ed-ak6NoX_4Aeg_-745382905")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Breakdown By User Defined Parameter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByUserDefinedParameter1? BreakdownByUserDefinedParameter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BreakdownByUserDefinedParameter1? BreakdownByUserDefinedParameter { get; init; } 
+    #else
+    public BreakdownByUserDefinedParameter1? BreakdownByUserDefinedParameter { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradDtTm", xmlNamespace );
-        TradeDateTime.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviousTradeDateTime is DateAndDateTimeChoice_ PreviousTradeDateTimeValue)
-        {
-            writer.WriteStartElement(null, "PrvsTradDtTm", xmlNamespace );
-            PreviousTradeDateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (TotalNAV is IsoActiveOrHistoricCurrencyAndAmount TotalNAVValue)
-        {
-            writer.WriteStartElement(null, "TtlNAV", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PreviousTotalNAV is IsoActiveOrHistoricCurrencyAndAmount PreviousTotalNAVValue)
-        {
-            writer.WriteStartElement(null, "PrvsTtlNAV", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(PreviousTotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalUnitsNumber is FinancialInstrumentQuantity1 TotalUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
-            TotalUnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousTotalUnitsNumber is FinancialInstrumentQuantity1 PreviousTotalUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "PrvsTtlUnitsNb", xmlNamespace );
-            PreviousTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalNAVChangeRate is IsoPercentageRate TotalNAVChangeRateValue)
-        {
-            writer.WriteStartElement(null, "TtlNAVChngRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TotalNAVChangeRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InvestmentCurrency is ActiveOrHistoricCurrencyCode InvestmentCurrencyValue)
-        {
-            writer.WriteStartElement(null, "InvstmtCcy", xmlNamespace );
-            writer.WriteValue(InvestmentCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NetCashForecastDetails is NetCashForecast2 NetCashForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "NetCshFcstDtls", xmlNamespace );
-            NetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XcptnlNetCshFlowInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExceptionalNetCashFlowIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (BreakdownByCountry is BreakdownByCountry1 BreakdownByCountryValue)
-        {
-            writer.WriteStartElement(null, "BrkdwnByCtry", xmlNamespace );
-            BreakdownByCountryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BreakdownByCurrency is BreakdownByCurrency1 BreakdownByCurrencyValue)
-        {
-            writer.WriteStartElement(null, "BrkdwnByCcy", xmlNamespace );
-            BreakdownByCurrencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BreakdownByParty is BreakdownByParty1 BreakdownByPartyValue)
-        {
-            writer.WriteStartElement(null, "BrkdwnByPty", xmlNamespace );
-            BreakdownByPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BreakdownByUserDefinedParameter is BreakdownByUserDefinedParameter1 BreakdownByUserDefinedParameterValue)
-        {
-            writer.WriteStartElement(null, "BrkdwnByUsrDfndParam", xmlNamespace );
-            BreakdownByUserDefinedParameterValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundCashForecast4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Indicates whether the contract was cleared or not.
-/// </summary>
-[KnownType(typeof(Cleared16Choice.Cleared))]
-[KnownType(typeof(Cleared16Choice.NonCleared))]
-public abstract partial record Cleared16Choice_ : IIsoXmlSerilizable<Cleared16Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Indicates whether the contract was cleared or not.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Cleared16Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Cleared16Choice.Cleared))]
+    [KnownType(typeof(Cleared16Choice.NonCleared))]
+    [IsoId("_gJAM4cg4Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cleared 16 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Cleared16Choice_
+    #else
+    public abstract partial class Cleared16Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Clrd" => Cleared16Choice.Cleared.Deserialize(elementWithPayload),
-             "NonClrd" => Cleared16Choice.NonCleared.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Cleared16Choice choice.")
-        };
     }
 }

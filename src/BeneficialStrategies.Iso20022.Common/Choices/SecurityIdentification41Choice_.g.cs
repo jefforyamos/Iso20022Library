@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
-/// </summary>
-[KnownType(typeof(SecurityIdentification41Choice.ISIN))]
-[KnownType(typeof(SecurityIdentification41Choice.AlternativeInstrumentIdentification))]
-[KnownType(typeof(SecurityIdentification41Choice.UniqueProductIdentifier))]
-[KnownType(typeof(SecurityIdentification41Choice.Basket))]
-[KnownType(typeof(SecurityIdentification41Choice.Index))]
-[KnownType(typeof(SecurityIdentification41Choice.Other))]
-[KnownType(typeof(SecurityIdentification41Choice.IdentificationNotAvailable))]
-public abstract partial record SecurityIdentification41Choice_ : IIsoXmlSerilizable<SecurityIdentification41Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecurityIdentification41Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecurityIdentification41Choice.ISIN))]
+    [KnownType(typeof(SecurityIdentification41Choice.AlternativeInstrumentIdentification))]
+    [KnownType(typeof(SecurityIdentification41Choice.UniqueProductIdentifier))]
+    [KnownType(typeof(SecurityIdentification41Choice.Basket))]
+    [KnownType(typeof(SecurityIdentification41Choice.Index))]
+    [KnownType(typeof(SecurityIdentification41Choice.Other))]
+    [KnownType(typeof(SecurityIdentification41Choice.IdentificationNotAvailable))]
+    [IsoId("_ibqGsVo2Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification 41 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecurityIdentification41Choice_
+    #else
+    public abstract partial class SecurityIdentification41Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => SecurityIdentification41Choice.ISIN.Deserialize(elementWithPayload),
-             "AltrntvInstrmId" => SecurityIdentification41Choice.AlternativeInstrumentIdentification.Deserialize(elementWithPayload),
-             "UnqPdctIdr" => SecurityIdentification41Choice.UniqueProductIdentifier.Deserialize(elementWithPayload),
-             "Bskt" => SecurityIdentification41Choice.Basket.Deserialize(elementWithPayload),
-             "Indx" => SecurityIdentification41Choice.Index.Deserialize(elementWithPayload),
-             "Othr" => SecurityIdentification41Choice.Other.Deserialize(elementWithPayload),
-             "IdNotAvlbl" => SecurityIdentification41Choice.IdentificationNotAvailable.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecurityIdentification41Choice choice.")
-        };
     }
 }

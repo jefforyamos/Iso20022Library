@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between voting directly to issuers or voting via alternate network channels.
-/// </summary>
-[KnownType(typeof(VoteThroughNetwork1Choice.VoteChannel))]
-[KnownType(typeof(VoteThroughNetwork1Choice.VoteDirectlyToIssuer))]
-public abstract partial record VoteThroughNetwork1Choice_ : IIsoXmlSerilizable<VoteThroughNetwork1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between voting directly to issuers or voting via alternate network channels.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static VoteThroughNetwork1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(VoteThroughNetwork1Choice.VoteChannel))]
+    [KnownType(typeof(VoteThroughNetwork1Choice.VoteDirectlyToIssuer))]
+    [IsoId("_qNpVMDT7Ee2tRf29bleifQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote Through Network 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record VoteThroughNetwork1Choice_
+    #else
+    public abstract partial class VoteThroughNetwork1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "VoteChanl" => VoteThroughNetwork1Choice.VoteChannel.Deserialize(elementWithPayload),
-             "VoteDrctlyToIssr" => VoteThroughNetwork1Choice.VoteDirectlyToIssuer.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid VoteThroughNetwork1Choice choice.")
-        };
     }
 }

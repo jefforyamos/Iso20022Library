@@ -7,111 +7,247 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of an invalid payment event.
 /// </summary>
+[IsoId("_TQLzHKJuEeaLbOzg6lYrCA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Event")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentEvent3
-     : IIsoXmlSerilizable<PaymentEvent3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentEvent3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentEvent3( System.String reqUETR,System.String reqParticipant,System.String reqNetworkReference,System.String reqMessageNameIdentification,System.String reqInstructionIdentification,System.String reqFrom,string reqInvalidityReason )
+    {
+        UETR = reqUETR;
+        Participant = reqParticipant;
+        NetworkReference = reqNetworkReference;
+        MessageNameIdentification = reqMessageNameIdentification;
+        InstructionIdentification = reqInstructionIdentification;
+        From = reqFrom;
+        InvalidityReason = reqInvalidityReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
+    [IsoId("_xTJt0T77EeiJbZ2wCAV0-w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("UETR")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoUUIDv4Identifier UETR { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String UETR { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String UETR { get; init; } 
+    #else
+    public System.String UETR { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this business message is exchanged.
     /// Usage:
     /// To be used when there is a choice of processing services or processing service levels.
     /// </summary>
+    [IsoId("__-SuwaJxEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Service")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BusinessService { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BusinessService { get; init; } 
+    #else
+    public System.String? BusinessService { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the requestor institution participates in the payment transaction identified by the unique end to end transaction reference identification  (UETR).
     /// </summary>
+    [IsoId("_HNcdEaJyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Participant")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Participant { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Participant { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Participant { get; init; } 
+    #else
+    public System.String Participant { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference assigned by the network when sending the payment.
     /// </summary>
+    [IsoId("_GHjzEqJyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Network Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 50 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Text NetworkReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NetworkReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NetworkReference { get; init; } 
+    #else
+    public System.String NetworkReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the original message name identifier to which the message refers.
     /// </summary>
+    [IsoId("_GHjzE6JyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Name Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageNameIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MessageNameIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MessageNameIdentification { get; init; } 
+    #else
+    public System.String MessageNameIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains a unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
+    [IsoId("_eXdFk6JyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InstructionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructionIdentification { get; init; } 
+    #else
+    public System.String InstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the the sending MessagingEndpoint that has created this business message for the receiving MessagingEndpoint that will process this business message.
     /// Usage:
     /// The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [IsoId("_eXdFlKJyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier From { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String From { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String From { get; init; } 
+    #else
+    public System.String From { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this business message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [IsoId("_eXdFlaJyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? To { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? To { get; init; } 
+    #else
+    public System.String? To { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason why the event is invalid.
     /// </summary>
+    [IsoId("_pF0swKJyEeaLbOzg6lYrCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Invalidity Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvalidEventReason1Code InvalidityReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string InvalidityReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string InvalidityReason { get; init; } 
+    #else
+    public string InvalidityReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UETR", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETR)); // data type UUIDv4Identifier System.String
-        writer.WriteEndElement();
-        if (BusinessService is IsoMax35Text BusinessServiceValue)
-        {
-            writer.WriteStartElement(null, "BizSvc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessServiceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Ptcpt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Participant)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NtwkRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax50Text(NetworkReference)); // data type Max50Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Fr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(From)); // data type AnyBICIdentifier System.String
-        writer.WriteEndElement();
-        if (To is IsoAnyBICIdentifier ToValue)
-        {
-            writer.WriteStartElement(null, "To", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ToValue)); // data type AnyBICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InvldtyRsn", xmlNamespace );
-        writer.WriteValue(InvalidityReason.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static PaymentEvent3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

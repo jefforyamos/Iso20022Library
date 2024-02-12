@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
+[IsoId("_L_D6ISCBEeWhHbfCMWc1cw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Modification Scope")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ModificationScope26
-     : IIsoXmlSerilizable<ModificationScope26>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ModificationScope26 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ModificationScope26( DataModification1Code reqModificationScopeIndication,Intermediary36 reqIntermediary )
+    {
+        ModificationScopeIndication = reqModificationScopeIndication;
+        Intermediary = reqIntermediary;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of modification to be applied.
     /// </summary>
+    [IsoId("_Ma9zASCBEeWhHbfCMWc1cw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Scope Indication")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DataModification1Code ModificationScopeIndication { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataModification1Code ModificationScopeIndication { get; init; } 
+    #else
+    public DataModification1Code ModificationScopeIndication { get; set; } 
+    #endif
+    
     /// <summary>
     /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
     /// </summary>
+    [IsoId("_Ma9zAyCBEeWhHbfCMWc1cw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Intermediary36 Intermediary { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Intermediary36 Intermediary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Intermediary36 Intermediary { get; init; } 
+    #else
+    public Intermediary36 Intermediary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ModScpIndctn", xmlNamespace );
-        writer.WriteValue(ModificationScopeIndication.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Intrmy", xmlNamespace );
-        Intermediary.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ModificationScope26 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

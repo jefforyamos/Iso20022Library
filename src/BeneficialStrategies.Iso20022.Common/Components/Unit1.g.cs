@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the units to settle.
 /// </summary>
+[IsoId("_VPBAkNp-Ed-ak6NoX_4Aeg_868389886")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unit")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Unit1
-     : IIsoXmlSerilizable<Unit1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Unit1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Unit1( FinancialInstrumentQuantity1 reqUnitsNumber )
+    {
+        UnitsNumber = reqUnitsNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [IsoId("_VPBAkdp-Ed-ak6NoX_4Aeg_1097423556")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1 UnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date upon which the investor purchased the financial instrument.
     /// </summary>
+    [IsoId("_VPBAktp-Ed-ak6NoX_4Aeg_1368013707")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquisition Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? AcquisitionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? AcquisitionDate { get; init; } 
+    #else
+    public System.DateOnly? AcquisitionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Certificate representing the security that is delivered.
     /// </summary>
+    [IsoId("_VPBAk9p-Ed-ak6NoX_4Aeg_-596382257")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CertificateNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificateNumber { get; init; } 
+    #else
+    public System.String? CertificateNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [IsoId("_VPBAlNp-Ed-ak6NoX_4Aeg_-542682069")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group 1 Or 2 Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
+    #else
+    public UKTaxGroupUnitCode? Group1Or2Units { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information related to the price of the transferred units.
     /// </summary>
+    [IsoId("_VPBAldp-Ed-ak6NoX_4Aeg_552546812")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitPrice3? PriceDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitPrice3? PriceDetails { get; init; } 
+    #else
+    public UnitPrice3? PriceDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
-        UnitsNumber.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AcquisitionDate is IsoISODate AcquisitionDateValue)
-        {
-            writer.WriteStartElement(null, "AcqstnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(AcquisitionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CertificateNumber is IsoMax35Text CertificateNumberValue)
-        {
-            writer.WriteStartElement(null, "CertNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Group1Or2Units is UKTaxGroupUnitCode Group1Or2UnitsValue)
-        {
-            writer.WriteStartElement(null, "Grp1Or2Units", xmlNamespace );
-            writer.WriteValue(Group1Or2UnitsValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PriceDetails is UnitPrice3 PriceDetailsValue)
-        {
-            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
-            PriceDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Unit1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

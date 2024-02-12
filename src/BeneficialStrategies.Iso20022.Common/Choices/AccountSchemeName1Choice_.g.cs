@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Sets of elements to identify a name of the identification scheme.
-/// </summary>
-[KnownType(typeof(AccountSchemeName1Choice.Code))]
-[KnownType(typeof(AccountSchemeName1Choice.Proprietary))]
-public abstract partial record AccountSchemeName1Choice_ : IIsoXmlSerilizable<AccountSchemeName1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Sets of elements to identify a name of the identification scheme.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountSchemeName1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountSchemeName1Choice.Code))]
+    [KnownType(typeof(AccountSchemeName1Choice.Proprietary))]
+    [IsoId("_P_4pQNp-Ed-ak6NoX_4Aeg_-240227306")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Scheme Name 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountSchemeName1Choice_
+    #else
+    public abstract partial class AccountSchemeName1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AccountSchemeName1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AccountSchemeName1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountSchemeName1Choice choice.")
-        };
     }
 }

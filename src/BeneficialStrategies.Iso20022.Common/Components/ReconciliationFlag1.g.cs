@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the process type used for the trade repository reconciliation.
 /// </summary>
+[IsoId("_N6obcNIDEeiG-o-KpBT4-g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reconciliation Flag")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReconciliationFlag1
-     : IIsoXmlSerilizable<ReconciliationFlag1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether both counterparties to the transaction have reported to the same Trade Repository
     /// </summary>
+    [IsoId("_giwXsNIEEeiG-o-KpBT4-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeRepositoryReportingType1Code? ReportType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeRepositoryReportingType1Code? ReportType { get; init; } 
+    #else
+    public TradeRepositoryReportingType1Code? ReportType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether both counterparties are obliged to report the transaction data.
     /// </summary>
+    [IsoId("_LZGdYNIEEeiG-o-KpBT4-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Both Counterparties Reporting")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BothCounterpartiesReporting { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BothCounterpartiesReporting { get; init; } 
+    #else
+    public System.String? BothCounterpartiesReporting { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transaction is paired.
     /// </summary>
+    [IsoId("_783_8NIDEeiG-o-KpBT4-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Paired Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PairedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PairedStatus { get; init; } 
+    #else
+    public System.String? PairedStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether loan data is reconciled.
     /// </summary>
+    [IsoId("_S6hgENIHEeiG-o-KpBT4-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loan Reconciliation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? LoanReconciliationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LoanReconciliationStatus { get; init; } 
+    #else
+    public System.String? LoanReconciliationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether collateral data is reconciled.
     /// </summary>
+    [IsoId("_W-lLYNIHEeiG-o-KpBT4-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Reconciliation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CollateralReconciliationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralReconciliationStatus { get; init; } 
+    #else
+    public System.String? CollateralReconciliationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the initially submitted report was further modified using action type modification.
     /// </summary>
+    [IsoId("_xL6XwNIDEeiG-o-KpBT4-g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ModificationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ModificationStatus { get; init; } 
+    #else
+    public System.String? ModificationStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportType is TradeRepositoryReportingType1Code ReportTypeValue)
-        {
-            writer.WriteStartElement(null, "RptTp", xmlNamespace );
-            writer.WriteValue(ReportTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BothCounterpartiesReporting is IsoTrueFalseIndicator BothCounterpartiesReportingValue)
-        {
-            writer.WriteStartElement(null, "BothCtrPtiesRptg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BothCounterpartiesReportingValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PairedStatus is IsoTrueFalseIndicator PairedStatusValue)
-        {
-            writer.WriteStartElement(null, "PairdSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PairedStatusValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LoanReconciliationStatus is IsoTrueFalseIndicator LoanReconciliationStatusValue)
-        {
-            writer.WriteStartElement(null, "LnRcncltnSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LoanReconciliationStatusValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralReconciliationStatus is IsoTrueFalseIndicator CollateralReconciliationStatusValue)
-        {
-            writer.WriteStartElement(null, "CollRcncltnSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CollateralReconciliationStatusValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ModificationStatus is IsoTrueFalseIndicator ModificationStatusValue)
-        {
-            writer.WriteStartElement(null, "ModSts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ModificationStatusValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReconciliationFlag1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

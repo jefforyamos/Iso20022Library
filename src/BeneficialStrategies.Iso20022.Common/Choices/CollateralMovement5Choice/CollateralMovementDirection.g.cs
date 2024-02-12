@@ -9,50 +9,89 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement5Choice;
-
-/// <summary>
-/// Provides the collateral movement direction that is a delivery and optionally a return.
-/// </summary>
-public partial record CollateralMovementDirection : CollateralMovement5Choice_
-     , IIsoXmlSerilizable<CollateralMovementDirection>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Provides the collateral movement direction that is a delivery only.
+    /// Provides the collateral movement direction that is a delivery and optionally a return.
     /// </summary>
-    public required Collateral16 Deliver { get; init; } 
-    /// <summary>
-    /// Provides the collateral movement direction that is a return only.
-    /// </summary>
-    public Collateral17? Return { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_sWEhcYpIEeaNTaanBSMWmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Movement Direction")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CollateralMovementDirection : CollateralMovement5Choice_
+    #else
+    public partial class CollateralMovementDirection : CollateralMovement5Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Dlvr", xmlNamespace );
-        Deliver.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Return is Collateral17 ReturnValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CollateralMovementDirection instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CollateralMovementDirection( Collateral16 reqDeliver )
         {
-            writer.WriteStartElement(null, "Rtr", xmlNamespace );
-            ReturnValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Deliver = reqDeliver;
         }
-    }
-    public static new CollateralMovementDirection Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Provides the collateral movement direction that is a delivery only.
+        /// </summary>
+        [IsoId("_skpwAYpIEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Deliver")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required Collateral16 Deliver { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public Collateral16 Deliver { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Collateral16 Deliver { get; init; } 
+        #else
+        public Collateral16 Deliver { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the collateral movement direction that is a return only.
+        /// </summary>
+        [IsoId("_skpwA4pIEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Return")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Collateral17? Return { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Collateral17? Return { get; init; } 
+        #else
+        public Collateral17? Return { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

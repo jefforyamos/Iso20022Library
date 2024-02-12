@@ -9,67 +9,137 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus5Choice;
-
-/// <summary>
-/// Status applying to individual instructions of a MeetingInstruction.
-/// </summary>
-public partial record DetailedInstructionStatus : InstructionStatus5Choice_
-     , IIsoXmlSerilizable<DetailedInstructionStatus>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus5Choice
 {
-    #nullable enable
-    
-    /// <summary>
-    /// Identifies the detailed instruction within an instruction message.
-    /// </summary>
-    public required IsoMax35Text InstructionIdentification { get; init; } 
-    /// <summary>
-    /// Identifies the safekeeping account.
-    /// </summary>
-    public IsoMax35Text? AccountIdentification { get; init; } 
-    /// <summary>
-    /// Identifies the subaccount of the safekeeping account.
-    /// </summary>
-    public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Status applying to individual instructions of a MeetingInstruction.
     /// </summary>
-    public required InstructionStatus6Choice_ InstructionStatus { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_r15wxV6uEeSyc4g_pm5hbw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Detailed Instruction Status")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record DetailedInstructionStatus : InstructionStatus5Choice_
+    #else
+    public partial class DetailedInstructionStatus : InstructionStatus5Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "InstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a DetailedInstructionStatus instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public DetailedInstructionStatus( System.String reqInstructionIdentification,InstructionStatus6Choice_ reqInstructionStatus )
         {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            InstructionIdentification = reqInstructionIdentification;
+            InstructionStatus = reqInstructionStatus;
         }
-        if (SubAccountIdentification is IsoMax35Text SubAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SubAcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubAccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstrSts", xmlNamespace );
-        InstructionStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new DetailedInstructionStatus Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identifies the detailed instruction within an instruction message.
+        /// </summary>
+        [IsoId("_tL-y5V6uEeSyc4g_pm5hbw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Instruction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text InstructionIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String InstructionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String InstructionIdentification { get; init; } 
+        #else
+        public System.String InstructionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the safekeeping account.
+        /// </summary>
+        [IsoId("_tL-y516uEeSyc4g_pm5hbw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? AccountIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AccountIdentification { get; init; } 
+        #else
+        public System.String? AccountIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the subaccount of the safekeeping account.
+        /// </summary>
+        [IsoId("_tL-y6V6uEeSyc4g_pm5hbw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sub Account Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? SubAccountIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? SubAccountIdentification { get; init; } 
+        #else
+        public System.String? SubAccountIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Status applying to individual instructions of a MeetingInstruction.
+        /// </summary>
+        [IsoId("_tL-y616uEeSyc4g_pm5hbw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Instruction Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required InstructionStatus6Choice_ InstructionStatus { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public InstructionStatus6Choice_ InstructionStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InstructionStatus6Choice_ InstructionStatus { get; init; } 
+        #else
+        public InstructionStatus6Choice_ InstructionStatus { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,176 +7,295 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional details on the underlying. In securities financing deals, it is used to identify and provide information on the collateral.
 /// </summary>
+[IsoId("_1RJ4sWp7EemmaZLSPtWX5A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Underlying Attributes")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnderlyingAttributes4
-     : IIsoXmlSerilizable<UnderlyingAttributes4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Percent of the strike price that this underlying represents.
     /// </summary>
+    [IsoId("_1cvdoWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allocation Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AllocationPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AllocationPercentage { get; init; } 
+    #else
+    public System.Decimal? AllocationPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit amount of the underlying security.
     /// </summary>
+    [IsoId("_1cwEt2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? Quantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates order settlement period for the underlying instrument. Represents the number of days until settlement; for example, 2 means T+1 settlement, 4 means T+3 settlement, 5 means T+4 settlement.
     /// </summary>
+    [IsoId("_1cwEuWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementType3Choice_? SettlementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementType3Choice_? SettlementType { get; init; } 
+    #else
+    public SettlementType3Choice_? SettlementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash amount associated with the underlying component. Necessary for derivatives that deliver into more than one underlying instrument and one of the underlying's is a fixed cash value.
     /// </summary>
+    [IsoId("_1cwEwWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashAmount { get; init; } 
+    #else
+    public System.Decimal? CashAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Represents how the cash will be calculated. Indicates that the cash is either fixed or a difference value (difference between strike and current underlying price).
     /// </summary>
+    [IsoId("_1cwEyWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashType { get; init; } 
+    #else
+    public System.String? CashType { get; set; } 
+    #endif
+    
     /// <summary>
     /// In a financing deal, clean price (percent-of-par or per unit) of the underlying security or basket.
     /// </summary>
+    [IsoId("_1cwE0Wp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? Price { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price8? Price { get; init; } 
+    #else
+    public Price8? Price { get; set; } 
+    #endif
+    
     /// <summary>
     /// In a financing deal, price (percent-of-par or per unit) of the underlying security or basket. "Dirty" means it includes accrued interest.
     /// </summary>
+    [IsoId("_1cwE2Wp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dirty Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? DirtyPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price8? DirtyPrice { get; init; } 
+    #else
+    public Price8? DirtyPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// In a financing deal, price (percent-of-par or per unit) of the underlying security or basket at the end of the agreement.
     /// </summary>
+    [IsoId("_1cwE4Wp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? EndPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Price8? EndPrice { get; init; } 
+    #else
+    public Price8? EndPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency value attributed to this collateral at the start of the agreement.
     /// </summary>
+    [IsoId("_1cwE6Wp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Start Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StartValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? StartValue { get; init; } 
+    #else
+    public System.Decimal? StartValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency value currently attributed to this collateral.
     /// </summary>
+    [IsoId("_1cwE8Wp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CurrentValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CurrentValue { get; init; } 
+    #else
+    public System.Decimal? CurrentValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency value attributed to this collateral at the end of the agreement.
     /// </summary>
+    [IsoId("_1cwE-Wp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("End Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? EndValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EndValue { get; init; } 
+    #else
+    public System.Decimal? EndValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unit amount of the underlying security (shares) adjusted for pending corporate action not yet allocated.
     /// </summary>
+    [IsoId("_1cwFAWp7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjusted Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? AdjustedQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOrFaceAmount1Choice_? AdjustedQuantity { get; init; } 
+    #else
+    public UnitOrFaceAmount1Choice_? AdjustedQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Foreign exchange rate used to compute the current value.
     /// </summary>
+    [IsoId("_1cwFA2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ExchangeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExchangeRate { get; init; } 
+    #else
+    public System.Decimal? ExchangeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum notional value for a financial instrument that is capped.
     /// </summary>
+    [IsoId("_1cwFC2p7EemmaZLSPtWX5A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cap Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CapValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CapValue { get; init; } 
+    #else
+    public System.Decimal? CapValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AllocationPercentage is IsoPercentageRate AllocationPercentageValue)
-        {
-            writer.WriteStartElement(null, "AllcnPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AllocationPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Quantity is UnitOrFaceAmount1Choice_ QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementType is SettlementType3Choice_ SettlementTypeValue)
-        {
-            writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
-            SettlementTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAmount is IsoActiveCurrencyAndAmount CashAmountValue)
-        {
-            writer.WriteStartElement(null, "CshAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashType is IsoMax35Text CashTypeValue)
-        {
-            writer.WriteStartElement(null, "CshTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Price is Price8 PriceValue)
-        {
-            writer.WriteStartElement(null, "Pric", xmlNamespace );
-            PriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DirtyPrice is Price8 DirtyPriceValue)
-        {
-            writer.WriteStartElement(null, "DrtyPric", xmlNamespace );
-            DirtyPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EndPrice is Price8 EndPriceValue)
-        {
-            writer.WriteStartElement(null, "EndPric", xmlNamespace );
-            EndPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StartValue is IsoActiveCurrencyAndAmount StartValueValue)
-        {
-            writer.WriteStartElement(null, "StartVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StartValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CurrentValue is IsoActiveCurrencyAndAmount CurrentValueValue)
-        {
-            writer.WriteStartElement(null, "CurVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CurrentValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (EndValue is IsoActiveCurrencyAndAmount EndValueValue)
-        {
-            writer.WriteStartElement(null, "EndVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(EndValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdjustedQuantity is UnitOrFaceAmount1Choice_ AdjustedQuantityValue)
-        {
-            writer.WriteStartElement(null, "AdjstdQty", xmlNamespace );
-            AdjustedQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExchangeRate is IsoPercentageRate ExchangeRateValue)
-        {
-            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ExchangeRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CapValue is IsoActiveCurrencyAndAmount CapValueValue)
-        {
-            writer.WriteStartElement(null, "CapVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CapValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static UnderlyingAttributes4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

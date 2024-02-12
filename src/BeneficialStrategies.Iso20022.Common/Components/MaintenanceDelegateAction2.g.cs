@@ -7,116 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information for the MTM to build or include delegated actions in the management plan of the POI.
 /// </summary>
+[IsoId("_XfszwY4GEeWrZqsymMFdfg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Maintenance Delegate Action")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MaintenanceDelegateAction2
-     : IIsoXmlSerilizable<MaintenanceDelegateAction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Flag to indicate that the delegated actions have to be included in a periodic sequence of actions.
     /// </summary>
+    [IsoId("_XqknAY4GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Periodic Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PeriodicAction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PeriodicAction { get; init; } 
+    #else
+    public System.String? PeriodicAction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Network address and parameters of the terminal manager host which will performs the delegated actions.
     /// </summary>
+    [IsoId("_XqknA44GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("TM Remote Access")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters5? TMRemoteAccess { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters5? TMRemoteAccess { get; init; } 
+    #else
+    public NetworkParameters5? TMRemoteAccess { get; set; } 
+    #endif
+    
     /// <summary>
     /// TMS protocol to use to perform the maintenance action.
     /// </summary>
+    [IsoId("_XqknBY4GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("TMS Protocol")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TMSProtocol { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TMSProtocol { get; init; } 
+    #else
+    public System.String? TMSProtocol { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the TMS protocol to use to perform the maintenance action.
     /// </summary>
+    [IsoId("_XqknB44GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("TMS Protocol Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TMSProtocolVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TMSProtocolVersion { get; init; } 
+    #else
+    public System.String? TMSProtocolVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data set on which the delegated action has to be performed.
     /// </summary>
+    [IsoId("_XqknCY4GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataSetIdentification6? DataSetIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataSetIdentification6? DataSetIdentification { get; init; } 
+    #else
+    public DataSetIdentification6? DataSetIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Definition of retry process when activation of the action fails.
     /// </summary>
+    [IsoId("_XqknC44GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Re Try")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessRetry2? ReTry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessRetry2? ReTry { get; init; } 
+    #else
+    public ProcessRetry2? ReTry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information to include in the maintenance action.
     /// </summary>
+    [IsoId("_XqknDY4GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AdditionalInformation { get; init; } 
+    #else
+    public System.Byte[]? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequence of action to include in the next MTM management plan.
     /// </summary>
+    [IsoId("_XqknD44GEeWrZqsymMFdfg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSAction5? Action { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TMSAction5? Action { get; init; } 
+    #else
+    public TMSAction5? Action { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PeriodicAction is IsoTrueFalseIndicator PeriodicActionValue)
-        {
-            writer.WriteStartElement(null, "PrdcActn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PeriodicActionValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TMRemoteAccess is NetworkParameters5 TMRemoteAccessValue)
-        {
-            writer.WriteStartElement(null, "TMRmotAccs", xmlNamespace );
-            TMRemoteAccessValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TMSProtocol is IsoMax35Text TMSProtocolValue)
-        {
-            writer.WriteStartElement(null, "TMSPrtcol", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TMSProtocolValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TMSProtocolVersion is IsoMax35Text TMSProtocolVersionValue)
-        {
-            writer.WriteStartElement(null, "TMSPrtcolVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TMSProtocolVersionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DataSetIdentification is DataSetIdentification6 DataSetIdentificationValue)
-        {
-            writer.WriteStartElement(null, "DataSetId", xmlNamespace );
-            DataSetIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReTry is ProcessRetry2 ReTryValue)
-        {
-            writer.WriteStartElement(null, "ReTry", xmlNamespace );
-            ReTryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax3000Binary AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(AdditionalInformationValue)); // data type Max3000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Action is TMSAction5 ActionValue)
-        {
-            writer.WriteStartElement(null, "Actn", xmlNamespace );
-            ActionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MaintenanceDelegateAction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

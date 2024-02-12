@@ -9,93 +9,152 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionOrError3Choice;
-
-/// <summary>
-/// Requested information on the payment transaction.
-/// </summary>
-public partial record Transaction : TransactionOrError3Choice_
-     , IIsoXmlSerilizable<Transaction>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionOrError3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Destination of the payment (be it a member or a system or both).
+    /// Requested information on the payment transaction.
     /// </summary>
-    public System1? PaymentTo { get; init; } 
-    /// <summary>
-    /// Origin of the payment (be it a member or a system or both).
-    /// </summary>
-    public System1? PaymentFrom { get; init; } 
-    /// <summary>
-    /// Indicates whether the payment transaction is a debit or credit transaction. |.
-    /// </summary>
-    public CreditDebitCode? CreditDebitIndicator { get; init; } 
-    /// <summary>
-    /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.|.
-    /// </summary>
-    public PaymentInstruction26? Payment { get; init; } 
-    /// <summary>
-    /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
-    /// </summary>
-    public CashAccountAndEntry2? AccountEntry { get; init; } 
-    /// <summary>
-    /// Provides the references of the underlying securities transaction.
-    /// </summary>
-    public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_NRCCc5lPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Transaction : TransactionOrError3Choice_
+    #else
+    public partial class Transaction : TransactionOrError3Choice_
+    #endif
     {
-        if (PaymentTo is System1 PaymentToValue)
-        {
-            writer.WriteStartElement(null, "PmtTo", xmlNamespace );
-            PaymentToValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentFrom is System1 PaymentFromValue)
-        {
-            writer.WriteStartElement(null, "PmtFr", xmlNamespace );
-            PaymentFromValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Payment is PaymentInstruction26 PaymentValue)
-        {
-            writer.WriteStartElement(null, "Pmt", xmlNamespace );
-            PaymentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountEntry is CashAccountAndEntry2 AccountEntryValue)
-        {
-            writer.WriteStartElement(null, "AcctNtry", xmlNamespace );
-            AccountEntryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesTransactionReferences is SecuritiesTransactionReferences1 SecuritiesTransactionReferencesValue)
-        {
-            writer.WriteStartElement(null, "SctiesTxRefs", xmlNamespace );
-            SecuritiesTransactionReferencesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Transaction Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Destination of the payment (be it a member or a system or both).
+        /// </summary>
+        [IsoId("_NZNuF5lPEee-Zps0fZQaFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment To")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public System1? PaymentTo { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System1? PaymentTo { get; init; } 
+        #else
+        public System1? PaymentTo { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Origin of the payment (be it a member or a system or both).
+        /// </summary>
+        [IsoId("_NZNuGZlPEee-Zps0fZQaFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment From")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public System1? PaymentFrom { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System1? PaymentFrom { get; init; } 
+        #else
+        public System1? PaymentFrom { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the payment transaction is a debit or credit transaction. |.
+        /// </summary>
+        [IsoId("_NZNuG5lPEee-Zps0fZQaFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Credit Debit Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CreditDebitCode? CreditDebitIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CreditDebitCode? CreditDebitIndicator { get; init; } 
+        #else
+        public CreditDebitCode? CreditDebitIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.|.
+        /// </summary>
+        [IsoId("_NZNuHZlPEee-Zps0fZQaFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PaymentInstruction26? Payment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PaymentInstruction26? Payment { get; init; } 
+        #else
+        public PaymentInstruction26? Payment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
+        /// </summary>
+        [IsoId("_NZNuH5lPEee-Zps0fZQaFQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Entry")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashAccountAndEntry2? AccountEntry { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashAccountAndEntry2? AccountEntry { get; init; } 
+        #else
+        public CashAccountAndEntry2? AccountEntry { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Provides the references of the underlying securities transaction.
+        /// </summary>
+        [IsoId("_4cW5kJoSEeeGTuCFfgzOFw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Transaction References")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
+        #else
+        public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

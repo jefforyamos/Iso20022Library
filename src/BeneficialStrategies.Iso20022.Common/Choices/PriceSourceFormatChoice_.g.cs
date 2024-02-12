@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of the source (place) of the price quotation.
-/// </summary>
-[KnownType(typeof(PriceSourceFormatChoice.LocalMarketPlace))]
-[KnownType(typeof(PriceSourceFormatChoice.NonLocalMarketPlace))]
-[KnownType(typeof(PriceSourceFormatChoice.PlaceAsDSS))]
-public abstract partial record PriceSourceFormatChoice_ : IIsoXmlSerilizable<PriceSourceFormatChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of the source (place) of the price quotation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriceSourceFormatChoice_ Deserialize(XElement element)
+    [KnownType(typeof(PriceSourceFormatChoice.LocalMarketPlace))]
+    [KnownType(typeof(PriceSourceFormatChoice.NonLocalMarketPlace))]
+    [KnownType(typeof(PriceSourceFormatChoice.PlaceAsDSS))]
+    [IsoId("_RCDQ49p-Ed-ak6NoX_4Aeg_2134054867")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Source Format Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriceSourceFormatChoice_
+    #else
+    public abstract partial class PriceSourceFormatChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "LclMktPlc" => PriceSourceFormatChoice.LocalMarketPlace.Deserialize(elementWithPayload),
-             "NonLclMktPlc" => PriceSourceFormatChoice.NonLocalMarketPlace.Deserialize(elementWithPayload),
-             "PlcAsDSS" => PriceSourceFormatChoice.PlaceAsDSS.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriceSourceFormatChoice choice.")
-        };
     }
 }

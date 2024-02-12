@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the status of an investigation case.
-/// </summary>
-[KnownType(typeof(InvestigationStatus2Choice.Confirmation))]
-[KnownType(typeof(InvestigationStatus2Choice.RejectedModification))]
-[KnownType(typeof(InvestigationStatus2Choice.DuplicateOf))]
-[KnownType(typeof(InvestigationStatus2Choice.AssignmentCancellationConfirmation))]
-public abstract partial record InvestigationStatus2Choice_ : IIsoXmlSerilizable<InvestigationStatus2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the status of an investigation case.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InvestigationStatus2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InvestigationStatus2Choice.Confirmation))]
+    [KnownType(typeof(InvestigationStatus2Choice.RejectedModification))]
+    [KnownType(typeof(InvestigationStatus2Choice.DuplicateOf))]
+    [KnownType(typeof(InvestigationStatus2Choice.AssignmentCancellationConfirmation))]
+    [IsoId("_T-P8RNp-Ed-ak6NoX_4Aeg_523812389")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investigation Status 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InvestigationStatus2Choice_
+    #else
+    public abstract partial class InvestigationStatus2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Conf" => InvestigationStatus2Choice.Confirmation.Deserialize(elementWithPayload),
-             "RjctdMod" => InvestigationStatus2Choice.RejectedModification.Deserialize(elementWithPayload),
-             "DplctOf" => InvestigationStatus2Choice.DuplicateOf.Deserialize(elementWithPayload),
-             "AssgnmtCxlConf" => InvestigationStatus2Choice.AssignmentCancellationConfirmation.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InvestigationStatus2Choice choice.")
-        };
     }
 }

@@ -7,56 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information about a request (e.g. financing request).
 /// </summary>
+[IsoId("_Rhyg6Np-Ed-ak6NoX_4Aeg_1542618603")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalInformation2
-     : IIsoXmlSerilizable<AdditionalInformation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason for the waiver.
     /// </summary>
+    [IsoId("_Rhyg6dp-Ed-ak6NoX_4Aeg_828459095")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Waiver Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrderWaiverReason1Choice_? OrderWaiverReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrderWaiverReason1Choice_? OrderWaiverReason { get; init; } 
+    #else
+    public OrderWaiverReason1Choice_? OrderWaiverReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contents of the additional information.
     /// </summary>
+    [IsoId("_Rh7q0Np-Ed-ak6NoX_4Aeg_1542618912")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InformationValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InformationValue { get; init; } 
+    #else
+    public System.String? InformationValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OrderWaiverReason is OrderWaiverReason1Choice_ OrderWaiverReasonValue)
-        {
-            writer.WriteStartElement(null, "OrdrWvrRsn", xmlNamespace );
-            OrderWaiverReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InformationValue is IsoMax350Text InformationValueValue)
-        {
-            writer.WriteStartElement(null, "InfVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationValueValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalInformation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

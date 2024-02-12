@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Holding of financial instrument for collateral purposes.
-/// </summary>
-[KnownType(typeof(AssetHolding1Choice.Gold))]
-[KnownType(typeof(AssetHolding1Choice.Triparty))]
-[KnownType(typeof(AssetHolding1Choice.Cash))]
-[KnownType(typeof(AssetHolding1Choice.Security))]
-[KnownType(typeof(AssetHolding1Choice.Guarantee))]
-[KnownType(typeof(AssetHolding1Choice.Commodity))]
-public abstract partial record AssetHolding1Choice_ : IIsoXmlSerilizable<AssetHolding1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Holding of financial instrument for collateral purposes.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetHolding1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetHolding1Choice.Gold))]
+    [KnownType(typeof(AssetHolding1Choice.Triparty))]
+    [KnownType(typeof(AssetHolding1Choice.Cash))]
+    [KnownType(typeof(AssetHolding1Choice.Security))]
+    [KnownType(typeof(AssetHolding1Choice.Guarantee))]
+    [KnownType(typeof(AssetHolding1Choice.Commodity))]
+    [IsoId("_A8xYoK_5EeaE9YROwd69hA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Holding 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetHolding1Choice_
+    #else
+    public abstract partial class AssetHolding1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Gold" => AssetHolding1Choice.Gold.Deserialize(elementWithPayload),
-             "Trpty" => AssetHolding1Choice.Triparty.Deserialize(elementWithPayload),
-             "Csh" => AssetHolding1Choice.Cash.Deserialize(elementWithPayload),
-             "Scty" => AssetHolding1Choice.Security.Deserialize(elementWithPayload),
-             "Grnt" => AssetHolding1Choice.Guarantee.Deserialize(elementWithPayload),
-             "Cmmdty" => AssetHolding1Choice.Commodity.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetHolding1Choice choice.")
-        };
     }
 }

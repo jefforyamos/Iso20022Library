@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Physical packaging of goods for transport.
 /// </summary>
+[IsoId("_Tms--9p-Ed-ak6NoX_4Aeg_-1622845025")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Consignment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Consignment1
-     : IIsoXmlSerilizable<Consignment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total quantity of packaging units, eg number of boxes, containers, pallets, etc.
     /// </summary>
+    [IsoId("_Tms-_Np-Ed-ak6NoX_4Aeg_-1580364507")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? TotalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity3? TotalQuantity { get; init; } 
+    #else
+    public Quantity3? TotalQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total volume of goods shipped, eg number of cubic meters.
     /// </summary>
+    [IsoId("_Tms-_dp-Ed-ak6NoX_4Aeg_-1580364499")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Volume")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? TotalVolume { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity3? TotalVolume { get; init; } 
+    #else
+    public Quantity3? TotalVolume { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total weight of goods shipped, eg number of kg, tons.
     /// </summary>
+    [IsoId("_Tms-_tp-Ed-ak6NoX_4Aeg_-1580364476")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Weight")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? TotalWeight { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity3? TotalWeight { get; init; } 
+    #else
+    public Quantity3? TotalWeight { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalQuantity is Quantity3 TotalQuantityValue)
-        {
-            writer.WriteStartElement(null, "TtlQty", xmlNamespace );
-            TotalQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalVolume is Quantity3 TotalVolumeValue)
-        {
-            writer.WriteStartElement(null, "TtlVol", xmlNamespace );
-            TotalVolumeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalWeight is Quantity3 TotalWeightValue)
-        {
-            writer.WriteStartElement(null, "TtlWght", xmlNamespace );
-            TotalWeightValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Consignment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

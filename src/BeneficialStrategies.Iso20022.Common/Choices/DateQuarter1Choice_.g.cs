@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for a date or quarter.
-/// </summary>
-[KnownType(typeof(DateQuarter1Choice.Date))]
-[KnownType(typeof(DateQuarter1Choice.Period))]
-public abstract partial record DateQuarter1Choice_ : IIsoXmlSerilizable<DateQuarter1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for a date or quarter.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateQuarter1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateQuarter1Choice.Date))]
+    [KnownType(typeof(DateQuarter1Choice.Period))]
+    [IsoId("_CUTHIKFTEei_VZq-6SQkuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Quarter 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateQuarter1Choice_
+    #else
+    public abstract partial class DateQuarter1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => DateQuarter1Choice.Date.Deserialize(elementWithPayload),
-             "Prd" => DateQuarter1Choice.Period.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateQuarter1Choice choice.")
-        };
     }
 }

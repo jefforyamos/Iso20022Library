@@ -7,48 +7,41 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between references.
-/// </summary>
-[KnownType(typeof(References76Choice.SecuritiesSettlementTransactionIdentification))]
-[KnownType(typeof(References76Choice.IntraPositionMovementIdentification))]
-[KnownType(typeof(References76Choice.IntraBalanceMovementIdentification))]
-[KnownType(typeof(References76Choice.AccountServicerTransactionIdentification))]
-[KnownType(typeof(References76Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References76Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(References76Choice.PoolIdentification))]
-[KnownType(typeof(References76Choice.CommonIdentification))]
-[KnownType(typeof(References76Choice.TradeIdentification))]
-[KnownType(typeof(References76Choice.OtherTransactionIdentification))]
-public abstract partial record References76Choice_ : IIsoXmlSerilizable<References76Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between references.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static References76Choice_ Deserialize(XElement element)
+    [KnownType(typeof(References76Choice.SecuritiesSettlementTransactionIdentification))]
+    [KnownType(typeof(References76Choice.IntraPositionMovementIdentification))]
+    [KnownType(typeof(References76Choice.IntraBalanceMovementIdentification))]
+    [KnownType(typeof(References76Choice.AccountServicerTransactionIdentification))]
+    [KnownType(typeof(References76Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References76Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(References76Choice.PoolIdentification))]
+    [KnownType(typeof(References76Choice.CommonIdentification))]
+    [KnownType(typeof(References76Choice.TradeIdentification))]
+    [KnownType(typeof(References76Choice.OtherTransactionIdentification))]
+    [IsoId("_diXSsTi8Eeydid5dcNPKvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("References 76 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record References76Choice_
+    #else
+    public abstract partial class References76Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SctiesSttlmTxId" => References76Choice.SecuritiesSettlementTransactionIdentification.Deserialize(elementWithPayload),
-             "IntraPosMvmntId" => References76Choice.IntraPositionMovementIdentification.Deserialize(elementWithPayload),
-             "IntraBalMvmntId" => References76Choice.IntraBalanceMovementIdentification.Deserialize(elementWithPayload),
-             "AcctSvcrTxId" => References76Choice.AccountServicerTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => References76Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "CtrPtyMktInfrstrctrTxId" => References76Choice.CounterpartyMarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "PoolId" => References76Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "CmonId" => References76Choice.CommonIdentification.Deserialize(elementWithPayload),
-             "TradId" => References76Choice.TradeIdentification.Deserialize(elementWithPayload),
-             "OthrTxId" => References76Choice.OtherTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid References76Choice choice.")
-        };
     }
 }

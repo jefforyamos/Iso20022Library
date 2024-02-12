@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specific parameters attached to an ATM command.
-/// </summary>
-[KnownType(typeof(ATMCommandParameters3Choice.ATMRequiredGlobalStatus))]
-[KnownType(typeof(ATMCommandParameters3Choice.ExpectedMessageFunction))]
-[KnownType(typeof(ATMCommandParameters3Choice.RequiredConfigurationParameter))]
-[KnownType(typeof(ATMCommandParameters3Choice.RequiredSecurityScheme))]
-[KnownType(typeof(ATMCommandParameters3Choice.SecurityDevice))]
-[KnownType(typeof(ATMCommandParameters3Choice.Key))]
-public abstract partial record ATMCommandParameters3Choice_ : IIsoXmlSerilizable<ATMCommandParameters3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specific parameters attached to an ATM command.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ATMCommandParameters3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ATMCommandParameters3Choice.ATMRequiredGlobalStatus))]
+    [KnownType(typeof(ATMCommandParameters3Choice.ExpectedMessageFunction))]
+    [KnownType(typeof(ATMCommandParameters3Choice.RequiredConfigurationParameter))]
+    [KnownType(typeof(ATMCommandParameters3Choice.RequiredSecurityScheme))]
+    [KnownType(typeof(ATMCommandParameters3Choice.SecurityDevice))]
+    [KnownType(typeof(ATMCommandParameters3Choice.Key))]
+    [IsoId("_hk_BUV2aEeekzJIz1JxYSQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("ATM Command Parameters 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ATMCommandParameters3Choice_
+    #else
+    public abstract partial class ATMCommandParameters3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ATMReqrdGblSts" => ATMCommandParameters3Choice.ATMRequiredGlobalStatus.Deserialize(elementWithPayload),
-             "XpctdMsgFctn" => ATMCommandParameters3Choice.ExpectedMessageFunction.Deserialize(elementWithPayload),
-             "ReqrdCfgtnParam" => ATMCommandParameters3Choice.RequiredConfigurationParameter.Deserialize(elementWithPayload),
-             "ReqrdSctySchme" => ATMCommandParameters3Choice.RequiredSecurityScheme.Deserialize(elementWithPayload),
-             "SctyDvc" => ATMCommandParameters3Choice.SecurityDevice.Deserialize(elementWithPayload),
-             "Key" => ATMCommandParameters3Choice.Key.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ATMCommandParameters3Choice choice.")
-        };
     }
 }

@@ -7,40 +7,37 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the processing status.
-/// </summary>
-[KnownType(typeof(ProcessingStatus44Choice.AcknowledgedAccepted))]
-[KnownType(typeof(ProcessingStatus44Choice.Rejected))]
-[KnownType(typeof(ProcessingStatus44Choice.Completed))]
-[KnownType(typeof(ProcessingStatus44Choice.Denied))]
-[KnownType(typeof(ProcessingStatus44Choice.Pending))]
-[KnownType(typeof(ProcessingStatus44Choice.Proprietary))]
-public abstract partial record ProcessingStatus44Choice_ : IIsoXmlSerilizable<ProcessingStatus44Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the processing status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProcessingStatus44Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProcessingStatus44Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(ProcessingStatus44Choice.Rejected))]
+    [KnownType(typeof(ProcessingStatus44Choice.Completed))]
+    [KnownType(typeof(ProcessingStatus44Choice.Denied))]
+    [KnownType(typeof(ProcessingStatus44Choice.Pending))]
+    [KnownType(typeof(ProcessingStatus44Choice.Proprietary))]
+    [IsoId("_h_e0t1hgEeS8HfHHd4stCA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status 44 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProcessingStatus44Choice_
+    #else
+    public abstract partial class ProcessingStatus44Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AckdAccptd" => ProcessingStatus44Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "Rjctd" => ProcessingStatus44Choice.Rejected.Deserialize(elementWithPayload),
-             "Cmpltd" => ProcessingStatus44Choice.Completed.Deserialize(elementWithPayload),
-             "Dnd" => ProcessingStatus44Choice.Denied.Deserialize(elementWithPayload),
-             "Pdg" => ProcessingStatus44Choice.Pending.Deserialize(elementWithPayload),
-             "Prtry" => ProcessingStatus44Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProcessingStatus44Choice choice.")
-        };
     }
 }

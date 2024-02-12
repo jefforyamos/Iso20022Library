@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related specifically to counterparties.
 /// </summary>
+[IsoId("_ongJkQz1Ee2YoLD-1vFj0g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Counterparty Specific Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CounterpartySpecificData36
-     : IIsoXmlSerilizable<CounterpartySpecificData36>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CounterpartySpecificData36 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CounterpartySpecificData36( TradeCounterpartyReport20 reqCounterparty )
+    {
+        Counterparty = reqCounterparty;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties of the reported transaction/position.
     /// </summary>
+    [IsoId("_ooVQAQz1Ee2YoLD-1vFj0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCounterpartyReport20 Counterparty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeCounterpartyReport20 Counterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeCounterpartyReport20 Counterparty { get; init; } 
+    #else
+    public TradeCounterpartyReport20 Counterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to the valuation of the transaction.
     /// </summary>
+    [IsoId("_ooVQAwz1Ee2YoLD-1vFj0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractValuationData8? Valuation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContractValuationData8? Valuation { get; init; } 
+    #else
+    public ContractValuationData8? Valuation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
+    [IsoId("_ooVQBwz1Ee2YoLD-1vFj0g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ReportingTimeStamp { get; init; } 
+    #else
+    public System.DateTime? ReportingTimeStamp { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
-        Counterparty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Valuation is ContractValuationData8 ValuationValue)
-        {
-            writer.WriteStartElement(null, "Valtn", xmlNamespace );
-            ValuationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportingTimeStamp is IsoISODateTime ReportingTimeStampValue)
-        {
-            writer.WriteStartElement(null, "RptgTmStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingTimeStampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static CounterpartySpecificData36 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

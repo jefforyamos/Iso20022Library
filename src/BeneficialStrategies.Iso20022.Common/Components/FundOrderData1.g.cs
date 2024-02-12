@@ -7,126 +7,202 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extract of trade data for an investment fund order.
 /// </summary>
+[IsoId("_TRinQtp-Ed-ak6NoX_4Aeg_1770817650")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Order Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundOrderData1
-     : IIsoXmlSerilizable<FundOrderData1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Account information of the individual order instruction for which the status is given.
     /// </summary>
+    [IsoId("_TRinQ9p-Ed-ak6NoX_4Aeg_1031732513")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount13? InvestmentAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount13? InvestmentAccountDetails { get; init; } 
+    #else
+    public InvestmentAccount13? InvestmentAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instrument information of the individual order instruction for which the status is given.
     /// </summary>
+    [IsoId("_TRinRNp-Ed-ak6NoX_4Aeg_1033581402")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument10? FinancialInstrumentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument10? FinancialInstrumentDetails { get; init; } 
+    #else
+    public FinancialInstrument10? FinancialInstrumentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of investment fund units subscribed or redeemed.
     /// </summary>
+    [IsoId("_TRinRdp-Ed-ak6NoX_4Aeg_1770818005")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? UnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold or subscribed to.
     /// </summary>
+    [IsoId("_TRinRtp-Ed-ak6NoX_4Aeg_1770818022")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetAmount { get; init; } 
+    #else
+    public System.Decimal? NetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold or subscribed to, including all charges, commissions, and tax.
     /// </summary>
+    [IsoId("_TRinR9p-Ed-ak6NoX_4Aeg_1771738071")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? GrossAmount { get; init; } 
+    #else
+    public System.Decimal? GrossAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
     /// </summary>
+    [IsoId("_TRinSNp-Ed-ak6NoX_4Aeg_1771738054")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holdings Redemption Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? HoldingsRedemptionRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? HoldingsRedemptionRate { get; init; } 
+    #else
+    public System.Decimal? HoldingsRedemptionRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [IsoId("_TRsYQNp-Ed-ak6NoX_4Aeg_-1994354495")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SettlementAmount { get; init; } 
+    #else
+    public System.Decimal? SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
+    [IsoId("_TRsYQdp-Ed-ak6NoX_4Aeg_-1020963799")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? UnitCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? UnitCurrency { get; init; } 
+    #else
+    public string? UnitCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [IsoId("_TRsYQtp-Ed-ak6NoX_4Aeg_-1020963764")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quoted Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? QuotedCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? QuotedCurrency { get; init; } 
+    #else
+    public string? QuotedCurrency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InvestmentAccountDetails is InvestmentAccount13 InvestmentAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
-            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentDetails is FinancialInstrument10 FinancialInstrumentDetailsValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitsNumber is FinancialInstrumentQuantity1 UnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
-            UnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetAmount is IsoActiveOrHistoricCurrencyAndAmount NetAmountValue)
-        {
-            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NetAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (GrossAmount is IsoActiveOrHistoricCurrencyAndAmount GrossAmountValue)
-        {
-            writer.WriteStartElement(null, "GrssAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(GrossAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (HoldingsRedemptionRate is IsoPercentageRate HoldingsRedemptionRateValue)
-        {
-            writer.WriteStartElement(null, "HldgsRedRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HoldingsRedemptionRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (UnitCurrency is ActiveOrHistoricCurrencyCode UnitCurrencyValue)
-        {
-            writer.WriteStartElement(null, "UnitCcy", xmlNamespace );
-            writer.WriteValue(UnitCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (QuotedCurrency is ActiveOrHistoricCurrencyCode QuotedCurrencyValue)
-        {
-            writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
-            writer.WriteValue(QuotedCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static FundOrderData1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

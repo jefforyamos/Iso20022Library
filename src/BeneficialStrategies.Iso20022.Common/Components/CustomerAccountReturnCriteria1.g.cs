@@ -7,172 +7,442 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates which fields must be present in the response.
 /// </summary>
+[IsoId("_vjD5tv6yEeGNWvq8ppGEJQ_1856817548")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Customer Account Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CustomerAccountReturnCriteria1
-     : IIsoXmlSerilizable<CustomerAccountReturnCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CustomerAccountReturnCriteria1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CustomerAccountReturnCriteria1( System.String reqIdentification,System.String reqName,System.String reqStatus,System.String reqType,System.String reqCurrency,System.String reqMonthlyPaymentValue,System.String reqMonthlyReceivedValue,System.String reqMonthlyTransactionNumber,System.String reqAverageBalance,System.String reqAccountPurpose,System.String reqFloorNotificationAmount,System.String reqCeilingNotificationAmount,System.String reqStatementCycle,System.String reqClosingDate,System.String reqRestriction,System.String reqOpeningDate,System.String reqAccountOwner,System.String reqReferenceAccount )
+    {
+        Identification = reqIdentification;
+        Name = reqName;
+        Status = reqStatus;
+        Type = reqType;
+        Currency = reqCurrency;
+        MonthlyPaymentValue = reqMonthlyPaymentValue;
+        MonthlyReceivedValue = reqMonthlyReceivedValue;
+        MonthlyTransactionNumber = reqMonthlyTransactionNumber;
+        AverageBalance = reqAverageBalance;
+        AccountPurpose = reqAccountPurpose;
+        FloorNotificationAmount = reqFloorNotificationAmount;
+        CeilingNotificationAmount = reqCeilingNotificationAmount;
+        StatementCycle = reqStatementCycle;
+        ClosingDate = reqClosingDate;
+        Restriction = reqRestriction;
+        OpeningDate = reqOpeningDate;
+        AccountOwner = reqAccountOwner;
+        ReferenceAccount = reqReferenceAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDkP6yEeGNWvq8ppGEJQ_1742978482")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDkf6yEeGNWvq8ppGEJQ_859745195")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Name { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Name { get; init; } 
+    #else
+    public System.String Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDkv6yEeGNWvq8ppGEJQ_-137327158")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Status { get; init; } 
+    #else
+    public System.String Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDk_6yEeGNWvq8ppGEJQ_-1134399511")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Type { get; init; } 
+    #else
+    public System.String Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDlP6yEeGNWvq8ppGEJQ_-365489421")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Currency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Currency { get; init; } 
+    #else
+    public System.String Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDlf6yEeGNWvq8ppGEJQ_-1362561774")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Payment Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MonthlyPaymentValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MonthlyPaymentValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MonthlyPaymentValue { get; init; } 
+    #else
+    public System.String MonthlyPaymentValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDlv6yEeGNWvq8ppGEJQ_1935333169")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Received Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MonthlyReceivedValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MonthlyReceivedValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MonthlyReceivedValue { get; init; } 
+    #else
+    public System.String MonthlyReceivedValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDl_6yEeGNWvq8ppGEJQ_938260816")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Transaction Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MonthlyTransactionNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String MonthlyTransactionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String MonthlyTransactionNumber { get; init; } 
+    #else
+    public System.String MonthlyTransactionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDmP6yEeGNWvq8ppGEJQ_-58811537")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AverageBalance { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AverageBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AverageBalance { get; init; } 
+    #else
+    public System.String AverageBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDmf6yEeGNWvq8ppGEJQ_-1055883890")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AccountPurpose { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AccountPurpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AccountPurpose { get; init; } 
+    #else
+    public System.String AccountPurpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDmv6yEeGNWvq8ppGEJQ_-2052956243")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floor Notification Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator FloorNotificationAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String FloorNotificationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String FloorNotificationAmount { get; init; } 
+    #else
+    public System.String FloorNotificationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDm_6yEeGNWvq8ppGEJQ_1244938700")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ceiling Notification Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CeilingNotificationAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CeilingNotificationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CeilingNotificationAmount { get; init; } 
+    #else
+    public System.String CeilingNotificationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjNDnP6yEeGNWvq8ppGEJQ_247866347")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statement Cycle")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator StatementCycle { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String StatementCycle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String StatementCycle { get; init; } 
+    #else
+    public System.String StatementCycle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjW0kP6yEeGNWvq8ppGEJQ_-749206006")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ClosingDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ClosingDate { get; init; } 
+    #else
+    public System.String ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjW0kf6yEeGNWvq8ppGEJQ_-1522341620")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restriction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Restriction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Restriction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Restriction { get; init; } 
+    #else
+    public System.String Restriction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjW0kv6yEeGNWvq8ppGEJQ_855787094")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator OpeningDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OpeningDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OpeningDate { get; init; } 
+    #else
+    public System.String OpeningDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjW0k_6yEeGNWvq8ppGEJQ_661525233")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AccountOwner { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AccountOwner { get; init; } 
+    #else
+    public System.String AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjW0lP6yEeGNWvq8ppGEJQ_1458394401")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ReferenceAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ReferenceAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ReferenceAccount { get; init; } 
+    #else
+    public System.String ReferenceAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [IsoId("_vjW0lf6yEeGNWvq8ppGEJQ_-1384463928")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification42? Proprietary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification42? Proprietary { get; init; } 
+    #else
+    public GenericIdentification42? Proprietary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Identification)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Nm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Name)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Status)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Type)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ccy", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Currency)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MnthlyPmtVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MonthlyPaymentValue)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MnthlyRcvdVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MonthlyReceivedValue)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MnthlyTxNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MonthlyTransactionNumber)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AvrgBal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AverageBalance)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctPurp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccountPurpose)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FlrNtfctnAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FloorNotificationAmount)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClngNtfctnAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CeilingNotificationAmount)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StmtCycl", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StatementCycle)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClosingDate)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Restriction)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OpngDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OpeningDate)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccountOwner)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RefAcct", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReferenceAccount)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Proprietary is GenericIdentification42 ProprietaryValue)
-        {
-            writer.WriteStartElement(null, "Prtry", xmlNamespace );
-            ProprietaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CustomerAccountReturnCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,103 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
+[IsoId("_IODZoSSSEeWdoOFYMt-Lzw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Delivering Parties And Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeliveringPartiesAndAccount13
-     : IIsoXmlSerilizable<DeliveringPartiesAndAccount13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeliveringPartiesAndAccount13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeliveringPartiesAndAccount13( PartyIdentificationAndAccount124 reqDeliveringAgentDetails )
+    {
+        DeliveringAgentDetails = reqDeliveringAgentDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [IsoId("_IrgxtSSSEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverer Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount55? DelivererDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount55? DelivererDetails { get; init; } 
+    #else
+    public InvestmentAccount55? DelivererDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that acts on behalf of the seller of securities when the seller does not have a direct relationship with the delivering agent.
     /// </summary>
+    [IsoId("_IrgxtySSEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverers Custodian Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount124? DeliverersCustodianDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount124? DeliverersCustodianDetails { get; init; } 
+    #else
+    public PartyIdentificationAndAccount124? DeliverersCustodianDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that the deliverer's custodian uses to effect the delivery of a security, when the deliverer's custodian does not have a direct relationship with the delivering agent.
     /// </summary>
+    [IsoId("_IrgxuSSSEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverers Intermediary 1 Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount124? DeliverersIntermediary1Details { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount124? DeliverersIntermediary1Details { get; init; } 
+    #else
+    public PartyIdentificationAndAccount124? DeliverersIntermediary1Details { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that interacts with the deliverer's intermediary.
     /// </summary>
+    [IsoId("_Vl2rwSSTEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverers Intermediary 2 Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount124? DeliverersIntermediary2Details { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount124? DeliverersIntermediary2Details { get; init; } 
+    #else
+    public PartyIdentificationAndAccount124? DeliverersIntermediary2Details { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, central securities depository.
     /// </summary>
+    [IsoId("_IrgxuySSEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivering Agent Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount124 DeliveringAgentDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentificationAndAccount124 DeliveringAgentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount124 DeliveringAgentDetails { get; init; } 
+    #else
+    public PartyIdentificationAndAccount124 DeliveringAgentDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
+    [IsoId("_IrgxvSSSEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Settlement System")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecuritiesSettlementSystem { get; init; } 
+    #else
+    public System.String? SecuritiesSettlementSystem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [IsoId("_IrgxvySSEeWdoOFYMt-Lzw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Settlement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification97? PlaceOfSettlementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification97? PlaceOfSettlementDetails { get; init; } 
+    #else
+    public PartyIdentification97? PlaceOfSettlementDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DelivererDetails is InvestmentAccount55 DelivererDetailsValue)
-        {
-            writer.WriteStartElement(null, "DlvrrDtls", xmlNamespace );
-            DelivererDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliverersCustodianDetails is PartyIdentificationAndAccount124 DeliverersCustodianDetailsValue)
-        {
-            writer.WriteStartElement(null, "DlvrrsCtdnDtls", xmlNamespace );
-            DeliverersCustodianDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliverersIntermediary1Details is PartyIdentificationAndAccount124 DeliverersIntermediary1DetailsValue)
-        {
-            writer.WriteStartElement(null, "DlvrrsIntrmy1Dtls", xmlNamespace );
-            DeliverersIntermediary1DetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeliverersIntermediary2Details is PartyIdentificationAndAccount124 DeliverersIntermediary2DetailsValue)
-        {
-            writer.WriteStartElement(null, "DlvrrsIntrmy2Dtls", xmlNamespace );
-            DeliverersIntermediary2DetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DlvrgAgtDtls", xmlNamespace );
-        DeliveringAgentDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SecuritiesSettlementSystem is IsoMax35Text SecuritiesSettlementSystemValue)
-        {
-            writer.WriteStartElement(null, "SctiesSttlmSys", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesSettlementSystemValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (PlaceOfSettlementDetails is PartyIdentification97 PlaceOfSettlementDetailsValue)
-        {
-            writer.WriteStartElement(null, "PlcOfSttlmDtls", xmlNamespace );
-            PlaceOfSettlementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DeliveringPartiesAndAccount13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters used to report cash movements,eg, country code, currency code, BIC or a user defined parameter.
 /// </summary>
+[IsoId("_UuOnttp-Ed-ak6NoX_4Aeg_215969786")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Forecast Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ForecastParameter2
-     : IIsoXmlSerilizable<ForecastParameter2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ForecastParameter2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ForecastParameter2( ReportParameter2Choice_ reqReportParameter )
+    {
+        ReportParameter = reqReportParameter;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of parameter used for grouping the information in a report, eg, country code, currency code, BIC or a user defined parameter.
     /// </summary>
+    [IsoId("_UuOnt9p-Ed-ak6NoX_4Aeg_215969829")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Parameter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameter2Choice_ ReportParameter { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReportParameter2Choice_ ReportParameter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportParameter2Choice_ ReportParameter { get; init; } 
+    #else
+    public ReportParameter2Choice_ ReportParameter { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash movement in to of a fund as a result of investment funds transactions, eg, subscriptions or switch-out.
     /// </summary>
+    [IsoId("_UuOnuNp-Ed-ak6NoX_4Aeg_215969960")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInForecast1? CashInForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashInForecast1? CashInForecastDetails { get; init; } 
+    #else
+    public CashInForecast1? CashInForecastDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash movement out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
+    [IsoId("_UuYYsNp-Ed-ak6NoX_4Aeg_215969925")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Out Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOutForecast1? CashOutForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashOutForecast1? CashOutForecastDetails { get; init; } 
+    #else
+    public CashOutForecast1? CashOutForecastDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net cash movements to a fund as a result of investment funds transactions.
     /// </summary>
+    [IsoId("_UuYYsdp-Ed-ak6NoX_4Aeg_215969865")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Cash Forecast Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast1? NetCashForecastDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetCashForecast1? NetCashForecastDetails { get; init; } 
+    #else
+    public NetCashForecast1? NetCashForecastDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RptParam", xmlNamespace );
-        ReportParameter.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CashInForecastDetails is CashInForecast1 CashInForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshInFcstDtls", xmlNamespace );
-            CashInForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashOutForecastDetails is CashOutForecast1 CashOutForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshOutFcstDtls", xmlNamespace );
-            CashOutForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetCashForecastDetails is NetCashForecast1 NetCashForecastDetailsValue)
-        {
-            writer.WriteStartElement(null, "NetCshFcstDtls", xmlNamespace );
-            NetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ForecastParameter2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

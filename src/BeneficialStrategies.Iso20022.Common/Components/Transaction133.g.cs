@@ -7,132 +7,243 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key exchange activity transaction.
 /// </summary>
+[IsoId("_LFWIoIv6EeumSPwlS1PkxQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Transaction133
-     : IIsoXmlSerilizable<Transaction133>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Transaction133 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Transaction133( CardServiceType5Code reqKeyExchangeFunction,TransactionIdentification12 reqTransactionIdentification )
+    {
+        KeyExchangeFunction = reqKeyExchangeFunction;
+        TransactionIdentification = reqTransactionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of key exchange function being performed.
     /// </summary>
+    [IsoId("_LKnqMYv6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Exchange Function")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardServiceType5Code KeyExchangeFunction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardServiceType5Code KeyExchangeFunction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardServiceType5Code KeyExchangeFunction { get; init; } 
+    #else
+    public CardServiceType5Code KeyExchangeFunction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other key exchange function being performed.
     /// </summary>
+    [IsoId("_LKnqM4v6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Key Exchange Function")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherKeyExchangeFunction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherKeyExchangeFunction { get; init; } 
+    #else
+    public System.String? OtherKeyExchangeFunction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
+    [IsoId("_uMxA98sJEeuNe7RtB4qFHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO8583MessageReasonCode? MessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? MessageReason { get; init; } 
+    #else
+    public string? MessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Alternate reason to send a message.
     /// </summary>
+    [IsoId("_LKnqN4v6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Message Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AlternateMessageReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AlternateMessageReason { get; init; } 
+    #else
+    public System.String? AlternateMessageReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [IsoId("_LKnqOYv6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    #else
+    public TransactionIdentification12 TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the type of key being exchanged.
     /// </summary>
+    [IsoId("_LKnqO4v6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Exchange Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KeyType1Code? KeyExchangeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KeyType1Code? KeyExchangeType { get; init; } 
+    #else
+    public KeyType1Code? KeyExchangeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of key being exchanged.
     /// </summary>
+    [IsoId("_LKnqPYv6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Key Exchange Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherKeyExchangeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherKeyExchangeType { get; init; } 
+    #else
+    public System.String? OtherKeyExchangeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains information pertaining to a key exchange. 
     /// ISO 8583 bit 96
     /// </summary>
+    [IsoId("_LKnqP4v6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Exchange Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KeyExchangeData1? KeyExchangeData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KeyExchangeData1? KeyExchangeData { get; init; } 
+    #else
+    public KeyExchangeData1? KeyExchangeData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
+    [IsoId("_LKnqQYv6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalFee2? AdditionalFee { get; init; } 
+    #else
+    public AdditionalFee2? AdditionalFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional data.
     /// </summary>
+    [IsoId("_LKnqQ4v6EeumSPwlS1PkxQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "KeyXchgFctn", xmlNamespace );
-        writer.WriteValue(KeyExchangeFunction.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherKeyExchangeFunction is IsoMax35Text OtherKeyExchangeFunctionValue)
-        {
-            writer.WriteStartElement(null, "OthrKeyXchgFctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherKeyExchangeFunctionValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
-        {
-            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
-            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AlternateMessageReason is IsoMax256Text AlternateMessageReasonValue)
-        {
-            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(AlternateMessageReasonValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        TransactionIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (KeyExchangeType is KeyType1Code KeyExchangeTypeValue)
-        {
-            writer.WriteStartElement(null, "KeyXchgTp", xmlNamespace );
-            writer.WriteValue(KeyExchangeTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherKeyExchangeType is IsoMax35Text OtherKeyExchangeTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrKeyXchgTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherKeyExchangeTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (KeyExchangeData is KeyExchangeData1 KeyExchangeDataValue)
-        {
-            writer.WriteStartElement(null, "KeyXchgData", xmlNamespace );
-            KeyExchangeDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
-        {
-            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
-            AdditionalFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Transaction133 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,46 +7,40 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Position/transaction reporting under the local regulation.
-/// </summary>
-[KnownType(typeof(TradeReport15Choice.New))]
-[KnownType(typeof(TradeReport15Choice.Modification))]
-[KnownType(typeof(TradeReport15Choice.Correction))]
-[KnownType(typeof(TradeReport15Choice.Termination))]
-[KnownType(typeof(TradeReport15Choice.PositionComponent))]
-[KnownType(typeof(TradeReport15Choice.ValuationUpdate))]
-[KnownType(typeof(TradeReport15Choice.Compression))]
-[KnownType(typeof(TradeReport15Choice.Error))]
-[KnownType(typeof(TradeReport15Choice.Other))]
-public abstract partial record TradeReport15Choice_ : IIsoXmlSerilizable<TradeReport15Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Position/transaction reporting under the local regulation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeReport15Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeReport15Choice.New))]
+    [KnownType(typeof(TradeReport15Choice.Modification))]
+    [KnownType(typeof(TradeReport15Choice.Correction))]
+    [KnownType(typeof(TradeReport15Choice.Termination))]
+    [KnownType(typeof(TradeReport15Choice.PositionComponent))]
+    [KnownType(typeof(TradeReport15Choice.ValuationUpdate))]
+    [KnownType(typeof(TradeReport15Choice.Compression))]
+    [KnownType(typeof(TradeReport15Choice.Error))]
+    [KnownType(typeof(TradeReport15Choice.Other))]
+    [IsoId("_oKFn1Xg-Eeu3kecHd7QKUQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Report 15 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeReport15Choice_
+    #else
+    public abstract partial class TradeReport15Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "New" => TradeReport15Choice.New.Deserialize(elementWithPayload),
-             "Mod" => TradeReport15Choice.Modification.Deserialize(elementWithPayload),
-             "Crrctn" => TradeReport15Choice.Correction.Deserialize(elementWithPayload),
-             "Termntn" => TradeReport15Choice.Termination.Deserialize(elementWithPayload),
-             "PosCmpnt" => TradeReport15Choice.PositionComponent.Deserialize(elementWithPayload),
-             "ValtnUpd" => TradeReport15Choice.ValuationUpdate.Deserialize(elementWithPayload),
-             "Cmprssn" => TradeReport15Choice.Compression.Deserialize(elementWithPayload),
-             "Err" => TradeReport15Choice.Error.Deserialize(elementWithPayload),
-             "Othr" => TradeReport15Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeReport15Choice choice.")
-        };
     }
 }

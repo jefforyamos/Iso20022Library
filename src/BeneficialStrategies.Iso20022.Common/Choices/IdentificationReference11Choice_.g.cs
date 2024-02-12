@@ -7,56 +7,45 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unique identifier of a document, message or transaction.
-/// </summary>
-[KnownType(typeof(IdentificationReference11Choice.InstructingPartyTransactionIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.ExecutingPartyTransactionIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.ClientOrderLinkIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.PoolIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.BlockIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.AllocationIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.IndividualAllocationIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.SecondaryAllocationIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.IndexIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.CommonIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.ComplianceIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.CancellationRequestIdentification))]
-[KnownType(typeof(IdentificationReference11Choice.CollateralTransactionIdentification))]
-public abstract partial record IdentificationReference11Choice_ : IIsoXmlSerilizable<IdentificationReference11Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unique identifier of a document, message or transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IdentificationReference11Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IdentificationReference11Choice.InstructingPartyTransactionIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.ExecutingPartyTransactionIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.ClientOrderLinkIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.PoolIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.BlockIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.AllocationIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.IndividualAllocationIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.SecondaryAllocationIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.IndexIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.CommonIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.ComplianceIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.CancellationRequestIdentification))]
+    [KnownType(typeof(IdentificationReference11Choice.CollateralTransactionIdentification))]
+    [IsoId("_AdlJUtokEeC60axPepSq7g_197856577")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Reference 11 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IdentificationReference11Choice_
+    #else
+    public abstract partial class IdentificationReference11Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "InstgPtyTxId" => IdentificationReference11Choice.InstructingPartyTransactionIdentification.Deserialize(elementWithPayload),
-             "ExctgPtyTxId" => IdentificationReference11Choice.ExecutingPartyTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => IdentificationReference11Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "ClntOrdrLkId" => IdentificationReference11Choice.ClientOrderLinkIdentification.Deserialize(elementWithPayload),
-             "PoolId" => IdentificationReference11Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "BlckId" => IdentificationReference11Choice.BlockIdentification.Deserialize(elementWithPayload),
-             "AllcnId" => IdentificationReference11Choice.AllocationIdentification.Deserialize(elementWithPayload),
-             "IndvAllcnId" => IdentificationReference11Choice.IndividualAllocationIdentification.Deserialize(elementWithPayload),
-             "ScndryAllcnId" => IdentificationReference11Choice.SecondaryAllocationIdentification.Deserialize(elementWithPayload),
-             "IndxId" => IdentificationReference11Choice.IndexIdentification.Deserialize(elementWithPayload),
-             "CmonId" => IdentificationReference11Choice.CommonIdentification.Deserialize(elementWithPayload),
-             "CmplcId" => IdentificationReference11Choice.ComplianceIdentification.Deserialize(elementWithPayload),
-             "CxlReqId" => IdentificationReference11Choice.CancellationRequestIdentification.Deserialize(elementWithPayload),
-             "CollTxId" => IdentificationReference11Choice.CollateralTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IdentificationReference11Choice choice.")
-        };
     }
 }

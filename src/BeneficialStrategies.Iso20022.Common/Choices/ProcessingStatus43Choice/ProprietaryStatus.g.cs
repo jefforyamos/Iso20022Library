@@ -9,57 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
-
-/// <summary>
-/// Status of the standing settlement instruction, cancellation or deletion is expressed in a bilaterally agreed manner.
-/// </summary>
-public partial record ProprietaryStatus : ProcessingStatus43Choice_
-     , IIsoXmlSerilizable<ProprietaryStatus>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Proprietary identification of the status of the instruction.
+    /// Status of the standing settlement instruction, cancellation or deletion is expressed in a bilaterally agreed manner.
     /// </summary>
-    public required GenericIdentification36 Status { get; init; } 
-    /// <summary>
-    /// Proprietary identification of the reason for the status.
-    /// </summary>
-    public required ProprietaryReason1Choice_ Reason { get; init; } 
-    /// <summary>
-    /// Additional information about the processed instruction.
-    /// </summary>
-    public IsoMax210Text? AdditionalReasonInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_fDHA-VhFEeOMYfRGLS0NbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary Status")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ProprietaryStatus : ProcessingStatus43Choice_
+    #else
+    public partial class ProprietaryStatus : ProcessingStatus43Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        Status.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        Reason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ProprietaryStatus instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ProprietaryStatus( GenericIdentification36 reqStatus,ProprietaryReason1Choice_ reqReason )
         {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
-            writer.WriteEndElement();
+            Status = reqStatus;
+            Reason = reqReason;
         }
-    }
-    public static new ProprietaryStatus Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Proprietary identification of the status of the instruction.
+        /// </summary>
+        [IsoId("_A0uE0VhHEeOMYfRGLS0NbA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required GenericIdentification36 Status { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public GenericIdentification36 Status { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification36 Status { get; init; } 
+        #else
+        public GenericIdentification36 Status { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Proprietary identification of the reason for the status.
+        /// </summary>
+        [IsoId("_A0uE01hHEeOMYfRGLS0NbA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ProprietaryReason1Choice_ Reason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ProprietaryReason1Choice_ Reason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProprietaryReason1Choice_ Reason { get; init; } 
+        #else
+        public ProprietaryReason1Choice_ Reason { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the processed instruction.
+        /// </summary>
+        [IsoId("_80za9Vj8EeOgwYxfAV02bg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Reason Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? AdditionalReasonInformation { get; init; } 
+        #else
+        public System.String? AdditionalReasonInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

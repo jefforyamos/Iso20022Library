@@ -7,66 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the tax identification related to a service to be billed.
 /// </summary>
+[IsoId("_uEG5seDzEeim_fWj9imBTA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Billing Tax Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BillingTaxIdentification2
-     : IIsoXmlSerilizable<BillingTaxIdentification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value added tax (VAT) registration number as provided by the region’s local taxing authority.
     /// </summary>
+    [IsoId("_uPxXIeDzEeim_fWj9imBTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("VAT Registration Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VATRegistrationNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VATRegistrationNumber { get; init; } 
+    #else
+    public System.String? VATRegistrationNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax registration number (TRN) as provided by the tax region’s local taxing authority.
     /// </summary>
+    [IsoId("_uPxXI-DzEeim_fWj9imBTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Registration Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TaxRegistrationNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxRegistrationNumber { get; init; } 
+    #else
+    public System.String? TaxRegistrationNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies financial institution's contact details for the tax region. This contact works for the financial institution, not the tax region.
     /// </summary>
+    [IsoId("_uPxXJeDzEeim_fWj9imBTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact4? TaxContact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact4? TaxContact { get; init; } 
+    #else
+    public Contact4? TaxContact { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (VATRegistrationNumber is IsoMax35Text VATRegistrationNumberValue)
-        {
-            writer.WriteStartElement(null, "VATRegnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(VATRegistrationNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxRegistrationNumber is IsoMax35Text TaxRegistrationNumberValue)
-        {
-            writer.WriteStartElement(null, "TaxRegnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxRegistrationNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxContact is Contact4 TaxContactValue)
-        {
-            writer.WriteStartElement(null, "TaxCtct", xmlNamespace );
-            TaxContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BillingTaxIdentification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

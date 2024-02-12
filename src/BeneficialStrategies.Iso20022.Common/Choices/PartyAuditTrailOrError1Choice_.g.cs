@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Used to report between the party reference data or an operational error.
-/// </summary>
-[KnownType(typeof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport))]
-[KnownType(typeof(PartyAuditTrailOrError1Choice.OperationalError))]
-public abstract partial record PartyAuditTrailOrError1Choice_ : IIsoXmlSerilizable<PartyAuditTrailOrError1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Used to report between the party reference data or an operational error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PartyAuditTrailOrError1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport))]
+    [KnownType(typeof(PartyAuditTrailOrError1Choice.OperationalError))]
+    [IsoId("_QgdAwZ9uEee7Qpz45yWJJw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Audit Trail Or Error 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PartyAuditTrailOrError1Choice_
+    #else
+    public abstract partial class PartyAuditTrailOrError1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PtyAudtTrlRpt" => PartyAuditTrailOrError1Choice.PartyAuditTrailReport.Deserialize(elementWithPayload),
-             "OprlErr" => PartyAuditTrailOrError1Choice.OperationalError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PartyAuditTrailOrError1Choice choice.")
-        };
     }
 }

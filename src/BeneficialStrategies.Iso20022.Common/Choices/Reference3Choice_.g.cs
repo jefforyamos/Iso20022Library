@@ -7,60 +7,47 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identification of the message to be cancelled.
-/// </summary>
-[KnownType(typeof(Reference3Choice.ClientCollateralInstructionIdentification))]
-[KnownType(typeof(Reference3Choice.ClientCollateralTransactionIdentification))]
-[KnownType(typeof(Reference3Choice.CollateralProposalIdentification))]
-[KnownType(typeof(Reference3Choice.CollateralProposalResponseIdentification))]
-[KnownType(typeof(Reference3Choice.CollateralSubstitutionConfirmationIdentification))]
-[KnownType(typeof(Reference3Choice.CollateralSubstitutionRequestIdentification))]
-[KnownType(typeof(Reference3Choice.CollateralSubstitutionResponseIdentification))]
-[KnownType(typeof(Reference3Choice.CommonTransactionIdentification))]
-[KnownType(typeof(Reference3Choice.DisputeNotificationIdentification))]
-[KnownType(typeof(Reference3Choice.InterestPaymentRequestIdentification))]
-[KnownType(typeof(Reference3Choice.InterestPaymentResponseIdentification))]
-[KnownType(typeof(Reference3Choice.InterestPaymentStatementIdentification))]
-[KnownType(typeof(Reference3Choice.MarginCallRequestIdentification))]
-[KnownType(typeof(Reference3Choice.MarginCallResponseIdentification))]
-[KnownType(typeof(Reference3Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
-[KnownType(typeof(Reference3Choice.TripartyAgentServiceProviderCollateralTransactionIdentification))]
-public abstract partial record Reference3Choice_ : IIsoXmlSerilizable<Reference3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identification of the message to be cancelled.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Reference3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Reference3Choice.ClientCollateralInstructionIdentification))]
+    [KnownType(typeof(Reference3Choice.ClientCollateralTransactionIdentification))]
+    [KnownType(typeof(Reference3Choice.CollateralProposalIdentification))]
+    [KnownType(typeof(Reference3Choice.CollateralProposalResponseIdentification))]
+    [KnownType(typeof(Reference3Choice.CollateralSubstitutionConfirmationIdentification))]
+    [KnownType(typeof(Reference3Choice.CollateralSubstitutionRequestIdentification))]
+    [KnownType(typeof(Reference3Choice.CollateralSubstitutionResponseIdentification))]
+    [KnownType(typeof(Reference3Choice.CommonTransactionIdentification))]
+    [KnownType(typeof(Reference3Choice.DisputeNotificationIdentification))]
+    [KnownType(typeof(Reference3Choice.InterestPaymentRequestIdentification))]
+    [KnownType(typeof(Reference3Choice.InterestPaymentResponseIdentification))]
+    [KnownType(typeof(Reference3Choice.InterestPaymentStatementIdentification))]
+    [KnownType(typeof(Reference3Choice.MarginCallRequestIdentification))]
+    [KnownType(typeof(Reference3Choice.MarginCallResponseIdentification))]
+    [KnownType(typeof(Reference3Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
+    [KnownType(typeof(Reference3Choice.TripartyAgentServiceProviderCollateralTransactionIdentification))]
+    [IsoId("_d0qV3ALyEeutW5-TpeYJhA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Reference3Choice_
+    #else
+    public abstract partial class Reference3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ClntCollInstrId" => Reference3Choice.ClientCollateralInstructionIdentification.Deserialize(elementWithPayload),
-             "ClntCollTxId" => Reference3Choice.ClientCollateralTransactionIdentification.Deserialize(elementWithPayload),
-             "CollPrpslId" => Reference3Choice.CollateralProposalIdentification.Deserialize(elementWithPayload),
-             "CollPrpslRspnId" => Reference3Choice.CollateralProposalResponseIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnConfId" => Reference3Choice.CollateralSubstitutionConfirmationIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnReqId" => Reference3Choice.CollateralSubstitutionRequestIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnRspnId" => Reference3Choice.CollateralSubstitutionResponseIdentification.Deserialize(elementWithPayload),
-             "CmonTxId" => Reference3Choice.CommonTransactionIdentification.Deserialize(elementWithPayload),
-             "DsptNtfctnId" => Reference3Choice.DisputeNotificationIdentification.Deserialize(elementWithPayload),
-             "IntrstPmtReqId" => Reference3Choice.InterestPaymentRequestIdentification.Deserialize(elementWithPayload),
-             "IntrstPmtRspnId" => Reference3Choice.InterestPaymentResponseIdentification.Deserialize(elementWithPayload),
-             "IntrstPmtStmtId" => Reference3Choice.InterestPaymentStatementIdentification.Deserialize(elementWithPayload),
-             "MrgnCallReqId" => Reference3Choice.MarginCallRequestIdentification.Deserialize(elementWithPayload),
-             "MrgnCallRspnId" => Reference3Choice.MarginCallResponseIdentification.Deserialize(elementWithPayload),
-             "TrptyAgtSvcPrvdrCollInstrId" => Reference3Choice.TripartyAgentServiceProviderCollateralInstructionIdentification.Deserialize(elementWithPayload),
-             "TrptyAgtSvcPrvdrCollTxId" => Reference3Choice.TripartyAgentServiceProviderCollateralTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Reference3Choice choice.")
-        };
     }
 }

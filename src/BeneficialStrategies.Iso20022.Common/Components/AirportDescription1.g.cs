@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies an airport by its location and by its name.
 /// </summary>
+[IsoId("_SsSlINp-Ed-ak6NoX_4Aeg_-1395385132")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Airport Description")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AirportDescription1
-     : IIsoXmlSerilizable<AirportDescription1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AirportDescription1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AirportDescription1( System.String reqTown )
+    {
+        Town = reqTown;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the town where the airport is located. For example: London.
     /// </summary>
+    [IsoId("_SsSlIdp-Ed-ak6NoX_4Aeg_-1352905988")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Town")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Town { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Town { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Town { get; init; } 
+    #else
+    public System.String Town { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the airport by its name. For example: Heathrow.
     /// </summary>
+    [IsoId("_SsSlItp-Ed-ak6NoX_4Aeg_-1308575071")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Airport Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AirportName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AirportName { get; init; } 
+    #else
+    public System.String? AirportName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Twn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Town)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (AirportName is IsoMax35Text AirportNameValue)
-        {
-            writer.WriteStartElement(null, "AirprtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AirportNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AirportDescription1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

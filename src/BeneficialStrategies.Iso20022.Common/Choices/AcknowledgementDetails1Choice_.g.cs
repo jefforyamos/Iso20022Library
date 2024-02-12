@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reference of the PayInSchedule or the PayInCall being acknowledged. This is the Message Identification element from the Report Data sequence of the Pay In Schedule message or the Pay In Call message.
-/// </summary>
-[KnownType(typeof(AcknowledgementDetails1Choice.PayInScheduleReference))]
-[KnownType(typeof(AcknowledgementDetails1Choice.PayInCallReference))]
-public abstract partial record AcknowledgementDetails1Choice_ : IIsoXmlSerilizable<AcknowledgementDetails1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reference of the PayInSchedule or the PayInCall being acknowledged. This is the Message Identification element from the Report Data sequence of the Pay In Schedule message or the Pay In Call message.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AcknowledgementDetails1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AcknowledgementDetails1Choice.PayInScheduleReference))]
+    [KnownType(typeof(AcknowledgementDetails1Choice.PayInCallReference))]
+    [IsoId("_oIaocSzSEeKZfox_pyYpTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acknowledgement Details 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AcknowledgementDetails1Choice_
+    #else
+    public abstract partial class AcknowledgementDetails1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PayInSchdlRef" => AcknowledgementDetails1Choice.PayInScheduleReference.Deserialize(elementWithPayload),
-             "PayInCallRef" => AcknowledgementDetails1Choice.PayInCallReference.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AcknowledgementDetails1Choice choice.")
-        };
     }
 }

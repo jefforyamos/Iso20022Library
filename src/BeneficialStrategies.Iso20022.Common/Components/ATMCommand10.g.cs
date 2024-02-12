@@ -7,110 +7,199 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Maintenance command the ATM must perform.
 /// </summary>
+[IsoId("_j2e5wV_SEeeD0NpJQPACzA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Command")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMCommand10
-     : IIsoXmlSerilizable<ATMCommand10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMCommand10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMCommand10( ATMCommand6Code reqType,TMSContactLevel2Code reqUrgency )
+    {
+        Type = reqType;
+        Urgency = reqUrgency;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
+    [IsoId("_j_HRUV_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCommand6Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMCommand6Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommand6Code Type { get; init; } 
+    #else
+    public ATMCommand6Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Urgency of the command.
     /// </summary>
+    [IsoId("_j_HRU1_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Urgency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TMSContactLevel2Code Urgency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TMSContactLevel2Code Urgency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TMSContactLevel2Code Urgency { get; init; } 
+    #else
+    public TMSContactLevel2Code Urgency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date time on which the command must be performed.
     /// </summary>
+    [IsoId("_j_HRVV_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DateTime { get; init; } 
+    #else
+    public System.DateTime? DateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [IsoId("_j_HRV1_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommandIdentification1? CommandIdentification { get; init; } 
+    #else
+    public ATMCommandIdentification1? CommandIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason for sending the command.
     /// </summary>
+    [IsoId("_j_HRWV_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandReason1Code? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommandReason1Code? Reason { get; init; } 
+    #else
+    public ATMCommandReason1Code? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Trace of reasons by the entities in the path from the origin of the command to the ATM.
     /// </summary>
+    [IsoId("_j_HRW1_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trace Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandReason1Code? TraceReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommandReason1Code? TraceReason { get; init; } 
+    #else
+    public ATMCommandReason1Code? TraceReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the reason to request this command.
     /// </summary>
+    [IsoId("_j_HRXV_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalReasonInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
+    [IsoId("_j_HRX1_SEeeD0NpJQPACzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Command Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandParameters3Choice_? CommandParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCommandParameters3Choice_? CommandParameters { get; init; } 
+    #else
+    public ATMCommandParameters3Choice_? CommandParameters { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Urgcy", xmlNamespace );
-        writer.WriteValue(Urgency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (DateTime is IsoISODateTime DateTimeValue)
-        {
-            writer.WriteStartElement(null, "DtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (CommandIdentification is ATMCommandIdentification1 CommandIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CmdId", xmlNamespace );
-            CommandIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reason is ATMCommandReason1Code ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(ReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (TraceReason is ATMCommandReason1Code TraceReasonValue)
-        {
-            writer.WriteStartElement(null, "TracRsn", xmlNamespace );
-            writer.WriteValue(TraceReasonValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalReasonInformation is IsoMax70Text AdditionalReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalReasonInformationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CommandParameters is ATMCommandParameters3Choice_ CommandParametersValue)
-        {
-            writer.WriteStartElement(null, "CmdParams", xmlNamespace );
-            CommandParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMCommand10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

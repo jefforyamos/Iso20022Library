@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides details on the margin result.
-/// </summary>
-[KnownType(typeof(MarginResult1Choice.ExcessAmount))]
-[KnownType(typeof(MarginResult1Choice.DeficitAmount))]
-public abstract partial record MarginResult1Choice_ : IIsoXmlSerilizable<MarginResult1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides details on the margin result.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MarginResult1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MarginResult1Choice.ExcessAmount))]
+    [KnownType(typeof(MarginResult1Choice.DeficitAmount))]
+    [IsoId("_Qk1wddp-Ed-ak6NoX_4Aeg_-1613861504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Result 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MarginResult1Choice_
+    #else
+    public abstract partial class MarginResult1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "XcssAmt" => MarginResult1Choice.ExcessAmount.Deserialize(elementWithPayload),
-             "DfcitAmt" => MarginResult1Choice.DeficitAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MarginResult1Choice choice.")
-        };
     }
 }

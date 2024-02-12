@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the requested settlement time(s) of the payment instruction.
 /// </summary>
+[IsoId("_QIrY6dp-Ed-ak6NoX_4Aeg_2050617089")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Time Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementTimeRequest2
-     : IIsoXmlSerilizable<SettlementTimeRequest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Time by which the amount of money must be credited, with confirmation, to the CLS Bank's account at the central bank.|Usage: Time must be expressed in Central European Time (CET).
     /// </summary>
+    [IsoId("_QIrY6tp-Ed-ak6NoX_4Aeg_2050617120")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CLS Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? CLSTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? CLSTime { get; init; } 
+    #else
+    public System.TimeOnly? CLSTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time until when the payment may be settled.
     /// </summary>
+    [IsoId("_QIrY69p-Ed-ak6NoX_4Aeg_2142970270")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Till Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? TillTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? TillTime { get; init; } 
+    #else
+    public System.TimeOnly? TillTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time as from when the payment may be settled.
     /// </summary>
+    [IsoId("_QIrY7Np-Ed-ak6NoX_4Aeg_2123575201")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? FromTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? FromTime { get; init; } 
+    #else
+    public System.TimeOnly? FromTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time by when the payment must be settled to avoid rejection.
     /// </summary>
+    [IsoId("_QI1J4Np-Ed-ak6NoX_4Aeg_2138351566")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reject Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? RejectTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? RejectTime { get; init; } 
+    #else
+    public System.TimeOnly? RejectTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CLSTime is IsoISOTime CLSTimeValue)
-        {
-            writer.WriteStartElement(null, "CLSTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(CLSTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (TillTime is IsoISOTime TillTimeValue)
-        {
-            writer.WriteStartElement(null, "TillTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(TillTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (FromTime is IsoISOTime FromTimeValue)
-        {
-            writer.WriteStartElement(null, "FrTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(FromTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (RejectTime is IsoISOTime RejectTimeValue)
-        {
-            writer.WriteStartElement(null, "RjctTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(RejectTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementTimeRequest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

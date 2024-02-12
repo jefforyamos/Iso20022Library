@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies security rate details.
-/// </summary>
-[KnownType(typeof(CorporateActionRateSD7Choice.AdditionalQuantityForExistingSecurities))]
-[KnownType(typeof(CorporateActionRateSD7Choice.NewToOld))]
-public abstract partial record CorporateActionRateSD7Choice_ : IIsoXmlSerilizable<CorporateActionRateSD7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies security rate details.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CorporateActionRateSD7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CorporateActionRateSD7Choice.AdditionalQuantityForExistingSecurities))]
+    [KnownType(typeof(CorporateActionRateSD7Choice.NewToOld))]
+    [IsoId("__Aet4cOTEeeAG4VQMmSqTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Rate SD 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CorporateActionRateSD7Choice_
+    #else
+    public abstract partial class CorporateActionRateSD7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AddtlQtyForExstgScties" => CorporateActionRateSD7Choice.AdditionalQuantityForExistingSecurities.Deserialize(elementWithPayload),
-             "NewToOd" => CorporateActionRateSD7Choice.NewToOld.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CorporateActionRateSD7Choice choice.")
-        };
     }
 }

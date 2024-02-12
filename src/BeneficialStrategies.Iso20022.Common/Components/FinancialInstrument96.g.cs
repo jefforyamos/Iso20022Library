@@ -7,316 +7,544 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[IsoId("__zRv8Z9TEeqxTNfi5y7ywQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Instrument")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialInstrument96
-     : IIsoXmlSerilizable<FinancialInstrument96>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether it is possible to hold bearer units/shares in this class in certified form.
     /// </summary>
+    [IsoId("_AKCqJZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Bearer Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PhysicalBearerSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PhysicalBearerSecurities { get; init; } 
+    #else
+    public System.String? PhysicalBearerSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether it is possible to hold bearer units/shares in paperless form.
     /// </summary>
+    [IsoId("_AKCqJ59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dematerialised Bearer Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DematerialisedBearerSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DematerialisedBearerSecurities { get; init; } 
+    #else
+    public System.String? DematerialisedBearerSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
+    [IsoId("_AKCqKZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Registered Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PhysicalRegisteredSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PhysicalRegisteredSecurities { get; init; } 
+    #else
+    public System.String? PhysicalRegisteredSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
+    [IsoId("_AKCqK59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dematerialised Registered Securities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DematerialisedRegisteredSecurities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DematerialisedRegisteredSecurities { get; init; } 
+    #else
+    public System.String? DematerialisedRegisteredSecurities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Income policy relating to the class type, that is, if income is paid out or retained in the fund.
     /// </summary>
+    [IsoId("_AKCqLZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Distribution Policy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionPolicy1Code? DistributionPolicy { get; init; } 
+    #else
+    public DistributionPolicy1Code? DistributionPolicy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend policy of the fund, for example, cash, units.
     /// </summary>
+    [IsoId("_AKCqL59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Policy")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DividendPolicy1Code? DividendPolicy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DividendPolicy1Code? DividendPolicy { get; init; } 
+    #else
+    public DividendPolicy1Code? DividendPolicy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency with which the income is allocated to investors.
     /// </summary>
+    [IsoId("_AKCqMZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Dividend Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency5Code? DividendFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventFrequency5Code? DividendFrequency { get; init; } 
+    #else
+    public EventFrequency5Code? DividendFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency with which the reinvestment takes place, this is the same or less than the dividend frequency.
     /// </summary>
+    [IsoId("_AKCqM59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reinvestment Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency5Code? ReinvestmentFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventFrequency5Code? ReinvestmentFrequency { get; init; } 
+    #else
+    public EventFrequency5Code? ReinvestmentFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether a front end charge on subscription orders for this class can be applied.
     /// </summary>
+    [IsoId("_AKCqNZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Front End Load")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FrontEndLoad { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FrontEndLoad { get; init; } 
+    #else
+    public System.String? FrontEndLoad { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether an exit charge (for example, CDSC) on redemption orders for this class can be applied.
     /// </summary>
+    [IsoId("_AKCqN59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Back End Load")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BackEndLoad { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BackEndLoad { get; init; } 
+    #else
+    public System.String? BackEndLoad { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether a separate fee for switching between sub-funds of the same umbrella can be applied.
     /// </summary>
+    [IsoId("_AKCqOZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Switch Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SwitchFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SwitchFee { get; init; } 
+    #else
+    public System.String? SwitchFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the investment fund class is subject to the European Union Saving Directive.
     /// </summary>
+    [IsoId("_AKCqO59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EU Savings Directive")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUSavingsDirective1Code? EUSavingsDirective { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EUSavingsDirective1Code? EUSavingsDirective { get; init; } 
+    #else
+    public EUSavingsDirective1Code? EUSavingsDirective { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the fund is open for investment.
     /// </summary>
+    [IsoId("_AKCqPZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Launch Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LaunchDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? LaunchDate { get; init; } 
+    #else
+    public System.DateOnly? LaunchDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the fund is closed to investment.
     /// </summary>
+    [IsoId("_AKCqP59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FundEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FundEndDate { get; init; } 
+    #else
+    public System.DateOnly? FundEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the fund closes.
     /// </summary>
+    [IsoId("_AKCqQZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Termination Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TerminationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TerminationDate { get; init; } 
+    #else
+    public System.DateOnly? TerminationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the discount period of the newly launched investment fund ends.
     /// </summary>
+    [IsoId("_AKCqQ59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Offer End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InitialOfferEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? InitialOfferEndDate { get; init; } 
+    #else
+    public System.DateOnly? InitialOfferEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which valuation of the investment fund class is suspended.
     /// </summary>
+    [IsoId("_AKCqRZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspension Start Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SuspensionStartDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SuspensionStartDate { get; init; } 
+    #else
+    public System.DateOnly? SuspensionStartDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which valuation of the investment fund class is unsuspended.
     /// </summary>
+    [IsoId("_AKCqR59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspension End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SuspensionEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SuspensionEndDate { get; init; } 
+    #else
+    public System.DateOnly? SuspensionEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maturity date of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00065.
     /// </summary>
+    [IsoId("_AKCqSZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? MaturityDate { get; init; } 
+    #else
+    public System.DateOnly? MaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the product may be terminated early. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00067.
     /// </summary>
+    [IsoId("_69UTMaDrEequlaOyi6MUhw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("May Be Terminated Early")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? MayBeTerminatedEarly { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TargetMarket1Code? MayBeTerminatedEarly { get; init; } 
+    #else
+    public TargetMarket1Code? MayBeTerminatedEarly { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the fund is close-ended.
     /// </summary>
+    [IsoId("_AKCqS59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closed End Fund")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ClosedEndFund { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClosedEndFund { get; init; } 
+    #else
+    public System.String? ClosedEndFund { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether equalisation is applied.
     /// </summary>
+    [IsoId("_AKCqTZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equalisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Equalisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Equalisation { get; init; } 
+    #else
+    public System.String? Equalisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the fund is eligible for a tax efficient product.
     /// </summary>
+    [IsoId("_AKCqT59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Efficient Product Eligible")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TaxEfficientProductEligible { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxEfficientProductEligible { get; init; } 
+    #else
+    public System.String? TaxEfficientProductEligible { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the fund is authorised by the regulatory compliance authority.
     /// </summary>
+    [IsoId("_AKCqUZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorised")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Authorised { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Authorised { get; init; } 
+    #else
+    public System.String? Authorised { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the fund is compliant with the Retail Distribution Review (RDR).
     /// </summary>
+    [IsoId("_AKCqU59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("RDR Compliant")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RDRCompliant { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RDRCompliant { get; init; } 
+    #else
+    public System.String? RDRCompliant { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies from where the management fee is taken.
     /// </summary>
+    [IsoId("_AKCqVZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Management Fee Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AnnualChargePaymentType1Code? ManagementFeeSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AnnualChargePaymentType1Code? ManagementFeeSource { get; init; } 
+    #else
+    public AnnualChargePaymentType1Code? ManagementFeeSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is a performance fee feature or carried interest. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00045.
     /// </summary>
+    [IsoId("_AKCqV59UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Performance Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PerformanceFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PerformanceFee { get; init; } 
+    #else
+    public System.String? PerformanceFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the fund.
     /// </summary>
+    [IsoId("_AKCqWZ9UEeqxTNfi5y7ywQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PhysicalBearerSecurities is IsoYesNoIndicator PhysicalBearerSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "PhysBrScties", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalBearerSecuritiesValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DematerialisedBearerSecurities is IsoYesNoIndicator DematerialisedBearerSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "DmtrlsdBrScties", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DematerialisedBearerSecuritiesValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PhysicalRegisteredSecurities is IsoYesNoIndicator PhysicalRegisteredSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "PhysRegdScties", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalRegisteredSecuritiesValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DematerialisedRegisteredSecurities is IsoYesNoIndicator DematerialisedRegisteredSecuritiesValue)
-        {
-            writer.WriteStartElement(null, "DmtrlsdRegdScties", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DematerialisedRegisteredSecuritiesValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DistributionPolicy is DistributionPolicy1Code DistributionPolicyValue)
-        {
-            writer.WriteStartElement(null, "DstrbtnPlcy", xmlNamespace );
-            writer.WriteValue(DistributionPolicyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DividendPolicy is DividendPolicy1Code DividendPolicyValue)
-        {
-            writer.WriteStartElement(null, "DvddPlcy", xmlNamespace );
-            writer.WriteValue(DividendPolicyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DividendFrequency is EventFrequency5Code DividendFrequencyValue)
-        {
-            writer.WriteStartElement(null, "DvddFrqcy", xmlNamespace );
-            writer.WriteValue(DividendFrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReinvestmentFrequency is EventFrequency5Code ReinvestmentFrequencyValue)
-        {
-            writer.WriteStartElement(null, "RinvstmtFrqcy", xmlNamespace );
-            writer.WriteValue(ReinvestmentFrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FrontEndLoad is IsoYesNoIndicator FrontEndLoadValue)
-        {
-            writer.WriteStartElement(null, "FrntEndLd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FrontEndLoadValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BackEndLoad is IsoYesNoIndicator BackEndLoadValue)
-        {
-            writer.WriteStartElement(null, "BckEndLd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BackEndLoadValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SwitchFee is IsoYesNoIndicator SwitchFeeValue)
-        {
-            writer.WriteStartElement(null, "SwtchFee", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SwitchFeeValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (EUSavingsDirective is EUSavingsDirective1Code EUSavingsDirectiveValue)
-        {
-            writer.WriteStartElement(null, "EUSvgsDrctv", xmlNamespace );
-            writer.WriteValue(EUSavingsDirectiveValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (LaunchDate is IsoISODate LaunchDateValue)
-        {
-            writer.WriteStartElement(null, "LnchDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(LaunchDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (FundEndDate is IsoISODate FundEndDateValue)
-        {
-            writer.WriteStartElement(null, "FndEndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FundEndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TerminationDate is IsoISODate TerminationDateValue)
-        {
-            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (InitialOfferEndDate is IsoISODate InitialOfferEndDateValue)
-        {
-            writer.WriteStartElement(null, "InitlOfferEndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(InitialOfferEndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SuspensionStartDate is IsoISODate SuspensionStartDateValue)
-        {
-            writer.WriteStartElement(null, "SspnsnStartDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SuspensionStartDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (SuspensionEndDate is IsoISODate SuspensionEndDateValue)
-        {
-            writer.WriteStartElement(null, "SspnsnEndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SuspensionEndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MaturityDate is IsoISODate MaturityDateValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MayBeTerminatedEarly is TargetMarket1Code MayBeTerminatedEarlyValue)
-        {
-            writer.WriteStartElement(null, "MayBeTermntdEarly", xmlNamespace );
-            writer.WriteValue(MayBeTerminatedEarlyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ClosedEndFund is IsoYesNoIndicator ClosedEndFundValue)
-        {
-            writer.WriteStartElement(null, "ClsdEndFnd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClosedEndFundValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Equalisation is IsoYesNoIndicator EqualisationValue)
-        {
-            writer.WriteStartElement(null, "Equlstn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EqualisationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TaxEfficientProductEligible is IsoYesNoIndicator TaxEfficientProductEligibleValue)
-        {
-            writer.WriteStartElement(null, "TaxEffcntPdctElgbl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TaxEfficientProductEligibleValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Authorised is IsoYesNoIndicator AuthorisedValue)
-        {
-            writer.WriteStartElement(null, "Authrsd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AuthorisedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RDRCompliant is IsoYesNoIndicator RDRCompliantValue)
-        {
-            writer.WriteStartElement(null, "RDRCmplnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RDRCompliantValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ManagementFeeSource is AnnualChargePaymentType1Code ManagementFeeSourceValue)
-        {
-            writer.WriteStartElement(null, "MgmtFeeSrc", xmlNamespace );
-            writer.WriteValue(ManagementFeeSourceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PerformanceFee is IsoYesNoIndicator PerformanceFeeValue)
-        {
-            writer.WriteStartElement(null, "PrfrmncFee", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PerformanceFeeValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialInstrument96 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

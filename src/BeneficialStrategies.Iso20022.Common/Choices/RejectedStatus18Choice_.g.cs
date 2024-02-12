@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a reason or no reason for the corporate action instruction processing rejected status.
-/// </summary>
-[KnownType(typeof(RejectedStatus18Choice.NoSpecifiedReason))]
-[KnownType(typeof(RejectedStatus18Choice.Reason))]
-public abstract partial record RejectedStatus18Choice_ : IIsoXmlSerilizable<RejectedStatus18Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a reason or no reason for the corporate action instruction processing rejected status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RejectedStatus18Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RejectedStatus18Choice.NoSpecifiedReason))]
+    [KnownType(typeof(RejectedStatus18Choice.Reason))]
+    [IsoId("_F9b6IUGXEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Status 18 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RejectedStatus18Choice_
+    #else
+    public abstract partial class RejectedStatus18Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoSpcfdRsn" => RejectedStatus18Choice.NoSpecifiedReason.Deserialize(elementWithPayload),
-             "Rsn" => RejectedStatus18Choice.Reason.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RejectedStatus18Choice choice.")
-        };
     }
 }

@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[IsoId("_1gjt9TbsEead9bDRE_1DAQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Receiving Parties And Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReceivingPartiesAndAccount16
-     : IIsoXmlSerilizable<ReceivingPartiesAndAccount16>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReceivingPartiesAndAccount16 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReceivingPartiesAndAccount16( PartyIdentificationAndAccount147 reqReceivingAgentDetails )
+    {
+        ReceivingAgentDetails = reqReceivingAgentDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
+    [IsoId("_14z14zbsEead9bDRE_1DAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receivers Custodian Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount147? ReceiversCustodianDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount147? ReceiversCustodianDetails { get; init; } 
+    #else
+    public PartyIdentificationAndAccount147? ReceiversCustodianDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that the receiver's custodian uses to effect the receipt of a security, when the receiver's custodian does not have a direct relationship with the receiving agent.
     /// </summary>
+    [IsoId("_14z15TbsEead9bDRE_1DAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receivers Intermediary 1 Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount147? ReceiversIntermediary1Details { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount147? ReceiversIntermediary1Details { get; init; } 
+    #else
+    public PartyIdentificationAndAccount147? ReceiversIntermediary1Details { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that interacts with the receiver’s intermediary 1.
     /// </summary>
+    [IsoId("_SXUugThZEeaRwdGFv45qTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receivers Intermediary 2 Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount147? ReceiversIntermediary2Details { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount147? ReceiversIntermediary2Details { get; init; } 
+    #else
+    public PartyIdentificationAndAccount147? ReceiversIntermediary2Details { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, for example, central securities depository.
     /// </summary>
+    [IsoId("_14z15zbsEead9bDRE_1DAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiving Agent Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
+    #else
+    public PartyIdentificationAndAccount147 ReceivingAgentDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReceiversCustodianDetails is PartyIdentificationAndAccount147 ReceiversCustodianDetailsValue)
-        {
-            writer.WriteStartElement(null, "RcvrsCtdnDtls", xmlNamespace );
-            ReceiversCustodianDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceiversIntermediary1Details is PartyIdentificationAndAccount147 ReceiversIntermediary1DetailsValue)
-        {
-            writer.WriteStartElement(null, "RcvrsIntrmy1Dtls", xmlNamespace );
-            ReceiversIntermediary1DetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReceiversIntermediary2Details is PartyIdentificationAndAccount147 ReceiversIntermediary2DetailsValue)
-        {
-            writer.WriteStartElement(null, "RcvrsIntrmy2Dtls", xmlNamespace );
-            ReceiversIntermediary2DetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "RcvgAgtDtls", xmlNamespace );
-        ReceivingAgentDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ReceivingPartiesAndAccount16 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

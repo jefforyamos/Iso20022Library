@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the status of the details of the corporate action event.
-/// </summary>
-[KnownType(typeof(CorporateActionProcessingStatus5Choice.Code))]
-[KnownType(typeof(CorporateActionProcessingStatus5Choice.Proprietary))]
-public abstract partial record CorporateActionProcessingStatus5Choice_ : IIsoXmlSerilizable<CorporateActionProcessingStatus5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the status of the details of the corporate action event.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CorporateActionProcessingStatus5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CorporateActionProcessingStatus5Choice.Code))]
+    [KnownType(typeof(CorporateActionProcessingStatus5Choice.Proprietary))]
+    [IsoId("_JZXjFTnXEeWLJsP1cO-amg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Processing Status 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CorporateActionProcessingStatus5Choice_
+    #else
+    public abstract partial class CorporateActionProcessingStatus5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => CorporateActionProcessingStatus5Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => CorporateActionProcessingStatus5Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CorporateActionProcessingStatus5Choice choice.")
-        };
     }
 }

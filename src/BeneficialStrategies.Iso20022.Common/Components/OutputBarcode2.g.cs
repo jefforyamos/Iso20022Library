@@ -7,93 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Barcode content to display or print.
 /// </summary>
+[IsoId("_gocIQXDBEe2MCaKO5AtGsA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Output Barcode")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OutputBarcode2
-     : IIsoXmlSerilizable<OutputBarcode2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OutputBarcode2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OutputBarcode2( BarcodeType1Code reqBarcodeType )
+    {
+        BarcodeType = reqBarcodeType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of Barcode coding.
     /// </summary>
+    [IsoId("_g0Hz0XDBEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Barcode Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BarcodeType1Code BarcodeType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BarcodeType1Code BarcodeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BarcodeType1Code BarcodeType { get; init; } 
+    #else
+    public BarcodeType1Code BarcodeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value with a Barcode coding.
     /// </summary>
+    [IsoId("_g0Hz03DBEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Barcode Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8000Text? BarcodeValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BarcodeValue { get; init; } 
+    #else
+    public System.String? BarcodeValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Use for binary and Kanji Quick Respone Code.
     /// </summary>
+    [IsoId("_g0JpAXDBEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("QR Code Binary Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? QRCodeBinaryValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? QRCodeBinaryValue { get; init; } 
+    #else
+    public System.Byte[]? QRCodeBinaryValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the Quick Response Code.
     /// </summary>
+    [IsoId("_g0JpA3DBEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("QR Code Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 16 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? QRCodeVersion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? QRCodeVersion { get; init; } 
+    #else
+    public System.String? QRCodeVersion { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encoding Mode of Quick Response Code.
     /// </summary>
+    [IsoId("_g0JpBXDBEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("QR Code Encoding Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QRCodeEncodingMode1Code? QRCodeEncodingMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QRCodeEncodingMode1Code? QRCodeEncodingMode { get; init; } 
+    #else
+    public QRCodeEncodingMode1Code? QRCodeEncodingMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Error Correction mode of Quick Response Code.
     /// </summary>
+    [IsoId("_g0JpB3DBEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("QR Code Error Correction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QRCodeErrorCorrection1Code? QRCodeErrorCorrection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QRCodeErrorCorrection1Code? QRCodeErrorCorrection { get; init; } 
+    #else
+    public QRCodeErrorCorrection1Code? QRCodeErrorCorrection { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BrcdTp", xmlNamespace );
-        writer.WriteValue(BarcodeType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (BarcodeValue is IsoMax8000Text BarcodeValueValue)
-        {
-            writer.WriteStartElement(null, "BrcdVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8000Text(BarcodeValueValue)); // data type Max8000Text System.String
-            writer.WriteEndElement();
-        }
-        if (QRCodeBinaryValue is IsoMax3000Binary QRCodeBinaryValueValue)
-        {
-            writer.WriteStartElement(null, "QRCdBinryVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(QRCodeBinaryValueValue)); // data type Max3000Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (QRCodeVersion is IsoMax16Text QRCodeVersionValue)
-        {
-            writer.WriteStartElement(null, "QRCdVrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax16Text(QRCodeVersionValue)); // data type Max16Text System.String
-            writer.WriteEndElement();
-        }
-        if (QRCodeEncodingMode is QRCodeEncodingMode1Code QRCodeEncodingModeValue)
-        {
-            writer.WriteStartElement(null, "QRCdNcodgMd", xmlNamespace );
-            writer.WriteValue(QRCodeEncodingModeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (QRCodeErrorCorrection is QRCodeErrorCorrection1Code QRCodeErrorCorrectionValue)
-        {
-            writer.WriteStartElement(null, "QRCdErrCrrctn", xmlNamespace );
-            writer.WriteValue(QRCodeErrorCorrectionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static OutputBarcode2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

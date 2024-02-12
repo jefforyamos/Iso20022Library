@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for the specification of the status.
-/// </summary>
-[KnownType(typeof(Status31Choice.Status))]
-[KnownType(typeof(Status31Choice.Rejected))]
-[KnownType(typeof(Status31Choice.Complete))]
-[KnownType(typeof(Status31Choice.Pending))]
-public abstract partial record Status31Choice_ : IIsoXmlSerilizable<Status31Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for the specification of the status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Status31Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Status31Choice.Status))]
+    [KnownType(typeof(Status31Choice.Rejected))]
+    [KnownType(typeof(Status31Choice.Complete))]
+    [KnownType(typeof(Status31Choice.Pending))]
+    [IsoId("_ySVFQZM6EemKz5EOjv82iQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status 31 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Status31Choice_
+    #else
+    public abstract partial class Status31Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Sts" => Status31Choice.Status.Deserialize(elementWithPayload),
-             "Rjctd" => Status31Choice.Rejected.Deserialize(elementWithPayload),
-             "Cmplt" => Status31Choice.Complete.Deserialize(elementWithPayload),
-             "Pdg" => Status31Choice.Pending.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Status31Choice choice.")
-        };
     }
 }

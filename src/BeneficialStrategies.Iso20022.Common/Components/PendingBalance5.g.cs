@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about pending balance and pending transactions.
 /// </summary>
+[IsoId("_UkjYkbQYEeeKRKrD60ELBQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Pending Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PendingBalance5
-     : IIsoXmlSerilizable<PendingBalance5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PendingBalance5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PendingBalance5( SignedQuantityFormat6 reqBalance )
+    {
+        Balance = reqBalance;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Signed quantity of balance.
     /// </summary>
+    [IsoId("_UzRxEbQYEeeKRKrD60ELBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignedQuantityFormat6 Balance { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SignedQuantityFormat6 Balance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat6 Balance { get; init; } 
+    #else
+    public SignedQuantityFormat6 Balance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Overall process covering the trade and settlement transactions of financial instruments.
     /// </summary>
+    [IsoId("_UzRxGbQYEeeKRKrD60ELBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTypeAndIdentification25? PendingTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTypeAndIdentification25? PendingTransactions { get; init; } 
+    #else
+    public SettlementTypeAndIdentification25? PendingTransactions { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Bal", xmlNamespace );
-        Balance.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PendingTransactions is SettlementTypeAndIdentification25 PendingTransactionsValue)
-        {
-            writer.WriteStartElement(null, "PdgTxs", xmlNamespace );
-            PendingTransactionsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PendingBalance5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

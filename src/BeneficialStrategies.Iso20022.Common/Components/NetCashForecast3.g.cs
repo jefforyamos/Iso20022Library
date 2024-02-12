@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net cash movement to a fund as a result of investment funds transactions.
 /// </summary>
+[IsoId("_Si5_pdp-Ed-ak6NoX_4Aeg_1538517625")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Net Cash Forecast")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NetCashForecast3
-     : IIsoXmlSerilizable<NetCashForecast3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NetCashForecast3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NetCashForecast3( FlowDirectionType1Code reqFlowDirection )
+    {
+        FlowDirection = reqFlowDirection;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Net amount of the cash flow, expressed as an amount of money.
     /// </summary>
+    [IsoId("_Si5_ptp-Ed-ak6NoX_4Aeg_1538517912")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? NetAmount { get; init; } 
+    #else
+    public System.Decimal? NetAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Net amount, expressed as a number of units.
     /// </summary>
+    [IsoId("_Si5_p9p-Ed-ak6NoX_4Aeg_1538517937")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? NetUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? NetUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? NetUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the direction of the cash flow from the perspective of the fund.
     /// </summary>
+    [IsoId("_Si5_qNp-Ed-ak6NoX_4Aeg_1538517972")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Flow Direction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FlowDirectionType1Code FlowDirection { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FlowDirectionType1Code FlowDirection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FlowDirectionType1Code FlowDirection { get; init; } 
+    #else
+    public FlowDirectionType1Code FlowDirection { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (NetAmount is IsoActiveOrHistoricCurrencyAndAmount NetAmountValue)
-        {
-            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NetAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NetUnitsNumber is FinancialInstrumentQuantity1 NetUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "NetUnitsNb", xmlNamespace );
-            NetUnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "FlowDrctn", xmlNamespace );
-        writer.WriteValue(FlowDirection.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static NetCashForecast3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

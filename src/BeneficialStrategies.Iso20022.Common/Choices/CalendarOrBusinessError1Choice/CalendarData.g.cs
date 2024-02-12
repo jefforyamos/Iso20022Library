@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CalendarOrBusinessError1Choice;
-
-/// <summary>
-/// Requested information on the system calendar.
-/// </summary>
-public partial record CalendarData : CalendarOrBusinessError1Choice_
-     , IIsoXmlSerilizable<CalendarData>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CalendarOrBusinessError1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date for which the calendar information is provided.
+    /// Requested information on the system calendar.
     /// </summary>
-    public required IsoISODate SystemDate { get; init; } 
-    /// <summary>
-    /// Status of the system.
-    /// </summary>
-    public required SystemStatus3Choice_ SystemStatus { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_dVcQ2Ym7Eeipw6hHPgB4Sw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calendar Data")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CalendarData : CalendarOrBusinessError1Choice_
+    #else
+    public partial class CalendarData : CalendarOrBusinessError1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SysDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SystemDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SysSts", xmlNamespace );
-        SystemStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new CalendarData Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a CalendarData instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public CalendarData( System.DateOnly reqSystemDate,SystemStatus3Choice_ reqSystemStatus )
+        {
+            SystemDate = reqSystemDate;
+            SystemStatus = reqSystemStatus;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date for which the calendar information is provided.
+        /// </summary>
+        [IsoId("_-zQEYom7Eeipw6hHPgB4Sw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("System Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate SystemDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly SystemDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly SystemDate { get; init; } 
+        #else
+        public System.DateOnly SystemDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Status of the system.
+        /// </summary>
+        [IsoId("_-zQEY4m7Eeipw6hHPgB4Sw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("System Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SystemStatus3Choice_ SystemStatus { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SystemStatus3Choice_ SystemStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemStatus3Choice_ SystemStatus { get; init; } 
+        #else
+        public SystemStatus3Choice_ SystemStatus { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

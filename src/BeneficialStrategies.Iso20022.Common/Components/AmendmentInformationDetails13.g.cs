@@ -7,156 +7,262 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the list of direct debit mandate elements that have been modified when the amendment indicator has been set.
 /// </summary>
+[IsoId("_Acqr2249EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amendment Information Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmendmentInformationDetails13
-     : IIsoXmlSerilizable<AmendmentInformationDetails13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the original mandate.
     /// </summary>
+    [IsoId("_AlwWUW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Mandate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalMandateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalMandateIdentification { get; init; } 
+    #else
+    public System.String? OriginalMandateIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original creditor scheme identification that has been modified.
     /// </summary>
+    [IsoId("_AlwWU249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Creditor Scheme Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? OriginalCreditorSchemeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification135? OriginalCreditorSchemeIdentification { get; init; } 
+    #else
+    public PartyIdentification135? OriginalCreditorSchemeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original creditor agent that has been modified.
     /// </summary>
+    [IsoId("_AlwWVW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Creditor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? OriginalCreditorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? OriginalCreditorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? OriginalCreditorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original creditor agent account that has been modified.
     /// </summary>
+    [IsoId("_AlwWV249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Creditor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? OriginalCreditorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? OriginalCreditorAgentAccount { get; init; } 
+    #else
+    public CashAccount38? OriginalCreditorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original debtor that has been modified.
     /// </summary>
+    [IsoId("_AlwWWW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Debtor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? OriginalDebtor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification135? OriginalDebtor { get; init; } 
+    #else
+    public PartyIdentification135? OriginalDebtor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original debtor account that has been modified.
     /// </summary>
+    [IsoId("_AlwWW249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Debtor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? OriginalDebtorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? OriginalDebtorAccount { get; init; } 
+    #else
+    public CashAccount38? OriginalDebtorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original debtor agent that has been modified.
     /// </summary>
+    [IsoId("_AlwWXW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Debtor Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? OriginalDebtorAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification6? OriginalDebtorAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification6? OriginalDebtorAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original debtor agent account that has been modified.
     /// </summary>
+    [IsoId("_AlwWX249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Debtor Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? OriginalDebtorAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount38? OriginalDebtorAgentAccount { get; init; } 
+    #else
+    public CashAccount38? OriginalDebtorAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original final collection date that has been modified.
     /// </summary>
+    [IsoId("_AlwWYW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Final Collection Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OriginalFinalCollectionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? OriginalFinalCollectionDate { get; init; } 
+    #else
+    public System.DateOnly? OriginalFinalCollectionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
+    [IsoId("_AlwWY249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency36Choice_? OriginalFrequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency36Choice_? OriginalFrequency { get; init; } 
+    #else
+    public Frequency36Choice_? OriginalFrequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original reason for the mandate to allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
+    [IsoId("_AlwWZW49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateSetupReason1Choice_? OriginalReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateSetupReason1Choice_? OriginalReason { get; init; } 
+    #else
+    public MandateSetupReason1Choice_? OriginalReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original number of tracking days that has been modified.
     /// </summary>
+    [IsoId("_AlwWZ249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Tracking Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? OriginalTrackingDays { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalTrackingDays { get; init; } 
+    #else
+    public System.String? OriginalTrackingDays { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalMandateIdentification is IsoMax35Text OriginalMandateIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMndtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMandateIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalCreditorSchemeIdentification is PartyIdentification135 OriginalCreditorSchemeIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlCdtrSchmeId", xmlNamespace );
-            OriginalCreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalCreditorAgent is BranchAndFinancialInstitutionIdentification6 OriginalCreditorAgentValue)
-        {
-            writer.WriteStartElement(null, "OrgnlCdtrAgt", xmlNamespace );
-            OriginalCreditorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalCreditorAgentAccount is CashAccount38 OriginalCreditorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "OrgnlCdtrAgtAcct", xmlNamespace );
-            OriginalCreditorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalDebtor is PartyIdentification135 OriginalDebtorValue)
-        {
-            writer.WriteStartElement(null, "OrgnlDbtr", xmlNamespace );
-            OriginalDebtorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalDebtorAccount is CashAccount38 OriginalDebtorAccountValue)
-        {
-            writer.WriteStartElement(null, "OrgnlDbtrAcct", xmlNamespace );
-            OriginalDebtorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalDebtorAgent is BranchAndFinancialInstitutionIdentification6 OriginalDebtorAgentValue)
-        {
-            writer.WriteStartElement(null, "OrgnlDbtrAgt", xmlNamespace );
-            OriginalDebtorAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalDebtorAgentAccount is CashAccount38 OriginalDebtorAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "OrgnlDbtrAgtAcct", xmlNamespace );
-            OriginalDebtorAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalFinalCollectionDate is IsoISODate OriginalFinalCollectionDateValue)
-        {
-            writer.WriteStartElement(null, "OrgnlFnlColltnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalFinalCollectionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (OriginalFrequency is Frequency36Choice_ OriginalFrequencyValue)
-        {
-            writer.WriteStartElement(null, "OrgnlFrqcy", xmlNamespace );
-            OriginalFrequencyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalReason is MandateSetupReason1Choice_ OriginalReasonValue)
-        {
-            writer.WriteStartElement(null, "OrgnlRsn", xmlNamespace );
-            OriginalReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalTrackingDays is IsoExact2NumericText OriginalTrackingDaysValue)
-        {
-            writer.WriteStartElement(null, "OrgnlTrckgDays", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(OriginalTrackingDaysValue)); // data type Exact2NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AmendmentInformationDetails13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

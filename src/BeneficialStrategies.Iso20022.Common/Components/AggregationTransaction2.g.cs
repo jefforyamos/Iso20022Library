@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment transaction with an aggregated amount.
 /// </summary>
+[IsoId("_f-ARIY0nEeWzoK7sd7oTyw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Aggregation Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AggregationTransaction2
-     : IIsoXmlSerilizable<AggregationTransaction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time of the first payment.
     /// </summary>
+    [IsoId("_gJ7NQY0nEeWzoK7sd7oTyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Payment Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FirstPaymentDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? FirstPaymentDateTime { get; init; } 
+    #else
+    public System.DateTime? FirstPaymentDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the last payment.
     /// </summary>
+    [IsoId("_gJ7NQ40nEeWzoK7sd7oTyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Last Payment Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastPaymentDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? LastPaymentDateTime { get; init; } 
+    #else
+    public System.DateTime? LastPaymentDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of payments that has been aggregated.
     /// </summary>
+    [IsoId("_gJ7NRY0nEeWzoK7sd7oTyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Payments")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfPayments { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfPayments { get; init; } 
+    #else
+    public System.UInt64? NumberOfPayments { get; set; } 
+    #endif
+    
     /// <summary>
     /// Individual payment that has been aggregated.
     /// </summary>
+    [IsoId("_gJ7NR40nEeWzoK7sd7oTyw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount14? IndividualPayment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount14? IndividualPayment { get; init; } 
+    #else
+    public DetailedAmount14? IndividualPayment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FirstPaymentDateTime is IsoISODateTime FirstPaymentDateTimeValue)
-        {
-            writer.WriteStartElement(null, "FrstPmtDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(FirstPaymentDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (LastPaymentDateTime is IsoISODateTime LastPaymentDateTimeValue)
-        {
-            writer.WriteStartElement(null, "LastPmtDtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(LastPaymentDateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (NumberOfPayments is IsoNumber NumberOfPaymentsValue)
-        {
-            writer.WriteStartElement(null, "NbOfPmts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfPaymentsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (IndividualPayment is DetailedAmount14 IndividualPaymentValue)
-        {
-            writer.WriteStartElement(null, "IndvPmt", xmlNamespace );
-            IndividualPaymentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AggregationTransaction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Status applying to the instruction cancellation request received.
-/// </summary>
-[KnownType(typeof(CancellationStatus27Choice.GlobalCancellationStatus))]
-[KnownType(typeof(CancellationStatus27Choice.DetailedCancellationStatus))]
-public abstract partial record CancellationStatus27Choice_ : IIsoXmlSerilizable<CancellationStatus27Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Status applying to the instruction cancellation request received.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CancellationStatus27Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CancellationStatus27Choice.GlobalCancellationStatus))]
+    [KnownType(typeof(CancellationStatus27Choice.DetailedCancellationStatus))]
+    [IsoId("_xTJyQMT1Eem9aZlimxVUIw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Status 27 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CancellationStatus27Choice_
+    #else
+    public abstract partial class CancellationStatus27Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "GblCxlSts" => CancellationStatus27Choice.GlobalCancellationStatus.Deserialize(elementWithPayload),
-             "DtldCxlSts" => CancellationStatus27Choice.DetailedCancellationStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CancellationStatus27Choice choice.")
-        };
     }
 }

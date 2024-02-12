@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the settlement capacity information.
-/// </summary>
-[KnownType(typeof(SettlingCapacity7Choice.Code))]
-[KnownType(typeof(SettlingCapacity7Choice.Proprietary))]
-public abstract partial record SettlingCapacity7Choice_ : IIsoXmlSerilizable<SettlingCapacity7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the settlement capacity information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlingCapacity7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlingCapacity7Choice.Code))]
+    [KnownType(typeof(SettlingCapacity7Choice.Proprietary))]
+    [IsoId("_cRf-ATqEEeWVrPy0StzzSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settling Capacity 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlingCapacity7Choice_
+    #else
+    public abstract partial class SettlingCapacity7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => SettlingCapacity7Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => SettlingCapacity7Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlingCapacity7Choice choice.")
-        };
     }
 }

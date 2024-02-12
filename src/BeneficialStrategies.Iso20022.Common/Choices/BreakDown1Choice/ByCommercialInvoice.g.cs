@@ -9,63 +9,123 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice;
-
-/// <summary>
-/// The intention to pay is based on a commercial invoice.
-/// </summary>
-public partial record ByCommercialInvoice : BreakDown1Choice_
-     , IIsoXmlSerilizable<ByCommercialInvoice>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reference to the identification of the underlying commercial document.
+    /// The intention to pay is based on a commercial invoice.
     /// </summary>
-    public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
-    /// <summary>
-    /// Specifies the adjustments applied to obtain the net amount.
-    /// </summary>
-    public Adjustment6? Adjustment { get; init; } 
-    /// <summary>
-    /// Net amount, after adjustments, intended to be paid.
-    /// </summary>
-    public required IsoCurrencyAndAmount NetAmount { get; init; } 
-    /// <summary>
-    /// Specifies how the net amount to be paid is related to different purchase orders.
-    /// </summary>
-    public ReportLine7? BreakdownByPurchaseOrder { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _Ti7gxxrYEeOVR9VN6fAMUg
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_6n8NYBrYEeOVR9VN6fAMUg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("By Commercial Invoice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ByCommercialInvoice : BreakDown1Choice_
+    #else
+    public partial class ByCommercialInvoice : BreakDown1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "ComrclDocRef", xmlNamespace );
-        CommercialDocumentReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Adjustment is Adjustment6 AdjustmentValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ByCommercialInvoice instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ByCommercialInvoice( InvoiceIdentification1 reqCommercialDocumentReference,System.Decimal reqNetAmount )
         {
-            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
-            AdjustmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            CommercialDocumentReference = reqCommercialDocumentReference;
+            NetAmount = reqNetAmount;
         }
-        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        // Not sure how to serialize BreakdownByPurchaseOrder, multiplicity Unknown
-    }
-    public static new ByCommercialInvoice Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reference to the identification of the underlying commercial document.
+        /// </summary>
+        [IsoId("_Ti7gwRrYEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Commercial Document Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public InvoiceIdentification1 CommercialDocumentReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InvoiceIdentification1 CommercialDocumentReference { get; init; } 
+        #else
+        public InvoiceIdentification1 CommercialDocumentReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the adjustments applied to obtain the net amount.
+        /// </summary>
+        [IsoId("_Ti7gwxrYEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Adjustment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Adjustment6? Adjustment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Adjustment6? Adjustment { get; init; } 
+        #else
+        public Adjustment6? Adjustment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Net amount, after adjustments, intended to be paid.
+        /// </summary>
+        [IsoId("_Ti7gxRrYEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Net Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoCurrencyAndAmount NetAmount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal NetAmount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal NetAmount { get; init; } 
+        #else
+        public System.Decimal NetAmount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies how the net amount to be paid is related to different purchase orders.
+        /// </summary>
+        [IsoId("_Ti7gxxrYEeOVR9VN6fAMUg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Breakdown By Purchase Order")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public ReportLine7? BreakdownByPurchaseOrder { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _Ti7gxxrYEeOVR9VN6fAMUg
+        
+        
+        #nullable disable
+        
     }
 }

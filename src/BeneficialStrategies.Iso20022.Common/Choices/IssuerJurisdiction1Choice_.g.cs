@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Jurisdiction of the issuer of the security used as collateral. 
-/// </summary>
-[KnownType(typeof(IssuerJurisdiction1Choice.CountryCode))]
-[KnownType(typeof(IssuerJurisdiction1Choice.Other))]
-public abstract partial record IssuerJurisdiction1Choice_ : IIsoXmlSerilizable<IssuerJurisdiction1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Jurisdiction of the issuer of the security used as collateral. 
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IssuerJurisdiction1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IssuerJurisdiction1Choice.CountryCode))]
+    [KnownType(typeof(IssuerJurisdiction1Choice.Other))]
+    [IsoId("_qFVoIIfXEeu9_PKSQNOmdg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Jurisdiction 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IssuerJurisdiction1Choice_
+    #else
+    public abstract partial class IssuerJurisdiction1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CtryCd" => IssuerJurisdiction1Choice.CountryCode.Deserialize(elementWithPayload),
-             "Othr" => IssuerJurisdiction1Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IssuerJurisdiction1Choice choice.")
-        };
     }
 }

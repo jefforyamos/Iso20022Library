@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of incorrect information.
 /// </summary>
+[IsoId("_f2qNhUgoEeaGKYpLDboHPQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unable To Apply Incorrect")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnableToApplyIncorrect1
-     : IIsoXmlSerilizable<UnableToApplyIncorrect1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UnableToApplyIncorrect1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UnableToApplyIncorrect1( UnableToApplyIncorrectInformation4Code reqCode )
+    {
+        Code = reqCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the missing information in a coded form.
     /// </summary>
+    [IsoId("_q8AC40grEeaGKYpLDboHPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnableToApplyIncorrectInformation4Code Code { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnableToApplyIncorrectInformation4Code Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnableToApplyIncorrectInformation4Code Code { get; init; } 
+    #else
+    public UnableToApplyIncorrectInformation4Code Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details about the incorrect information.
     /// </summary>
+    [IsoId("_q8AC5EgrEeaGKYpLDboHPQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Incorrect Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalIncorrectInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalIncorrectInformation { get; init; } 
+    #else
+    public System.String? AdditionalIncorrectInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Code.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalIncorrectInformation is IsoMax140Text AdditionalIncorrectInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlIncrrctInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalIncorrectInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static UnableToApplyIncorrect1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Contains the data record in either Binary or text format.
-/// </summary>
-[KnownType(typeof(DataRecord1Choice.Binary))]
-[KnownType(typeof(DataRecord1Choice.Text))]
-public abstract partial record DataRecord1Choice_ : IIsoXmlSerilizable<DataRecord1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Contains the data record in either Binary or text format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DataRecord1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DataRecord1Choice.Binary))]
+    [KnownType(typeof(DataRecord1Choice.Text))]
+    [IsoId("_Gl7WgJb8Eeuc6pwKtqbEVQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Record 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DataRecord1Choice_
+    #else
+    public abstract partial class DataRecord1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Binry" => DataRecord1Choice.Binary.Deserialize(elementWithPayload),
-             "Txt" => DataRecord1Choice.Text.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DataRecord1Choice choice.")
-        };
     }
 }

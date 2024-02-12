@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between different formats to express a net dividend.
-/// </summary>
-[KnownType(typeof(NetDividendRateFormat42Choice.Amount))]
-[KnownType(typeof(NetDividendRateFormat42Choice.AmountAndRateStatus))]
-[KnownType(typeof(NetDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus))]
-public abstract partial record NetDividendRateFormat42Choice_ : IIsoXmlSerilizable<NetDividendRateFormat42Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between different formats to express a net dividend.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NetDividendRateFormat42Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NetDividendRateFormat42Choice.Amount))]
+    [KnownType(typeof(NetDividendRateFormat42Choice.AmountAndRateStatus))]
+    [KnownType(typeof(NetDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus))]
+    [IsoId("_-lxHHwVSEeqjd8n6wD9JVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Dividend Rate Format 42 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NetDividendRateFormat42Choice_
+    #else
+    public abstract partial class NetDividendRateFormat42Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Amt" => NetDividendRateFormat42Choice.Amount.Deserialize(elementWithPayload),
-             "AmtAndRateSts" => NetDividendRateFormat42Choice.AmountAndRateStatus.Deserialize(elementWithPayload),
-             "RateTpAndAmtAndRateSts" => NetDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NetDividendRateFormat42Choice choice.")
-        };
     }
 }

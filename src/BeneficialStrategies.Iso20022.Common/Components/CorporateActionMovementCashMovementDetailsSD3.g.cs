@@ -7,127 +7,244 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action movement details.
 /// </summary>
+[IsoId("_AInNYaGJEeSpipW1FBSFVg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Movement Cash Movement Details SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionMovementCashMovementDetailsSD3
-     : IIsoXmlSerilizable<CorporateActionMovementCashMovementDetailsSD3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionMovementCashMovementDetailsSD3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionMovementCashMovementDetailsSD3( System.String reqPlaceAndName,CreditDebitCode reqCreditDebitIndicator,DTCCPayoutType3Code reqPayoutType )
+    {
+        PlaceAndName = reqPlaceAndName;
+        CreditDebitIndicator = reqCreditDebitIndicator;
+        PayoutType = reqPayoutType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_ASlBt6GJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [IsoId("_ASlBuaGJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of payout associated with the event (for example: principal, long term capital gain).
     /// </summary>
+    [IsoId("_Z9SacaGLEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payout Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCPayoutType3Code PayoutType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DTCCPayoutType3Code PayoutType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCCPayoutType3Code PayoutType { get; init; } 
+    #else
+    public DTCCPayoutType3Code PayoutType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Resulting cash amount concerned in this transaction.
     /// </summary>
+    [IsoId("_ASlBwaGJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TransactionAmount { get; init; } 
+    #else
+    public System.Decimal? TransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction reason.
     /// </summary>
+    [IsoId("_ASlByaGJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAdjustmentPaymentType2Code? ReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCAdjustmentPaymentType2Code? ReasonCode { get; init; } 
+    #else
+    public DTCAdjustmentPaymentType2Code? ReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction sub reason.
     /// </summary>
+    [IsoId("_ASlB0aGJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAdjustmentPaymentSubReason1Code? SubReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCAdjustmentPaymentSubReason1Code? SubReasonCode { get; init; } 
+    #else
+    public DTCAdjustmentPaymentSubReason1Code? SubReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
+    [IsoId("_ASlB06GJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contra Participant Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ContraParticipantNumber { get; init; } 
+    #else
+    public System.String? ContraParticipantNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/Time on which the posting / draft of cash is scheduled to take place for a transaction.
     /// </summary>
+    [IsoId("_ASlB26GJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earliest Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
+    #else
+    public DateFormat28Choice_? EarliestPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (Event Details, Options, Movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related Activity Types 74, and 54. If event details and cash option are sourced from the Activity Type 74, then Activity Type 74 will be in RDP Reference Number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP Reference Number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
+    [IsoId("_NYNbMKGJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("RDP Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RDPReferenceNumber { get; init; } 
+    #else
+    public System.String? RDPReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>
+    [IsoId("_ASlB46GJEeSpipW1FBSFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Adjustment Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxAdjustmentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxAdjustmentRate { get; init; } 
+    #else
+    public System.Decimal? TaxAdjustmentRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PyoutTp", xmlNamespace );
-        writer.WriteValue(PayoutType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (TransactionAmount is IsoRestrictedFINActiveCurrencyAndAmount TransactionAmountValue)
-        {
-            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(TransactionAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ReasonCode is DTCAdjustmentPaymentType2Code ReasonCodeValue)
-        {
-            writer.WriteStartElement(null, "RsnCd", xmlNamespace );
-            writer.WriteValue(ReasonCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SubReasonCode is DTCAdjustmentPaymentSubReason1Code SubReasonCodeValue)
-        {
-            writer.WriteStartElement(null, "SubRsnCd", xmlNamespace );
-            writer.WriteValue(SubReasonCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ContraParticipantNumber is IsoMax8Text ContraParticipantNumberValue)
-        {
-            writer.WriteStartElement(null, "ContraPtcptNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8Text(ContraParticipantNumberValue)); // data type Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (EarliestPaymentDate is DateFormat28Choice_ EarliestPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
-            EarliestPaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RDPReferenceNumber is IsoExact32AlphaNumericText RDPReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "RDPRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact32AlphaNumericText(RDPReferenceNumberValue)); // data type Exact32AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TaxAdjustmentRate is IsoPercentageRate TaxAdjustmentRateValue)
-        {
-            writer.WriteStartElement(null, "TaxAdjstmntRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxAdjustmentRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionMovementCashMovementDetailsSD3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

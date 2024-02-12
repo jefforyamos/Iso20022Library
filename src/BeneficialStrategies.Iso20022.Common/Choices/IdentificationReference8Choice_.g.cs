@@ -7,54 +7,44 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unique identifier of a document, message or transaction.
-/// </summary>
-[KnownType(typeof(IdentificationReference8Choice.InstructingPartyTransactionIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.ExecutingPartyTransactionIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.MarketInfrastructureTransactionIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.ClientOrderLinkIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.PoolIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.BlockIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.AllocationIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.IndividualAllocationIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.SecondaryAllocationIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.IndexIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.CommonIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.ComplianceIdentification))]
-[KnownType(typeof(IdentificationReference8Choice.CollateralTransactionIdentification))]
-public abstract partial record IdentificationReference8Choice_ : IIsoXmlSerilizable<IdentificationReference8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unique identifier of a document, message or transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IdentificationReference8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IdentificationReference8Choice.InstructingPartyTransactionIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.ExecutingPartyTransactionIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.MarketInfrastructureTransactionIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.ClientOrderLinkIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.PoolIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.BlockIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.AllocationIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.IndividualAllocationIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.SecondaryAllocationIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.IndexIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.CommonIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.ComplianceIdentification))]
+    [KnownType(typeof(IdentificationReference8Choice.CollateralTransactionIdentification))]
+    [IsoId("_AcF7kdokEeC60axPepSq7g_1350300624")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Reference 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IdentificationReference8Choice_
+    #else
+    public abstract partial class IdentificationReference8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "InstgPtyTxId" => IdentificationReference8Choice.InstructingPartyTransactionIdentification.Deserialize(elementWithPayload),
-             "ExctgPtyTxId" => IdentificationReference8Choice.ExecutingPartyTransactionIdentification.Deserialize(elementWithPayload),
-             "MktInfrstrctrTxId" => IdentificationReference8Choice.MarketInfrastructureTransactionIdentification.Deserialize(elementWithPayload),
-             "ClntOrdrLkId" => IdentificationReference8Choice.ClientOrderLinkIdentification.Deserialize(elementWithPayload),
-             "PoolId" => IdentificationReference8Choice.PoolIdentification.Deserialize(elementWithPayload),
-             "BlckId" => IdentificationReference8Choice.BlockIdentification.Deserialize(elementWithPayload),
-             "AllcnId" => IdentificationReference8Choice.AllocationIdentification.Deserialize(elementWithPayload),
-             "IndvAllcnId" => IdentificationReference8Choice.IndividualAllocationIdentification.Deserialize(elementWithPayload),
-             "ScndryAllcnId" => IdentificationReference8Choice.SecondaryAllocationIdentification.Deserialize(elementWithPayload),
-             "IndxId" => IdentificationReference8Choice.IndexIdentification.Deserialize(elementWithPayload),
-             "CmonId" => IdentificationReference8Choice.CommonIdentification.Deserialize(elementWithPayload),
-             "CmplcId" => IdentificationReference8Choice.ComplianceIdentification.Deserialize(elementWithPayload),
-             "CollTxId" => IdentificationReference8Choice.CollateralTransactionIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IdentificationReference8Choice choice.")
-        };
     }
 }

@@ -9,47 +9,98 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
-
-/// <summary>
-/// Other identification of an underlier.
-/// </summary>
-public partial record Other : SecurityIdentification41Choice_
-     , IIsoXmlSerilizable<Other>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indicates other identifier of an underlier.
+    /// Other identification of an underlier.
     /// </summary>
-    public required IsoMax210Text Identification { get; init; } 
-    /// <summary>
-    /// Indicates the source of the identifier that represent the underlier.
-    /// </summary>
-    public required IsoMax100Text Source { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_idD061o2Ee23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Other : SecurityIdentification41Choice_
+    #else
+    public partial class Other : SecurityIdentification41Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax210Text(Identification)); // data type Max210Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Src", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax100Text(Source)); // data type Max100Text System.String
-        writer.WriteEndElement();
-    }
-    public static new Other Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Other instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Other( System.String reqIdentification,System.String reqSource )
+        {
+            Identification = reqIdentification;
+            Source = reqSource;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indicates other identifier of an underlier.
+        /// </summary>
+        [IsoId("_D1mToycCEe2BYL6XeAmCWw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 210 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax210Text Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the source of the identifier that represent the underlier.
+        /// </summary>
+        [IsoId("_D1mTpScCEe2BYL6XeAmCWw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Source")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 100 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax100Text Source { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Source { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Source { get; init; } 
+        #else
+        public System.String Source { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

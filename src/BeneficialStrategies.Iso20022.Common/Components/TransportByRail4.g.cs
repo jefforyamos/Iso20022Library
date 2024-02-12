@@ -7,90 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by rail.
 /// </summary>
+[IsoId("_Q1z98dQxEeK0PPbKncCqzA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport By Rail")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportByRail4
-     : IIsoXmlSerilizable<TransportByRail4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransportByRail4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransportByRail4( System.String reqPlaceOfReceipt,System.String reqPlaceOfDelivery )
+    {
+        PlaceOfReceipt = reqPlaceOfReceipt;
+        PlaceOfDelivery = reqPlaceOfDelivery;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
+    [IsoId("_RQ27MdQxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Receipt")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PlaceOfReceipt { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceOfReceipt { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceOfReceipt { get; init; } 
+    #else
+    public System.String PlaceOfReceipt { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
+    [IsoId("_RQ27M9QxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Delivery")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PlaceOfDelivery { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceOfDelivery { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceOfDelivery { get; init; } 
+    #else
+    public System.String PlaceOfDelivery { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [IsoId("_RQ27NdQxEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rail Carrier Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? RailCarrierName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RailCarrierName { get; init; } 
+    #else
+    public System.String? RailCarrierName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
+    [IsoId("_POA5kBUzEeOCqpkCrPgk4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rail Carrier Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? RailCarrierCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? RailCarrierCountry { get; init; } 
+    #else
+    public string? RailCarrierCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_TeP_sBUzEeOCqpkCrPgk4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CarrierAgentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CarrierAgentName { get; init; } 
+    #else
+    public System.String? CarrierAgentName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_XwbmkBUzEeOCqpkCrPgk4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CarrierAgentCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CarrierAgentCountry { get; init; } 
+    #else
+    public string? CarrierAgentCountry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcOfRct", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfReceipt)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PlcOfDlvry", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfDelivery)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (RailCarrierName is IsoMax70Text RailCarrierNameValue)
-        {
-            writer.WriteStartElement(null, "RailCrrierNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(RailCarrierNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (RailCarrierCountry is CountryCode RailCarrierCountryValue)
-        {
-            writer.WriteStartElement(null, "RailCrrierCtry", xmlNamespace );
-            writer.WriteValue(RailCarrierCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentName is IsoMax70Text CarrierAgentNameValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CarrierAgentNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentCountry is CountryCode CarrierAgentCountryValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtCtry", xmlNamespace );
-            writer.WriteValue(CarrierAgentCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportByRail4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

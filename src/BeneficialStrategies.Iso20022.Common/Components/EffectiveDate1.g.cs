@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and date parameters.
 /// </summary>
+[IsoId("_oxDxcDceEeOA3chqL9a4Rw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Effective Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EffectiveDate1
-     : IIsoXmlSerilizable<EffectiveDate1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a EffectiveDate1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public EffectiveDate1( System.DateOnly reqEffectiveDate )
+    {
+        EffectiveDate = reqEffectiveDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date on which the SSI is effective. If the SSI is effective on a future date, then the date must be provided.
     /// </summary>
+    [IsoId("_BjtLsDcfEeOA3chqL9a4Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EffectiveDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly EffectiveDate { get; init; } 
+    #else
+    public System.DateOnly EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how the SSI update effective date is to be applied.
     /// </summary>
+    [IsoId("_NXDd8DcfEeOA3chqL9a4Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date Parameter")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalEffectiveDateParameter1Code? EffectiveDateParameter { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalEffectiveDateParameter1Code? EffectiveDateParameter { get; init; } 
+    #else
+    public ExternalEffectiveDateParameter1Code? EffectiveDateParameter { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (EffectiveDateParameter is ExternalEffectiveDateParameter1Code EffectiveDateParameterValue)
-        {
-            writer.WriteStartElement(null, "FctvDtParam", xmlNamespace );
-            writer.WriteValue(EffectiveDateParameterValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static EffectiveDate1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

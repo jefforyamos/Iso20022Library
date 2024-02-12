@@ -7,126 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[IsoId("_ouYtsTk2EeapUO0vUIo9Xw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fee")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Fee3
-     : IIsoXmlSerilizable<Fee3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
+    [IsoId("_6lR2wTk2EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeType5Choice_? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ChargeType5Choice_? Type { get; init; } 
+    #else
+    public ChargeType5Choice_? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modified value of the standard fee (charge/commission) amount applied on the order (the standard fee (charge/commission) amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [IsoId("_K_CTdjk3EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Standard Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RepairedStandardAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RepairedStandardAmount { get; init; } 
+    #else
+    public System.Decimal? RepairedStandardAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modified value of the standard fee (charge/commission) rate applied on the order (the standard fee (charge/commission) rate in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [IsoId("_K_CTdzk3EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Standard Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? RepairedStandardRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RepairedStandardRate { get; init; } 
+    #else
+    public System.Decimal? RepairedStandardRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modified value of the discount amount applied on the order (the discount amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [IsoId("_K_CTeDk3EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Discount Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RepairedDiscountAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RepairedDiscountAmount { get; init; } 
+    #else
+    public System.Decimal? RepairedDiscountAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modified value of the discount rate applied on the order (the discount rate in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [IsoId("_K_CTeTk3EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Discount Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? RepairedDiscountRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RepairedDiscountRate { get; init; } 
+    #else
+    public System.Decimal? RepairedDiscountRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modified value of the requested fee (charge/commission) amount applied on the order (the requested fee (charge/commission) amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [IsoId("_925m8HBJEeaE8MrXjRZ50Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Requested Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RepairedRequestedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RepairedRequestedAmount { get; init; } 
+    #else
+    public System.Decimal? RepairedRequestedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Modified value of the requested fee (charge/commission) rate applied on the order (the requested fee (charge/commission) rate in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [IsoId("_925m8XBJEeaE8MrXjRZ50Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repaired Requested Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? RepairedRequestedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RepairedRequestedRate { get; init; } 
+    #else
+    public System.Decimal? RepairedRequestedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [IsoId("_kNZZUjk3EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commercial Agreement Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommercialAgreementReference { get; init; } 
+    #else
+    public System.String? CommercialAgreementReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the CommercialAgreementReference is a new reference or not.
     /// </summary>
+    [IsoId("_kNZZUzk3EeapUO0vUIo9Xw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Commercial Agreement Reference Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NewCommercialAgreementReferenceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NewCommercialAgreementReferenceIndicator { get; init; } 
+    #else
+    public System.String? NewCommercialAgreementReferenceIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is ChargeType5Choice_ TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RepairedStandardAmount is IsoActiveCurrencyAndAmount RepairedStandardAmountValue)
-        {
-            writer.WriteStartElement(null, "RprdStdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RepairedStandardAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RepairedStandardRate is IsoPercentageRate RepairedStandardRateValue)
-        {
-            writer.WriteStartElement(null, "RprdStdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RepairedStandardRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RepairedDiscountAmount is IsoActiveCurrencyAndAmount RepairedDiscountAmountValue)
-        {
-            writer.WriteStartElement(null, "RprdDscntAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RepairedDiscountAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RepairedDiscountRate is IsoPercentageRate RepairedDiscountRateValue)
-        {
-            writer.WriteStartElement(null, "RprdDscntRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RepairedDiscountRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RepairedRequestedAmount is IsoActiveCurrencyAndAmount RepairedRequestedAmountValue)
-        {
-            writer.WriteStartElement(null, "RprdReqdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RepairedRequestedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RepairedRequestedRate is IsoPercentageRate RepairedRequestedRateValue)
-        {
-            writer.WriteStartElement(null, "RprdReqdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RepairedRequestedRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
-        {
-            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (NewCommercialAgreementReferenceIndicator is IsoYesNoIndicator NewCommercialAgreementReferenceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NewComrclAgrmtRefInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewCommercialAgreementReferenceIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Fee3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

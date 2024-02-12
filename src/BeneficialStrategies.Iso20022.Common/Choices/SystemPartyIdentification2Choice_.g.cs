@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an identification of a party or a combination of the responsible party identification and the business identifier.
-/// </summary>
-[KnownType(typeof(SystemPartyIdentification2Choice.OrganisationIdentification))]
-[KnownType(typeof(SystemPartyIdentification2Choice.CombinedIdentification))]
-public abstract partial record SystemPartyIdentification2Choice_ : IIsoXmlSerilizable<SystemPartyIdentification2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an identification of a party or a combination of the responsible party identification and the business identifier.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SystemPartyIdentification2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SystemPartyIdentification2Choice.OrganisationIdentification))]
+    [KnownType(typeof(SystemPartyIdentification2Choice.CombinedIdentification))]
+    [IsoId("_wwhf0Wc-EemvNLufWGIVOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Party Identification 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SystemPartyIdentification2Choice_
+    #else
+    public abstract partial class SystemPartyIdentification2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgId" => SystemPartyIdentification2Choice.OrganisationIdentification.Deserialize(elementWithPayload),
-             "CmbndId" => SystemPartyIdentification2Choice.CombinedIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SystemPartyIdentification2Choice choice.")
-        };
     }
 }

@@ -7,87 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the standing instruction.
 /// </summary>
+[IsoId("_UJkbdNp-Ed-ak6NoX_4Aeg_1871445103")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Standing Instruction General Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionStandingInstructionGeneralInformation1
-     : IIsoXmlSerilizable<CorporateActionStandingInstructionGeneralInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionStandingInstructionGeneralInformation1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionStandingInstructionGeneralInformation1( StandingInstructionType1Code reqStandingInstructionType,PartyIdentification2Choice_ reqInstructingPartyIdentification,System.String reqClientStandingInstructionIdentification )
+    {
+        StandingInstructionType = reqStandingInstructionType;
+        InstructingPartyIdentification = reqInstructingPartyIdentification;
+        ClientStandingInstructionIdentification = reqClientStandingInstructionIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of standing instruction.
     /// </summary>
+    [IsoId("_UJkbddp-Ed-ak6NoX_4Aeg_1386661402")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standing Instruction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingInstructionType1Code StandingInstructionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StandingInstructionType1Code StandingInstructionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StandingInstructionType1Code StandingInstructionType { get; init; } 
+    #else
+    public StandingInstructionType1Code StandingInstructionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of coporpate action event.
     /// </summary>
+    [IsoId("_UJkbdtp-Ed-ak6NoX_4Aeg_1471624351")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventType2FormatChoice_? EventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventType2FormatChoice_? EventType { get; init; } 
+    #else
+    public CorporateActionEventType2FormatChoice_? EventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the instructing party, ie, the CSD client.
     /// </summary>
+    [IsoId("_UJkbd9p-Ed-ak6NoX_4Aeg_-218154734")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_ InstructingPartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference of the standing instruction assigned by the client.
     /// </summary>
+    [IsoId("_UJkbeNp-Ed-ak6NoX_4Aeg_-290186934")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Standing Instruction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ClientStandingInstructionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ClientStandingInstructionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ClientStandingInstructionIdentification { get; init; } 
+    #else
+    public System.String ClientStandingInstructionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the account to which the standing instruction can apply.
     /// </summary>
+    [IsoId("_UJkbedp-Ed-ak6NoX_4Aeg_-1954368406")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncludedAccount1? AccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IncludedAccount1? AccountDetails { get; init; } 
+    #else
+    public IncludedAccount1? AccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>
+    [IsoId("_UJkbetp-Ed-ak6NoX_4Aeg_1334871492")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Security")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentDescription3? UnderlyingSecurity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentDescription3? UnderlyingSecurity { get; init; } 
+    #else
+    public FinancialInstrumentDescription3? UnderlyingSecurity { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "StgInstrTp", xmlNamespace );
-        writer.WriteValue(StandingInstructionType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (EventType is CorporateActionEventType2FormatChoice_ EventTypeValue)
-        {
-            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
-            EventTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstgPtyId", xmlNamespace );
-        InstructingPartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClntStgInstrId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientStandingInstructionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (AccountDetails is IncludedAccount1 AccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
-            AccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnderlyingSecurity is FinancialInstrumentDescription3 UnderlyingSecurityValue)
-        {
-            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
-            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionStandingInstructionGeneralInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

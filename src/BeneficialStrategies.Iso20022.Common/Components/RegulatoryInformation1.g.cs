@@ -7,76 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Regulatory information.
 /// </summary>
+[IsoId("_uvgygxQLEeKCyZtSz_i3FA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Regulatory Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RegulatoryInformation1
-     : IIsoXmlSerilizable<RegulatoryInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Sector of economic activity, for example, SAE in the Italian market.
     /// </summary>
+    [IsoId("_CdjqcBQMEeKCyZtSz_i3FA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Sector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Sector { get; init; } 
+    #else
+    public System.String? Sector { get; set; } 
+    #endif
+    
     /// <summary>
     /// Branch of economic activity, for example, RAE in the Italian market.
     /// </summary>
+    [IsoId("_FLAvNRQMEeKCyZtSz_i3FA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Branch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Branch { get; init; } 
+    #else
+    public System.String? Branch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Group of economic activity, for example, a code issued by a regulator.
     /// </summary>
+    [IsoId("_GK8iNxQMEeKCyZtSz_i3FA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Group { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Group { get; init; } 
+    #else
+    public System.String? Group { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other regulatory information.
     /// </summary>
+    [IsoId("_HCE-iRQMEeKCyZtSz_i3FA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Other { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Other { get; init; } 
+    #else
+    public System.String? Other { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Sector is IsoMax35Text SectorValue)
-        {
-            writer.WriteStartElement(null, "Sctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SectorValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Branch is IsoMax35Text BranchValue)
-        {
-            writer.WriteStartElement(null, "Brnch", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BranchValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Group is IsoMax35Text GroupValue)
-        {
-            writer.WriteStartElement(null, "Grp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(GroupValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Other is IsoMax35Text OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static RegulatoryInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

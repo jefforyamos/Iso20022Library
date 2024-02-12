@@ -7,64 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Determine the type of document and the type of communication method to be used to notify a Party.
 /// </summary>
+[IsoId("_RTCTPtp-Ed-ak6NoX_4Aeg_436078909")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Document To Send")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DocumentToSend1
-     : IIsoXmlSerilizable<DocumentToSend1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DocumentToSend1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DocumentToSend1( System.String reqType,PartyIdentification2Choice_ reqRecipient,CommunicationMethod1Code reqMethodOfTransmission,System.String reqExtendedMethodOfTransmission )
+    {
+        Type = reqType;
+        Recipient = reqRecipient;
+        MethodOfTransmission = reqMethodOfTransmission;
+        ExtendedMethodOfTransmission = reqExtendedMethodOfTransmission;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of document.
     /// </summary>
+    [IsoId("_RTCTP9p-Ed-ak6NoX_4Aeg_1009585509")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Type { get; init; } 
+    #else
+    public System.String Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that should receive the document.
     /// </summary>
+    [IsoId("_RTCTQNp-Ed-ak6NoX_4Aeg_1020668296")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ Recipient { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ Recipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ Recipient { get; init; } 
+    #else
+    public PartyIdentification2Choice_ Recipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Communication method to be used.
     /// </summary>
+    [IsoId("_RTCTQdp-Ed-ak6NoX_4Aeg_1018819949")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Method Of Transmission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationMethod1Code MethodOfTransmission { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CommunicationMethod1Code MethodOfTransmission { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationMethod1Code MethodOfTransmission { get; init; } 
+    #else
+    public CommunicationMethod1Code MethodOfTransmission { get; set; } 
+    #endif
+    
     /// <summary>
     /// Communication means used to send information.
     /// </summary>
+    [IsoId("_RTLdINp-Ed-ak6NoX_4Aeg_-506656279")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Method Of Transmission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedMethodOfTransmission { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedMethodOfTransmission { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedMethodOfTransmission { get; init; } 
+    #else
+    public System.String ExtendedMethodOfTransmission { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(Type)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
-        Recipient.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MtdOfTrnsmssn", xmlNamespace );
-        writer.WriteValue(MethodOfTransmission.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedMtdOfTrnsmssn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedMethodOfTransmission)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-    }
-    public static DocumentToSend1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

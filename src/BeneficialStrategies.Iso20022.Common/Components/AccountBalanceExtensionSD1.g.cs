@@ -7,103 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding account balance. Contains transaction details of the stock loans, repurchase agreements (REPOs) and undelivered trades (FAILs).
 /// </summary>
+[IsoId("_1ZVSIzL3EeKU9IrkkToqcw_-1110692797")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Balance Extension SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountBalanceExtensionSD1
-     : IIsoXmlSerilizable<AccountBalanceExtensionSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountBalanceExtensionSD1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountBalanceExtensionSD1( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1ZVSJDL3EeKU9IrkkToqcw_-989980963")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
+    [IsoId("_1ZVSJTL3EeKU9IrkkToqcw_-776435633")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Position")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdjustedBalanceTypeSD1Choice_? TransactionPosition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdjustedBalanceTypeSD1Choice_? TransactionPosition { get; init; } 
+    #else
+    public AdjustedBalanceTypeSD1Choice_? TransactionPosition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Effective date of the transaction. Applicable to Fail transactions.
     /// </summary>
+    [IsoId("_1ZecEDL3EeKU9IrkkToqcw_-938431092")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("As Of Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? AsOfDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? AsOfDate { get; init; } 
+    #else
+    public System.DateOnly? AsOfDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the delivery. Applicable to Fail transactions.
     /// </summary>
+    [IsoId("_1ZecETL3EeKU9IrkkToqcw_-2009552173")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DeliveryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? DeliveryDate { get; init; } 
+    #else
+    public System.DateOnly? DeliveryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transaction contra participant identification for stock loans, repurchase agreements (REPOs), securities undelivered (FAILs).
     /// </summary>
+    [IsoId("_1ZecEjL3EeKU9IrkkToqcw_-1316888267")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contra Participant Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 8 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ContraParticipantNumber { get; init; } 
+    #else
+    public System.String? ContraParticipantNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account number at receiver’s side. Applicable to Fail transactions.
     /// </summary>
+    [IsoId("_1ZecEzL3EeKU9IrkkToqcw_-15407467")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver Account Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax35Text? ReceiverAccountNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReceiverAccountNumber { get; init; } 
+    #else
+    public System.String? ReceiverAccountNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account number at deliverer’s side. Applicable to Fail transactions.
     /// </summary>
+    [IsoId("_1ZecFDL3EeKU9IrkkToqcw_-1012479820")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deliverer Account Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax35Text? DelivererAccountNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DelivererAccountNumber { get; init; } 
+    #else
+    public System.String? DelivererAccountNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (TransactionPosition is AdjustedBalanceTypeSD1Choice_ TransactionPositionValue)
-        {
-            writer.WriteStartElement(null, "TxPos", xmlNamespace );
-            TransactionPositionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AsOfDate is IsoISODate AsOfDateValue)
-        {
-            writer.WriteStartElement(null, "AsOfDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(AsOfDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DeliveryDate is IsoISODate DeliveryDateValue)
-        {
-            writer.WriteStartElement(null, "DlvryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DeliveryDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ContraParticipantNumber is IsoMax8Text ContraParticipantNumberValue)
-        {
-            writer.WriteStartElement(null, "ContraPtcptNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax8Text(ContraParticipantNumberValue)); // data type Max8Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReceiverAccountNumber is IsoRestrictedFINXMax35Text ReceiverAccountNumberValue)
-        {
-            writer.WriteStartElement(null, "RcvrAcctNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(ReceiverAccountNumberValue)); // data type RestrictedFINXMax35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DelivererAccountNumber is IsoRestrictedFINXMax35Text DelivererAccountNumberValue)
-        {
-            writer.WriteStartElement(null, "DlvrrAcctNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(DelivererAccountNumberValue)); // data type RestrictedFINXMax35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountBalanceExtensionSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,40 +9,63 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio4Choice;
-
-/// <summary>
-/// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
-/// </summary>
-public partial record Portfolio : ISAPortfolio4Choice_
-     , IIsoXmlSerilizable<Portfolio>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio4Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Additional information related to the portfolio.
+    /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
-    public SimpleValueList<IsoMax350Text> PortfolioInformation { get; init; } = [];
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_1AA5A7NBEeewUI7-Tnew9A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Portfolio : ISAPortfolio4Choice_
+    #else
+    public partial class Portfolio : ISAPortfolio4Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PrtflInf", xmlNamespace );
-        PortfolioInformation.Serialize(writer, xmlNamespace, "Max350Text", SerializationFormatter.IsoMax350Text );
-        writer.WriteEndElement();
-    }
-    public static new Portfolio Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Additional information related to the portfolio.
+        /// </summary>
+        [IsoId("_TU0kwNp-Ed-ak6NoX_4Aeg_501703515")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Portfolio Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [MinLength(0)]
+        [MaxLength(5)]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        public SimpleValueList<System.String> PortfolioInformation { get; init; } = new SimpleValueList<System.String>(){};
+        
+        
+        #nullable disable
+        
     }
 }

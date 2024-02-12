@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a acquirer globalised card transaction or an individual card transaction.
-/// </summary>
-[KnownType(typeof(CardTransaction2Choice.Aggregated))]
-[KnownType(typeof(CardTransaction2Choice.Individual))]
-public abstract partial record CardTransaction2Choice_ : IIsoXmlSerilizable<CardTransaction2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a acquirer globalised card transaction or an individual card transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CardTransaction2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CardTransaction2Choice.Aggregated))]
+    [KnownType(typeof(CardTransaction2Choice.Individual))]
+    [IsoId("_0UR2gTj3EeSz-s1QOUJaOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Transaction 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CardTransaction2Choice_
+    #else
+    public abstract partial class CardTransaction2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Aggtd" => CardTransaction2Choice.Aggregated.Deserialize(elementWithPayload),
-             "Indv" => CardTransaction2Choice.Individual.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CardTransaction2Choice choice.")
-        };
     }
 }

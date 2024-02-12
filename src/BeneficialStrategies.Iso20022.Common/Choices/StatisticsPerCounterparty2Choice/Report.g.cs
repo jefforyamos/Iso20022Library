@@ -9,64 +9,131 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice;
-
-/// <summary>
-/// Detailed statistics per counterparty.
-/// </summary>
-public partial record Report : StatisticsPerCounterparty2Choice_
-     , IIsoXmlSerilizable<Report>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Reference period for statistics collection.
+    /// Detailed statistics per counterparty.
     /// </summary>
-    public required Period2 ReportingPeriod { get; init; } 
-    /// <summary>
-    /// Data specific to counterparties and related fields.
-    /// </summary>
-    public required CounterpartyData36 CounterpartyIdentification { get; init; } 
-    /// <summary>
-    /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
-    /// </summary>
-    public required RejectionStatistics3 RejectionStatistics { get; init; } 
-    /// <summary>
-    /// Identification of the competent authority which supervises the reporting counterparty.
-    /// </summary>
-    public CompetentAuthority1? CompetentAuthority { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_85s8lEwWEeqwfMIOLcNxbw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Report : StatisticsPerCounterparty2Choice_
+    #else
+    public partial class Report : StatisticsPerCounterparty2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
-        ReportingPeriod.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
-        CounterpartyIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RjctnSttstcs", xmlNamespace );
-        RejectionStatistics.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CompetentAuthority is CompetentAuthority1 CompetentAuthorityValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Report instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Report( Period2 reqReportingPeriod,CounterpartyData36 reqCounterpartyIdentification,RejectionStatistics3 reqRejectionStatistics )
         {
-            writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
-            CompetentAuthorityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            ReportingPeriod = reqReportingPeriod;
+            CounterpartyIdentification = reqCounterpartyIdentification;
+            RejectionStatistics = reqRejectionStatistics;
         }
-    }
-    public static new Report Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Reference period for statistics collection.
+        /// </summary>
+        [IsoId("_MweAYVfdEeqZr5K1Woax-g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reporting Period")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required Period2 ReportingPeriod { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public Period2 ReportingPeriod { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Period2 ReportingPeriod { get; init; } 
+        #else
+        public Period2 ReportingPeriod { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data specific to counterparties and related fields.
+        /// </summary>
+        [IsoId("_MweAY1fdEeqZr5K1Woax-g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Counterparty Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CounterpartyData36 CounterpartyIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CounterpartyData36 CounterpartyIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CounterpartyData36 CounterpartyIdentification { get; init; } 
+        #else
+        public CounterpartyData36 CounterpartyIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
+        /// </summary>
+        [IsoId("_MweAZVfdEeqZr5K1Woax-g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rejection Statistics")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required RejectionStatistics3 RejectionStatistics { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public RejectionStatistics3 RejectionStatistics { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RejectionStatistics3 RejectionStatistics { get; init; } 
+        #else
+        public RejectionStatistics3 RejectionStatistics { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the competent authority which supervises the reporting counterparty.
+        /// </summary>
+        [IsoId("_MweAZ1fdEeqZr5K1Woax-g")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Competent Authority")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompetentAuthority1? CompetentAuthority { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompetentAuthority1? CompetentAuthority { get; init; } 
+        #else
+        public CompetentAuthority1? CompetentAuthority { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

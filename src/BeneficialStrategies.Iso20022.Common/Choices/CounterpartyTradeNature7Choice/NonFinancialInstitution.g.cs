@@ -9,49 +9,75 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature7Choice;
-
-/// <summary>
-/// Indicates that reporting counterparty is a non financial institution.
-/// </summary>
-public partial record NonFinancialInstitution : CounterpartyTradeNature7Choice_
-     , IIsoXmlSerilizable<NonFinancialInstitution>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature7Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Classification of the business activities of the reporting counterparty.
+    /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
-    public IsoNACEDomainIdentifier? Classification { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _0uXHsbHXEemRPNDOvJwndA
-    /// <summary>
-    /// Nature business activities of the reporting counterparty as an investment fund.
-    /// </summary>
-    public FundType2Code? InvestmentFundClassification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-UtqQ6n9EemdLtwzt4CWxg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Financial Institution")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record NonFinancialInstitution : CounterpartyTradeNature7Choice_
+    #else
+    public partial class NonFinancialInstitution : CounterpartyTradeNature7Choice_
+    #endif
     {
-        // Not sure how to serialize Classification, multiplicity Unknown
-        if (InvestmentFundClassification is FundType2Code InvestmentFundClassificationValue)
-        {
-            writer.WriteStartElement(null, "InvstmtFndClssfctn", xmlNamespace );
-            writer.WriteValue(InvestmentFundClassificationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static new NonFinancialInstitution Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Classification of the business activities of the reporting counterparty.
+        /// </summary>
+        [IsoId("_0uXHsbHXEemRPNDOvJwndA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Classification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public System.String? Classification { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _0uXHsbHXEemRPNDOvJwndA
+        
+        /// <summary>
+        /// Nature business activities of the reporting counterparty as an investment fund.
+        /// </summary>
+        [IsoId("_0ugRobHXEemRPNDOvJwndA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Investment Fund Classification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FundType2Code? InvestmentFundClassification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FundType2Code? InvestmentFundClassification { get; init; } 
+        #else
+        public FundType2Code? InvestmentFundClassification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

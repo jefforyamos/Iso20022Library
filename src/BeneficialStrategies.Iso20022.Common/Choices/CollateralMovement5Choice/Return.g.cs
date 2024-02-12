@@ -9,100 +9,191 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement5Choice;
-
-/// <summary>
-/// Provides the collateral movement direction that is a return only.
-/// </summary>
-public partial record Return : CollateralMovement5Choice_
-     , IIsoXmlSerilizable<Return>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the reference to the unambiguous identification of the margin call request.
+    /// Provides the collateral movement direction that is a return only.
     /// </summary>
-    public required IsoMax35Text MarginCallRequestIdentification { get; init; } 
-    /// <summary>
-    /// Specifies the reference to the unambiguous identification of the margin call response.
-    /// </summary>
-    public IsoMax35Text? MarginCallResponseIdentification { get; init; } 
-    /// <summary>
-    /// Specifies the standard settlement instructions.
-    /// </summary>
-    public IsoMax140Text? StandardSettlementInstructions { get; init; } 
-    /// <summary>
-    /// Specifies the reference to the unambiguous identification of the collateral proposal response (in case of counter proposal).
-    /// </summary>
-    public IsoMax35Text? CollateralProposalResponseIdentification { get; init; } 
-    /// <summary>
-    /// Collateral type is securities.
-    /// </summary>
-    public SecuritiesCollateral8? SecuritiesCollateral { get; init; } 
-    /// <summary>
-    /// Collateral type is cash.
-    /// </summary>
-    public CashCollateral2? CashCollateral { get; init; } 
-    /// <summary>
-    /// Collateral type is other than securities or cash for example letter of credit.
-    /// </summary>
-    public OtherCollateral5? OtherCollateral { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_sWEhc4pIEeaNTaanBSMWmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Return : CollateralMovement5Choice_
+    #else
+    public partial class Return : CollateralMovement5Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "MrgnCallReqId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(MarginCallRequestIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (MarginCallResponseIdentification is IsoMax35Text MarginCallResponseIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Return instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Return( System.String reqMarginCallRequestIdentification )
         {
-            writer.WriteStartElement(null, "MrgnCallRspnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarginCallResponseIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
+            MarginCallRequestIdentification = reqMarginCallRequestIdentification;
         }
-        if (StandardSettlementInstructions is IsoMax140Text StandardSettlementInstructionsValue)
-        {
-            writer.WriteStartElement(null, "StdSttlmInstrs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(StandardSettlementInstructionsValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (CollateralProposalResponseIdentification is IsoMax35Text CollateralProposalResponseIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CollPrpslRspnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralProposalResponseIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecuritiesCollateral is SecuritiesCollateral8 SecuritiesCollateralValue)
-        {
-            writer.WriteStartElement(null, "SctiesColl", xmlNamespace );
-            SecuritiesCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashCollateral is CashCollateral2 CashCollateralValue)
-        {
-            writer.WriteStartElement(null, "CshColl", xmlNamespace );
-            CashCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCollateral is OtherCollateral5 OtherCollateralValue)
-        {
-            writer.WriteStartElement(null, "OthrColl", xmlNamespace );
-            OtherCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Return Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the reference to the unambiguous identification of the margin call request.
+        /// </summary>
+        [IsoId("_XP1SEYpJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Margin Call Request Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text MarginCallRequestIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String MarginCallRequestIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String MarginCallRequestIdentification { get; init; } 
+        #else
+        public System.String MarginCallRequestIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the reference to the unambiguous identification of the margin call response.
+        /// </summary>
+        [IsoId("_XP1SE4pJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Margin Call Response Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? MarginCallResponseIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? MarginCallResponseIdentification { get; init; } 
+        #else
+        public System.String? MarginCallResponseIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the standard settlement instructions.
+        /// </summary>
+        [IsoId("_XP1SFYpJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Standard Settlement Instructions")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax140Text? StandardSettlementInstructions { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? StandardSettlementInstructions { get; init; } 
+        #else
+        public System.String? StandardSettlementInstructions { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the reference to the unambiguous identification of the collateral proposal response (in case of counter proposal).
+        /// </summary>
+        [IsoId("_XP1SF4pJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Proposal Response Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? CollateralProposalResponseIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? CollateralProposalResponseIdentification { get; init; } 
+        #else
+        public System.String? CollateralProposalResponseIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Collateral type is securities.
+        /// </summary>
+        [IsoId("_XP1SGYpJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecuritiesCollateral8? SecuritiesCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesCollateral8? SecuritiesCollateral { get; init; } 
+        #else
+        public SecuritiesCollateral8? SecuritiesCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Collateral type is cash.
+        /// </summary>
+        [IsoId("_XP1SG4pJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Cash Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CashCollateral2? CashCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CashCollateral2? CashCollateral { get; init; } 
+        #else
+        public CashCollateral2? CashCollateral { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Collateral type is other than securities or cash for example letter of credit.
+        /// </summary>
+        [IsoId("_XP1SHYpJEeaNTaanBSMWmg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Collateral")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public OtherCollateral5? OtherCollateral { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public OtherCollateral5? OtherCollateral { get; init; } 
+        #else
+        public OtherCollateral5? OtherCollateral { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

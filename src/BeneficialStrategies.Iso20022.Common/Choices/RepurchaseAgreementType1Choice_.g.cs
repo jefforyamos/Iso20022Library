@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the choice between the major categories of repurchase agreement.
-/// </summary>
-[KnownType(typeof(RepurchaseAgreementType1Choice.SpecificCollateral))]
-[KnownType(typeof(RepurchaseAgreementType1Choice.GeneralCollateral))]
-public abstract partial record RepurchaseAgreementType1Choice_ : IIsoXmlSerilizable<RepurchaseAgreementType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the choice between the major categories of repurchase agreement.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RepurchaseAgreementType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RepurchaseAgreementType1Choice.SpecificCollateral))]
+    [KnownType(typeof(RepurchaseAgreementType1Choice.GeneralCollateral))]
+    [IsoId("_3-Tf4LbqEeaqL_M7XFD7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Repurchase Agreement Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RepurchaseAgreementType1Choice_
+    #else
+    public abstract partial class RepurchaseAgreementType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SpcfcColl" => RepurchaseAgreementType1Choice.SpecificCollateral.Deserialize(elementWithPayload),
-             "GnlColl" => RepurchaseAgreementType1Choice.GeneralCollateral.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RepurchaseAgreementType1Choice choice.")
-        };
     }
 }

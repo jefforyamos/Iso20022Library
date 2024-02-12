@@ -7,43 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines commodity attributes of a derivative where the type is official economic statistics.
 /// </summary>
+[IsoId("_c2me0Fr0EeWN79Bl6BUd3g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Asset Class Commodity Official Economic Statistics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AssetClassCommodityOfficialEconomicStatistics1
-     : IIsoXmlSerilizable<AssetClassCommodityOfficialEconomicStatistics1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AssetClassCommodityOfficialEconomicStatistics1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AssetClassCommodityOfficialEconomicStatistics1( AssetClassProductType14Code reqBaseProduct )
+    {
+        BaseProduct = reqBaseProduct;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [IsoId("_-mgvAFr0EeWN79Bl6BUd3g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType14Code BaseProduct { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AssetClassProductType14Code BaseProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClassProductType14Code BaseProduct { get; init; } 
+    #else
+    public AssetClassProductType14Code BaseProduct { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
-        writer.WriteValue(BaseProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static AssetClassCommodityOfficialEconomicStatistics1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

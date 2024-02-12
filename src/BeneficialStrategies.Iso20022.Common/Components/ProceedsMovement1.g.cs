@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the proceeds movements.
 /// </summary>
+[IsoId("_Ri1Csdp-Ed-ak6NoX_4Aeg_1504216884")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Proceeds Movement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProceedsMovement1
-     : IIsoXmlSerilizable<ProceedsMovement1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information about the movement of the cash proceeds.
     /// </summary>
+    [IsoId("_Ri1Cstp-Ed-ak6NoX_4Aeg_-2002064127")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Proceeds Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashProceeds1? CashProceedsMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashProceeds1? CashProceedsMovementDetails { get; init; } 
+    #else
+    public CashProceeds1? CashProceedsMovementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the movement of the securities proceeds.
     /// </summary>
+    [IsoId("_Ri1Cs9p-Ed-ak6NoX_4Aeg_-2011300771")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Proceeds Movement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesProceeds1? SecuritiesProceedsMovementDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesProceeds1? SecuritiesProceedsMovementDetails { get; init; } 
+    #else
+    public SecuritiesProceeds1? SecuritiesProceedsMovementDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the tax voucher.
     /// </summary>
+    [IsoId("_Ri1CtNp-Ed-ak6NoX_4Aeg_-1986363312")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxVoucher1? TaxDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxVoucher1? TaxDetails { get; init; } 
+    #else
+    public TaxVoucher1? TaxDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CashProceedsMovementDetails is CashProceeds1 CashProceedsMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshPrcdsMvmntDtls", xmlNamespace );
-            CashProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesProceedsMovementDetails is SecuritiesProceeds1 SecuritiesProceedsMovementDetailsValue)
-        {
-            writer.WriteStartElement(null, "SctiesPrcdsMvmntDtls", xmlNamespace );
-            SecuritiesProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxDetails is TaxVoucher1 TaxDetailsValue)
-        {
-            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
-            TaxDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ProceedsMovement1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

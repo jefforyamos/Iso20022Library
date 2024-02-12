@@ -7,17 +7,44 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting calculation results of equity instruments as part of transparency.
 /// </summary>
+[IsoId("_vqBVsSe2Eei12pGEsJIAeQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transparency Data Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransparencyDataReport17
-     : IIsoXmlSerilizable<TransparencyDataReport17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransparencyDataReport17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransparencyDataReport17( System.String reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,119 +52,194 @@ public partial record TransparencyDataReport17
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [IsoId("_v0EplSe2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [IsoId("_v0Eplye2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the classification of the equity instrument.
     /// </summary>
+    [IsoId("_wJWWACe2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Classification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
+    #else
+    public EquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
+    [IsoId("_v0EpmSe2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FullName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FullName { get; init; } 
+    #else
+    public System.String? FullName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
+    [IsoId("_v0Epmye2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Venue")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TradingVenue { get; init; } 
+    #else
+    public System.String? TradingVenue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
+    [IsoId("_v0EpnSe2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ReportingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period4Choice_? ReportingPeriod { get; init; } 
+    #else
+    public Period4Choice_? ReportingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
     /// When not present, this field should be treated as not applicable.
     /// </summary>
+    [IsoId("_v0Epnye2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Liquidity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Liquidity { get; init; } 
+    #else
+    public System.String? Liquidity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Methodology that has been used to calculate the result.
     /// </summary>
+    [IsoId("_v0EpoSe2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Methodology")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransparencyMethodology2Code? Methodology { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransparencyMethodology2Code? Methodology { get; init; } 
+    #else
+    public TransparencyMethodology2Code? Methodology { get; set; } 
+    #endif
+    
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
+    [IsoId("_v0Epoye2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Statistics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsTransparency3? Statistics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatisticsTransparency3? Statistics { get; init; } 
+    #else
+    public StatisticsTransparency3? Statistics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific market details related to the most relevant market in terms of liquidity.
     /// </summary>
+    [IsoId("_v0EppSe2Eei12pGEsJIAeQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Relevant Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketDetail2? RelevantMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarketDetail2? RelevantMarket { get; init; } 
+    #else
+    public MarketDetail2? RelevantMarket { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        if (FinancialInstrumentClassification is EquityInstrumentReportingClassification1Code FinancialInstrumentClassificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmClssfctn", xmlNamespace );
-            writer.WriteValue(FinancialInstrumentClassificationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (FullName is IsoMax350Text FullNameValue)
-        {
-            writer.WriteStartElement(null, "FullNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
-        {
-            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (ReportingPeriod is Period4Choice_ ReportingPeriodValue)
-        {
-            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
-            ReportingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Liquidity is IsoTrueFalseIndicator LiquidityValue)
-        {
-            writer.WriteStartElement(null, "Lqdty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LiquidityValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Methodology is TransparencyMethodology2Code MethodologyValue)
-        {
-            writer.WriteStartElement(null, "Mthdlgy", xmlNamespace );
-            writer.WriteValue(MethodologyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Statistics is StatisticsTransparency3 StatisticsValue)
-        {
-            writer.WriteStartElement(null, "Sttstcs", xmlNamespace );
-            StatisticsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RelevantMarket is MarketDetail2 RelevantMarketValue)
-        {
-            writer.WriteStartElement(null, "RlvntMkt", xmlNamespace );
-            RelevantMarketValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransparencyDataReport17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

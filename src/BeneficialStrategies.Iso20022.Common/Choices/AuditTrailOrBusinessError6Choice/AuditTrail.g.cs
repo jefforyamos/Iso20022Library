@@ -9,78 +9,188 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice;
-
-/// <summary>
-/// Details of the static data audit trail retrieved from the system.
-/// </summary>
-public partial record AuditTrail : AuditTrailOrBusinessError6Choice_
-     , IIsoXmlSerilizable<AuditTrail>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Name of the field whose value has been changed.
+    /// Details of the static data audit trail retrieved from the system.
     /// </summary>
-    public required IsoMax35Text FieldName { get; init; } 
-    /// <summary>
-    /// Value of the field before the change.
-    /// </summary>
-    public required IsoMax350Text OldFieldValue { get; init; } 
-    /// <summary>
-    /// Value of the field after the change.
-    /// </summary>
-    public required IsoMax350Text NewFieldValue { get; init; } 
-    /// <summary>
-    /// Timestamp of the change.
-    /// </summary>
-    public required IsoISODateTime OperationTimeStamp { get; init; } 
-    /// <summary>
-    /// User who instructed the change.
-    /// </summary>
-    public required IsoMax256Text InstructingUser { get; init; } 
-    /// <summary>
-    /// User who approved the change instructed by the instructing user.
-    /// </summary>
-    public IsoMax256Text? ApprovingUser { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_bcWXkWc-EemvNLufWGIVOQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Audit Trail")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AuditTrail : AuditTrailOrBusinessError6Choice_
+    #else
+    public partial class AuditTrail : AuditTrailOrBusinessError6Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "FldNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(FieldName)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OdFldVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(OldFieldValue)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NewFldVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(NewFieldValue)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OprTmStmp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(OperationTimeStamp)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstgUsr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(InstructingUser)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        if (ApprovingUser is IsoMax256Text ApprovingUserValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AuditTrail instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AuditTrail( System.String reqFieldName,System.String reqOldFieldValue,System.String reqNewFieldValue,System.DateTime reqOperationTimeStamp,System.String reqInstructingUser )
         {
-            writer.WriteStartElement(null, "ApprvgUsr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(ApprovingUserValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
+            FieldName = reqFieldName;
+            OldFieldValue = reqOldFieldValue;
+            NewFieldValue = reqNewFieldValue;
+            OperationTimeStamp = reqOperationTimeStamp;
+            InstructingUser = reqInstructingUser;
         }
-    }
-    public static new AuditTrail Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Name of the field whose value has been changed.
+        /// </summary>
+        [IsoId("_kzm1AO5NEeCisYr99QEiWA_1740662573")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Field Name")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text FieldName { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String FieldName { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String FieldName { get; init; } 
+        #else
+        public System.String FieldName { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the field before the change.
+        /// </summary>
+        [IsoId("_kzm1Ae5NEeCisYr99QEiWA_-998075288")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Old Field Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax350Text OldFieldValue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String OldFieldValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String OldFieldValue { get; init; } 
+        #else
+        public System.String OldFieldValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the field after the change.
+        /// </summary>
+        [IsoId("_kzm1Au5NEeCisYr99QEiWA_-1286976113")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("New Field Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax350Text NewFieldValue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String NewFieldValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String NewFieldValue { get; init; } 
+        #else
+        public System.String NewFieldValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Timestamp of the change.
+        /// </summary>
+        [IsoId("_kzm1A-5NEeCisYr99QEiWA_-1287417640")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Operation Time Stamp")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODateTime OperationTimeStamp { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateTime OperationTimeStamp { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateTime OperationTimeStamp { get; init; } 
+        #else
+        public System.DateTime OperationTimeStamp { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// User who instructed the change.
+        /// </summary>
+        [IsoId("_kzm1BO5NEeCisYr99QEiWA_-1840195094")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Instructing User")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax256Text InstructingUser { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String InstructingUser { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String InstructingUser { get; init; } 
+        #else
+        public System.String InstructingUser { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// User who approved the change instructed by the instructing user.
+        /// </summary>
+        [IsoId("_kzm1Be5NEeCisYr99QEiWA_276002183")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Approving User")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax256Text? ApprovingUser { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ApprovingUser { get; init; } 
+        #else
+        public System.String? ApprovingUser { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

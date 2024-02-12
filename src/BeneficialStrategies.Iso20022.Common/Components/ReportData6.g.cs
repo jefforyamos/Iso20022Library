@@ -7,176 +7,310 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the attributes of a report and its content.
 /// </summary>
+[IsoId("_fuq9cMlNEeuJ35KoBRZFOg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportData6
-     : IIsoXmlSerilizable<ReportData6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the report.
     /// </summary>
+    [IsoId("_hWn9QMlOEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Report identification.
     /// </summary>
+    [IsoId("_qKltQMlOEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional specific information to ID (Country, Service, etc.)
     /// </summary>
+    [IsoId("_vtcR0MlOEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Qualifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Qualifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Qualifier { get; init; } 
+    #else
+    public System.String? Qualifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the report.
     /// </summary>
+    [IsoId("_7jbBUMlOEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? Date { get; init; } 
+    #else
+    public System.DateOnly? Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time of the report.
     /// </summary>
+    [IsoId("__aO60MlOEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? Time { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? Time { get; init; } 
+    #else
+    public System.TimeOnly? Time { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the specific instance of the report (e.g., sequence “2” of the report within a specific time frame).
     /// </summary>
+    [IsoId("_ElHrUMlPEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? Sequence { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Sequence { get; init; } 
+    #else
+    public System.String? Sequence { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the expected total number of occurrences of the report within a specific time frame.
     /// </summary>
+    [IsoId("_PRaO4MlPEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Occurrences")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? TotalOccurrences { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TotalOccurrences { get; init; } 
+    #else
+    public System.String? TotalOccurrences { get; set; } 
+    #endif
+    
     /// <summary>
     /// Report frequency.
     /// </summary>
+    [IsoId("__6uG0MlQEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency17Code? Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency17Code? Frequency { get; init; } 
+    #else
+    public Frequency17Code? Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies that is a corrected version of a report that was previously sent.
     /// </summary>
+    [IsoId("_H1V0AclREeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Correction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorrectionIdentification1? Correction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorrectionIdentification1? Correction { get; init; } 
+    #else
+    public CorrectionIdentification1? Correction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that report is not complete.
     /// </summary>
+    [IsoId("_hC0JEclREeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Continuation Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ContinuationIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ContinuationIndicator { get; init; } 
+    #else
+    public System.String? ContinuationIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional report attributes or information.
     /// </summary>
+    [IsoId("_ugTB4MlREeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Report format.
     /// </summary>
+    [IsoId("_L19M8MlVEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat5Code? Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OutputFormat5Code? Format { get; init; } 
+    #else
+    public OutputFormat5Code? Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other report format defined by national organization or by bi-lateral agreement.
     /// </summary>
+    [IsoId("_UY1M8MlVEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherFormat { get; init; } 
+    #else
+    public System.String? OtherFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the content of a report.
     /// </summary>
+    [IsoId("_syuwAMlVEeuJ35KoBRZFOg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportContent1? Content { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportContent1? Content { get; init; } 
+    #else
+    public ReportContent1? Content { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is IsoMax140Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (Identification is IsoMax140Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(IdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (Qualifier is IsoMax70Text QualifierValue)
-        {
-            writer.WriteStartElement(null, "Qlfr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(QualifierValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (Date is IsoISODate DateValue)
-        {
-            writer.WriteStartElement(null, "Dt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (Time is IsoISOTime TimeValue)
-        {
-            writer.WriteStartElement(null, "Tm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-        if (Sequence is IsoMax5NumericText SequenceValue)
-        {
-            writer.WriteStartElement(null, "Seq", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(SequenceValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (TotalOccurrences is IsoMax5NumericText TotalOccurrencesValue)
-        {
-            writer.WriteStartElement(null, "TtlOcrncs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(TotalOccurrencesValue)); // data type Max5NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (Frequency is Frequency17Code FrequencyValue)
-        {
-            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-            writer.WriteValue(FrequencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Correction is CorrectionIdentification1 CorrectionValue)
-        {
-            writer.WriteStartElement(null, "Crrctn", xmlNamespace );
-            CorrectionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContinuationIndicator is IsoTrueFalseIndicator ContinuationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ConttnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ContinuationIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Format is OutputFormat5Code FormatValue)
-        {
-            writer.WriteStartElement(null, "Frmt", xmlNamespace );
-            writer.WriteValue(FormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherFormat is IsoMax35Text OtherFormatValue)
-        {
-            writer.WriteStartElement(null, "OthrFrmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFormatValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Content is ReportContent1 ContentValue)
-        {
-            writer.WriteStartElement(null, "Cntt", xmlNamespace );
-            ContentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReportData6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

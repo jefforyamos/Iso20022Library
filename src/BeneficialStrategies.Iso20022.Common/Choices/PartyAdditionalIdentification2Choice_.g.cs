@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Ancillary identification information about the party.
-/// </summary>
-[KnownType(typeof(PartyAdditionalIdentification2Choice.BirthDate))]
-[KnownType(typeof(PartyAdditionalIdentification2Choice.RegistrationIdentification))]
-public abstract partial record PartyAdditionalIdentification2Choice_ : IIsoXmlSerilizable<PartyAdditionalIdentification2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Ancillary identification information about the party.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PartyAdditionalIdentification2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PartyAdditionalIdentification2Choice.BirthDate))]
+    [KnownType(typeof(PartyAdditionalIdentification2Choice.RegistrationIdentification))]
+    [IsoId("_Qo3U0dp-Ed-ak6NoX_4Aeg_1365227120")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Additional Identification 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PartyAdditionalIdentification2Choice_
+    #else
+    public abstract partial class PartyAdditionalIdentification2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BirthDt" => PartyAdditionalIdentification2Choice.BirthDate.Deserialize(elementWithPayload),
-             "RegnId" => PartyAdditionalIdentification2Choice.RegistrationIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PartyAdditionalIdentification2Choice choice.")
-        };
     }
 }

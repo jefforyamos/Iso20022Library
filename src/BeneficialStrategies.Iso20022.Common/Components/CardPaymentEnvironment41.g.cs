@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction given in a response to a request in a batch.
 /// </summary>
+[IsoId("_8oNkwWmNEeS7iYydEtv3Ug")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentEnvironment41
-     : IIsoXmlSerilizable<CardPaymentEnvironment41>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [IsoId("_81krUWmNEeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification53? AcquirerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification53? AcquirerIdentification { get; init; } 
+    #else
+    public GenericIdentification53? AcquirerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
+    [IsoId("_81krU2mNEeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? MerchantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification32? MerchantIdentification { get; init; } 
+    #else
+    public GenericIdentification32? MerchantIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
+    [IsoId("_81krVWmNEeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? POIIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification32? POIIdentification { get; init; } 
+    #else
+    public GenericIdentification32? POIIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [IsoId("_LudyMGmOEeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCard10? Card { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentCard10? Card { get; init; } 
+    #else
+    public PaymentCard10? Card { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [IsoId("_afv1MGmOEeS7iYydEtv3Ug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Token")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentToken2? PaymentToken { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardPaymentToken2? PaymentToken { get; init; } 
+    #else
+    public CardPaymentToken2? PaymentToken { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AcquirerIdentification is GenericIdentification53 AcquirerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcqrrId", xmlNamespace );
-            AcquirerIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MerchantIdentification is GenericIdentification32 MerchantIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
-            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POIIdentification is GenericIdentification32 POIIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIId", xmlNamespace );
-            POIIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Card is PaymentCard10 CardValue)
-        {
-            writer.WriteStartElement(null, "Card", xmlNamespace );
-            CardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentToken is CardPaymentToken2 PaymentTokenValue)
-        {
-            writer.WriteStartElement(null, "PmtTkn", xmlNamespace );
-            PaymentTokenValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentEnvironment41 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

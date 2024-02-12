@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the reason for the status of a debtor activation.
-/// </summary>
-[KnownType(typeof(DebtorActivationStatusReason1Choice.Code))]
-[KnownType(typeof(DebtorActivationStatusReason1Choice.Proprietary))]
-public abstract partial record DebtorActivationStatusReason1Choice_ : IIsoXmlSerilizable<DebtorActivationStatusReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the reason for the status of a debtor activation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DebtorActivationStatusReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DebtorActivationStatusReason1Choice.Code))]
+    [KnownType(typeof(DebtorActivationStatusReason1Choice.Proprietary))]
+    [IsoId("_yBQtU-IJEeqbls7Gk4-ckA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Activation Status Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DebtorActivationStatusReason1Choice_
+    #else
+    public abstract partial class DebtorActivationStatusReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => DebtorActivationStatusReason1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => DebtorActivationStatusReason1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DebtorActivationStatusReason1Choice choice.")
-        };
     }
 }

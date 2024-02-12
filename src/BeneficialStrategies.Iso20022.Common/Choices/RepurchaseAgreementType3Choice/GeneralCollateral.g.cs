@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice;
-
-/// <summary>
-/// Indicates that the repurchase agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
-/// </summary>
-public partial record GeneralCollateral : RepurchaseAgreementType3Choice_
-     , IIsoXmlSerilizable<GeneralCollateral>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// ISINs of allocated securities of general collateral where known.
+    /// Indicates that the repurchase agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
     /// </summary>
-    public FinancialInstrument59? FinancialInstrumentIdentification { get; init; } 
-    /// <summary>
-    /// List of eligible securities to be allocated where known.
-    /// </summary>
-    public IsoISINOct2015Identifier? EligibleFinancialInstrumentIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_BqvK8-oaEeadseq5W5YLvQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Collateral")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record GeneralCollateral : RepurchaseAgreementType3Choice_
+    #else
+    public partial class GeneralCollateral : RepurchaseAgreementType3Choice_
+    #endif
     {
-        if (FinancialInstrumentIdentification is FinancialInstrument59 FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EligibleFinancialInstrumentIdentification is IsoISINOct2015Identifier EligibleFinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ElgblFinInstrmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(EligibleFinancialInstrumentIdentificationValue)); // data type ISINOct2015Identifier System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new GeneralCollateral Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// ISINs of allocated securities of general collateral where known.
+        /// </summary>
+        [IsoId("_plT7AfnbEeaHA8tUPpXMKA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrument59? FinancialInstrumentIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrument59? FinancialInstrumentIdentification { get; init; } 
+        #else
+        public FinancialInstrument59? FinancialInstrumentIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// List of eligible securities to be allocated where known.
+        /// </summary>
+        [IsoId("_M-XbUeoaEeadseq5W5YLvQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Eligible Financial Instrument Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISINOct2015Identifier? EligibleFinancialInstrumentIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? EligibleFinancialInstrumentIdentification { get; init; } 
+        #else
+        public System.String? EligibleFinancialInstrumentIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

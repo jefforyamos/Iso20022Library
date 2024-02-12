@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Identifies various types of floating rates.
-/// </summary>
-[KnownType(typeof(FloatingRateIdentification8Choice.Code))]
-[KnownType(typeof(FloatingRateIdentification8Choice.Proprietary))]
-public abstract partial record FloatingRateIdentification8Choice_ : IIsoXmlSerilizable<FloatingRateIdentification8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Identifies various types of floating rates.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FloatingRateIdentification8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FloatingRateIdentification8Choice.Code))]
+    [KnownType(typeof(FloatingRateIdentification8Choice.Proprietary))]
+    [IsoId("_IrIB4TNoEe2UWZuK9pqFtg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Floating Rate Identification 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FloatingRateIdentification8Choice_
+    #else
+    public abstract partial class FloatingRateIdentification8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => FloatingRateIdentification8Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => FloatingRateIdentification8Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FloatingRateIdentification8Choice choice.")
-        };
     }
 }

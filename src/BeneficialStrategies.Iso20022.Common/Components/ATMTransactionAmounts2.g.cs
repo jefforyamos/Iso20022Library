@@ -7,106 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
+[IsoId("_OR7VUIp7EeS3NqNpgnMh2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Transaction Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMTransactionAmounts2
-     : IIsoXmlSerilizable<ATMTransactionAmounts2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency of the limits, if different from the requested amount.
     /// </summary>
+    [IsoId("_dck6kIp7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum amount allowed in the authorised currency if the withdrawal was not approved.
     /// </summary>
+    [IsoId("_h2EDUIp7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Authorisable Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumAuthorisableAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumAuthorisableAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum amount allowed for a withdrawal in the authorised currency.
     /// </summary>
+    [IsoId("_lZwMgIp7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Allowed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MinimumAllowedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumAllowedAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumAllowedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum amount allowed for a withdrawal in the authorised currency.
     /// </summary>
+    [IsoId("_oWjU0Ip7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Allowed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumAllowedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumAllowedAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumAllowedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Remaining daily amount of the customer totals after the withdrawal.
     /// </summary>
+    [IsoId("_q-fncIp7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Daily Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? DailyBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount4? DailyBalance { get; init; } 
+    #else
+    public DetailedAmount4? DailyBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Remaining weekly amount of the customer totals after the withdrawal.
     /// </summary>
+    [IsoId("_tYRiQIp7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Weekly Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? WeeklyBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount4? WeeklyBalance { get; init; } 
+    #else
+    public DetailedAmount4? WeeklyBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Remaining monthly amount of the customer totals after the withdrawal.
     /// </summary>
+    [IsoId("_vXmVsIp7EeS3NqNpgnMh2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Monthly Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? MonthlyBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DetailedAmount4? MonthlyBalance { get; init; } 
+    #else
+    public DetailedAmount4? MonthlyBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MaximumAuthorisableAmount is IsoImpliedCurrencyAndAmount MaximumAuthorisableAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxAuthsbAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAuthorisableAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumAllowedAmount is IsoImpliedCurrencyAndAmount MinimumAllowedAmountValue)
-        {
-            writer.WriteStartElement(null, "MinAllwdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumAllowedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MaximumAllowedAmount is IsoImpliedCurrencyAndAmount MaximumAllowedAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxAllwdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAllowedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DailyBalance is DetailedAmount4 DailyBalanceValue)
-        {
-            writer.WriteStartElement(null, "DalyBal", xmlNamespace );
-            DailyBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WeeklyBalance is DetailedAmount4 WeeklyBalanceValue)
-        {
-            writer.WriteStartElement(null, "WklyBal", xmlNamespace );
-            WeeklyBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MonthlyBalance is DetailedAmount4 MonthlyBalanceValue)
-        {
-            writer.WriteStartElement(null, "MnthlyBal", xmlNamespace );
-            MonthlyBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMTransactionAmounts2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

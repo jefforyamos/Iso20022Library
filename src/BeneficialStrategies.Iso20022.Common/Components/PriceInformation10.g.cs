@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[IsoId("_m-lZofNBEeCuA5Tr22BnwA_448139482")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Price Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PriceInformation10
-     : IIsoXmlSerilizable<PriceInformation10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PriceInformation10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PriceInformation10( System.Decimal reqCurrentPrice,TypeOfPrice27Choice_ reqType )
+    {
+        CurrentPrice = reqCurrentPrice;
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Current value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_m-lZovNBEeCuA5Tr22BnwA_947656184")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Current Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal CurrentPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal CurrentPrice { get; init; } 
+    #else
+    public System.Decimal CurrentPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
+    [IsoId("_m-lZo_NBEeCuA5Tr22BnwA_334300416")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice27Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TypeOfPrice27Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TypeOfPrice27Choice_ Type { get; init; } 
+    #else
+    public TypeOfPrice27Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Previous value of the price, eg, as a currency and value.
     /// </summary>
+    [IsoId("_m-lZpPNBEeCuA5Tr22BnwA_-389486155")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreviousPrice { get; init; } 
+    #else
+    public System.Decimal? PreviousPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference or change between the previous price value and the current price value.
     /// </summary>
+    [IsoId("_m-lZpfNBEeCuA5Tr22BnwA_-662771937")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Of Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueAndRate4? AmountOfChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValueAndRate4? AmountOfChange { get; init; } 
+    #else
+    public PriceValueAndRate4? AmountOfChange { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CurPric", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(CurrentPrice)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PreviousPrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount PreviousPriceValue)
-        {
-            writer.WriteStartElement(null, "PrvsPric", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(PreviousPriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AmountOfChange is PriceValueAndRate4 AmountOfChangeValue)
-        {
-            writer.WriteStartElement(null, "AmtOfChng", xmlNamespace );
-            AmountOfChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PriceInformation10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

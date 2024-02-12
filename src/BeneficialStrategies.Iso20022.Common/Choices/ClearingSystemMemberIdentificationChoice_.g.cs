@@ -7,66 +7,50 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of identifiers for a clearing system member, as assigned by the clearing system. In some clearing systems, the accounts of the clearing system members are also assigned an identifier.
-/// </summary>
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.CHIPSUniversalIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.NewZealandNCCIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.IrishNSCIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.UKDomesticSortCode))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.CHIPSParticipantIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.SwissBCIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.FedwireRoutingNumberIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.PortugueseNCCIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.RussianCentralBankIdentificationCode))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.ItalianDomesticIdentificationCode))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustrianBankleitzahlIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.CanadianPaymentsAssociationRoutingNumberIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.SwissSICIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.GermanBankleitzahlIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.SpanishDomesticInterbankingIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.SouthAfricanNCCIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.HongKongBankCode))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification))]
-[KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification))]
-public abstract partial record ClearingSystemMemberIdentificationChoice_ : IIsoXmlSerilizable<ClearingSystemMemberIdentificationChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of identifiers for a clearing system member, as assigned by the clearing system. In some clearing systems, the accounts of the clearing system members are also assigned an identifier.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ClearingSystemMemberIdentificationChoice_ Deserialize(XElement element)
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.CHIPSUniversalIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.NewZealandNCCIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.IrishNSCIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.UKDomesticSortCode))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.CHIPSParticipantIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.SwissBCIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.FedwireRoutingNumberIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.PortugueseNCCIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.RussianCentralBankIdentificationCode))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.ItalianDomesticIdentificationCode))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustrianBankleitzahlIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.CanadianPaymentsAssociationRoutingNumberIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.SwissSICIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.GermanBankleitzahlIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.SpanishDomesticInterbankingIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.SouthAfricanNCCIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.HongKongBankCode))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification))]
+    [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification))]
+    [IsoId("_TDPFhtp-Ed-ak6NoX_4Aeg_-896562614")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing System Member Identification Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ClearingSystemMemberIdentificationChoice_
+    #else
+    public abstract partial class ClearingSystemMemberIdentificationChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "USCHU" => ClearingSystemMemberIdentificationChoice.CHIPSUniversalIdentification.Deserialize(elementWithPayload),
-             "NZNCC" => ClearingSystemMemberIdentificationChoice.NewZealandNCCIdentification.Deserialize(elementWithPayload),
-             "IENSC" => ClearingSystemMemberIdentificationChoice.IrishNSCIdentification.Deserialize(elementWithPayload),
-             "GBSC" => ClearingSystemMemberIdentificationChoice.UKDomesticSortCode.Deserialize(elementWithPayload),
-             "USCH" => ClearingSystemMemberIdentificationChoice.CHIPSParticipantIdentification.Deserialize(elementWithPayload),
-             "CHBC" => ClearingSystemMemberIdentificationChoice.SwissBCIdentification.Deserialize(elementWithPayload),
-             "USFW" => ClearingSystemMemberIdentificationChoice.FedwireRoutingNumberIdentification.Deserialize(elementWithPayload),
-             "PTNCC" => ClearingSystemMemberIdentificationChoice.PortugueseNCCIdentification.Deserialize(elementWithPayload),
-             "RUCB" => ClearingSystemMemberIdentificationChoice.RussianCentralBankIdentificationCode.Deserialize(elementWithPayload),
-             "ITNCC" => ClearingSystemMemberIdentificationChoice.ItalianDomesticIdentificationCode.Deserialize(elementWithPayload),
-             "ATBLZ" => ClearingSystemMemberIdentificationChoice.AustrianBankleitzahlIdentification.Deserialize(elementWithPayload),
-             "CACPA" => ClearingSystemMemberIdentificationChoice.CanadianPaymentsAssociationRoutingNumberIdentification.Deserialize(elementWithPayload),
-             "CHSIC" => ClearingSystemMemberIdentificationChoice.SwissSICIdentification.Deserialize(elementWithPayload),
-             "DEBLZ" => ClearingSystemMemberIdentificationChoice.GermanBankleitzahlIdentification.Deserialize(elementWithPayload),
-             "ESNCC" => ClearingSystemMemberIdentificationChoice.SpanishDomesticInterbankingIdentification.Deserialize(elementWithPayload),
-             "ZANCC" => ClearingSystemMemberIdentificationChoice.SouthAfricanNCCIdentification.Deserialize(elementWithPayload),
-             "HKNCC" => ClearingSystemMemberIdentificationChoice.HongKongBankCode.Deserialize(elementWithPayload),
-             "AUBSBx" => ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification.Deserialize(elementWithPayload),
-             "AUBSBs" => ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ClearingSystemMemberIdentificationChoice choice.")
-        };
     }
 }

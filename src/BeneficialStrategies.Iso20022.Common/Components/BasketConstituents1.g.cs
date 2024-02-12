@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
 /// </summary>
+[IsoId("_-aZI0QFPEeqUa4noT3P56A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Basket Constituents")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BasketConstituents1
-     : IIsoXmlSerilizable<BasketConstituents1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BasketConstituents1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BasketConstituents1( InstrumentIdentification1Choice_ reqInstrumentIdentification )
+    {
+        InstrumentIdentification = reqInstrumentIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
+    [IsoId("_-kmNtQFPEeqUa4noT3P56A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstrumentIdentification1Choice_ InstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InstrumentIdentification1Choice_ InstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstrumentIdentification1Choice_ InstrumentIdentification { get; init; } 
+    #else
+    public InstrumentIdentification1Choice_ InstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the number of units of a particular constituent in a custom basket.
     /// </summary>
+    [IsoId("_675osgFPEeqUa4noT3P56A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Quantity { get; init; } 
+    #else
+    public System.UInt64? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the unit of measure in which the number of units of a particular custom basket constituent is expressed.
     /// </summary>
+    [IsoId("_675oswFPEeqUa4noT3P56A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Of Measure")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure12Code? UnitOfMeasure { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnitOfMeasure12Code? UnitOfMeasure { get; init; } 
+    #else
+    public UnitOfMeasure12Code? UnitOfMeasure { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "InstrmId", xmlNamespace );
-        InstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Quantity is IsoLongFraction19DecimalNumber QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(QuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (UnitOfMeasure is UnitOfMeasure12Code UnitOfMeasureValue)
-        {
-            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
-            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static BasketConstituents1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

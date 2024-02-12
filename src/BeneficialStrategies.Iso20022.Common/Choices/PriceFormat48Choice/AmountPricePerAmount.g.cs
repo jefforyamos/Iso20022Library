@@ -9,54 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PriceFormat48Choice;
-
-/// <summary>
-/// Price expressed as a ratio: amount price per amount.
-/// </summary>
-public partial record AmountPricePerAmount : PriceFormat48Choice_
-     , IIsoXmlSerilizable<AmountPricePerAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PriceFormat48Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of amount price.
+    /// Price expressed as a ratio: amount price per amount.
     /// </summary>
-    public required AmountPriceType1Code AmountPriceType { get; init; } 
-    /// <summary>
-    /// Value of the price.
-    /// </summary>
-    public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
-    /// <summary>
-    /// The amount on which the price is based.
-    /// </summary>
-    public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_p6qcLUELEeWVgfuHGaKtRQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Price Per Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AmountPricePerAmount : PriceFormat48Choice_
+    #else
+    public partial class AmountPricePerAmount : PriceFormat48Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "AmtPricTp", xmlNamespace );
-        writer.WriteValue(AmountPriceType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PricVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(PriceValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static new AmountPricePerAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AmountPricePerAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AmountPricePerAmount( AmountPriceType1Code reqAmountPriceType,System.Decimal reqPriceValue,System.Decimal reqAmount )
+        {
+            AmountPriceType = reqAmountPriceType;
+            PriceValue = reqPriceValue;
+            Amount = reqAmount;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of amount price.
+        /// </summary>
+        [IsoId("_QaHHJtp-Ed-ak6NoX_4Aeg_-219272751")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount Price Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AmountPriceType1Code AmountPriceType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AmountPriceType1Code AmountPriceType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountPriceType1Code AmountPriceType { get; init; } 
+        #else
+        public AmountPriceType1Code AmountPriceType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the price.
+        /// </summary>
+        [IsoId("_QaHHJ9p-Ed-ak6NoX_4Aeg_-219272726")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Price Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal PriceValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal PriceValue { get; init; } 
+        #else
+        public System.Decimal PriceValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// The amount on which the price is based.
+        /// </summary>
+        [IsoId("_QaHHKNp-Ed-ak6NoX_4Aeg_-219272709")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Amount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Amount { get; init; } 
+        #else
+        public System.Decimal Amount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,89 +7,152 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details on the margin report per margin account, and optionally per non-clearing member.
 /// </summary>
+[IsoId("_-eDlF6MOEeCojJW5vEuTEQ_-651188683")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Margin Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MarginReport2
-     : IIsoXmlSerilizable<MarginReport2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MarginReport2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MarginReport2( SecuritiesAccount18 reqMarginAccount )
+    {
+        MarginAccount = reqMarginAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies if the margin is related to equities or fixed income.
     /// </summary>
+    [IsoId("_-eDlGKMOEeCojJW5vEuTEQ_1535794841")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginProductType1Choice_? MarginProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarginProductType1Choice_? MarginProduct { get; init; } 
+    #else
+    public MarginProductType1Choice_? MarginProduct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the clearing member's account.
     /// </summary>
+    [IsoId("_-eDlGaMOEeCojJW5vEuTEQ_-765027749")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount18 MarginAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesAccount18 MarginAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount18 MarginAccount { get; init; } 
+    #else
+    public SecuritiesAccount18 MarginAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Used to indicate whether the reported margin account is collateralised or not. If not collateralised, the account is configured for informational reporting.
     /// </summary>
+    [IsoId("_-eMvAKMOEeCojJW5vEuTEQ_1274385428")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralised Margin Account Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CollateralisedMarginAccountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralisedMarginAccountIndicator { get; init; } 
+    #else
+    public System.String? CollateralisedMarginAccountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details about the non clearing member identification and account.
     /// </summary>
+    [IsoId("_-eMvAaMOEeCojJW5vEuTEQ_-1762100102")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Clearing Member")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
+    #else
+    public PartyIdentificationAndAccount31? NonClearingMember { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the margin calculation summary per margin account.
     /// </summary>
+    [IsoId("_-eMvAqMOEeCojJW5vEuTEQ_-403792512")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Calculation Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCalculation1? MarginCalculationSummary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MarginCalculation1? MarginCalculationSummary { get; init; } 
+    #else
+    public MarginCalculation1? MarginCalculationSummary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the margin details such as the exposure amount and the initial margin.
     /// </summary>
+    [IsoId("_-eMvA6MOEeCojJW5vEuTEQ_538722488")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Calculation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public MarginCalculation2? MarginCalculation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-eMvA6MOEeCojJW5vEuTEQ_538722488
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MarginProduct is MarginProductType1Choice_ MarginProductValue)
-        {
-            writer.WriteStartElement(null, "MrgnPdct", xmlNamespace );
-            MarginProductValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "MrgnAcct", xmlNamespace );
-        MarginAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CollateralisedMarginAccountIndicator is IsoYesNoIndicator CollateralisedMarginAccountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CollsdMrgnAcctInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralisedMarginAccountIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
-        {
-            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
-            NonClearingMemberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarginCalculationSummary is MarginCalculation1 MarginCalculationSummaryValue)
-        {
-            writer.WriteStartElement(null, "MrgnClctnSummry", xmlNamespace );
-            MarginCalculationSummaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize MarginCalculation, multiplicity Unknown
-    }
-    public static MarginReport2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

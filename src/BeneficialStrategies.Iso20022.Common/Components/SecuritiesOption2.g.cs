@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the security option of a corporate event.
 /// </summary>
+[IsoId("_UGTFC9p-Ed-ak6NoX_4Aeg_1927466067")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesOption2
-     : IIsoXmlSerilizable<SecuritiesOption2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesOption2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesOption2( InstructedOrQuantityToReceive1Choice_ reqInstructedOrQuantityToReceive )
+    {
+        InstructedOrQuantityToReceive = reqInstructedOrQuantityToReceive;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
+    [IsoId("_UGcO8Np-Ed-ak6NoX_4Aeg_1927466137")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conditional Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity instructed to be received over and above normal ensured entitlement.
     /// </summary>
+    [IsoId("_UGcO8dp-Ed-ak6NoX_4Aeg_1927466379")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Over And Above Normal Ensured Entitlement Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? OverAndAboveNormalEnsuredEntitlementQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? OverAndAboveNormalEnsuredEntitlementQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? OverAndAboveNormalEnsuredEntitlementQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a quantity of securities instructed or a quantity to receive.
     /// </summary>
+    [IsoId("_UGcO8tp-Ed-ak6NoX_4Aeg_-1537787480")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Or Quantity To Receive")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
+    #else
+    public InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ConditionalQuantity is FinancialInstrumentQuantity1Choice_ ConditionalQuantityValue)
-        {
-            writer.WriteStartElement(null, "CondlQty", xmlNamespace );
-            ConditionalQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OverAndAboveNormalEnsuredEntitlementQuantity is FinancialInstrumentQuantity1Choice_ OverAndAboveNormalEnsuredEntitlementQuantityValue)
-        {
-            writer.WriteStartElement(null, "OverAndAbovNrmlNsrdEntitlmntQty", xmlNamespace );
-            OverAndAboveNormalEnsuredEntitlementQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstdOrQtyToRcv", xmlNamespace );
-        InstructedOrQuantityToReceive.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static SecuritiesOption2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

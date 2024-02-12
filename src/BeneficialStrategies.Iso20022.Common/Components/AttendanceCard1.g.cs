@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies details related to the attendance card.
 /// </summary>
+[IsoId("_Ti1LlNp-Ed-ak6NoX_4Aeg_619121876")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Attendance Card")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AttendanceCard1
-     : IIsoXmlSerilizable<AttendanceCard1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AttendanceCard1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AttendanceCard1( DeliveryPlace1Code reqDeliveryMethod )
+    {
+        DeliveryMethod = reqDeliveryMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information to be indicated on the attendance card.
     /// </summary>
+    [IsoId("_Ti1Lldp-Ed-ak6NoX_4Aeg_1078113395")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attendance Card Labelling")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AttendanceCardLabelling { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AttendanceCardLabelling { get; init; } 
+    #else
+    public System.String? AttendanceCardLabelling { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies where the attendance card must be delivered.
     /// </summary>
+    [IsoId("_Ti1Lltp-Ed-ak6NoX_4Aeg_-1809007332")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivery Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveryPlace1Code DeliveryMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DeliveryPlace1Code DeliveryMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveryPlace1Code DeliveryMethod { get; init; } 
+    #else
+    public DeliveryPlace1Code DeliveryMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name and address of a party.
     /// </summary>
+    [IsoId("_Ti1Ll9p-Ed-ak6NoX_4Aeg_438967027")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress9? OtherAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NameAndAddress9? OtherAddress { get; init; } 
+    #else
+    public NameAndAddress9? OtherAddress { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AttendanceCardLabelling is IsoMax105Text AttendanceCardLabellingValue)
-        {
-            writer.WriteStartElement(null, "AttndncCardLbllg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AttendanceCardLabellingValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DlvryMtd", xmlNamespace );
-        writer.WriteValue(DeliveryMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherAddress is NameAndAddress9 OtherAddressValue)
-        {
-            writer.WriteStartElement(null, "OthrAdr", xmlNamespace );
-            OtherAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AttendanceCard1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

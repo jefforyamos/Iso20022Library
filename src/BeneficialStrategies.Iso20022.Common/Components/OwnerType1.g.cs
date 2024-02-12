@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the owner type and mandate type.
 /// </summary>
+[IsoId("_rv8cQC_-EeOKib24wnHaFg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Owner Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OwnerType1
-     : IIsoXmlSerilizable<OwnerType1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OwnerType1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OwnerType1( AccountOwnerType1Code reqType )
+    {
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of ownership.
     /// </summary>
+    [IsoId("_xXmBQC_-EeOKib24wnHaFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountOwnerType1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AccountOwnerType1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountOwnerType1Code Type { get; init; } 
+    #else
+    public AccountOwnerType1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of mandate.
     /// </summary>
+    [IsoId("_Fkj7YJiuEeO4o528ngEXuw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Mandate Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountPermissionType1Code? MandateType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountPermissionType1Code? MandateType { get; init; } 
+    #else
+    public AccountPermissionType1Code? MandateType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about owner type or mandate type in proprietary format.
     /// </summary>
+    [IsoId("_1p5j8C_-EeOKib24wnHaFg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? Proprietary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? Proprietary { get; init; } 
+    #else
+    public GenericIdentification1? Proprietary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (MandateType is AccountPermissionType1Code MandateTypeValue)
-        {
-            writer.WriteStartElement(null, "MndtTp", xmlNamespace );
-            writer.WriteValue(MandateTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Proprietary is GenericIdentification1 ProprietaryValue)
-        {
-            writer.WriteStartElement(null, "Prtry", xmlNamespace );
-            ProprietaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OwnerType1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

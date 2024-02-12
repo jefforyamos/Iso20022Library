@@ -7,167 +7,310 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation details of each piece of collateral posted.
 /// </summary>
+[IsoId("_eJF90SqUEeyR9JrVGfaMKw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Valuation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralValuation13
-     : IIsoXmlSerilizable<CollateralValuation13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralValuation13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralValuation13( CollateralType8Code reqCollateralType,SettlementStatus3Code reqSettlementStatus,CollateralAmount1 reqValuationAmounts )
+    {
+        CollateralType = reqCollateralType;
+        SettlementStatus = reqSettlementStatus;
+        ValuationAmounts = reqValuationAmounts;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the valued collateral.
     /// </summary>
+    [IsoId("_eg72ESqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CollateralIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralIdentification { get; init; } 
+    #else
+    public System.String? CollateralIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of collateral used.
     /// </summary>
+    [IsoId("_eg72EyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralType8Code CollateralType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralType8Code CollateralType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralType8Code CollateralType { get; init; } 
+    #else
+    public CollateralType8Code CollateralType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Direction of the collateral being reported.
     /// </summary>
+    [IsoId("_eg72FSqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Direction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralDirection1Code? CollateralDirection { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralDirection1Code? CollateralDirection { get; init; } 
+    #else
+    public CollateralDirection1Code? CollateralDirection { get; set; } 
+    #endif
+    
     /// <summary>
     /// Settlement status of the instruction/financial instrument movement.
     /// </summary>
+    [IsoId("_eg72FyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementStatus3Code SettlementStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementStatus3Code SettlementStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementStatus3Code SettlementStatus { get; init; } 
+    #else
+    public SettlementStatus3Code SettlementStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if the collateral being reported is applied or in excess.
     /// </summary>
+    [IsoId("_eg72GSqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applied Excess Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAppliedExcess1Code? AppliedExcessIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAppliedExcess1Code? AppliedExcessIndicator { get; init; } 
+    #else
+    public CollateralAppliedExcess1Code? AppliedExcessIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days used for interest calculation.
     /// </summary>
+    [IsoId("_eg72GyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Days Accrued")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfDaysAccrued { get; init; } 
+    #else
+    public System.UInt64? NumberOfDaysAccrued { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the collateral valuation.
     /// </summary>
+    [IsoId("_eg72HSqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAmount1 ValuationAmounts { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralAmount1 ValuationAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAmount1 ValuationAmounts { get; init; } 
+    #else
+    public CollateralAmount1 ValuationAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Computation method of (accrued) interest of the security.
     /// </summary>
+    [IsoId("_eg72HyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Day Count Basis")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethod2Code? DayCountBasis { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestComputationMethod2Code? DayCountBasis { get; init; } 
+    #else
+    public InterestComputationMethod2Code? DayCountBasis { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exchange rate between the currency of the collateral and the reporting currency.
     /// </summary>
+    [IsoId("_eg72ISqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ExchangeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExchangeRate { get; init; } 
+    #else
+    public System.Decimal? ExchangeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Haircut or valuation factor on the currency of the collateral expressed as a percentage.
     /// </summary>
+    [IsoId("_eg72IyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? CurrencyHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CurrencyHaircut { get; init; } 
+    #else
+    public System.Decimal? CurrencyHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage by which the collateral amount needs to be adjusted.
     /// </summary>
+    [IsoId("_eg72JSqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjusted Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? AdjustedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AdjustedRate { get; init; } 
+    #else
+    public System.Decimal? AdjustedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details on the securities collateral.
     /// </summary>
+    [IsoId("_eg72JyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCollateral13? SecuritiesCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesCollateral13? SecuritiesCollateral { get; init; } 
+    #else
+    public SecuritiesCollateral13? SecuritiesCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the cash collateral valuation.
     /// </summary>
+    [IsoId("_eg72KSqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCollateral4? CashCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashCollateral4? CashCollateral { get; init; } 
+    #else
+    public CashCollateral4? CashCollateral { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of other collateral.
     /// </summary>
+    [IsoId("_eg72KyqUEeyR9JrVGfaMKw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Collateral")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherCollateral10? OtherCollateral { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherCollateral10? OtherCollateral { get; init; } 
+    #else
+    public OtherCollateral10? OtherCollateral { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CollateralIdentification is IsoMax35Text CollateralIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CollId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CollTp", xmlNamespace );
-        writer.WriteValue(CollateralType.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (CollateralDirection is CollateralDirection1Code CollateralDirectionValue)
-        {
-            writer.WriteStartElement(null, "CollDrctn", xmlNamespace );
-            writer.WriteValue(CollateralDirectionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
-        writer.WriteValue(SettlementStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AppliedExcessIndicator is CollateralAppliedExcess1Code AppliedExcessIndicatorValue)
-        {
-            writer.WriteStartElement(null, "ApldXcssInd", xmlNamespace );
-            writer.WriteValue(AppliedExcessIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
-        {
-            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ValtnAmts", xmlNamespace );
-        ValuationAmounts.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DayCountBasis is InterestComputationMethod2Code DayCountBasisValue)
-        {
-            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
-            writer.WriteValue(DayCountBasisValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExchangeRate is IsoBaseOneRate ExchangeRateValue)
-        {
-            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRateValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CurrencyHaircut is IsoBaseOneRate CurrencyHaircutValue)
-        {
-            writer.WriteStartElement(null, "CcyHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(CurrencyHaircutValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdjustedRate is IsoBaseOneRate AdjustedRateValue)
-        {
-            writer.WriteStartElement(null, "AdjstdRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(AdjustedRateValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SecuritiesCollateral is SecuritiesCollateral13 SecuritiesCollateralValue)
-        {
-            writer.WriteStartElement(null, "SctiesColl", xmlNamespace );
-            SecuritiesCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashCollateral is CashCollateral4 CashCollateralValue)
-        {
-            writer.WriteStartElement(null, "CshColl", xmlNamespace );
-            CashCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCollateral is OtherCollateral10 OtherCollateralValue)
-        {
-            writer.WriteStartElement(null, "OthrColl", xmlNamespace );
-            OtherCollateralValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralValuation13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reason for which a cancellation is rejected.
-/// </summary>
-[KnownType(typeof(RejectedCancellationStatusReason1Choice.Reason))]
-[KnownType(typeof(RejectedCancellationStatusReason1Choice.ExtendedReason))]
-[KnownType(typeof(RejectedCancellationStatusReason1Choice.DataSourceScheme))]
-public abstract partial record RejectedCancellationStatusReason1Choice_ : IIsoXmlSerilizable<RejectedCancellationStatusReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reason for which a cancellation is rejected.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RejectedCancellationStatusReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RejectedCancellationStatusReason1Choice.Reason))]
+    [KnownType(typeof(RejectedCancellationStatusReason1Choice.ExtendedReason))]
+    [KnownType(typeof(RejectedCancellationStatusReason1Choice.DataSourceScheme))]
+    [IsoId("_RXptdNp-Ed-ak6NoX_4Aeg_890850288")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Cancellation Status Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RejectedCancellationStatusReason1Choice_
+    #else
+    public abstract partial class RejectedCancellationStatusReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rsn" => RejectedCancellationStatusReason1Choice.Reason.Deserialize(elementWithPayload),
-             "XtndedRsn" => RejectedCancellationStatusReason1Choice.ExtendedReason.Deserialize(elementWithPayload),
-             "DataSrcSchme" => RejectedCancellationStatusReason1Choice.DataSourceScheme.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RejectedCancellationStatusReason1Choice choice.")
-        };
     }
 }

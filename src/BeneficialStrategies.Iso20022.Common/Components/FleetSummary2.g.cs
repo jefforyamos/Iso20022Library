@@ -7,126 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Supplies additional transaction information for fleet transactions.
 /// </summary>
+[IsoId("_wKGeYRytEey6gI8SKlv7rg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fleet Summary")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FleetSummary2
-     : IIsoXmlSerilizable<FleetSummary2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains driver-related information.
     /// </summary>
+    [IsoId("_wQXecRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Driver2? Driver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Driver2? Driver { get; init; } 
+    #else
+    public Driver2? Driver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Vehicle belonging to the fleet.
     /// </summary>
+    [IsoId("_wQXecxytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle5? Vehicle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Vehicle5? Vehicle { get; init; } 
+    #else
+    public Vehicle5? Vehicle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Second card presented for the payment transaction.
     /// </summary>
+    [IsoId("_wQXedRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Driver Or Vehicle Card")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData21? DriverOrVehicleCard { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlainCardData21? DriverOrVehicleCard { get; init; } 
+    #else
+    public PlainCardData21? DriverOrVehicleCard { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether or not fuel or fleet data prompting should occur. 
     /// </summary>
+    [IsoId("_wQXedxytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Fuel Prompt Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1Number? CardFuelPromptCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? CardFuelPromptCode { get; init; } 
+    #else
+    public System.UInt64? CardFuelPromptCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currently known as "TransactionNumber". An identification code assigned by an agent.  This code can be used after applying for and awaiting the appropriate prompt value to be defined.
     /// </summary>
+    [IsoId("_wQXeeRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Fuel Prompt Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AgentFuelPromptCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AgentFuelPromptCode { get; init; } 
+    #else
+    public System.String? AgentFuelPromptCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the details related to an individual trip. 
     /// </summary>
+    [IsoId("_wQXeexytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trip Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TripInformation1? TripInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TripInformation1? TripInformation { get; init; } 
+    #else
+    public TripInformation1? TripInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the amenities available at the location where the merchant actually performed the transaction.
     /// </summary>
+    [IsoId("_wQXefRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Amenity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalAmenity1? LocalAmenity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LocalAmenity1? LocalAmenity { get; init; } 
+    #else
+    public LocalAmenity1? LocalAmenity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains information related specifically to the transaction.
     /// </summary>
+    [IsoId("_wQXefxytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Related Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction141? TransactionRelatedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTransaction141? TransactionRelatedData { get; init; } 
+    #else
+    public PaymentTransaction141? TransactionRelatedData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains additional fleet summary data.
     /// </summary>
+    [IsoId("_wQXegRytEey6gI8SKlv7rg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation19? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation19? AdditionalData { get; init; } 
+    #else
+    public AdditionalInformation19? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Driver is Driver2 DriverValue)
-        {
-            writer.WriteStartElement(null, "Drvr", xmlNamespace );
-            DriverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Vehicle is Vehicle5 VehicleValue)
-        {
-            writer.WriteStartElement(null, "Vhcl", xmlNamespace );
-            VehicleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DriverOrVehicleCard is PlainCardData21 DriverOrVehicleCardValue)
-        {
-            writer.WriteStartElement(null, "DrvrOrVhclCard", xmlNamespace );
-            DriverOrVehicleCardValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardFuelPromptCode is IsoMax1Number CardFuelPromptCodeValue)
-        {
-            writer.WriteStartElement(null, "CardFuelPrmptCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax1Number(CardFuelPromptCodeValue)); // data type Max1Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AgentFuelPromptCode is IsoMax35Text AgentFuelPromptCodeValue)
-        {
-            writer.WriteStartElement(null, "AgtFuelPrmptCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AgentFuelPromptCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TripInformation is TripInformation1 TripInformationValue)
-        {
-            writer.WriteStartElement(null, "TripInf", xmlNamespace );
-            TripInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LocalAmenity is LocalAmenity1 LocalAmenityValue)
-        {
-            writer.WriteStartElement(null, "LclAmnty", xmlNamespace );
-            LocalAmenityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionRelatedData is PaymentTransaction141 TransactionRelatedDataValue)
-        {
-            writer.WriteStartElement(null, "TxRltdData", xmlNamespace );
-            TransactionRelatedDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalInformation19 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FleetSummary2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

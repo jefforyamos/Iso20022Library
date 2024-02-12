@@ -7,80 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a key exchange activity.
 /// </summary>
+[IsoId("_dnN6lVWfEeeiG_nL4vgKnQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Key Exchange Response")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record KeyExchangeResponse1
-     : IIsoXmlSerilizable<KeyExchangeResponse1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a KeyExchangeResponse1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public KeyExchangeResponse1( Transaction100 reqTransaction,ProcessingResult4 reqProcessingResult )
+    {
+        Transaction = reqTransaction;
+        ProcessingResult = reqProcessingResult;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [IsoId("_mnCHcWqYEema8a4DGUe7Lw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Context8? Context { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Context8? Context { get; init; } 
+    #else
+    public Context8? Context { get; set; } 
+    #endif
+    
     /// <summary>
     /// Card transaction for which an authorisation is requested.
     /// </summary>
+    [IsoId("_dnN6l1WfEeeiG_nL4vgKnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transaction100 Transaction { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Transaction100 Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Transaction100 Transaction { get; init; } 
+    #else
+    public Transaction100 Transaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of the processing of the authorisation.
     /// </summary>
+    [IsoId("_dnN6mFWfEeeiG_nL4vgKnQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingResult4 ProcessingResult { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ProcessingResult4 ProcessingResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingResult4 ProcessingResult { get; init; } 
+    #else
+    public ProcessingResult4 ProcessingResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
+    [IsoId("_YJF28dXxEee5XtaG1wqDfQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectedData1? ProtectedData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProtectedData1? ProtectedData { get; init; } 
+    #else
+    public ProtectedData1? ProtectedData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
+    [IsoId("_FNAfEaK6EeeQobSgLcPRvA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Context is Context8 ContextValue)
-        {
-            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-            ContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Tx", xmlNamespace );
-        Transaction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrcgRslt", xmlNamespace );
-        ProcessingResult.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ProtectedData is ProtectedData1 ProtectedDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdData", xmlNamespace );
-            ProtectedDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static KeyExchangeResponse1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

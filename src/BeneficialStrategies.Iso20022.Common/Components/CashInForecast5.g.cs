@@ -7,94 +7,158 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
+[IsoId("_JvLpTQatEeS3lpTattq7hg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash In Forecast")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashInForecast5
-     : IIsoXmlSerilizable<CashInForecast5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashInForecast5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashInForecast5( System.DateOnly reqCashSettlementDate )
+    {
+        CashSettlementDate = reqCashSettlementDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [IsoId("_KIxN8watEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate CashSettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly CashSettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly CashSettlementDate { get; init; } 
+    #else
+    public System.DateOnly CashSettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub-total amount of the cash flow in, expressed as an amount of money.
     /// </summary>
+    [IsoId("_KIxN9QatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Total Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SubTotalAmount { get; init; } 
+    #else
+    public System.Decimal? SubTotalAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub-total amount of the cash flow in, expressed as a number of units.
     /// </summary>
+    [IsoId("_KIxN9watEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Total Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the estimated cash flow in is exceptional.
     /// </summary>
+    [IsoId("_KIxN-QatEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exceptional Cash Flow Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExceptionalCashFlowIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ExceptionalCashFlowIndicator { get; init; } 
+    #else
+    public System.String? ExceptionalCashFlowIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Breakdown of cash in amounts by transaction and order type.
     /// </summary>
+    [IsoId("_KIxN-watEeS3lpTattq7hg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash In Breakdown Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundCashInBreakdown3? CashInBreakdownDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundCashInBreakdown3? CashInBreakdownDetails { get; init; } 
+    #else
+    public FundCashInBreakdown3? CashInBreakdownDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional balances for cash amounts and number of units. 
     /// In an estimated report, the total cash derived from orders placed as a number of units is an estimated cash amount and the total number of units derived from orders placed as a cash amount is an estimated number of units.
     /// </summary>
+    [IsoId("_px_-4QdEEeSyIPzOZ6VzBQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundBalance1? AdditionalBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FundBalance1? AdditionalBalance { get; init; } 
+    #else
+    public FundBalance1? AdditionalBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (SubTotalAmount is IsoActiveOrHistoricCurrencyAndAmount SubTotalAmountValue)
-        {
-            writer.WriteStartElement(null, "SubTtlAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(SubTotalAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SubTotalUnitsNumber is FinancialInstrumentQuantity1 SubTotalUnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "SubTtlUnitsNb", xmlNamespace );
-            SubTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExceptionalCashFlowIndicator is IsoYesNoIndicator ExceptionalCashFlowIndicatorValue)
-        {
-            writer.WriteStartElement(null, "XcptnlCshFlowInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExceptionalCashFlowIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CashInBreakdownDetails is FundCashInBreakdown3 CashInBreakdownDetailsValue)
-        {
-            writer.WriteStartElement(null, "CshInBrkdwnDtls", xmlNamespace );
-            CashInBreakdownDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalBalance is FundBalance1 AdditionalBalanceValue)
-        {
-            writer.WriteStartElement(null, "AddtlBal", xmlNamespace );
-            AdditionalBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashInForecast5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

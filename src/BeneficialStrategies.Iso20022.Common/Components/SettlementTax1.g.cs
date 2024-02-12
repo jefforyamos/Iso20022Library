@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Species the tax applicable for this settlement.
 /// </summary>
+[IsoId("_S0j3LAEcEeCQm6a_G2yO_w_811596505")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Tax")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementTax1
-     : IIsoXmlSerilizable<SettlementTax1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [IsoId("_S0j3LQEcEeCQm6a_G2yO_w_-664594537")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxTypeFormat1Choice_? TypeCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxTypeFormat1Choice_? TypeCode { get; init; } 
+    #else
+    public TaxTypeFormat1Choice_? TypeCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
+    [IsoId("_S0j3LgEcEeCQm6a_G2yO_w_588725222")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculated Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CalculatedAmount { get; init; } 
+    #else
+    public System.Decimal? CalculatedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
+    [IsoId("_S0j3LwEcEeCQm6a_G2yO_w_-780660433")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? BasisAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? BasisAmount { get; init; } 
+    #else
+    public System.Decimal? BasisAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of the tax point when this tax, levy or duty becomes applicable.
     /// </summary>
+    [IsoId("_S0j3MAEcEeCQm6a_G2yO_w_-805508608")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Point Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TaxPointDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TaxPointDate { get; init; } 
+    #else
+    public System.DateOnly? TaxPointDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TypeCode is TaxTypeFormat1Choice_ TypeCodeValue)
-        {
-            writer.WriteStartElement(null, "TpCd", xmlNamespace );
-            TypeCodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CalculatedAmount is IsoCurrencyAndAmount CalculatedAmountValue)
-        {
-            writer.WriteStartElement(null, "ClctdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CalculatedAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (BasisAmount is IsoCurrencyAndAmount BasisAmountValue)
-        {
-            writer.WriteStartElement(null, "BsisAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(BasisAmountValue)); // data type CurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxPointDate is IsoISODate TaxPointDateValue)
-        {
-            writer.WriteStartElement(null, "TaxPtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TaxPointDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementTax1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

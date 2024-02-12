@@ -7,356 +7,616 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
+[IsoId("_SFR2Wd24Ed-KAqAOGQOnnw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDate14
-     : IIsoXmlSerilizable<CorporateActionDate14>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date/time at which the issuer announced that a corporate action event will occur.
     /// </summary>
+    [IsoId("_SFR2W924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Announcement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? AnnouncementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? AnnouncementDate { get; init; } 
+    #else
+    public DateFormat19Choice_? AnnouncementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deadline by which the beneficial ownership of securities must be declared.
     /// </summary>
+    [IsoId("_SFR2Xd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certification Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? CertificationDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? CertificationDeadline { get; init; } 
+    #else
+    public DateFormat19Choice_? CertificationDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date upon which the court provided approval.
     /// </summary>
+    [IsoId("_SFR2X924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Court Approval Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? CourtApprovalDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? CourtApprovalDate { get; init; } 
+    #else
+    public DateFormat19Choice_? CourtApprovalDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// First possible early closing date of an offer if different from the expiry date.
     /// </summary>
+    [IsoId("_SFR2Yd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? EarlyClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? EarlyClosingDate { get; init; } 
+    #else
+    public DateFormat19Choice_? EarlyClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which an event is officially effective from the issuer's perspective.
     /// </summary>
+    [IsoId("_SFR2Y924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Effective Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? EffectiveDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? EffectiveDate { get; init; } 
+    #else
+    public DateFormat19Choice_? EffectiveDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/Time on which all or part of any holding bought in a unit trust is subject to being treated as capital rather than income. This is normally one day after the previous distribution's ex date.
     /// </summary>
+    [IsoId("_SFR2Zd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Equalisation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? EqualisationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? EqualisationDate { get; init; } 
+    #else
+    public DateFormat19Choice_? EqualisationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which additional information on the event will be announced, for example, exchange ratio announcement date.
     /// </summary>
+    [IsoId("_SFR2Z924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Further Detailed Announcement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? FurtherDetailedAnnouncementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? FurtherDetailedAnnouncementDate { get; init; } 
+    #else
+    public DateFormat19Choice_? FurtherDetailedAnnouncementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which an index rate will be determined.
     /// </summary>
+    [IsoId("_SFR2ad24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Index Fixing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? IndexFixingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? IndexFixingDate { get; init; } 
+    #else
+    public DateFormat19Choice_? IndexFixingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>
+    [IsoId("_SFR2a924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lottery Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? LotteryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? LotteryDate { get; init; } 
+    #else
+    public DateFormat19Choice_? LotteryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time to which the maturity date of an interest bearing security is extended.
     /// </summary>
+    [IsoId("_SFR2bd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? NewMaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? NewMaturityDate { get; init; } 
+    #else
+    public DateFormat19Choice_? NewMaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which the bondholder's or shareholder's meeting will take place.
     /// </summary>
+    [IsoId("_SFR2b924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Meeting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? MeetingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? MeetingDate { get; init; } 
+    #else
+    public DateFormat19Choice_? MeetingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the margin rate will be determined.
     /// </summary>
+    [IsoId("_SFR2cd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margin Fixing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? MarginFixingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? MarginFixingDate { get; init; } 
+    #else
+    public DateFormat19Choice_? MarginFixingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time (and time) at which an issuer will determine the proration amount/quantity of an offer.
     /// </summary>
+    [IsoId("_SFR2c924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proration Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? ProrationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? ProrationDate { get; init; } 
+    #else
+    public DateFormat19Choice_? ProrationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which positions are struck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date.
     /// </summary>
+    [IsoId("_SFR2dd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Record Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? RecordDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? RecordDate { get; init; } 
+    #else
+    public DateFormat19Choice_? RecordDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which instructions to register or registration details will be accepted.
     /// </summary>
+    [IsoId("_SFR2d924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Registration Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? RegistrationDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? RegistrationDeadline { get; init; } 
+    #else
+    public DateFormat19Choice_? RegistrationDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on which results are published, for example, results of an offer.
     /// </summary>
+    [IsoId("_SFR2ed24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Results Publication Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? ResultsPublicationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? ResultsPublicationDate { get; init; } 
+    #else
+    public DateFormat19Choice_? ResultsPublicationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deadline by which instructions must be received to split securities, for example, of physical certificates.
     /// </summary>
+    [IsoId("_SFR2e924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deadline To Split")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? DeadlineToSplit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? DeadlineToSplit { get; init; } 
+    #else
+    public DateFormat19Choice_? DeadlineToSplit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time on until which tax breakdown instructions will be accepted.
     /// </summary>
+    [IsoId("_SFR2fd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deadline For Tax Breakdown Instruction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? DeadlineForTaxBreakdownInstruction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? DeadlineForTaxBreakdownInstruction { get; init; } 
+    #else
+    public DateFormat19Choice_? DeadlineForTaxBreakdownInstruction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which trading of a security is suspended as the result of an event.
     /// </summary>
+    [IsoId("_SFR2f924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Suspended Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? TradingSuspendedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? TradingSuspendedDate { get; init; } 
+    #else
+    public DateFormat19Choice_? TradingSuspendedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time upon which the terms of the take-over become unconditional as to acceptances.
     /// </summary>
+    [IsoId("_SFR2gd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unconditional Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? UnconditionalDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? UnconditionalDate { get; init; } 
+    #else
+    public DateFormat19Choice_? UnconditionalDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at on which all conditions, including regulatory, legal etc. pertaining to the take-over, have been met.
     /// </summary>
+    [IsoId("_SFR2g924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Wholly Unconditional Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? WhollyUnconditionalDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? WhollyUnconditionalDate { get; init; } 
+    #else
+    public DateFormat19Choice_? WhollyUnconditionalDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time as from which trading (including exchange and OTC trading) occurs on the underlying security without the benefit.
     /// </summary>
+    [IsoId("_SFR2hd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ex Dividend Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? ExDividendDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? ExDividendDate { get; init; } 
+    #else
+    public DateFormat19Choice_? ExDividendDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the corporate action is legally announced by an official body, for example, publication by a governmental administration.
     /// </summary>
+    [IsoId("_SFR2h924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Official Announcement Publication Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? OfficialAnnouncementPublicationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? OfficialAnnouncementPublicationDate { get; init; } 
+    #else
+    public DateFormat19Choice_? OfficialAnnouncementPublicationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time as from which 'special processing' can start to be used by participants for that event. Special processing is a means of marking a transaction, that would normally be traded ex or cum, as being traded cum or ex respectively, for example, a transaction dealt 'special' after the ex date would result in the buyer being eligible for the entitlement. This is typically used in the UK and Irish markets.
     /// </summary>
+    [IsoId("_SFR2id24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Special Ex Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? SpecialExDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? SpecialExDate { get; init; } 
+    #else
+    public DateFormat19Choice_? SpecialExDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last date/time by which a buying counterparty to a trade can be sure that it will have the right to participate in an event.
     /// </summary>
+    [IsoId("_SFR2i924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Guaranteed Participation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? GuaranteedParticipationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? GuaranteedParticipationDate { get; init; } 
+    #else
+    public DateFormat19Choice_? GuaranteedParticipationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Deadline by which an entitled holder needs to advise their counterparty to a transaction of their election for a corporate action event.
     /// </summary>
+    [IsoId("_SFR2jd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Election To Counterparty Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? ElectionToCounterpartyDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? ElectionToCounterpartyDeadline { get; init; } 
+    #else
+    public DateFormat19Choice_? ElectionToCounterpartyDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which an event/offer is terminated or lapsed.
     /// </summary>
+    [IsoId("_SFR2j924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lapsed Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? LapsedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? LapsedDate { get; init; } 
+    #else
+    public DateFormat19Choice_? LapsedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
+    [IsoId("_SFR2kd24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? PaymentDate { get; init; } 
+    #else
+    public DateFormat19Choice_? PaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/Time by which the account owner must instruct directly another party, for example to provide documentation to an issuer agent.
     /// </summary>
+    [IsoId("_SFR2k924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Third Party Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? ThirdPartyDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? ThirdPartyDeadline { get; init; } 
+    #else
+    public DateFormat19Choice_? ThirdPartyDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/Time set by the issuer agent as a first early deadline by which the account owner must instruct directly another party, possibly giving the holder eligibility to incentives. For example, to provide documentation to an issuer agent.
     /// </summary>
+    [IsoId("_SFR2ld24Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Third Party Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? EarlyThirdPartyDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? EarlyThirdPartyDeadline { get; init; } 
+    #else
+    public DateFormat19Choice_? EarlyThirdPartyDeadline { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which the depository stops monitoring activities of the event, for instance, accounting and tracking activities for due bills end.
     /// </summary>
+    [IsoId("_SFR2l924Ed-KAqAOGQOnnw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Claim Tracking End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? MarketClaimTrackingEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? MarketClaimTrackingEndDate { get; init; } 
+    #else
+    public DateFormat19Choice_? MarketClaimTrackingEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Last day an investor can become a lead plaintiff.
     /// </summary>
+    [IsoId("_khITke5lEd-w9cnVeeY-JA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lead Plaintiff Deadline")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? LeadPlaintiffDeadline { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat19Choice_? LeadPlaintiffDeadline { get; init; } 
+    #else
+    public DateFormat19Choice_? LeadPlaintiffDeadline { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AnnouncementDate is DateFormat19Choice_ AnnouncementDateValue)
-        {
-            writer.WriteStartElement(null, "AnncmntDt", xmlNamespace );
-            AnnouncementDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CertificationDeadline is DateFormat19Choice_ CertificationDeadlineValue)
-        {
-            writer.WriteStartElement(null, "CertfctnDdln", xmlNamespace );
-            CertificationDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CourtApprovalDate is DateFormat19Choice_ CourtApprovalDateValue)
-        {
-            writer.WriteStartElement(null, "CrtApprvlDt", xmlNamespace );
-            CourtApprovalDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarlyClosingDate is DateFormat19Choice_ EarlyClosingDateValue)
-        {
-            writer.WriteStartElement(null, "EarlyClsgDt", xmlNamespace );
-            EarlyClosingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EffectiveDate is DateFormat19Choice_ EffectiveDateValue)
-        {
-            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
-            EffectiveDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EqualisationDate is DateFormat19Choice_ EqualisationDateValue)
-        {
-            writer.WriteStartElement(null, "EqulstnDt", xmlNamespace );
-            EqualisationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FurtherDetailedAnnouncementDate is DateFormat19Choice_ FurtherDetailedAnnouncementDateValue)
-        {
-            writer.WriteStartElement(null, "FrthrDtldAnncmntDt", xmlNamespace );
-            FurtherDetailedAnnouncementDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IndexFixingDate is DateFormat19Choice_ IndexFixingDateValue)
-        {
-            writer.WriteStartElement(null, "IndxFxgDt", xmlNamespace );
-            IndexFixingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LotteryDate is DateFormat19Choice_ LotteryDateValue)
-        {
-            writer.WriteStartElement(null, "LtryDt", xmlNamespace );
-            LotteryDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NewMaturityDate is DateFormat19Choice_ NewMaturityDateValue)
-        {
-            writer.WriteStartElement(null, "NewMtrtyDt", xmlNamespace );
-            NewMaturityDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MeetingDate is DateFormat19Choice_ MeetingDateValue)
-        {
-            writer.WriteStartElement(null, "MtgDt", xmlNamespace );
-            MeetingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarginFixingDate is DateFormat19Choice_ MarginFixingDateValue)
-        {
-            writer.WriteStartElement(null, "MrgnFxgDt", xmlNamespace );
-            MarginFixingDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProrationDate is DateFormat19Choice_ ProrationDateValue)
-        {
-            writer.WriteStartElement(null, "PrratnDt", xmlNamespace );
-            ProrationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RecordDate is DateFormat19Choice_ RecordDateValue)
-        {
-            writer.WriteStartElement(null, "RcrdDt", xmlNamespace );
-            RecordDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RegistrationDeadline is DateFormat19Choice_ RegistrationDeadlineValue)
-        {
-            writer.WriteStartElement(null, "RegnDdln", xmlNamespace );
-            RegistrationDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResultsPublicationDate is DateFormat19Choice_ ResultsPublicationDateValue)
-        {
-            writer.WriteStartElement(null, "RsltsPblctnDt", xmlNamespace );
-            ResultsPublicationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeadlineToSplit is DateFormat19Choice_ DeadlineToSplitValue)
-        {
-            writer.WriteStartElement(null, "DdlnToSplt", xmlNamespace );
-            DeadlineToSplitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeadlineForTaxBreakdownInstruction is DateFormat19Choice_ DeadlineForTaxBreakdownInstructionValue)
-        {
-            writer.WriteStartElement(null, "DdlnForTaxBrkdwnInstr", xmlNamespace );
-            DeadlineForTaxBreakdownInstructionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradingSuspendedDate is DateFormat19Choice_ TradingSuspendedDateValue)
-        {
-            writer.WriteStartElement(null, "TradgSspdDt", xmlNamespace );
-            TradingSuspendedDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnconditionalDate is DateFormat19Choice_ UnconditionalDateValue)
-        {
-            writer.WriteStartElement(null, "UcondlDt", xmlNamespace );
-            UnconditionalDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WhollyUnconditionalDate is DateFormat19Choice_ WhollyUnconditionalDateValue)
-        {
-            writer.WriteStartElement(null, "WhlyUcondlDt", xmlNamespace );
-            WhollyUnconditionalDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExDividendDate is DateFormat19Choice_ ExDividendDateValue)
-        {
-            writer.WriteStartElement(null, "ExDvddDt", xmlNamespace );
-            ExDividendDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OfficialAnnouncementPublicationDate is DateFormat19Choice_ OfficialAnnouncementPublicationDateValue)
-        {
-            writer.WriteStartElement(null, "OffclAnncmntPblctnDt", xmlNamespace );
-            OfficialAnnouncementPublicationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SpecialExDate is DateFormat19Choice_ SpecialExDateValue)
-        {
-            writer.WriteStartElement(null, "SpclExDt", xmlNamespace );
-            SpecialExDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GuaranteedParticipationDate is DateFormat19Choice_ GuaranteedParticipationDateValue)
-        {
-            writer.WriteStartElement(null, "GrntedPrtcptnDt", xmlNamespace );
-            GuaranteedParticipationDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ElectionToCounterpartyDeadline is DateFormat19Choice_ ElectionToCounterpartyDeadlineValue)
-        {
-            writer.WriteStartElement(null, "ElctnToCtrPtyDdln", xmlNamespace );
-            ElectionToCounterpartyDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LapsedDate is DateFormat19Choice_ LapsedDateValue)
-        {
-            writer.WriteStartElement(null, "LpsdDt", xmlNamespace );
-            LapsedDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentDate is DateFormat19Choice_ PaymentDateValue)
-        {
-            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-            PaymentDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ThirdPartyDeadline is DateFormat19Choice_ ThirdPartyDeadlineValue)
-        {
-            writer.WriteStartElement(null, "ThrdPtyDdln", xmlNamespace );
-            ThirdPartyDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarlyThirdPartyDeadline is DateFormat19Choice_ EarlyThirdPartyDeadlineValue)
-        {
-            writer.WriteStartElement(null, "EarlyThrdPtyDdln", xmlNamespace );
-            EarlyThirdPartyDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketClaimTrackingEndDate is DateFormat19Choice_ MarketClaimTrackingEndDateValue)
-        {
-            writer.WriteStartElement(null, "MktClmTrckgEndDt", xmlNamespace );
-            MarketClaimTrackingEndDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LeadPlaintiffDeadline is DateFormat19Choice_ LeadPlaintiffDeadlineValue)
-        {
-            writer.WriteStartElement(null, "LeadPlntffDdln", xmlNamespace );
-            LeadPlaintiffDeadlineValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionDate14 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

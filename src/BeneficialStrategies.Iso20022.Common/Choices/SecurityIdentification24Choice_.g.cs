@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// ISIN and an alternative format for the identification of a security. ISIN is the preferred format.
-/// </summary>
-[KnownType(typeof(SecurityIdentification24Choice.ISIN))]
-[KnownType(typeof(SecurityIdentification24Choice.OtherIdentification))]
-public abstract partial record SecurityIdentification24Choice_ : IIsoXmlSerilizable<SecurityIdentification24Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// ISIN and an alternative format for the identification of a security. ISIN is the preferred format.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecurityIdentification24Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecurityIdentification24Choice.ISIN))]
+    [KnownType(typeof(SecurityIdentification24Choice.OtherIdentification))]
+    [IsoId("_jLJhQeGXEeWCAvUNsZ5u6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification 24 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecurityIdentification24Choice_
+    #else
+    public abstract partial class SecurityIdentification24Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => SecurityIdentification24Choice.ISIN.Deserialize(elementWithPayload),
-             "OthrId" => SecurityIdentification24Choice.OtherIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecurityIdentification24Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the different statuses of an election amendment request.
-/// </summary>
-[KnownType(typeof(ElectionAmendmentStatus1Choice.ProcessedStatus))]
-[KnownType(typeof(ElectionAmendmentStatus1Choice.RejectedStatus))]
-public abstract partial record ElectionAmendmentStatus1Choice_ : IIsoXmlSerilizable<ElectionAmendmentStatus1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the different statuses of an election amendment request.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ElectionAmendmentStatus1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ElectionAmendmentStatus1Choice.ProcessedStatus))]
+    [KnownType(typeof(ElectionAmendmentStatus1Choice.RejectedStatus))]
+    [IsoId("_RiiHxdp-Ed-ak6NoX_4Aeg_1987378998")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Election Amendment Status 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ElectionAmendmentStatus1Choice_
+    #else
+    public abstract partial class ElectionAmendmentStatus1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PrcdSts" => ElectionAmendmentStatus1Choice.ProcessedStatus.Deserialize(elementWithPayload),
-             "RjctdSts" => ElectionAmendmentStatus1Choice.RejectedStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ElectionAmendmentStatus1Choice choice.")
-        };
     }
 }

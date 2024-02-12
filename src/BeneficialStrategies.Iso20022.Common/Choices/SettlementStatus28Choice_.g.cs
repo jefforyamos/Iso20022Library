@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the settlement status.
-/// </summary>
-[KnownType(typeof(SettlementStatus28Choice.Pending))]
-[KnownType(typeof(SettlementStatus28Choice.Failing))]
-[KnownType(typeof(SettlementStatus28Choice.Proprietary))]
-public abstract partial record SettlementStatus28Choice_ : IIsoXmlSerilizable<SettlementStatus28Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the settlement status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SettlementStatus28Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SettlementStatus28Choice.Pending))]
+    [KnownType(typeof(SettlementStatus28Choice.Failing))]
+    [KnownType(typeof(SettlementStatus28Choice.Proprietary))]
+    [IsoId("_BH0PmQpIEeup4r-PFG2T5Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Status 28 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SettlementStatus28Choice_
+    #else
+    public abstract partial class SettlementStatus28Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Pdg" => SettlementStatus28Choice.Pending.Deserialize(elementWithPayload),
-             "Flng" => SettlementStatus28Choice.Failing.Deserialize(elementWithPayload),
-             "Prtry" => SettlementStatus28Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SettlementStatus28Choice choice.")
-        };
     }
 }

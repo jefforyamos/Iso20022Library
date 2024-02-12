@@ -7,59 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor configuration to be downloaded from the terminal management system.
 /// </summary>
+[IsoId("_PLZ6oXJ3Ee299ZbWCkdR_w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Acceptor Configuration")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AcceptorConfiguration12
-     : IIsoXmlSerilizable<AcceptorConfiguration12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AcceptorConfiguration12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AcceptorConfiguration12( GenericIdentification176 reqTerminalManagerIdentification )
+    {
+        TerminalManagerIdentification = reqTerminalManagerIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the acceptor parameters.
     /// </summary>
+    [IsoId("_PRyPcXJ3Ee299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terminal Manager Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    #else
+    public GenericIdentification176 TerminalManagerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier assigned to a set of POI terminals performing some categories of transactions.
     /// </summary>
+    [IsoId("_PRyPc3J3Ee299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Group Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIGroupIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? POIGroupIdentification { get; init; } 
+    #else
+    public System.String? POIGroupIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
+    [IsoId("_PRyPdXJ3Ee299ZbWCkdR_w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Data Set")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public AcceptorConfigurationDataSet4? DataSet { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _PRyPdXJ3Ee299ZbWCkdR_w
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
-        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (POIGroupIdentification is IsoMax35Text POIGroupIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIGrpId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIGroupIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize DataSet, multiplicity Unknown
-    }
-    public static AcceptorConfiguration12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

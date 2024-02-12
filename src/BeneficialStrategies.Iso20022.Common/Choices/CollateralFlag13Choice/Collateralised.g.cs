@@ -9,73 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CollateralFlag13Choice;
-
-/// <summary>
-/// Specifies the details of the collateralised securities.
-/// </summary>
-public partial record Collateralised : CollateralFlag13Choice_
-     , IIsoXmlSerilizable<Collateralised>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CollateralFlag13Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Date on which the counterparties contractually agree the exchange of cash, securities, or commodities versus collateral for the opening leg (spot leg) of the securities financing transaction.
+    /// Specifies the details of the collateralised securities.
     /// </summary>
-    public IsoISODate? CollateralValueDate { get; init; } 
-    /// <summary>
-    /// Specification on the type of asset used as collateral.
-    /// </summary>
-    public CollateralType21? AssetType { get; init; } 
-    /// <summary>
-    /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
-    /// </summary>
-    public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
-    /// <summary>
-    /// Identification of the collateral basket.
-    /// </summary>
-    public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_J_aqIcg5Eeu4ecZgAYuz5w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralised")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Collateralised : CollateralFlag13Choice_
+    #else
+    public partial class Collateralised : CollateralFlag13Choice_
+    #endif
     {
-        if (CollateralValueDate is IsoISODate CollateralValueDateValue)
-        {
-            writer.WriteStartElement(null, "CollValDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CollateralValueDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (AssetType is CollateralType21 AssetTypeValue)
-        {
-            writer.WriteStartElement(null, "AsstTp", xmlNamespace );
-            AssetTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetExposureCollateralisationIndicator is IsoTrueFalseIndicator NetExposureCollateralisationIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NetExposureCollateralisationIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BasketIdentifier is SecurityIdentification26Choice_ BasketIdentifierValue)
-        {
-            writer.WriteStartElement(null, "BsktIdr", xmlNamespace );
-            BasketIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Collateralised Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Date on which the counterparties contractually agree the exchange of cash, securities, or commodities versus collateral for the opening leg (spot leg) of the securities financing transaction.
+        /// </summary>
+        [IsoId("_KA3bo8g5Eeu4ecZgAYuz5w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Collateral Value Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? CollateralValueDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? CollateralValueDate { get; init; } 
+        #else
+        public System.DateOnly? CollateralValueDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specification on the type of asset used as collateral.
+        /// </summary>
+        [IsoId("_KA3bpcg5Eeu4ecZgAYuz5w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Asset Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralType21? AssetType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralType21? AssetType { get; init; } 
+        #else
+        public CollateralType21? AssetType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
+        /// </summary>
+        [IsoId("_KA3bp8g5Eeu4ecZgAYuz5w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Net Exposure Collateralisation Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? NetExposureCollateralisationIndicator { get; init; } 
+        #else
+        public System.String? NetExposureCollateralisationIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of the collateral basket.
+        /// </summary>
+        [IsoId("_KA3bqcg5Eeu4ecZgAYuz5w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Basket Identifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
+        #else
+        public SecurityIdentification26Choice_? BasketIdentifier { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

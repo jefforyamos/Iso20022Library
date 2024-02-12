@@ -7,148 +7,240 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Option or swaption related attributes.
 /// </summary>
+[IsoId("_g9Y4w5PeEey0rJ3Gl6WZVA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Option Or Swaption")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OptionOrSwaption10
-     : IIsoXmlSerilizable<OptionOrSwaption10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the Option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [IsoId("_g-V6w5PeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType2Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionType2Code? Type { get; init; } 
+    #else
+    public OptionType2Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of the Option when an optional provision is embedded in the contract.
     /// </summary>
+    [IsoId("_g-V6xZPeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Embedded Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EmbeddedType1Code? EmbeddedType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EmbeddedType1Code? EmbeddedType { get; init; } 
+    #else
+    public EmbeddedType1Code? EmbeddedType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
+    [IsoId("_g-V6x5PeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Style")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle6Code? ExerciseStyle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OptionStyle6Code? ExerciseStyle { get; init; } 
+    #else
+    public OptionStyle6Code? ExerciseStyle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the earliest unadjusted date during the exercise period on which an option can be exercised.
     /// </summary>
+    [IsoId("_g-V6yZPeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExerciseDate1Choice_? ExerciseDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExerciseDate1Choice_? ExerciseDate { get; init; } 
+    #else
+    public ExerciseDate1Choice_? ExerciseDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the predetermined price at which the owner of the option can buy or sell the underlying instrument.
     /// Usage: For foreign exchange options, specifies the exchange rate at which the option can be exercised as the rate of exchange from converting the unit currency into the quoted currency.
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
+    [IsoId("_g-V6y5PeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice17Choice_? StrikePrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesTransactionPrice17Choice_? StrikePrice { get; init; } 
+    #else
+    public SecuritiesTransactionPrice17Choice_? StrikePrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions with strike prices varying throughout the life of the transaction.
     /// </summary>
+    [IsoId("_g-V6z5PeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strike Price Schedule")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Schedule4? StrikePriceSchedule { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Schedule4? StrikePriceSchedule { get; init; } 
+    #else
+    public Schedule4? StrikePriceSchedule { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the amount and currency of a foreign exchange option that the option holder has the right to buy.
     /// </summary>
+    [IsoId("_g-V60ZPeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Call Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? CallAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CallAmount { get; init; } 
+    #else
+    public System.Decimal? CallAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the amount and currency of a foreign exchange option that the option holder has the right to sell.
     /// </summary>
+    [IsoId("_g-V605PeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Put Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PutAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PutAmount { get; init; } 
+    #else
+    public System.Decimal? PutAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the monetary amount of the premium paid by the buyer of the option.
     /// </summary>
+    [IsoId("_g-V61ZPeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PremiumAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PremiumAmount { get; init; } 
+    #else
+    public System.Decimal? PremiumAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the date on which the option premium is paid.
     /// </summary>
+    [IsoId("_g-V615PeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Premium Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PremiumPaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? PremiumPaymentDate { get; init; } 
+    #else
+    public System.DateOnly? PremiumPaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// In case of swaptions, maturity date of the underlying swap.
     /// </summary>
+    [IsoId("_g-V62ZPeEey0rJ3Gl6WZVA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity Date Of Underlying")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDateOfUnderlying { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? MaturityDateOfUnderlying { get; init; } 
+    #else
+    public System.DateOnly? MaturityDateOfUnderlying { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is OptionType2Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EmbeddedType is EmbeddedType1Code EmbeddedTypeValue)
-        {
-            writer.WriteStartElement(null, "MbddTp", xmlNamespace );
-            writer.WriteValue(EmbeddedTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExerciseStyle is OptionStyle6Code ExerciseStyleValue)
-        {
-            writer.WriteStartElement(null, "ExrcStyle", xmlNamespace );
-            writer.WriteValue(ExerciseStyleValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ExerciseDate is ExerciseDate1Choice_ ExerciseDateValue)
-        {
-            writer.WriteStartElement(null, "ExrcDt", xmlNamespace );
-            ExerciseDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StrikePrice is SecuritiesTransactionPrice17Choice_ StrikePriceValue)
-        {
-            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
-            StrikePriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StrikePriceSchedule is Schedule4 StrikePriceScheduleValue)
-        {
-            writer.WriteStartElement(null, "StrkPricSchdl", xmlNamespace );
-            StrikePriceScheduleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CallAmount is IsoActiveOrHistoricCurrencyAnd19DecimalAmount CallAmountValue)
-        {
-            writer.WriteStartElement(null, "CallAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(CallAmountValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PutAmount is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PutAmountValue)
-        {
-            writer.WriteStartElement(null, "PutAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PutAmountValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PremiumAmount is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PremiumAmountValue)
-        {
-            writer.WriteStartElement(null, "PrmAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PremiumAmountValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PremiumPaymentDate is IsoISODate PremiumPaymentDateValue)
-        {
-            writer.WriteStartElement(null, "PrmPmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(PremiumPaymentDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MaturityDateOfUnderlying is IsoISODate MaturityDateOfUnderlyingValue)
-        {
-            writer.WriteStartElement(null, "MtrtyDtOfUndrlyg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateOfUnderlyingValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static OptionOrSwaption10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

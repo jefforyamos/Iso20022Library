@@ -7,63 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Profile of the customer selected by an ATM.
 /// </summary>
+[IsoId("_WGD8Ya14EeWMg5rOByfExw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Customer Profile")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMCustomerProfile4
-     : IIsoXmlSerilizable<ATMCustomerProfile4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ATMCustomerProfile4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ATMCustomerProfile4( ATMCustomerProfile1Code reqRetrievalMode )
+    {
+        RetrievalMode = reqRetrievalMode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Describes the main way customer information was collected to build up the customer menu and to provide the service.
     /// </summary>
+    [IsoId("_WR-4ga14EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Retrieval Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCustomerProfile1Code RetrievalMode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ATMCustomerProfile1Code RetrievalMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMCustomerProfile1Code RetrievalMode { get; init; } 
+    #else
+    public ATMCustomerProfile1Code RetrievalMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference of the customer profile.
     /// </summary>
+    [IsoId("_WR-4g614EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Profile Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProfileReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProfileReference { get; init; } 
+    #else
+    public System.String? ProfileReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the customer for the bank.
     /// </summary>
+    [IsoId("_WR-4ha14EeWMg5rOByfExw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CustomerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerIdentification { get; init; } 
+    #else
+    public System.String? CustomerIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RtrvlMd", xmlNamespace );
-        writer.WriteValue(RetrievalMode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ProfileReference is IsoMax35Text ProfileReferenceValue)
-        {
-            writer.WriteStartElement(null, "PrflRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProfileReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMCustomerProfile4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of a security.
 /// </summary>
+[IsoId("_So3dsdp-Ed-ak6NoX_4Aeg_-562125146")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Side Pocket Quantity And Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SidePocketQuantityAndAmount1
-     : IIsoXmlSerilizable<SidePocketQuantityAndAmount1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total of quantity of units subscribed or redeemed in the lot or side pocket.
     /// </summary>
+    [IsoId("_So3dstp-Ed-ak6NoX_4Aeg_-562125137")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1? UnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money invested or redeemed into the lot or side pocket.
     /// </summary>
+    [IsoId("_So3ds9p-Ed-ak6NoX_4Aeg_1851394913")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ordered Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? OrderedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? OrderedAmount { get; init; } 
+    #else
+    public System.Decimal? OrderedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the financial instrument quantity invested or redeemed in the lot or side pocket.
     /// </summary>
+    [IsoId("_So3dtNp-Ed-ak6NoX_4Aeg_-562124806")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holdings Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? HoldingsRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? HoldingsRate { get; init; } 
+    #else
+    public System.Decimal? HoldingsRate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (UnitsNumber is FinancialInstrumentQuantity1 UnitsNumberValue)
-        {
-            writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
-            UnitsNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OrderedAmount is IsoActiveCurrencyAndAmount OrderedAmountValue)
-        {
-            writer.WriteStartElement(null, "OrdrdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OrderedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (HoldingsRate is IsoPercentageRate HoldingsRateValue)
-        {
-            writer.WriteStartElement(null, "HldgsRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HoldingsRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static SidePocketQuantityAndAmount1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

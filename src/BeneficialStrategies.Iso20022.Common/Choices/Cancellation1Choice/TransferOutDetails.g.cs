@@ -9,76 +9,138 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Cancellation1Choice;
-
-/// <summary>
-/// Details of the transfer out request to cancel.
-/// </summary>
-public partial record TransferOutDetails : Cancellation1Choice_
-     , IIsoXmlSerilizable<TransferOutDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Cancellation1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Requested date at which the instructing party places the transfer instruction.
+    /// Details of the transfer out request to cancel.
     /// </summary>
-    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
-    /// <summary>
-    /// General information related to the transfer of a financial instrument.
-    /// </summary>
-    public Transfer20? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _flsfWRgfEeK-_89we2b-bA
-    /// <summary>
-    /// Information related to the account from which the financial instrument is to be withdrawn.
-    /// </summary>
-    public required InvestmentAccount22 AccountDetails { get; init; } 
-    /// <summary>
-    /// Information related to the receiving side of the transfer.
-    /// </summary>
-    public ReceiveInformation9? SettlementDetails { get; init; } 
-    /// <summary>
-    /// Additional information that cannot be captured in the structured elements and/or any other specific block.
-    /// </summary>
-    public Extension1? Extension { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_cgLd4Bg1EeK-_89we2b-bA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Out Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record TransferOutDetails : Cancellation1Choice_
+    #else
+    public partial class TransferOutDetails : Cancellation1Choice_
+    #endif
     {
-        if (RequestedTransferDate is DateFormat1Choice_ RequestedTransferDateValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a TransferOutDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public TransferOutDetails( InvestmentAccount22 reqAccountDetails )
         {
-            writer.WriteStartElement(null, "ReqdTrfDt", xmlNamespace );
-            RequestedTransferDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            AccountDetails = reqAccountDetails;
         }
-        // Not sure how to serialize TransferDetails, multiplicity Unknown
-        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
-        AccountDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SettlementDetails is ReceiveInformation9 SettlementDetailsValue)
-        {
-            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
-            SettlementDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new TransferOutDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Requested date at which the instructing party places the transfer instruction.
+        /// </summary>
+        [IsoId("_flsfVRgfEeK-_89we2b-bA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Requested Transfer Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DateFormat1Choice_? RequestedTransferDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateFormat1Choice_? RequestedTransferDate { get; init; } 
+        #else
+        public DateFormat1Choice_? RequestedTransferDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// General information related to the transfer of a financial instrument.
+        /// </summary>
+        [IsoId("_flsfWRgfEeK-_89we2b-bA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transfer Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public Transfer20? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _flsfWRgfEeK-_89we2b-bA
+        
+        /// <summary>
+        /// Information related to the account from which the financial instrument is to be withdrawn.
+        /// </summary>
+        [IsoId("_flsfXRgfEeK-_89we2b-bA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required InvestmentAccount22 AccountDetails { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public InvestmentAccount22 AccountDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InvestmentAccount22 AccountDetails { get; init; } 
+        #else
+        public InvestmentAccount22 AccountDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to the receiving side of the transfer.
+        /// </summary>
+        [IsoId("_flsfYRgfEeK-_89we2b-bA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Settlement Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public ReceiveInformation9? SettlementDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ReceiveInformation9? SettlementDetails { get; init; } 
+        #else
+        public ReceiveInformation9? SettlementDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information that cannot be captured in the structured elements and/or any other specific block.
+        /// </summary>
+        [IsoId("_flsfZRgfEeK-_89we2b-bA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Extension")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Extension1? Extension { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Extension1? Extension { get; init; } 
+        #else
+        public Extension1? Extension { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

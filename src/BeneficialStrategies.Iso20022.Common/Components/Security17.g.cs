@@ -7,178 +7,294 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to securities being subject to the transaction.
 /// </summary>
+[IsoId("_FF_rwdR6EemZdYGWu384Zw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Security")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Security17
-     : IIsoXmlSerilizable<Security17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined as ISIN identifier are matching or not.
     /// </summary>
+    [IsoId("_FLfPwdR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareISINIdentifier2? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareISINIdentifier2? Identification { get; init; } 
+    #else
+    public CompareISINIdentifier2? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as CFI identifier are matching or not.
     /// </summary>
+    [IsoId("_FLfPw9R6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCFIIdentifier2? ClassificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareCFIIdentifier2? ClassificationType { get; init; } 
+    #else
+    public CompareCFIIdentifier2? ClassificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
+    [IsoId("_FLfPxdR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDecimalNumber2? Quantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDecimalNumber2? Quantity { get; init; } 
+    #else
+    public CompareDecimalNumber2? Quantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [IsoId("_FLf20dR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Nominal Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection1? NominalValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareAmountAndDirection1? NominalValue { get; init; } 
+    #else
+    public CompareAmountAndDirection1? NominalValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as collateral quality type code are matching or not.
     /// </summary>
+    [IsoId("_FLf209R6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quality")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCollateralQualityType2? Quality { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareCollateralQualityType2? Quality { get; init; } 
+    #else
+    public CompareCollateralQualityType2? Quality { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
+    [IsoId("_FLf21dR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maturity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate2? Maturity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareDate2? Maturity { get; init; } 
+    #else
+    public CompareDate2? Maturity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as LEI identifier are matching or not.
     /// </summary>
+    [IsoId("_FLf219R6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification1? IssuerIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareOrganisationIdentification1? IssuerIdentifier { get; init; } 
+    #else
+    public CompareOrganisationIdentification1? IssuerIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as country code are matching or not.
     /// </summary>
+    [IsoId("_FLf22dR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCountryCode2? IssuerCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareCountryCode2? IssuerCountry { get; init; } 
+    #else
+    public CompareCountryCode2? IssuerCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as securities lending type are matching or not.
     /// </summary>
+    [IsoId("_FLf229R6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareSecuritiesLendingType2? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareSecuritiesLendingType2? Type { get; init; } 
+    #else
+    public CompareSecuritiesLendingType2? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
+    [IsoId("_FLf23dR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Price")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice3? UnitPrice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareUnitPrice3? UnitPrice { get; init; } 
+    #else
+    public CompareUnitPrice3? UnitPrice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [IsoId("_FLf239R6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exclusive Arrangement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator2? ExclusiveArrangement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareTrueFalseIndicator2? ExclusiveArrangement { get; init; } 
+    #else
+    public CompareTrueFalseIndicator2? ExclusiveArrangement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [IsoId("_FLf24dR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
+    #else
+    public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [IsoId("_FLf249R6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Available For Reuse")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator2? AvailableForReuse { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CompareTrueFalseIndicator2? AvailableForReuse { get; init; } 
+    #else
+    public CompareTrueFalseIndicator2? AvailableForReuse { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
+    [IsoId("_FLf25dR6EemZdYGWu384Zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Haircut Or Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ComparePercentageRate2? HaircutOrMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ComparePercentageRate2? HaircutOrMargin { get; init; } 
+    #else
+    public ComparePercentageRate2? HaircutOrMargin { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is CompareISINIdentifier2 IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClassificationType is CompareCFIIdentifier2 ClassificationTypeValue)
-        {
-            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
-            ClassificationTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Quantity is CompareDecimalNumber2 QuantityValue)
-        {
-            writer.WriteStartElement(null, "Qty", xmlNamespace );
-            QuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NominalValue is CompareAmountAndDirection1 NominalValueValue)
-        {
-            writer.WriteStartElement(null, "NmnlVal", xmlNamespace );
-            NominalValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Quality is CompareCollateralQualityType2 QualityValue)
-        {
-            writer.WriteStartElement(null, "Qlty", xmlNamespace );
-            QualityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Maturity is CompareDate2 MaturityValue)
-        {
-            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
-            MaturityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssuerIdentifier is CompareOrganisationIdentification1 IssuerIdentifierValue)
-        {
-            writer.WriteStartElement(null, "IssrIdr", xmlNamespace );
-            IssuerIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IssuerCountry is CompareCountryCode2 IssuerCountryValue)
-        {
-            writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
-            IssuerCountryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Type is CompareSecuritiesLendingType2 TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            TypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnitPrice is CompareUnitPrice3 UnitPriceValue)
-        {
-            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
-            UnitPriceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExclusiveArrangement is CompareTrueFalseIndicator2 ExclusiveArrangementValue)
-        {
-            writer.WriteStartElement(null, "ExclsvArrgmnt", xmlNamespace );
-            ExclusiveArrangementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MarketValue is CompareActiveOrHistoricCurrencyAndAmount2 MarketValueValue)
-        {
-            writer.WriteStartElement(null, "MktVal", xmlNamespace );
-            MarketValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AvailableForReuse is CompareTrueFalseIndicator2 AvailableForReuseValue)
-        {
-            writer.WriteStartElement(null, "AvlblForReuse", xmlNamespace );
-            AvailableForReuseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (HaircutOrMargin is ComparePercentageRate2 HaircutOrMarginValue)
-        {
-            writer.WriteStartElement(null, "HrcutOrMrgn", xmlNamespace );
-            HaircutOrMarginValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Security17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

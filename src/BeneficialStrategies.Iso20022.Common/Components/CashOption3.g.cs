@@ -7,120 +7,214 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[IsoId("_UCuMmdp-Ed-ak6NoX_4Aeg_-440974995")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Option")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashOption3
-     : IIsoXmlSerilizable<CashOption3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashOption3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashOption3( CreditDebitCode reqCreditDebitIndicator,CorporateActionDate9 reqDateDetails )
+    {
+        CreditDebitIndicator = reqCreditDebitIndicator;
+        DateDetails = reqDateDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [IsoId("_UCuMmtp-Ed-ak6NoX_4Aeg_-440974977")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    #else
+    public CreditDebitCode CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer or upon receipt of proceeds from the issuer.
     /// </summary>
+    [IsoId("_UC3WgNp-Ed-ak6NoX_4Aeg_-276588859")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contractual Payment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Payment1Code? ContractualPaymentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Payment1Code? ContractualPaymentIndicator { get; init; } 
+    #else
+    public Payment1Code? ContractualPaymentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
+    [IsoId("_UC3Wgdp-Ed-ak6NoX_4Aeg_-682472658")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Eligible Proceeds Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
+    #else
+    public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
+    [IsoId("_UC3Wgtp-Ed-ak6NoX_4Aeg_292721425")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Income Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification20? IncomeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification20? IncomeType { get; init; } 
+    #else
+    public GenericIdentification20? IncomeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
+    [IsoId("_UC3Wg9p-Ed-ak6NoX_4Aeg_25401020")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
+    #else
+    public CashAccountIdentification5Choice_? CashAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>
+    [IsoId("_UC3WhNp-Ed-ak6NoX_4Aeg_-440974587")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionAmounts3? AmountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionAmounts3? AmountDetails { get; init; } 
+    #else
+    public CorporateActionAmounts3? AmountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the dates related to a cash movement.
     /// </summary>
+    [IsoId("_UC3Whdp-Ed-ak6NoX_4Aeg_-440974698")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionDate9 DateDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionDate9 DateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDate9 DateDetails { get; init; } 
+    #else
+    public CorporateActionDate9 DateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exchange rate between the amount and the resulting amount.
     /// </summary>
+    [IsoId("_UC3Whtp-Ed-ak6NoX_4Aeg_-440974296")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Foreign Exchange Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ForeignExchangeTerms11? ForeignExchangeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ForeignExchangeTerms11? ForeignExchangeDetails { get; init; } 
+    #else
+    public ForeignExchangeTerms11? ForeignExchangeDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
+    [IsoId("_UC3Wh9p-Ed-ak6NoX_4Aeg_82662672")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Generic Cash Price Received Per Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat10Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceFormat10Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
+    #else
+    public PriceFormat10Choice_? GenericCashPriceReceivedPerProduct { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ContractualPaymentIndicator is Payment1Code ContractualPaymentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtrctlPmtInd", xmlNamespace );
-            writer.WriteValue(ContractualPaymentIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (NonEligibleProceedsIndicator is NonEligibleProceedsIndicator1Choice_ NonEligibleProceedsIndicatorValue)
-        {
-            writer.WriteStartElement(null, "NonElgblPrcdsInd", xmlNamespace );
-            NonEligibleProceedsIndicatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (IncomeType is GenericIdentification20 IncomeTypeValue)
-        {
-            writer.WriteStartElement(null, "IncmTp", xmlNamespace );
-            IncomeTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CashAccountIdentification is CashAccountIdentification5Choice_ CashAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CshAcctId", xmlNamespace );
-            CashAccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AmountDetails is CorporateActionAmounts3 AmountDetailsValue)
-        {
-            writer.WriteStartElement(null, "AmtDtls", xmlNamespace );
-            AmountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DtDtls", xmlNamespace );
-        DateDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ForeignExchangeDetails is ForeignExchangeTerms11 ForeignExchangeDetailsValue)
-        {
-            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
-            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GenericCashPriceReceivedPerProduct is PriceFormat10Choice_ GenericCashPriceReceivedPerProductValue)
-        {
-            writer.WriteStartElement(null, "GncCshPricRcvdPerPdct", xmlNamespace );
-            GenericCashPriceReceivedPerProductValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CashOption3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

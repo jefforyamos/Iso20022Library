@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the old and new values for the name of a party.
 /// </summary>
+[IsoId("_zOmJYGjVEeiRg5NzP0jkQg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Update Log Party Name")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UpdateLogPartyName1
-     : IIsoXmlSerilizable<UpdateLogPartyName1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UpdateLogPartyName1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UpdateLogPartyName1( PartyName4 reqOld,PartyName4 reqNew )
+    {
+        Old = reqOld;
+        New = reqNew;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Old value before the update.
     /// </summary>
+    [IsoId("_zOmJYWjVEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Old")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyName4 Old { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyName4 Old { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyName4 Old { get; init; } 
+    #else
+    public PartyName4 Old { get; set; } 
+    #endif
+    
     /// <summary>
     /// New value after the update.
     /// </summary>
+    [IsoId("_zOmJYmjVEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyName4 New { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyName4 New { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyName4 New { get; init; } 
+    #else
+    public PartyName4 New { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Od", xmlNamespace );
-        Old.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "New", xmlNamespace );
-        New.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static UpdateLogPartyName1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

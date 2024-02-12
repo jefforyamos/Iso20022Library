@@ -7,86 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to display, print or log.
 /// </summary>
+[IsoId("_Nf6MEYqHEeSRT5rEzcAHEw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Action Message")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ActionMessage4
-     : IIsoXmlSerilizable<ActionMessage4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information format.
     /// </summary>
+    [IsoId("_Nsa-E4qHEeSRT5rEzcAHEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat2Code? Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OutputFormat2Code? Format { get; init; } 
+    #else
+    public OutputFormat2Code? Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of the message.
     /// </summary>
+    [IsoId("_Nsa-FYqHEeSRT5rEzcAHEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? Message { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Message { get; init; } 
+    #else
+    public System.String? Message { get; set; } 
+    #endif
+    
     /// <summary>
     /// Message content if this is a message reference or screen reference.
     /// </summary>
+    [IsoId("_zAVggIqHEeSRT5rEzcAHEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reference { get; init; } 
+    #else
+    public System.String? Reference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Device to be used.
     /// </summary>
+    [IsoId("_cCmkAIqIEeSRT5rEzcAHEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Device")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMDevice1Code? Device { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ATMDevice1Code? Device { get; init; } 
+    #else
+    public ATMDevice1Code? Device { get; set; } 
+    #endif
+    
     /// <summary>
     /// Electronic signature of the message to display or print.
     /// </summary>
+    [IsoId("_ki80cIqIEeSRT5rEzcAHEw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Content Signature")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? MessageContentSignature { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? MessageContentSignature { get; init; } 
+    #else
+    public System.Byte[]? MessageContentSignature { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Format is OutputFormat2Code FormatValue)
-        {
-            writer.WriteStartElement(null, "Frmt", xmlNamespace );
-            writer.WriteValue(FormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Message is IsoMax20000Text MessageValue)
-        {
-            writer.WriteStartElement(null, "Msg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax20000Text(MessageValue)); // data type Max20000Text System.String
-            writer.WriteEndElement();
-        }
-        if (Reference is IsoMax35Text ReferenceValue)
-        {
-            writer.WriteStartElement(null, "Ref", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Device is ATMDevice1Code DeviceValue)
-        {
-            writer.WriteStartElement(null, "Dvc", xmlNamespace );
-            writer.WriteValue(DeviceValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MessageContentSignature is IsoMax35Binary MessageContentSignatureValue)
-        {
-            writer.WriteStartElement(null, "MsgCnttSgntr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(MessageContentSignatureValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static ActionMessage4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

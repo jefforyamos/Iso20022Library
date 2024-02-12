@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information on the return reason of the transaction.
 /// </summary>
+[IsoId("_TPTyptp-Ed-ak6NoX_4Aeg_335311982")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Return Reason Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReturnReasonInformation5
-     : IIsoXmlSerilizable<ReturnReasonInformation5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Bank transaction code included in the original entry for the transaction.
     /// </summary>
+    [IsoId("_TPTyp9p-Ed-ak6NoX_4Aeg_140703755")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Bank Transaction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BankTransactionCodeStructure1? OriginalBankTransactionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BankTransactionCodeStructure1? OriginalBankTransactionCode { get; init; } 
+    #else
+    public BankTransactionCodeStructure1? OriginalBankTransactionCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party issuing the return.
     /// </summary>
+    [IsoId("_TPTyqNp-Ed-ak6NoX_4Aeg_335312086")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Originator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? ReturnOriginator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification8? ReturnOriginator { get; init; } 
+    #else
+    public PartyIdentification8? ReturnOriginator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
+    [IsoId("_TPdjoNp-Ed-ak6NoX_4Aeg_335312138")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Return Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReturnReason1Choice_? ReturnReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReturnReason1Choice_? ReturnReason { get; init; } 
+    #else
+    public ReturnReason1Choice_? ReturnReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
+    [IsoId("_TPdjodp-Ed-ak6NoX_4Aeg_335312008")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Return Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalReturnReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalReturnReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalReturnReasonInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalBankTransactionCode is BankTransactionCodeStructure1 OriginalBankTransactionCodeValue)
-        {
-            writer.WriteStartElement(null, "OrgnlBkTxCd", xmlNamespace );
-            OriginalBankTransactionCodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnOriginator is PartyIdentification8 ReturnOriginatorValue)
-        {
-            writer.WriteStartElement(null, "RtrOrgtr", xmlNamespace );
-            ReturnOriginatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReturnReason is ReturnReason1Choice_ ReturnReasonValue)
-        {
-            writer.WriteStartElement(null, "RtrRsn", xmlNamespace );
-            ReturnReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReturnReasonInformation is IsoMax105Text AdditionalReturnReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRtrRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalReturnReasonInformationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReturnReasonInformation5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

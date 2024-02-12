@@ -7,63 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate information provided for a given corporate action instruction.
 /// </summary>
+[IsoId("_OBTl0MViEeeprYdSN88o0Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Certificate SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionCertificateSD1
-     : IIsoXmlSerilizable<CorporateActionCertificateSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionCertificateSD1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionCertificateSD1( System.String reqCertificateNumber )
+    {
+        CertificateNumber = reqCertificateNumber;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
+    [IsoId("_HsduNMVjEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CertificateNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CertificateNumber { get; init; } 
+    #else
+    public System.String CertificateNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional identifier assigned by DTC.
     /// </summary>
+    [IsoId("_kj2zcMVnEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15AlphaNumericText? CertificateSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificateSequenceNumber { get; init; } 
+    #else
+    public System.String? CertificateSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Registration name of the beneficial holder.
     /// </summary>
+    [IsoId("_uY8pQMVnEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Registration Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CertificateRegistrationName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CertificateRegistrationName { get; init; } 
+    #else
+    public System.String? CertificateRegistrationName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CertNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15AlphaNumericText(CertificateNumber)); // data type Max15AlphaNumericText System.String
-        writer.WriteEndElement();
-        if (CertificateSequenceNumber is IsoMax15AlphaNumericText CertificateSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "CertSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15AlphaNumericText(CertificateSequenceNumberValue)); // data type Max15AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-        if (CertificateRegistrationName is IsoMax30Text CertificateRegistrationNameValue)
-        {
-            writer.WriteStartElement(null, "CertRegnNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax30Text(CertificateRegistrationNameValue)); // data type Max30Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionCertificateSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

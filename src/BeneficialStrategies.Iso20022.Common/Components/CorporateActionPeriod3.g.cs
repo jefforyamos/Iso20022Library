@@ -7,176 +7,292 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods of a corporate action.
 /// </summary>
+[IsoId("_TZlwBdp-Ed-ak6NoX_4Aeg_635105711")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionPeriod3
-     : IIsoXmlSerilizable<CorporateActionPeriod3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
+    [IsoId("_TZlwBtp-Ed-ak6NoX_4Aeg_643414438")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Calculation Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? PriceCalculationPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? PriceCalculationPeriod { get; init; } 
+    #else
+    public Period1Choice_? PriceCalculationPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the interest rate has been applied.
     /// </summary>
+    [IsoId("_TZlwB9p-Ed-ak6NoX_4Aeg_635106185")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? InterestPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? InterestPeriod { get; init; } 
+    #else
+    public Period1Choice_? InterestPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during a take-over where any outstanding equity must be purchased by the take-over company.
     /// </summary>
+    [IsoId("_TZvhANp-Ed-ak6NoX_4Aeg_635106125")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Compulsory Purchase Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? CompulsoryPurchasePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? CompulsoryPurchasePeriod { get; init; } 
+    #else
+    public Period1Choice_? CompulsoryPurchasePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period during which the security is blocked.
     /// </summary>
+    [IsoId("_TZvhAdp-Ed-ak6NoX_4Aeg_635105796")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Blocking Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? BlockingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? BlockingPeriod { get; init; } 
+    #else
+    public Period1Choice_? BlockingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period assigned by the court in a class action. It determines the client's eligible transactions that will be included in the class action and used to determine the resulting entitlement.
     /// </summary>
+    [IsoId("_TZvhAtp-Ed-ak6NoX_4Aeg_1015593443")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Claim Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? ClaimPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? ClaimPeriod { get; init; } 
+    #else
+    public Period1Choice_? ClaimPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which book entry transfers will be accepted and the date on which the suspension will be released and book entry transfer processing will resume.
     /// </summary>
+    [IsoId("_TZvhA9p-Ed-ak6NoX_4Aeg_1077194615")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Book Entry Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForBookEntryTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForBookEntryTransfer { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForBookEntryTransfer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which deposits, into nominee name, at the agent will be accepted and the date on which the suspension will be released and deposits at agent will resume.
     /// </summary>
+    [IsoId("_TZvhBNp-Ed-ak6NoX_4Aeg_1407816466")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Deposit At Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForDepositAtAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForDepositAtAgent { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForDepositAtAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which deposits will be accepted and the date on which the suspension will be released and deposits will resume.
     /// </summary>
+    [IsoId("_TZvhBdp-Ed-ak6NoX_4Aeg_1463228591")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Deposit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForDeposit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForDeposit { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForDeposit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which pledges will be accepted and the date on which the suspension will be released and pledge processing will resume.
     /// </summary>
+    [IsoId("_TZvhBtp-Ed-ak6NoX_4Aeg_1519561963")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Pledge")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForPledge { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForPledge { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForPledge { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which intra-position balances can be segregated and the date on which the suspension will be released and the ability to segregate intra-position balances will resume.
     /// </summary>
+    [IsoId("_TZvhB9p-Ed-ak6NoX_4Aeg_1647006341")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Segregation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForSegregation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForSegregation { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForSegregation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which withdrawals, from nominee name at the agent will be accepted and the date on which the suspension will be released and withdrawals at agent processing will resume.
     /// </summary>
+    [IsoId("_TZvhCNp-Ed-ak6NoX_4Aeg_1924064084")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Withdrawal At Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForWithdrawalAtAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawalAtAgent { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawalAtAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date for which physical withdrawals in the nominee's name will be accepted and the date on which the suspension will be released and physical withdrawals in the nominee's name will resume.
     /// </summary>
+    [IsoId("_TZvhCdp-Ed-ak6NoX_4Aeg_1997946852")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Withdrawal In Nominee Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForWithdrawalInNomineeName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawalInNomineeName { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawalInNomineeName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date on which withdrawal requests in street name's will be accepted on the event security and the date on which the suspension will be released and withdrawal in street name's processing on the event security will resume.
     /// </summary>
+    [IsoId("_TZ4q8Np-Ed-ak6NoX_4Aeg_-2002418252")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Depository Suspension Period For Withdrawal In Street Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? DepositorySuspensionPeriodForWithdrawalInStreetName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawalInStreetName { get; init; } 
+    #else
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawalInStreetName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period defining the last date on which shareholder registration will be accepted by the issuer and the date on which shareholder registration will resume.
     /// </summary>
+    [IsoId("_TZ4q8dp-Ed-ak6NoX_4Aeg_91986466")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Book Closure Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? BookClosurePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period1Choice_? BookClosurePeriod { get; init; } 
+    #else
+    public Period1Choice_? BookClosurePeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PriceCalculationPeriod is Period1Choice_ PriceCalculationPeriodValue)
-        {
-            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
-            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterestPeriod is Period1Choice_ InterestPeriodValue)
-        {
-            writer.WriteStartElement(null, "IntrstPrd", xmlNamespace );
-            InterestPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CompulsoryPurchasePeriod is Period1Choice_ CompulsoryPurchasePeriodValue)
-        {
-            writer.WriteStartElement(null, "CmplsryPurchsPrd", xmlNamespace );
-            CompulsoryPurchasePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockingPeriod is Period1Choice_ BlockingPeriodValue)
-        {
-            writer.WriteStartElement(null, "BlckgPrd", xmlNamespace );
-            BlockingPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClaimPeriod is Period1Choice_ ClaimPeriodValue)
-        {
-            writer.WriteStartElement(null, "ClmPrd", xmlNamespace );
-            ClaimPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForBookEntryTransfer is Period1Choice_ DepositorySuspensionPeriodForBookEntryTransferValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForBookNtryTrf", xmlNamespace );
-            DepositorySuspensionPeriodForBookEntryTransferValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForDepositAtAgent is Period1Choice_ DepositorySuspensionPeriodForDepositAtAgentValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForDpstAtAgt", xmlNamespace );
-            DepositorySuspensionPeriodForDepositAtAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForDeposit is Period1Choice_ DepositorySuspensionPeriodForDepositValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForDpst", xmlNamespace );
-            DepositorySuspensionPeriodForDepositValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForPledge is Period1Choice_ DepositorySuspensionPeriodForPledgeValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForPldg", xmlNamespace );
-            DepositorySuspensionPeriodForPledgeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForSegregation is Period1Choice_ DepositorySuspensionPeriodForSegregationValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForSgrtn", xmlNamespace );
-            DepositorySuspensionPeriodForSegregationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForWithdrawalAtAgent is Period1Choice_ DepositorySuspensionPeriodForWithdrawalAtAgentValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForWdrwlAtAgt", xmlNamespace );
-            DepositorySuspensionPeriodForWithdrawalAtAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForWithdrawalInNomineeName is Period1Choice_ DepositorySuspensionPeriodForWithdrawalInNomineeNameValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForWdrwlInNmneeNm", xmlNamespace );
-            DepositorySuspensionPeriodForWithdrawalInNomineeNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DepositorySuspensionPeriodForWithdrawalInStreetName is Period1Choice_ DepositorySuspensionPeriodForWithdrawalInStreetNameValue)
-        {
-            writer.WriteStartElement(null, "DpstrySspnsnPrdForWdrwlInStrtNm", xmlNamespace );
-            DepositorySuspensionPeriodForWithdrawalInStreetNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BookClosurePeriod is Period1Choice_ BookClosurePeriodValue)
-        {
-            writer.WriteStartElement(null, "BookClsrPrd", xmlNamespace );
-            BookClosurePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionPeriod3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

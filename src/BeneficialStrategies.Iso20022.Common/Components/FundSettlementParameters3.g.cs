@@ -7,90 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[IsoId("_QVV74tp-Ed-ak6NoX_4Aeg_1340706993")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Settlement Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundSettlementParameters3
-     : IIsoXmlSerilizable<FundSettlementParameters3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FundSettlementParameters3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FundSettlementParameters3( PartyIdentification2Choice_ reqSettlementPlace,DeliveringPartiesAndAccount3 reqDeliveringSideDetails )
+    {
+        SettlementPlace = reqSettlementPlace;
+        DeliveringSideDetails = reqDeliveringSideDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [IsoId("_QVV749p-Ed-ak6NoX_4Aeg_1340707070")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? SettlementDate { get; init; } 
+    #else
+    public System.DateOnly? SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the settlement of transaction will take place. In the context of the investment funds, the place of settlement is the transfer agent, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [IsoId("_QVV75Np-Ed-ak6NoX_4Aeg_1340707019")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ SettlementPlace { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification2Choice_ SettlementPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_ SettlementPlace { get; init; } 
+    #else
+    public PartyIdentification2Choice_ SettlementPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
+    [IsoId("_QVV75dp-Ed-ak6NoX_4Aeg_1340707028")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Place")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
+    #else
+    public PartyIdentification2Choice_? SafekeepingPlace { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
+    [IsoId("_QVV75tp-Ed-ak6NoX_4Aeg_1340707053")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Settlement System Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecuritiesSettlementSystemIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecuritiesSettlementSystemIdentification { get; init; } 
+    #else
+    public System.String? SecuritiesSettlementSystemIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction resulting in the movement of a security from one account to another.
     /// </summary>
+    [IsoId("_QVV759p-Ed-ak6NoX_4Aeg_1340707149")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiving Side Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReceivingPartiesAndAccount3? ReceivingSideDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReceivingPartiesAndAccount3? ReceivingSideDetails { get; init; } 
+    #else
+    public ReceivingPartiesAndAccount3? ReceivingSideDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction resulting in the movement of a security from one account to another.
     /// </summary>
+    [IsoId("_QVV76Np-Ed-ak6NoX_4Aeg_1340707120")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Delivering Side Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveringPartiesAndAccount3 DeliveringSideDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DeliveringPartiesAndAccount3 DeliveringSideDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DeliveringPartiesAndAccount3 DeliveringSideDetails { get; init; } 
+    #else
+    public DeliveringPartiesAndAccount3 DeliveringSideDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SettlementDate is IsoISODate SettlementDateValue)
-        {
-            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmPlc", xmlNamespace );
-        SettlementPlace.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SafekeepingPlace is PartyIdentification2Choice_ SafekeepingPlaceValue)
-        {
-            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
-            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecuritiesSettlementSystemIdentification is IsoMax35Text SecuritiesSettlementSystemIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SctiesSttlmSysId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesSettlementSystemIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ReceivingSideDetails is ReceivingPartiesAndAccount3 ReceivingSideDetailsValue)
-        {
-            writer.WriteStartElement(null, "RcvgSdDtls", xmlNamespace );
-            ReceivingSideDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "DlvrgSdDtls", xmlNamespace );
-        DeliveringSideDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static FundSettlementParameters3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

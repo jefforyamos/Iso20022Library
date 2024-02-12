@@ -9,70 +9,125 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.LimitStructure1Choice;
-
-/// <summary>
-/// Identification of the current limit.
-/// </summary>
-public partial record AllCurrentLimits : LimitStructure1Choice_
-     , IIsoXmlSerilizable<AllCurrentLimits>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.LimitStructure1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Identification of a particular cash clearing system.
+    /// Identification of the current limit.
     /// </summary>
-    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
-    /// <summary>
-    /// Nature of the risk management limit.
-    /// </summary>
-    public required LimitType1Choice_ Type { get; init; } 
-    /// <summary>
-    /// Owner of the account which is being queried.
-    /// </summary>
-    public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
-    /// <summary>
-    /// Unique and unambiguous identification for the account between the account owner and the account servicer.
-    /// </summary>
-    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_72iECqMgEeCJ6YNENx4h-w_2133302233")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("All Current Limits")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AllCurrentLimits : LimitStructure1Choice_
+    #else
+    public partial class AllCurrentLimits : LimitStructure1Choice_
+    #endif
     {
-        if (SystemIdentification is SystemIdentification2Choice_ SystemIdentificationValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AllCurrentLimits instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AllCurrentLimits( LimitType1Choice_ reqType )
         {
-            writer.WriteStartElement(null, "SysId", xmlNamespace );
-            SystemIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Type = reqType;
         }
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AccountOwner is BranchAndFinancialInstitutionIdentification5 AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            AccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new AllCurrentLimits Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Identification of a particular cash clearing system.
+        /// </summary>
+        [IsoId("_79Y59KMgEeCJ6YNENx4h-w_1467741043")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("System Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SystemIdentification2Choice_? SystemIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SystemIdentification2Choice_? SystemIdentification { get; init; } 
+        #else
+        public SystemIdentification2Choice_? SystemIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Nature of the risk management limit.
+        /// </summary>
+        [IsoId("_79Y59aMgEeCJ6YNENx4h-w_-939946563")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required LimitType1Choice_ Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public LimitType1Choice_ Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LimitType1Choice_ Type { get; init; } 
+        #else
+        public LimitType1Choice_ Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Owner of the account which is being queried.
+        /// </summary>
+        [IsoId("_79Y59qMgEeCJ6YNENx4h-w_1519150628")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Owner")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
+        #else
+        public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique and unambiguous identification for the account between the account owner and the account servicer.
+        /// </summary>
+        [IsoId("_79Y596MgEeCJ6YNENx4h-w_-938620996")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Account Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+        #else
+        public AccountIdentification4Choice_? AccountIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

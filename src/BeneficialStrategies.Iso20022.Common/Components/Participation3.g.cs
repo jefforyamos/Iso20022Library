@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the level of participation to a shareholders meeting.
 /// </summary>
+[IsoId("_TlEANNp-Ed-ak6NoX_4Aeg_578416366")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Participation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Participation3
-     : IIsoXmlSerilizable<Participation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
+    [IsoId("_TlEANdp-Ed-ak6NoX_4Aeg_578416397")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Voting Rights")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfVotingRights { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfVotingRights { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of rights participating to the vote versus total voting rights.
     /// </summary>
+    [IsoId("_TlEANtp-Ed-ak6NoX_4Aeg_578416736")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Of Voting Rights")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfVotingRights { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PercentageOfVotingRights { get; init; } 
+    #else
+    public System.Decimal? PercentageOfVotingRights { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
+    [IsoId("_TlEAN9p-Ed-ak6NoX_4Aeg_578416427")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Securities Outstanding")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    #else
+    public System.Decimal? TotalNumberOfSecuritiesOutstanding { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of calculation of the total number of oustanding securities.
     /// </summary>
+    [IsoId("_TlEAONp-Ed-ak6NoX_4Aeg_578416767")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Calculation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CalculationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CalculationDate { get; init; } 
+    #else
+    public System.DateOnly? CalculationDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalNumberOfVotingRights is IsoNumber TotalNumberOfVotingRightsValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfVtngRghts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfVotingRightsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PercentageOfVotingRights is IsoPercentageRate PercentageOfVotingRightsValue)
-        {
-            writer.WriteStartElement(null, "PctgOfVtngRghts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfVotingRightsValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfSecuritiesOutstanding is IsoActiveCurrencyAndAmount TotalNumberOfSecuritiesOutstandingValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfSctiesOutsdng", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalNumberOfSecuritiesOutstandingValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CalculationDate is IsoISODate CalculationDateValue)
-        {
-            writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CalculationDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static Participation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

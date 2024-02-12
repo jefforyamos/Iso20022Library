@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the price of the securities transaction.
-/// </summary>
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.MonetaryValue))]
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.Unit))]
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.Percentage))]
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.Yield))]
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.Decimal))]
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.PendingPrice))]
-[KnownType(typeof(SecuritiesTransactionPrice19Choice.Other))]
-public abstract partial record SecuritiesTransactionPrice19Choice_ : IIsoXmlSerilizable<SecuritiesTransactionPrice19Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the price of the securities transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SecuritiesTransactionPrice19Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.MonetaryValue))]
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.Unit))]
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.Percentage))]
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.Yield))]
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.Decimal))]
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.PendingPrice))]
+    [KnownType(typeof(SecuritiesTransactionPrice19Choice.Other))]
+    [IsoId("_P98b4MgqEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Transaction Price 19 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SecuritiesTransactionPrice19Choice_
+    #else
+    public abstract partial class SecuritiesTransactionPrice19Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MntryVal" => SecuritiesTransactionPrice19Choice.MonetaryValue.Deserialize(elementWithPayload),
-             "Unit" => SecuritiesTransactionPrice19Choice.Unit.Deserialize(elementWithPayload),
-             "Pctg" => SecuritiesTransactionPrice19Choice.Percentage.Deserialize(elementWithPayload),
-             "Yld" => SecuritiesTransactionPrice19Choice.Yield.Deserialize(elementWithPayload),
-             "Dcml" => SecuritiesTransactionPrice19Choice.Decimal.Deserialize(elementWithPayload),
-             "PdgPric" => SecuritiesTransactionPrice19Choice.PendingPrice.Deserialize(elementWithPayload),
-             "Othr" => SecuritiesTransactionPrice19Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SecuritiesTransactionPrice19Choice choice.")
-        };
     }
 }

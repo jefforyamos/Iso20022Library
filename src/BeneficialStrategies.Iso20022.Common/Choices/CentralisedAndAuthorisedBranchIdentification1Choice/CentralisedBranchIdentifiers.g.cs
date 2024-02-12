@@ -9,39 +9,57 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchIdentification1Choice;
-
-/// <summary>
-/// Identifier of the centralised branch.
-/// </summary>
-public partial record CentralisedBranchIdentifiers : CentralisedAndAuthorisedBranchIdentification1Choice_
-     , IIsoXmlSerilizable<CentralisedBranchIdentifiers>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchIdentification1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Repeated identifiers.
+    /// Identifier of the centralised branch.
     /// </summary>
-    public FinancialInstitutionIdentification9? List { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _Bwxs8CD1Eeav65mEytrgaA
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_VMAeEB9qEeapDZRA0Hb6ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Centralised Branch Identifiers")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record CentralisedBranchIdentifiers : CentralisedAndAuthorisedBranchIdentification1Choice_
+    #else
+    public partial class CentralisedBranchIdentifiers : CentralisedAndAuthorisedBranchIdentification1Choice_
+    #endif
     {
-        // Not sure how to serialize List, multiplicity Unknown
-    }
-    public static new CentralisedBranchIdentifiers Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Repeated identifiers.
+        /// </summary>
+        [IsoId("_Bwxs8CD1Eeav65mEytrgaA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("List")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public FinancialInstitutionIdentification9? List { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _Bwxs8CD1Eeav65mEytrgaA
+        
+        
+        #nullable disable
+        
     }
 }

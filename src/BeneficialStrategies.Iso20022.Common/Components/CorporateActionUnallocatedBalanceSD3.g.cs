@@ -7,127 +7,203 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance types related to an unallocated redemption payment.
 /// </summary>
+[IsoId("_QvgRnb-8Eeeb2ZBoAlSG1Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Unallocated Balance SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionUnallocatedBalanceSD3
-     : IIsoXmlSerilizable<CorporateActionUnallocatedBalanceSD3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
+    [IsoId("_Q_IB4b-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Eligible Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? TotalEligibleBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// The quantity that has been determined to be redeemed if the participant had
     /// position in a redemption security.
     /// </summary>
+    [IsoId("_Q_IB77-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Affected Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? AffectedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? AffectedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? AffectedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Positions balance remaining after lottery is run.
     /// </summary>
+    [IsoId("_Q_IB8b-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unaffected Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? UnaffectedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? UnaffectedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? UnaffectedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position that account holders should return to the account servicer to participate in the event or to fulfil their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
+    [IsoId("_Q_IB87-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Obligated Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? ObligatedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? ObligatedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? ObligatedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Position held in a security as of the day prior to publication date. This position is subject to a redemption lottery call when this is the first lottery. This balance will not be adjusted for the supplemental or concurrent lotteries and will remain constant to report the original position.
     /// </summary>
+    [IsoId("_Q_IB9b-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? OriginalBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? OriginalBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? OriginalBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the original balance position held in DTC general free account as of day prior to publication date. Position held in this account is subject to redemption lottery call.
     /// </summary>
+    [IsoId("_Q_IB97-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? PledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? PledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? PledgedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the original balance position held in DTC general free account as of day prior to publication date. Position held in this account is subject to redemption lottery call.
     /// </summary>
+    [IsoId("_Q_IB-b-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unpledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? UnpledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? UnpledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? UnpledgedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the original balance position held in DTC investment account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
+    [IsoId("_Q_IB-7-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Pledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? InvestmentPledgedBalance { get; set; } 
+    #endif
+    
     /// <summary>
     /// Portion of the original balance position held in DTC segregated account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
+    [IsoId("_Q_IB_b-8Eeeb2ZBoAlSG1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Unpledged Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
+    #else
+    public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalEligibleBalance is SignedQuantityFormat9 TotalEligibleBalanceValue)
-        {
-            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
-            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AffectedBalance is SignedQuantityFormat9 AffectedBalanceValue)
-        {
-            writer.WriteStartElement(null, "AfctdBal", xmlNamespace );
-            AffectedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnaffectedBalance is SignedQuantityFormat9 UnaffectedBalanceValue)
-        {
-            writer.WriteStartElement(null, "UafctdBal", xmlNamespace );
-            UnaffectedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ObligatedBalance is SignedQuantityFormat9 ObligatedBalanceValue)
-        {
-            writer.WriteStartElement(null, "OblgtdBal", xmlNamespace );
-            ObligatedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalBalance is SignedQuantityFormat9 OriginalBalanceValue)
-        {
-            writer.WriteStartElement(null, "OrgnlBal", xmlNamespace );
-            OriginalBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PledgedBalance is SignedQuantityFormat9 PledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "PldgdBal", xmlNamespace );
-            PledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnpledgedBalance is SignedQuantityFormat9 UnpledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "UpldgdBal", xmlNamespace );
-            UnpledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentPledgedBalance is SignedQuantityFormat9 InvestmentPledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "InvstmtPldgdBal", xmlNamespace );
-            InvestmentPledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentUnpledgedBalance is SignedQuantityFormat9 InvestmentUnpledgedBalanceValue)
-        {
-            writer.WriteStartElement(null, "InvstmtUpldgdBal", xmlNamespace );
-            InvestmentUnpledgedBalanceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionUnallocatedBalanceSD3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

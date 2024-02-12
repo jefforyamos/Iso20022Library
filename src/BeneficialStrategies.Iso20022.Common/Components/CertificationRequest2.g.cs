@@ -7,69 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information of the certificate to create.
 /// </summary>
+[IsoId("_Bv1XkY4SEeW6h7rGyYlyTg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Certification Request")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CertificationRequest2
-     : IIsoXmlSerilizable<CertificationRequest2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CertificationRequest2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CertificationRequest2( PublicRSAKey2 reqSubjectPublicKeyInformation )
+    {
+        SubjectPublicKeyInformation = reqSubjectPublicKeyInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the certificate request information data structure.
     /// </summary>
+    [IsoId("_B8DOoY4SEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Distinguished name of the certificate subject, the entity whose public key is to be certified.
     /// </summary>
+    [IsoId("_jCXvQI4SEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subject Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CertificateIssuer1? SubjectName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CertificateIssuer1? SubjectName { get; init; } 
+    #else
+    public CertificateIssuer1? SubjectName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about the public key being certified.
     /// </summary>
+    [IsoId("_I9cYUI4TEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subject Public Key Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
+    #else
+    public PublicRSAKey2 SubjectPublicKeyInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
     /// </summary>
+    [IsoId("_ECnAkI4UEeW6h7rGyYlyTg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public RelativeDistinguishedName2? Attribute { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ECnAkI4UEeW6h7rGyYlyTg
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (SubjectName is CertificateIssuer1 SubjectNameValue)
-        {
-            writer.WriteStartElement(null, "SbjtNm", xmlNamespace );
-            SubjectNameValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SbjtPblcKeyInf", xmlNamespace );
-        SubjectPublicKeyInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize Attribute, multiplicity Unknown
-    }
-    public static CertificationRequest2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

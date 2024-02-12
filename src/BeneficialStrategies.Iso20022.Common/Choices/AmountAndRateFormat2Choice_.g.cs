@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of rate formats.
-/// </summary>
-[KnownType(typeof(AmountAndRateFormat2Choice.Amount))]
-[KnownType(typeof(AmountAndRateFormat2Choice.NotSpecifiedRate))]
-public abstract partial record AmountAndRateFormat2Choice_ : IIsoXmlSerilizable<AmountAndRateFormat2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of rate formats.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AmountAndRateFormat2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AmountAndRateFormat2Choice.Amount))]
+    [KnownType(typeof(AmountAndRateFormat2Choice.NotSpecifiedRate))]
+    [IsoId("_UH8Dydp-Ed-ak6NoX_4Aeg_568622010")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount And Rate Format 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AmountAndRateFormat2Choice_
+    #else
+    public abstract partial class AmountAndRateFormat2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Amt" => AmountAndRateFormat2Choice.Amount.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => AmountAndRateFormat2Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AmountAndRateFormat2Choice choice.")
-        };
     }
 }

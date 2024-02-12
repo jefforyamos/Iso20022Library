@@ -7,96 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vehicle rental service provides detailed vehicle rental information.
 /// </summary>
+[IsoId("_9dqxI_TdEeife6veM7daYw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Vehicle Rental Service")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VehicleRentalService1
-     : IIsoXmlSerilizable<VehicleRentalService1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Company in charge of a vehicle rental service.
     /// </summary>
+    [IsoId("_9dqxJPTdEeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vehicle Rental Company")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VehicleRentalCompany1? VehicleRentalCompany { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VehicleRentalCompany1? VehicleRentalCompany { get; init; } 
+    #else
+    public VehicleRentalCompany1? VehicleRentalCompany { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer renting a vehicle.
     /// </summary>
+    [IsoId("_9dqxJfTdEeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VehicleRentalCustomer1? Customer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VehicleRentalCustomer1? Customer { get; init; } 
+    #else
+    public VehicleRentalCustomer1? Customer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_h6EcwfTeEeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agreement (contract) related to a vehicle rental service.
     /// </summary>
+    [IsoId("_exWYUPTeEeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rental Agreement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VehicleRentalAgreement1? RentalAgreement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VehicleRentalAgreement1? RentalAgreement { get; init; } 
+    #else
+    public VehicleRentalAgreement1? RentalAgreement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Invoice related to a vehicle rental service.
     /// </summary>
+    [IsoId("_sJKG8PTeEeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rental Invoice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VehicleRentalInvoice1? RentalInvoice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VehicleRentalInvoice1? RentalInvoice { get; init; } 
+    #else
+    public VehicleRentalInvoice1? RentalInvoice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional user-defined data pertaining to the vehicle rental. 
     /// </summary>
+    [IsoId("_w51nsfTeEeife6veM7daYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (VehicleRentalCompany is VehicleRentalCompany1 VehicleRentalCompanyValue)
-        {
-            writer.WriteStartElement(null, "VhclRntlCpny", xmlNamespace );
-            VehicleRentalCompanyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Customer is VehicleRentalCustomer1 CustomerValue)
-        {
-            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
-            CustomerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RentalAgreement is VehicleRentalAgreement1 RentalAgreementValue)
-        {
-            writer.WriteStartElement(null, "RntlAgrmt", xmlNamespace );
-            RentalAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RentalInvoice is VehicleRentalInvoice1 RentalInvoiceValue)
-        {
-            writer.WriteStartElement(null, "RntlInvc", xmlNamespace );
-            RentalInvoiceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static VehicleRentalService1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

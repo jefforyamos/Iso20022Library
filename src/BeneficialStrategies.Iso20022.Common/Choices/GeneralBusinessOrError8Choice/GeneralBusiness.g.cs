@@ -9,63 +9,104 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError8Choice;
-
-/// <summary>
-/// Requested business information.
-/// </summary>
-public partial record GeneralBusiness : GeneralBusinessOrError8Choice_
-     , IIsoXmlSerilizable<GeneralBusiness>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError8Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Further information about the criticality or importance of a general business information system.
+    /// Requested business information.
     /// </summary>
-    public InformationQualifierType1? Qualifier { get; init; } 
-    /// <summary>
-    /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
-    /// </summary>
-    public IsoMax35Text? Subject { get; init; } 
-    /// <summary>
-    /// General business information, in unstructured form.
-    /// </summary>
-    public IsoMax350Text? SubjectDetails { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Q2Ivw3hdEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Business")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record GeneralBusiness : GeneralBusinessOrError8Choice_
+    #else
+    public partial class GeneralBusiness : GeneralBusinessOrError8Choice_
+    #endif
     {
-        if (Qualifier is InformationQualifierType1 QualifierValue)
-        {
-            writer.WriteStartElement(null, "Qlfr", xmlNamespace );
-            QualifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Subject is IsoMax35Text SubjectValue)
-        {
-            writer.WriteStartElement(null, "Sbjt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubjectValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SubjectDetails is IsoMax350Text SubjectDetailsValue)
-        {
-            writer.WriteStartElement(null, "SbjtDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(SubjectDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static new GeneralBusiness Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Further information about the criticality or importance of a general business information system.
+        /// </summary>
+        [IsoId("_MpLIgZlgEeeE1Ya-LgRsuQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Qualifier")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public InformationQualifierType1? Qualifier { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public InformationQualifierType1? Qualifier { get; init; } 
+        #else
+        public InformationQualifierType1? Qualifier { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
+        /// </summary>
+        [IsoId("_MpLIg5lgEeeE1Ya-LgRsuQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Subject")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? Subject { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Subject { get; init; } 
+        #else
+        public System.String? Subject { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// General business information, in unstructured form.
+        /// </summary>
+        [IsoId("_MpLIhZlgEeeE1Ya-LgRsuQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Subject Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? SubjectDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? SubjectDetails { get; init; } 
+        #else
+        public System.String? SubjectDetails { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

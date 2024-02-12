@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about successor account for automated default funds transfer.
 /// </summary>
+[IsoId("_7rRPoCDmEeav65mEytrgaA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Default Account Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DefaultAccountDetails1
-     : IIsoXmlSerilizable<DefaultAccountDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DefaultAccountDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DefaultAccountDetails1( FinancialInstitutionIdentification9 reqAccountOwner,CashAccount24 reqAccount )
+    {
+        AccountOwner = reqAccountOwner;
+        Account = reqAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Account owner identification.
     /// </summary>
+    [IsoId("_Q7KfYCDoEeav65mEytrgaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+    #else
+    public FinancialInstitutionIdentification9 AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account identification.
     /// </summary>
+    [IsoId("_X8ZGcCDoEeav65mEytrgaA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 Account { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount24 Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24 Account { get; init; } 
+    #else
+    public CashAccount24 Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information about time and event fund transfer.
     /// </summary>
+    [IsoId("_kgosACc8Eea7avjfd7yDAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Daily Fund Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DailyFundTransfer1Choice_? DailyFundTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DailyFundTransfer1Choice_? DailyFundTransfer { get; init; } 
+    #else
+    public DailyFundTransfer1Choice_? DailyFundTransfer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-        AccountOwner.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Acct", xmlNamespace );
-        Account.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (DailyFundTransfer is DailyFundTransfer1Choice_ DailyFundTransferValue)
-        {
-            writer.WriteStartElement(null, "DalyFndTrf", xmlNamespace );
-            DailyFundTransferValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DefaultAccountDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

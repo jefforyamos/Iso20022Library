@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unless bilaterally agreed between the Sender and the Receiver, additional information must not contain information that can be provided in a structured field.
 /// </summary>
+[IsoId("_2xhasLzhEeivTd4NUfCi2g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalInformation24
-     : IIsoXmlSerilizable<AdditionalInformation24>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides additional information on the collateral instruction.
     /// </summary>
+    [IsoId("_M3nIELziEeivTd4NUfCi2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Instruction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? CollateralInstruction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralInstruction { get; init; } 
+    #else
+    public System.String? CollateralInstruction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Narrative information visible to other parties.
     /// </summary>
+    [IsoId("_dOOxMLziEeivTd4NUfCi2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Note")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Note { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Note { get; init; } 
+    #else
+    public System.String? Note { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CollateralInstruction is IsoMax350Text CollateralInstructionValue)
-        {
-            writer.WriteStartElement(null, "CollInstr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(CollateralInstructionValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Note is IsoMax350Text NoteValue)
-        {
-            writer.WriteStartElement(null, "Note", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NoteValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AdditionalInformation24 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

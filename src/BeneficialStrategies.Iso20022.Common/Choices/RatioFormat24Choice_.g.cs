@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format to express a ratio.
-/// </summary>
-[KnownType(typeof(RatioFormat24Choice.QuantityToQuantity))]
-[KnownType(typeof(RatioFormat24Choice.NotSpecifiedRate))]
-[KnownType(typeof(RatioFormat24Choice.AmountToAmount))]
-[KnownType(typeof(RatioFormat24Choice.AmountToQuantity))]
-[KnownType(typeof(RatioFormat24Choice.QuantityToAmount))]
-public abstract partial record RatioFormat24Choice_ : IIsoXmlSerilizable<RatioFormat24Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format to express a ratio.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RatioFormat24Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RatioFormat24Choice.QuantityToQuantity))]
+    [KnownType(typeof(RatioFormat24Choice.NotSpecifiedRate))]
+    [KnownType(typeof(RatioFormat24Choice.AmountToAmount))]
+    [KnownType(typeof(RatioFormat24Choice.AmountToQuantity))]
+    [KnownType(typeof(RatioFormat24Choice.QuantityToAmount))]
+    [IsoId("_cti6epKQEeWHWpTQn1FFVg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ratio Format 24 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RatioFormat24Choice_
+    #else
+    public abstract partial class RatioFormat24Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "QtyToQty" => RatioFormat24Choice.QuantityToQuantity.Deserialize(elementWithPayload),
-             "NotSpcfdRate" => RatioFormat24Choice.NotSpecifiedRate.Deserialize(elementWithPayload),
-             "AmtToAmt" => RatioFormat24Choice.AmountToAmount.Deserialize(elementWithPayload),
-             "AmtToQty" => RatioFormat24Choice.AmountToQuantity.Deserialize(elementWithPayload),
-             "QtyToAmt" => RatioFormat24Choice.QuantityToAmount.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RatioFormat24Choice choice.")
-        };
     }
 }

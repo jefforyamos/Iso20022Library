@@ -7,123 +7,211 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information required for the settlement the transaction.
 /// </summary>
+[IsoId("_QH7yANp-Ed-ak6NoX_4Aeg_-1468499267")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementInformation3
-     : IIsoXmlSerilizable<SettlementInformation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementInformation3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementInformation3( SettlementMethod1Code reqSettlementMethod )
+    {
+        SettlementMethod = reqSettlementMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
+    [IsoId("_QH7yAdp-Ed-ak6NoX_4Aeg_-1468498972")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementMethod1Code SettlementMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementMethod1Code SettlementMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementMethod1Code SettlementMethod { get; init; } 
+    #else
+    public SettlementMethod1Code SettlementMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// A specific purpose account used to post debit and credit entries as a result of the transaction.
     /// </summary>
+    [IsoId("_QH7yAtp-Ed-ak6NoX_4Aeg_-1468498397")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? SettlementAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? SettlementAccount { get; init; } 
+    #else
+    public CashAccount7? SettlementAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
+    [IsoId("_QH7yA9p-Ed-ak6NoX_4Aeg_-1468498353")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing System")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemIdentification1Choice_? ClearingSystem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingSystemIdentification1Choice_? ClearingSystem { get; init; } 
+    #else
+    public ClearingSystemIdentification1Choice_? ClearingSystem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the agent through which the instructing agent will reimburse the instructed agent.||Usage: If the instructing and instructed agents have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
+    [IsoId("_QH7yBNp-Ed-ak6NoX_4Aeg_-1468498006")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing Reimbursement Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? InstructingReimbursementAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification3? InstructingReimbursementAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification3? InstructingReimbursementAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the instructing reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_QH7yBdp-Ed-ak6NoX_4Aeg_-1467577932")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing Reimbursement Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? InstructingReimbursementAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? InstructingReimbursementAgentAccount { get; init; } 
+    #else
+    public CashAccount7? InstructingReimbursementAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Agent at which the instructed agent will be reimbursed.||Usage: If InstructedReimbursementAgent contains a branch of the InstructedAgent, then the instructed agent will claim reimbursement from that branch/will be paid by that branch.||Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
+    [IsoId("_QH7yBtp-Ed-ak6NoX_4Aeg_-1468498301")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Reimbursement Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? InstructedReimbursementAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification3? InstructedReimbursementAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification3? InstructedReimbursementAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the instructed reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_QH7yB9p-Ed-ak6NoX_4Aeg_-1467577880")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Reimbursement Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? InstructedReimbursementAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? InstructedReimbursementAgentAccount { get; init; } 
+    #else
+    public CashAccount7? InstructedReimbursementAgentAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the branch of the instructed agent where the amount of money will be made available when different from the instructed reimbursement agent.
     /// </summary>
+    [IsoId("_QH7yCNp-Ed-ak6NoX_4Aeg_-1468497964")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Third Reimbursement Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? ThirdReimbursementAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification3? ThirdReimbursementAgent { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification3? ThirdReimbursementAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account of the third reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
+    [IsoId("_QH7yCdp-Ed-ak6NoX_4Aeg_-1467577837")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Third Reimbursement Agent Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? ThirdReimbursementAgentAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount7? ThirdReimbursementAgentAccount { get; init; } 
+    #else
+    public CashAccount7? ThirdReimbursementAgentAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
-        writer.WriteValue(SettlementMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SettlementAccount is CashAccount7 SettlementAccountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAcct", xmlNamespace );
-            SettlementAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingSystem is ClearingSystemIdentification1Choice_ ClearingSystemValue)
-        {
-            writer.WriteStartElement(null, "ClrSys", xmlNamespace );
-            ClearingSystemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructingReimbursementAgent is BranchAndFinancialInstitutionIdentification3 InstructingReimbursementAgentValue)
-        {
-            writer.WriteStartElement(null, "InstgRmbrsmntAgt", xmlNamespace );
-            InstructingReimbursementAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructingReimbursementAgentAccount is CashAccount7 InstructingReimbursementAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "InstgRmbrsmntAgtAcct", xmlNamespace );
-            InstructingReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructedReimbursementAgent is BranchAndFinancialInstitutionIdentification3 InstructedReimbursementAgentValue)
-        {
-            writer.WriteStartElement(null, "InstdRmbrsmntAgt", xmlNamespace );
-            InstructedReimbursementAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructedReimbursementAgentAccount is CashAccount7 InstructedReimbursementAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "InstdRmbrsmntAgtAcct", xmlNamespace );
-            InstructedReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ThirdReimbursementAgent is BranchAndFinancialInstitutionIdentification3 ThirdReimbursementAgentValue)
-        {
-            writer.WriteStartElement(null, "ThrdRmbrsmntAgt", xmlNamespace );
-            ThirdReimbursementAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ThirdReimbursementAgentAccount is CashAccount7 ThirdReimbursementAgentAccountValue)
-        {
-            writer.WriteStartElement(null, "ThrdRmbrsmntAgtAcct", xmlNamespace );
-            ThirdReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementInformation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

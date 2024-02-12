@@ -7,100 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies further details of the party.
 /// </summary>
+[IsoId("_SlObEPH6Eeaz_YGUGLjP6A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Detail")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyDetail1
-     : IIsoXmlSerilizable<PartyDetail1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PartyDetail1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PartyDetail1( System.String reqPartyType,SupervisingAuthorityIdentification1Choice_ reqSupervisingAuthority )
+    {
+        PartyType = reqPartyType;
+        SupervisingAuthority = reqSupervisingAuthority;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Full name of the party.
     /// </summary>
+    [IsoId("_00Q3QfH6Eeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Full Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FullName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FullName { get; init; } 
+    #else
+    public System.String? FullName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of the party as recorded in the registration in its legal jurisdiction.
     /// </summary>
+    [IsoId("_XbkCcfH7Eeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Country { get; init; } 
+    #else
+    public string? Country { get; set; } 
+    #endif
+    
     /// <summary>
     /// Code indicating the type of party as per local regulation.
     /// </summary>
+    [IsoId("_tWbeYfKXEeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 10 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text PartyType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PartyType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PartyType { get; init; } 
+    #else
+    public System.String PartyType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information detail about the institution supervising the party under the local regulation.
     /// </summary>
+    [IsoId("_gsrzEPH8Eeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supervising Authority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; init; } 
+    #else
+    public SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Address used to communicate with the party as recorded in the registration in its legal jurisdiction.
     /// </summary>
+    [IsoId("_My_DEogNEeeMp7TnNqgLag")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Postal Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? PostalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress6? PostalAddress { get; init; } 
+    #else
+    public PostalAddress6? PostalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Communication device number or electronic address used for communicating with the party.
     /// </summary>
+    [IsoId("_hblHIfIBEeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress7? Contact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CommunicationAddress7? Contact { get; init; } 
+    #else
+    public CommunicationAddress7? Contact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Any other additional information about the party.
     /// </summary>
+    [IsoId("_zxVFQfKXEeaz_YGUGLjP6A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Comment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? Comment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Comment { get; init; } 
+    #else
+    public System.String? Comment { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FullName is IsoMax350Text FullNameValue)
-        {
-            writer.WriteStartElement(null, "FullNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Country is CountryCode CountryValue)
-        {
-            writer.WriteStartElement(null, "Ctry", xmlNamespace );
-            writer.WriteValue(CountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PtyTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax10Text(PartyType)); // data type Max10Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SprvsgAuthrty", xmlNamespace );
-        SupervisingAuthority.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PostalAddress is PostalAddress6 PostalAddressValue)
-        {
-            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
-            PostalAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Contact is CommunicationAddress7 ContactValue)
-        {
-            writer.WriteStartElement(null, "Ctct", xmlNamespace );
-            ContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Comment is IsoMax20000Text CommentValue)
-        {
-            writer.WriteStartElement(null, "Cmnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax20000Text(CommentValue)); // data type Max20000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyDetail1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[IsoId("_7io28fNiEeqRfth943bvEA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Individual Person")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IndividualPerson41
-     : IIsoXmlSerilizable<IndividualPerson41>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IndividualPerson41 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IndividualPerson41( AttendanceCard3 reqAttendanceCardDetails )
+    {
+        AttendanceCardDetails = reqAttendanceCardDetails;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the proxy.
     /// </summary>
+    [IsoId("_8LjRE_NiEeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification232Choice_? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification232Choice_? Identification { get; init; } 
+    #else
+    public PartyIdentification232Choice_? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
+    [IsoId("_pwPvMPNpEeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Participation Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VotingParticipationMethod2Code? ParticipationMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VotingParticipationMethod2Code? ParticipationMethod { get; init; } 
+    #else
+    public VotingParticipationMethod2Code? ParticipationMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Organisation represented by the person, or for which the person works.
     /// </summary>
+    [IsoId("_8LjRFfNiEeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Employing Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification129Choice_? EmployingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification129Choice_? EmployingParty { get; init; } 
+    #else
+    public PartyIdentification129Choice_? EmployingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the attendance card.
     /// </summary>
+    [IsoId("_8LjRF_NiEeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attendance Card Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AttendanceCard3 AttendanceCardDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AttendanceCard3 AttendanceCardDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AttendanceCard3 AttendanceCardDetails { get; init; } 
+    #else
+    public AttendanceCard3 AttendanceCardDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is PartyIdentification232Choice_ IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ParticipationMethod is VotingParticipationMethod2Code ParticipationMethodValue)
-        {
-            writer.WriteStartElement(null, "PrtcptnMtd", xmlNamespace );
-            writer.WriteValue(ParticipationMethodValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EmployingParty is PartyIdentification129Choice_ EmployingPartyValue)
-        {
-            writer.WriteStartElement(null, "EmplngPty", xmlNamespace );
-            EmployingPartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AttndncCardDtls", xmlNamespace );
-        AttendanceCardDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static IndividualPerson41 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

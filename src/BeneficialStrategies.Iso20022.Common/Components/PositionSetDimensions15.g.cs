@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets.
 /// </summary>
+[IsoId("_hOjrQcguEeuGrNSsxk3B0A")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set Dimensions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSetDimensions15
-     : IIsoXmlSerilizable<PositionSetDimensions15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
+    [IsoId("_hP-nk8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_? ReportingCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
+    [IsoId("_hP-nlcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_? OtherCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
+    [IsoId("_hP-nl8guEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Portfolio Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? CollateralPortfolioIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CollateralPortfolioIdentification { get; init; } 
+    #else
+    public System.String? CollateralPortfolioIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Flag to identify whether the reported Securities Financing Transaction position contains abnormal values.
     /// </summary>
+    [IsoId("_hP-nmcguEeuGrNSsxk3B0A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Outliers Included")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OutliersIncluded { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OutliersIncluded { get; init; } 
+    #else
+    public System.String? OutliersIncluded { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportingCounterparty is OrganisationIdentification15Choice_ ReportingCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
-            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCounterparty is OrganisationIdentification15Choice_ OtherCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
-            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralPortfolioIdentification is IsoMax52Text CollateralPortfolioIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CollPrtflId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(CollateralPortfolioIdentificationValue)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (OutliersIncluded is IsoTrueFalseIndicator OutliersIncludedValue)
-        {
-            writer.WriteStartElement(null, "OtlrsIncl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutliersIncludedValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PositionSetDimensions15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

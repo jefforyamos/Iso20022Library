@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of formats to express the type of cash balance.
 /// </summary>
+[IsoId("_Rl0FQdp-Ed-ak6NoX_4Aeg_-1191454030")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cash Balance Type 1 Format Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CashBalanceType1FormatType
-     : IIsoXmlSerilizable<CashBalanceType1FormatType>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CashBalanceType1FormatType instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CashBalanceType1FormatType( CashBalanceType1Code reqCode,GenericIdentification13 reqProprietary )
+    {
+        Code = reqCode;
+        Proprietary = reqProprietary;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Standard code to specify the type of cash balance.
     /// </summary>
+    [IsoId("_Rl0FQtp-Ed-ak6NoX_4Aeg_736479285")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashBalanceType1Code Code { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashBalanceType1Code Code { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashBalanceType1Code Code { get; init; } 
+    #else
+    public CashBalanceType1Code Code { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary code to express the type of cash balance.
     /// </summary>
+    [IsoId("_Rl0FQ9p-Ed-ak6NoX_4Aeg_736479254")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proprietary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification13 Proprietary { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification13 Proprietary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification13 Proprietary { get; init; } 
+    #else
+    public GenericIdentification13 Proprietary { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Cd", xmlNamespace );
-        writer.WriteValue(Code.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Prtry", xmlNamespace );
-        Proprietary.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CashBalanceType1FormatType Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

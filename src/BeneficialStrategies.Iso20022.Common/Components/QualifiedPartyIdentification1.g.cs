@@ -7,9 +7,15 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
@@ -18,71 +24,123 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Multiple references can be given to identify the same party.
 /// A short identification can be used for display purposes.
 /// </summary>
+[IsoId("_OTgzMjEy-AOSNFX-8224491")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Qualified Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record QualifiedPartyIdentification1
-     : IIsoXmlSerilizable<QualifiedPartyIdentification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a QualifiedPartyIdentification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public QualifiedPartyIdentification1( System.String reqIdentification )
+    {
+        Identification = reqIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Schema ID to be used in IDREF values.
     /// </summary>
+    [IsoId("_OTgzMjU0-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoID Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of identifications for the same party.
     /// </summary>
+    [IsoId("_OTgzMjU1-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public SingleQualifiedPartyIdentification1? Party { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzMjU1-AOSNFX-8224494
+    
     /// <summary>
     /// Short identification of the resulting party as a control mechanism for humans.
     /// </summary>
+    [IsoId("_OTgzMjU2-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? ShortIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? ShortIdentification { get; init; } 
+    #else
+    public PartyIdentification2Choice_? ShortIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Formally defined role qualifying the party.
     /// </summary>
+    [IsoId("_OTgzMjU3-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Role")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? Role { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification1? Role { get; init; } 
+    #else
+    public GenericIdentification1? Role { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free form description of the party's role.
     /// </summary>
+    [IsoId("_OTgzMjU4-AOSNFX-8224494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Role Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? RoleDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RoleDescription { get; init; } 
+    #else
+    public System.String? RoleDescription { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoID(Identification)); // data type ID System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize Party, multiplicity Unknown
-        if (ShortIdentification is PartyIdentification2Choice_ ShortIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ShrtId", xmlNamespace );
-            ShortIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Role is GenericIdentification1 RoleValue)
-        {
-            writer.WriteStartElement(null, "Role", xmlNamespace );
-            RoleValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RoleDescription is IsoMax256Text RoleDescriptionValue)
-        {
-            writer.WriteStartElement(null, "RoleDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(RoleDescriptionValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static QualifiedPartyIdentification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

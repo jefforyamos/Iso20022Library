@@ -7,100 +7,179 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a transaction.
 /// </summary>
+[IsoId("_96PRVnltEeG7BsjMvd1mEw_-533314240")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Underlying Trade Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UnderlyingTradeTransaction1
-     : IIsoXmlSerilizable<UnderlyingTradeTransaction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UnderlyingTradeTransaction1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UnderlyingTradeTransaction1( UnderlyingTradeTransactionType1Choice_ reqType )
+    {
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of underlying transaction such as a tender, order, contract.
     /// </summary>
+    [IsoId("_96PRV3ltEeG7BsjMvd1mEw_145675419")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingTradeTransactionType1Choice_ Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UnderlyingTradeTransactionType1Choice_ Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UnderlyingTradeTransactionType1Choice_ Type { get; init; } 
+    #else
+    public UnderlyingTradeTransactionType1Choice_ Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the underlying transaction.
     /// </summary>
+    [IsoId("_96PRWHltEeG7BsjMvd1mEw_-1698193570")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Identification { get; init; } 
+    #else
+    public System.String? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the underlying transaction was issued or awarded.
     /// </summary>
+    [IsoId("_96PRWXltEeG7BsjMvd1mEw_-1244106301")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TransactionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TransactionDate { get; init; } 
+    #else
+    public System.DateOnly? TransactionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date the tender closes.
     /// </summary>
+    [IsoId("_96PRWnltEeG7BsjMvd1mEw_211943685")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tender Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TenderClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TenderClosingDate { get; init; } 
+    #else
+    public System.DateOnly? TenderClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the underlying transaction.
     /// </summary>
+    [IsoId("_96YbQHltEeG7BsjMvd1mEw_-1461796889")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TransactionAmount { get; init; } 
+    #else
+    public System.Decimal? TransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the underlying contract covered by the undertaking.
     /// </summary>
+    [IsoId("_96YbQXltEeG7BsjMvd1mEw_-304059961")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Amount Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ContractAmountPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ContractAmountPercentage { get; init; } 
+    #else
+    public System.Decimal? ContractAmountPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the underlying transaction.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_96YbQnltEeG7BsjMvd1mEw_-826765043")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        Type.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Identification is IsoMax35Text IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionDate is IsoISODate TransactionDateValue)
-        {
-            writer.WriteStartElement(null, "TxDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TransactionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TenderClosingDate is IsoISODate TenderClosingDateValue)
-        {
-            writer.WriteStartElement(null, "TndrClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TenderClosingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TransactionAmount is IsoActiveCurrencyAndAmount TransactionAmountValue)
-        {
-            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ContractAmountPercentage is IsoPercentageRate ContractAmountPercentageValue)
-        {
-            writer.WriteStartElement(null, "CtrctAmtPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ContractAmountPercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static UnderlyingTradeTransaction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

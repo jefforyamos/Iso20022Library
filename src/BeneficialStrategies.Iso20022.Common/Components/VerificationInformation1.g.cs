@@ -7,97 +7,155 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains verification information.
 /// </summary>
+[IsoId("_SSs6A9ImEeirx-13kKhDlQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Verification Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VerificationInformation1
-     : IIsoXmlSerilizable<VerificationInformation1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of the verification or authentication.
     /// ISO 8583:2003 bit 34
     /// </summary>
+    [IsoId("_SSthENImEeirx-13kKhDlQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Type { get; init; } 
+    #else
+    public System.String? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the data to be verified or authenticated.
     /// </summary>
+    [IsoId("_SSthEdImEeirx-13kKhDlQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VerificationValue1Choice_? Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VerificationValue1Choice_? Value { get; init; } 
+    #else
+    public VerificationValue1Choice_? Value { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason to perform the verification.
     /// </summary>
+    [IsoId("_DDFDQdIoEeirx-13kKhDlQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Reason { get; init; } 
+    #else
+    public System.String? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time when the verification was performed.
     /// </summary>
+    [IsoId("__IV3sGzVEemD24gVaMSpeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DateTime { get; init; } 
+    #else
+    public System.DateTime? DateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains end date of the verification that has been performed. 
     /// </summary>
+    [IsoId("_akg48GzWEemD24gVaMSpeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity End Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidityEndDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValidityEndDate { get; init; } 
+    #else
+    public System.DateOnly? ValidityEndDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains end time of the verification that has been performed. 
     /// </summary>
+    [IsoId("_OOdrgHC2EemD24gVaMSpeA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validity End Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ValidityEndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.TimeOnly? ValidityEndTime { get; init; } 
+    #else
+    public System.TimeOnly? ValidityEndTime { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is IsoMax35Text TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Value is VerificationValue1Choice_ ValueValue)
-        {
-            writer.WriteStartElement(null, "Val", xmlNamespace );
-            ValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Reason is IsoMax35Text ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (DateTime is IsoISODateTime DateTimeValue)
-        {
-            writer.WriteStartElement(null, "DtTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (ValidityEndDate is IsoISODate ValidityEndDateValue)
-        {
-            writer.WriteStartElement(null, "VldtyEndDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidityEndDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ValidityEndTime is IsoISOTime ValidityEndTimeValue)
-        {
-            writer.WriteStartElement(null, "VldtyEndTm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOTime(ValidityEndTimeValue)); // data type ISOTime System.TimeOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static VerificationInformation1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

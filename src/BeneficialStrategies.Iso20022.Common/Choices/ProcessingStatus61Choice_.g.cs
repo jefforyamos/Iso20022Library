@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the processing status.
-/// </summary>
-[KnownType(typeof(ProcessingStatus61Choice.PendingCancellation))]
-[KnownType(typeof(ProcessingStatus61Choice.Rejected))]
-[KnownType(typeof(ProcessingStatus61Choice.Repair))]
-[KnownType(typeof(ProcessingStatus61Choice.AcknowledgedAccepted))]
-[KnownType(typeof(ProcessingStatus61Choice.Proprietary))]
-[KnownType(typeof(ProcessingStatus61Choice.Denied))]
-[KnownType(typeof(ProcessingStatus61Choice.Cancelled))]
-public abstract partial record ProcessingStatus61Choice_ : IIsoXmlSerilizable<ProcessingStatus61Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the processing status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ProcessingStatus61Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ProcessingStatus61Choice.PendingCancellation))]
+    [KnownType(typeof(ProcessingStatus61Choice.Rejected))]
+    [KnownType(typeof(ProcessingStatus61Choice.Repair))]
+    [KnownType(typeof(ProcessingStatus61Choice.AcknowledgedAccepted))]
+    [KnownType(typeof(ProcessingStatus61Choice.Proprietary))]
+    [KnownType(typeof(ProcessingStatus61Choice.Denied))]
+    [KnownType(typeof(ProcessingStatus61Choice.Cancelled))]
+    [IsoId("_6QDryZNLEeWGlc8L7oPDIg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status 61 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ProcessingStatus61Choice_
+    #else
+    public abstract partial class ProcessingStatus61Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PdgCxl" => ProcessingStatus61Choice.PendingCancellation.Deserialize(elementWithPayload),
-             "Rjctd" => ProcessingStatus61Choice.Rejected.Deserialize(elementWithPayload),
-             "Rpr" => ProcessingStatus61Choice.Repair.Deserialize(elementWithPayload),
-             "AckdAccptd" => ProcessingStatus61Choice.AcknowledgedAccepted.Deserialize(elementWithPayload),
-             "Prtry" => ProcessingStatus61Choice.Proprietary.Deserialize(elementWithPayload),
-             "Dnd" => ProcessingStatus61Choice.Denied.Deserialize(elementWithPayload),
-             "Canc" => ProcessingStatus61Choice.Cancelled.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ProcessingStatus61Choice choice.")
-        };
     }
 }

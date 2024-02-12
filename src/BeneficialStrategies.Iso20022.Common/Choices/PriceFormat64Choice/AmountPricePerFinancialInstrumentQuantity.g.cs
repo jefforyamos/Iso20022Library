@@ -9,54 +9,113 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PriceFormat64Choice;
-
-/// <summary>
-/// Price expressed as a ratio: amount price per financial instrument quantity.
-/// </summary>
-public partial record AmountPricePerFinancialInstrumentQuantity : PriceFormat64Choice_
-     , IIsoXmlSerilizable<AmountPricePerFinancialInstrumentQuantity>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PriceFormat64Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of amount price.
+    /// Price expressed as a ratio: amount price per financial instrument quantity.
     /// </summary>
-    public required AmountPriceType1Code AmountPriceType { get; init; } 
-    /// <summary>
-    /// Value of the price.
-    /// </summary>
-    public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
-    /// <summary>
-    /// Quantity of financial instrument.
-    /// </summary>
-    public required FinancialInstrumentQuantity33Choice_ FinancialInstrumentQuantity { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_HuURMRuyEeyhRdHRjakS2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Price Per Financial Instrument Quantity")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record AmountPricePerFinancialInstrumentQuantity : PriceFormat64Choice_
+    #else
+    public partial class AmountPricePerFinancialInstrumentQuantity : PriceFormat64Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "AmtPricTp", xmlNamespace );
-        writer.WriteValue(AmountPriceType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PricVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(PriceValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrmQty", xmlNamespace );
-        FinancialInstrumentQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new AmountPricePerFinancialInstrumentQuantity Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a AmountPricePerFinancialInstrumentQuantity instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public AmountPricePerFinancialInstrumentQuantity( AmountPriceType1Code reqAmountPriceType,System.Decimal reqPriceValue,FinancialInstrumentQuantity33Choice_ reqFinancialInstrumentQuantity )
+        {
+            AmountPriceType = reqAmountPriceType;
+            PriceValue = reqPriceValue;
+            FinancialInstrumentQuantity = reqFinancialInstrumentQuantity;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of amount price.
+        /// </summary>
+        [IsoId("_IDLG0RuyEeyhRdHRjakS2w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount Price Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required AmountPriceType1Code AmountPriceType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public AmountPriceType1Code AmountPriceType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AmountPriceType1Code AmountPriceType { get; init; } 
+        #else
+        public AmountPriceType1Code AmountPriceType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value of the price.
+        /// </summary>
+        [IsoId("_IDLG2RuyEeyhRdHRjakS2w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Price Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal PriceValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal PriceValue { get; init; } 
+        #else
+        public System.Decimal PriceValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Quantity of financial instrument.
+        /// </summary>
+        [IsoId("_IDLG4RuyEeyhRdHRjakS2w")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument Quantity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required FinancialInstrumentQuantity33Choice_ FinancialInstrumentQuantity { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public FinancialInstrumentQuantity33Choice_ FinancialInstrumentQuantity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentQuantity33Choice_ FinancialInstrumentQuantity { get; init; } 
+        #else
+        public FinancialInstrumentQuantity33Choice_ FinancialInstrumentQuantity { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

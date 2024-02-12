@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Classification of a master agreement.
-/// </summary>
-[KnownType(typeof(AgreementType2Choice.Type))]
-[KnownType(typeof(AgreementType2Choice.Proprietary))]
-public abstract partial record AgreementType2Choice_ : IIsoXmlSerilizable<AgreementType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Classification of a master agreement.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AgreementType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AgreementType2Choice.Type))]
+    [KnownType(typeof(AgreementType2Choice.Proprietary))]
+    [IsoId("_Nw6gQS4yEeuxhbw_aW6haw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AgreementType2Choice_
+    #else
+    public abstract partial class AgreementType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Tp" => AgreementType2Choice.Type.Deserialize(elementWithPayload),
-             "Prtry" => AgreementType2Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AgreementType2Choice choice.")
-        };
     }
 }

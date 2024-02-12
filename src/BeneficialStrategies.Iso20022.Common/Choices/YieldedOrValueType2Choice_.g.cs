@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of value type.
-/// </summary>
-[KnownType(typeof(YieldedOrValueType2Choice.Yielded))]
-[KnownType(typeof(YieldedOrValueType2Choice.ValueType))]
-public abstract partial record YieldedOrValueType2Choice_ : IIsoXmlSerilizable<YieldedOrValueType2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of value type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static YieldedOrValueType2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(YieldedOrValueType2Choice.Yielded))]
+    [KnownType(typeof(YieldedOrValueType2Choice.ValueType))]
+    [IsoId("_UyctRQycEeuG8M5giQ2e0w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Yielded Or Value Type 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record YieldedOrValueType2Choice_
+    #else
+    public abstract partial class YieldedOrValueType2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Yldd" => YieldedOrValueType2Choice.Yielded.Deserialize(elementWithPayload),
-             "ValTp" => YieldedOrValueType2Choice.ValueType.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid YieldedOrValueType2Choice choice.")
-        };
     }
 }

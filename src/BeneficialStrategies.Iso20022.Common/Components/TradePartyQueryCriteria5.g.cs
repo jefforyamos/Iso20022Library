@@ -7,143 +7,247 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the queried trade parties.
 /// </summary>
+[IsoId("_ahZU0a1TEemkQYpo6COeTA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Party Query Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradePartyQueryCriteria5
-     : IIsoXmlSerilizable<TradePartyQueryCriteria5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradePartyQueryCriteria5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradePartyQueryCriteria5( Operation3Code reqOperator )
+    {
+        Operator = reqOperator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
+    [IsoId("_alkDI61TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Operator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Operation3Code Operator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Operation3Code Operator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Operation3Code Operator { get; init; } 
+    #else
+    public Operation3Code Operator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the reporting counterparty of the contract.
     /// </summary>
+    [IsoId("_alkDJa1TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? ReportingCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? ReportingCounterparty { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? ReportingCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to branch of the reporting counterparty and related fields.
     /// </summary>
+    [IsoId("_alkDJ61TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Counterparty Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery9? ReportingCounterpartyBranch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery9? ReportingCounterpartyBranch { get; init; } 
+    #else
+    public TradePartyIdentificationQuery9? ReportingCounterpartyBranch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the other counterparty of the contract.
     /// </summary>
+    [IsoId("_alkDKa1TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? OtherCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? OtherCounterparty { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? OtherCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data specific to branch of the other reporting counterparty and related fields.
     /// </summary>
+    [IsoId("_alkDK61TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Counterparty Branch")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery9? OtherCounterpartyBranch { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery9? OtherCounterpartyBranch { get; init; } 
+    #else
+    public TradePartyIdentificationQuery9? OtherCounterpartyBranch { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party subject to the rights and obligations arising from the contract.
     /// </summary>
+    [IsoId("_alkDLa1TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? Beneficiary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? Beneficiary { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? Beneficiary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the submitting agent of the reported of the contract.
     /// </summary>
+    [IsoId("_alkDL61TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Submitting Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? SubmittingAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? SubmittingAgent { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? SubmittingAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the broker who acts as an intermediary for the reporting counterparty.
     /// </summary>
+    [IsoId("_alkDMa1TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Broker")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? Broker { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? Broker { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? Broker { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique code for the CCP that has cleared the contract.
     /// </summary>
+    [IsoId("_alkDM61TEemkQYpo6COeTA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CCP")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? CCP { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? CCP { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? CCP { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
+    [IsoId("_NRqOsq60EemZxoEFHjN-AQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Lender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? AgentLender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? AgentLender { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? AgentLender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
+    [IsoId("_NRqOs660EemZxoEFHjN-AQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentificationQuery8? TripartyAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradePartyIdentificationQuery8? TripartyAgent { get; init; } 
+    #else
+    public TradePartyIdentificationQuery8? TripartyAgent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
-        writer.WriteValue(Operator.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ReportingCounterparty is TradePartyIdentificationQuery8 ReportingCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
-            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportingCounterpartyBranch is TradePartyIdentificationQuery9 ReportingCounterpartyBranchValue)
-        {
-            writer.WriteStartElement(null, "RptgCtrPtyBrnch", xmlNamespace );
-            ReportingCounterpartyBranchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCounterparty is TradePartyIdentificationQuery8 OtherCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
-            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCounterpartyBranch is TradePartyIdentificationQuery9 OtherCounterpartyBranchValue)
-        {
-            writer.WriteStartElement(null, "OthrCtrPtyBrnch", xmlNamespace );
-            OtherCounterpartyBranchValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Beneficiary is TradePartyIdentificationQuery8 BeneficiaryValue)
-        {
-            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
-            BeneficiaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubmittingAgent is TradePartyIdentificationQuery8 SubmittingAgentValue)
-        {
-            writer.WriteStartElement(null, "SubmitgAgt", xmlNamespace );
-            SubmittingAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Broker is TradePartyIdentificationQuery8 BrokerValue)
-        {
-            writer.WriteStartElement(null, "Brkr", xmlNamespace );
-            BrokerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CCP is TradePartyIdentificationQuery8 CCPValue)
-        {
-            writer.WriteStartElement(null, "CCP", xmlNamespace );
-            CCPValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgentLender is TradePartyIdentificationQuery8 AgentLenderValue)
-        {
-            writer.WriteStartElement(null, "AgtLndr", xmlNamespace );
-            AgentLenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TripartyAgent is TradePartyIdentificationQuery8 TripartyAgentValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
-            TripartyAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradePartyQueryCriteria5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

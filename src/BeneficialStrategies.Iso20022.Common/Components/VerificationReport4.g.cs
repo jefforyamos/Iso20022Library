@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the verification of identification data for which verification was requested.
 /// </summary>
+[IsoId("_d114MdcZEeqRFcf2R4bPBw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Verification Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record VerificationReport4
-     : IIsoXmlSerilizable<VerificationReport4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a VerificationReport4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public VerificationReport4( System.String reqOriginalIdentification,System.String reqVerification )
+    {
+        OriginalIdentification = reqOriginalIdentification;
+        Verification = reqVerification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the original message.
     /// </summary>
+    [IsoId("_d4SIMdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalIdentification { get; init; } 
+    #else
+    public System.String OriginalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether the party and/or account information received is correct.
     /// </summary>
+    [IsoId("_d4SIM9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoIdentificationVerificationIndicator Verification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Verification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Verification { get; init; } 
+    #else
+    public System.String Verification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason why the verified identification information is incorrect.
     /// </summary>
+    [IsoId("_d4SINdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VerificationReason1Choice_? Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public VerificationReason1Choice_? Reason { get; init; } 
+    #else
+    public VerificationReason1Choice_? Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
+    [IsoId("_d4SvQdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Party And Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IdentificationInformation4? OriginalPartyAndAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IdentificationInformation4? OriginalPartyAndAccountIdentification { get; init; } 
+    #else
+    public IdentificationInformation4? OriginalPartyAndAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides party and/or account identification information.
     /// </summary>
+    [IsoId("_d4SvQ9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Updated Party And Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IdentificationInformation4? UpdatedPartyAndAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IdentificationInformation4? UpdatedPartyAndAccountIdentification { get; init; } 
+    #else
+    public IdentificationInformation4? UpdatedPartyAndAccountIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OrgnlId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Vrfctn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoIdentificationVerificationIndicator(Verification)); // data type IdentificationVerificationIndicator System.String
-        writer.WriteEndElement();
-        if (Reason is VerificationReason1Choice_ ReasonValue)
-        {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalPartyAndAccountIdentification is IdentificationInformation4 OriginalPartyAndAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPtyAndAcctId", xmlNamespace );
-            OriginalPartyAndAccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UpdatedPartyAndAccountIdentification is IdentificationInformation4 UpdatedPartyAndAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "UpdtdPtyAndAcctId", xmlNamespace );
-            UpdatedPartyAndAccountIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static VerificationReport4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

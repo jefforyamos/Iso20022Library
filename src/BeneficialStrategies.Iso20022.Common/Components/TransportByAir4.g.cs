@@ -7,100 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
+[IsoId("_yXPisdQwEeK0PPbKncCqzA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transport By Air")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransportByAir4
-     : IIsoXmlSerilizable<TransportByAir4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransportByAir4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransportByAir4( AirportName1Choice_ reqDepartureAirport,AirportName1Choice_ reqDestinationAirport )
+    {
+        DepartureAirport = reqDepartureAirport;
+        DestinationAirport = reqDestinationAirport;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
+    [IsoId("_y08LUdQwEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Departure Airport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AirportName1Choice_ DepartureAirport { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AirportName1Choice_ DepartureAirport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AirportName1Choice_ DepartureAirport { get; init; } 
+    #else
+    public AirportName1Choice_ DepartureAirport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
+    [IsoId("_y08LU9QwEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination Airport")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AirportName1Choice_ DestinationAirport { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AirportName1Choice_ DestinationAirport { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AirportName1Choice_ DestinationAirport { get; init; } 
+    #else
+    public AirportName1Choice_ DestinationAirport { get; set; } 
+    #endif
+    
     /// <summary>
     /// Flight number allocated by the airline that is carrying the goods from an airport of departure to an airport of destination;.
     /// </summary>
+    [IsoId("_-uNGENQ1EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Flight Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FlightNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FlightNumber { get; init; } 
+    #else
+    public System.String? FlightNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [IsoId("_y08LVdQwEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Air Carrier Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AirCarrierName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AirCarrierName { get; init; } 
+    #else
+    public System.String? AirCarrierName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
+    [IsoId("_EWTXANQ2EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Air Carrier Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? AirCarrierCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? AirCarrierCountry { get; init; } 
+    #else
+    public string? AirCarrierCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_JJ8sMNQ2EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CarrierAgentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CarrierAgentName { get; init; } 
+    #else
+    public System.String? CarrierAgentName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [IsoId("_L7-H4NQ2EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Carrier Agent Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CarrierAgentCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? CarrierAgentCountry { get; init; } 
+    #else
+    public string? CarrierAgentCountry { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "DprtureAirprt", xmlNamespace );
-        DepartureAirport.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DstnAirprt", xmlNamespace );
-        DestinationAirport.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (FlightNumber is IsoMax35Text FlightNumberValue)
-        {
-            writer.WriteStartElement(null, "FlghtNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(FlightNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AirCarrierName is IsoMax70Text AirCarrierNameValue)
-        {
-            writer.WriteStartElement(null, "AirCrrierNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AirCarrierNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AirCarrierCountry is CountryCode AirCarrierCountryValue)
-        {
-            writer.WriteStartElement(null, "AirCrrierCtry", xmlNamespace );
-            writer.WriteValue(AirCarrierCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentName is IsoMax70Text CarrierAgentNameValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CarrierAgentNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (CarrierAgentCountry is CountryCode CarrierAgentCountryValue)
-        {
-            writer.WriteStartElement(null, "CrrierAgtCtry", xmlNamespace );
-            writer.WriteValue(CarrierAgentCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static TransportByAir4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

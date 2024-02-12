@@ -7,100 +7,171 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification and information about a securities account and balance.
 /// </summary>
+[IsoId("_xJCsBTT5Ee2j2eQlcOSMKg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Safekeeping Account")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SafekeepingAccount15
-     : IIsoXmlSerilizable<SafekeepingAccount15>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the securities account between the account owner and the account servicer.
     /// </summary>
+    [IsoId("_xey5hzT5Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AccountIdentification { get; init; } 
+    #else
+    public System.String? AccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [IsoId("_Dp-3kTT6Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Chain Address Or Wallet")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? BlockChainAddressOrWallet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BlockChainAddressOrWallet { get; init; } 
+    #else
+    public System.String? BlockChainAddressOrWallet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [IsoId("_xey5iTT5Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Owner")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification231Choice_? AccountOwner { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification231Choice_? AccountOwner { get; init; } 
+    #else
+    public PartyIdentification231Choice_? AccountOwner { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
+    [IsoId("_xey5izT5Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Account Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubAccountIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubAccountIdentification { get; init; } 
+    #else
+    public System.String? SubAccountIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public ValueList<HoldingBalance12> InstructedBalance { get; init; } = [];
+    [IsoId("_xey5jTT5Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Balance")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(15)]
+    #endif
+    public ValueList<HoldingBalance12> InstructedBalance { get; init; } = new ValueList<HoldingBalance12>(){};
+    
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public ValueList<PartyIdentification246Choice_> RightsHolder { get; init; } = [];
+    [IsoId("_xey5jzT5Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rights Holder")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(250)]
+    #endif
+    public ValueList<PartyIdentification246Choice_> RightsHolder { get; init; } = new ValueList<PartyIdentification246Choice_>(){};
+    
     /// <summary>
     /// Detailed information about the pledge.
     /// </summary>
+    [IsoId("_xey5kTT5Ee2j2eQlcOSMKg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pledge Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PledgeInformation1? PledgeDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PledgeInformation1? PledgeDetails { get; init; } 
+    #else
+    public PledgeInformation1? PledgeDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (BlockChainAddressOrWallet is IsoMax140Text BlockChainAddressOrWalletValue)
-        {
-            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(BlockChainAddressOrWalletValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccountOwner is PartyIdentification231Choice_ AccountOwnerValue)
-        {
-            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
-            AccountOwnerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SubAccountIdentification is IsoMax35Text SubAccountIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SubAcctId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubAccountIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstdBal", xmlNamespace );
-        InstructedBalance.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RghtsHldr", xmlNamespace );
-        RightsHolder.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PledgeDetails is PledgeInformation1 PledgeDetailsValue)
-        {
-            writer.WriteStartElement(null, "PldgDtls", xmlNamespace );
-            PledgeDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SafekeepingAccount15 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

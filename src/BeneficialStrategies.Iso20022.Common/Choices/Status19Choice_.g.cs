@@ -7,56 +7,45 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status.
-/// </summary>
-[KnownType(typeof(Status19Choice.AffirmationStatus))]
-[KnownType(typeof(Status19Choice.AllocationStatus))]
-[KnownType(typeof(Status19Choice.RepoCallRequestStatus))]
-[KnownType(typeof(Status19Choice.CorporateActionEventProcessingStatus))]
-[KnownType(typeof(Status19Choice.CorporateActionEventStage))]
-[KnownType(typeof(Status19Choice.InferredMatchingStatus))]
-[KnownType(typeof(Status19Choice.InstructionProcessingStatus))]
-[KnownType(typeof(Status19Choice.MatchingStatus))]
-[KnownType(typeof(Status19Choice.RegistrationProcessingStatus))]
-[KnownType(typeof(Status19Choice.ResponseStatus))]
-[KnownType(typeof(Status19Choice.ReplacementProcessingStatus))]
-[KnownType(typeof(Status19Choice.CancellationProcessingStatus))]
-[KnownType(typeof(Status19Choice.SettlementStatus))]
-[KnownType(typeof(Status19Choice.SettlementConditionModificationStatus))]
-public abstract partial record Status19Choice_ : IIsoXmlSerilizable<Status19Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Status19Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Status19Choice.AffirmationStatus))]
+    [KnownType(typeof(Status19Choice.AllocationStatus))]
+    [KnownType(typeof(Status19Choice.RepoCallRequestStatus))]
+    [KnownType(typeof(Status19Choice.CorporateActionEventProcessingStatus))]
+    [KnownType(typeof(Status19Choice.CorporateActionEventStage))]
+    [KnownType(typeof(Status19Choice.InferredMatchingStatus))]
+    [KnownType(typeof(Status19Choice.InstructionProcessingStatus))]
+    [KnownType(typeof(Status19Choice.MatchingStatus))]
+    [KnownType(typeof(Status19Choice.RegistrationProcessingStatus))]
+    [KnownType(typeof(Status19Choice.ResponseStatus))]
+    [KnownType(typeof(Status19Choice.ReplacementProcessingStatus))]
+    [KnownType(typeof(Status19Choice.CancellationProcessingStatus))]
+    [KnownType(typeof(Status19Choice.SettlementStatus))]
+    [KnownType(typeof(Status19Choice.SettlementConditionModificationStatus))]
+    [IsoId("_8nU2ETqpEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status 19 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Status19Choice_
+    #else
+    public abstract partial class Status19Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AffirmSts" => Status19Choice.AffirmationStatus.Deserialize(elementWithPayload),
-             "AllcnSts" => Status19Choice.AllocationStatus.Deserialize(elementWithPayload),
-             "RepoCallReqSts" => Status19Choice.RepoCallRequestStatus.Deserialize(elementWithPayload),
-             "CorpActnEvtPrcgSts" => Status19Choice.CorporateActionEventProcessingStatus.Deserialize(elementWithPayload),
-             "CorpActnEvtStag" => Status19Choice.CorporateActionEventStage.Deserialize(elementWithPayload),
-             "IfrrdMtchgSts" => Status19Choice.InferredMatchingStatus.Deserialize(elementWithPayload),
-             "InstrPrcgSts" => Status19Choice.InstructionProcessingStatus.Deserialize(elementWithPayload),
-             "MtchgSts" => Status19Choice.MatchingStatus.Deserialize(elementWithPayload),
-             "RegnPrcgSts" => Status19Choice.RegistrationProcessingStatus.Deserialize(elementWithPayload),
-             "RspnSts" => Status19Choice.ResponseStatus.Deserialize(elementWithPayload),
-             "RplcmntPrcgSts" => Status19Choice.ReplacementProcessingStatus.Deserialize(elementWithPayload),
-             "CxlPrcgSts" => Status19Choice.CancellationProcessingStatus.Deserialize(elementWithPayload),
-             "SttlmSts" => Status19Choice.SettlementStatus.Deserialize(elementWithPayload),
-             "SttlmCondModSts" => Status19Choice.SettlementConditionModificationStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Status19Choice choice.")
-        };
     }
 }

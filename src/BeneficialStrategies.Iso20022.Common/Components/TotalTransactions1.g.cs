@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of element providing summary information on entries.
 /// </summary>
+[IsoId("_RUOmA9p-Ed-ak6NoX_4Aeg_896893198")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Total Transactions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TotalTransactions1
-     : IIsoXmlSerilizable<TotalTransactions1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the total number and sum of debit and credit entries.
     /// </summary>
+    [IsoId("_RUOmBNp-Ed-ak6NoX_4Aeg_-1534408850")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Entries")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberAndSumOfTransactions2? TotalEntries { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndSumOfTransactions2? TotalEntries { get; init; } 
+    #else
+    public NumberAndSumOfTransactions2? TotalEntries { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the total number and sum of credit entries.
     /// </summary>
+    [IsoId("_RUOmBdp-Ed-ak6NoX_4Aeg_-1217643484")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Credit Entries")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberAndSumOfTransactions1? TotalCreditEntries { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndSumOfTransactions1? TotalCreditEntries { get; init; } 
+    #else
+    public NumberAndSumOfTransactions1? TotalCreditEntries { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the total number and sum of debit entries.
     /// </summary>
+    [IsoId("_RUOmBtp-Ed-ak6NoX_4Aeg_-1493776586")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Debit Entries")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberAndSumOfTransactions1? TotalDebitEntries { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndSumOfTransactions1? TotalDebitEntries { get; init; } 
+    #else
+    public NumberAndSumOfTransactions1? TotalDebitEntries { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the total number and sum of entries per bank transaction code.
     /// </summary>
+    [IsoId("_RUOmB9p-Ed-ak6NoX_4Aeg_-1074496666")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Entries Per Bank Transaction Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberAndSumOfTransactionsPerBankTransactionCode1? TotalEntriesPerBankTransactionCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberAndSumOfTransactionsPerBankTransactionCode1? TotalEntriesPerBankTransactionCode { get; init; } 
+    #else
+    public NumberAndSumOfTransactionsPerBankTransactionCode1? TotalEntriesPerBankTransactionCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TotalEntries is NumberAndSumOfTransactions2 TotalEntriesValue)
-        {
-            writer.WriteStartElement(null, "TtlNtries", xmlNamespace );
-            TotalEntriesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalCreditEntries is NumberAndSumOfTransactions1 TotalCreditEntriesValue)
-        {
-            writer.WriteStartElement(null, "TtlCdtNtries", xmlNamespace );
-            TotalCreditEntriesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalDebitEntries is NumberAndSumOfTransactions1 TotalDebitEntriesValue)
-        {
-            writer.WriteStartElement(null, "TtlDbtNtries", xmlNamespace );
-            TotalDebitEntriesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TotalEntriesPerBankTransactionCode is NumberAndSumOfTransactionsPerBankTransactionCode1 TotalEntriesPerBankTransactionCodeValue)
-        {
-            writer.WriteStartElement(null, "TtlNtriesPerBkTxCd", xmlNamespace );
-            TotalEntriesPerBankTransactionCodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TotalTransactions1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats to express a price.
-/// </summary>
-[KnownType(typeof(PriceFormat1Choice.Amount))]
-[KnownType(typeof(PriceFormat1Choice.Rate))]
-[KnownType(typeof(PriceFormat1Choice.AmountPricePerFinancialInstrumentQuantity))]
-[KnownType(typeof(PriceFormat1Choice.AmountPricePerAmount))]
-[KnownType(typeof(PriceFormat1Choice.NotSpecified))]
-public abstract partial record PriceFormat1Choice_ : IIsoXmlSerilizable<PriceFormat1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats to express a price.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriceFormat1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PriceFormat1Choice.Amount))]
+    [KnownType(typeof(PriceFormat1Choice.Rate))]
+    [KnownType(typeof(PriceFormat1Choice.AmountPricePerFinancialInstrumentQuantity))]
+    [KnownType(typeof(PriceFormat1Choice.AmountPricePerAmount))]
+    [KnownType(typeof(PriceFormat1Choice.NotSpecified))]
+    [IsoId("_QatkFdp-Ed-ak6NoX_4Aeg_-958538176")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Format 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriceFormat1Choice_
+    #else
+    public abstract partial class PriceFormat1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Amt" => PriceFormat1Choice.Amount.Deserialize(elementWithPayload),
-             "Rate" => PriceFormat1Choice.Rate.Deserialize(elementWithPayload),
-             "AmtPricPerFinInstrmQty" => PriceFormat1Choice.AmountPricePerFinancialInstrumentQuantity.Deserialize(elementWithPayload),
-             "AmtPricPerAmt" => PriceFormat1Choice.AmountPricePerAmount.Deserialize(elementWithPayload),
-             "NotSpcfd" => PriceFormat1Choice.NotSpecified.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriceFormat1Choice choice.")
-        };
     }
 }

@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines a frequency in terms on counts per period for a specific period type.
 /// </summary>
+[IsoId("_B0q0IR7zEeSxevWRRWxNAg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Frequency Period")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FrequencyPeriod1
-     : IIsoXmlSerilizable<FrequencyPeriod1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FrequencyPeriod1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FrequencyPeriod1( Frequency6Code reqType,System.UInt64 reqCountPerPeriod )
+    {
+        Type = reqType;
+        CountPerPeriod = reqCountPerPeriod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Period for which the number of instructions are to be created and processed.
     /// </summary>
+    [IsoId("_1bz5sB71EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency6Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Frequency6Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency6Code Type { get; init; } 
+    #else
+    public Frequency6Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of instructions to be created and processed during the specified period.
     /// </summary>
+    [IsoId("_OPlVUB72EeSxevWRRWxNAg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Count Per Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber CountPerPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 CountPerPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 CountPerPeriod { get; init; } 
+    #else
+    public System.UInt64 CountPerPeriod { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CntPerPrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(CountPerPeriod)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static FrequencyPeriod1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

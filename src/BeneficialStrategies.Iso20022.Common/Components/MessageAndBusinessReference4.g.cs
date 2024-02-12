@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to identify funds order(s).
 /// </summary>
+[IsoId("_RMVOSdp-Ed-ak6NoX_4Aeg_-22206736")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Message And Business Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MessageAndBusinessReference4
-     : IIsoXmlSerilizable<MessageAndBusinessReference4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
+    [IsoId("_RMVOStp-Ed-ak6NoX_4Aeg_-22206345")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? OtherReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference3? OtherReference { get; init; } 
+    #else
+    public AdditionalReference3? OtherReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
+    [IsoId("_RMVOS9p-Ed-ak6NoX_4Aeg_-22206716")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference3? PreviousReference { get; init; } 
+    #else
+    public AdditionalReference3? PreviousReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
+    [IsoId("_RMVOTNp-Ed-ak6NoX_4Aeg_-14820633")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference3? RelatedReference { get; init; } 
+    #else
+    public AdditionalReference3? RelatedReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifiers of one or more indiviudal order instructions or individual order cancellation requests.
     /// </summary>
+    [IsoId("_RMVOTdp-Ed-ak6NoX_4Aeg_-14820658")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Order Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrder2? OrderReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentFundOrder2? OrderReference { get; init; } 
+    #else
+    public InvestmentFundOrder2? OrderReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OtherReference is AdditionalReference3 OtherReferenceValue)
-        {
-            writer.WriteStartElement(null, "OthrRef", xmlNamespace );
-            OtherReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
-        {
-            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
-            PreviousReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
-        {
-            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
-            RelatedReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OrderReference is InvestmentFundOrder2 OrderReferenceValue)
-        {
-            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
-            OrderReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MessageAndBusinessReference4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

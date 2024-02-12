@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.NetDividendRate1Choice;
-
-/// <summary>
-/// Value is expressed as an amount related to an underlying securities, eg, underlying security for which an interest is paid.
-/// </summary>
-public partial record RateTypeAmount : NetDividendRate1Choice_
-     , IIsoXmlSerilizable<RateTypeAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.NetDividendRate1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
+    /// Value is expressed as an amount related to an underlying securities, eg, underlying security for which an interest is paid.
     /// </summary>
-    public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
-    /// <summary>
-    /// Value expressed as an amount.
-    /// </summary>
-    public required IsoActiveCurrencyAndAmount Amount { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UPh5gtp-Ed-ak6NoX_4Aeg_-398759257")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rate Type Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record RateTypeAmount : NetDividendRate1Choice_
+    #else
+    public partial class RateTypeAmount : NetDividendRate1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "RateTp", xmlNamespace );
-        RateType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-    }
-    public static new RateTypeAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a RateTypeAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public RateTypeAmount( NetDividendRateType1FormatChoice_ reqRateType,System.Decimal reqAmount )
+        {
+            RateType = reqRateType;
+            Amount = reqAmount;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
+        /// </summary>
+        [IsoId("_UPrqgdp-Ed-ak6NoX_4Aeg_-2120201442")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Rate Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public NetDividendRateType1FormatChoice_ RateType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NetDividendRateType1FormatChoice_ RateType { get; init; } 
+        #else
+        public NetDividendRateType1FormatChoice_ RateType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Value expressed as an amount.
+        /// </summary>
+        [IsoId("_UPrqgtp-Ed-ak6NoX_4Aeg_-2120201411")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Amount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Amount { get; init; } 
+        #else
+        public System.Decimal Amount { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of non-financial instrument of type foreign exchange as underlying.
 /// </summary>
+[IsoId("_8LPcAXvyEeanCNPcMT7sSg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Derivative Foreign Exchange")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DerivativeForeignExchange3
-     : IIsoXmlSerilizable<DerivativeForeignExchange3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of the underlying currency.
     /// </summary>
+    [IsoId("_8UQ1IXvyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("FX Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetFXSubProductType1Code? FXType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetFXSubProductType1Code? FXType { get; init; } 
+    #else
+    public AssetFXSubProductType1Code? FXType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Underlying currency 2 of the currency pair (the currency 1 will be populated in the notional currency).
     /// </summary>
+    [IsoId("_8UQ1I3vyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Notional Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? OtherNotionalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? OtherNotionalCurrency { get; init; } 
+    #else
+    public string? OtherNotionalCurrency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (FXType is AssetFXSubProductType1Code FXTypeValue)
-        {
-            writer.WriteStartElement(null, "FxTp", xmlNamespace );
-            writer.WriteValue(FXTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherNotionalCurrency is ActiveOrHistoricCurrencyCode OtherNotionalCurrencyValue)
-        {
-            writer.WriteStartElement(null, "OthrNtnlCcy", xmlNamespace );
-            writer.WriteValue(OtherNotionalCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static DerivativeForeignExchange3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

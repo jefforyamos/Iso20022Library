@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of status for the matching.
-/// </summary>
-[KnownType(typeof(MatchingStatus35Choice.Matched))]
-[KnownType(typeof(MatchingStatus35Choice.MatchedWithTolerance))]
-[KnownType(typeof(MatchingStatus35Choice.MatchingAlleged))]
-[KnownType(typeof(MatchingStatus35Choice.Unmatched))]
-[KnownType(typeof(MatchingStatus35Choice.ProprietaryStatus))]
-public abstract partial record MatchingStatus35Choice_ : IIsoXmlSerilizable<MatchingStatus35Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of status for the matching.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MatchingStatus35Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MatchingStatus35Choice.Matched))]
+    [KnownType(typeof(MatchingStatus35Choice.MatchedWithTolerance))]
+    [KnownType(typeof(MatchingStatus35Choice.MatchingAlleged))]
+    [KnownType(typeof(MatchingStatus35Choice.Unmatched))]
+    [KnownType(typeof(MatchingStatus35Choice.ProprietaryStatus))]
+    [IsoId("_2W_4UQd3Ee2fOITqoTnSLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Matching Status 35 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MatchingStatus35Choice_
+    #else
+    public abstract partial class MatchingStatus35Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Mtchd" => MatchingStatus35Choice.Matched.Deserialize(elementWithPayload),
-             "MtchdWthTlrnce" => MatchingStatus35Choice.MatchedWithTolerance.Deserialize(elementWithPayload),
-             "MtchgAllgd" => MatchingStatus35Choice.MatchingAlleged.Deserialize(elementWithPayload),
-             "Umtchd" => MatchingStatus35Choice.Unmatched.Deserialize(elementWithPayload),
-             "PrtrySts" => MatchingStatus35Choice.ProprietaryStatus.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MatchingStatus35Choice choice.")
-        };
     }
 }

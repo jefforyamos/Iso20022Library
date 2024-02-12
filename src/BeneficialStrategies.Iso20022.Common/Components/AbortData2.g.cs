@@ -7,70 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Body of the Abort Request message.
 /// </summary>
+[IsoId("_Ck5osQuIEeqYM5yH99IYQw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Abort Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AbortData2
-     : IIsoXmlSerilizable<AbortData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AbortData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AbortData2( System.String reqExchangeIdentification,System.String reqAbortReason )
+    {
+        ExchangeIdentification = reqExchangeIdentification;
+        AbortReason = reqAbortReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Message identifier.
     /// </summary>
+    [IsoId("_Cx5i4QuIEeqYM5yH99IYQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exchange Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ExchangeIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExchangeIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExchangeIdentification { get; init; } 
+    #else
+    public System.String ExchangeIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reason of aborting a transaction.
     /// </summary>
+    [IsoId("_Cx5i4wuIEeqYM5yH99IYQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Abort Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AbortReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AbortReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AbortReason { get; init; } 
+    #else
+    public System.String AbortReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// To display an abort message to the Customer.
     /// </summary>
+    [IsoId("_Cx5i5QuIEeqYM5yH99IYQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Output")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage7? DisplayOutput { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionMessage7? DisplayOutput { get; init; } 
+    #else
+    public ActionMessage7? DisplayOutput { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outcome of the transaction at the acceptor.
     /// </summary>
+    [IsoId("_tvcAQQuIEeqYM5yH99IYQw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Success")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TransactionSuccess { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionSuccess { get; init; } 
+    #else
+    public System.String? TransactionSuccess { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "XchgId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ExchangeIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AbrtRsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax140Text(AbortReason)); // data type Max140Text System.String
-        writer.WriteEndElement();
-        if (DisplayOutput is ActionMessage7 DisplayOutputValue)
-        {
-            writer.WriteStartElement(null, "DispOutpt", xmlNamespace );
-            DisplayOutputValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionSuccess is IsoTrueFalseIndicator TransactionSuccessValue)
-        {
-            writer.WriteStartElement(null, "TxSucss", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransactionSuccessValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AbortData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

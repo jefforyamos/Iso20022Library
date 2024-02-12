@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Indicator whether there is a reporting requirement for both counterparties.
-/// </summary>
-[KnownType(typeof(ReportingRequirement2Choice.ReportingRequirement))]
-[KnownType(typeof(ReportingRequirement2Choice.NoReportingRequirement))]
-public abstract partial record ReportingRequirement2Choice_ : IIsoXmlSerilizable<ReportingRequirement2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Indicator whether there is a reporting requirement for both counterparties.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ReportingRequirement2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ReportingRequirement2Choice.ReportingRequirement))]
+    [KnownType(typeof(ReportingRequirement2Choice.NoReportingRequirement))]
+    [IsoId("_IUKZoV55Ee2a_-MvhEjKmA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Requirement 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ReportingRequirement2Choice_
+    #else
+    public abstract partial class ReportingRequirement2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "RptgRqrmnt" => ReportingRequirement2Choice.ReportingRequirement.Deserialize(elementWithPayload),
-             "NoRptgRqrmnt" => ReportingRequirement2Choice.NoReportingRequirement.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ReportingRequirement2Choice choice.")
-        };
     }
 }

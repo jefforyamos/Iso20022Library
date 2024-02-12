@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral2Choice;
-
-/// <summary>
-/// Provides the expected collateral type and direction for the segregated independent amount.
-/// </summary>
-public partial record SegregatedIndependentAmount : ExpectedCollateral2Choice_
-     , IIsoXmlSerilizable<SegregatedIndependentAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of collateral that will be delivered and date by which the collateral movement is expected.
+    /// Provides the expected collateral type and direction for the segregated independent amount.
     /// </summary>
-    public CollateralMovement9? Delivery { get; init; } 
-    /// <summary>
-    /// Type of collateral that will be returned and date by which the collateral movement is expected.
-    /// </summary>
-    public CollateralMovement9? Return { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-sdWM4LZEeWrrO9HojbPQA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Segregated Independent Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SegregatedIndependentAmount : ExpectedCollateral2Choice_
+    #else
+    public partial class SegregatedIndependentAmount : ExpectedCollateral2Choice_
+    #endif
     {
-        if (Delivery is CollateralMovement9 DeliveryValue)
-        {
-            writer.WriteStartElement(null, "Dlvry", xmlNamespace );
-            DeliveryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Return is CollateralMovement9 ReturnValue)
-        {
-            writer.WriteStartElement(null, "Rtr", xmlNamespace );
-            ReturnValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new SegregatedIndependentAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of collateral that will be delivered and date by which the collateral movement is expected.
+        /// </summary>
+        [IsoId("__cEOMYLZEeWrrO9HojbPQA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Delivery")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralMovement9? Delivery { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralMovement9? Delivery { get; init; } 
+        #else
+        public CollateralMovement9? Delivery { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Type of collateral that will be returned and date by which the collateral movement is expected.
+        /// </summary>
+        [IsoId("__cEOM4LZEeWrrO9HojbPQA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Return")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CollateralMovement9? Return { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CollateralMovement9? Return { get; init; } 
+        #else
+        public CollateralMovement9? Return { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

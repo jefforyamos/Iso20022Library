@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Nature or use of the account.
-/// </summary>
-[KnownType(typeof(Party10Choice.OrganisationIdentification))]
-[KnownType(typeof(Party10Choice.PrivateIdentification))]
-public abstract partial record Party10Choice_ : IIsoXmlSerilizable<Party10Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Nature or use of the account.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Party10Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Party10Choice.OrganisationIdentification))]
+    [KnownType(typeof(Party10Choice.PrivateIdentification))]
+    [IsoId("_PWwzwtp-Ed-ak6NoX_4Aeg_-2096726580")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party 10 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Party10Choice_
+    #else
+    public abstract partial class Party10Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "OrgId" => Party10Choice.OrganisationIdentification.Deserialize(elementWithPayload),
-             "PrvtId" => Party10Choice.PrivateIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Party10Choice choice.")
-        };
     }
 }

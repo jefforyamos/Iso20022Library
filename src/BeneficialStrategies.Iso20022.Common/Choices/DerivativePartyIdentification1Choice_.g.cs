@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
-/// </summary>
-[KnownType(typeof(DerivativePartyIdentification1Choice.Country))]
-[KnownType(typeof(DerivativePartyIdentification1Choice.CountrySubDivision))]
-[KnownType(typeof(DerivativePartyIdentification1Choice.LEI))]
-public abstract partial record DerivativePartyIdentification1Choice_ : IIsoXmlSerilizable<DerivativePartyIdentification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DerivativePartyIdentification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DerivativePartyIdentification1Choice.Country))]
+    [KnownType(typeof(DerivativePartyIdentification1Choice.CountrySubDivision))]
+    [KnownType(typeof(DerivativePartyIdentification1Choice.LEI))]
+    [IsoId("_adARgEW8EeWaZZ6gWK8UVw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivative Party Identification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DerivativePartyIdentification1Choice_
+    #else
+    public abstract partial class DerivativePartyIdentification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Ctry" => DerivativePartyIdentification1Choice.Country.Deserialize(elementWithPayload),
-             "CtrySubDvsn" => DerivativePartyIdentification1Choice.CountrySubDivision.Deserialize(elementWithPayload),
-             "LEI" => DerivativePartyIdentification1Choice.LEI.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DerivativePartyIdentification1Choice choice.")
-        };
     }
 }

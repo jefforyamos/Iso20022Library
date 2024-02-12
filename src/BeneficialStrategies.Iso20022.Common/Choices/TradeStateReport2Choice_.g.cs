@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides details for a trade state report.
-/// </summary>
-[KnownType(typeof(TradeStateReport2Choice.DataSetAction))]
-[KnownType(typeof(TradeStateReport2Choice.State))]
-public abstract partial record TradeStateReport2Choice_ : IIsoXmlSerilizable<TradeStateReport2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides details for a trade state report.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeStateReport2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeStateReport2Choice.DataSetAction))]
+    [KnownType(typeof(TradeStateReport2Choice.State))]
+    [IsoId("_e9vysQAFEeqefbt-QjTNnA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade State Report 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeStateReport2Choice_
+    #else
+    public abstract partial class TradeStateReport2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => TradeStateReport2Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Stat" => TradeStateReport2Choice.State.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeStateReport2Choice choice.")
-        };
     }
 }

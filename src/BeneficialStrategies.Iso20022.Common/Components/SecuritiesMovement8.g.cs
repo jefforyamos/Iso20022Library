@@ -7,144 +7,280 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Movements of securities.
 /// </summary>
+[IsoId("_qJOe4StEEeySlt9bF77XfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Securities Movement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SecuritiesMovement8
-     : IIsoXmlSerilizable<SecuritiesMovement8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SecuritiesMovement8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SecuritiesMovement8( ReceiveDelivery1Code reqSecuritiesMovementType,SecurityIdentification19 reqFinancialInstrumentIdentification,Quantity51Choice_ reqSecuritiesQuantity,System.String reqCollateralMovement )
+    {
+        SecuritiesMovementType = reqSecuritiesMovementType;
+        FinancialInstrumentIdentification = reqFinancialInstrumentIdentification;
+        SecuritiesQuantity = reqSecuritiesQuantity;
+        CollateralMovement = reqCollateralMovement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies whether the quantity of financial instrument are to be delivered or received 
     /// </summary>
+    [IsoId("_qhOIIStEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Movement Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    #else
+    public ReceiveDelivery1Code SecuritiesMovementType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [IsoId("_qhOIIytEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
+    [IsoId("_qhOIJStEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity51Choice_ SecuritiesQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Quantity51Choice_ SecuritiesQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Quantity51Choice_ SecuritiesQuantity { get; init; } 
+    #else
+    public Quantity51Choice_ SecuritiesQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Securities movement status.
     /// </summary>
+    [IsoId("_qhOIJytEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Movement Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesMovementStatus1Choice_? MovementStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesMovementStatus1Choice_? MovementStatus { get; init; } 
+    #else
+    public SecuritiesMovementStatus1Choice_? MovementStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral.
     /// </summary>
+    [IsoId("_qhOIKStEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Movement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String CollateralMovement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String CollateralMovement { get; init; } 
+    #else
+    public System.String CollateralMovement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the proposed securities movements can be accepted.
     /// </summary>
+    [IsoId("_qhOIKytEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Movements Approved")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SecuritiesMovementsApproved { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecuritiesMovementsApproved { get; init; } 
+    #else
+    public System.String? SecuritiesMovementsApproved { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the position is fixed (post settlement).
     /// </summary>
+    [IsoId("_qhOILStEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Position Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PositionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PositionType { get; init; } 
+    #else
+    public System.String? PositionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [IsoId("_qhOILytEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Safekeeping Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19? SafekeepingAccount { get; init; } 
+    #else
+    public SecuritiesAccount19? SafekeepingAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [IsoId("_aAHGQytEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Block Chain Address Or Wallet")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
+    #else
+    public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference assigned by the party A to the financial instrument movement.
     /// </summary>
+    [IsoId("_qhOIMStEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Securities Movement Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientSecuritiesMovementIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClientSecuritiesMovementIdentification { get; init; } 
+    #else
+    public System.String? ClientSecuritiesMovementIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference assigned by the triparty-agent/service-provider to the financial instrument movement.
     /// </summary>
+    [IsoId("_qhOIMytEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent Service Provider Securities Movement Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TripartyAgentServiceProviderSecuritiesMovementIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TripartyAgentServiceProviderSecuritiesMovementIdentification { get; init; } 
+    #else
+    public System.String? TripartyAgentServiceProviderSecuritiesMovementIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the collateral position.
     /// </summary>
+    [IsoId("_qhOINStEEeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Margined Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? MarginedValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection44? MarginedValue { get; init; } 
+    #else
+    public AmountAndDirection44? MarginedValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
-        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
-        SecuritiesQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MovementStatus is SecuritiesMovementStatus1Choice_ MovementStatusValue)
-        {
-            writer.WriteStartElement(null, "MvmntSts", xmlNamespace );
-            MovementStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CollMvmnt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralMovement)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (SecuritiesMovementsApproved is IsoYesNoIndicator SecuritiesMovementsApprovedValue)
-        {
-            writer.WriteStartElement(null, "SctiesMvmntsApprvd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SecuritiesMovementsApprovedValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PositionType is IsoYesNoIndicator PositionTypeValue)
-        {
-            writer.WriteStartElement(null, "PosTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PositionTypeValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
-        {
-            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
-            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BlockChainAddressOrWallet is BlockChainAddressWallet3 BlockChainAddressOrWalletValue)
-        {
-            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
-            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClientSecuritiesMovementIdentification is IsoMax35Text ClientSecuritiesMovementIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntSctiesMvmntId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientSecuritiesMovementIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TripartyAgentServiceProviderSecuritiesMovementIdentification is IsoMax35Text TripartyAgentServiceProviderSecuritiesMovementIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgtSvcPrvdrSctiesMvmntId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderSecuritiesMovementIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (MarginedValue is AmountAndDirection44 MarginedValueValue)
-        {
-            writer.WriteStartElement(null, "MrgndVal", xmlNamespace );
-            MarginedValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SecuritiesMovement8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

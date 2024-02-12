@@ -9,74 +9,152 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction2Choice;
-
-/// <summary>
-/// Cancelled card payment transaction to be captured.
-/// </summary>
-public partial record Cancellation : CardPaymentDataSetTransaction2Choice_
-     , IIsoXmlSerilizable<Cancellation>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Sequential counter of the transaction.
+    /// Cancelled card payment transaction to be captured.
     /// </summary>
-    public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
-    /// <summary>
-    /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
-    /// </summary>
-    public Traceability1? Traceability { get; init; } 
-    /// <summary>
-    /// Data related to the environment of the cancelled transaction captured in batch.
-    /// </summary>
-    public required CardPaymentEnvironment27 Environment { get; init; } 
-    /// <summary>
-    /// Context in which the transaction is performed (payment and sale).
-    /// </summary>
-    public CardPaymentContext4? Context { get; init; } 
-    /// <summary>
-    /// Card payment cancellation transaction between an acceptor and an acquirer.
-    /// </summary>
-    public required CardPaymentTransaction30 Transaction { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RPup8zKQEeOqyZqt0rCZLg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Cancellation : CardPaymentDataSetTransaction2Choice_
+    #else
+    public partial class Cancellation : CardPaymentDataSetTransaction2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TxSeqCntr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(TransactionSequenceCounter)); // data type Max9NumericText System.String
-        writer.WriteEndElement();
-        if (Traceability is Traceability1 TraceabilityValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Cancellation instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Cancellation( System.String reqTransactionSequenceCounter,CardPaymentEnvironment27 reqEnvironment,CardPaymentTransaction30 reqTransaction )
         {
-            writer.WriteStartElement(null, "Tracblt", xmlNamespace );
-            TraceabilityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            TransactionSequenceCounter = reqTransactionSequenceCounter;
+            Environment = reqEnvironment;
+            Transaction = reqTransaction;
         }
-        writer.WriteStartElement(null, "Envt", xmlNamespace );
-        Environment.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Context is CardPaymentContext4 ContextValue)
-        {
-            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-            ContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Tx", xmlNamespace );
-        Transaction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new Cancellation Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Sequential counter of the transaction.
+        /// </summary>
+        [IsoId("_YQV0sTKKEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Sequence Counter")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String TransactionSequenceCounter { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String TransactionSequenceCounter { get; init; } 
+        #else
+        public System.String TransactionSequenceCounter { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
+        /// </summary>
+        [IsoId("_YQV0szKKEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Traceability")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Traceability1? Traceability { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Traceability1? Traceability { get; init; } 
+        #else
+        public Traceability1? Traceability { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data related to the environment of the cancelled transaction captured in batch.
+        /// </summary>
+        [IsoId("_YQV0tTKKEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Environment")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CardPaymentEnvironment27 Environment { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CardPaymentEnvironment27 Environment { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentEnvironment27 Environment { get; init; } 
+        #else
+        public CardPaymentEnvironment27 Environment { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Context in which the transaction is performed (payment and sale).
+        /// </summary>
+        [IsoId("_YQV0tzKKEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Context")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CardPaymentContext4? Context { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentContext4? Context { get; init; } 
+        #else
+        public CardPaymentContext4? Context { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Card payment cancellation transaction between an acceptor and an acquirer.
+        /// </summary>
+        [IsoId("_YQV0uTKKEeOqyZqt0rCZLg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required CardPaymentTransaction30 Transaction { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public CardPaymentTransaction30 Transaction { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CardPaymentTransaction30 Transaction { get; init; } 
+        #else
+        public CardPaymentTransaction30 Transaction { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

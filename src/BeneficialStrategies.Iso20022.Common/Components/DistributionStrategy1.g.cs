@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Distribution strategy criteria.
 /// </summary>
+[IsoId("_XogS0DcfEeidBoT_PugKiA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Distribution Strategy")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DistributionStrategy1
-     : IIsoXmlSerilizable<DistributionStrategy1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies to whom the product can be sold on an execution-only basis. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06010.
     /// </summary>
+    [IsoId("_gJ328DcfEeidBoT_PugKiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution Only")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? ExecutionOnly { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionStrategy1Choice_? ExecutionOnly { get; init; } 
+    #else
+    public DistributionStrategy1Choice_? ExecutionOnly { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies to whom the product can be sold with an appropriateness test or to a non-advised service. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06020.
     /// </summary>
+    [IsoId("_pbLDMDcfEeidBoT_PugKiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Execution With Appropriateness Test Or Non Advised Services")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? ExecutionWithAppropriatenessTestOrNonAdvisedServices { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionStrategy1Choice_? ExecutionWithAppropriatenessTestOrNonAdvisedServices { get; init; } 
+    #else
+    public DistributionStrategy1Choice_? ExecutionWithAppropriatenessTestOrNonAdvisedServices { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies to whom the product can be sold if investment advice has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06030.
     /// </summary>
+    [IsoId("_s0S7IDcfEeidBoT_PugKiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Advice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? InvestmentAdvice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionStrategy1Choice_? InvestmentAdvice { get; init; } 
+    #else
+    public DistributionStrategy1Choice_? InvestmentAdvice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies to whom the product can be sold if portfolio management has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06040.
     /// </summary>
+    [IsoId("_wMPuYDcfEeidBoT_PugKiA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio Management")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? PortfolioManagement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DistributionStrategy1Choice_? PortfolioManagement { get; init; } 
+    #else
+    public DistributionStrategy1Choice_? PortfolioManagement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other distribution strategy.
     /// </summary>
+    [IsoId("_zDR3kD8PEeih8-WNbS6hbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherDistributionStrategy1? Other { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OtherDistributionStrategy1? Other { get; init; } 
+    #else
+    public OtherDistributionStrategy1? Other { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ExecutionOnly is DistributionStrategy1Choice_ ExecutionOnlyValue)
-        {
-            writer.WriteStartElement(null, "ExctnOnly", xmlNamespace );
-            ExecutionOnlyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExecutionWithAppropriatenessTestOrNonAdvisedServices is DistributionStrategy1Choice_ ExecutionWithAppropriatenessTestOrNonAdvisedServicesValue)
-        {
-            writer.WriteStartElement(null, "ExctnWthApprprtnssTstOrNonAdvsdSvcs", xmlNamespace );
-            ExecutionWithAppropriatenessTestOrNonAdvisedServicesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InvestmentAdvice is DistributionStrategy1Choice_ InvestmentAdviceValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAdvc", xmlNamespace );
-            InvestmentAdviceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PortfolioManagement is DistributionStrategy1Choice_ PortfolioManagementValue)
-        {
-            writer.WriteStartElement(null, "PrtflMgmt", xmlNamespace );
-            PortfolioManagementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Other is OtherDistributionStrategy1 OtherValue)
-        {
-            writer.WriteStartElement(null, "Othr", xmlNamespace );
-            OtherValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static DistributionStrategy1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

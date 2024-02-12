@@ -7,124 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
+[IsoId("_H7FLkdNVEeKdOs2hjJ_3WQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Obligation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentObligation2
-     : IIsoXmlSerilizable<PaymentObligation2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentObligation2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentObligation2( BICIdentification1 reqObligorBank,BICIdentification1 reqRecipientBank,AmountOrPercentage2Choice_ reqPaymentObligationAmount,System.DateOnly reqExpiryDate )
+    {
+        ObligorBank = reqObligorBank;
+        RecipientBank = reqRecipientBank;
+        PaymentObligationAmount = reqPaymentObligationAmount;
+        ExpiryDate = reqExpiryDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Bank that has to pay under the obligation.
     /// </summary>
+    [IsoId("_IbM2E9NVEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Obligor Bank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 ObligorBank { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BICIdentification1 ObligorBank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1 ObligorBank { get; init; } 
+    #else
+    public BICIdentification1 ObligorBank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Bank that will be paid under the obligation.
     /// </summary>
+    [IsoId("_IbM2FdNVEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient Bank")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 RecipientBank { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BICIdentification1 RecipientBank { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BICIdentification1 RecipientBank { get; init; } 
+    #else
+    public BICIdentification1 RecipientBank { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment obligation amount specified as an amount or percentage.
     /// </summary>
+    [IsoId("_qRrnENP_EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Obligation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
+    #else
+    public AmountOrPercentage2Choice_ PaymentObligationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Charges related to the payment obligation.
     /// </summary>
+    [IsoId("_bUWsINP_EeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charges5? Charges { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Charges5? Charges { get; init; } 
+    #else
+    public Charges5? Charges { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date at which the obligation will expire.
     /// </summary>
+    [IsoId("_IbM2H9NVEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpiryDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ExpiryDate { get; init; } 
+    #else
+    public System.DateOnly ExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rules which apply to the BPO (Bank Payment Obligation).
     /// </summary>
+    [IsoId("_VaMaENNrEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicable Rules")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BPOApplicableRules1Choice_? ApplicableRules { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BPOApplicableRules1Choice_? ApplicableRules { get; init; } 
+    #else
+    public BPOApplicableRules1Choice_? ApplicableRules { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
+    [IsoId("_IbM2IdNVEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicable Law")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? ApplicableLaw { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? ApplicableLaw { get; init; } 
+    #else
+    public string? ApplicableLaw { get; set; } 
+    #endif
+    
     /// <summary>
     /// Location and forum for dispute resolution.
     /// </summary>
+    [IsoId("_aiswQNQAEeK0PPbKncCqzA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place Of Jurisdiction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Location2? PlaceOfJurisdiction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Location2? PlaceOfJurisdiction { get; init; } 
+    #else
+    public Location2? PlaceOfJurisdiction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
+    [IsoId("_IbM2I9NVEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Terms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTerms4? PaymentTerms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTerms4? PaymentTerms { get; init; } 
+    #else
+    public PaymentTerms4? PaymentTerms { get; set; } 
+    #endif
+    
     /// <summary>
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>
+    [IsoId("_IbM2JdNVEeKdOs2hjJ_3WQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Terms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTerms3? SettlementTerms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementTerms3? SettlementTerms { get; init; } 
+    #else
+    public SettlementTerms3? SettlementTerms { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "OblgrBk", xmlNamespace );
-        ObligorBank.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RcptBk", xmlNamespace );
-        RecipientBank.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtOblgtnAmt", xmlNamespace );
-        PaymentObligationAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Charges is Charges5 ChargesValue)
-        {
-            writer.WriteStartElement(null, "Chrgs", xmlNamespace );
-            ChargesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (ApplicableRules is BPOApplicableRules1Choice_ ApplicableRulesValue)
-        {
-            writer.WriteStartElement(null, "AplblRules", xmlNamespace );
-            ApplicableRulesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ApplicableLaw is CountryCode ApplicableLawValue)
-        {
-            writer.WriteStartElement(null, "AplblLaw", xmlNamespace );
-            writer.WriteValue(ApplicableLawValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (PlaceOfJurisdiction is Location2 PlaceOfJurisdictionValue)
-        {
-            writer.WriteStartElement(null, "PlcOfJursdctn", xmlNamespace );
-            PlaceOfJurisdictionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PaymentTerms is PaymentTerms4 PaymentTermsValue)
-        {
-            writer.WriteStartElement(null, "PmtTerms", xmlNamespace );
-            PaymentTermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SettlementTerms is SettlementTerms3 SettlementTermsValue)
-        {
-            writer.WriteStartElement(null, "SttlmTerms", xmlNamespace );
-            SettlementTermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentObligation2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,63 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Encrypted data with an encryption key identified with a name.
 /// </summary>
+[IsoId("_t4lk8QivEeKn9O5oyej_zw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Named Key Encrypted Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NamedKeyEncryptedData2
-     : IIsoXmlSerilizable<NamedKeyEncryptedData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a NamedKeyEncryptedData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public NamedKeyEncryptedData2( EncryptedContent2 reqEncryptedContent )
+    {
+        EncryptedContent = reqEncryptedContent;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [IsoId("_uEpD8QivEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Version { get; init; } 
+    #else
+    public System.UInt64? Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the key encryption key (KEK).
     /// </summary>
+    [IsoId("_uEpD9QivEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? KeyName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? KeyName { get; init; } 
+    #else
+    public System.String? KeyName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encrypted data with an encryption key.
     /// </summary>
+    [IsoId("_uEpD-QivEeKn9O5oyej_zw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Encrypted Content")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncryptedContent2 EncryptedContent { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EncryptedContent2 EncryptedContent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EncryptedContent2 EncryptedContent { get; init; } 
+    #else
+    public EncryptedContent2 EncryptedContent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Version is IsoNumber VersionValue)
-        {
-            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (KeyName is IsoMax140Text KeyNameValue)
-        {
-            writer.WriteStartElement(null, "KeyNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyNameValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "NcrptdCntt", xmlNamespace );
-        EncryptedContent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static NamedKeyEncryptedData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

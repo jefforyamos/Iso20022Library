@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Indicates an event identifier or post trade risk reduction identifier.
-/// </summary>
-[KnownType(typeof(EventIdentifier1Choice.EventIdentifier))]
-[KnownType(typeof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier))]
-public abstract partial record EventIdentifier1Choice_ : IIsoXmlSerilizable<EventIdentifier1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Indicates an event identifier or post trade risk reduction identifier.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static EventIdentifier1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(EventIdentifier1Choice.EventIdentifier))]
+    [KnownType(typeof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier))]
+    [IsoId("_nfQOQPbfEeyInphUKJZxtQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Identifier 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record EventIdentifier1Choice_
+    #else
+    public abstract partial class EventIdentifier1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "EvtIdr" => EventIdentifier1Choice.EventIdentifier.Deserialize(elementWithPayload),
-             "PstTradRskRdctnIdr" => EventIdentifier1Choice.PostTradeRiskReductionIdentifier.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid EventIdentifier1Choice choice.")
-        };
     }
 }

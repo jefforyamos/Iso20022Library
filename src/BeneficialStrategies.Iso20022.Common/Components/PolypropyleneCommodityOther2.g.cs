@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines commodity sub-product attributes of a propylene derivative of type recovered paper.
 /// </summary>
+[IsoId("_6mbMcU8QEe2PGo0mhYCh1g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Polypropylene Commodity Other")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PolypropyleneCommodityOther2
-     : IIsoXmlSerilizable<PolypropyleneCommodityOther2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PolypropyleneCommodityOther2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PolypropyleneCommodityOther2( AssetClassProductType9Code reqBaseProduct )
+    {
+        BaseProduct = reqBaseProduct;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [IsoId("_6nSvIU8QEe2PGo0mhYCh1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType9Code BaseProduct { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AssetClassProductType9Code BaseProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClassProductType9Code BaseProduct { get; init; } 
+    #else
+    public AssetClassProductType9Code BaseProduct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
+    [IsoId("_6nSvI08QEe2PGo0mhYCh1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassSubProductType49Code? SubProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetClassSubProductType49Code? SubProduct { get; init; } 
+    #else
+    public AssetClassSubProductType49Code? SubProduct { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
-        writer.WriteValue(BaseProduct.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (SubProduct is AssetClassSubProductType49Code SubProductValue)
-        {
-            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
-            writer.WriteValue(SubProductValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static PolypropyleneCommodityOther2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

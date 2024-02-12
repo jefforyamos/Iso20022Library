@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a date time period or blank elements.
-/// </summary>
-[KnownType(typeof(DateTimeOrBlankQuery1Choice.Range))]
-[KnownType(typeof(DateTimeOrBlankQuery1Choice.NotReported))]
-public abstract partial record DateTimeOrBlankQuery1Choice_ : IIsoXmlSerilizable<DateTimeOrBlankQuery1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a date time period or blank elements.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static DateTimeOrBlankQuery1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(DateTimeOrBlankQuery1Choice.Range))]
+    [KnownType(typeof(DateTimeOrBlankQuery1Choice.NotReported))]
+    [IsoId("_HY688WE4Ee2S65ml6YCOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Time Or Blank Query 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record DateTimeOrBlankQuery1Choice_
+    #else
+    public abstract partial class DateTimeOrBlankQuery1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Rg" => DateTimeOrBlankQuery1Choice.Range.Deserialize(elementWithPayload),
-             "NotRptd" => DateTimeOrBlankQuery1Choice.NotReported.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid DateTimeOrBlankQuery1Choice choice.")
-        };
     }
 }

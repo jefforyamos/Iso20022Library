@@ -7,57 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Alternate identification for a party using an identification type, a country code and a text field.
 /// </summary>
+[IsoId("_gAZqAYMEEeWhGPRU7TIQwQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Alternate Party Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AlternatePartyIdentification8
-     : IIsoXmlSerilizable<AlternatePartyIdentification8>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AlternatePartyIdentification8 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AlternatePartyIdentification8( IdentificationType43Choice_ reqIdentificationType,string reqCountry,System.String reqAlternateIdentification )
+    {
+        IdentificationType = reqIdentificationType;
+        Country = reqCountry;
+        AlternateIdentification = reqAlternateIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of alternate identification of the party identified.
     /// </summary>
+    [IsoId("_gWRMU4MEEeWhGPRU7TIQwQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationType43Choice_ IdentificationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public IdentificationType43Choice_ IdentificationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public IdentificationType43Choice_ IdentificationType { get; init; } 
+    #else
+    public IdentificationType43Choice_ IdentificationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Nation with its own government, occupying a particular territory.
     /// </summary>
+    [IsoId("_gWRMW4MEEeWhGPRU7TIQwQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public string Country { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string Country { get; init; } 
+    #else
+    public string Country { get; set; } 
+    #endif
+    
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [IsoId("_gWRMY4MEEeWhGPRU7TIQwQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Alternate Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AlternateIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AlternateIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AlternateIdentification { get; init; } 
+    #else
+    public System.String AlternateIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IdTp", xmlNamespace );
-        IdentificationType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Ctry", xmlNamespace );
-        writer.WriteValue(Country.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AltrnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static AlternatePartyIdentification8 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

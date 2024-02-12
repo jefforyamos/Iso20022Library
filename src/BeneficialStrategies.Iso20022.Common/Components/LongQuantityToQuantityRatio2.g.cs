@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ratio expressed as a quotient of quantities.
 /// </summary>
+[IsoId("_OYixZXeuEeGnSLS4l8GDAA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Long Quantity To Quantity Ratio")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LongQuantityToQuantityRatio2
-     : IIsoXmlSerilizable<LongQuantityToQuantityRatio2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LongQuantityToQuantityRatio2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LongQuantityToQuantityRatio2( System.UInt64 reqLongQuantity1,System.UInt64 reqLongQuantity2 )
+    {
+        LongQuantity1 = reqLongQuantity1;
+        LongQuantity2 = reqLongQuantity2;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// High precision numerator of the quotient of quantities.
     /// </summary>
+    [IsoId("_OYixaHeuEeGnSLS4l8GDAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Long Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLongDecimalNumber LongQuantity1 { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 LongQuantity1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 LongQuantity1 { get; init; } 
+    #else
+    public System.UInt64 LongQuantity1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// High precision denominator of the quotient of quantities.
     /// </summary>
+    [IsoId("_OYixa3euEeGnSLS4l8GDAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Long Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLongDecimalNumber LongQuantity2 { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 LongQuantity2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 LongQuantity2 { get; init; } 
+    #else
+    public System.UInt64 LongQuantity2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LngQty1", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoLongDecimalNumber(LongQuantity1)); // data type LongDecimalNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "LngQty2", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoLongDecimalNumber(LongQuantity2)); // data type LongDecimalNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static LongQuantityToQuantityRatio2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

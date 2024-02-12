@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Conditions applicable when the investor is covered by the "de minimis" exemption.
 /// </summary>
+[IsoId("_RSSsUNp-Ed-ak6NoX_4Aeg_-1126394129")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("De Minimus Applicable")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record DeMinimusApplicable1
-     : IIsoXmlSerilizable<DeMinimusApplicable1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a DeMinimusApplicable1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public DeMinimusApplicable1( System.String reqNewIssuePermission )
+    {
+        NewIssuePermission = reqNewIssuePermission;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the investor permits its beneficial owners that are restricted persons, if any, to participate in profits and losses allocated to the investor that are attribute to new issue securities.
     /// </summary>
+    [IsoId("_RSSsUdp-Ed-ak6NoX_4Aeg_-1045122513")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Issue Permission")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator NewIssuePermission { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NewIssuePermission { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NewIssuePermission { get; init; } 
+    #else
+    public System.String NewIssuePermission { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the new issue profits and losses that it receives to beneficial owners that are restricted persons.
     /// </summary>
+    [IsoId("_RSSsUtp-Ed-ak6NoX_4Aeg_-1042351920")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Percentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Percentage { get; init; } 
+    #else
+    public System.Decimal? Percentage { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NewIssePrmssn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewIssuePermission)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Percentage is IsoPercentageRate PercentageValue)
-        {
-            writer.WriteStartElement(null, "Pctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static DeMinimusApplicable1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

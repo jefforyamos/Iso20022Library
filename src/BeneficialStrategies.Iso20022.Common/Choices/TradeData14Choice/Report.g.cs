@@ -9,59 +9,93 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TradeData14Choice;
-
-/// <summary>
-/// Information concerning the reporting at transaction level.
-/// </summary>
-public partial record Report : TradeData14Choice_
-     , IIsoXmlSerilizable<Report>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TradeData14Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Status of the required transactions reconciliation or pairing.
+    /// Information concerning the reporting at transaction level.
     /// </summary>
-    public NumberOfReportsPerStatus2? PairingReconciliationStatus { get; init; } 
-    /// <summary>
-    /// Data on transaction requiring reconciliation or pairing. 
-    /// </summary>
-    public ReconciliationReport5? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
-    // ID for the above is _CtHU0__oEemm3skPVSMJQg
-    /// <summary>
-    /// Additional information that can not be captured in the structured fields and/or any other specific block.
-    /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_CpO6Y__oEemm3skPVSMJQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Report : TradeData14Choice_
+    #else
+    public partial class Report : TradeData14Choice_
+    #endif
     {
-        if (PairingReconciliationStatus is NumberOfReportsPerStatus2 PairingReconciliationStatusValue)
-        {
-            writer.WriteStartElement(null, "PairgRcncltnSts", xmlNamespace );
-            PairingReconciliationStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize ReconciliationReport, multiplicity Unknown
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Report Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Status of the required transactions reconciliation or pairing.
+        /// </summary>
+        [IsoId("_CtHU0f_oEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Pairing Reconciliation Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public NumberOfReportsPerStatus2? PairingReconciliationStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NumberOfReportsPerStatus2? PairingReconciliationStatus { get; init; } 
+        #else
+        public NumberOfReportsPerStatus2? PairingReconciliationStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data on transaction requiring reconciliation or pairing. 
+        /// </summary>
+        [IsoId("_CtHU0__oEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Reconciliation Report")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        public ReconciliationReport5? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
+        // ID for the above is _CtHU0__oEemm3skPVSMJQg
+        
+        /// <summary>
+        /// Additional information that can not be captured in the structured fields and/or any other specific block.
+        /// </summary>
+        [IsoId("_CtHU1f_oEemm3skPVSMJQg")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Supplementary Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SupplementaryData1? SupplementaryData { get; init; } 
+        #else
+        public SupplementaryData1? SupplementaryData { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

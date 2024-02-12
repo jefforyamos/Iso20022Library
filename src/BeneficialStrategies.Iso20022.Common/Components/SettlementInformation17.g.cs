@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement of the securities in a securities transaction, that is, the instruction to deliver or receive securities, involving the payment of an amount of money or not.
 /// </summary>
+[IsoId("_dqcAheLxEeWOD7aAy2fAcA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementInformation17
-     : IIsoXmlSerilizable<SettlementInformation17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Choice between formats for the quantity of security.
     /// </summary>
+    [IsoId("_dzhEAeLxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Quantity Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementUnitType3Choice_? SecuritiesQuantityType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementUnitType3Choice_? SecuritiesQuantityType { get; init; } 
+    #else
+    public SettlementUnitType3Choice_? SecuritiesQuantityType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies when the contract (i.e. MBS/TBA) will settle.
     /// </summary>
+    [IsoId("_dzhEA-LxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Settlement Month")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? ContractSettlementMonth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt16? ContractSettlementMonth { get; init; } 
+    #else
+    public System.UInt16? ContractSettlementMonth { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the minimum quantity (unit or nominal) of a security.
     /// </summary>
+    [IsoId("_dzhEC-LxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Denomination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum multiple quantity (unit or nominal) of securities.
     /// </summary>
+    [IsoId("_dzhEDeLxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Multiple Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumMultipleQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? MinimumMultipleQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? MinimumMultipleQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
+    [IsoId("_dzhED-LxEeWOD7aAy2fAcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deviating Settlement Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? DeviatingSettlementUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? DeviatingSettlementUnit { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? DeviatingSettlementUnit { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SecuritiesQuantityType is SettlementUnitType3Choice_ SecuritiesQuantityTypeValue)
-        {
-            writer.WriteStartElement(null, "SctiesQtyTp", xmlNamespace );
-            SecuritiesQuantityTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractSettlementMonth is IsoISOYearMonth ContractSettlementMonthValue)
-        {
-            writer.WriteStartElement(null, "CtrctSttlmMnth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(ContractSettlementMonthValue)); // data type ISOYearMonth System.UInt16
-            writer.WriteEndElement();
-        }
-        if (MinimumDenomination is FinancialInstrumentQuantity1Choice_ MinimumDenominationValue)
-        {
-            writer.WriteStartElement(null, "MinDnmtn", xmlNamespace );
-            MinimumDenominationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MinimumMultipleQuantity is FinancialInstrumentQuantity1Choice_ MinimumMultipleQuantityValue)
-        {
-            writer.WriteStartElement(null, "MinMltplQty", xmlNamespace );
-            MinimumMultipleQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DeviatingSettlementUnit is FinancialInstrumentQuantity1Choice_ DeviatingSettlementUnitValue)
-        {
-            writer.WriteStartElement(null, "DevtgSttlmUnit", xmlNamespace );
-            DeviatingSettlementUnitValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SettlementInformation17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

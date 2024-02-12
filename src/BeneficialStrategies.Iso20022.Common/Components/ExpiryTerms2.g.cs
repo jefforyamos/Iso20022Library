@@ -7,76 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Expiry conditions.
 /// </summary>
+[IsoId("_rhWRxoAAEeGOn4dfTT_QdQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Expiry Terms")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExpiryTerms2
-     : IIsoXmlSerilizable<ExpiryTerms2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date and time when the undertaking will cease to be available.
     /// </summary>
+    [IsoId("_rhW4yoAAEeGOn4dfTT_QdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? DateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? DateTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? DateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the automatic extension of the undertaking.
     /// </summary>
+    [IsoId("_rhW43IAAEeGOn4dfTT_QdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Auto Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AutoExtension1? AutoExtension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AutoExtension1? AutoExtension { get; init; } 
+    #else
+    public AutoExtension1? AutoExtension { get; set; } 
+    #endif
+    
     /// <summary>
     /// Documentary condition that indicates when the undertaking will cease to be available.
     /// </summary>
+    [IsoId("_rhW4xIAAEeGOn4dfTT_QdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Condition { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition { get; init; } 
+    #else
+    public System.String? Condition { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the expiry terms are without a fixed expiry date.
     /// </summary>
+    [IsoId("_rhW40oAAEeGOn4dfTT_QdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Open Ended Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OpenEndedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OpenEndedIndicator { get; init; } 
+    #else
+    public System.String? OpenEndedIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DateTime is DateAndDateTimeChoice_ DateTimeValue)
-        {
-            writer.WriteStartElement(null, "DtTm", xmlNamespace );
-            DateTimeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AutoExtension is AutoExtension1 AutoExtensionValue)
-        {
-            writer.WriteStartElement(null, "AutoXtnsn", xmlNamespace );
-            AutoExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Condition is IsoMax2000Text ConditionValue)
-        {
-            writer.WriteStartElement(null, "Cond", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(ConditionValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-        if (OpenEndedIndicator is IsoYesNoIndicator OpenEndedIndicatorValue)
-        {
-            writer.WriteStartElement(null, "OpnEnddInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OpenEndedIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ExpiryTerms2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

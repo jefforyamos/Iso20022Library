@@ -7,117 +7,203 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a consumer or a company.
 /// </summary>
+[IsoId("_oDA8ivJjEeiJn9rM2Znz2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Customer")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Customer4
-     : IIsoXmlSerilizable<Customer4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of customer.
     /// </summary>
+    [IsoId("_oDA8kPJjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerType2Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CustomerType2Code? Type { get; init; } 
+    #else
+    public CustomerType2Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference number provided by a cardholder or customer to card acceptor to facilitate communication and record keeping.  The value may be a reference number, code, or generic number.
     /// </summary>
+    [IsoId("_oDA8kfJjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReferenceNumber { get; init; } 
+    #else
+    public System.String? ReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the customer recognized by the taxation authority.
     /// </summary>
+    [IsoId("_oDA8jfJjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Registration Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxRegistrationIdentification { get; init; } 
+    #else
+    public System.String? TaxRegistrationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact at the company.
     /// </summary>
+    [IsoId("_oDA8jvJjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorised Contact Company")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AuthorisedContactCompany { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthorisedContactCompany { get; init; } 
+    #else
+    public System.String? AuthorisedContactCompany { get; set; } 
+    #endif
+    
     /// <summary>
     /// Corporate individual or company (cardholder or their company) to be contacted for authorised purchases.
     /// </summary>
+    [IsoId("_oDA8jPJjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorised Contact Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AuthorisedContactName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthorisedContactName { get; init; } 
+    #else
+    public System.String? AuthorisedContactName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Phone number of an individual or
     /// company contacted for company authorised purchases.
     /// </summary>
+    [IsoId("_oDA8j_JjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authorised Contact Phone Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? AuthorisedContactPhoneNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AuthorisedContactPhoneNumber { get; init; } 
+    #else
+    public System.String? AuthorisedContactPhoneNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Very Important Person indicator. 
     /// </summary>
+    [IsoId("_oDA8i_JjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("VIP Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? VIPIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? VIPIndicator { get; init; } 
+    #else
+    public System.String? VIPIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Customer relationship identifier.
     /// </summary>
+    [IsoId("_oDA8kvJjEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Customer Relationship")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CustomerRelationship { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CustomerRelationship { get; init; } 
+    #else
+    public System.String? CustomerRelationship { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Type is CustomerType2Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReferenceNumber is IsoMax35Text ReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "RefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxRegistrationIdentification is IsoMax70Text TaxRegistrationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TaxRegnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(TaxRegistrationIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AuthorisedContactCompany is IsoMax70Text AuthorisedContactCompanyValue)
-        {
-            writer.WriteStartElement(null, "AuthrsdCtctCpny", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AuthorisedContactCompanyValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AuthorisedContactName is IsoMax70Text AuthorisedContactNameValue)
-        {
-            writer.WriteStartElement(null, "AuthrsdCtctNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AuthorisedContactNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (AuthorisedContactPhoneNumber is IsoPhoneNumber AuthorisedContactPhoneNumberValue)
-        {
-            writer.WriteStartElement(null, "AuthrsdCtctPhneNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(AuthorisedContactPhoneNumberValue)); // data type PhoneNumber System.String
-            writer.WriteEndElement();
-        }
-        if (VIPIndicator is IsoTrueFalseIndicator VIPIndicatorValue)
-        {
-            writer.WriteStartElement(null, "VIPInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(VIPIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CustomerRelationship is IsoMax35Text CustomerRelationshipValue)
-        {
-            writer.WriteStartElement(null, "CstmrRltsh", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerRelationshipValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Customer4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

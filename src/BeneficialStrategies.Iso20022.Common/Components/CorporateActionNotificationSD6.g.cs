@@ -7,103 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding notification general information details.
 /// </summary>
+[IsoId("_1kgnZjL3EeKU9IrkkToqcw_1609699363")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Notification SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNotificationSD6
-     : IIsoXmlSerilizable<CorporateActionNotificationSD6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionNotificationSD6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionNotificationSD6( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_1k9TUDL3EeKU9IrkkToqcw_612627010")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Workflow status of the event.
     /// </summary>
+    [IsoId("_1lGdQDL3EeKU9IrkkToqcw_1484761520")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventWorkflowStatus1Code? EventStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventWorkflowStatus1Code? EventStatus { get; init; } 
+    #else
+    public EventWorkflowStatus1Code? EventStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date by which the announcement is set to approve event status.
     /// </summary>
+    [IsoId("_1lGdQTL3EeKU9IrkkToqcw_-395544120")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Approved Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ApprovedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ApprovedDate { get; init; } 
+    #else
+    public System.DateOnly? ApprovedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date used to match records from multiple vendors to the same event. It is typically the first key date on the event.
     /// </summary>
+    [IsoId("_1lGdQjL3EeKU9IrkkToqcw_-1506455539")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Match Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MatchDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? MatchDate { get; init; } 
+    #else
+    public System.DateOnly? MatchDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date until which the event will remain in an active status on DTCC (The Depository Trust and Clearing Corporation) system.
     /// </summary>
+    [IsoId("_1lGdQzL3EeKU9IrkkToqcw_908206117")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Active Until Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ActiveUntilDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ActiveUntilDate { get; init; } 
+    #else
+    public System.DateOnly? ActiveUntilDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Start date and end date of the service level agreement.
     /// </summary>
+    [IsoId("_1lGdRDL3EeKU9IrkkToqcw_624171464")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Level Agreement Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period3? ServiceLevelAgreementPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Period3? ServiceLevelAgreementPeriod { get; init; } 
+    #else
+    public Period3? ServiceLevelAgreementPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies a reason why a corporate action will not be supported by the validation service. This is usually due to the event type or the product (security) type. The list of values will be provided externally to the schema.
     /// </summary>
+    [IsoId("_1lQOQDL3EeKU9IrkkToqcw_-1256134176")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validation Not Supported Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ValidationNotSupportedReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ValidationNotSupportedReason { get; init; } 
+    #else
+    public System.String? ValidationNotSupportedReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (EventStatus is EventWorkflowStatus1Code EventStatusValue)
-        {
-            writer.WriteStartElement(null, "EvtSts", xmlNamespace );
-            writer.WriteValue(EventStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ApprovedDate is IsoISODate ApprovedDateValue)
-        {
-            writer.WriteStartElement(null, "ApprvdDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ApprovedDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MatchDate is IsoISODate MatchDateValue)
-        {
-            writer.WriteStartElement(null, "MtchDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(MatchDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ActiveUntilDate is IsoISODate ActiveUntilDateValue)
-        {
-            writer.WriteStartElement(null, "ActvUntilDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ActiveUntilDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ServiceLevelAgreementPeriod is Period3 ServiceLevelAgreementPeriodValue)
-        {
-            writer.WriteStartElement(null, "SvcLvlAgrmtPrd", xmlNamespace );
-            ServiceLevelAgreementPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ValidationNotSupportedReason is IsoMax4AlphaNumericText ValidationNotSupportedReasonValue)
-        {
-            writer.WriteStartElement(null, "VldtnNotSpprtdRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ValidationNotSupportedReasonValue)); // data type Max4AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNotificationSD6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

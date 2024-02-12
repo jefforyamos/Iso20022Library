@@ -7,90 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of format for the trading capacity.
 /// </summary>
+[IsoId("_YgDQfSs-EeySlt9bF77XfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Parties")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralParties10
-     : IIsoXmlSerilizable<CollateralParties10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralParties10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralParties10( PartyIdentificationAndAccount202 reqPartyA,PartyIdentificationAndAccount203 reqPartyB )
+    {
+        PartyA = reqPartyA;
+        PartyB = reqPartyB;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Instructing party sending the collateral instruction.
     /// </summary>
+    [IsoId("_Y4ovkSs-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party A")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount202 PartyA { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentificationAndAccount202 PartyA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount202 PartyA { get; init; } 
+    #else
+    public PartyIdentificationAndAccount202 PartyA { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that instructs party A to send the message.
     /// </summary>
+    [IsoId("_Y4ovkys-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Party A")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount202? ClientPartyA { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount202? ClientPartyA { get; init; } 
+    #else
+    public PartyIdentificationAndAccount202? ClientPartyA { get; set; } 
+    #endif
+    
     /// <summary>
     /// Counterparty of party A. 
     /// </summary>
+    [IsoId("_Y4ovlSs-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party B")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount203 PartyB { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentificationAndAccount203 PartyB { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount203 PartyB { get; init; } 
+    #else
+    public PartyIdentificationAndAccount203 PartyB { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
+    [IsoId("_Y4ovlys-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Party B")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount203? ClientPartyB { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentificationAndAccount203? ClientPartyB { get; init; } 
+    #else
+    public PartyIdentificationAndAccount203? ClientPartyB { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
+    [IsoId("_Y4ovmSs-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Triparty Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? TripartyAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification136? TripartyAgent { get; init; } 
+    #else
+    public PartyIdentification136? TripartyAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account where the collateral is held during the lifecycle  of the transaction.
     /// </summary>
+    [IsoId("_Y4ovmys-EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? CollateralAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesAccount19? CollateralAccount { get; init; } 
+    #else
+    public SecuritiesAccount19? CollateralAccount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PtyA", xmlNamespace );
-        PartyA.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ClientPartyA is PartyIdentificationAndAccount202 ClientPartyAValue)
-        {
-            writer.WriteStartElement(null, "ClntPtyA", xmlNamespace );
-            ClientPartyAValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PtyB", xmlNamespace );
-        PartyB.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (ClientPartyB is PartyIdentificationAndAccount203 ClientPartyBValue)
-        {
-            writer.WriteStartElement(null, "ClntPtyB", xmlNamespace );
-            ClientPartyBValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TripartyAgent is PartyIdentification136 TripartyAgentValue)
-        {
-            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
-            TripartyAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralAccount is SecuritiesAccount19 CollateralAccountValue)
-        {
-            writer.WriteStartElement(null, "CollAcct", xmlNamespace );
-            CollateralAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralParties10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

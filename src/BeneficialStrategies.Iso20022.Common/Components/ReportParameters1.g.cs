@@ -7,81 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters related to the net position.
 /// </summary>
+[IsoId("_Qk_hd9p-Ed-ak6NoX_4Aeg_937619716")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportParameters1
-     : IIsoXmlSerilizable<ReportParameters1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportParameters1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportParameters1( System.String reqNetPositionIdentification,DateAndDateTimeChoice_ reqReportDateAndTime,StatementUpdateType1Code reqUpdateType,EventFrequency6Code reqFrequency,System.String reqActivityIndicator )
+    {
+        NetPositionIdentification = reqNetPositionIdentification;
+        ReportDateAndTime = reqReportDateAndTime;
+        UpdateType = reqUpdateType;
+        Frequency = reqFrequency;
+        ActivityIndicator = reqActivityIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// After netting, reference that is common to a net transaction to settle and all its underlying trades.
     /// </summary>
+    [IsoId("_Qk_heNp-Ed-ak6NoX_4Aeg_-1693107427")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Position Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text NetPositionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NetPositionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NetPositionIdentification { get; init; } 
+    #else
+    public System.String NetPositionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time of the net position report.
     /// </summary>
+    [IsoId("_QlIrYNp-Ed-ak6NoX_4Aeg_1816598291")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Date And Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ ReportDateAndTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [IsoId("_QlIrYdp-Ed-ak6NoX_4Aeg_-853608276")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementUpdateType1Code UpdateType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StatementUpdateType1Code UpdateType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatementUpdateType1Code UpdateType { get; init; } 
+    #else
+    public StatementUpdateType1Code UpdateType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Frequency of the report.
     /// </summary>
+    [IsoId("_QlIrYtp-Ed-ak6NoX_4Aeg_414984299")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Frequency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventFrequency6Code Frequency { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EventFrequency6Code Frequency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventFrequency6Code Frequency { get; init; } 
+    #else
+    public EventFrequency6Code Frequency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [IsoId("_QlIrY9p-Ed-ak6NoX_4Aeg_-378663272")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact5NumericText? ReportNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReportNumber { get; init; } 
+    #else
+    public System.String? ReportNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [IsoId("_QlIrZNp-Ed-ak6NoX_4Aeg_-704566571")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Activity Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ActivityIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ActivityIndicator { get; init; } 
+    #else
+    public System.String ActivityIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "NetPosId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(NetPositionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RptDtAndTm", xmlNamespace );
-        ReportDateAndTime.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
-        writer.WriteValue(UpdateType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
-        writer.WriteValue(Frequency.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ReportNumber is IsoExact5NumericText ReportNumberValue)
-        {
-            writer.WriteStartElement(null, "RptNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact5NumericText(ReportNumberValue)); // data type Exact5NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static ReportParameters1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

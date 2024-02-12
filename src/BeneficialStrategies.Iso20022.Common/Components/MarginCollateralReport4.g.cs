@@ -7,17 +7,45 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of margin collateral agreement between counterparties.
 /// </summary>
+[IsoId("_1w_vQVosEe23K4GXSpBSeg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Margin Collateral Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MarginCollateralReport4
-     : IIsoXmlSerilizable<MarginCollateralReport4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MarginCollateralReport4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MarginCollateralReport4( CollateralPortfolioCode5Choice_ reqCollateralPortfolioCode,CollateralisationType3Code reqCollateralisationCategory )
+    {
+        CollateralPortfolioCode = reqCollateralPortfolioCode;
+        CollateralisationCategory = reqCollateralisationCategory;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,44 +53,62 @@ public partial record MarginCollateralReport4
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
+    [IsoId("_1ywp0VosEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Portfolio Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
+    #else
+    public CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>
+    [IsoId("_1ywp01osEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralisation Category")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralisationType3Code CollateralisationCategory { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralisationType3Code CollateralisationCategory { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralisationType3Code CollateralisationCategory { get; init; } 
+    #else
+    public CollateralisationType3Code CollateralisationCategory { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date and time of the last collateral amount determination or calculation.
     /// </summary>
+    [IsoId("_1ywp1VosEe23K4GXSpBSeg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? TimeStamp { get; init; } 
+    #else
+    public System.DateTime? TimeStamp { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
-        CollateralPortfolioCode.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollstnCtgy", xmlNamespace );
-        writer.WriteValue(CollateralisationCategory.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (TimeStamp is IsoISODateTime TimeStampValue)
-        {
-            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-    }
-    public static MarginCollateralReport4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

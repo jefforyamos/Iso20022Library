@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a percentage price or an amount price or an unspecified price.
-/// </summary>
-[KnownType(typeof(PriceFormat19Choice.PercentagePrice))]
-[KnownType(typeof(PriceFormat19Choice.AmountPrice))]
-[KnownType(typeof(PriceFormat19Choice.NotSpecifiedPrice))]
-public abstract partial record PriceFormat19Choice_ : IIsoXmlSerilizable<PriceFormat19Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a percentage price or an amount price or an unspecified price.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PriceFormat19Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PriceFormat19Choice.PercentagePrice))]
+    [KnownType(typeof(PriceFormat19Choice.AmountPrice))]
+    [KnownType(typeof(PriceFormat19Choice.NotSpecifiedPrice))]
+    [IsoId("_oc2EQeEJEd-udr336SN7mQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Price Format 19 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PriceFormat19Choice_
+    #else
+    public abstract partial class PriceFormat19Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PctgPric" => PriceFormat19Choice.PercentagePrice.Deserialize(elementWithPayload),
-             "AmtPric" => PriceFormat19Choice.AmountPrice.Deserialize(elementWithPayload),
-             "NotSpcfdPric" => PriceFormat19Choice.NotSpecifiedPrice.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PriceFormat19Choice choice.")
-        };
     }
 }

@@ -7,158 +7,290 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular triparty collateral instruction/transaction  can be confirmed. These parameters are defined by the instructing party in compliance with triparty collateral rules in the market the instruction/transaction will take place.
 /// </summary>
+[IsoId("_KuBgcSs9EeySlt9bF77XfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralParameters10
-     : IIsoXmlSerilizable<CollateralParameters10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CollateralParameters10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CollateralParameters10( CollateralTransactionType1Choice_ reqCollateralInstructionType,ExposureType23Choice_ reqExposureType,CollateralRole1Code reqCollateralSide )
+    {
+        CollateralInstructionType = reqCollateralInstructionType;
+        ExposureType = reqExposureType;
+        CollateralSide = reqCollateralSide;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
+    [IsoId("_LIZvVys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Instruction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    #else
+    public CollateralTransactionType1Choice_ CollateralInstructionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
+    [IsoId("_LIZvWSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exposure Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType23Choice_ ExposureType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ExposureType23Choice_ ExposureType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExposureType23Choice_ ExposureType { get; init; } 
+    #else
+    public ExposureType23Choice_ ExposureType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
+    [IsoId("_LIZvWys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Side")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralRole1Code CollateralSide { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralRole1Code CollateralSide { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralRole1Code CollateralSide { get; init; } 
+    #else
+    public CollateralRole1Code CollateralSide { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage by which the collateral value sought is increased, in selecting securities for a collateral basket, to reflect the taker's margin requirements.
     /// Margin or haircut to be applied on the exposure amount, expressed  as a percentage.
     /// </summary>
+    [IsoId("_LIZvXSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Sought Margin Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
+    #else
+    public RateOrType1Choice_? ValueSoughtMarginRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Change of title for the collateral. If N then collateral is pledged.
     /// </summary>
+    [IsoId("_LIZvXys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Title")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TransferTitle { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransferTitle { get; init; } 
+    #else
+    public System.String? TransferTitle { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
+    [IsoId("_LIZvYSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Process")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? SettlementProcess { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification30? SettlementProcess { get; init; } 
+    #else
+    public GenericIdentification30? SettlementProcess { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the priority with which the instruction needs to be executed.
     /// </summary>
+    [IsoId("_LIZvYys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? Priority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification30? Priority { get; init; } 
+    #else
+    public GenericIdentification30? Priority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
+    [IsoId("_LIZvZSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Automatic Allocation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AutomaticAllocation { get; init; } 
+    #else
+    public System.String? AutomaticAllocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the taker is allowed to solve the failing settlement by proposing other collateral movements.
     /// </summary>
+    [IsoId("_LIZvZys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Failed Settlement Salvation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FailedSettlementSalvation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FailedSettlementSalvation { get; init; } 
+    #else
+    public System.String? FailedSettlementSalvation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies if the main trading account  is included in the pool of securities positions available for collateralisation. It is used in case of re-use of collateral to specify the account from which the securities collateral is taken from.
     /// </summary>
+    [IsoId("_LIZvaSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Main Trading Account Collateralisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? MainTradingAccountCollateralisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MainTradingAccountCollateralisation { get; init; } 
+    #else
+    public System.String? MainTradingAccountCollateralisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information on the baskets identification and the Eligibility Set Profile.
     /// </summary>
+    [IsoId("_LIZvays9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basket Identification And Eligibility Set Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
+    #else
+    public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Collateral taker's answer to the collateral giver instruction.
     /// </summary>
+    [IsoId("_LIZvbSs9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseStatus9Choice_? ResponseStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ResponseStatus9Choice_? ResponseStatus { get; init; } 
+    #else
+    public ResponseStatus9Choice_? ResponseStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information to a collateral instruction.
     /// </summary>
+    [IsoId("_LIZvbys9EeySlt9bF77XfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation24? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation24? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation24? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CollInstrTp", xmlNamespace );
-        CollateralInstructionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
-        ExposureType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollSd", xmlNamespace );
-        writer.WriteValue(CollateralSide.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (ValueSoughtMarginRate is RateOrType1Choice_ ValueSoughtMarginRateValue)
-        {
-            writer.WriteStartElement(null, "ValSghtMrgnRate", xmlNamespace );
-            ValueSoughtMarginRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransferTitle is IsoYesNoIndicator TransferTitleValue)
-        {
-            writer.WriteStartElement(null, "TrfTitl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferTitleValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementProcess is GenericIdentification30 SettlementProcessValue)
-        {
-            writer.WriteStartElement(null, "SttlmPrc", xmlNamespace );
-            SettlementProcessValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Priority is GenericIdentification30 PriorityValue)
-        {
-            writer.WriteStartElement(null, "Prty", xmlNamespace );
-            PriorityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AutomaticAllocation is IsoYesNoIndicator AutomaticAllocationValue)
-        {
-            writer.WriteStartElement(null, "AutomtcAllcn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AutomaticAllocationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FailedSettlementSalvation is IsoYesNoIndicator FailedSettlementSalvationValue)
-        {
-            writer.WriteStartElement(null, "FaildSttlmSlvtn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FailedSettlementSalvationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MainTradingAccountCollateralisation is IsoYesNoIndicator MainTradingAccountCollateralisationValue)
-        {
-            writer.WriteStartElement(null, "MainTradgAcctCollstn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MainTradingAccountCollateralisationValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (BasketIdentificationAndEligibilitySetProfile is BasketIdentificationAndEligibilitySetProfile1 BasketIdentificationAndEligibilitySetProfileValue)
-        {
-            writer.WriteStartElement(null, "BsktIdAndElgbltySetPrfl", xmlNamespace );
-            BasketIdentificationAndEligibilitySetProfileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ResponseStatus is ResponseStatus9Choice_ ResponseStatusValue)
-        {
-            writer.WriteStartElement(null, "RspnSts", xmlNamespace );
-            ResponseStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation24 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralParameters10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,76 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Low level communication of the hardware or software component toward another component or an external entity.
 /// </summary>
+[IsoId("_FsXroQ0XEeqUVL7sB4m7NA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Communication Characteristics")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CommunicationCharacteristics5
-     : IIsoXmlSerilizable<CommunicationCharacteristics5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CommunicationCharacteristics5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CommunicationCharacteristics5( POICommunicationType2Code reqCommunicationType,System.String reqActive )
+    {
+        CommunicationType = reqCommunicationType;
+        Active = reqActive;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of low level communication.
     /// </summary>
+    [IsoId("_F3D4sQ0XEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Communication Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required POICommunicationType2Code CommunicationType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public POICommunicationType2Code CommunicationType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public POICommunicationType2Code CommunicationType { get; init; } 
+    #else
+    public POICommunicationType2Code CommunicationType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Entity that communicate with the current component, using this communication device.
     /// </summary>
+    [IsoId("_F3D4sw0XEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remote Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public PartyType7Code? RemoteParty { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _F3D4sw0XEeqUVL7sB4m7NA
+    
     /// <summary>
     /// Communication hardware is activated.
     /// </summary>
+    [IsoId("_F3D4tQ0XEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Active")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Active { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Active { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Active { get; init; } 
+    #else
+    public System.String Active { get; set; } 
+    #endif
+    
     /// <summary>
     /// Network parameters of the communication link.
     /// </summary>
+    [IsoId("_F3D4tw0XEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters7? Parameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetworkParameters7? Parameters { get; init; } 
+    #else
+    public NetworkParameters7? Parameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Physical Interface used by the communication link.
     /// </summary>
+    [IsoId("_F3D4uQ0XEeqUVL7sB4m7NA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Physical Interface")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PhysicalInterfaceParameter1? PhysicalInterface { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PhysicalInterfaceParameter1? PhysicalInterface { get; init; } 
+    #else
+    public PhysicalInterfaceParameter1? PhysicalInterface { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ComTp", xmlNamespace );
-        writer.WriteValue(CommunicationType.ToString()); // Enum value
-        writer.WriteEndElement();
-        // Not sure how to serialize RemoteParty, multiplicity Unknown
-        writer.WriteStartElement(null, "Actv", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Active)); // data type TrueFalseIndicator System.String
-        writer.WriteEndElement();
-        if (Parameters is NetworkParameters7 ParametersValue)
-        {
-            writer.WriteStartElement(null, "Params", xmlNamespace );
-            ParametersValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PhysicalInterface is PhysicalInterfaceParameter1 PhysicalInterfaceValue)
-        {
-            writer.WriteStartElement(null, "PhysIntrfc", xmlNamespace );
-            PhysicalInterfaceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CommunicationCharacteristics5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

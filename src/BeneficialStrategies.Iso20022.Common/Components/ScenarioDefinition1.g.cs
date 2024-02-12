@@ -7,74 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics used to describe a hypothetical scenario designed to test the value of a portfolio of financial instruments under such hypothetical scenario.
 /// </summary>
+[IsoId("_b-6ZMKsrEeayv9XxdmMwKQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Scenario Definition")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ScenarioDefinition1
-     : IIsoXmlSerilizable<ScenarioDefinition1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ScenarioDefinition1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ScenarioDefinition1( GenericIdentification165 reqIdentification,ScenarioType1Code reqScenarioType,StrategyStressType1Code reqStrategyStressType )
+    {
+        Identification = reqIdentification;
+        ScenarioType = reqScenarioType;
+        StrategyStressType = reqStrategyStressType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the stress scenario.
     /// </summary>
+    [IsoId("_ou7vEKsrEeayv9XxdmMwKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GenericIdentification165 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification165 Identification { get; init; } 
+    #else
+    public GenericIdentification165 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the scenario is based on a historical event or a hypothetical scenario.
     /// </summary>
+    [IsoId("_xLvt4KssEeayv9XxdmMwKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scenario Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ScenarioType1Code ScenarioType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ScenarioType1Code ScenarioType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ScenarioType1Code ScenarioType { get; init; } 
+    #else
+    public ScenarioType1Code ScenarioType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates how the scenario stresses the curve.
     /// </summary>
+    [IsoId("_rr6ysKstEeayv9XxdmMwKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Strategy Stress Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StrategyStressType1Code StrategyStressType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public StrategyStressType1Code StrategyStressType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StrategyStressType1Code StrategyStressType { get; init; } 
+    #else
+    public StrategyStressType1Code StrategyStressType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information relating to the one / two major representative product(s).
     /// </summary>
-    public ValueList<StressItem1> StressItem { get; init; } = [];
+    [IsoId("_2AzGYKsuEeayv9XxdmMwKQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Stress Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(2)]
+    #endif
+    public ValueList<StressItem1> StressItem { get; init; } = new ValueList<StressItem1>(){};
+    
     /// <summary>
     /// Long description of the scenario.
     /// </summary>
+    [IsoId("_QIx0kMBnEeak3I7j2hsibw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ScnroTp", xmlNamespace );
-        writer.WriteValue(ScenarioType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StrtgyStrssTp", xmlNamespace );
-        writer.WriteValue(StrategyStressType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "StrssItm", xmlNamespace );
-        StressItem.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Description is IsoMax2000Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(DescriptionValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ScenarioDefinition1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

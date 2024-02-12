@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the classification.
-/// </summary>
-[KnownType(typeof(ClassificationType30Choice.ClassificationFinancialInstrument))]
-[KnownType(typeof(ClassificationType30Choice.AlternateClassification))]
-public abstract partial record ClassificationType30Choice_ : IIsoXmlSerilizable<ClassificationType30Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the classification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ClassificationType30Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ClassificationType30Choice.ClassificationFinancialInstrument))]
+    [KnownType(typeof(ClassificationType30Choice.AlternateClassification))]
+    [IsoId("_AbpPotokEeC60axPepSq7g_371267189")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Classification Type 30 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ClassificationType30Choice_
+    #else
+    public abstract partial class ClassificationType30Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ClssfctnFinInstrm" => ClassificationType30Choice.ClassificationFinancialInstrument.Deserialize(elementWithPayload),
-             "AltrnClssfctn" => ClassificationType30Choice.AlternateClassification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ClassificationType30Choice choice.")
-        };
     }
 }

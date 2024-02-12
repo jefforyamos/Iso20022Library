@@ -7,200 +7,361 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Regroups identification parameters for trade items.
 /// </summary>
+[IsoId("_OTgzMjk0-AOSNFX-8224497")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financial Item Parameters")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancialItemParameters1
-     : IIsoXmlSerilizable<FinancialItemParameters1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancialItemParameters1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancialItemParameters1( System.String reqIdentifier,System.DateOnly reqIssueDate )
+    {
+        Identifier = reqIdentifier;
+        IssueDate = reqIssueDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification of this item relative to the issuing party.
     /// </summary>
+    [IsoId("_OTMxOTcx-AOSNFX-0262741")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identifier { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identifier { get; init; } 
+    #else
+    public System.String Identifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of creation of the item.
     /// </summary>
+    [IsoId("_OTgzMjk1-AOSNFX-8224497")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issue Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly IssueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly IssueDate { get; init; } 
+    #else
+    public System.DateOnly IssueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifier of related items, for example an assignment or an advice.
     /// </summary>
+    [IsoId("_OTgzMjk2-AOSNFX-8224497")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedItem { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? RelatedItem { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? RelatedItem { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the function of the document related to the item.
     /// </summary>
+    [IsoId("_OTgzMjk4-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Document Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalDocumentPurpose1Code? DocumentPurpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalDocumentPurpose1Code? DocumentPurpose { get; init; } 
+    #else
+    public ExternalDocumentPurpose1Code? DocumentPurpose { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language used for textual information in item.
     /// </summary>
+    [IsoId("_OTgzMjk5-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? LanguageCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LanguageCode { get; init; } 
+    #else
+    public string? LanguageCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that issued this list of items.
     /// </summary>
+    [IsoId("_OTgzMzAw-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Issuer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Issuer { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Issuer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Receiving party of this list of items.
     /// </summary>
+    [IsoId("_OTgzMzAx-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Recipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Recipient { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Recipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that acts as buyer of the goods or services referred to by the financial item.
     /// </summary>
+    [IsoId("_OTgzMzAy-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Buyer { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that acts as seller of the goods or services referred to by the financial item.
     /// </summary>
+    [IsoId("_OTgzMzAz-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? Seller { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial agent for the seller.
     /// </summary>
+    [IsoId("_OTgzMzA0-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller Financial Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? SellerFinancialAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? SellerFinancialAgent { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? SellerFinancialAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial agent for the buyer.
     /// </summary>
+    [IsoId("_OTgzMzA1-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer Financial Agent")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? BuyerFinancialAgent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1? BuyerFinancialAgent { get; init; } 
+    #else
+    public QualifiedPartyIdentification1? BuyerFinancialAgent { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to contract that governs the exchange of the message.
     /// </summary>
+    [IsoId("_OTgzMzA2-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Governing Contract")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? GoverningContract { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? GoverningContract { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? GoverningContract { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rules and laws governing the item.
     /// </summary>
+    [IsoId("_OTgzMzA3-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GovernanceRules2? LegalContext { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GovernanceRules2? LegalContext { get; init; } 
+    #else
+    public GovernanceRules2? LegalContext { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the item.
     /// </summary>
+    [IsoId("_OTgzMzA4-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the account debited for charges (or credited for reimbursement).
     /// </summary>
+    [IsoId("_OTgzMzA5-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debit Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? DebitAccount { get; init; } 
+    #else
+    public AccountIdentification4Choice_? DebitAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the account credited for charges (or debited for reimbursement).
     /// </summary>
+    [IsoId("_OTgzMzEw-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? CreditAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountIdentification4Choice_? CreditAccount { get; init; } 
+    #else
+    public AccountIdentification4Choice_? CreditAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the geographical environment of the trade market.
     /// </summary>
+    [IsoId("_OTgzMzEy-AOSNFX-8224498")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Market")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeMarket1Choice_? TradeMarket { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeMarket1Choice_? TradeMarket { get; init; } 
+    #else
+    public TradeMarket1Choice_? TradeMarket { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Idr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identifier)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (RelatedItem is QualifiedDocumentInformation1 RelatedItemValue)
-        {
-            writer.WriteStartElement(null, "RltdItm", xmlNamespace );
-            RelatedItemValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DocumentPurpose is ExternalDocumentPurpose1Code DocumentPurposeValue)
-        {
-            writer.WriteStartElement(null, "DocPurp", xmlNamespace );
-            writer.WriteValue(DocumentPurposeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (LanguageCode is LanguageCode LanguageCodeValue)
-        {
-            writer.WriteStartElement(null, "LangCd", xmlNamespace );
-            writer.WriteValue(LanguageCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Issuer is QualifiedPartyIdentification1 IssuerValue)
-        {
-            writer.WriteStartElement(null, "Issr", xmlNamespace );
-            IssuerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Recipient is QualifiedPartyIdentification1 RecipientValue)
-        {
-            writer.WriteStartElement(null, "Rcpt", xmlNamespace );
-            RecipientValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Buyer is QualifiedPartyIdentification1 BuyerValue)
-        {
-            writer.WriteStartElement(null, "Buyr", xmlNamespace );
-            BuyerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Seller is QualifiedPartyIdentification1 SellerValue)
-        {
-            writer.WriteStartElement(null, "Sellr", xmlNamespace );
-            SellerValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SellerFinancialAgent is QualifiedPartyIdentification1 SellerFinancialAgentValue)
-        {
-            writer.WriteStartElement(null, "SellrFinAgt", xmlNamespace );
-            SellerFinancialAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BuyerFinancialAgent is QualifiedPartyIdentification1 BuyerFinancialAgentValue)
-        {
-            writer.WriteStartElement(null, "BuyrFinAgt", xmlNamespace );
-            BuyerFinancialAgentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GoverningContract is QualifiedDocumentInformation1 GoverningContractValue)
-        {
-            writer.WriteStartElement(null, "GovngCtrct", xmlNamespace );
-            GoverningContractValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LegalContext is GovernanceRules2 LegalContextValue)
-        {
-            writer.WriteStartElement(null, "LglCntxt", xmlNamespace );
-            LegalContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Currency is CurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DebitAccount is AccountIdentification4Choice_ DebitAccountValue)
-        {
-            writer.WriteStartElement(null, "DbtAcct", xmlNamespace );
-            DebitAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditAccount is AccountIdentification4Choice_ CreditAccountValue)
-        {
-            writer.WriteStartElement(null, "CdtAcct", xmlNamespace );
-            CreditAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TradeMarket is TradeMarket1Choice_ TradeMarketValue)
-        {
-            writer.WriteStartElement(null, "TradMkt", xmlNamespace );
-            TradeMarketValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancialItemParameters1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

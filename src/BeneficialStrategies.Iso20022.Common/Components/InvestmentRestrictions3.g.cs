@@ -7,216 +7,373 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Investment restrictions linked to the trading of an investment fund, or an alternative/hedge fund.
 /// </summary>
+[IsoId("_Sp4ScV88Eeicg40_9gK9vQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Investment Restrictions")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InvestmentRestrictions3
-     : IIsoXmlSerilizable<InvestmentRestrictions3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Minimum initial quantity of securities, expressed as an amount, that must be purchased at subscription.
     /// </summary>
+    [IsoId("_S5y9w188Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Initial Subscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumInitialSubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumInitialSubscriptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum initial number of units/shares that must be purchased.
     /// </summary>
+    [IsoId("_S5y9xV88Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Initial Subscription Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumInitialSubscriptionUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MinimumInitialSubscriptionUnits { get; init; } 
+    #else
+    public System.UInt64? MinimumInitialSubscriptionUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities, expressed as an amount, that must be purchased.
     /// </summary>
+    [IsoId("_S5y9x188Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Subsequent Subscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumSubsequentSubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumSubsequentSubscriptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
+    [IsoId("_S5y9yV88Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Subsequent Subscription Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumSubsequentSubscriptionUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MinimumSubsequentSubscriptionUnits { get; init; } 
+    #else
+    public System.UInt64? MinimumSubsequentSubscriptionUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum quantity of securities, expressed as an amount, that can be sold. 
     /// </summary>
+    [IsoId("_S5y9y188Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Redemption Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumRedemptionAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumRedemptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
+    [IsoId("_S5y9zV88Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Redemption Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MaximumRedemptionUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumRedemptionUnits { get; init; } 
+    #else
+    public System.UInt64? MaximumRedemptionUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum percentage of holding that may be redeemed.
     /// </summary>
+    [IsoId("_0VZA0N6eEei9RJrL5H7TLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Redemption Percentage")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MinimumRedemptionPercentage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MinimumRedemptionPercentage { get; init; } 
+    #else
+    public System.UInt64? MinimumRedemptionPercentage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies any other restrictions that may limit an investor's ability to redeem.
     /// </summary>
+    [IsoId("_S5y9z188Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Redemption Restrictions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherRedemptionRestrictions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherRedemptionRestrictions { get; init; } 
+    #else
+    public System.String? OtherRedemptionRestrictions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities, expressed as an amount, that must be purchased.
     /// </summary>
+    [IsoId("_zKI5MN6fEei9RJrL5H7TLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Switch Subscription Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumSwitchSubscriptionAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumSwitchSubscriptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
+    [IsoId("_8WiXUN6fEei9RJrL5H7TLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Switch Subscription Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MinimumSwitchSubscriptionUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MinimumSwitchSubscriptionUnits { get; init; } 
+    #else
+    public System.UInt64? MinimumSwitchSubscriptionUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum quantity of securities, expressed as an amount, that can be sold. 
     /// </summary>
+    [IsoId("_kS7MwF88Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Switch Redemption Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MaximumSwitchRedemptionAmount { get; init; } 
+    #else
+    public System.Decimal? MaximumSwitchRedemptionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
+    [IsoId("_CNJlYN6gEei9RJrL5H7TLQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Maximum Switch Redemption Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MaximumSwitchRedemptionUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MaximumSwitchRedemptionUnits { get; init; } 
+    #else
+    public System.UInt64? MaximumSwitchRedemptionUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies any other restrictions that may limit an investor's ability to switch.
     /// </summary>
+    [IsoId("_1coDMF89Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Switch Restrictions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherSwitchRestrictions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherSwitchRestrictions { get; init; } 
+    #else
+    public System.String? OtherSwitchRestrictions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum value of units that must be maintained to avoid automatic redemption.
     /// </summary>
+    [IsoId("_S5y90V88Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Holding Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? MinimumHoldingAmount { get; init; } 
+    #else
+    public System.Decimal? MinimumHoldingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Minimum number of units that must be maintained to avoid automatic redemption.
     /// </summary>
+    [IsoId("_S5y90188Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Holding Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MinimumHoldingUnits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? MinimumHoldingUnits { get; init; } 
+    #else
+    public System.UInt64? MinimumHoldingUnits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the period, that may be a number of days or weeks or another way of describing the period, during which the units/shares must be held following their issue before redemption will be permitted.
     /// </summary>
+    [IsoId("_S5y91V88Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Minimum Holding Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? MinimumHoldingPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MinimumHoldingPeriod { get; init; } 
+    #else
+    public System.String? MinimumHoldingPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies how registered investors are able to transfer some or all of their holdings to third parties.
     /// </summary>
+    [IsoId("_S5y91188Eeicg40_9gK9vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holding Transferable")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HoldingTransferable1Code? HoldingTransferable { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public HoldingTransferable1Code? HoldingTransferable { get; init; } 
+    #else
+    public HoldingTransferable1Code? HoldingTransferable { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the investment restrictions.
     /// </summary>
+    [IsoId("_Val68WAKEeiNMJ262H2pWg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    #else
+    public AdditionalInformation15? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (MinimumInitialSubscriptionAmount is IsoActiveCurrencyAndAmount MinimumInitialSubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "MinInitlSbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumInitialSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumInitialSubscriptionUnits is IsoNumber MinimumInitialSubscriptionUnitsValue)
-        {
-            writer.WriteStartElement(null, "MinInitlSbcptUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumInitialSubscriptionUnitsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MinimumSubsequentSubscriptionAmount is IsoActiveCurrencyAndAmount MinimumSubsequentSubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "MinSbsqntSbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumSubsequentSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumSubsequentSubscriptionUnits is IsoNumber MinimumSubsequentSubscriptionUnitsValue)
-        {
-            writer.WriteStartElement(null, "MinSbsqntSbcptUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumSubsequentSubscriptionUnitsValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaximumRedemptionAmount is IsoActiveCurrencyAndAmount MaximumRedemptionAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxRedAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumRedemptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MaximumRedemptionUnits is IsoDecimalNumber MaximumRedemptionUnitsValue)
-        {
-            writer.WriteStartElement(null, "MaxRedUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MaximumRedemptionUnitsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MinimumRedemptionPercentage is IsoDecimalNumber MinimumRedemptionPercentageValue)
-        {
-            writer.WriteStartElement(null, "MinRedPctg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MinimumRedemptionPercentageValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OtherRedemptionRestrictions is IsoMax350Text OtherRedemptionRestrictionsValue)
-        {
-            writer.WriteStartElement(null, "OthrRedRstrctns", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherRedemptionRestrictionsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (MinimumSwitchSubscriptionAmount is IsoActiveCurrencyAndAmount MinimumSwitchSubscriptionAmountValue)
-        {
-            writer.WriteStartElement(null, "MinSwtchSbcptAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumSwitchSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumSwitchSubscriptionUnits is IsoDecimalNumber MinimumSwitchSubscriptionUnitsValue)
-        {
-            writer.WriteStartElement(null, "MinSwtchSbcptUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MinimumSwitchSubscriptionUnitsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MaximumSwitchRedemptionAmount is IsoActiveCurrencyAndAmount MaximumSwitchRedemptionAmountValue)
-        {
-            writer.WriteStartElement(null, "MaxSwtchRedAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumSwitchRedemptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MaximumSwitchRedemptionUnits is IsoDecimalNumber MaximumSwitchRedemptionUnitsValue)
-        {
-            writer.WriteStartElement(null, "MaxSwtchRedUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MaximumSwitchRedemptionUnitsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (OtherSwitchRestrictions is IsoMax350Text OtherSwitchRestrictionsValue)
-        {
-            writer.WriteStartElement(null, "OthrSwtchRstrctns", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherSwitchRestrictionsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (MinimumHoldingAmount is IsoActiveCurrencyAndAmount MinimumHoldingAmountValue)
-        {
-            writer.WriteStartElement(null, "MinHldgAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumHoldingAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (MinimumHoldingUnits is IsoDecimalNumber MinimumHoldingUnitsValue)
-        {
-            writer.WriteStartElement(null, "MinHldgUnits", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MinimumHoldingUnitsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (MinimumHoldingPeriod is IsoMax70Text MinimumHoldingPeriodValue)
-        {
-            writer.WriteStartElement(null, "MinHldgPrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(MinimumHoldingPeriodValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (HoldingTransferable is HoldingTransferable1Code HoldingTransferableValue)
-        {
-            writer.WriteStartElement(null, "HldgTrfbl", xmlNamespace );
-            writer.WriteValue(HoldingTransferableValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static InvestmentRestrictions3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

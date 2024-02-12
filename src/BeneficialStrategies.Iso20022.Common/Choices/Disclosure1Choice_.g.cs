@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an indication of no disclosure and the provision of shareholding disclosure information.
-/// </summary>
-[KnownType(typeof(Disclosure1Choice.NoDisclosure))]
-[KnownType(typeof(Disclosure1Choice.SafekeepingAccountAndHoldings))]
-public abstract partial record Disclosure1Choice_ : IIsoXmlSerilizable<Disclosure1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an indication of no disclosure and the provision of shareholding disclosure information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Disclosure1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Disclosure1Choice.NoDisclosure))]
+    [KnownType(typeof(Disclosure1Choice.SafekeepingAccountAndHoldings))]
+    [IsoId("_xP2q0MAMEembi_x1QDJfxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Disclosure 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Disclosure1Choice_
+    #else
+    public abstract partial class Disclosure1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "NoDsclsr" => Disclosure1Choice.NoDisclosure.Deserialize(elementWithPayload),
-             "SfkpgAcctAndHldgs" => Disclosure1Choice.SafekeepingAccountAndHoldings.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Disclosure1Choice choice.")
-        };
     }
 }

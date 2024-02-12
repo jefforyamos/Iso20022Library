@@ -7,276 +7,472 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on the payment.
 /// </summary>
+[IsoId("_RKiehdp-Ed-ak6NoX_4Aeg_-1663577418")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentReturnCriteria2
-     : IIsoXmlSerilizable<PaymentReturnCriteria2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the transaction reference is requested.
     /// </summary>
+    [IsoId("_RKiehtp-Ed-ak6NoX_4Aeg_-1662656188")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Reference Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TransactionReferenceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionReferenceIndicator { get; init; } 
+    #else
+    public System.String? TransactionReferenceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transfer value date is requested.
     /// </summary>
+    [IsoId("_RKieh9p-Ed-ak6NoX_4Aeg_-1662656651")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Value Date Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TransferValueDateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransferValueDateIndicator { get; init; } 
+    #else
+    public System.String? TransferValueDateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the instruction is requested.
     /// </summary>
+    [IsoId("_RKieiNp-Ed-ak6NoX_4Aeg_-1662657196")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructionIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionIndicator { get; init; } 
+    #else
+    public System.String? InstructionIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the instruction status is requested.
     /// </summary>
+    [IsoId("_RKsPgNp-Ed-ak6NoX_4Aeg_-1662657076")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Status Return Criteria")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionStatusReturnCriteria? InstructionStatusReturnCriteria { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InstructionStatusReturnCriteria? InstructionStatusReturnCriteria { get; init; } 
+    #else
+    public InstructionStatusReturnCriteria? InstructionStatusReturnCriteria { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the instructed amount is requested.
     /// </summary>
+    [IsoId("_RKsPgdp-Ed-ak6NoX_4Aeg_-1662657136")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Amount Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructedAmountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructedAmountIndicator { get; init; } 
+    #else
+    public System.String? InstructedAmountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Payment Instruction Reference is requested.
     /// </summary>
+    [IsoId("_RKsPgtp-Ed-ak6NoX_4Aeg_351278396")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Debit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CreditDebitIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditDebitIndicator { get; init; } 
+    #else
+    public System.String? CreditDebitIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the interbank settlement amount is requested.
     /// </summary>
+    [IsoId("_RKsPg9p-Ed-ak6NoX_4Aeg_-1662656807")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Amount Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InterbankSettlementAmountIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterbankSettlementAmountIndicator { get; init; } 
+    #else
+    public System.String? InterbankSettlementAmountIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the payment priority is requested.
     /// </summary>
+    [IsoId("_RKsPhNp-Ed-ak6NoX_4Aeg_-1662657291")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Priority Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PriorityIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PriorityIndicator { get; init; } 
+    #else
+    public System.String? PriorityIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the processing validity time is requested.
     /// </summary>
+    [IsoId("_RKsPhdp-Ed-ak6NoX_4Aeg_-1662657231")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Validity Time Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ProcessingValidityTimeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProcessingValidityTimeIndicator { get; init; } 
+    #else
+    public System.String? ProcessingValidityTimeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transfer reason is requested.
     /// </summary>
+    [IsoId("_RKsPhtp-Ed-ak6NoX_4Aeg_-1662656360")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Purpose Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PurposeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PurposeIndicator { get; init; } 
+    #else
+    public System.String? PurposeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the instruction copy is requested.
     /// </summary>
+    [IsoId("_RKsPh9p-Ed-ak6NoX_4Aeg_-1662656248")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Copy Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructionCopyIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionCopyIndicator { get; init; } 
+    #else
+    public System.String? InstructionCopyIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the payment message type is requested.
     /// </summary>
+    [IsoId("_RKsPiNp-Ed-ak6NoX_4Aeg_-1662656300")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Message Type Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentMessageTypeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentMessageTypeIndicator { get; init; } 
+    #else
+    public System.String? PaymentMessageTypeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the payment type is requested.
     /// </summary>
+    [IsoId("_RK1ZcNp-Ed-ak6NoX_4Aeg_-1663577399")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Type Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentTypeIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentTypeIndicator { get; init; } 
+    #else
+    public System.String? PaymentTypeIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Payment Instruction Reference is requested.
     /// </summary>
+    [IsoId("_RK1Zcdp-Ed-ak6NoX_4Aeg_-1175959206")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Reference Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentInstructionReferenceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentInstructionReferenceIndicator { get; init; } 
+    #else
+    public System.String? PaymentInstructionReferenceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Interbank Value Date is requested.
     /// </summary>
+    [IsoId("_RK1Zctp-Ed-ak6NoX_4Aeg_313679236")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Value Date Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InterbankValueDateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InterbankValueDateIndicator { get; init; } 
+    #else
+    public System.String? InterbankValueDateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Related Reference is requested.
     /// </summary>
+    [IsoId("_RK1Zc9p-Ed-ak6NoX_4Aeg_211167351")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Reference Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? RelatedReferenceIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RelatedReferenceIndicator { get; init; } 
+    #else
+    public System.String? RelatedReferenceIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Payment Method is requested.
     /// </summary>
+    [IsoId("_RK1ZdNp-Ed-ak6NoX_4Aeg_1203028604")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Method Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentMethodIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PaymentMethodIndicator { get; init; } 
+    #else
+    public System.String? PaymentMethodIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Debtor is requested.
     /// </summary>
+    [IsoId("_RK_KcNp-Ed-ak6NoX_4Aeg_-754618295")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debtor Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? DebtorIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DebtorIndicator { get; init; } 
+    #else
+    public System.String? DebtorIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the First Agent is requested.
     /// </summary>
+    [IsoId("_RK_Kcdp-Ed-ak6NoX_4Aeg_-484951167")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("First Agent Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? FirstAgentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FirstAgentIndicator { get; init; } 
+    #else
+    public System.String? FirstAgentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the correspondent of the Instructing Agent is requested.
     /// </summary>
+    [IsoId("_RK_Kctp-Ed-ak6NoX_4Aeg_-470172535")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing Agent Correspondent Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructingAgentCorrespondentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructingAgentCorrespondentIndicator { get; init; } 
+    #else
+    public System.String? InstructingAgentCorrespondentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the correspondent of the Instructed Agent is requested.
     /// </summary>
+    [IsoId("_RK_Kc9p-Ed-ak6NoX_4Aeg_-444314494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Agent Correspondent Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructedAgentCorrespondentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructedAgentCorrespondentIndicator { get; init; } 
+    #else
+    public System.String? InstructedAgentCorrespondentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Intermediary is requested.
     /// </summary>
+    [IsoId("_RK_KdNp-Ed-ak6NoX_4Aeg_-424921485")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Intermediary Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? IntermediaryIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? IntermediaryIndicator { get; init; } 
+    #else
+    public System.String? IntermediaryIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Final Agent is requested.
     /// </summary>
+    [IsoId("_RK_Kddp-Ed-ak6NoX_4Aeg_-411070416")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Agent Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? FinalAgentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FinalAgentIndicator { get; init; } 
+    #else
+    public System.String? FinalAgentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the Creditor is requested.
     /// </summary>
+    [IsoId("_RK_Kdtp-Ed-ak6NoX_4Aeg_-398141338")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creditor Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CreditorIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditorIndicator { get; init; } 
+    #else
+    public System.String? CreditorIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TransactionReferenceIndicator is IsoRequestedIndicator TransactionReferenceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TxRefInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TransactionReferenceIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TransferValueDateIndicator is IsoRequestedIndicator TransferValueDateIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TrfValDtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TransferValueDateIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionIndicator is IsoRequestedIndicator InstructionIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InstrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructionIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionStatusReturnCriteria is InstructionStatusReturnCriteria InstructionStatusReturnCriteriaValue)
-        {
-            writer.WriteStartElement(null, "InstrStsRtrCrit", xmlNamespace );
-            InstructionStatusReturnCriteriaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InstructedAmountIndicator is IsoRequestedIndicator InstructedAmountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InstdAmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructedAmountIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CreditDebitIndicator is IsoRequestedIndicator CreditDebitIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CreditDebitIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InterbankSettlementAmountIndicator is IsoRequestedIndicator InterbankSettlementAmountIndicatorValue)
-        {
-            writer.WriteStartElement(null, "IntrBkSttlmAmtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InterbankSettlementAmountIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PriorityIndicator is IsoRequestedIndicator PriorityIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrtyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PriorityIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ProcessingValidityTimeIndicator is IsoRequestedIndicator ProcessingValidityTimeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PrcgVldtyTmInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ProcessingValidityTimeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PurposeIndicator is IsoRequestedIndicator PurposeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PurpInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PurposeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionCopyIndicator is IsoRequestedIndicator InstructionCopyIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InstrCpyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructionCopyIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentMessageTypeIndicator is IsoRequestedIndicator PaymentMessageTypeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PmtMsgTpInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentMessageTypeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentTypeIndicator is IsoRequestedIndicator PaymentTypeIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PmtTpInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentTypeIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentInstructionReferenceIndicator is IsoRequestedIndicator PaymentInstructionReferenceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PmtInstrRefInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionReferenceIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InterbankValueDateIndicator is IsoRequestedIndicator InterbankValueDateIndicatorValue)
-        {
-            writer.WriteStartElement(null, "IntrBkValDtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InterbankValueDateIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RelatedReferenceIndicator is IsoRequestedIndicator RelatedReferenceIndicatorValue)
-        {
-            writer.WriteStartElement(null, "RltdRefInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(RelatedReferenceIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PaymentMethodIndicator is IsoRequestedIndicator PaymentMethodIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PmtMtdInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentMethodIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DebtorIndicator is IsoRequestedIndicator DebtorIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DbtrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(DebtorIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FirstAgentIndicator is IsoRequestedIndicator FirstAgentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FrstAgtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(FirstAgentIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InstructingAgentCorrespondentIndicator is IsoRequestedIndicator InstructingAgentCorrespondentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InstgAgtCrspdtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructingAgentCorrespondentIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InstructedAgentCorrespondentIndicator is IsoRequestedIndicator InstructedAgentCorrespondentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InstdAgtCrspdtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructedAgentCorrespondentIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (IntermediaryIndicator is IsoRequestedIndicator IntermediaryIndicatorValue)
-        {
-            writer.WriteStartElement(null, "IntrmyInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(IntermediaryIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (FinalAgentIndicator is IsoRequestedIndicator FinalAgentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FnlAgtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(FinalAgentIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CreditorIndicator is IsoRequestedIndicator CreditorIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CreditorIndicatorValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentReturnCriteria2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

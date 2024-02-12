@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of proxy allowance.
-/// </summary>
-[KnownType(typeof(Proxy4Choice.Proxy))]
-[KnownType(typeof(Proxy4Choice.ProxyNotAllowed))]
-public abstract partial record Proxy4Choice_ : IIsoXmlSerilizable<Proxy4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of proxy allowance.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Proxy4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Proxy4Choice.Proxy))]
+    [KnownType(typeof(Proxy4Choice.ProxyNotAllowed))]
+    [IsoId("_euVP0fM7EeqRfth943bvEA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Proxy 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Proxy4Choice_
+    #else
+    public abstract partial class Proxy4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Prxy" => Proxy4Choice.Proxy.Deserialize(elementWithPayload),
-             "PrxyNotAllwd" => Proxy4Choice.ProxyNotAllowed.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Proxy4Choice choice.")
-        };
     }
 }

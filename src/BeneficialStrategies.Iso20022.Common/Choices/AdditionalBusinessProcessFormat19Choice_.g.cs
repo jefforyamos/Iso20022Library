@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a standard code or proprietary code to specify the type of the additional business process, that is, a tax refund.
-/// </summary>
-[KnownType(typeof(AdditionalBusinessProcessFormat19Choice.Code))]
-[KnownType(typeof(AdditionalBusinessProcessFormat19Choice.Proprietary))]
-public abstract partial record AdditionalBusinessProcessFormat19Choice_ : IIsoXmlSerilizable<AdditionalBusinessProcessFormat19Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a standard code or proprietary code to specify the type of the additional business process, that is, a tax refund.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AdditionalBusinessProcessFormat19Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AdditionalBusinessProcessFormat19Choice.Code))]
+    [KnownType(typeof(AdditionalBusinessProcessFormat19Choice.Proprietary))]
+    [IsoId("_Z5Hj9RewEeyroI8qKgB7Mg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Business Process Format 19 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AdditionalBusinessProcessFormat19Choice_
+    #else
+    public abstract partial class AdditionalBusinessProcessFormat19Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AdditionalBusinessProcessFormat19Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AdditionalBusinessProcessFormat19Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AdditionalBusinessProcessFormat19Choice choice.")
-        };
     }
 }

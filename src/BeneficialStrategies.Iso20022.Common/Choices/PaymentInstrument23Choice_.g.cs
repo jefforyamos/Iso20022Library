@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between types of payment instrument.
-/// </summary>
-[KnownType(typeof(PaymentInstrument23Choice.CreditTransferDetails))]
-[KnownType(typeof(PaymentInstrument23Choice.ChequeDetails))]
-public abstract partial record PaymentInstrument23Choice_ : IIsoXmlSerilizable<PaymentInstrument23Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between types of payment instrument.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PaymentInstrument23Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PaymentInstrument23Choice.CreditTransferDetails))]
+    [KnownType(typeof(PaymentInstrument23Choice.ChequeDetails))]
+    [IsoId("_Z55NsFNaEeijdq8ilaxyOA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instrument 23 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PaymentInstrument23Choice_
+    #else
+    public abstract partial class PaymentInstrument23Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CdtTrfDtls" => PaymentInstrument23Choice.CreditTransferDetails.Deserialize(elementWithPayload),
-             "ChqDtls" => PaymentInstrument23Choice.ChequeDetails.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PaymentInstrument23Choice choice.")
-        };
     }
 }

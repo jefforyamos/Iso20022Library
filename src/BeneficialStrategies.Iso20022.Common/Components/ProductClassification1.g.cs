@@ -7,83 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0 (https://www.isda.org/2018/02/20/final-isda-taxonomy-v1-0-and-final-isda-taxonomy-v2-0/).
 /// </summary>
+[IsoId("_M00DgDXHEemdWfjs3tykFQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Product Classification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ProductClassification1
-     : IIsoXmlSerilizable<ProductClassification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ProductClassification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ProductClassification1( System.String reqAssetClass )
+    {
+        AssetClass = reqAssetClass;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Asset class of the underlying of the derivative (e.g. Interest Rate, Commodity, Equity).
     /// </summary>
+    [IsoId("_WPDJUDXHEemdWfjs3tykFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AssetClass { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String AssetClass { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String AssetClass { get; init; } 
+    #else
+    public System.String AssetClass { get; set; } 
+    #endif
+    
     /// <summary>
     /// Market of the underlying product (IR Swap, Freight, Precious/Non Precious).
     /// </summary>
+    [IsoId("_YzAT0DXHEemdWfjs3tykFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Base Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BaseProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BaseProduct { get; init; } 
+    #else
+    public System.String? BaseProduct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of the product type.
     /// </summary>
+    [IsoId("_bSfOADXHEemdWfjs3tykFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Product")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubProduct { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubProduct { get; init; } 
+    #else
+    public System.String? SubProduct { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details if the asset class is commodity.
     /// </summary>
+    [IsoId("_d65asDXHEemdWfjs3tykFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Commodity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubCommodity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SubCommodity { get; init; } 
+    #else
+    public System.String? SubCommodity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of the transaction, for example, option, spot forward or exotic.
     /// </summary>
+    [IsoId("_gLqjcDXHEemdWfjs3tykFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransactionType { get; init; } 
+    #else
+    public System.String? TransactionType { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "AsstClss", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(AssetClass)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (BaseProduct is IsoMax35Text BaseProductValue)
-        {
-            writer.WriteStartElement(null, "BasePdct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(BaseProductValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SubProduct is IsoMax35Text SubProductValue)
-        {
-            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubProductValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SubCommodity is IsoMax35Text SubCommodityValue)
-        {
-            writer.WriteStartElement(null, "SubCmmdty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubCommodityValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionType is IsoMax35Text TransactionTypeValue)
-        {
-            writer.WriteStartElement(null, "TxTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ProductClassification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

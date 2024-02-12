@@ -7,156 +7,256 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Return criteria for information to be returned in the report deriving from a query about party reference data.
 /// </summary>
+[IsoId("_kn1p4e5NEeCisYr99QEiWA_-418922110")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Party Data Return Criteria")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PartyDataReturnCriteria1
-     : IIsoXmlSerilizable<PartyDataReturnCriteria1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the opening date of the party is requested.
     /// </summary>
+    [IsoId("_kn1p4u5NEeCisYr99QEiWA_1255511384")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Opening Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? OpeningDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OpeningDate { get; init; } 
+    #else
+    public System.String? OpeningDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the closing date of the party is requested.
     /// </summary>
+    [IsoId("_kn-z0O5NEeCisYr99QEiWA_1566614728")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ClosingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClosingDate { get; init; } 
+    #else
+    public System.String? ClosingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the type is requested.
     /// </summary>
+    [IsoId("_kn-z0e5NEeCisYr99QEiWA_1233025915")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Type { get; init; } 
+    #else
+    public System.String? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the unique identification to unambiguously identify the party within the system is requested.
     /// </summary>
+    [IsoId("_kn-z0u5NEeCisYr99QEiWA_-1567819817")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PartyIdentification { get; init; } 
+    #else
+    public System.String? PartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the central security depository or the national central bank who initially created the party reference data is requested.
     /// </summary>
+    [IsoId("_kolQwO5NEeCisYr99QEiWA_-1130555111")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("CSD Or NCB")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CSDOrNCB { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CSDOrNCB { get; init; } 
+    #else
+    public System.String? CSDOrNCB { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the identification of the restriction is requested.
     /// </summary>
+    [IsoId("_kolQwe5NEeCisYr99QEiWA_987416096")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restriction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? RestrictionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RestrictionIdentification { get; init; } 
+    #else
+    public System.String? RestrictionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the date at which a restriction for party has been issued is requested.
     /// </summary>
+    [IsoId("_kolQwu5NEeCisYr99QEiWA_-1873928008")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Restricted On Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? RestrictedOnDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RestrictedOnDate { get; init; } 
+    #else
+    public System.String? RestrictedOnDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the name for the party is requested.
     /// </summary>
+    [IsoId("_kolQw-5NEeCisYr99QEiWA_-2011913913")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the short name for the party is requested.
     /// </summary>
+    [IsoId("_kolQxO5NEeCisYr99QEiWA_1047483532")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ShortName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ShortName { get; init; } 
+    #else
+    public System.String? ShortName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the address for the party is requested.
     /// </summary>
+    [IsoId("_kouasO5NEeCisYr99QEiWA_1541856106")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Address { get; init; } 
+    #else
+    public System.String? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the technical addresses for the party are requested.
     /// </summary>
+    [IsoId("_kouase5NEeCisYr99QEiWA_-149516394")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TechnicalAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalAddress { get; init; } 
+    #else
+    public System.String? TechnicalAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the market specific attributes for the party are requested.
     /// </summary>
+    [IsoId("_kouasu5NEeCisYr99QEiWA_707367313")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Market Specific Attribute")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? MarketSpecificAttribute { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? MarketSpecificAttribute { get; init; } 
+    #else
+    public System.String? MarketSpecificAttribute { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OpeningDate is IsoRequestedIndicator OpeningDateValue)
-        {
-            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(OpeningDateValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ClosingDate is IsoRequestedIndicator ClosingDateValue)
-        {
-            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ClosingDateValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Type is IsoRequestedIndicator TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PartyIdentification is IsoRequestedIndicator PartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PartyIdentificationValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CSDOrNCB is IsoRequestedIndicator CSDOrNCBValue)
-        {
-            writer.WriteStartElement(null, "CSDOrNCB", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CSDOrNCBValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RestrictionIdentification is IsoRequestedIndicator RestrictionIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RstrctnId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(RestrictionIdentificationValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RestrictedOnDate is IsoRequestedIndicator RestrictedOnDateValue)
-        {
-            writer.WriteStartElement(null, "RstrctdOnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(RestrictedOnDateValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Name is IsoRequestedIndicator NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NameValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (ShortName is IsoRequestedIndicator ShortNameValue)
-        {
-            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ShortNameValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Address is IsoRequestedIndicator AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AddressValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TechnicalAddress is IsoRequestedIndicator TechnicalAddressValue)
-        {
-            writer.WriteStartElement(null, "TechAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TechnicalAddressValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MarketSpecificAttribute is IsoRequestedIndicator MarketSpecificAttributeValue)
-        {
-            writer.WriteStartElement(null, "MktSpcfcAttr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MarketSpecificAttributeValue)); // data type RequestedIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PartyDataReturnCriteria1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

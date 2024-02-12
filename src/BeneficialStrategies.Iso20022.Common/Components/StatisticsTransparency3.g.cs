@@ -7,116 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistics for a financial instrument generated as part of transparency calculations.
 /// </summary>
+[IsoId("_L1E_AXvwEeanCNPcMT7sSg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Statistics Transparency")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatisticsTransparency3
-     : IIsoXmlSerilizable<StatisticsTransparency3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Average Daily Turnover for the instrument in Euros.
     /// </summary>
+    [IsoId("_L-xGgXvwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Daily Turnover")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AverageDailyTurnover { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AverageDailyTurnover { get; init; } 
+    #else
+    public System.Decimal? AverageDailyTurnover { get; set; } 
+    #endif
+    
     /// <summary>
     /// Average value of the transactions for the instrument in Euro.
     /// </summary>
+    [IsoId("_L-xGg3vwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Transaction Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AverageTransactionValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AverageTransactionValue { get; init; } 
+    #else
+    public System.Decimal? AverageTransactionValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Large in scale order in respect of a share, depositary receipt, certificate or other similar financial instrument shall be considered large in scale compared with normal market size if, on the basis of the average daily turnover for that financial instrument, the order is equal to or larger than the minimum size of orders set out in the local regulation.
     /// </summary>
+    [IsoId("_L-xGhXvwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Large In Scale")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? LargeInScale { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? LargeInScale { get; init; } 
+    #else
+    public System.UInt64? LargeInScale { get; set; } 
+    #endif
+    
     /// <summary>
     /// Standard market size for shares, depositary receipts, ETFs, certificates and other similar financial instruments for which there is a liquid market shall be determined on the basis of the average value of transactions for each financial instrument and in accordance with the local regulation.
     /// </summary>
+    [IsoId("_L-xGh3vwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standard Market Size")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? StandardMarketSize { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? StandardMarketSize { get; init; } 
+    #else
+    public System.UInt64? StandardMarketSize { get; set; } 
+    #endif
+    
     /// <summary>
     /// Average daily number of transactions that have been performed on this market.
     /// </summary>
+    [IsoId("_L-xGiXvwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Daily Number Of Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? AverageDailyNumberOfTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? AverageDailyNumberOfTransactions { get; init; } 
+    #else
+    public System.UInt64? AverageDailyNumberOfTransactions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of transactions that have been performed on this market.
     /// </summary>
+    [IsoId("_L-xGi3vwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Transactions Executed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalNumberOfTransactionsExecuted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfTransactionsExecuted { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfTransactionsExecuted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total volume of transactions that have been performed on this market.
     /// </summary>
+    [IsoId("_L-xGjXvwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Volume Of Transactions Executed")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalVolumeOfTransactionsExecuted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalVolumeOfTransactionsExecuted { get; init; } 
+    #else
+    public System.UInt64? TotalVolumeOfTransactionsExecuted { get; set; } 
+    #endif
+    
     /// <summary>
     /// The total number of trading days for which the data is provided.
     /// </summary>
+    [IsoId("_L-xGj3vwEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Trading Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfTradingDays { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfTradingDays { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfTradingDays { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AverageDailyTurnover is IsoActiveCurrencyAndAmount AverageDailyTurnoverValue)
-        {
-            writer.WriteStartElement(null, "AvrgDalyTrnvr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AverageDailyTurnoverValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AverageTransactionValue is IsoActiveCurrencyAndAmount AverageTransactionValueValue)
-        {
-            writer.WriteStartElement(null, "AvrgTxVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AverageTransactionValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (LargeInScale is IsoDecimalNumber LargeInScaleValue)
-        {
-            writer.WriteStartElement(null, "LrgInScale", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(LargeInScaleValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (StandardMarketSize is IsoDecimalNumber StandardMarketSizeValue)
-        {
-            writer.WriteStartElement(null, "StdMktSz", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(StandardMarketSizeValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AverageDailyNumberOfTransactions is IsoDecimalNumber AverageDailyNumberOfTransactionsValue)
-        {
-            writer.WriteStartElement(null, "AvrgDalyNbOfTxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(AverageDailyNumberOfTransactionsValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfTransactionsExecuted is IsoDecimalNumber TotalNumberOfTransactionsExecutedValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfTxsExctd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalNumberOfTransactionsExecutedValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalVolumeOfTransactionsExecuted is IsoDecimalNumber TotalVolumeOfTransactionsExecutedValue)
-        {
-            writer.WriteStartElement(null, "TtlVolOfTxsExctd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalVolumeOfTransactionsExecutedValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfTradingDays is IsoNumber TotalNumberOfTradingDaysValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfTradgDays", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTradingDaysValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-    }
-    public static StatisticsTransparency3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

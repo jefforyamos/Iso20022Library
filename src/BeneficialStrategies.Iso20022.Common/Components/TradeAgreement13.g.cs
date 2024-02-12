@@ -7,100 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contractual details related to the agreement between parties.
 /// </summary>
+[IsoId("_fWhMMcNSEeWGDrnsYu2p6g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Agreement")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeAgreement13
-     : IIsoXmlSerilizable<TradeAgreement13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeAgreement13 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeAgreement13( TradeParty3 reqBuyer,TradeParty3 reqSeller )
+    {
+        Buyer = reqBuyer;
+        Seller = reqSeller;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
+    [IsoId("_fjBXIcNSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty3 Buyer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeParty3 Buyer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty3 Buyer { get; init; } 
+    #else
+    public TradeParty3 Buyer { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
+    [IsoId("_fjBXI8NSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Seller")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty3 Seller { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public TradeParty3 Seller { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TradeParty3 Seller { get; init; } 
+    #else
+    public TradeParty3 Seller { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quotation document referenced from this trade agreement.
     /// </summary>
+    [IsoId("_fjBXJcNSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quotation Document Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? QuotationDocumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? QuotationDocumentIdentification { get; init; } 
+    #else
+    public DocumentIdentification22? QuotationDocumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contract document referenced from this trade agreement.
     /// </summary>
+    [IsoId("_fjBXJ8NSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contract Document Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
+    #else
+    public DocumentIdentification22? ContractDocumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Buyer order document referenced from this trade agreement.
     /// </summary>
+    [IsoId("_fjBXKcNSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buyer Order Identification Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? BuyerOrderIdentificationDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification22? BuyerOrderIdentificationDocument { get; init; } 
+    #else
+    public DocumentIdentification22? BuyerOrderIdentificationDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional document referenced from this trade agreement.
     /// </summary>
+    [IsoId("_fjBXK8NSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Reference Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation2? AdditionalReferenceDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentGeneralInformation2? AdditionalReferenceDocument { get; init; } 
+    #else
+    public DocumentGeneralInformation2? AdditionalReferenceDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [IsoId("_fjBXLcNSEeWGDrnsYu2p6g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Incoterms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Incoterms3? Incoterms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Incoterms3? Incoterms { get; init; } 
+    #else
+    public Incoterms3? Incoterms { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Buyr", xmlNamespace );
-        Buyer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sellr", xmlNamespace );
-        Seller.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (QuotationDocumentIdentification is DocumentIdentification22 QuotationDocumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "QtnDocId", xmlNamespace );
-            QuotationDocumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ContractDocumentIdentification is DocumentIdentification22 ContractDocumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "CtrctDocId", xmlNamespace );
-            ContractDocumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BuyerOrderIdentificationDocument is DocumentIdentification22 BuyerOrderIdentificationDocumentValue)
-        {
-            writer.WriteStartElement(null, "BuyrOrdrIdDoc", xmlNamespace );
-            BuyerOrderIdentificationDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalReferenceDocument is DocumentGeneralInformation2 AdditionalReferenceDocumentValue)
-        {
-            writer.WriteStartElement(null, "AddtlRefDoc", xmlNamespace );
-            AdditionalReferenceDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Incoterms is Incoterms3 IncotermsValue)
-        {
-            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
-            IncotermsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeAgreement13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

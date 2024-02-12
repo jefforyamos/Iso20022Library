@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument specific technical data to support identification.
 /// </summary>
+[IsoId("_6TNIgTH8EeWRJePX1ORoaw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Record Technical Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RecordTechnicalData2
-     : IIsoXmlSerilizable<RecordTechnicalData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RecordTechnicalData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RecordTechnicalData2( System.DateTime reqReceiptDateTime,CancelledStatusReason15Code reqCancellationReason )
+    {
+        ReceiptDateTime = reqReceiptDateTime;
+        CancellationReason = reqCancellationReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines the date and time when the report was originally received by the national competent authority.
     /// </summary>
+    [IsoId("_6nJ_RTH8EeWRJePX1ORoaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receipt Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReceiptDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime ReceiptDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime ReceiptDateTime { get; init; } 
+    #else
+    public System.DateTime ReceiptDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the reason for the cancellation the transaction.
     /// </summary>
+    [IsoId("_xFDToJHzEeWL7bXuV2k5pg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancelledStatusReason15Code CancellationReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CancelledStatusReason15Code CancellationReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancelledStatusReason15Code CancellationReason { get; init; } 
+    #else
+    public CancelledStatusReason15Code CancellationReason { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RctDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReceiptDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
-        writer.WriteValue(CancellationReason.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static RecordTechnicalData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

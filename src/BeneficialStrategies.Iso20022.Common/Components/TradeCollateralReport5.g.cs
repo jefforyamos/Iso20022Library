@@ -7,17 +7,44 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of collateral agreement between counterparties.
 /// </summary>
+[IsoId("_J0zaIVfVEeqqKf65rDYWYw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Collateral Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeCollateralReport5
-     : IIsoXmlSerilizable<TradeCollateralReport5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeCollateralReport5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeCollateralReport5( PortfolioCode1Choice_ reqPortfolioCode )
+    {
+        PortfolioCode = reqPortfolioCode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,11 +52,41 @@ public partial record TradeCollateralReport5
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
+    [IsoId("_C-gBQHixEeqKjIYaFgh_2g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Portfolio Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PortfolioCode1Choice_ PortfolioCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PortfolioCode1Choice_ PortfolioCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PortfolioCode1Choice_ PortfolioCode { get; init; } 
+    #else
+    public PortfolioCode1Choice_ PortfolioCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>
+    [IsoId("_KN858VfVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralisation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralisationType2Code? Collateralisation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralisationType2Code? Collateralisation { get; init; } 
+    #else
+    public CollateralisationType2Code? Collateralisation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the initial margin posted by the reporting counterparty.
     /// Usage:
@@ -37,121 +94,160 @@ public partial record TradeCollateralReport5
     /// If the initial margin posted is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.|
     /// ||
     /// </summary>
+    [IsoId("_KN859VfVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin Posted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PrePostHaircut1? InitialMarginPosted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PrePostHaircut1? InitialMarginPosted { get; init; } 
+    #else
+    public PrePostHaircut1? InitialMarginPosted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the initial margin collected by the reporting counterparty.
     /// ||Usage: |Where initial margin is collected on a portfolio basis, this field should include the total value of initial margin collected for the portfolio.
     /// If the initial margin collected is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
+    [IsoId("_KN85-VfVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Initial Margin Received")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PrePostHaircut1? InitialMarginReceived { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PrePostHaircut1? InitialMarginReceived { get; init; } 
+    #else
+    public PrePostHaircut1? InitialMarginReceived { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the variation margin posted, including cash settled, by the reporting counterparty. 
     /// Usage: Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// If the variation margin posted is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
+    [IsoId("_KN8591fVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Posted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PrePostHaircut1? VariationMarginPosted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PrePostHaircut1? VariationMarginPosted { get; init; } 
+    #else
+    public PrePostHaircut1? VariationMarginPosted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the variation margin collected, including cash-settled, by the reporting counterparty.
     /// Usage:
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// If the variation margin collected is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
+    [IsoId("_KN85-1fVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Variation Margin Received")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PrePostHaircut1? VariationMarginReceived { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PrePostHaircut1? VariationMarginReceived { get; init; } 
+    #else
+    public PrePostHaircut1? VariationMarginReceived { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the monetary value of additional collateral posted by the reporting counterparty in excess of the required collateral.
     /// |
     /// Usage: Where excess collateral is posted on a portfolio basis, this field should include the overall value of excess collateral posted for the portfolio.
     /// </summary>
+    [IsoId("_KN85_VfVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Excess Collateral Posted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? ExcessCollateralPosted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExcessCollateralPosted { get; init; } 
+    #else
+    public System.Decimal? ExcessCollateralPosted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the monetary value of additional collateral received by the reporting counterparty in excess of the required collateral.
     /// Usage: Where excess collateral is received on a portfolio basis, this field should include the overall value of excess collateral collected for the portfolio.
     /// </summary>
+    [IsoId("_KN85_1fVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Excess Collateral Received")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? ExcessCollateralReceived { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ExcessCollateralReceived { get; init; } 
+    #else
+    public System.Decimal? ExcessCollateralReceived { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if a counterparty rating trigger is agreed by the counterparties for the collateral posted by the reporting counterparty.
     /// Usage: If the element is not present, the CounterpartyRatingTrigger is False.
     /// </summary>
+    [IsoId("_7wjdEorpEeq91phomTRDDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Rating Trigger Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CounterpartyRatingTriggerIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterpartyRatingTriggerIndicator { get; init; } 
+    #else
+    public System.String? CounterpartyRatingTriggerIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates if a counterparty rating trigger includes a threshold that increases collateral requirements when the counterparty falls below the single-A rating or equivalent.
     /// Usage: If the CounterpartyRatingTrigger indicator is false, this element is omitted.
     /// </summary>
+    [IsoId("_7wjdE4rpEeq91phomTRDDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counterparty Rating Threshold Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CounterpartyRatingThresholdIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CounterpartyRatingThresholdIndicator { get; init; } 
+    #else
+    public System.String? CounterpartyRatingThresholdIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrtflCd", xmlNamespace );
-        PortfolioCode.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Collateralisation is CollateralisationType2Code CollateralisationValue)
-        {
-            writer.WriteStartElement(null, "Collstn", xmlNamespace );
-            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (InitialMarginPosted is PrePostHaircut1 InitialMarginPostedValue)
-        {
-            writer.WriteStartElement(null, "InitlMrgnPstd", xmlNamespace );
-            InitialMarginPostedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InitialMarginReceived is PrePostHaircut1 InitialMarginReceivedValue)
-        {
-            writer.WriteStartElement(null, "InitlMrgnRcvd", xmlNamespace );
-            InitialMarginReceivedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VariationMarginPosted is PrePostHaircut1 VariationMarginPostedValue)
-        {
-            writer.WriteStartElement(null, "VartnMrgnPstd", xmlNamespace );
-            VariationMarginPostedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (VariationMarginReceived is PrePostHaircut1 VariationMarginReceivedValue)
-        {
-            writer.WriteStartElement(null, "VartnMrgnRcvd", xmlNamespace );
-            VariationMarginReceivedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExcessCollateralPosted is IsoActiveOrHistoricCurrencyAnd19DecimalAmount ExcessCollateralPostedValue)
-        {
-            writer.WriteStartElement(null, "XcssCollPstd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(ExcessCollateralPostedValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExcessCollateralReceived is IsoActiveOrHistoricCurrencyAnd19DecimalAmount ExcessCollateralReceivedValue)
-        {
-            writer.WriteStartElement(null, "XcssCollRcvd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(ExcessCollateralReceivedValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CounterpartyRatingTriggerIndicator is IsoTrueFalseIndicator CounterpartyRatingTriggerIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyRatgTrggrInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingTriggerIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CounterpartyRatingThresholdIndicator is IsoTrueFalseIndicator CounterpartyRatingThresholdIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CtrPtyRatgThrshldInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingThresholdIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeCollateralReport5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

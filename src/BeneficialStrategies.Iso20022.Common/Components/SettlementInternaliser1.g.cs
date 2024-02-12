@@ -7,81 +7,175 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the submitting entity and Settlement Internaliser of the report.
 /// </summary>
+[IsoId("_x6_YcO3mEeaWjpoyrnG6Rw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Internaliser")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementInternaliser1
-     : IIsoXmlSerilizable<SettlementInternaliser1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementInternaliser1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementInternaliser1( SettlementInternaliserIdentification1 reqIdentification,InternalisationData1 reqOverallTotal,SettlementInternaliserFinancialInstrument1 reqFinancialInstrument,SettlementInternaliserTransactionType1 reqTransactionType,SettlementInternaliserClientType1 reqClientType,InternalisationData1 reqTotalCashTransfer )
+    {
+        Identification = reqIdentification;
+        OverallTotal = reqOverallTotal;
+        FinancialInstrument = reqFinancialInstrument;
+        TransactionType = reqTransactionType;
+        ClientType = reqClientType;
+        TotalCashTransfer = reqTotalCashTransfer;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the submitting entity and settlement Internaliser of the report.
     /// </summary>
+    [IsoId("_29gQEO3mEeaWjpoyrnG6Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserIdentification1 Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementInternaliserIdentification1 Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInternaliserIdentification1 Identification { get; init; } 
+    #else
+    public SettlementInternaliserIdentification1 Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Overall aggregated total value and volume of 
     /// - settled and failed and total of internalised settlement instructions, and
     /// - failed rate of internalised settlement instructions
     /// performed during the period covered by the report, for all financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
+    [IsoId("_7EFD4O3mEeaWjpoyrnG6Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Overall Total")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 OverallTotal { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InternalisationData1 OverallTotal { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InternalisationData1 OverallTotal { get; init; } 
+    #else
+    public InternalisationData1 OverallTotal { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of a financial instrument according to the categories defined in the relevant legislation.
     /// </summary>
+    [IsoId("_99b2oO3mEeaWjpoyrnG6Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
+    #else
+    public SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of securities movements according to the categories defined in the relevant legislation.
     /// </summary>
+    [IsoId("_ErEMQO3nEeaWjpoyrnG6Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserTransactionType1 TransactionType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementInternaliserTransactionType1 TransactionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInternaliserTransactionType1 TransactionType { get; init; } 
+    #else
+    public SettlementInternaliserTransactionType1 TransactionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of a settlement internaliser's clients as referred to in the relevant legislation.
     /// </summary>
+    [IsoId("_FjS0wO3nEeaWjpoyrnG6Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Client Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserClientType1 ClientType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementInternaliserClientType1 ClientType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementInternaliserClientType1 ClientType { get; init; } 
+    #else
+    public SettlementInternaliserClientType1 ClientType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Covers cash payments related to securities transactions.
     /// </summary>
+    [IsoId("_H-wKkO3nEeaWjpoyrnG6Rw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Cash Transfer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 TotalCashTransfer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InternalisationData1 TotalCashTransfer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InternalisationData1 TotalCashTransfer { get; init; } 
+    #else
+    public InternalisationData1 TotalCashTransfer { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        Identification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OvrllTtl", xmlNamespace );
-        OverallTotal.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
-        FinancialInstrument.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        TransactionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ClntTp", xmlNamespace );
-        ClientType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlCshTrf", xmlNamespace );
-        TotalCashTransfer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static SettlementInternaliser1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

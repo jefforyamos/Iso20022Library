@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of formats for a withdrawal reason.
-/// </summary>
-[KnownType(typeof(WithdrawalReason1Choice.Code))]
-[KnownType(typeof(WithdrawalReason1Choice.Proprietary))]
-public abstract partial record WithdrawalReason1Choice_ : IIsoXmlSerilizable<WithdrawalReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of formats for a withdrawal reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static WithdrawalReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(WithdrawalReason1Choice.Code))]
+    [KnownType(typeof(WithdrawalReason1Choice.Proprietary))]
+    [IsoId("_NMNN8E7XEeifNrXGwadPmg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withdrawal Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record WithdrawalReason1Choice_
+    #else
+    public abstract partial class WithdrawalReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => WithdrawalReason1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => WithdrawalReason1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid WithdrawalReason1Choice choice.")
-        };
     }
 }

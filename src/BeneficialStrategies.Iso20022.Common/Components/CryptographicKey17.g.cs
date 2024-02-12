@@ -7,162 +7,303 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cryptographic Key.
 /// </summary>
+[IsoId("_0YvFIXDQEe2MCaKO5AtGsA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cryptographic Key")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CryptographicKey17
-     : IIsoXmlSerilizable<CryptographicKey17>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CryptographicKey17 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CryptographicKey17( System.String reqIdentification,System.String reqVersion )
+    {
+        Identification = reqIdentification;
+        Version = reqVersion;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
+    [IsoId("_0fYfsXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional identification of the key.
     /// Usage
     /// For derived unique key per transaction (DUKPT) keys, the key serial number (KSN) with the 21 bits of the transaction counter set to zero.
     /// </summary>
+    [IsoId("_0fYfs3DQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AdditionalIdentification { get; init; } 
+    #else
+    public System.Byte[]? AdditionalIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name of the Cryptographic Element.
     /// </summary>
+    [IsoId("_0fYftXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the set of security elements to which this element belongs.
     /// </summary>
+    [IsoId("_0fYft3DQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecurityProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecurityProfile { get; init; } 
+    #else
+    public System.String? SecurityProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Hierarchical identification of a key inside all the key system. It is composed of all item numbers of the upper level components, separated by the '.' character, ended by the item number of the current component.
     /// </summary>
+    [IsoId("_0fYfuXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ItemNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ItemNumber { get; init; } 
+    #else
+    public System.String? ItemNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [IsoId("_0fYfu3DQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Version")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Version { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Version { get; init; } 
+    #else
+    public System.String Version { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
+    [IsoId("_0fYfvXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKeyType3Code? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CryptographicKeyType3Code? Type { get; init; } 
+    #else
+    public CryptographicKeyType3Code? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
+    [IsoId("_0fYfv3DQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Function")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KeyUsage1Code? Function { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public KeyUsage1Code? Function { get; init; } 
+    #else
+    public KeyUsage1Code? Function { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
+    [IsoId("_0fYfwXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Activation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ActivationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ActivationDate { get; init; } 
+    #else
+    public System.DateTime? ActivationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time on which the key must be deactivated.
     /// </summary>
+    [IsoId("_0fYfw3DQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Deactivation Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DeactivationDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? DeactivationDate { get; init; } 
+    #else
+    public System.DateTime? DeactivationDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Encrypted cryptographic key.
     /// </summary>
+    [IsoId("_0fYfxXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType34? KeyValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType34? KeyValue { get; init; } 
+    #else
+    public ContentInformationType34? KeyValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value for checking a cryptographic key security parameter.
     /// </summary>
+    [IsoId("_0fYfx3DQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Key Check Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? KeyCheckValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? KeyCheckValue { get; init; } 
+    #else
+    public System.Byte[]? KeyCheckValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional Information needed by the receiver to securely process the management of the security element.
     /// </summary>
+    [IsoId("_0fYfyXDQEe2MCaKO5AtGsA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Management Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericInformation1? AdditionalManagementInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericInformation1? AdditionalManagementInformation { get; init; } 
+    #else
+    public GenericInformation1? AdditionalManagementInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(Identification)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (AdditionalIdentification is IsoMax35Binary AdditionalIdentificationValue)
-        {
-            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AdditionalIdentificationValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax256Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(NameValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecurityProfile is IsoMax35Text SecurityProfileValue)
-        {
-            writer.WriteStartElement(null, "SctyPrfl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecurityProfileValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ItemNumber is IsoMax35Text ItemNumberValue)
-        {
-            writer.WriteStartElement(null, "ItmNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
-        writer.WriteEndElement();
-        if (Type is CryptographicKeyType3Code TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(TypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Function is KeyUsage1Code FunctionValue)
-        {
-            writer.WriteStartElement(null, "Fctn", xmlNamespace );
-            writer.WriteValue(FunctionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ActivationDate is IsoISODateTime ActivationDateValue)
-        {
-            writer.WriteStartElement(null, "ActvtnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActivationDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (DeactivationDate is IsoISODateTime DeactivationDateValue)
-        {
-            writer.WriteStartElement(null, "DeactvtnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeactivationDateValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (KeyValue is ContentInformationType34 KeyValueValue)
-        {
-            writer.WriteStartElement(null, "KeyVal", xmlNamespace );
-            KeyValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (KeyCheckValue is IsoMax35Binary KeyCheckValueValue)
-        {
-            writer.WriteStartElement(null, "KeyChckVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(KeyCheckValueValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (AdditionalManagementInformation is GenericInformation1 AdditionalManagementInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlMgmtInf", xmlNamespace );
-            AdditionalManagementInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CryptographicKey17 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

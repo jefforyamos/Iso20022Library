@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity expressed as a number and its details.
 /// </summary>
+[IsoId("_BdzxQa5yEeeMy7TnJ3e__g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Unit")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Unit10
-     : IIsoXmlSerilizable<Unit10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Unit10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Unit10( System.UInt64 reqUnitsNumber,UKTaxGroupUnit1Code reqGroup1Or2Units )
+    {
+        UnitsNumber = reqUnitsNumber;
+        Group1Or2Units = reqGroup1Or2Units;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
+    [IsoId("_Bsiw0a5yEeeMy7TnJ3e__g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Units Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber UnitsNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 UnitsNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 UnitsNumber { get; init; } 
+    #else
+    public System.UInt64 UnitsNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [IsoId("_Bsiw065yEeeMy7TnJ3e__g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Group 1 Or 2 Units")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
+    #else
+    public UKTaxGroupUnit1Code Group1Or2Units { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(UnitsNumber)); // data type DecimalNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Grp1Or2Units", xmlNamespace );
-        writer.WriteValue(Group1Or2Units.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static Unit10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

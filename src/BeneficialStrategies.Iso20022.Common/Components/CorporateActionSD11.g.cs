@@ -7,264 +7,470 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action details.
 /// </summary>
+[IsoId("_6Vj_B3h0EeOF3uSOaAf1Lg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionSD11
-     : IIsoXmlSerilizable<CorporateActionSD11>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionSD11 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionSD11( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_6Vj_GXh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the notice received was universal or specific to securities registered in DTC's nominee name.
     /// </summary>
+    [IsoId("_6Vj_CXh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notice Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NoticeType1Code? NoticeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NoticeType1Code? NoticeType { get; init; } 
+    #else
+    public NoticeType1Code? NoticeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of cash set aside by the offeror. This is the maximum amount that the offeror is willing to pay out to the holders who elect to take part in the offer.
     /// </summary>
+    [IsoId("_6Vj_R3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Cash Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? EventCashValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EventCashValue { get; init; } 
+    #else
+    public System.Decimal? EventCashValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of shares the issuer is creating as part of the event.
     /// </summary>
+    [IsoId("_6Vj_K3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Shares To Be Issued")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? NumberOfSharesToBeIssued { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? NumberOfSharesToBeIssued { get; init; } 
+    #else
+    public System.UInt64? NumberOfSharesToBeIssued { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of shares that are part of the offer for example subscription offer.
     /// </summary>
+    [IsoId("_6Vj_L3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Shares Offered")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalNumberOfSharesOffered { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? TotalNumberOfSharesOffered { get; init; } 
+    #else
+    public System.UInt64? TotalNumberOfSharesOffered { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of additional days used to establish a DTC processing cut-off date. For example, DTC typically adds a cut-off off day (making it one business day prior) to the record date for issues with agents outside NYC. This allows time for DTC to deliver the securities.
     /// </summary>
+    [IsoId("_6Vj_Gnh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cut Off Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? CutOffDays { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? CutOffDays { get; init; } 
+    #else
+    public System.UInt64? CutOffDays { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicator that identifies the type of interface an event agent has with DTC (The Depository Trust Corporation). It defines how time sensitive instruction and withdrawal process is. Offline (non automated) agent will have earlier deadlines which will be reflected in response deadlines but importantly withdrawal procedures for manual agent require hard copy sign off from the agent that has to be delivered to DTC to proceed with withdrawal.
     /// </summary>
+    [IsoId("_6Vj_FXh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Automated Offer Program")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAutoOfferProgram1Code? DTCAutomatedOfferProgram { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCAutoOfferProgram1Code? DTCAutomatedOfferProgram { get; init; } 
+    #else
+    public DTCAutoOfferProgram1Code? DTCAutomatedOfferProgram { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the recycling of instructions for eligible positions is set to end early or late at DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_6Vj_Wnh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Recycle Cut Off Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CutOff1Code? DTCRecycleCutOffIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CutOff1Code? DTCRecycleCutOffIndicator { get; init; } 
+    #else
+    public CutOff1Code? DTCRecycleCutOffIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Denotes whether the first accrual period for debt instruments is either long or short, compared to the normal accrual period of the security.
     /// </summary>
+    [IsoId("_6Vj_J3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Long Short Payment Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccrualPeriodType1Code? LongShortPaymentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccrualPeriodType1Code? LongShortPaymentIndicator { get; init; } 
+    #else
+    public AccrualPeriodType1Code? LongShortPaymentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of oversubscription on the event.
     /// </summary>
+    [IsoId("_6Vj_DXh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Oversubscription Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OversubscriptionType1Code? OversubscriptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OversubscriptionType1Code? OversubscriptionType { get; init; } 
+    #else
+    public OversubscriptionType1Code? OversubscriptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the payment made by the issuer is based on a stated condition.
     /// </summary>
+    [IsoId("_6Vj_P3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Conditional Payment Applicable Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConditionalPaymentApplicableFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConditionalPaymentApplicableFlag { get; init; } 
+    #else
+    public System.String? ConditionalPaymentApplicableFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is a solicitation fee on the event. This fee is paid by the soliciting dealer.
     /// </summary>
+    [IsoId("_6Vj_Vnh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Solicitation Dealer Fee Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SolicitationDealerFeeFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SolicitationDealerFeeFlag { get; init; } 
+    #else
+    public System.String? SolicitationDealerFeeFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether positions held in Custody program are eligible for instruction processing at DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_6Vj_I3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Custody Eligible Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCCustodyEligibleFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCCustodyEligibleFlag { get; init; } 
+    #else
+    public System.String? DTCCustodyEligibleFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the event is eligible for Custody Reorganisation service at DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_6Vj_EXh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Reorganisation Custody Eligible Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCReorganisationCustodyEligibleFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCReorganisationCustodyEligibleFlag { get; init; } 
+    #else
+    public System.String? DTCReorganisationCustodyEligibleFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the event is eligible for Reorganisation Deposit Service at DTC (The Depository Trust Corporation).
     /// </summary>
+    [IsoId("_6Vj_M3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("DTC Reorganisation Deposit Eligible Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCReorganisationDepositEligibleFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? DTCReorganisationDepositEligibleFlag { get; init; } 
+    #else
+    public System.String? DTCReorganisationDepositEligibleFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether shares outside of DTC need to be delivered to the agent in order to receive entitlement.
     /// </summary>
+    [IsoId("_6Vj_N3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Surrender Shares To Agent Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SurrenderSharesToAgentFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SurrenderSharesToAgentFlag { get; init; } 
+    #else
+    public System.String? SurrenderSharesToAgentFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the holder has the privilege to buy additional rights. Upon exercising this privilege, the holder may subscribe to one additional share of the new security in lieu of fractional shares to which the holder might otherwise be entitled.
     /// </summary>
+    [IsoId("_6Vj_Unh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Step Up Privilege Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StepUpPrivilegeFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StepUpPrivilegeFlag { get; init; } 
+    #else
+    public System.String? StepUpPrivilegeFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether holders of rights will be afforded the opportunity to subscribe to purchase extra shares that are not picked up by the remaining holders.
     /// </summary>
+    [IsoId("_6Vj_Q3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rights Oversubscription Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightsOversubscriptionFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RightsOversubscriptionFlag { get; init; } 
+    #else
+    public System.String? RightsOversubscriptionFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the shareholder will be able to round up his/her subscription in the event his/her rights are less than the requirement.
     /// </summary>
+    [IsoId("_6Vj_O3h0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rights Round Up Privilege Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightsRoundUpPrivilegeFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RightsRoundUpPrivilegeFlag { get; init; } 
+    #else
+    public System.String? RightsRoundUpPrivilegeFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether rights can be transferred.
     /// </summary>
+    [IsoId("_6Vj_Tnh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rights Transferable Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightsTransferableFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RightsTransferableFlag { get; init; } 
+    #else
+    public System.String? RightsTransferableFlag { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides details of certificates that have been called for redemption.
     /// </summary>
+    [IsoId("_6Vj_Hnh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionSD5? CertificateDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionSD5? CertificateDetails { get; init; } 
+    #else
+    public CorporateActionSD5? CertificateDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country of Issue used to determine whether the electable option requires Tax Exempt or Wire information when sending EDS elections via the CAIN message type.
     /// </summary>
+    [IsoId("_6Vj_Inh0EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EDS Messaging Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? EDSMessagingCountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? EDSMessagingCountryCode { get; init; } 
+    #else
+    public string? EDSMessagingCountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy records. The number algorhithm is as follows: Department ID (1:1), Activity Type (2:3), Cusip Country Code (5:2), Cusip (7:9), Record Date (15:8), Payable Date (22:8), Sequence Number (29:3), RDP Issue Type (31:1). 
     /// USAGE RULE: this sequence can be populated /extended to event details, option details or a movement, depending on sequence number coordinality to an event.
     /// </summary>
+    [IsoId("_fEF8IHh1EeOF3uSOaAf1Lg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("RDP Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RDPReferenceNumber { get; init; } 
+    #else
+    public System.String? RDPReferenceNumber { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (NoticeType is NoticeType1Code NoticeTypeValue)
-        {
-            writer.WriteStartElement(null, "NtceTp", xmlNamespace );
-            writer.WriteValue(NoticeTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EventCashValue is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount EventCashValueValue)
-        {
-            writer.WriteStartElement(null, "EvtCshVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(EventCashValueValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (NumberOfSharesToBeIssued is IsoDecimalNumber NumberOfSharesToBeIssuedValue)
-        {
-            writer.WriteStartElement(null, "NbOfShrsToBeIssd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(NumberOfSharesToBeIssuedValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (TotalNumberOfSharesOffered is IsoDecimalNumber TotalNumberOfSharesOfferedValue)
-        {
-            writer.WriteStartElement(null, "TtlNbOfShrsOfferd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalNumberOfSharesOfferedValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (CutOffDays is IsoMax3Number CutOffDaysValue)
-        {
-            writer.WriteStartElement(null, "CutOffDays", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Number(CutOffDaysValue)); // data type Max3Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (DTCAutomatedOfferProgram is DTCAutoOfferProgram1Code DTCAutomatedOfferProgramValue)
-        {
-            writer.WriteStartElement(null, "DTCAutomtdOfferPrgm", xmlNamespace );
-            writer.WriteValue(DTCAutomatedOfferProgramValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DTCRecycleCutOffIndicator is CutOff1Code DTCRecycleCutOffIndicatorValue)
-        {
-            writer.WriteStartElement(null, "DTCRcyclCutOffInd", xmlNamespace );
-            writer.WriteValue(DTCRecycleCutOffIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (LongShortPaymentIndicator is AccrualPeriodType1Code LongShortPaymentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "LngShrtPmtInd", xmlNamespace );
-            writer.WriteValue(LongShortPaymentIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OversubscriptionType is OversubscriptionType1Code OversubscriptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OvrsbcptTp", xmlNamespace );
-            writer.WriteValue(OversubscriptionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ConditionalPaymentApplicableFlag is IsoYesNoIndicator ConditionalPaymentApplicableFlagValue)
-        {
-            writer.WriteStartElement(null, "CondlPmtAplblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConditionalPaymentApplicableFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SolicitationDealerFeeFlag is IsoYesNoIndicator SolicitationDealerFeeFlagValue)
-        {
-            writer.WriteStartElement(null, "SlctnDealrFeeFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SolicitationDealerFeeFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DTCCustodyEligibleFlag is IsoYesNoIndicator DTCCustodyEligibleFlagValue)
-        {
-            writer.WriteStartElement(null, "DTCCtdyElgblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCCustodyEligibleFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DTCReorganisationCustodyEligibleFlag is IsoYesNoIndicator DTCReorganisationCustodyEligibleFlagValue)
-        {
-            writer.WriteStartElement(null, "DTCReorgCtdyElgblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCReorganisationCustodyEligibleFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (DTCReorganisationDepositEligibleFlag is IsoYesNoIndicator DTCReorganisationDepositEligibleFlagValue)
-        {
-            writer.WriteStartElement(null, "DTCReorgDpstElgblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCReorganisationDepositEligibleFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SurrenderSharesToAgentFlag is IsoYesNoIndicator SurrenderSharesToAgentFlagValue)
-        {
-            writer.WriteStartElement(null, "SrrndrShrsToAgtFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SurrenderSharesToAgentFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (StepUpPrivilegeFlag is IsoYesNoIndicator StepUpPrivilegeFlagValue)
-        {
-            writer.WriteStartElement(null, "StepUpPrvlgFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StepUpPrivilegeFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RightsOversubscriptionFlag is IsoYesNoIndicator RightsOversubscriptionFlagValue)
-        {
-            writer.WriteStartElement(null, "RghtsOvrsbcptFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RightsOversubscriptionFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RightsRoundUpPrivilegeFlag is IsoYesNoIndicator RightsRoundUpPrivilegeFlagValue)
-        {
-            writer.WriteStartElement(null, "RghtsRndUpPrvlgFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RightsRoundUpPrivilegeFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (RightsTransferableFlag is IsoYesNoIndicator RightsTransferableFlagValue)
-        {
-            writer.WriteStartElement(null, "RghtsTrfblFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RightsTransferableFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (CertificateDetails is CorporateActionSD5 CertificateDetailsValue)
-        {
-            writer.WriteStartElement(null, "CertDtls", xmlNamespace );
-            CertificateDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EDSMessagingCountryCode is CountryCode EDSMessagingCountryCodeValue)
-        {
-            writer.WriteStartElement(null, "EDSMsggCtryCd", xmlNamespace );
-            writer.WriteValue(EDSMessagingCountryCodeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RDPReferenceNumber is IsoExact32AlphaNumericText RDPReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "RDPRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact32AlphaNumericText(RDPReferenceNumberValue)); // data type Exact32AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionSD11 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

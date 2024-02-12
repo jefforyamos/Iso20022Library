@@ -7,162 +7,365 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a list of reconciliation information concerning financial items.
 /// </summary>
+[IsoId("_OTgzMTk5-AOSNFX-8224490")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Reconciliation List")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReconciliationList1
-     : IIsoXmlSerilizable<ReconciliationList1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReconciliationList1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReconciliationList1( System.DateOnly reqDate,QualifiedPartyIdentification1 reqRecipient,QualifiedPartyIdentification1 reqAdvisor,FinancialItemParameters1 reqParameters,PaymentIdentification1 reqPaymentReference,PaymentMeans1 reqPaymentMeans,System.DateOnly reqPaymentDate,PaymentTerms6 reqPaymentTerms,System.Decimal reqPaymentAmount,System.String reqItemCount )
+    {
+        Date = reqDate;
+        Recipient = reqRecipient;
+        Advisor = reqAdvisor;
+        Parameters = reqParameters;
+        PaymentReference = reqPaymentReference;
+        PaymentMeans = reqPaymentMeans;
+        PaymentDate = reqPaymentDate;
+        PaymentTerms = reqPaymentTerms;
+        PaymentAmount = reqPaymentAmount;
+        ItemCount = reqItemCount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date of creation of this document.
     /// </summary>
+    [IsoId("_OTgzNDE5-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly Date { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly Date { get; init; } 
+    #else
+    public System.DateOnly Date { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to related documents for example to original assignment in a status response or retry.
     /// </summary>
+    [IsoId("_OTgzNDIw-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? RelatedDocument { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? RelatedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party to be advised.
     /// </summary>
+    [IsoId("_OTgzNDIx-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 Recipient { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public QualifiedPartyIdentification1 Recipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1 Recipient { get; init; } 
+    #else
+    public QualifiedPartyIdentification1 Recipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Informing party.
     /// </summary>
+    [IsoId("_OTgzNDIy-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Advisor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 Advisor { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public QualifiedPartyIdentification1 Advisor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedPartyIdentification1 Advisor { get; init; } 
+    #else
+    public QualifiedPartyIdentification1 Advisor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification parameters.
     /// </summary>
+    [IsoId("_OTgzNDIz-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialItemParameters1 Parameters { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialItemParameters1 Parameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialItemParameters1 Parameters { get; init; } 
+    #else
+    public FinancialItemParameters1 Parameters { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to a payment instruction.
     /// </summary>
+    [IsoId("_OTgzNDI0-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentIdentification1 PaymentReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentIdentification1 PaymentReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentIdentification1 PaymentReference { get; init; } 
+    #else
+    public PaymentIdentification1 PaymentReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
+    [IsoId("_OTgzNDI1-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Means")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentMeans1 PaymentMeans { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentMeans1 PaymentMeans { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentMeans1 PaymentMeans { get; init; } 
+    #else
+    public PaymentMeans1 PaymentMeans { get; set; } 
+    #endif
+    
     /// <summary>
     /// Effective date of payment.
     /// </summary>
+    [IsoId("_OTgzNDI2-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PaymentDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly PaymentDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly PaymentDate { get; init; } 
+    #else
+    public System.DateOnly PaymentDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Terms of the payment.
     /// </summary>
+    [IsoId("_OTgzNDI3-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Terms")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentTerms6 PaymentTerms { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentTerms6 PaymentTerms { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTerms6 PaymentTerms { get; init; } 
+    #else
+    public PaymentTerms6 PaymentTerms { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the referenced payment.
     /// </summary>
+    [IsoId("_OTgzNDI4-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount PaymentAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PaymentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PaymentAmount { get; init; } 
+    #else
+    public System.Decimal PaymentAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial item impacted by the payment.
     /// </summary>
+    [IsoId("_OTgzNDI5-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public FinancialItem1? Item { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzNDI5-AOSNFX-8224504
+    
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>
+    [IsoId("_OTgzNDMw-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Item Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText ItemCount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ItemCount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ItemCount { get; init; } 
+    #else
+    public System.String ItemCount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of all individual amounts included in the list, irrespective of currencies.
     /// </summary>
+    [IsoId("_OTgzNDMx-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Control Sum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ControlSum { get; init; } 
+    #else
+    public System.UInt64? ControlSum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Associated free form document.
     /// </summary>
+    [IsoId("_OTgzNDMy-AOSNFX-8224504")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Associated Document")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
+    #else
+    public QualifiedDocumentInformation1? AssociatedDocument { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional proprietary formal information concerning the list.
     /// </summary>
+    [IsoId("_OTgzNDMz-AOSNFX-8224505")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Validation status of the list.
     /// </summary>
+    [IsoId("_OTgzNDM0-AOSNFX-8224505")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Validation Status Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
+    #else
+    public ValidationStatusInformation1? ValidationStatusInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Dt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (RelatedDocument is QualifiedDocumentInformation1 RelatedDocumentValue)
-        {
-            writer.WriteStartElement(null, "RltdDoc", xmlNamespace );
-            RelatedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
-        Recipient.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Advsr", xmlNamespace );
-        Advisor.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Params", xmlNamespace );
-        Parameters.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtRef", xmlNamespace );
-        PaymentReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtMeans", xmlNamespace );
-        PaymentMeans.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtTerms", xmlNamespace );
-        PaymentTerms.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(PaymentAmount)); // data type CurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        // Not sure how to serialize Item, multiplicity Unknown
-        writer.WriteStartElement(null, "ItmCnt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(ItemCount)); // data type Max15NumericText System.String
-        writer.WriteEndElement();
-        if (ControlSum is IsoDecimalNumber ControlSumValue)
-        {
-            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
-        {
-            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
-            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is IsoMax2000Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2000Text(AdditionalInformationValue)); // data type Max2000Text System.String
-            writer.WriteEndElement();
-        }
-        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
-        {
-            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
-            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ReconciliationList1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

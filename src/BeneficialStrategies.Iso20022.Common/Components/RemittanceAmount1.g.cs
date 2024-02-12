@@ -7,96 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Nature of the amount and currency on a document referred to in the remittance section, typically either the original amount due/payable or the amount actually remitted for the referenced document.
 /// </summary>
+[IsoId("_QGJCSNp-Ed-ak6NoX_4Aeg_-903711790")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Remittance Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RemittanceAmount1
-     : IIsoXmlSerilizable<RemittanceAmount1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Amount specified is the exact amount due and payable to the creditor.
     /// </summary>
+    [IsoId("_QGJCSdp-Ed-ak6NoX_4Aeg_-902791779")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Due Payable Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DuePayableAmount { get; init; } 
+    #else
+    public System.Decimal? DuePayableAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money that results from the application of an agreed discount to the amount due and payable to the creditor.
     /// </summary>
+    [IsoId("_QGJCStp-Ed-ak6NoX_4Aeg_-902791719")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Discount Applied Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? DiscountAppliedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? DiscountAppliedAmount { get; init; } 
+    #else
+    public System.Decimal? DiscountAppliedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount specified for the referred document is the amount of a credit note.
     /// </summary>
+    [IsoId("_QGSzQNp-Ed-ak6NoX_4Aeg_-902791574")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Note Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CreditNoteAmount { get; init; } 
+    #else
+    public System.Decimal? CreditNoteAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of cash resulting from the calculation of the tax.
     /// </summary>
+    [IsoId("_QGSzQdp-Ed-ak6NoX_4Aeg_-902791543")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TaxAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxAmount { get; init; } 
+    #else
+    public System.Decimal? TaxAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide information on the amount and reason of the document adjustment.
     /// </summary>
+    [IsoId("_QGSzQtp-Ed-ak6NoX_4Aeg_1253864295")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjustment Amount And Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentAdjustment1? AdjustmentAmountAndReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentAdjustment1? AdjustmentAmountAndReason { get; init; } 
+    #else
+    public DocumentAdjustment1? AdjustmentAmountAndReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>
+    [IsoId("_QGSzQ9p-Ed-ak6NoX_4Aeg_-902791697")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remitted Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RemittedAmount { get; init; } 
+    #else
+    public System.Decimal? RemittedAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (DuePayableAmount is IsoActiveOrHistoricCurrencyAndAmount DuePayableAmountValue)
-        {
-            writer.WriteStartElement(null, "DuePyblAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(DuePayableAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DiscountAppliedAmount is IsoActiveOrHistoricCurrencyAndAmount DiscountAppliedAmountValue)
-        {
-            writer.WriteStartElement(null, "DscntApldAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(DiscountAppliedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CreditNoteAmount is IsoActiveOrHistoricCurrencyAndAmount CreditNoteAmountValue)
-        {
-            writer.WriteStartElement(null, "CdtNoteAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CreditNoteAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxAmount is IsoActiveOrHistoricCurrencyAndAmount TaxAmountValue)
-        {
-            writer.WriteStartElement(null, "TaxAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TaxAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AdjustmentAmountAndReason is DocumentAdjustment1 AdjustmentAmountAndReasonValue)
-        {
-            writer.WriteStartElement(null, "AdjstmntAmtAndRsn", xmlNamespace );
-            AdjustmentAmountAndReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemittedAmount is IsoActiveOrHistoricCurrencyAndAmount RemittedAmountValue)
-        {
-            writer.WriteStartElement(null, "RmtdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(RemittedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static RemittanceAmount1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

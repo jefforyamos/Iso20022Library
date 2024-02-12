@@ -9,61 +9,130 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.BlockedStatusReason2Choice;
-
-/// <summary>
-/// Transaction type for which the account is blocked and the underlying reason.
-/// </summary>
-public partial record Reason : BlockedStatusReason2Choice_
-     , IIsoXmlSerilizable<Reason>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.BlockedStatusReason2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Type of transaction for which the account has a blocked status.
+    /// Transaction type for which the account is blocked and the underlying reason.
     /// </summary>
-    public required TransactionType5Choice_ TransactionType { get; init; } 
-    /// <summary>
-    /// Indicates whether the account is blocked.
-    /// </summary>
-    public required IsoYesNoIndicator Blocked { get; init; } 
-    public BlockedReason2Choice_? Value { get; init; } 
-    /// <summary>
-    /// Additional information about the blocked account status.
-    /// </summary>
-    public required IsoMax350Text AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_8t7ZA11LEeagR5I1rq5oaw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Reason : BlockedStatusReason2Choice_
+    #else
+    public partial class Reason : BlockedStatusReason2Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TxTp", xmlNamespace );
-        TransactionType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Blckd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Blocked)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        if (Value is BlockedReason2Choice_ ValueValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Reason instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Reason( TransactionType5Choice_ reqTransactionType,System.String reqBlocked,System.String reqAdditionalInformation )
         {
-            writer.WriteStartElement(null, "Rsn", xmlNamespace );
-            ValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            TransactionType = reqTransactionType;
+            Blocked = reqBlocked;
+            AdditionalInformation = reqAdditionalInformation;
         }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformation)); // data type Max350Text System.String
-        writer.WriteEndElement();
-    }
-    public static new Reason Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Type of transaction for which the account has a blocked status.
+        /// </summary>
+        [IsoId("__4jh8V1LEeagR5I1rq5oaw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required TransactionType5Choice_ TransactionType { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public TransactionType5Choice_ TransactionType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransactionType5Choice_ TransactionType { get; init; } 
+        #else
+        public TransactionType5Choice_ TransactionType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the account is blocked.
+        /// </summary>
+        [IsoId("_E6gY4V1MEeagR5I1rq5oaw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Blocked")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoYesNoIndicator Blocked { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Blocked { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Blocked { get; init; } 
+        #else
+        public System.String Blocked { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reason for the blocked status.
+        /// </summary>
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public BlockedReason2Choice_? Value { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BlockedReason2Choice_? Value { get; init; } 
+        #else
+        public BlockedReason2Choice_? Value { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information about the blocked account status.
+        /// </summary>
+        [IsoId("__4jh9V1LEeagR5I1rq5oaw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax350Text AdditionalInformation { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String AdditionalInformation { get; init; } 
+        #else
+        public System.String AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

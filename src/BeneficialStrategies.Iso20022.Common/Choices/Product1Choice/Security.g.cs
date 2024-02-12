@@ -9,57 +9,110 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
-
-/// <summary>
-/// Attributes relating to cleared securities.
-/// </summary>
-public partial record Security : Product1Choice_
-     , IIsoXmlSerilizable<Security>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the ISIN of the collateral.
+    /// Attributes relating to cleared securities.
     /// </summary>
-    public required IsoISINOct2015Identifier Identification { get; init; } 
-    /// <summary>
-    /// Identifies the security issuer.
-    /// </summary>
-    public required IsoLEIIdentifier Issuer { get; init; } 
-    /// <summary>
-    /// Sector for the security issuer, for example, 0500.
-    /// </summary>
-    public IsoSNA2008SectorIdentifier? Sector { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_QapNsLVQEeadLcJesEbkTQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Security : Product1Choice_
+    #else
+    public partial class Security : Product1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Issr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Issuer)); // data type LEIIdentifier System.String
-        writer.WriteEndElement();
-        if (Sector is IsoSNA2008SectorIdentifier SectorValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a Security instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public Security( System.String reqIdentification,System.String reqIssuer )
         {
-            writer.WriteStartElement(null, "Sctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(SectorValue)); // data type SNA2008SectorIdentifier System.String
-            writer.WriteEndElement();
+            Identification = reqIdentification;
+            Issuer = reqIssuer;
         }
-    }
-    public static new Security Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the ISIN of the collateral.
+        /// </summary>
+        [IsoId("_9iE2ILVYEeadLcJesEbkTQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISINOct2015Identifier Identification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Identification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Identification { get; init; } 
+        #else
+        public System.String Identification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Identifies the security issuer.
+        /// </summary>
+        [IsoId("_DnQrsLVZEeadLcJesEbkTQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Issuer")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoLEIIdentifier Issuer { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Issuer { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Issuer { get; init; } 
+        #else
+        public System.String Issuer { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Sector for the security issuer, for example, 0500.
+        /// </summary>
+        [IsoId("_Hr6M4LVZEeadLcJesEbkTQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Sector")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoSNA2008SectorIdentifier? Sector { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? Sector { get; init; } 
+        #else
+        public System.String? Sector { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

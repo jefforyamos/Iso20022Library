@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Holding of a financial asset as collateral.
 /// </summary>
+[IsoId("_4DvF8K_5EeaE9YROwd69hA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Asset Holding")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AssetHolding1
-     : IIsoXmlSerilizable<AssetHolding1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AssetHolding1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AssetHolding1( System.Decimal reqPostHaircutValue,AssetHolding1Choice_ reqAssetType,CollateralAccountType3Code reqCollateralRequirement )
+    {
+        PostHaircutValue = reqPostHaircutValue;
+        AssetType = reqAssetType;
+        CollateralRequirement = reqCollateralRequirement;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Mark-to-market post-haircut value of the collateral asset holding.
     /// </summary>
+    [IsoId("_bH-r0K_6EeaE9YROwd69hA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Post Haircut Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal PostHaircutValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal PostHaircutValue { get; init; } 
+    #else
+    public System.Decimal PostHaircutValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies financial instrument pledged as collateral.
     /// </summary>
+    [IsoId("_BrEMkK_6EeaE9YROwd69hA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetHolding1Choice_ AssetType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AssetHolding1Choice_ AssetType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AssetHolding1Choice_ AssetType { get; init; } 
+    #else
+    public AssetHolding1Choice_ AssetType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies whether collateral relates to default fund requirements or initial margin requirements.
     /// </summary>
+    [IsoId("_6pTkAbbeEeaqL_M7XFD7PQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Requirement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAccountType3Code CollateralRequirement { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CollateralAccountType3Code CollateralRequirement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralAccountType3Code CollateralRequirement { get; init; } 
+    #else
+    public CollateralAccountType3Code CollateralRequirement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PstHrcutVal", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(PostHaircutValue)); // data type ActiveCurrencyAnd24Amount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AsstTp", xmlNamespace );
-        AssetType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "CollRqrmnt", xmlNamespace );
-        writer.WriteValue(CollateralRequirement.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static AssetHolding1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a known exercise date and a pending date.
-/// </summary>
-[KnownType(typeof(ExerciseDate1Choice.FirstExerciseDate))]
-[KnownType(typeof(ExerciseDate1Choice.PendingDateApplicable))]
-public abstract partial record ExerciseDate1Choice_ : IIsoXmlSerilizable<ExerciseDate1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a known exercise date and a pending date.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static ExerciseDate1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(ExerciseDate1Choice.FirstExerciseDate))]
+    [KnownType(typeof(ExerciseDate1Choice.PendingDateApplicable))]
+    [IsoId("_UR6owAbBEeqrW7Meu5r3kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Exercise Date 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record ExerciseDate1Choice_
+    #else
+    public abstract partial class ExerciseDate1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FrstExrcDt" => ExerciseDate1Choice.FirstExerciseDate.Deserialize(elementWithPayload),
-             "PdgDtAplbl" => ExerciseDate1Choice.PendingDateApplicable.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid ExerciseDate1Choice choice.")
-        };
     }
 }

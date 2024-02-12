@@ -7,79 +7,134 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Overall holding position, in a single financial instrument, held in a securities account at a specified place of safekeeping.
 /// </summary>
+[IsoId("_-x81hmZ5EeSPkYKcdPbJxw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Aggregate Holding Balance")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AggregateHoldingBalance1
-     : IIsoXmlSerilizable<AggregateHoldingBalance1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AggregateHoldingBalance1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AggregateHoldingBalance1( SecurityIdentification19 reqFinancialInstrumentIdentification )
+    {
+        FinancialInstrumentIdentification = reqFinancialInstrumentIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument for which the balance information is specified.
     /// </summary>
+    [IsoId("_-x81iGZ5EeSPkYKcdPbJxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification19 FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Form of ownership of the holding.
     /// </summary>
+    [IsoId("_-x81iWZ5EeSPkYKcdPbJxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holding Form")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity1Code? HoldingForm { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FormOfSecurity1Code? HoldingForm { get; init; } 
+    #else
+    public FormOfSecurity1Code? HoldingForm { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether the holding is physically delivered or is a book entry only.
     /// </summary>
+    [IsoId("_-x81i2Z5EeSPkYKcdPbJxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holding Physical Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PhysicalTransferType1Code? HoldingPhysicalType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PhysicalTransferType1Code? HoldingPhysicalType { get; init; } 
+    #else
+    public PhysicalTransferType1Code? HoldingPhysicalType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance breakdown on the net position of the financial instrument.
     /// </summary>
+    [IsoId("_-x81imZ5EeSPkYKcdPbJxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance For Financial Instrument")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public FinancialInstrumentAggregateBalance1? BalanceForFinancialInstrument { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-x81imZ5EeSPkYKcdPbJxw
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_-x81h2Z5EeSPkYKcdPbJxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (HoldingForm is FormOfSecurity1Code HoldingFormValue)
-        {
-            writer.WriteStartElement(null, "HldgForm", xmlNamespace );
-            writer.WriteValue(HoldingFormValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (HoldingPhysicalType is PhysicalTransferType1Code HoldingPhysicalTypeValue)
-        {
-            writer.WriteStartElement(null, "HldgPhysTp", xmlNamespace );
-            writer.WriteValue(HoldingPhysicalTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize BalanceForFinancialInstrument, multiplicity Unknown
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AggregateHoldingBalance1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

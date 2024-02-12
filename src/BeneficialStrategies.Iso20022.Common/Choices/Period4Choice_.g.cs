@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between date and date-time for the specification of a period.
-/// </summary>
-[KnownType(typeof(Period4Choice.Date))]
-[KnownType(typeof(Period4Choice.FromDate))]
-[KnownType(typeof(Period4Choice.ToDate))]
-[KnownType(typeof(Period4Choice.FromDateToDate))]
-public abstract partial record Period4Choice_ : IIsoXmlSerilizable<Period4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between date and date-time for the specification of a period.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Period4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Period4Choice.Date))]
+    [KnownType(typeof(Period4Choice.FromDate))]
+    [KnownType(typeof(Period4Choice.ToDate))]
+    [KnownType(typeof(Period4Choice.FromDateToDate))]
+    [IsoId("_kTJKSZfjEeSfnc-VXAEapg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Period4Choice_
+    #else
+    public abstract partial class Period4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Dt" => Period4Choice.Date.Deserialize(elementWithPayload),
-             "FrDt" => Period4Choice.FromDate.Deserialize(elementWithPayload),
-             "ToDt" => Period4Choice.ToDate.Deserialize(elementWithPayload),
-             "FrDtToDt" => Period4Choice.FromDateToDate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Period4Choice choice.")
-        };
     }
 }

@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of collateral calculated pre-haircut and/or post-haircut.
 /// </summary>
+[IsoId("_SUuMwFfVEeqqKf65rDYWYw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Pre Post Haircut")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PrePostHaircut1
-     : IIsoXmlSerilizable<PrePostHaircut1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the amount of collateral calculated pre-haircut.
     /// </summary>
+    [IsoId("_ikXEIFfVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pre Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PreHaircut { get; init; } 
+    #else
+    public System.Decimal? PreHaircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the amount of collateral calculated post-haircut.
     /// </summary>
+    [IsoId("_j8ulQFfVEeqqKf65rDYWYw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Post Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PostHaircut { get; init; } 
+    #else
+    public System.Decimal? PostHaircut { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (PreHaircut is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PreHaircutValue)
-        {
-            writer.WriteStartElement(null, "PreHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PreHaircutValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PostHaircut is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PostHaircutValue)
-        {
-            writer.WriteStartElement(null, "PstHrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PostHaircutValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static PrePostHaircut1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information details.
 /// </summary>
+[IsoId("_iKKhMUk1EeK8UrXTVVBVxw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action General Information SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionGeneralInformationSD10
-     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD10>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionGeneralInformationSD10 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionGeneralInformationSD10( System.String reqPlaceAndName )
+    {
+        PlaceAndName = reqPlaceAndName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [IsoId("_ihFzcUk1EeK8UrXTVVBVxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Place And Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PlaceAndName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PlaceAndName { get; init; } 
+    #else
+    public System.String PlaceAndName { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
+    [IsoId("_ihFzdUk1EeK8UrXTVVBVxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Group")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventGroup1Code? EventGroup { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EventGroup1Code? EventGroup { get; init; } 
+    #else
+    public EventGroup1Code? EventGroup { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action event type name. Used in place for the events that cannot be classified by ISO code and mapped to OTHR or when two or more distinct events (in DTCC model) use same ISO code and there are no additional data elements that distinguish those two or more events.
     /// </summary>
+    [IsoId("_ihFzf0k1EeK8UrXTVVBVxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedEventType1Code? EventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExtendedEventType1Code? EventType { get; init; } 
+    #else
+    public ExtendedEventType1Code? EventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
+    [IsoId("_ihFziUk1EeK8UrXTVVBVxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sub Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCCSubEventType2Code? SubEventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DTCCSubEventType2Code? SubEventType { get; init; } 
+    #else
+    public DTCCSubEventType2Code? SubEventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the event is eligible for EDS (Elective Dividend Services) ISO20022 messaging.
     /// </summary>
+    [IsoId("_mDduC0k1EeK8UrXTVVBVxw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("EDS Messaging Eligibility Flag")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EDSMessagingEligibilityFlag { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EDSMessagingEligibilityFlag { get; init; } 
+    #else
+    public System.String? EDSMessagingEligibilityFlag { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
-        writer.WriteEndElement();
-        if (EventGroup is EventGroup1Code EventGroupValue)
-        {
-            writer.WriteStartElement(null, "EvtGrp", xmlNamespace );
-            writer.WriteValue(EventGroupValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EventType is ExtendedEventType1Code EventTypeValue)
-        {
-            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
-            writer.WriteValue(EventTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SubEventType is DTCCSubEventType2Code SubEventTypeValue)
-        {
-            writer.WriteStartElement(null, "SubEvtTp", xmlNamespace );
-            writer.WriteValue(SubEventTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EDSMessagingEligibilityFlag is IsoYesNoIndicator EDSMessagingEligibilityFlagValue)
-        {
-            writer.WriteStartElement(null, "EDSMsggElgbltyFlg", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EDSMessagingEligibilityFlagValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionGeneralInformationSD10 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

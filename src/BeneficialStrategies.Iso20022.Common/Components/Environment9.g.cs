@@ -7,87 +7,131 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[IsoId("_uiLcgWbaEeeNuKDeKoUMAA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Environment9
-     : IIsoXmlSerilizable<Environment9>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// financial institution (or its agent) at which the accounts are held by the parties settling. This institution, acting on information provided by the parties, transfers the appropriate funds between the accounts.
     /// </summary>
+    [IsoId("_uuMfQWbaEeeNuKDeKoUMAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? SettlementInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? SettlementInstitution { get; init; } 
+    #else
+    public PartyIdentification197? SettlementInstitution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
+    [IsoId("_GQcLsWp5EemXfKijhrqa-Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sender")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Sender { get; init; } 
+    #else
+    public PartyIdentification197? Sender { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party receiving the message from the origin or from an intermediary agent.
     /// ISO 8583 bit 100.
     /// </summary>
+    [IsoId("_uuMfRWbaEeeNuKDeKoUMAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiver")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? Receiver { get; init; } 
+    #else
+    public PartyIdentification197? Receiver { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial Institution to which the settlement totals apply.
     /// </summary>
+    [IsoId("_uuMfQ2baEeeNuKDeKoUMAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitution5? FinancialInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstitution5? FinancialInstitution { get; init; } 
+    #else
+    public FinancialInstitution5? FinancialInstitution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional institution involved in settlement. For example, the other party involved in bilateral settlement agreement.
     /// </summary>
+    [IsoId("_uuMfR2baEeeNuKDeKoUMAA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? OtherInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification197? OtherInstitution { get; init; } 
+    #else
+    public PartyIdentification197? OtherInstitution { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SettlementInstitution is PartyIdentification197 SettlementInstitutionValue)
-        {
-            writer.WriteStartElement(null, "SttlmInstn", xmlNamespace );
-            SettlementInstitutionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Sender is PartyIdentification197 SenderValue)
-        {
-            writer.WriteStartElement(null, "Sndr", xmlNamespace );
-            SenderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Receiver is PartyIdentification197 ReceiverValue)
-        {
-            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
-            ReceiverValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstitution is FinancialInstitution5 FinancialInstitutionValue)
-        {
-            writer.WriteStartElement(null, "FI", xmlNamespace );
-            FinancialInstitutionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherInstitution is PartyIdentification197 OtherInstitutionValue)
-        {
-            writer.WriteStartElement(null, "OthrInstn", xmlNamespace );
-            OtherInstitutionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Environment9 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an indicative price or a market price.
-/// </summary>
-[KnownType(typeof(IndicativeOrMarketPrice8Choice.IndicativePrice))]
-[KnownType(typeof(IndicativeOrMarketPrice8Choice.MarketPrice))]
-public abstract partial record IndicativeOrMarketPrice8Choice_ : IIsoXmlSerilizable<IndicativeOrMarketPrice8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an indicative price or a market price.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static IndicativeOrMarketPrice8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(IndicativeOrMarketPrice8Choice.IndicativePrice))]
+    [KnownType(typeof(IndicativeOrMarketPrice8Choice.MarketPrice))]
+    [IsoId("_PoGCkUGMEeWqy4niLuXETA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Indicative Or Market Price 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record IndicativeOrMarketPrice8Choice_
+    #else
+    public abstract partial class IndicativeOrMarketPrice8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "IndctvPric" => IndicativeOrMarketPrice8Choice.IndicativePrice.Deserialize(elementWithPayload),
-             "MktPric" => IndicativeOrMarketPrice8Choice.MarketPrice.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid IndicativeOrMarketPrice8Choice choice.")
-        };
     }
 }

@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice;
-
-/// <summary>
-/// Ratio expressed as a quantity to amount ratio.
-/// </summary>
-public partial record QuantityToAmount : RatioFormat14Choice_
-     , IIsoXmlSerilizable<QuantityToAmount>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Cash amount.
+    /// Ratio expressed as a quantity to amount ratio.
     /// </summary>
-    public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
-    /// <summary>
-    /// Quantity expressed as number.
-    /// </summary>
-    public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_ffvb-AgYEeCVlvYcV4HKqQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity To Amount")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record QuantityToAmount : RatioFormat14Choice_
+    #else
+    public partial class QuantityToAmount : RatioFormat14Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Amt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(Amount)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Qty", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRestrictedFINDecimalNumber(Quantity)); // data type RestrictedFINDecimalNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static new QuantityToAmount Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a QuantityToAmount instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public QuantityToAmount( System.Decimal reqAmount,System.UInt64 reqQuantity )
+        {
+            Amount = reqAmount;
+            Quantity = reqQuantity;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Cash amount.
+        /// </summary>
+        [IsoId("_WPFWdNp-Ed-ak6NoX_4Aeg_-1390119931")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Amount")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.Decimal Amount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Amount { get; init; } 
+        #else
+        public System.Decimal Amount { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Quantity expressed as number.
+        /// </summary>
+        [IsoId("_WPFWddp-Ed-ak6NoX_4Aeg_-1103574033")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Quantity")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.UInt64 Quantity { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.UInt64 Quantity { get; init; } 
+        #else
+        public System.UInt64 Quantity { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

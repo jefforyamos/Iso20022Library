@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of number count type.
-/// </summary>
-[KnownType(typeof(NumberCount1Choice.CurrentInstructionNumber))]
-[KnownType(typeof(NumberCount1Choice.TotalNumber))]
-public abstract partial record NumberCount1Choice_ : IIsoXmlSerilizable<NumberCount1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of number count type.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static NumberCount1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(NumberCount1Choice.CurrentInstructionNumber))]
+    [KnownType(typeof(NumberCount1Choice.TotalNumber))]
+    [IsoId("_QrsmZ9p-Ed-ak6NoX_4Aeg_994582654")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Count 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record NumberCount1Choice_
+    #else
+    public abstract partial class NumberCount1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "CurInstrNb" => NumberCount1Choice.CurrentInstructionNumber.Deserialize(elementWithPayload),
-             "TtlNb" => NumberCount1Choice.TotalNumber.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid NumberCount1Choice choice.")
-        };
     }
 }

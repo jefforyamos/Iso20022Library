@@ -7,146 +7,262 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional charges related to or during transit (e.g., baggage fee, in-flight purchase). These are separate from the original ticket purchase.
 /// </summary>
+[IsoId("_2sX-4ZJQEeuuktRxxQZoNQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Ancillary Purchase")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AncillaryPurchase2
-     : IIsoXmlSerilizable<AncillaryPurchase2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the form number assigned by the carrier for the transaction. 
     /// </summary>
+    [IsoId("_2yvFkZJQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Ancillary Document Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15Text? AncillaryDocumentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AncillaryDocumentNumber { get; init; } 
+    #else
+    public System.String? AncillaryDocumentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document number of related transport details.
     /// </summary>
+    [IsoId("_2yvFk5JQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Document Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 15 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15Text? RelatedDocumentNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RelatedDocumentNumber { get; init; } 
+    #else
+    public System.String? RelatedDocumentNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains an ancillary category code for the primary type of service that has been provided. 
     /// </summary>
+    [IsoId("_2yvFlZJQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? ServiceCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ServiceCategoryCode { get; init; } 
+    #else
+    public System.String? ServiceCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains ancillary service sub category code.
     /// </summary>
+    [IsoId("_2yvFl5JQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Sub Category Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 4 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? ServiceSubCategoryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ServiceSubCategoryCode { get; init; } 
+    #else
+    public System.String? ServiceSubCategoryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Proprietary service type code assigned by the service provider.
     /// </summary>
+    [IsoId("_2yvFmZJQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Service Provider Service Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ServiceProviderServiceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ServiceProviderServiceType { get; init; } 
+    #else
+    public System.String? ServiceProviderServiceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates reason for the credit to the cardholder.  Includes: ancillary purchase cancelled, passenger transport ticket and related ancillary purchase cancelled, etc.
     /// </summary>
+    [IsoId("_2yvFm5JQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CreditReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditReasonCode { get; init; } 
+    #else
+    public System.String? CreditReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [IsoId("_2yvFnZJQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Summary Commodity Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SummaryCommodityIdentification { get; init; } 
+    #else
+    public System.String? SummaryCommodityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Ancillary purchase amount.
     /// </summary>
+    [IsoId("_2yvFn5JQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount16? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount16? Amount { get; init; } 
+    #else
+    public Amount16? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Subfield contains the ancillary fee amount.
     /// </summary>
+    [IsoId("_2yvFoZJQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Fee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Fee { get; init; } 
+    #else
+    public System.Decimal? Fee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
+    [IsoId("_2yvFo5JQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax39? Tax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Tax39? Tax { get; init; } 
+    #else
+    public Tax39? Tax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional user-defined data pertaining to the transportation.
     /// </summary>
+    [IsoId("_2yvFpZJQEeuuktRxxQZoNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalData { get; init; } 
+    #else
+    public System.String? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AncillaryDocumentNumber is IsoMax15Text AncillaryDocumentNumberValue)
-        {
-            writer.WriteStartElement(null, "AncllryDocNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15Text(AncillaryDocumentNumberValue)); // data type Max15Text System.String
-            writer.WriteEndElement();
-        }
-        if (RelatedDocumentNumber is IsoMax15Text RelatedDocumentNumberValue)
-        {
-            writer.WriteStartElement(null, "RltdDocNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15Text(RelatedDocumentNumberValue)); // data type Max15Text System.String
-            writer.WriteEndElement();
-        }
-        if (ServiceCategoryCode is IsoMax4Text ServiceCategoryCodeValue)
-        {
-            writer.WriteStartElement(null, "SvcCtgyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(ServiceCategoryCodeValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (ServiceSubCategoryCode is IsoMax4Text ServiceSubCategoryCodeValue)
-        {
-            writer.WriteStartElement(null, "SvcSubCtgyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax4Text(ServiceSubCategoryCodeValue)); // data type Max4Text System.String
-            writer.WriteEndElement();
-        }
-        if (ServiceProviderServiceType is IsoMax35Text ServiceProviderServiceTypeValue)
-        {
-            writer.WriteStartElement(null, "SvcPrvdrSvcTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ServiceProviderServiceTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (CreditReasonCode is IsoMax35Text CreditReasonCodeValue)
-        {
-            writer.WriteStartElement(null, "CdtRsnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditReasonCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
-        {
-            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Amount is Amount16 AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            AmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Fee is IsoImpliedCurrencyAndAmount FeeValue)
-        {
-            writer.WriteStartElement(null, "Fee", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FeeValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Tax is Tax39 TaxValue)
-        {
-            writer.WriteStartElement(null, "Tax", xmlNamespace );
-            TaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is IsoMax350Text AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AncillaryPurchase2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,17 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the index used to define the rate and optionally the basis point spread.
 /// </summary>
+[IsoId("_reYmMepnEeSsk6KxwbYJ9w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Floating Interest Rate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FloatingInterestRate4
-     : IIsoXmlSerilizable<FloatingInterestRate4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FloatingInterestRate4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FloatingInterestRate4( BenchmarkCurveName4Choice_ reqReferenceRate,InterestRateContractTerm1 reqTerm,System.UInt64 reqBasisPointSpread )
+    {
+        ReferenceRate = reqReferenceRate;
+        Term = reqTerm;
+        BasisPointSpread = reqBasisPointSpread;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,42 +54,65 @@ public partial record FloatingInterestRate4
     /// Usage:
     /// Where an identifier exists, the ISIN must be used; otherwise, names will be necessary (such as EURIBOR6M, LIBOR3M) as other identification.
     /// </summary>
+    [IsoId("_rmIM8epnEeSsk6KxwbYJ9w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
+    #else
+    public BenchmarkCurveName4Choice_ ReferenceRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Term of the index.
     /// </summary>
+    [IsoId("_85QTUSSLEeW2Xf4A_zKwwg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Term")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRateContractTerm1 Term { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InterestRateContractTerm1 Term { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateContractTerm1 Term { get; init; } 
+    #else
+    public InterestRateContractTerm1 Term { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
+    [IsoId("_r4PXcSSNEeW2Xf4A_zKwwg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Basis Point Spread")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber BasisPointSpread { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 BasisPointSpread { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 BasisPointSpread { get; init; } 
+    #else
+    public System.UInt64 BasisPointSpread { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RefRate", xmlNamespace );
-        ReferenceRate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Term", xmlNamespace );
-        Term.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(BasisPointSpread)); // data type Number System.UInt64
-        writer.WriteEndElement();
-    }
-    public static FloatingInterestRate4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

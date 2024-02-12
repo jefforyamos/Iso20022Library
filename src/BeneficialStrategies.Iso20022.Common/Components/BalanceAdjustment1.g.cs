@@ -7,104 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the balance adjustments for a specific service.
 /// </summary>
+[IsoId("_6SVpUpqlEeGSON8vddiWzQ_304866201")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Balance Adjustment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BalanceAdjustment1
-     : IIsoXmlSerilizable<BalanceAdjustment1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BalanceAdjustment1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BalanceAdjustment1( BalanceAdjustmentType1Code reqType,System.String reqDescription,AmountAndDirection34 reqBalanceAmount,System.DateOnly reqPostingDate )
+    {
+        Type = reqType;
+        Description = reqDescription;
+        BalanceAmount = reqBalanceAmount;
+        PostingDate = reqPostingDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies the type of adjustment.
     /// </summary>
+    [IsoId("_6SVpU5qlEeGSON8vddiWzQ_-313393721")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceAdjustmentType1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BalanceAdjustmentType1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BalanceAdjustmentType1Code Type { get; init; } 
+    #else
+    public BalanceAdjustmentType1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Free-form description and clarification of the adjustment.
     /// </summary>
+    [IsoId("_6SVpVJqlEeGSON8vddiWzQ_1088798456")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Description { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Description { get; init; } 
+    #else
+    public System.String Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the adjustment. If the amount would reduce the underlying balance then the amount should be negatively signed. Expressed in the Account currency.
     /// </summary>
+    [IsoId("_6SVpVZqlEeGSON8vddiWzQ_939741632")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 BalanceAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection34 BalanceAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection34 BalanceAmount { get; init; } 
+    #else
+    public AmountAndDirection34 BalanceAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Day-weighted net amount of the adjustment to the average collected balance over the statement period.
     /// </summary>
+    [IsoId("_6SVpVpqlEeGSON8vddiWzQ_1558874866")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Average Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? AverageAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection34? AverageAmount { get; init; } 
+    #else
+    public AmountAndDirection34? AverageAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the error occurred in the underlying cash account.
     /// </summary>
+    [IsoId("_6SVpV5qlEeGSON8vddiWzQ_561802513")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Error Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ErrorDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ErrorDate { get; init; } 
+    #else
+    public System.DateOnly? ErrorDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the error was corrected in the cash account. If the date is not know then use the last day of the month in which the error was corrected.
     /// </summary>
+    [IsoId("_6SezQJqlEeGSON8vddiWzQ_-435269840")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PostingDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly PostingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly PostingDate { get; init; } 
+    #else
+    public System.DateOnly PostingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of days within the period to which the adjustment applies.
     /// </summary>
+    [IsoId("_6SezQZqlEeGSON8vddiWzQ_1103518602")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Days")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Days { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Days { get; init; } 
+    #else
+    public System.UInt64? Days { get; set; } 
+    #endif
+    
     /// <summary>
     /// Earnings credit adjustment, debit or credit, resulting from this adjustment’s effect on the average collected balance. If the amount would reduce the credit due then the amount should be negatively signed.
     /// </summary>
+    [IsoId("_6SezQpqlEeGSON8vddiWzQ_398403987")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Earnings Adjustment Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? EarningsAdjustmentAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection34? EarningsAdjustmentAmount { get; init; } 
+    #else
+    public AmountAndDirection34? EarningsAdjustmentAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Desc", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax105Text(Description)); // data type Max105Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BalAmt", xmlNamespace );
-        BalanceAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AverageAmount is AmountAndDirection34 AverageAmountValue)
-        {
-            writer.WriteStartElement(null, "AvrgAmt", xmlNamespace );
-            AverageAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ErrorDate is IsoISODate ErrorDateValue)
-        {
-            writer.WriteStartElement(null, "ErrDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ErrorDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PstngDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(PostingDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (Days is IsoDecimalNumber DaysValue)
-        {
-            writer.WriteStartElement(null, "Days", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(DaysValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (EarningsAdjustmentAmount is AmountAndDirection34 EarningsAdjustmentAmountValue)
-        {
-            writer.WriteStartElement(null, "EarngsAdjstmntAmt", xmlNamespace );
-            EarningsAdjustmentAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BalanceAdjustment1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

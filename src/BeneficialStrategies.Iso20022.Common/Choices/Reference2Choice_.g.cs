@@ -7,50 +7,42 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between the identification of the MarginCallRequest message, the MarginCallResponse message, the CollateralProposal message, the CollateralProposalResponse message, the CollateralSubstitutionRequest message, the CollateralSubstitutionResponse message, the CollateralSubstitutionConfirmation message, the InterestPaymentRequest message, the InterestPaymentResponse message, the InterestPaymentStatement message or the MarginCallDisputeNotification message.
-/// </summary>
-[KnownType(typeof(Reference2Choice.MarginCallRequestIdentification))]
-[KnownType(typeof(Reference2Choice.MarginCallResponseIdentification))]
-[KnownType(typeof(Reference2Choice.CollateralProposalIdentification))]
-[KnownType(typeof(Reference2Choice.CollateralProposalResponseIdentification))]
-[KnownType(typeof(Reference2Choice.DisputeNotificationIdentification))]
-[KnownType(typeof(Reference2Choice.CollateralSubstitutionRequestIdentification))]
-[KnownType(typeof(Reference2Choice.CollateralSubstitutionResponseIdentification))]
-[KnownType(typeof(Reference2Choice.CollateralSubstitutionConfirmationIdentification))]
-[KnownType(typeof(Reference2Choice.InterestPaymentRequestIdentification))]
-[KnownType(typeof(Reference2Choice.InterestPaymentResponseIdentification))]
-[KnownType(typeof(Reference2Choice.InterestPaymentStatementIdentification))]
-public abstract partial record Reference2Choice_ : IIsoXmlSerilizable<Reference2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between the identification of the MarginCallRequest message, the MarginCallResponse message, the CollateralProposal message, the CollateralProposalResponse message, the CollateralSubstitutionRequest message, the CollateralSubstitutionResponse message, the CollateralSubstitutionConfirmation message, the InterestPaymentRequest message, the InterestPaymentResponse message, the InterestPaymentStatement message or the MarginCallDisputeNotification message.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Reference2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Reference2Choice.MarginCallRequestIdentification))]
+    [KnownType(typeof(Reference2Choice.MarginCallResponseIdentification))]
+    [KnownType(typeof(Reference2Choice.CollateralProposalIdentification))]
+    [KnownType(typeof(Reference2Choice.CollateralProposalResponseIdentification))]
+    [KnownType(typeof(Reference2Choice.DisputeNotificationIdentification))]
+    [KnownType(typeof(Reference2Choice.CollateralSubstitutionRequestIdentification))]
+    [KnownType(typeof(Reference2Choice.CollateralSubstitutionResponseIdentification))]
+    [KnownType(typeof(Reference2Choice.CollateralSubstitutionConfirmationIdentification))]
+    [KnownType(typeof(Reference2Choice.InterestPaymentRequestIdentification))]
+    [KnownType(typeof(Reference2Choice.InterestPaymentResponseIdentification))]
+    [KnownType(typeof(Reference2Choice.InterestPaymentStatementIdentification))]
+    [IsoId("_TYNGkKerEeCq2KR6DaC1kQ_992102367")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reference 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Reference2Choice_
+    #else
+    public abstract partial class Reference2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "MrgnCallReqId" => Reference2Choice.MarginCallRequestIdentification.Deserialize(elementWithPayload),
-             "MrgnCallRspnId" => Reference2Choice.MarginCallResponseIdentification.Deserialize(elementWithPayload),
-             "CollPrpslId" => Reference2Choice.CollateralProposalIdentification.Deserialize(elementWithPayload),
-             "CollPrpslRspnId" => Reference2Choice.CollateralProposalResponseIdentification.Deserialize(elementWithPayload),
-             "DsptNtfctnId" => Reference2Choice.DisputeNotificationIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnReqId" => Reference2Choice.CollateralSubstitutionRequestIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnRspnId" => Reference2Choice.CollateralSubstitutionResponseIdentification.Deserialize(elementWithPayload),
-             "CollSbstitnConfId" => Reference2Choice.CollateralSubstitutionConfirmationIdentification.Deserialize(elementWithPayload),
-             "IntrstPmtReqId" => Reference2Choice.InterestPaymentRequestIdentification.Deserialize(elementWithPayload),
-             "IntrstPmtRspnId" => Reference2Choice.InterestPaymentResponseIdentification.Deserialize(elementWithPayload),
-             "IntrstPmtStmtId" => Reference2Choice.InterestPaymentStatementIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Reference2Choice choice.")
-        };
     }
 }

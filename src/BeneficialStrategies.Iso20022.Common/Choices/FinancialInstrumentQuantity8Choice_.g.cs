@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ways to express the quantity of the financial instrument to be redeemed.
-/// </summary>
-[KnownType(typeof(FinancialInstrumentQuantity8Choice.UnitsNumber))]
-[KnownType(typeof(FinancialInstrumentQuantity8Choice.OrderedAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity8Choice.NetAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity8Choice.GrossAmount))]
-[KnownType(typeof(FinancialInstrumentQuantity8Choice.HoldingsRate))]
-public abstract partial record FinancialInstrumentQuantity8Choice_ : IIsoXmlSerilizable<FinancialInstrumentQuantity8Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ways to express the quantity of the financial instrument to be redeemed.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrumentQuantity8Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrumentQuantity8Choice.UnitsNumber))]
+    [KnownType(typeof(FinancialInstrumentQuantity8Choice.OrderedAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity8Choice.NetAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity8Choice.GrossAmount))]
+    [KnownType(typeof(FinancialInstrumentQuantity8Choice.HoldingsRate))]
+    [IsoId("_Rg5JBtp-Ed-ak6NoX_4Aeg_1589726171")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Quantity 8 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrumentQuantity8Choice_
+    #else
+    public abstract partial class FinancialInstrumentQuantity8Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "UnitsNb" => FinancialInstrumentQuantity8Choice.UnitsNumber.Deserialize(elementWithPayload),
-             "OrdrdAmt" => FinancialInstrumentQuantity8Choice.OrderedAmount.Deserialize(elementWithPayload),
-             "NetAmt" => FinancialInstrumentQuantity8Choice.NetAmount.Deserialize(elementWithPayload),
-             "GrssAmt" => FinancialInstrumentQuantity8Choice.GrossAmount.Deserialize(elementWithPayload),
-             "HldgsRate" => FinancialInstrumentQuantity8Choice.HoldingsRate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrumentQuantity8Choice choice.")
-        };
     }
 }

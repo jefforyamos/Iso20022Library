@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Corporate action event cancellation status and reason.
 /// </summary>
+[IsoId("_TdbKmVAeEeO1M--XQMqOtA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Cancellation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionCancellation4
-     : IIsoXmlSerilizable<CorporateActionCancellation4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionCancellation4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionCancellation4( CorporateActionCancellationReason1Code reqCancellationReasonCode,CorporateActionEventStatus1 reqProcessingStatus )
+    {
+        CancellationReasonCode = reqCancellationReasonCode;
+        ProcessingStatus = reqProcessingStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies reasons for cancellation of a corporate action event.
     /// </summary>
+    [IsoId("_TdbKm1AeEeO1M--XQMqOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
+    #else
+    public CorporateActionCancellationReason1Code CancellationReasonCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about cancellation of a corporate action event.
     /// </summary>
+    [IsoId("_TdbKo1AeEeO1M--XQMqOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax140Text? CancellationReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CancellationReason { get; init; } 
+    #else
+    public System.String? CancellationReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
+    [IsoId("_TdbKq1AeEeO1M--XQMqOtA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventStatus1 ProcessingStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionEventStatus1 ProcessingStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventStatus1 ProcessingStatus { get; init; } 
+    #else
+    public CorporateActionEventStatus1 ProcessingStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CxlRsnCd", xmlNamespace );
-        writer.WriteValue(CancellationReasonCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (CancellationReason is IsoRestrictedFINXMax140Text CancellationReasonValue)
-        {
-            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax140Text(CancellationReasonValue)); // data type RestrictedFINXMax140Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
-        ProcessingStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CorporateActionCancellation4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification2Choice;
-
-/// <summary>
-/// Underlying of a swap transaction.
-/// </summary>
-public partial record Swap : UnderlyingIdentification2Choice_
-     , IIsoXmlSerilizable<Swap>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification2Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Instrument received by the buyer.
+    /// Underlying of a swap transaction.
     /// </summary>
-    public FinancialInstrumentIdentification7Choice_? SwapIn { get; init; } 
-    /// <summary>
-    /// Instrument paid by the buyer.
-    /// </summary>
-    public FinancialInstrumentIdentification7Choice_? SwapOut { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Ky7eQYG-EeaalK9UbuVGFw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Swap")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Swap : UnderlyingIdentification2Choice_
+    #else
+    public partial class Swap : UnderlyingIdentification2Choice_
+    #endif
     {
-        if (SwapIn is FinancialInstrumentIdentification7Choice_ SwapInValue)
-        {
-            writer.WriteStartElement(null, "SwpIn", xmlNamespace );
-            SwapInValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SwapOut is FinancialInstrumentIdentification7Choice_ SwapOutValue)
-        {
-            writer.WriteStartElement(null, "SwpOut", xmlNamespace );
-            SwapOutValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new Swap Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Instrument received by the buyer.
+        /// </summary>
+        [IsoId("_K9fvgYG-EeaalK9UbuVGFw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Swap In")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrumentIdentification7Choice_? SwapIn { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentIdentification7Choice_? SwapIn { get; init; } 
+        #else
+        public FinancialInstrumentIdentification7Choice_? SwapIn { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Instrument paid by the buyer.
+        /// </summary>
+        [IsoId("_K9fvg4G-EeaalK9UbuVGFw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Swap Out")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrumentIdentification7Choice_? SwapOut { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrumentIdentification7Choice_? SwapOut { get; init; } 
+        #else
+        public FinancialInstrumentIdentification7Choice_? SwapOut { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

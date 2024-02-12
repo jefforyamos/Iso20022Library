@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Characteristics of the goods that are certified, in the context of a commercial trade transaction.
-/// </summary>
-[KnownType(typeof(CertifiedCharacteristics1Choice.Origin))]
-[KnownType(typeof(CertifiedCharacteristics1Choice.Quality))]
-[KnownType(typeof(CertifiedCharacteristics1Choice.Analysis))]
-[KnownType(typeof(CertifiedCharacteristics1Choice.Weight))]
-[KnownType(typeof(CertifiedCharacteristics1Choice.Quantity))]
-[KnownType(typeof(CertifiedCharacteristics1Choice.HealthIndication))]
-[KnownType(typeof(CertifiedCharacteristics1Choice.PhytosanitaryIndication))]
-public abstract partial record CertifiedCharacteristics1Choice_ : IIsoXmlSerilizable<CertifiedCharacteristics1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Characteristics of the goods that are certified, in the context of a commercial trade transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CertifiedCharacteristics1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CertifiedCharacteristics1Choice.Origin))]
+    [KnownType(typeof(CertifiedCharacteristics1Choice.Quality))]
+    [KnownType(typeof(CertifiedCharacteristics1Choice.Analysis))]
+    [KnownType(typeof(CertifiedCharacteristics1Choice.Weight))]
+    [KnownType(typeof(CertifiedCharacteristics1Choice.Quantity))]
+    [KnownType(typeof(CertifiedCharacteristics1Choice.HealthIndication))]
+    [KnownType(typeof(CertifiedCharacteristics1Choice.PhytosanitaryIndication))]
+    [IsoId("_TnJq6Np-Ed-ak6NoX_4Aeg_524312074")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certified Characteristics 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CertifiedCharacteristics1Choice_
+    #else
+    public abstract partial class CertifiedCharacteristics1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Orgn" => CertifiedCharacteristics1Choice.Origin.Deserialize(elementWithPayload),
-             "Qlty" => CertifiedCharacteristics1Choice.Quality.Deserialize(elementWithPayload),
-             "Anlys" => CertifiedCharacteristics1Choice.Analysis.Deserialize(elementWithPayload),
-             "Wght" => CertifiedCharacteristics1Choice.Weight.Deserialize(elementWithPayload),
-             "Qty" => CertifiedCharacteristics1Choice.Quantity.Deserialize(elementWithPayload),
-             "HlthIndctn" => CertifiedCharacteristics1Choice.HealthIndication.Deserialize(elementWithPayload),
-             "PhytosntryIndctn" => CertifiedCharacteristics1Choice.PhytosanitaryIndication.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CertifiedCharacteristics1Choice choice.")
-        };
     }
 }

@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a meeting event identification or a meeting event official identification.
-/// </summary>
-[KnownType(typeof(MeetingEventReference1Choice.LinkedIssuerMeetingIdentification))]
-[KnownType(typeof(MeetingEventReference1Choice.LinkedMeetingIdentification))]
-public abstract partial record MeetingEventReference1Choice_ : IIsoXmlSerilizable<MeetingEventReference1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a meeting event identification or a meeting event official identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MeetingEventReference1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MeetingEventReference1Choice.LinkedIssuerMeetingIdentification))]
+    [KnownType(typeof(MeetingEventReference1Choice.LinkedMeetingIdentification))]
+    [IsoId("__b3CGa7rEemG7MmivSuE5g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Meeting Event Reference 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MeetingEventReference1Choice_
+    #else
+    public abstract partial class MeetingEventReference1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "LkdIssrMtgId" => MeetingEventReference1Choice.LinkedIssuerMeetingIdentification.Deserialize(elementWithPayload),
-             "LkdMtgId" => MeetingEventReference1Choice.LinkedMeetingIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MeetingEventReference1Choice choice.")
-        };
     }
 }

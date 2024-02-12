@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies underlying instruments or index a derivative has.
-/// </summary>
-[KnownType(typeof(FinancialInstrument46Choice.ISIN))]
-[KnownType(typeof(FinancialInstrument46Choice.Index))]
-public abstract partial record FinancialInstrument46Choice_ : IIsoXmlSerilizable<FinancialInstrument46Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies underlying instruments or index a derivative has.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstrument46Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstrument46Choice.ISIN))]
+    [KnownType(typeof(FinancialInstrument46Choice.Index))]
+    [IsoId("_X1AUQ738EeWvRsMSLyTf-A")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument 46 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstrument46Choice_
+    #else
+    public abstract partial class FinancialInstrument46Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => FinancialInstrument46Choice.ISIN.Deserialize(elementWithPayload),
-             "Indx" => FinancialInstrument46Choice.Index.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstrument46Choice choice.")
-        };
     }
 }

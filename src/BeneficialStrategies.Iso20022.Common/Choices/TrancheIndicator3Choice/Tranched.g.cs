@@ -9,53 +9,80 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator3Choice;
-
-/// <summary>
-/// Indication that derivative contract is tranched.
-/// </summary>
-public partial record Tranched : TrancheIndicator3Choice_
-     , IIsoXmlSerilizable<Tranched>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indicates the lower point at which the level of losses in the underlying portfolio reduces the notional of the tranche.
+    /// Indication that derivative contract is tranched.
     /// </summary>
-    public IsoBaseOneRate? AttachmentPoint { get; init; } 
-    /// <summary>
-    /// Indicates the point beyond which the losses in the underlying portfolio no longer reduce the notional of the tranche.
-    /// </summary>
-    public IsoBaseOneRate? DetachmentPoint { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_nCVaUQ06EeuJ1fOEB4bQXA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tranched")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Tranched : TrancheIndicator3Choice_
+    #else
+    public partial class Tranched : TrancheIndicator3Choice_
+    #endif
     {
-        if (AttachmentPoint is IsoBaseOneRate AttachmentPointValue)
-        {
-            writer.WriteStartElement(null, "AttchmntPt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(AttachmentPointValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (DetachmentPoint is IsoBaseOneRate DetachmentPointValue)
-        {
-            writer.WriteStartElement(null, "DtchmntPt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(DetachmentPointValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static new Tranched Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indicates the lower point at which the level of losses in the underlying portfolio reduces the notional of the tranche.
+        /// </summary>
+        [IsoId("_eS8oUw06EeuJ1fOEB4bQXA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Attachment Point")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoBaseOneRate? AttachmentPoint { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? AttachmentPoint { get; init; } 
+        #else
+        public System.Decimal? AttachmentPoint { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates the point beyond which the losses in the underlying portfolio no longer reduce the notional of the tranche.
+        /// </summary>
+        [IsoId("_eS8oVQ06EeuJ1fOEB4bQXA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Detachment Point")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoBaseOneRate? DetachmentPoint { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? DetachmentPoint { get; init; } 
+        #else
+        public System.Decimal? DetachmentPoint { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

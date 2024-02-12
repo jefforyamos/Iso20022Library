@@ -7,48 +7,41 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines commodity attributes of a derivative where the type is agricultural.
-/// </summary>
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.GrainOilSeed))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Soft))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Potato))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.OliveOil))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Dairy))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Forestry))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Seafood))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.LiveStock))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Grain))]
-[KnownType(typeof(AssetClassCommodityAgricultural6Choice.Other))]
-public abstract partial record AssetClassCommodityAgricultural6Choice_ : IIsoXmlSerilizable<AssetClassCommodityAgricultural6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines commodity attributes of a derivative where the type is agricultural.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassCommodityAgricultural6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.GrainOilSeed))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Soft))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Potato))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.OliveOil))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Dairy))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Forestry))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Seafood))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.LiveStock))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Grain))]
+    [KnownType(typeof(AssetClassCommodityAgricultural6Choice.Other))]
+    [IsoId("_xGI3EU8SEe2PGo0mhYCh1g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Commodity Agricultural 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassCommodityAgricultural6Choice_
+    #else
+    public abstract partial class AssetClassCommodityAgricultural6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "GrnOilSeed" => AssetClassCommodityAgricultural6Choice.GrainOilSeed.Deserialize(elementWithPayload),
-             "Soft" => AssetClassCommodityAgricultural6Choice.Soft.Deserialize(elementWithPayload),
-             "Ptt" => AssetClassCommodityAgricultural6Choice.Potato.Deserialize(elementWithPayload),
-             "OlvOil" => AssetClassCommodityAgricultural6Choice.OliveOil.Deserialize(elementWithPayload),
-             "Dairy" => AssetClassCommodityAgricultural6Choice.Dairy.Deserialize(elementWithPayload),
-             "Frstry" => AssetClassCommodityAgricultural6Choice.Forestry.Deserialize(elementWithPayload),
-             "Sfd" => AssetClassCommodityAgricultural6Choice.Seafood.Deserialize(elementWithPayload),
-             "LiveStock" => AssetClassCommodityAgricultural6Choice.LiveStock.Deserialize(elementWithPayload),
-             "Grn" => AssetClassCommodityAgricultural6Choice.Grain.Deserialize(elementWithPayload),
-             "Othr" => AssetClassCommodityAgricultural6Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassCommodityAgricultural6Choice choice.")
-        };
     }
 }

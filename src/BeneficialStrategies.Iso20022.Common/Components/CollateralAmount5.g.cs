@@ -7,87 +7,131 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Collateral and settlement related amounts.
 /// </summary>
+[IsoId("__fRWYOCuEei2UYJ62ws-Fw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Collateral Amount")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CollateralAmount5
-     : IIsoXmlSerilizable<CollateralAmount5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Margin amount needed when the instruction reported creates an exposure.
     /// </summary>
+    [IsoId("_MMFAMOCvEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Required Margin")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? RequiredMargin { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection44? RequiredMargin { get; init; } 
+    #else
+    public AmountAndDirection44? RequiredMargin { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount which is collateralised.
     /// Feedback 
     /// </summary>
+    [IsoId("_Vu8dkOCvEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateralised")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? Collateralised { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection44? Collateralised { get; init; } 
+    #else
+    public AmountAndDirection44? Collateralised { get; set; } 
+    #endif
+    
     /// <summary>
     /// Outstanding amount to be covered, collateralised.
     /// </summary>
+    [IsoId("_eh0ocOCvEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining Collateralised")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? RemainingCollateralised { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection44? RemainingCollateralised { get; init; } 
+    #else
+    public AmountAndDirection44? RemainingCollateralised { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount effectively settled and which will be credited to/debited from the account owner's position.
     /// </summary>
+    [IsoId("_jsfWgOCvEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settled")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? Settled { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection44? Settled { get; init; } 
+    #else
+    public AmountAndDirection44? Settled { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount due to be settled.    
     /// </summary>
+    [IsoId("_sbiKQOCvEei2UYJ62ws-Fw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining Settlement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? RemainingSettlement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection44? RemainingSettlement { get; init; } 
+    #else
+    public AmountAndDirection44? RemainingSettlement { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RequiredMargin is AmountAndDirection44 RequiredMarginValue)
-        {
-            writer.WriteStartElement(null, "ReqrdMrgn", xmlNamespace );
-            RequiredMarginValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Collateralised is AmountAndDirection44 CollateralisedValue)
-        {
-            writer.WriteStartElement(null, "Collsd", xmlNamespace );
-            CollateralisedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemainingCollateralised is AmountAndDirection44 RemainingCollateralisedValue)
-        {
-            writer.WriteStartElement(null, "RmngCollsd", xmlNamespace );
-            RemainingCollateralisedValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Settled is AmountAndDirection44 SettledValue)
-        {
-            writer.WriteStartElement(null, "Sttld", xmlNamespace );
-            SettledValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemainingSettlement is AmountAndDirection44 RemainingSettlementValue)
-        {
-            writer.WriteStartElement(null, "RmngSttlm", xmlNamespace );
-            RemainingSettlementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CollateralAmount5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

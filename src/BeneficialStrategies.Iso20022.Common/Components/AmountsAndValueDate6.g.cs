@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the value date and the amounts traded in a foreign exchange transaction.
 /// </summary>
+[IsoId("_c87_EQNhEe2-vqzwMUAewg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Amounts And Value Date")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AmountsAndValueDate6
-     : IIsoXmlSerilizable<AmountsAndValueDate6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AmountsAndValueDate6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AmountsAndValueDate6( CurrencyOrDigitalTokenAmount1Choice_ reqTradingSideBuyAmount,CurrencyOrDigitalTokenAmount1Choice_ reqTradingSideSellAmount,System.DateOnly reqSettlementDate )
+    {
+        TradingSideBuyAmount = reqTradingSideBuyAmount;
+        TradingSideSellAmount = reqTradingSideSellAmount;
+        SettlementDate = reqSettlementDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
+    [IsoId("_dCcxMQNhEe2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Side Buy Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
+    #else
+    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
+    [IsoId("_dCcxMwNhEe2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trading Side Sell Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
+    #else
+    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the trade is settled, for example, the amounts are due.
     /// </summary>
+    [IsoId("_dCcxNQNhEe2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly SettlementDate { get; init; } 
+    #else
+    public System.DateOnly SettlementDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TradgSdBuyAmt", xmlNamespace );
-        TradingSideBuyAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TradgSdSellAmt", xmlNamespace );
-        TradingSideSellAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-    }
-    public static AmountsAndValueDate6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

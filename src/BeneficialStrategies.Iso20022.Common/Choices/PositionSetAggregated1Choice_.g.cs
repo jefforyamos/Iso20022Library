@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Statistics per counterparty reporting under the local regulation.
-/// </summary>
-[KnownType(typeof(PositionSetAggregated1Choice.DataSetAction))]
-[KnownType(typeof(PositionSetAggregated1Choice.Report))]
-public abstract partial record PositionSetAggregated1Choice_ : IIsoXmlSerilizable<PositionSetAggregated1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Statistics per counterparty reporting under the local regulation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PositionSetAggregated1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PositionSetAggregated1Choice.DataSetAction))]
+    [KnownType(typeof(PositionSetAggregated1Choice.Report))]
+    [IsoId("_CHENw0whEeqwfMIOLcNxbw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Position Set Aggregated 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PositionSetAggregated1Choice_
+    #else
+    public abstract partial class PositionSetAggregated1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "DataSetActn" => PositionSetAggregated1Choice.DataSetAction.Deserialize(elementWithPayload),
-             "Rpt" => PositionSetAggregated1Choice.Report.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PositionSetAggregated1Choice choice.")
-        };
     }
 }

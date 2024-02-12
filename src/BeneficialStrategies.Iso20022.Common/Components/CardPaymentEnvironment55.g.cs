@@ -7,83 +7,139 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the diagnostic exchange.
 /// </summary>
+[IsoId("_CagRkY3YEeW56qaqQ8B0kQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Card Payment Environment")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CardPaymentEnvironment55
-     : IIsoXmlSerilizable<CardPaymentEnvironment55>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CardPaymentEnvironment55 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CardPaymentEnvironment55( Acquirer4 reqAcquirer )
+    {
+        Acquirer = reqAcquirer;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment transaction.
     /// </summary>
+    [IsoId("_Clq_wY3YEeW56qaqQ8B0kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Acquirer4 Acquirer { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Acquirer4 Acquirer { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Acquirer4 Acquirer { get; init; } 
+    #else
+    public Acquirer4 Acquirer { get; set; } 
+    #endif
+    
     /// <summary>
     /// The availability of the acquirer to process transaction must be provided.
     /// </summary>
+    [IsoId("_Clq_w43YEeW56qaqQ8B0kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acquirer Availability Requested")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AcquirerAvailabilityRequested { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AcquirerAvailabilityRequested { get; init; } 
+    #else
+    public System.String? AcquirerAvailabilityRequested { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
+    [IsoId("_Clq_xY3YEeW56qaqQ8B0kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Merchant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification53? MerchantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification53? MerchantIdentification { get; init; } 
+    #else
+    public GenericIdentification53? MerchantIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the POI (Point Of Interaction) requesting the diagnostic.
     /// </summary>
+    [IsoId("_Clq_x43YEeW56qaqQ8B0kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? POIIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GenericIdentification32? POIIdentification { get; init; } 
+    #else
+    public GenericIdentification32? POIIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the payment transactions.
     /// </summary>
+    [IsoId("_Clq_yY3YEeW56qaqQ8B0kQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("POI Component")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponent6? POIComponent { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PointOfInteractionComponent6? POIComponent { get; init; } 
+    #else
+    public PointOfInteractionComponent6? POIComponent { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Acqrr", xmlNamespace );
-        Acquirer.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AcquirerAvailabilityRequested is IsoTrueFalseIndicator AcquirerAvailabilityRequestedValue)
-        {
-            writer.WriteStartElement(null, "AcqrrAvlbtyReqd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AcquirerAvailabilityRequestedValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MerchantIdentification is GenericIdentification53 MerchantIdentificationValue)
-        {
-            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
-            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POIIdentification is GenericIdentification32 POIIdentificationValue)
-        {
-            writer.WriteStartElement(null, "POIId", xmlNamespace );
-            POIIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (POIComponent is PointOfInteractionComponent6 POIComponentValue)
-        {
-            writer.WriteStartElement(null, "POICmpnt", xmlNamespace );
-            POIComponentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static CardPaymentEnvironment55 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,52 +7,43 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the details related to an update of an individual record in the static data of a party.
-/// </summary>
-[KnownType(typeof(UpdateLogPartyRecord1Choice.Address))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.ContactDetails))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.OpeningDate))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.ClosingDate))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.Type))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.TechnicalAddress))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.MarketSpecificAttribute))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.Name))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.ResidenceType))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.LockStatus))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.Restriction))]
-[KnownType(typeof(UpdateLogPartyRecord1Choice.Other))]
-public abstract partial record UpdateLogPartyRecord1Choice_ : IIsoXmlSerilizable<UpdateLogPartyRecord1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the details related to an update of an individual record in the static data of a party.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static UpdateLogPartyRecord1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.Address))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.ContactDetails))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.OpeningDate))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.ClosingDate))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.Type))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.TechnicalAddress))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.MarketSpecificAttribute))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.Name))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.ResidenceType))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.LockStatus))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.Restriction))]
+    [KnownType(typeof(UpdateLogPartyRecord1Choice.Other))]
+    [IsoId("_xPtUfWjNEeiRg5NzP0jkQg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Update Log Party Record 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record UpdateLogPartyRecord1Choice_
+    #else
+    public abstract partial class UpdateLogPartyRecord1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Adr" => UpdateLogPartyRecord1Choice.Address.Deserialize(elementWithPayload),
-             "CtctDtls" => UpdateLogPartyRecord1Choice.ContactDetails.Deserialize(elementWithPayload),
-             "OpngDt" => UpdateLogPartyRecord1Choice.OpeningDate.Deserialize(elementWithPayload),
-             "ClsgDt" => UpdateLogPartyRecord1Choice.ClosingDate.Deserialize(elementWithPayload),
-             "Tp" => UpdateLogPartyRecord1Choice.Type.Deserialize(elementWithPayload),
-             "TechAdr" => UpdateLogPartyRecord1Choice.TechnicalAddress.Deserialize(elementWithPayload),
-             "MktSpcfcAttr" => UpdateLogPartyRecord1Choice.MarketSpecificAttribute.Deserialize(elementWithPayload),
-             "Nm" => UpdateLogPartyRecord1Choice.Name.Deserialize(elementWithPayload),
-             "ResTp" => UpdateLogPartyRecord1Choice.ResidenceType.Deserialize(elementWithPayload),
-             "LckSts" => UpdateLogPartyRecord1Choice.LockStatus.Deserialize(elementWithPayload),
-             "Rstrctn" => UpdateLogPartyRecord1Choice.Restriction.Deserialize(elementWithPayload),
-             "Othr" => UpdateLogPartyRecord1Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid UpdateLogPartyRecord1Choice choice.")
-        };
     }
 }

@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of actions to be performed.
 /// </summary>
+[IsoId("_2bVsUcVgEeuips4fuphvoQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Action")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Action13
-     : IIsoXmlSerilizable<Action13>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Destination of the action.
     /// </summary>
+    [IsoId("_2gZLccVgEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Destination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType20Code? Destination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyType20Code? Destination { get; init; } 
+    #else
+    public PartyType20Code? Destination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Action type to be performed.
     /// </summary>
+    [IsoId("_2gZLc8VgEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionType11Code? ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ActionType11Code? ActionType { get; init; } 
+    #else
+    public ActionType11Code? ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other action type to be performed.
     /// </summary>
+    [IsoId("_2gZLdcVgEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherActionType { get; init; } 
+    #else
+    public System.String? OtherActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contact information.
     /// </summary>
+    [IsoId("_LFdK8MVhEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Contact")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact6? Contact { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Contact6? Contact { get; init; } 
+    #else
+    public Contact6? Contact { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional action information.
     /// </summary>
+    [IsoId("_RpPBAMVhEeuips4fuphvoQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalData1? AdditionalData { get; init; } 
+    #else
+    public AdditionalData1? AdditionalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Destination is PartyType20Code DestinationValue)
-        {
-            writer.WriteStartElement(null, "Dstn", xmlNamespace );
-            writer.WriteValue(DestinationValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ActionType is ActionType11Code ActionTypeValue)
-        {
-            writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-            writer.WriteValue(ActionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherActionType is IsoMax35Text OtherActionTypeValue)
-        {
-            writer.WriteStartElement(null, "OthrActnTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherActionTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Contact is Contact6 ContactValue)
-        {
-            writer.WriteStartElement(null, "Ctct", xmlNamespace );
-            ContactValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalData is AdditionalData1 AdditionalDataValue)
-        {
-            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
-            AdditionalDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static Action13 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

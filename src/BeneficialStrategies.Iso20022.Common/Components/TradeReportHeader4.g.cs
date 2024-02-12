@@ -7,93 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the header for a trade transaction query message.
 /// </summary>
+[IsoId("_hxrf4RZ6Ee27wrM4RUjLog")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Report Header")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeReportHeader4
-     : IIsoXmlSerilizable<TradeReportHeader4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TradeReportHeader4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TradeReportHeader4( System.UInt64 reqNumberRecords )
+    {
+        NumberRecords = reqNumberRecords;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the as-at day for which the report was produced.
     /// </summary>
+    [IsoId("_hzTQgRZ6Ee27wrM4RUjLog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Report Execution Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ReportExecutionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ReportExecutionDate { get; init; } 
+    #else
+    public System.DateOnly? ReportExecutionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
+    [IsoId("_hzTQgxZ6Ee27wrM4RUjLog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Pagination")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination1? MessagePagination { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Pagination1? MessagePagination { get; init; } 
+    #else
+    public Pagination1? MessagePagination { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the number of records in the page.
     /// </summary>
+    [IsoId("_hzTQhRZ6Ee27wrM4RUjLog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Records")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberRecords { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 NumberRecords { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 NumberRecords { get; init; } 
+    #else
+    public System.UInt64 NumberRecords { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the competent authority that requires reporting of the transaction.
     /// </summary>
+    [IsoId("_hzTQhxZ6Ee27wrM4RUjLog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Competent Authority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 100 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? CompetentAuthority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CompetentAuthority { get; init; } 
+    #else
+    public System.String? CompetentAuthority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the new trade repository to which the derivative is transfered to.
     /// </summary>
+    [IsoId("_hzTQiRZ6Ee27wrM4RUjLog")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Trade Repository Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; init; } 
+    #else
+    public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Underlying reason for reporting the derivative transaction.
     /// </summary>
+    [IsoId("_Uu4gsCLrEe2KAJot-YBP6w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Purpose")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 100 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? ReportingPurpose { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ReportingPurpose { get; init; } 
+    #else
+    public System.String? ReportingPurpose { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ReportExecutionDate is IsoISODate ReportExecutionDateValue)
-        {
-            writer.WriteStartElement(null, "RptExctnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ReportExecutionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (MessagePagination is Pagination1 MessagePaginationValue)
-        {
-            writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
-            MessagePaginationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "NbRcrds", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(NumberRecords)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (CompetentAuthority is IsoMax100Text CompetentAuthorityValue)
-        {
-            writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100Text(CompetentAuthorityValue)); // data type Max100Text System.String
-            writer.WriteEndElement();
-        }
-        if (NewTradeRepositoryIdentifier is OrganisationIdentification15Choice_ NewTradeRepositoryIdentifierValue)
-        {
-            writer.WriteStartElement(null, "NewTradRpstryIdr", xmlNamespace );
-            NewTradeRepositoryIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ReportingPurpose is IsoMax100Text ReportingPurposeValue)
-        {
-            writer.WriteStartElement(null, "RptgPurp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax100Text(ReportingPurposeValue)); // data type Max100Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeReportHeader4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

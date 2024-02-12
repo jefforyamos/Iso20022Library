@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit details of one particular limit set by the member and managed by the transaction administrator.
 /// </summary>
+[IsoId("_A1FWUW4-EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Limit Structure")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LimitStructure3
-     : IIsoXmlSerilizable<LimitStructure3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a LimitStructure3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public LimitStructure3( LimitIdentification2Choice_ reqLimitIdentification,Limit8 reqNewLimitValueSet )
+    {
+        LimitIdentification = reqLimitIdentification;
+        NewLimitValueSet = reqNewLimitValueSet;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the default limit.
     /// </summary>
+    [IsoId("_A_hEs24-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitIdentification2Choice_ LimitIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public LimitIdentification2Choice_ LimitIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LimitIdentification2Choice_ LimitIdentification { get; init; } 
+    #else
+    public LimitIdentification2Choice_ LimitIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// New limit values.
     /// </summary>
+    [IsoId("_A_hEtW4-EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Limit Value Set")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Limit8 NewLimitValueSet { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Limit8 NewLimitValueSet { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Limit8 NewLimitValueSet { get; init; } 
+    #else
+    public Limit8 NewLimitValueSet { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LmtId", xmlNamespace );
-        LimitIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NewLmtValSet", xmlNamespace );
-        NewLimitValueSet.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static LimitStructure3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

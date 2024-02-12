@@ -9,83 +9,134 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice;
-
-/// <summary>
-/// Report parameters.
-/// </summary>
-public partial record Parameters : FundParameters3Choice_
-     , IIsoXmlSerilizable<Parameters>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Financial instrument for which the fund processing passport report report is requested.
+    /// Report parameters.
     /// </summary>
-    public FinancialInstrument17? FinancialInstrumentDetails { get; init; } 
-    /// <summary>
-    /// Fund management company for which the report is requested.
-    /// </summary>
-    public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
-    /// <summary>
-    /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
-    /// </summary>
-    public IsoISODate? DateFrom { get; init; } 
-    /// <summary>
-    /// Country where the fund has legal domicile as reflected in the ISIN classification.
-    /// </summary>
-    public CountryCode? CountryOfDomicile { get; init; } 
-    /// <summary>
-    /// Countries where the fund is registered for distribution.
-    /// </summary>
-    public CountryCode? RegisteredDistributionCountry { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_Q6l-Atp-Ed-ak6NoX_4Aeg_-886438823")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Parameters")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record Parameters : FundParameters3Choice_
+    #else
+    public partial class Parameters : FundParameters3Choice_
+    #endif
     {
-        if (FinancialInstrumentDetails is FinancialInstrument17 FinancialInstrumentDetailsValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
-            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FundManagementCompany is PartyIdentification2Choice_ FundManagementCompanyValue)
-        {
-            writer.WriteStartElement(null, "FndMgmtCpny", xmlNamespace );
-            FundManagementCompanyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DateFrom is IsoISODate DateFromValue)
-        {
-            writer.WriteStartElement(null, "DtFr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(DateFromValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (CountryOfDomicile is CountryCode CountryOfDomicileValue)
-        {
-            writer.WriteStartElement(null, "CtryOfDmcl", xmlNamespace );
-            writer.WriteValue(CountryOfDomicileValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (RegisteredDistributionCountry is CountryCode RegisteredDistributionCountryValue)
-        {
-            writer.WriteStartElement(null, "RegdDstrbtnCtry", xmlNamespace );
-            writer.WriteValue(RegisteredDistributionCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static new Parameters Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Financial instrument for which the fund processing passport report report is requested.
+        /// </summary>
+        [IsoId("_Q6c0ENp-Ed-ak6NoX_4Aeg_651660733")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Financial Instrument Details")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FinancialInstrument17? FinancialInstrumentDetails { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FinancialInstrument17? FinancialInstrumentDetails { get; init; } 
+        #else
+        public FinancialInstrument17? FinancialInstrumentDetails { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Fund management company for which the report is requested.
+        /// </summary>
+        [IsoId("_Q6c0Edp-Ed-ak6NoX_4Aeg_-345411620")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Fund Management Company")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
+        #else
+        public PartyIdentification2Choice_? FundManagementCompany { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
+        /// </summary>
+        [IsoId("_Q6c0Etp-Ed-ak6NoX_4Aeg_-1342483973")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Date From")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoISODate? DateFrom { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly? DateFrom { get; init; } 
+        #else
+        public System.DateOnly? DateFrom { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Country where the fund has legal domicile as reflected in the ISIN classification.
+        /// </summary>
+        [IsoId("_Q6c0E9p-Ed-ak6NoX_4Aeg_1955410970")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Country Of Domicile")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CountryCode? CountryOfDomicile { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? CountryOfDomicile { get; init; } 
+        #else
+        public string? CountryOfDomicile { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Countries where the fund is registered for distribution.
+        /// </summary>
+        [IsoId("_Q6c0FNp-Ed-ak6NoX_4Aeg_958338617")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Registered Distribution Country")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CountryCode? RegisteredDistributionCountry { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? RegisteredDistributionCountry { get; init; } 
+        #else
+        public string? RegisteredDistributionCountry { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

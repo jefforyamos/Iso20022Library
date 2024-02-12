@@ -7,96 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of assets.
 /// </summary>
+[IsoId("_wsgl8QVUEeq4ZaI1b_-GPA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Quantity")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Quantity47
-     : IIsoXmlSerilizable<Quantity47>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Quantity of security to be transferred.
     /// </summary>
+    [IsoId("_xCEmQQVUEeq4ZaI1b_-GPA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Unit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Unit { get; init; } 
+    #else
+    public System.UInt64? Unit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage rate of assets to be transferred.
     /// </summary>
+    [IsoId("_xCEmQwVUEeq4ZaI1b_-GPA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Percentage Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PercentageRate { get; init; } 
+    #else
+    public System.Decimal? PercentageRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity expressed as an amount representing the face amount, that is, the principal, of a debt instrument.
     /// </summary>
+    [IsoId("_xCEmRQVUEeq4ZaI1b_-GPA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Face Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FaceAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FaceAmount { get; init; } 
+    #else
+    public System.Decimal? FaceAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
     /// </summary>
+    [IsoId("_xCEmRwVUEeq4ZaI1b_-GPA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amortised Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? AmortisedValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? AmortisedValue { get; init; } 
+    #else
+    public System.Decimal? AmortisedValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash amount to be transferred.
     /// </summary>
+    [IsoId("_xCEmSQVUEeq4ZaI1b_-GPA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? CashAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashAmount { get; init; } 
+    #else
+    public System.Decimal? CashAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of asset to be transferred.
     /// </summary>
+    [IsoId("_xCEmSwVUEeq4ZaI1b_-GPA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Asset")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherAsset { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherAsset { get; init; } 
+    #else
+    public System.String? OtherAsset { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Unit is IsoDecimalNumber UnitValue)
-        {
-            writer.WriteStartElement(null, "Unit", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(UnitValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PercentageRate is IsoPercentageRate PercentageRateValue)
-        {
-            writer.WriteStartElement(null, "PctgRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FaceAmount is IsoImpliedCurrencyAndAmount FaceAmountValue)
-        {
-            writer.WriteStartElement(null, "FaceAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FaceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (AmortisedValue is IsoImpliedCurrencyAndAmount AmortisedValueValue)
-        {
-            writer.WriteStartElement(null, "AmtsdVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmortisedValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashAmount is IsoActiveCurrencyAnd13DecimalAmount CashAmountValue)
-        {
-            writer.WriteStartElement(null, "CshAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CashAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (OtherAsset is IsoMax35Text OtherAssetValue)
-        {
-            writer.WriteStartElement(null, "OthrAsst", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAssetValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Quantity47 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the transfer instruction.
 /// </summary>
+[IsoId("_VFeqFtp-Ed-ak6NoX_4Aeg_1197711929")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Message And Business Reference")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MessageAndBusinessReference1
-     : IIsoXmlSerilizable<MessageAndBusinessReference1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MessageAndBusinessReference1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MessageAndBusinessReference1( AdditionalReference2 reqPreviousReference,AdditionalReference2 reqOtherReference )
+    {
+        PreviousReference = reqPreviousReference;
+        OtherReference = reqOtherReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
+    [IsoId("_VFeqF9p-Ed-ak6NoX_4Aeg_-1666036339")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previous Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference2 PreviousReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AdditionalReference2 PreviousReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference2 PreviousReference { get; init; } 
+    #else
+    public AdditionalReference2 PreviousReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or the reference of a system.
     /// </summary>
+    [IsoId("_VFeqGNp-Ed-ak6NoX_4Aeg_-1664186882")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference2 OtherReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AdditionalReference2 OtherReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference2 OtherReference { get; init; } 
+    #else
+    public AdditionalReference2 OtherReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Investment account information of the transfer message for which the status is requested.
     /// </summary>
+    [IsoId("_VFeqGdp-Ed-ak6NoX_4Aeg_-1659762580")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Account Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount10? InvestmentAccountDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentAccount10? InvestmentAccountDetails { get; init; } 
+    #else
+    public InvestmentAccount10? InvestmentAccountDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Business reference of the transfer instruction message.
     /// </summary>
+    [IsoId("_VFeqGtp-Ed-ak6NoX_4Aeg_1669629363")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transfer Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransferReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TransferReference { get; init; } 
+    #else
+    public System.String? TransferReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
-        PreviousReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OthrRef", xmlNamespace );
-        OtherReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (InvestmentAccountDetails is InvestmentAccount10 InvestmentAccountDetailsValue)
-        {
-            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
-            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransferReference is IsoMax35Text TransferReferenceValue)
-        {
-            writer.WriteStartElement(null, "TrfRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static MessageAndBusinessReference1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

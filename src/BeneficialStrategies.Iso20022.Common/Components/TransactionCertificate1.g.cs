@@ -7,96 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate against which all currency control transactions are registered.
 /// </summary>
+[IsoId("_IXbngNLiEeSdq5yU2aaSNw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Transaction Certificate")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TransactionCertificate1
-     : IIsoXmlSerilizable<TransactionCertificate1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a TransactionCertificate1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public TransactionCertificate1( System.String reqTransactionIdentification,DocumentIdentification28 reqCertificate )
+    {
+        TransactionIdentification = reqTransactionIdentification;
+        Certificate = reqCertificate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
+    [IsoId("_f7w0gNLiEeSdq5yU2aaSNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String TransactionIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String TransactionIdentification { get; init; } 
+    #else
+    public System.String TransactionIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference of the transaction certificate.
     /// </summary>
+    [IsoId("_B1cu8NLnEeSDLevdaFPXHw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification28 Certificate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DocumentIdentification28 Certificate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentIdentification28 Certificate { get; init; } 
+    #else
+    public DocumentIdentification28 Certificate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash account, linked to the registered contract, on which the cash entry is made.
     /// </summary>
+    [IsoId("_nHn-QNLiEeSdq5yU2aaSNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount24? Account { get; init; } 
+    #else
+    public CashAccount24? Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country in which the bank account is located, when the bank which services the account is located in another country.
     /// </summary>
+    [IsoId("_1uEqQNLiEeSdq5yU2aaSNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bank Account Domiciliation Country")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BankAccountDomiciliationCountry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? BankAccountDomiciliationCountry { get; init; } 
+    #else
+    public string? BankAccountDomiciliationCountry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amendment indicator details.
     /// </summary>
+    [IsoId("_Fd284NLjEeSdq5yU2aaSNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amendment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentAmendment1? Amendment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DocumentAmendment1? Amendment { get; init; } 
+    #else
+    public DocumentAmendment1? Amendment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Record of the transaction certificate.
     /// </summary>
+    [IsoId("_IfapYNLjEeSdq5yU2aaSNw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Certificate Record")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public TransactionCertificateRecord1? CertificateRecord { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _IfapYNLjEeSdq5yU2aaSNw
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_Uu73cTmzEeWDb47rJ6ki4Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Cert", xmlNamespace );
-        Certificate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Account is CashAccount24 AccountValue)
-        {
-            writer.WriteStartElement(null, "Acct", xmlNamespace );
-            AccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (BankAccountDomiciliationCountry is CountryCode BankAccountDomiciliationCountryValue)
-        {
-            writer.WriteStartElement(null, "BkAcctDmcltnCtry", xmlNamespace );
-            writer.WriteValue(BankAccountDomiciliationCountryValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Amendment is DocumentAmendment1 AmendmentValue)
-        {
-            writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
-            AmendmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        // Not sure how to serialize CertificateRecord, multiplicity Unknown
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TransactionCertificate1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

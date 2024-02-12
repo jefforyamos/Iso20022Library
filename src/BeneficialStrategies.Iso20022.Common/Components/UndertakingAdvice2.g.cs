@@ -7,87 +7,164 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the advice for the issuance of an undertaking.
 /// </summary>
+[IsoId("_-AfqUnltEeG7BsjMvd1mEw_27275144")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking Advice")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record UndertakingAdvice2
-     : IIsoXmlSerilizable<UndertakingAdvice2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a UndertakingAdvice2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public UndertakingAdvice2( System.String reqApplicantReferenceNumber,UndertakingIssuanceMessage reqUndertakingIssuanceMessage )
+    {
+        ApplicantReferenceNumber = reqApplicantReferenceNumber;
+        UndertakingIssuanceMessage = reqUndertakingIssuanceMessage;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking.
     /// </summary>
+    [IsoId("_-AfqU3ltEeG7BsjMvd1mEw_682292746")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicant Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ApplicantReferenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ApplicantReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ApplicantReferenceNumber { get; init; } 
+    #else
+    public System.String ApplicantReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party obligated to reimburse the issuer.
     /// </summary>
+    [IsoId("_6-mNY4ABEeGOn4dfTT_QdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Obligor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Obligor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? Obligor { get; init; } 
+    #else
+    public PartyIdentification43? Obligor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contents of the related UndertakingIssuance message.
     /// </summary>
+    [IsoId("_-AfqVHltEeG7BsjMvd1mEw_674201231")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Issuance Message")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    #else
+    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; set; } 
+    #endif
+    
     /// <summary>
     /// Medium used to issue the original undertaking.
     /// </summary>
+    [IsoId("_-ApbUHltEeG7BsjMvd1mEw_-1209989499")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Issued Medium")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PresentationMedium1Code? OriginalIssuedMedium { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PresentationMedium1Code? OriginalIssuedMedium { get; init; } 
+    #else
+    public PresentationMedium1Code? OriginalIssuedMedium { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document or template enclosed in the notification.
     /// </summary>
+    [IsoId("_-ApbUXltEeG7BsjMvd1mEw_637726234")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Enclosed File")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Document9? EnclosedFile { get; init; } 
+    #else
+    public Document9? EnclosedFile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the undertaking notification.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_-ApbUnltEeG7BsjMvd1mEw_776941520")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ApplcntRefNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicantReferenceNumber)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (Obligor is PartyIdentification43 ObligorValue)
-        {
-            writer.WriteStartElement(null, "Oblgr", xmlNamespace );
-            ObligorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "UdrtkgIssncMsg", xmlNamespace );
-        UndertakingIssuanceMessage.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (OriginalIssuedMedium is PresentationMedium1Code OriginalIssuedMediumValue)
-        {
-            writer.WriteStartElement(null, "OrgnlIssdMdm", xmlNamespace );
-            writer.WriteValue(OriginalIssuedMediumValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (EnclosedFile is Document9 EnclosedFileValue)
-        {
-            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
-            EnclosedFileValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static UndertakingAdvice2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,47 +9,95 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.ProductCharacteristics1Choice;
-
-/// <summary>
-/// Specifies the type of product characteristic.
-/// </summary>
-public partial record StructuredProductCharacteristics : ProductCharacteristics1Choice_
-     , IIsoXmlSerilizable<StructuredProductCharacteristics>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.ProductCharacteristics1Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Specifies the type of product characteristic by means of a code.
+    /// Specifies the type of product characteristic.
     /// </summary>
-    public required ProductCharacteristics1Code Type { get; init; } 
-    /// <summary>
-    /// Specifies the characteristic of a product.
-    /// </summary>
-    public required IsoMax35Text Characteristics { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_RbrR1Np-Ed-ak6NoX_4Aeg_1622931729")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Structured Product Characteristics")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record StructuredProductCharacteristics : ProductCharacteristics1Choice_
+    #else
+    public partial class StructuredProductCharacteristics : ProductCharacteristics1Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Chrtcs", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Characteristics)); // data type Max35Text System.String
-        writer.WriteEndElement();
-    }
-    public static new StructuredProductCharacteristics Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a StructuredProductCharacteristics instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public StructuredProductCharacteristics( ProductCharacteristics1Code reqType,System.String reqCharacteristics )
+        {
+            Type = reqType;
+            Characteristics = reqCharacteristics;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Specifies the type of product characteristic by means of a code.
+        /// </summary>
+        [IsoId("_T5L2Fdp-Ed-ak6NoX_4Aeg_1279381373")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required ProductCharacteristics1Code Type { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public ProductCharacteristics1Code Type { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public ProductCharacteristics1Code Type { get; init; } 
+        #else
+        public ProductCharacteristics1Code Type { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the characteristic of a product.
+        /// </summary>
+        [IsoId("_T5L2Ftp-Ed-ak6NoX_4Aeg_1319095231")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Characteristics")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text Characteristics { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String Characteristics { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String Characteristics { get; init; } 
+        #else
+        public System.String Characteristics { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

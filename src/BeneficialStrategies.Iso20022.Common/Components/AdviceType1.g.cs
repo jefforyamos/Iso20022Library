@@ -7,56 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of advice to report back for the transaction.
 /// </summary>
+[IsoId("_5ZNFsNolEembTrt_WixjyQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Advice Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdviceType1
-     : IIsoXmlSerilizable<AdviceType1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of credit advice requested.
     /// </summary>
+    [IsoId("_bQTjANomEembTrt_WixjyQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Advice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdviceType1Choice_? CreditAdvice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdviceType1Choice_? CreditAdvice { get; init; } 
+    #else
+    public AdviceType1Choice_? CreditAdvice { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type de debit advice requested.
     /// </summary>
+    [IsoId("_fU3koNomEembTrt_WixjyQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Debit Advice")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdviceType1Choice_? DebitAdvice { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdviceType1Choice_? DebitAdvice { get; init; } 
+    #else
+    public AdviceType1Choice_? DebitAdvice { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CreditAdvice is AdviceType1Choice_ CreditAdviceValue)
-        {
-            writer.WriteStartElement(null, "CdtAdvc", xmlNamespace );
-            CreditAdviceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (DebitAdvice is AdviceType1Choice_ DebitAdviceValue)
-        {
-            writer.WriteStartElement(null, "DbtAdvc", xmlNamespace );
-            DebitAdviceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AdviceType1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

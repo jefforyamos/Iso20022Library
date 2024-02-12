@@ -7,49 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about external payment system.
 /// </summary>
+[IsoId("_YG0vwB9yEeapDZRA0Hb6ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("External Payment System Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ExternalPaymentSystemDetails1
-     : IIsoXmlSerilizable<ExternalPaymentSystemDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ExternalPaymentSystemDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ExternalPaymentSystemDetails1( System.String reqClearingPositionsRegisterAllowedIndicator )
+    {
+        ClearingPositionsRegisterAllowedIndicator = reqClearingPositionsRegisterAllowedIndicator;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the participant can send Register of Clearing Positions.
     /// </summary>
+    [IsoId("_s4SMgB9yEeapDZRA0Hb6ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Positions Register Allowed Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ClearingPositionsRegisterAllowedIndicator { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ClearingPositionsRegisterAllowedIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ClearingPositionsRegisterAllowedIndicator { get; init; } 
+    #else
+    public System.String ClearingPositionsRegisterAllowedIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// List of the clearing schemes.
     /// </summary>
+    [IsoId("_80z6oB9yEeapDZRA0Hb6ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Circuits")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public ClearingCircuits1? ClearingCircuits { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _80z6oB9yEeapDZRA0Hb6ow
     
+    
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ClrPossRegrAllwdInd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClearingPositionsRegisterAllowedIndicator)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        // Not sure how to serialize ClearingCircuits, multiplicity Unknown
-    }
-    public static ExternalPaymentSystemDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

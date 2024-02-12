@@ -7,73 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The final result of a single invoice financing request.
 /// </summary>
+[IsoId("_TiFktdp-Ed-ak6NoX_4Aeg_1101123529")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Financing Result")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FinancingResult1
-     : IIsoXmlSerilizable<FinancingResult1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FinancingResult1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FinancingResult1( RequestStatus1Code reqFinancingRequestStatus )
+    {
+        FinancingRequestStatus = reqFinancingRequestStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the status of the financing request (e.g. financed. not financed).
     /// </summary>
+    [IsoId("_TiFkttp-Ed-ak6NoX_4Aeg_352221392")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financing Request Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestStatus1Code FinancingRequestStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RequestStatus1Code FinancingRequestStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RequestStatus1Code FinancingRequestStatus { get; init; } 
+    #else
+    public RequestStatus1Code FinancingRequestStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the reasons that have determined the result of the single request.
     /// </summary>
+    [IsoId("_TiFkt9p-Ed-ak6NoX_4Aeg_564525140")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReason4Choice_? StatusReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StatusReason4Choice_? StatusReason { get; init; } 
+    #else
+    public StatusReason4Choice_? StatusReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details on the status reason.
     /// </summary>
+    [IsoId("_TiFkuNp-Ed-ak6NoX_4Aeg_-99752141")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Status Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 105 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalStatusReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalStatusReasonInformation { get; init; } 
+    #else
+    public System.String? AdditionalStatusReasonInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates amount financed related to the request.
     /// </summary>
+    [IsoId("_TiOuoNp-Ed-ak6NoX_4Aeg_603605189")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financed Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingRateOrAmountChoice_? FinancedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancingRateOrAmountChoice_? FinancedAmount { get; init; } 
+    #else
+    public FinancingRateOrAmountChoice_? FinancedAmount { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "FincgReqSts", xmlNamespace );
-        writer.WriteValue(FinancingRequestStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (StatusReason is StatusReason4Choice_ StatusReasonValue)
-        {
-            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
-            StatusReasonValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalStatusReasonInformation is IsoMax105Text AdditionalStatusReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlStsRsnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalStatusReasonInformationValue)); // data type Max105Text System.String
-            writer.WriteEndElement();
-        }
-        if (FinancedAmount is FinancingRateOrAmountChoice_ FinancedAmountValue)
-        {
-            writer.WriteStartElement(null, "FincdAmt", xmlNamespace );
-            FinancedAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FinancingResult1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

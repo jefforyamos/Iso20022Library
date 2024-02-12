@@ -7,17 +7,37 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acknowledgement information relative to corporate action reorganisation instructions.
 /// </summary>
+[IsoId("_uuvg0MVsEeeprYdSN88o0Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Acknowledgement SD")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionAcknowledgementSD1
-     : IIsoXmlSerilizable<CorporateActionAcknowledgementSD1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
@@ -25,150 +45,222 @@ public partial record CorporateActionAcknowledgementSD1
     /// Yes: the participant agrees.
     /// No: the participant does not agree.
     /// </summary>
+    [IsoId("_ab-VwMVtEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Terms Acknowledgement Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TermsAcknowledgementIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TermsAcknowledgementIndicator { get; init; } 
+    #else
+    public System.String? TermsAcknowledgementIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether condition 1 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [IsoId("_G6TQcMVuEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition 1 Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition1Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition1Indicator { get; init; } 
+    #else
+    public System.String? Condition1Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether condition 2 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [IsoId("_PH6yIcVuEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition 2 Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition2Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition2Indicator { get; init; } 
+    #else
+    public System.String? Condition2Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether condition 3 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [IsoId("_SIuQscVuEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition 3 Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition3Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition3Indicator { get; init; } 
+    #else
+    public System.String? Condition3Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether condition 4 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [IsoId("_UbasEcVuEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition 4 Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition4Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition4Indicator { get; init; } 
+    #else
+    public System.String? Condition4Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether condition 5 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [IsoId("_WQNDccVuEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition 5 Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition5Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition5Indicator { get; init; } 
+    #else
+    public System.String? Condition5Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether condition 6 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [IsoId("_XQeNocVuEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Condition 6 Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition6Indicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Condition6Indicator { get; init; } 
+    #else
+    public System.String? Condition6Indicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is an acknowledgement that the beneficial owner has been deemed incompetent. Acknowledgement is related to CD early redemption instructions.
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [IsoId("_5Jm10MVvEeeprYdSN88o0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Adjudication Of Incompetency Acknowledgement Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdjudicationOfIncompetencyAcknowledgementIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdjudicationOfIncompetencyAcknowledgementIndicator { get; init; } 
+    #else
+    public System.String? AdjudicationOfIncompetencyAcknowledgementIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is an acknowledgement that this CD Early Redemption request is an exempt request, that the identification of the beneficial owner and required legal documentation is correct and that you agree to maintain such documentation for at least 30 months following payment of the request and will make it available to the CD Issuer upon request. 
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [IsoId("_jiDgUMX4EeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Documentation Thirty Months Retention Acknowledgement Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator { get; init; } 
+    #else
+    public System.String? LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is an acknowledgement that this CD Early Redemption instruction will automatically be deleted by the close of the fifth business day subsequent to submission if the appropriate legal documents, for example, death certificate, affidavit of domicile, are not received by DTC at that time. 
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [IsoId("_TBjtAMX5EeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Deletion Acknowledgement Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? InstructionDeletionAcknowledgementIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionDeletionAcknowledgementIndicator { get; init; } 
+    #else
+    public System.String? InstructionDeletionAcknowledgementIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether there is an acknowledgement that the warrant or conversion instruction being sent could lead to a potential loss due to pricing factors.
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [IsoId("_uFPVwMX5EeexPc-mfUU5zQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Potential Loss Acknowledgement Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PotentialLossAcknowledgementIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PotentialLossAcknowledgementIndicator { get; init; } 
+    #else
+    public System.String? PotentialLossAcknowledgementIndicator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TermsAcknowledgementIndicator is IsoYesNoIndicator TermsAcknowledgementIndicatorValue)
-        {
-            writer.WriteStartElement(null, "TermsAckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TermsAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Condition1Indicator is IsoYesNoIndicator Condition1IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Cond1Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition1IndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Condition2Indicator is IsoYesNoIndicator Condition2IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Cond2Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition2IndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Condition3Indicator is IsoYesNoIndicator Condition3IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Cond3Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition3IndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Condition4Indicator is IsoYesNoIndicator Condition4IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Cond4Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition4IndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Condition5Indicator is IsoYesNoIndicator Condition5IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Cond5Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition5IndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (Condition6Indicator is IsoYesNoIndicator Condition6IndicatorValue)
-        {
-            writer.WriteStartElement(null, "Cond6Ind", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition6IndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AdjudicationOfIncompetencyAcknowledgementIndicator is IsoYesNoIndicator AdjudicationOfIncompetencyAcknowledgementIndicatorValue)
-        {
-            writer.WriteStartElement(null, "AdjdctnOfIncmptncyAckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdjudicationOfIncompetencyAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator is IsoYesNoIndicator LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorValue)
-        {
-            writer.WriteStartElement(null, "LglDcmnttnThrtyMnthsRtntnAckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (InstructionDeletionAcknowledgementIndicator is IsoYesNoIndicator InstructionDeletionAcknowledgementIndicatorValue)
-        {
-            writer.WriteStartElement(null, "InstrDeltnAckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InstructionDeletionAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (PotentialLossAcknowledgementIndicator is IsoYesNoIndicator PotentialLossAcknowledgementIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PotntlLossAckInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PotentialLossAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionAcknowledgementSD1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

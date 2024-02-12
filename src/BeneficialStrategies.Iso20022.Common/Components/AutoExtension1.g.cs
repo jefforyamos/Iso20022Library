@@ -7,66 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Automatic extension information.
 /// </summary>
+[IsoId("_95V5dnltEeG7BsjMvd1mEw_1894661864")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Auto Extension")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AutoExtension1
-     : IIsoXmlSerilizable<AutoExtension1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates that the undertaking is automatically extendable and the period of extension.
     /// </summary>
+    [IsoId("_95V5d3ltEeG7BsjMvd1mEw_742198140")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AutoExtend1Choice_? Period { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AutoExtend1Choice_? Period { get; init; } 
+    #else
+    public AutoExtend1Choice_? Period { get; set; } 
+    #endif
+    
     /// <summary>
     /// Final expiry date after which the undertaking will no longer be subject to automatic extension.
     /// </summary>
+    [IsoId("_95V5eHltEeG7BsjMvd1mEw_-211951579")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? FinalExpiryDate { get; init; } 
+    #else
+    public System.DateOnly? FinalExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the notification of the end of the period for notification of non-extension of the expiry date.
     /// </summary>
+    [IsoId("_95V5eXltEeG7BsjMvd1mEw_-1641257680")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Extension Notification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonExtension1? NonExtensionNotification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NonExtension1? NonExtensionNotification { get; init; } 
+    #else
+    public NonExtension1? NonExtensionNotification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Period is AutoExtend1Choice_ PeriodValue)
-        {
-            writer.WriteStartElement(null, "Prd", xmlNamespace );
-            PeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinalExpiryDate is IsoISODate FinalExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "FnlXpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(FinalExpiryDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (NonExtensionNotification is NonExtension1 NonExtensionNotificationValue)
-        {
-            writer.WriteStartElement(null, "NonXtnsnNtfctn", xmlNamespace );
-            NonExtensionNotificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AutoExtension1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

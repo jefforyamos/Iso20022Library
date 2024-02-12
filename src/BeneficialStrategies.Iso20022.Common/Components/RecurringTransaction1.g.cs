@@ -7,74 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
+[IsoId("_SpYh7gEcEeCQm6a_G2yO_w_-569860423")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Recurring Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RecurringTransaction1
-     : IIsoXmlSerilizable<RecurringTransaction1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RecurringTransaction1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RecurringTransaction1( System.String reqSequenceNumber,Frequency4Code reqPeriodUnit,System.UInt64 reqInstalmentPeriod,System.UInt64 reqTotalNumberOfPayments )
+    {
+        SequenceNumber = reqSequenceNumber;
+        PeriodUnit = reqPeriodUnit;
+        InstalmentPeriod = reqInstalmentPeriod;
+        TotalNumberOfPayments = reqTotalNumberOfPayments;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates the recurring/instalment occurrence of the transaction (1 = 1st instalment, 2 = 2nd instalment, etc.).
     /// </summary>
+    [IsoId("_SpiS4AEcEeCQm6a_G2yO_w_295359691")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2NumericText SequenceNumber { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String SequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String SequenceNumber { get; init; } 
+    #else
+    public System.String SequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Period unit between consecutive payments (for example day, month, year).
     /// </summary>
+    [IsoId("_SpiS4QEcEeCQm6a_G2yO_w_1632462586")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Period Unit")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency4Code PeriodUnit { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Frequency4Code PeriodUnit { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Frequency4Code PeriodUnit { get; init; } 
+    #else
+    public Frequency4Code PeriodUnit { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of period units between consecutive payments.
     /// </summary>
+    [IsoId("_SpiS4gEcEeCQm6a_G2yO_w_-377494272")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instalment Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber InstalmentPeriod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 InstalmentPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 InstalmentPeriod { get; init; } 
+    #else
+    public System.UInt64 InstalmentPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total number of instalment payments.
     /// </summary>
+    [IsoId("_SpiS4wEcEeCQm6a_G2yO_w_-1926232913")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Total Number Of Payments")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfPayments { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 TotalNumberOfPayments { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 TotalNumberOfPayments { get; init; } 
+    #else
+    public System.UInt64 TotalNumberOfPayments { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interest charged in percentage for the total amount of payments.
     /// </summary>
+    [IsoId("_SpiS5AEcEeCQm6a_G2yO_w_993672809")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Charges")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? InterestCharges { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InterestCharges { get; init; } 
+    #else
+    public System.Decimal? InterestCharges { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax2NumericText(SequenceNumber)); // data type Max2NumericText System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrdUnit", xmlNamespace );
-        writer.WriteValue(PeriodUnit.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstlmtPrd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(InstalmentPeriod)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "TtlNbOfPmts", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfPayments)); // data type Number System.UInt64
-        writer.WriteEndElement();
-        if (InterestCharges is IsoImpliedCurrencyAndAmount InterestChargesValue)
-        {
-            writer.WriteStartElement(null, "IntrstChrgs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InterestChargesValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static RecurringTransaction1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

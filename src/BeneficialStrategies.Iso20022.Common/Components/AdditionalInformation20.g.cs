@@ -7,113 +7,208 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
+[IsoId("_n7eS8EXYEeegp_DADCe7HQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Additional Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AdditionalInformation20
-     : IIsoXmlSerilizable<AdditionalInformation20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AdditionalInformation20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AdditionalInformation20( System.String reqValue )
+    {
+        Value = reqValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Recipient of the additional information to display, print, send or store.
     /// </summary>
+    [IsoId("_728i4EXYEeegp_DADCe7HQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType22Code? Recipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyType22Code? Recipient { get; init; } 
+    #else
+    public PartyType22Code? Recipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of recipient of action data.
     /// </summary>
+    [IsoId("_2IAAoFKdEeeFcfYfFkVztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Recipient")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherRecipient { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherRecipient { get; init; } 
+    #else
+    public System.String? OtherRecipient { get; set; } 
+    #endif
+    
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
+    [IsoId("_CbEXMEXZEeegp_DADCe7HQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Target")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UserInterface6Code? Target { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UserInterface6Code? Target { get; init; } 
+    #else
+    public UserInterface6Code? Target { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of target for action data.
     /// </summary>
+    [IsoId("_8Jnk0FKdEeeFcfYfFkVztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Target")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherTarget { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherTarget { get; init; } 
+    #else
+    public System.String? OtherTarget { get; set; } 
+    #endif
+    
     /// <summary>
     /// Format of the additional information.
     /// </summary>
+    [IsoId("_KjaXUEXZEeegp_DADCe7HQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat4Code? Format { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OutputFormat4Code? Format { get; init; } 
+    #else
+    public OutputFormat4Code? Format { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other output format.
     /// </summary>
+    [IsoId("_CEF_MFKeEeeFcfYfFkVztg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherFormat { get; init; } 
+    #else
+    public System.String? OtherFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the type of the value.
     /// </summary>
+    [IsoId("_RGBF4Bs4EeqrvK3udMUsNQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Type { get; init; } 
+    #else
+    public System.String? Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
+    [IsoId("_vuWMoewlEeiMkKo2clXHdQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20KText Value { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Value { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Value { get; init; } 
+    #else
+    public System.String Value { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Recipient is PartyType22Code RecipientValue)
-        {
-            writer.WriteStartElement(null, "Rcpt", xmlNamespace );
-            writer.WriteValue(RecipientValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherRecipient is IsoMax35Text OtherRecipientValue)
-        {
-            writer.WriteStartElement(null, "OthrRcpt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherRecipientValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Target is UserInterface6Code TargetValue)
-        {
-            writer.WriteStartElement(null, "Trgt", xmlNamespace );
-            writer.WriteValue(TargetValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherTarget is IsoMax35Text OtherTargetValue)
-        {
-            writer.WriteStartElement(null, "OthrTrgt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTargetValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Format is OutputFormat4Code FormatValue)
-        {
-            writer.WriteStartElement(null, "Frmt", xmlNamespace );
-            writer.WriteValue(FormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OtherFormat is IsoMax35Text OtherFormatValue)
-        {
-            writer.WriteStartElement(null, "OthrFrmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFormatValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Type is IsoMax35Text TypeValue)
-        {
-            writer.WriteStartElement(null, "Tp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Val", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax20KText(Value)); // data type Max20KText System.String
-        writer.WriteEndElement();
-    }
-    public static AdditionalInformation20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice amongst various balance types related to unallocated payment.
-/// </summary>
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.TotalEligibleBalance))]
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.BorrowedBalance))]
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.CollateralInBalance))]
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.CollateralOutBalance))]
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.OnLoanBalance))]
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.PendingDeliveryBalance))]
-[KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.PendingReceiptBalance))]
-public abstract partial record CorporateActionUnallocatedBalanceSD1Choice_ : IIsoXmlSerilizable<CorporateActionUnallocatedBalanceSD1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice amongst various balance types related to unallocated payment.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CorporateActionUnallocatedBalanceSD1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.TotalEligibleBalance))]
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.BorrowedBalance))]
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.CollateralInBalance))]
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.CollateralOutBalance))]
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.OnLoanBalance))]
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.PendingDeliveryBalance))]
+    [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.PendingReceiptBalance))]
+    [IsoId("_1QPnkzL3EeKU9IrkkToqcw_954371406")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Unallocated Balance SD 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CorporateActionUnallocatedBalanceSD1Choice_
+    #else
+    public abstract partial class CorporateActionUnallocatedBalanceSD1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "TtlElgblBal" => CorporateActionUnallocatedBalanceSD1Choice.TotalEligibleBalance.Deserialize(elementWithPayload),
-             "BrrwdBal" => CorporateActionUnallocatedBalanceSD1Choice.BorrowedBalance.Deserialize(elementWithPayload),
-             "CollInBal" => CorporateActionUnallocatedBalanceSD1Choice.CollateralInBalance.Deserialize(elementWithPayload),
-             "CollOutBal" => CorporateActionUnallocatedBalanceSD1Choice.CollateralOutBalance.Deserialize(elementWithPayload),
-             "OnLnBal" => CorporateActionUnallocatedBalanceSD1Choice.OnLoanBalance.Deserialize(elementWithPayload),
-             "PdgDlvryBal" => CorporateActionUnallocatedBalanceSD1Choice.PendingDeliveryBalance.Deserialize(elementWithPayload),
-             "PdgRctBal" => CorporateActionUnallocatedBalanceSD1Choice.PendingReceiptBalance.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CorporateActionUnallocatedBalanceSD1Choice choice.")
-        };
     }
 }

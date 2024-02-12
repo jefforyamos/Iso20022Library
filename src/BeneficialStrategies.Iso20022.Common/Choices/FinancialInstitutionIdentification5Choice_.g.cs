@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
-/// </summary>
-[KnownType(typeof(FinancialInstitutionIdentification5Choice.BIC))]
-[KnownType(typeof(FinancialInstitutionIdentification5Choice.ClearingSystemMemberIdentification))]
-[KnownType(typeof(FinancialInstitutionIdentification5Choice.NameAndAddress))]
-[KnownType(typeof(FinancialInstitutionIdentification5Choice.ProprietaryIdentification))]
-[KnownType(typeof(FinancialInstitutionIdentification5Choice.CombinedIdentification))]
-public abstract partial record FinancialInstitutionIdentification5Choice_ : IIsoXmlSerilizable<FinancialInstitutionIdentification5Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static FinancialInstitutionIdentification5Choice_ Deserialize(XElement element)
+    [KnownType(typeof(FinancialInstitutionIdentification5Choice.BIC))]
+    [KnownType(typeof(FinancialInstitutionIdentification5Choice.ClearingSystemMemberIdentification))]
+    [KnownType(typeof(FinancialInstitutionIdentification5Choice.NameAndAddress))]
+    [KnownType(typeof(FinancialInstitutionIdentification5Choice.ProprietaryIdentification))]
+    [KnownType(typeof(FinancialInstitutionIdentification5Choice.CombinedIdentification))]
+    [IsoId("_TFehNtp-Ed-ak6NoX_4Aeg_1268643654")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Institution Identification 5 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record FinancialInstitutionIdentification5Choice_
+    #else
+    public abstract partial class FinancialInstitutionIdentification5Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BIC" => FinancialInstitutionIdentification5Choice.BIC.Deserialize(elementWithPayload),
-             "ClrSysMmbId" => FinancialInstitutionIdentification5Choice.ClearingSystemMemberIdentification.Deserialize(elementWithPayload),
-             "NmAndAdr" => FinancialInstitutionIdentification5Choice.NameAndAddress.Deserialize(elementWithPayload),
-             "PrtryId" => FinancialInstitutionIdentification5Choice.ProprietaryIdentification.Deserialize(elementWithPayload),
-             "CmbndId" => FinancialInstitutionIdentification5Choice.CombinedIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid FinancialInstitutionIdentification5Choice choice.")
-        };
     }
 }

@@ -7,50 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the kind of modification request for party reference data.
 /// </summary>
+[IsoId("_kpB8sO5NEeCisYr99QEiWA_954294599")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Party Modification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemPartyModification1
-     : IIsoXmlSerilizable<SystemPartyModification1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SystemPartyModification1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SystemPartyModification1( DataModification1Code reqScopeIndication,SystemPartyModification1Choice_ reqRequestedModification )
+    {
+        ScopeIndication = reqScopeIndication;
+        RequestedModification = reqRequestedModification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the type of requested modification.
     /// </summary>
+    [IsoId("_kpB8se5NEeCisYr99QEiWA_-981777430")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scope Indication")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ScopeIndication { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DataModification1Code ScopeIndication { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DataModification1Code ScopeIndication { get; init; } 
+    #else
+    public DataModification1Code ScopeIndication { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the set of elements to be modified for the party reference data.
     /// </summary>
+    [IsoId("_kpB8su5NEeCisYr99QEiWA_-589754665")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Modification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyModification1Choice_ RequestedModification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SystemPartyModification1Choice_ RequestedModification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyModification1Choice_ RequestedModification { get; init; } 
+    #else
+    public SystemPartyModification1Choice_ RequestedModification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ScpIndctn", xmlNamespace );
-        writer.WriteValue(ScopeIndication.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ReqdMod", xmlNamespace );
-        RequestedModification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static SystemPartyModification1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

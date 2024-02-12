@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the trade transaction condition.
-/// </summary>
-[KnownType(typeof(TradeTransactionCondition9Choice.Code))]
-[KnownType(typeof(TradeTransactionCondition9Choice.Proprietary))]
-public abstract partial record TradeTransactionCondition9Choice_ : IIsoXmlSerilizable<TradeTransactionCondition9Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the trade transaction condition.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeTransactionCondition9Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeTransactionCondition9Choice.Code))]
+    [KnownType(typeof(TradeTransactionCondition9Choice.Proprietary))]
+    [IsoId("_9Roj0ZBgEeakHoV5BVecAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Transaction Condition 9 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeTransactionCondition9Choice_
+    #else
+    public abstract partial class TradeTransactionCondition9Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TradeTransactionCondition9Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TradeTransactionCondition9Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeTransactionCondition9Choice choice.")
-        };
     }
 }

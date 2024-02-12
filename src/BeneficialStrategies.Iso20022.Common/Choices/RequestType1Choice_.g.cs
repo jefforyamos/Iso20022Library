@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Defines the type of action to be performed in the request.
-/// </summary>
-[KnownType(typeof(RequestType1Choice.PaymentControl))]
-[KnownType(typeof(RequestType1Choice.Enquiry))]
-public abstract partial record RequestType1Choice_ : IIsoXmlSerilizable<RequestType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Defines the type of action to be performed in the request.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RequestType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RequestType1Choice.PaymentControl))]
+    [KnownType(typeof(RequestType1Choice.Enquiry))]
+    [IsoId("_RZlnJtp-Ed-ak6NoX_4Aeg_-764921074")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Request Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RequestType1Choice_
+    #else
+    public abstract partial class RequestType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "PmtCtrl" => RequestType1Choice.PaymentControl.Deserialize(elementWithPayload),
-             "Enqry" => RequestType1Choice.Enquiry.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RequestType1Choice choice.")
-        };
     }
 }

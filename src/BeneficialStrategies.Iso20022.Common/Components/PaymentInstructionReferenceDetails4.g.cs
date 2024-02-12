@@ -7,101 +7,211 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a payment instruction by a set of characteristics (as per EBA system requirements) which provides an unambiguous identification of the instruction.
 /// </summary>
+[IsoId("_Pirv4Np-Ed-ak6NoX_4Aeg_624722546")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Instruction Reference Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentInstructionReferenceDetails4
-     : IIsoXmlSerilizable<PaymentInstructionReferenceDetails4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentInstructionReferenceDetails4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentInstructionReferenceDetails4( System.String reqPaymentInstructionReference,System.Decimal reqInterbankSettlementAmount,System.DateOnly reqInterbankValueDate,System.String reqInstructingAgentIdentification,System.String reqInstructedAgentIdentification )
+    {
+        PaymentInstructionReference = reqPaymentInstructionReference;
+        InterbankSettlementAmount = reqInterbankSettlementAmount;
+        InterbankValueDate = reqInterbankValueDate;
+        InstructingAgentIdentification = reqInstructingAgentIdentification;
+        InstructedAgentIdentification = reqInstructedAgentIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
+    [IsoId("_Pirv4dp-Ed-ak6NoX_4Aeg_624722548")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Instruction Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PaymentInstructionReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String PaymentInstructionReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String PaymentInstructionReference { get; init; } 
+    #else
+    public System.String PaymentInstructionReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [IsoId("_Pirv4tp-Ed-ak6NoX_4Aeg_624722616")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount InterbankSettlementAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal InterbankSettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal InterbankSettlementAmount { get; init; } 
+    #else
+    public System.Decimal InterbankSettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [IsoId("_Pirv49p-Ed-ak6NoX_4Aeg_624722581")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interbank Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate InterbankValueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly InterbankValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly InterbankValueDate { get; init; } 
+    #else
+    public System.DateOnly InterbankValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// The message type with which the instruction has been initiated.
     /// </summary>
+    [IsoId("_Pirv5Np-Ed-ak6NoX_4Aeg_624722858")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
+    #else
+    public PaymentOrigin1Choice_? PaymentMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// The identification of the instructing agent that transmitted the payment instruction.
     /// </summary>
+    [IsoId("_Pirv5dp-Ed-ak6NoX_4Aeg_624722918")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructing Agent Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier InstructingAgentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructingAgentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructingAgentIdentification { get; init; } 
+    #else
+    public System.String InstructingAgentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// The identification of the instructed agent in the payment instruction.
     /// </summary>
+    [IsoId("_Pirv5tp-Ed-ak6NoX_4Aeg_624722953")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instructed Agent Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier InstructedAgentIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InstructedAgentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InstructedAgentIdentification { get; init; } 
+    #else
+    public System.String InstructedAgentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// An optional qualifier providing additional system specific information about the entry.||Usage:
     /// </summary>
+    [IsoId("_Pirv59p-Ed-ak6NoX_4Aeg_1458662443")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoEntryTypeIdentifier? EntryType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? EntryType { get; init; } 
+    #else
+    public System.String? EntryType { get; set; } 
+    #endif
+    
     /// <summary>
     /// The related reference as stipulated in the payment instruction.
     /// </summary>
+    [IsoId("_Pirv6Np-Ed-ak6NoX_4Aeg_624722893")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RelatedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RelatedReference { get; init; } 
+    #else
+    public System.String? RelatedReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PmtInstrRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInstructionReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InterbankSettlementAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IntrBkValDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankValueDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
-        {
-            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
-            PaymentMethodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "InstgAgtId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructingAgentIdentification)); // data type BICIdentifier System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstdAgtId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructedAgentIdentification)); // data type BICIdentifier System.String
-        writer.WriteEndElement();
-        if (EntryType is IsoEntryTypeIdentifier EntryTypeValue)
-        {
-            writer.WriteStartElement(null, "NtryTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoEntryTypeIdentifier(EntryTypeValue)); // data type EntryTypeIdentifier System.String
-            writer.WriteEndElement();
-        }
-        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
-        {
-            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentInstructionReferenceDetails4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

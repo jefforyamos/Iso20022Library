@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Unique and unambiguous way to identify an organisation using a choice between a BIC or the name and addres or the country code.
-/// </summary>
-[KnownType(typeof(PartyIdentification34Choice.BIC))]
-[KnownType(typeof(PartyIdentification34Choice.NameAndAddress))]
-[KnownType(typeof(PartyIdentification34Choice.Country))]
-public abstract partial record PartyIdentification34Choice_ : IIsoXmlSerilizable<PartyIdentification34Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Unique and unambiguous way to identify an organisation using a choice between a BIC or the name and addres or the country code.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PartyIdentification34Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PartyIdentification34Choice.BIC))]
+    [KnownType(typeof(PartyIdentification34Choice.NameAndAddress))]
+    [KnownType(typeof(PartyIdentification34Choice.Country))]
+    [IsoId("_QPiO0Np-Ed-ak6NoX_4Aeg_1306764655")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Party Identification 34 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PartyIdentification34Choice_
+    #else
+    public abstract partial class PartyIdentification34Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "BIC" => PartyIdentification34Choice.BIC.Deserialize(elementWithPayload),
-             "NmAndAdr" => PartyIdentification34Choice.NameAndAddress.Deserialize(elementWithPayload),
-             "Ctry" => PartyIdentification34Choice.Country.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PartyIdentification34Choice choice.")
-        };
     }
 }

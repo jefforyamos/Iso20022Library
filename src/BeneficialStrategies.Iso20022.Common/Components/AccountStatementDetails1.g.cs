@@ -7,127 +7,224 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[IsoId("_RPqrKPGgEeiGNursv3uE_g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Statement Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountStatementDetails1
-     : IIsoXmlSerilizable<AccountStatementDetails1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountStatementDetails1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountStatementDetails1( System.DateOnly reqTransactionDate )
+    {
+        TransactionDate = reqTransactionDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date of the transaction.
     /// </summary>
+    [IsoId("_RPqrLPGgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate TransactionDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly TransactionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly TransactionDate { get; init; } 
+    #else
+    public System.DateOnly TransactionDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// True indicates transaction is pending. 
     /// False indicates transaction has already posted.
     /// No default value.
     /// </summary>
+    [IsoId("_RPqrLvGgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PendingIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PendingIndicator { get; init; } 
+    #else
+    public System.String? PendingIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Posting date of the transaction.
     /// </summary>
+    [IsoId("_RPqrKvGgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Posting Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TransactionPostingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? TransactionPostingDate { get; init; } 
+    #else
+    public System.DateOnly? TransactionPostingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
+    [IsoId("_RPqrLfGgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount7? TransactionAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount7? TransactionAmount { get; init; } 
+    #else
+    public Amount7? TransactionAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cardholder billing amount of the transaction.
     /// </summary>
+    [IsoId("_IjkLwfGiEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder Billing Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount7? CardholderBillingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount7? CardholderBillingAmount { get; init; } 
+    #else
+    public Amount7? CardholderBillingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the transaction is a credit or debit.
     /// True indicates the transaction is a credit.
     /// False indicates the transaction is a debit.
     /// </summary>
+    [IsoId("_RPqrKfGgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Credit Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CreditIndicator { get; init; } 
+    #else
+    public System.String? CreditIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of the amount.
     /// </summary>
+    [IsoId("_RPqrL_GgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Acceptor Name And Location")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 99 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? AcceptorNameAndLocation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AcceptorNameAndLocation { get; init; } 
+    #else
+    public System.String? AcceptorNameAndLocation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Short transaction description to print or display.
     /// </summary>
+    [IsoId("_RPqrK_GgEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Transaction Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ShortTransactionDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ShortTransactionDescription { get; init; } 
+    #else
+    public System.String? ShortTransactionDescription { get; set; } 
+    #endif
+    
     /// <summary>
     /// Long transaction description to print or display.
     /// </summary>
+    [IsoId("_JGBjIfGjEeiGNursv3uE_g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Long Transaction Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? LongTransactionDescription { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LongTransactionDescription { get; init; } 
+    #else
+    public System.String? LongTransactionDescription { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TxDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(TransactionDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (PendingIndicator is IsoTrueFalseIndicator PendingIndicatorValue)
-        {
-            writer.WriteStartElement(null, "PdgInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PendingIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (TransactionPostingDate is IsoISODate TransactionPostingDateValue)
-        {
-            writer.WriteStartElement(null, "TxPstngDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(TransactionPostingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (TransactionAmount is Amount7 TransactionAmountValue)
-        {
-            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
-            TransactionAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardholderBillingAmount is Amount7 CardholderBillingAmountValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrBllgAmt", xmlNamespace );
-            CardholderBillingAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CreditIndicator is IsoTrueFalseIndicator CreditIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CdtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CreditIndicatorValue)); // data type TrueFalseIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (AcceptorNameAndLocation is IsoMax99Text AcceptorNameAndLocationValue)
-        {
-            writer.WriteStartElement(null, "AccptrNmAndLctn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax99Text(AcceptorNameAndLocationValue)); // data type Max99Text System.String
-            writer.WriteEndElement();
-        }
-        if (ShortTransactionDescription is IsoMax70Text ShortTransactionDescriptionValue)
-        {
-            writer.WriteStartElement(null, "ShrtTxDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ShortTransactionDescriptionValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (LongTransactionDescription is IsoMax256Text LongTransactionDescriptionValue)
-        {
-            writer.WriteStartElement(null, "LngTxDesc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(LongTransactionDescriptionValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountStatementDetails1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

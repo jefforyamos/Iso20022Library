@@ -7,86 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the POI performing the transaction.
 /// </summary>
+[IsoId("_TGJWagEcEeCQm6a_G2yO_w_-1706794151")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Point Of Interaction Capabilities")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PointOfInteractionCapabilities1
-     : IIsoXmlSerilizable<PointOfInteractionCapabilities1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Card reading capabilities of the POI performing the transaction.
     /// </summary>
+    [IsoId("_TGJWawEcEeCQm6a_G2yO_w_477826154")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Reading Capabilities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading1Code? CardReadingCapabilities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardDataReading1Code? CardReadingCapabilities { get; init; } 
+    #else
+    public CardDataReading1Code? CardReadingCapabilities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cardholder verification capabilities of the POI performing the transaction.
     /// </summary>
+    [IsoId("_TGJWbAEcEeCQm6a_G2yO_w_1143315363")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cardholder Verification Capabilities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init; } 
+    #else
+    public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; set; } 
+    #endif
+    
     /// <summary>
     /// On-line and off-line capabilities of the POI.
     /// </summary>
+    [IsoId("_TGSgUAEcEeCQm6a_G2yO_w_1272910628")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("On Line Capabilities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OnLineCapability1Code? OnLineCapabilities { get; init; } 
+    #else
+    public OnLineCapability1Code? OnLineCapabilities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
+    [IsoId("_TGSgUQEcEeCQm6a_G2yO_w_666196014")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Display Capabilities")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisplayCapabilities1? DisplayCapabilities { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DisplayCapabilities1? DisplayCapabilities { get; init; } 
+    #else
+    public DisplayCapabilities1? DisplayCapabilities { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>
+    [IsoId("_TGSgUgEcEeCQm6a_G2yO_w_-1182970689")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Print Line Width")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? PrintLineWidth { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PrintLineWidth { get; init; } 
+    #else
+    public System.String? PrintLineWidth { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CardReadingCapabilities is CardDataReading1Code CardReadingCapabilitiesValue)
-        {
-            writer.WriteStartElement(null, "CardRdngCpblties", xmlNamespace );
-            writer.WriteValue(CardReadingCapabilitiesValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CardholderVerificationCapabilities is CardholderVerificationCapability1Code CardholderVerificationCapabilitiesValue)
-        {
-            writer.WriteStartElement(null, "CrdhldrVrfctnCpblties", xmlNamespace );
-            writer.WriteValue(CardholderVerificationCapabilitiesValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (OnLineCapabilities is OnLineCapability1Code OnLineCapabilitiesValue)
-        {
-            writer.WriteStartElement(null, "OnLineCpblties", xmlNamespace );
-            writer.WriteValue(OnLineCapabilitiesValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DisplayCapabilities is DisplayCapabilities1 DisplayCapabilitiesValue)
-        {
-            writer.WriteStartElement(null, "DispCpblties", xmlNamespace );
-            DisplayCapabilitiesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PrintLineWidth is IsoMax3NumericText PrintLineWidthValue)
-        {
-            writer.WriteStartElement(null, "PrtLineWidth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(PrintLineWidthValue)); // data type Max3NumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PointOfInteractionCapabilities1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

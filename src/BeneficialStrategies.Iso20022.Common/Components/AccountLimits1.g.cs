@@ -7,80 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics and values set for account limits.
 /// </summary>
+[IsoId("_M0i6YBwpEeaSw8_Cr7PTfA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Limits")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountLimits1
-     : IIsoXmlSerilizable<AccountLimits1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountLimits1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountLimits1( System.String reqLimitType,System.Decimal reqLimitAmount )
+    {
+        LimitType = reqLimitType;
+        LimitAmount = reqLimitAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Defines type of funds limits.
     /// </summary>
+    [IsoId("_1mqMkBwqEeaSw8_Cr7PTfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text LimitType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String LimitType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String LimitType { get; init; } 
+    #else
+    public System.String LimitType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money of the limit.
     /// </summary>
+    [IsoId("_sT1O8BwtEeaSw8_Cr7PTfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount LimitAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal LimitAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal LimitAmount { get; init; } 
+    #else
+    public System.Decimal LimitAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of used funds out of defined limit.
     /// </summary>
+    [IsoId("_AwVvYBwuEeaSw8_Cr7PTfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Utilisation Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? LimitUtilisationAmount { get; init; } 
+    #else
+    public System.Decimal? LimitUtilisationAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
+    [IsoId("_l8WTABwuEeaSw8_Cr7PTfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bilateral Limit Counterparty Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Clearing scheme related to Registry of the Clearing Positions (RCP).
     /// </summary>
+    [IsoId("_V6qioBwvEeaSw8_Cr7PTfA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Circuit Scheme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingScheme1Choice_? ClearingCircuitScheme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingScheme1Choice_? ClearingCircuitScheme { get; init; } 
+    #else
+    public ClearingScheme1Choice_? ClearingCircuitScheme { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "LmtTp", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(LimitType)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "LmtAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LimitAmount)); // data type ActiveCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (LimitUtilisationAmount is IsoActiveCurrencyAndAmount LimitUtilisationAmountValue)
-        {
-            writer.WriteStartElement(null, "LmtUtlstnAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LimitUtilisationAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (BilateralLimitCounterpartyIdentification is BranchAndFinancialInstitutionIdentification5 BilateralLimitCounterpartyIdentificationValue)
-        {
-            writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
-            BilateralLimitCounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClearingCircuitScheme is ClearingScheme1Choice_ ClearingCircuitSchemeValue)
-        {
-            writer.WriteStartElement(null, "ClrCrctSchme", xmlNamespace );
-            ClearingCircuitSchemeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountLimits1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

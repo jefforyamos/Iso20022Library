@@ -9,73 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice;
-
-/// <summary>
-/// Moving of goods or people from one place to another by vehicle.
-/// </summary>
-public partial record IndividualTransport : TransportMeans1Choice_
-     , IIsoXmlSerilizable<IndividualTransport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
 {
-    #nullable enable
-    
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
-    public TransportByAir1? TransportByAir { get; init; } 
-    /// <summary>
-    /// Information related for the transportation of goods by sea.
-    /// </summary>
-    public TransportBySea1? TransportBySea { get; init; } 
-    /// <summary>
-    /// Information related to the transportation of goods by road.
-    /// </summary>
-    public TransportByRoad1? TransportByRoad { get; init; } 
-    /// <summary>
-    /// Information related to the transportation of goods by rail.
-    /// </summary>
-    public TransportByRail1? TransportByRail { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_U7oxldp-Ed-ak6NoX_4Aeg_1658534673")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Individual Transport")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record IndividualTransport : TransportMeans1Choice_
+    #else
+    public partial class IndividualTransport : TransportMeans1Choice_
+    #endif
     {
-        if (TransportByAir is TransportByAir1 TransportByAirValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtByAir", xmlNamespace );
-            TransportByAirValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransportBySea is TransportBySea1 TransportBySeaValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtBySea", xmlNamespace );
-            TransportBySeaValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransportByRoad is TransportByRoad1 TransportByRoadValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtByRoad", xmlNamespace );
-            TransportByRoadValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransportByRail is TransportByRail1 TransportByRailValue)
-        {
-            writer.WriteStartElement(null, "TrnsprtByRail", xmlNamespace );
-            TransportByRailValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new IndividualTransport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        // No constructor needed for < NET8 because this type has no required members.
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Moving of goods or people from one place to another by vehicle.
+        /// </summary>
+        [IsoId("_U7fnoNp-Ed-ak6NoX_4Aeg_2015935953")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transport By Air")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TransportByAir1? TransportByAir { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransportByAir1? TransportByAir { get; init; } 
+        #else
+        public TransportByAir1? TransportByAir { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related for the transportation of goods by sea.
+        /// </summary>
+        [IsoId("_U7fnodp-Ed-ak6NoX_4Aeg_2030713576")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transport By Sea")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TransportBySea1? TransportBySea { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransportBySea1? TransportBySea { get; init; } 
+        #else
+        public TransportBySea1? TransportBySea { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to the transportation of goods by road.
+        /// </summary>
+        [IsoId("_U7fnotp-Ed-ak6NoX_4Aeg_2027019443")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transport By Road")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TransportByRoad1? TransportByRoad { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransportByRoad1? TransportByRoad { get; init; } 
+        #else
+        public TransportByRoad1? TransportByRoad { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information related to the transportation of goods by rail.
+        /// </summary>
+        [IsoId("_U7fno9p-Ed-ak6NoX_4Aeg_2035329660")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transport By Rail")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TransportByRail1? TransportByRail { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TransportByRail1? TransportByRail { get; init; } 
+        #else
+        public TransportByRail1? TransportByRail { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

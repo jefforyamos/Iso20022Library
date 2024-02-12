@@ -7,141 +7,287 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the demand.
 /// </summary>
+[IsoId("_-AylQnltEeG7BsjMvd1mEw_1908468693")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Demand")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Demand1
-     : IIsoXmlSerilizable<Demand1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Demand1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Demand1( System.String reqIdentification,DemandType1Code reqType,Undertaking6 reqUndertakingIdentification,UndertakingAmount3 reqDemandAmount )
+    {
+        Identification = reqIdentification;
+        Type = reqType;
+        UndertakingIdentification = reqUndertakingIdentification;
+        DemandAmount = reqDemandAmount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the presenting party to the demand.
     /// </summary>
+    [IsoId("_-AylQ3ltEeG7BsjMvd1mEw_-2057301709")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Type of demand.
     /// </summary>
+    [IsoId("_-AylRHltEeG7BsjMvd1mEw_-1446215965")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DemandType1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DemandType1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DemandType1Code Type { get; init; } 
+    #else
+    public DemandType1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the undertaking.
     /// </summary>
+    [IsoId("_-AylRXltEeG7BsjMvd1mEw_-1068410070")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Undertaking Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking6 UndertakingIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Undertaking6 UndertakingIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Undertaking6 UndertakingIdentification { get; init; } 
+    #else
+    public Undertaking6 UndertakingIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the demand amount.
     /// </summary>
+    [IsoId("_-AylRnltEeG7BsjMvd1mEw_-2023766673")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Demand Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmount3 DemandAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UndertakingAmount3 DemandAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingAmount3 DemandAmount { get; init; } 
+    #else
+    public UndertakingAmount3 DemandAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
+    [IsoId("_-A8WQHltEeG7BsjMvd1mEw_1331805812")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Advising Party Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdvisingPartyReferenceNumber { get; init; } 
+    #else
+    public System.String? AdvisingPartyReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier assigned by the second advising party to the undertaking.
     /// </summary>
+    [IsoId("_8977YBVQEeKVqNjC36CBuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Second Advising Party Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecondAdvisingPartyReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecondAdvisingPartyReferenceNumber { get; init; } 
+    #else
+    public System.String? SecondAdvisingPartyReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [IsoId("_-A8WQXltEeG7BsjMvd1mEw_-346168184")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmer Reference Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ConfirmerReferenceNumber { get; init; } 
+    #else
+    public System.String? ConfirmerReferenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the settlement account.
     /// </summary>
+    [IsoId("_-A8WQ3ltEeG7BsjMvd1mEw_-1782957178")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount27? SettlementAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount27? SettlementAccount { get; init; } 
+    #else
+    public CashAccount27? SettlementAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the beneficiary's presentation of documents.
     /// </summary>
+    [IsoId("_-A8WRHltEeG7BsjMvd1mEw_-275427375")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Presentation Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Presentation2? PresentationDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Presentation2? PresentationDetails { get; init; } 
+    #else
+    public Presentation2? PresentationDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
+    [IsoId("_-BGHQHltEeG7BsjMvd1mEw_257214418")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Requested Expiry Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RequestedExpiryDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? RequestedExpiryDate { get; init; } 
+    #else
+    public System.DateOnly? RequestedExpiryDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Document(s) presented for examination.
     /// </summary>
+    [IsoId("_-BGHQXltEeG7BsjMvd1mEw_236846055")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Demand Documentation")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DemandDocumentation1? DemandDocumentation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DemandDocumentation1? DemandDocumentation { get; init; } 
+    #else
+    public DemandDocumentation1? DemandDocumentation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_-BGHQ3ltEeG7BsjMvd1mEw_188236729")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
-        UndertakingIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "DmndAmt", xmlNamespace );
-        DemandAmount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdvisingPartyReferenceNumber is IsoMax35Text AdvisingPartyReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "AdvsgPtyRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SecondAdvisingPartyReferenceNumber is IsoMax35Text SecondAdvisingPartyReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "ScndAdvsgPtyRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondAdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ConfirmerReferenceNumber is IsoMax35Text ConfirmerReferenceNumberValue)
-        {
-            writer.WriteStartElement(null, "CnfrmrRefNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ConfirmerReferenceNumberValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementAccount is CashAccount27 SettlementAccountValue)
-        {
-            writer.WriteStartElement(null, "SttlmAcct", xmlNamespace );
-            SettlementAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PresentationDetails is Presentation2 PresentationDetailsValue)
-        {
-            writer.WriteStartElement(null, "PresntnDtls", xmlNamespace );
-            PresentationDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RequestedExpiryDate is IsoISODate RequestedExpiryDateValue)
-        {
-            writer.WriteStartElement(null, "ReqdXpryDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedExpiryDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (DemandDocumentation is DemandDocumentation1 DemandDocumentationValue)
-        {
-            writer.WriteStartElement(null, "DmndDcmnttn", xmlNamespace );
-            DemandDocumentationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static Demand1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

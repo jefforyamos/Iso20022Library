@@ -7,90 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the interest rate derivative specific elements for interest rate derivatives as defined in the local regulation.
 /// </summary>
+[IsoId("_xJiqQWlIEeaLAKoEUNsD9g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Interest Rate Derivative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record InterestRateDerivative5
-     : IIsoXmlSerilizable<InterestRateDerivative5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a InterestRateDerivative5 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public InterestRateDerivative5( InterestRateDerivative2Choice_ reqUnderlyingType,FloatingInterestRate8 reqInterestRateReference )
+    {
+        UnderlyingType = reqUnderlyingType;
+        InterestRateReference = reqInterestRateReference;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specific details on the underlying type of the interest rate derivative.
     /// </summary>
+    [IsoId("_xSfx8WlIEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
+    #else
+    public InterestRateDerivative2Choice_ UnderlyingType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Populated when the underlying type is a bond or a bond future. Details the issuer and maturity date of the bond.
     /// </summary>
+    [IsoId("_xSfx82lIEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Bond")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BondDerivative2? UnderlyingBond { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BondDerivative2? UnderlyingBond { get; init; } 
+    #else
+    public BondDerivative2? UnderlyingBond { get; set; } 
+    #endif
+    
     /// <summary>
     /// Notional currency of a swaption.
     /// </summary>
+    [IsoId("_xSfx9WlIEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Swaption Notional Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SwaptionNotionalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? SwaptionNotionalCurrency { get; init; } 
+    #else
+    public string? SwaptionNotionalCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Maturity date of the underlying swap, populated for swaptions, futures on swaps and forwards on a swap only.
     /// </summary>
+    [IsoId("_xSfx92lIEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Underlying Swap Maturity Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? UnderlyingSwapMaturityDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? UnderlyingSwapMaturityDate { get; init; } 
+    #else
+    public System.DateOnly? UnderlyingSwapMaturityDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Populated to define the inflation index.
     /// </summary>
+    [IsoId("_xSfx-WlIEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Inflation Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InflationIndex1Choice_? InflationIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InflationIndex1Choice_? InflationIndex { get; init; } 
+    #else
+    public InflationIndex1Choice_? InflationIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the interest rate against a reference rate and term in number of days, weeks, months or years.
     /// </summary>
+    [IsoId("_xSfx-2lIEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FloatingInterestRate8 InterestRateReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FloatingInterestRate8 InterestRateReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FloatingInterestRate8 InterestRateReference { get; init; } 
+    #else
+    public FloatingInterestRate8 InterestRateReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
-        UnderlyingType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (UnderlyingBond is BondDerivative2 UnderlyingBondValue)
-        {
-            writer.WriteStartElement(null, "UndrlygBd", xmlNamespace );
-            UnderlyingBondValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SwaptionNotionalCurrency is ActiveCurrencyCode SwaptionNotionalCurrencyValue)
-        {
-            writer.WriteStartElement(null, "SwptnNtnlCcy", xmlNamespace );
-            writer.WriteValue(SwaptionNotionalCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UnderlyingSwapMaturityDate is IsoISODate UnderlyingSwapMaturityDateValue)
-        {
-            writer.WriteStartElement(null, "UndrlygSwpMtrtyDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(UnderlyingSwapMaturityDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (InflationIndex is InflationIndex1Choice_ InflationIndexValue)
-        {
-            writer.WriteStartElement(null, "InfltnIndx", xmlNamespace );
-            InflationIndexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "IntrstRateRef", xmlNamespace );
-        InterestRateReference.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static InterestRateDerivative5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

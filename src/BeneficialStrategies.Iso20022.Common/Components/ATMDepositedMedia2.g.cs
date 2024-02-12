@@ -7,106 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Media item that are deposited.
 /// </summary>
+[IsoId("_udWnMK4DEeWL1uap3dNhCQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("ATM Deposited Media")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ATMDepositedMedia2
-     : IIsoXmlSerilizable<ATMDepositedMedia2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Number of deposit media.
     /// </summary>
+    [IsoId("_3qVUIK4DEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Count")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Count { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? Count { get; init; } 
+    #else
+    public System.UInt64? Count { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount or denomination of one media item, if the media type is valued or entered by the customer.
     /// </summary>
+    [IsoId("_82-_MK4DEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unit Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? UnitValue { get; init; } 
+    #else
+    public System.Decimal? UnitValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency of media items, if valued and different from base currency.
     /// </summary>
+    [IsoId("_BW11sK4EEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Currency { get; init; } 
+    #else
+    public string? Currency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Format of the check code line.
     /// </summary>
+    [IsoId("_GV2tYK4EEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code Line Format")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CheckCodeLine1Code? CodeLineFormat { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CheckCodeLine1Code? CodeLineFormat { get; init; } 
+    #else
+    public CheckCodeLine1Code? CodeLineFormat { get; set; } 
+    #endif
+    
     /// <summary>
     /// Check code line.
     /// </summary>
+    [IsoId("_reFkQK4EEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Code Line")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CodeLine { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CodeLine { get; init; } 
+    #else
+    public System.String? CodeLine { get; set; } 
+    #endif
+    
     /// <summary>
     /// Check amount scanned by the check reader.
     /// </summary>
+    [IsoId("_xGiagK4EEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Scanned Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ScannedValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ScannedValue { get; init; } 
+    #else
+    public System.Decimal? ScannedValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the confidence in the check amount.
     /// </summary>
+    [IsoId("_1aimUK4EEeWL1uap3dNhCQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confidence Level")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentage? ConfidenceLevel { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ConfidenceLevel { get; init; } 
+    #else
+    public System.Decimal? ConfidenceLevel { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Count is IsoNumber CountValue)
-        {
-            writer.WriteStartElement(null, "Cnt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(CountValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (UnitValue is IsoImpliedCurrencyAndAmount UnitValueValue)
-        {
-            writer.WriteStartElement(null, "UnitVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Currency is ActiveCurrencyCode CurrencyValue)
-        {
-            writer.WriteStartElement(null, "Ccy", xmlNamespace );
-            writer.WriteValue(CurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CodeLineFormat is CheckCodeLine1Code CodeLineFormatValue)
-        {
-            writer.WriteStartElement(null, "CdLineFrmt", xmlNamespace );
-            writer.WriteValue(CodeLineFormatValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CodeLine is IsoMax70Text CodeLineValue)
-        {
-            writer.WriteStartElement(null, "CdLine", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(CodeLineValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ScannedValue is IsoImpliedCurrencyAndAmount ScannedValueValue)
-        {
-            writer.WriteStartElement(null, "ScnndVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ScannedValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ConfidenceLevel is IsoPercentage ConfidenceLevelValue)
-        {
-            writer.WriteStartElement(null, "CnfdncLvl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentage(ConfidenceLevelValue)); // data type Percentage System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ATMDepositedMedia2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,70 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the mandate to be cancelled.
 /// </summary>
+[IsoId("_HJg-T249EeiU9cctagi5ow")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Mandate Cancellation")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record MandateCancellation6
-     : IIsoXmlSerilizable<MandateCancellation6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a MandateCancellation6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public MandateCancellation6( MandateCancellationReason1 reqCancellationReason,OriginalMandate6Choice_ reqOriginalMandate )
+    {
+        CancellationReason = reqCancellationReason;
+        OriginalMandate = reqOriginalMandate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [IsoId("_HSwZ0249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Message Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
+    #else
+    public OriginalMessageInformation1? OriginalMessageInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
+    [IsoId("_HSwZ1W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateCancellationReason1 CancellationReason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MandateCancellationReason1 CancellationReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MandateCancellationReason1 CancellationReason { get; init; } 
+    #else
+    public MandateCancellationReason1 CancellationReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [IsoId("_HSwZ1249EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Mandate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate6Choice_ OriginalMandate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OriginalMandate6Choice_ OriginalMandate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalMandate6Choice_ OriginalMandate { get; init; } 
+    #else
+    public OriginalMandate6Choice_ OriginalMandate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_HSwZ2W49EeiU9cctagi5ow")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Supplementary Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    #else
+    public SupplementaryData1? SupplementaryData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalMessageInformation is OriginalMessageInformation1 OriginalMessageInformationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlMsgInf", xmlNamespace );
-            OriginalMessageInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
-        CancellationReason.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "OrgnlMndt", xmlNamespace );
-        OriginalMandate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
-        {
-            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
-            SupplementaryDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static MandateCancellation6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,50 +7,42 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Position/transaction reporting under the local regulation.
-/// </summary>
-[KnownType(typeof(TradeReport32Choice.New))]
-[KnownType(typeof(TradeReport32Choice.Modification))]
-[KnownType(typeof(TradeReport32Choice.Correction))]
-[KnownType(typeof(TradeReport32Choice.Termination))]
-[KnownType(typeof(TradeReport32Choice.PositionComponent))]
-[KnownType(typeof(TradeReport32Choice.ValuationUpdate))]
-[KnownType(typeof(TradeReport32Choice.Compression))]
-[KnownType(typeof(TradeReport32Choice.Error))]
-[KnownType(typeof(TradeReport32Choice.PortOut))]
-[KnownType(typeof(TradeReport32Choice.Revive))]
-[KnownType(typeof(TradeReport32Choice.Other))]
-public abstract partial record TradeReport32Choice_ : IIsoXmlSerilizable<TradeReport32Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Position/transaction reporting under the local regulation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TradeReport32Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TradeReport32Choice.New))]
+    [KnownType(typeof(TradeReport32Choice.Modification))]
+    [KnownType(typeof(TradeReport32Choice.Correction))]
+    [KnownType(typeof(TradeReport32Choice.Termination))]
+    [KnownType(typeof(TradeReport32Choice.PositionComponent))]
+    [KnownType(typeof(TradeReport32Choice.ValuationUpdate))]
+    [KnownType(typeof(TradeReport32Choice.Compression))]
+    [KnownType(typeof(TradeReport32Choice.Error))]
+    [KnownType(typeof(TradeReport32Choice.PortOut))]
+    [KnownType(typeof(TradeReport32Choice.Revive))]
+    [KnownType(typeof(TradeReport32Choice.Other))]
+    [IsoId("__e7PwWEUEe2P-L9DBerEgA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Report 32 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TradeReport32Choice_
+    #else
+    public abstract partial class TradeReport32Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "New" => TradeReport32Choice.New.Deserialize(elementWithPayload),
-             "Mod" => TradeReport32Choice.Modification.Deserialize(elementWithPayload),
-             "Crrctn" => TradeReport32Choice.Correction.Deserialize(elementWithPayload),
-             "Termntn" => TradeReport32Choice.Termination.Deserialize(elementWithPayload),
-             "PosCmpnt" => TradeReport32Choice.PositionComponent.Deserialize(elementWithPayload),
-             "ValtnUpd" => TradeReport32Choice.ValuationUpdate.Deserialize(elementWithPayload),
-             "Cmprssn" => TradeReport32Choice.Compression.Deserialize(elementWithPayload),
-             "Err" => TradeReport32Choice.Error.Deserialize(elementWithPayload),
-             "PortOut" => TradeReport32Choice.PortOut.Deserialize(elementWithPayload),
-             "Rvv" => TradeReport32Choice.Revive.Deserialize(elementWithPayload),
-             "Othr" => TradeReport32Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TradeReport32Choice choice.")
-        };
     }
 }

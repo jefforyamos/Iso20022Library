@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Allows the sender of the rejection message to indicate only one rejection reason that applies to the entire rejected message.
-/// </summary>
-[KnownType(typeof(RejectionReason1Choice.GlobalRejectionReason))]
-[KnownType(typeof(RejectionReason1Choice.RejectedElement))]
-public abstract partial record RejectionReason1Choice_ : IIsoXmlSerilizable<RejectionReason1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Allows the sender of the rejection message to indicate only one rejection reason that applies to the entire rejected message.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static RejectionReason1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(RejectionReason1Choice.GlobalRejectionReason))]
+    [KnownType(typeof(RejectionReason1Choice.RejectedElement))]
+    [IsoId("_RJ8ooNp-Ed-ak6NoX_4Aeg_891683676")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejection Reason 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record RejectionReason1Choice_
+    #else
+    public abstract partial class RejectionReason1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "GblRjctnRsn" => RejectionReason1Choice.GlobalRejectionReason.Deserialize(elementWithPayload),
-             "RjctdElmt" => RejectionReason1Choice.RejectedElement.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid RejectionReason1Choice choice.")
-        };
     }
 }

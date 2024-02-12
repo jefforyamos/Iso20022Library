@@ -9,40 +9,71 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PendingStatus20Choice;
-
-/// <summary>
-/// Allegement is under investigation.
-/// </summary>
-public partial record UnderInvestigation : PendingStatus20Choice_
-     , IIsoXmlSerilizable<UnderInvestigation>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PendingStatus20Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Indicates that there is no reason available or to report.
+    /// Allegement is under investigation.
     /// </summary>
-    public required NoReasonCode NoSpecifiedReason { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_0k3gxAlIEeGATtfOBToyew_1137213663")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Under Investigation")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record UnderInvestigation : PendingStatus20Choice_
+    #else
+    public partial class UnderInvestigation : PendingStatus20Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
-        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
-        writer.WriteEndElement();
-    }
-    public static new UnderInvestigation Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a UnderInvestigation instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public UnderInvestigation( NoReasonCode reqNoSpecifiedReason )
+        {
+            NoSpecifiedReason = reqNoSpecifiedReason;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Indicates that there is no reason available or to report.
+        /// </summary>
+        [IsoId("_UatOwNp-Ed-ak6NoX_4Aeg_137164408")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("No Specified Reason")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required NoReasonCode NoSpecifiedReason { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public NoReasonCode NoSpecifiedReason { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NoReasonCode NoSpecifiedReason { get; init; } 
+        #else
+        public NoReasonCode NoSpecifiedReason { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

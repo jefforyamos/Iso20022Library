@@ -7,73 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.
 /// </summary>
+[IsoId("_d5u5sdcZEeqRFcf2R4bPBw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Remittance Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RemittanceInformation20
-     : IIsoXmlSerilizable<RemittanceInformation20>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RemittanceInformation20 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RemittanceInformation20( OriginalPaymentInformation9 reqOriginalPaymentInformation )
+    {
+        OriginalPaymentInformation = reqOriginalPaymentInformation;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, assigned by the originator, to unambiguously identify the remittance information within the message.
     /// </summary>
+    [IsoId("_d7M5UdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remittance Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RemittanceIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RemittanceIdentification { get; init; } 
+    #else
+    public System.String? RemittanceIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.
     /// </summary>
+    [IsoId("_d7M5U9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unstructured")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Unstructured { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Unstructured { get; init; } 
+    #else
+    public System.String? Unstructured { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
     /// </summary>
+    [IsoId("_d7M5VdcZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Structured")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StructuredRemittanceInformation17? Structured { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public StructuredRemittanceInformation17? Structured { get; init; } 
+    #else
+    public StructuredRemittanceInformation17? Structured { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide information on the original transactions, to which the remittance message refers.
     /// </summary>
+    [IsoId("_d7M5V9cZEeqRFcf2R4bPBw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalPaymentInformation9 OriginalPaymentInformation { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OriginalPaymentInformation9 OriginalPaymentInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalPaymentInformation9 OriginalPaymentInformation { get; init; } 
+    #else
+    public OriginalPaymentInformation9 OriginalPaymentInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (RemittanceIdentification is IsoMax35Text RemittanceIdentificationValue)
-        {
-            writer.WriteStartElement(null, "RmtId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RemittanceIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Unstructured is IsoMax140Text UnstructuredValue)
-        {
-            writer.WriteStartElement(null, "Ustrd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(UnstructuredValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (Structured is StructuredRemittanceInformation17 StructuredValue)
-        {
-            writer.WriteStartElement(null, "Strd", xmlNamespace );
-            StructuredValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrgnlPmtInf", xmlNamespace );
-        OriginalPaymentInformation.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static RemittanceInformation20 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

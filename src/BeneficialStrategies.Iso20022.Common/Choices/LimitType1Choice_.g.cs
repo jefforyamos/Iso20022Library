@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Nature of the risk management limit defined as a choice between a coded list or a proprietary limit.
-/// </summary>
-[KnownType(typeof(LimitType1Choice.Code))]
-[KnownType(typeof(LimitType1Choice.Proprietary))]
-public abstract partial record LimitType1Choice_ : IIsoXmlSerilizable<LimitType1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Nature of the risk management limit defined as a choice between a coded list or a proprietary limit.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static LimitType1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(LimitType1Choice.Code))]
+    [KnownType(typeof(LimitType1Choice.Proprietary))]
+    [IsoId("_79FX8KMgEeCJ6YNENx4h-w_1397757128")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Limit Type 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record LimitType1Choice_
+    #else
+    public abstract partial class LimitType1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => LimitType1Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => LimitType1Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid LimitType1Choice choice.")
-        };
     }
 }

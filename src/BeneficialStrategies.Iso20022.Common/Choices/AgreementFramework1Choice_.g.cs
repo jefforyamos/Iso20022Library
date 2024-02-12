@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between a code or a proprietary code for the underlying master agreement.
-/// </summary>
-[KnownType(typeof(AgreementFramework1Choice.AgreementFramework))]
-[KnownType(typeof(AgreementFramework1Choice.ProprietaryIdentification))]
-public abstract partial record AgreementFramework1Choice_ : IIsoXmlSerilizable<AgreementFramework1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between a code or a proprietary code for the underlying master agreement.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AgreementFramework1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AgreementFramework1Choice.AgreementFramework))]
+    [KnownType(typeof(AgreementFramework1Choice.ProprietaryIdentification))]
+    [IsoId("_UkZWTNp-Ed-ak6NoX_4Aeg_863321778")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreement Framework 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AgreementFramework1Choice_
+    #else
+    public abstract partial class AgreementFramework1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "AgrmtFrmwk" => AgreementFramework1Choice.AgreementFramework.Deserialize(elementWithPayload),
-             "PrtryId" => AgreementFramework1Choice.ProprietaryIdentification.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AgreementFramework1Choice choice.")
-        };
     }
 }

@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides status of the deactivation instruction.
 /// </summary>
+[IsoId("_RjRuptp-Ed-ak6NoX_4Aeg_491823442")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Deactivation Instruction Status")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionDeactivationInstructionStatus1
-     : IIsoXmlSerilizable<CorporateActionDeactivationInstructionStatus1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a CorporateActionDeactivationInstructionStatus1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public CorporateActionDeactivationInstructionStatus1( CorporateActionDeactivationInstructionProcessingStatus1 reqProcessedStatus,CorporateActionDeactivationInstructionRejectionStatus1 reqRejectedStatus )
+    {
+        ProcessedStatus = reqProcessedStatus;
+        RejectedStatus = reqRejectedStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [IsoId("_RjRup9p-Ed-ak6NoX_4Aeg_-5830420")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
+    #else
+    public CorporateActionOption1FormatChoice_? OptionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [IsoId("_RjbfoNp-Ed-ak6NoX_4Aeg_-5830390")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Option Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? OptionNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OptionNumber { get; init; } 
+    #else
+    public System.String? OptionNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the processing status of the instruction.
     /// </summary>
+    [IsoId("_Rjbfodp-Ed-ak6NoX_4Aeg_1462046019")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processed Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
+    #else
+    public CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
+    [IsoId("_Rjbfotp-Ed-ak6NoX_4Aeg_1560861725")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
+    #else
+    public CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OptionType is CorporateActionOption1FormatChoice_ OptionTypeValue)
-        {
-            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
-            OptionTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OptionNumber is IsoExact3NumericText OptionNumberValue)
-        {
-            writer.WriteStartElement(null, "OptnNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumberValue)); // data type Exact3NumericText System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PrcdSts", xmlNamespace );
-        ProcessedStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RjctdSts", xmlNamespace );
-        RejectedStatus.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static CorporateActionDeactivationInstructionStatus1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

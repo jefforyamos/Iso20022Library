@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Specifies the format of the quantity of delivery.
-/// </summary>
-[KnownType(typeof(Quantity46Choice.Quantity))]
-[KnownType(typeof(Quantity46Choice.Description))]
-public abstract partial record Quantity46Choice_ : IIsoXmlSerilizable<Quantity46Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Specifies the format of the quantity of delivery.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Quantity46Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Quantity46Choice.Quantity))]
+    [KnownType(typeof(Quantity46Choice.Description))]
+    [IsoId("_2vwJoZCuEeic-NeLxeO3hQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity 46 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Quantity46Choice_
+    #else
+    public abstract partial class Quantity46Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Qty" => Quantity46Choice.Quantity.Deserialize(elementWithPayload),
-             "Desc" => Quantity46Choice.Description.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Quantity46Choice choice.")
-        };
     }
 }

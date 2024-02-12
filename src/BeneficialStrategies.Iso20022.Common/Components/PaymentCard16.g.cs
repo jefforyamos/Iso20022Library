@@ -7,93 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card performing the withdrawal transaction.
 /// </summary>
+[IsoId("_WSCgwYoeEeSirOZJBRz_nA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Card")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentCard16
-     : IIsoXmlSerilizable<PaymentCard16>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentCard16 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentCard16( CardDataReading1Code reqCardDataEntryMode )
+    {
+        CardDataEntryMode = reqCardDataEntryMode;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Entry mode used to obtain the card data.
     /// </summary>
+    [IsoId("_mKx7EIoeEeSirOZJBRz_nA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Data Entry Mode")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading1Code CardDataEntryMode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CardDataReading1Code CardDataEntryMode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardDataReading1Code CardDataEntryMode { get; init; } 
+    #else
+    public CardDataReading1Code CardDataEntryMode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the occurrence of a fall-back on the card entry mode.
     /// </summary>
+    [IsoId("_rMIVEIoeEeSirOZJBRz_nA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fallback Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardFallback1Code? FallbackIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardFallback1Code? FallbackIndicator { get; init; } 
+    #else
+    public CardFallback1Code? FallbackIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
+    [IsoId("_We0_kYoeEeSirOZJBRz_nA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Protected Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContentInformationType10? ProtectedCardData { get; init; } 
+    #else
+    public ContentInformationType10? ProtectedCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [IsoId("_We0_k4oeEeSirOZJBRz_nA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Plain Card Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData13? PlainCardData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PlainCardData13? PlainCardData { get; init; } 
+    #else
+    public PlainCardData13? PlainCardData { get; set; } 
+    #endif
+    
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
+    [IsoId("_We0_l4oeEeSirOZJBRz_nA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Country Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 3 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? CardCountryCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardCountryCode { get; init; } 
+    #else
+    public System.String? CardCountryCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
+    [IsoId("_We0_mYoeEeSirOZJBRz_nA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Card Currency Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3AlphaNumericText? CardCurrencyCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CardCurrencyCode { get; init; } 
+    #else
+    public System.String? CardCurrencyCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "CardDataNtryMd", xmlNamespace );
-        writer.WriteValue(CardDataEntryMode.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (FallbackIndicator is CardFallback1Code FallbackIndicatorValue)
-        {
-            writer.WriteStartElement(null, "FllbckInd", xmlNamespace );
-            writer.WriteValue(FallbackIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ProtectedCardData is ContentInformationType10 ProtectedCardDataValue)
-        {
-            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
-            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PlainCardData is PlainCardData13 PlainCardDataValue)
-        {
-            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
-            PlainCardDataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CardCountryCode is IsoMax3Text CardCountryCodeValue)
-        {
-            writer.WriteStartElement(null, "CardCtryCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax3Text(CardCountryCodeValue)); // data type Max3Text System.String
-            writer.WriteEndElement();
-        }
-        if (CardCurrencyCode is IsoExact3AlphaNumericText CardCurrencyCodeValue)
-        {
-            writer.WriteStartElement(null, "CardCcyCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoExact3AlphaNumericText(CardCurrencyCodeValue)); // data type Exact3AlphaNumericText System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentCard16 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -9,60 +9,107 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform3Choice;
-
-/// <summary>
-/// Content of the Loyalty Request message.
-/// </summary>
-public partial record LoyaltyRequest : TransactionToPerform3Choice_
-     , IIsoXmlSerilizable<LoyaltyRequest>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// To retrieve Card Acquisition Data.
+    /// Content of the Loyalty Request message.
     /// </summary>
-    public CustomerOrder1? CustomerOrder { get; init; } 
-    /// <summary>
-    /// Data related to the loyalty transaction.
-    /// </summary>
-    public required LoyaltyTransaction3 Transaction { get; init; } 
-    /// <summary>
-    /// Data related to a Loyalty program or account.
-    /// </summary>
-    public LoyaltyRequestData2? Data { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_xaZiUy8QEeu125Ip9zFcsQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Loyalty Request")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record LoyaltyRequest : TransactionToPerform3Choice_
+    #else
+    public partial class LoyaltyRequest : TransactionToPerform3Choice_
+    #endif
     {
-        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a LoyaltyRequest instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public LoyaltyRequest( LoyaltyTransaction3 reqTransaction )
         {
-            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
-            CustomerOrderValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Transaction = reqTransaction;
         }
-        writer.WriteStartElement(null, "Tx", xmlNamespace );
-        Transaction.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (Data is LoyaltyRequestData2 DataValue)
-        {
-            writer.WriteStartElement(null, "Data", xmlNamespace );
-            DataValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new LoyaltyRequest Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// To retrieve Card Acquisition Data.
+        /// </summary>
+        [IsoId("_u0BrQS83Eeu125Ip9zFcsQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Customer Order")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CustomerOrder1? CustomerOrder { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CustomerOrder1? CustomerOrder { get; init; } 
+        #else
+        public CustomerOrder1? CustomerOrder { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data related to the loyalty transaction.
+        /// </summary>
+        [IsoId("_u0BrQy83Eeu125Ip9zFcsQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required LoyaltyTransaction3 Transaction { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public LoyaltyTransaction3 Transaction { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LoyaltyTransaction3 Transaction { get; init; } 
+        #else
+        public LoyaltyTransaction3 Transaction { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Data related to a Loyalty program or account.
+        /// </summary>
+        [IsoId("_u0BrRS83Eeu125Ip9zFcsQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Data")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public LoyaltyRequestData2? Data { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public LoyaltyRequestData2? Data { get; init; } 
+        #else
+        public LoyaltyRequestData2? Data { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

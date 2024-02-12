@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice for transparency calculation specific details on commodities.
-/// </summary>
-[KnownType(typeof(CommodityDerivate2Choice.Freight))]
-[KnownType(typeof(CommodityDerivate2Choice.Energy))]
-public abstract partial record CommodityDerivate2Choice_ : IIsoXmlSerilizable<CommodityDerivate2Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice for transparency calculation specific details on commodities.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static CommodityDerivate2Choice_ Deserialize(XElement element)
+    [KnownType(typeof(CommodityDerivate2Choice.Freight))]
+    [KnownType(typeof(CommodityDerivate2Choice.Energy))]
+    [IsoId("_znH8cWlHEeaLAKoEUNsD9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Commodity Derivate 2 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record CommodityDerivate2Choice_
+    #else
+    public abstract partial class CommodityDerivate2Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Frght" => CommodityDerivate2Choice.Freight.Deserialize(elementWithPayload),
-             "Nrgy" => CommodityDerivate2Choice.Energy.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CommodityDerivate2Choice choice.")
-        };
     }
 }

@@ -9,47 +9,92 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalError3Choice;
-
-/// <summary>
-/// Report information about securities account reference data.
-/// </summary>
-public partial record SecuritiesAccountReport : SecuritiesAccountOrOperationalError3Choice_
-     , IIsoXmlSerilizable<SecuritiesAccountReport>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalError3Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique and unambiguous identification for the system security account.
+    /// Report information about securities account reference data.
     /// </summary>
-    public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
-    /// <summary>
-    /// Specifies the returned securities account reference data or error information.
-    /// </summary>
-    public required SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_x4sjgTp1Eemk2e6qGBk8IQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Securities Account Report")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record SecuritiesAccountReport : SecuritiesAccountOrOperationalError3Choice_
+    #else
+    public partial class SecuritiesAccountReport : SecuritiesAccountOrOperationalError3Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
-        SecuritiesAccountIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SctiesAcctOrErr", xmlNamespace );
-        SecuritiesAccountOrError.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new SecuritiesAccountReport Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a SecuritiesAccountReport instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public SecuritiesAccountReport( SecuritiesAccount19 reqSecuritiesAccountIdentification,SecuritiesAccountOrBusinessError3Choice_ reqSecuritiesAccountOrError )
+        {
+            SecuritiesAccountIdentification = reqSecuritiesAccountIdentification;
+            SecuritiesAccountOrError = reqSecuritiesAccountOrError;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique and unambiguous identification for the system security account.
+        /// </summary>
+        [IsoId("_yC-g4Tp1Eemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Account Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
+        #else
+        public SecuritiesAccount19 SecuritiesAccountIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies the returned securities account reference data or error information.
+        /// </summary>
+        [IsoId("_yC-g4zp1Eemk2e6qGBk8IQ")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Securities Account Or Error")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
+        #else
+        public SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

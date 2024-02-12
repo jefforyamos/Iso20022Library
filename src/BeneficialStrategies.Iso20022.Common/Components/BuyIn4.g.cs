@@ -7,73 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies elements related to the notification (or warn) sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
+[IsoId("_7xh9US9WEeS94oXWDaBauA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Buy In")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BuyIn4
-     : IIsoXmlSerilizable<BuyIn4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BuyIn4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BuyIn4( DateFormat15Choice_ reqExpectedBuyInDate )
+    {
+        ExpectedBuyInDate = reqExpectedBuyInDate;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Indicates whether the message is a warning only or a notification.
     /// </summary>
+    [IsoId("_8D9KES9WEeS94oXWDaBauA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Warning Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? WarningIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? WarningIndicator { get; init; } 
+    #else
+    public System.String? WarningIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the date at which the buy-in will occur.
     /// </summary>
+    [IsoId("_8D9KEy9WEeS94oXWDaBauA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Buy In Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
+    #else
+    public DateFormat15Choice_ ExpectedBuyInDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the latest date by which the buy-in operation can be cancelled.
     /// </summary>
+    [IsoId("_VXBUUC9YEeS94oXWDaBauA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Limit Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CancellationLimitDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? CancellationLimitDate { get; init; } 
+    #else
+    public System.DateOnly? CancellationLimitDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the date by which the buy-in operation is reversed by the CCP.
     /// </summary>
+    [IsoId("_T7O2UC9ZEeS94oXWDaBauA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Buy In Reversion Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BuyInReversionDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? BuyInReversionDate { get; init; } 
+    #else
+    public System.DateOnly? BuyInReversionDate { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (WarningIndicator is IsoYesNoIndicator WarningIndicatorValue)
-        {
-            writer.WriteStartElement(null, "WrngInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WarningIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "XpctdBuyInDt", xmlNamespace );
-        ExpectedBuyInDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (CancellationLimitDate is IsoISODate CancellationLimitDateValue)
-        {
-            writer.WriteStartElement(null, "CxlLmtDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(CancellationLimitDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (BuyInReversionDate is IsoISODate BuyInReversionDateValue)
-        {
-            writer.WriteStartElement(null, "BuyInRvrsnDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(BuyInReversionDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-    }
-    public static BuyIn4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

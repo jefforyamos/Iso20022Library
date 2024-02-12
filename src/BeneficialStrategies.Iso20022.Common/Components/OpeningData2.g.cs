@@ -7,101 +7,217 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of elements which specify the opening of a non deliverable trade.
 /// </summary>
+[IsoId("_U8POidp-Ed-ak6NoX_4Aeg_328638139")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Opening Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OpeningData2
-     : IIsoXmlSerilizable<OpeningData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OpeningData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OpeningData2( System.DateOnly reqTradeDate,System.String reqNotificationIdentification,AmountsAndValueDate1 reqTradeAmounts,AgreedRate1 reqAgreedRate,NonDeliverableForwardValuationConditions2 reqValuationConditions )
+    {
+        TradeDate = reqTradeDate;
+        NotificationIdentification = reqNotificationIdentification;
+        TradeAmounts = reqTradeAmounts;
+        AgreedRate = reqAgreedRate;
+        ValuationConditions = reqValuationConditions;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date at which the trading parties execute a treasury trade.
     /// </summary>
+    [IsoId("_U8POitp-Ed-ak6NoX_4Aeg_328638141")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate TradeDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly TradeDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly TradeDate { get; init; } 
+    #else
+    public System.DateOnly TradeDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Refers to the identification of a notification assigned by the trading side.
     /// </summary>
+    [IsoId("_U8Y_gNp-Ed-ak6NoX_4Aeg_328638191")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Notification Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text NotificationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String NotificationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String NotificationIdentification { get; init; } 
+    #else
+    public System.String NotificationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
+    [IsoId("_U8Y_gdp-Ed-ak6NoX_4Aeg_328638156")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Common Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommonReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CommonReference { get; init; } 
+    #else
+    public System.String? CommonReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Refers to the identification of a previous event in the life of a non deliverable forward trade.
     /// </summary>
+    [IsoId("_U8Y_gtp-Ed-ak6NoX_4Aeg_328638426")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RelatedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? RelatedReference { get; init; } 
+    #else
+    public System.String? RelatedReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
+    [IsoId("_U8Y_g9p-Ed-ak6NoX_4Aeg_328638451")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amend Or Cancel Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AmendOrCancelReason { get; init; } 
+    #else
+    public System.String? AmendOrCancelReason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the amounts of the non deliverable trade which is reported.
     /// </summary>
+    [IsoId("_U8Y_hNp-Ed-ak6NoX_4Aeg_328638532")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Trade Amounts")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountsAndValueDate1 TradeAmounts { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountsAndValueDate1 TradeAmounts { get; init; } 
+    #else
+    public AmountsAndValueDate1 TradeAmounts { get; set; } 
+    #endif
+    
     /// <summary>
     /// Exchange rate between two currencies. The rate is agreed by the trading parties during the negotiation process.
     /// </summary>
+    [IsoId("_U8Y_hdp-Ed-ak6NoX_4Aeg_328638564")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agreed Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate1 AgreedRate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AgreedRate1 AgreedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AgreedRate1 AgreedRate { get; init; } 
+    #else
+    public AgreedRate1 AgreedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of parameters used to calculate the valuation rate to be applied to a non-deliverable agreement.
     /// </summary>
+    [IsoId("_U8Y_htp-Ed-ak6NoX_4Aeg_328638582")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
+    #else
+    public NonDeliverableForwardValuationConditions2 ValuationConditions { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "TradDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (CommonReference is IsoMax35Text CommonReferenceValue)
-        {
-            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
-        {
-            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AmendOrCancelReason is IsoMax35Text AmendOrCancelReasonValue)
-        {
-            writer.WriteStartElement(null, "AmdOrCclRsn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendOrCancelReasonValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "TradAmts", xmlNamespace );
-        TradeAmounts.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
-        AgreedRate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnConds", xmlNamespace );
-        ValuationConditions.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static OpeningData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

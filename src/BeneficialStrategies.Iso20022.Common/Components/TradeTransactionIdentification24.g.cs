@@ -7,126 +7,205 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
+[IsoId("_xzGNwVyGEe24CqbZJK5XxA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Trade Transaction Identification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record TradeTransactionIdentification24
-     : IIsoXmlSerilizable<TradeTransactionIdentification24>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [IsoId("_x0MZ8VyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Technical Record Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TechnicalRecordIdentification { get; init; } 
+    #else
+    public System.String? TechnicalRecordIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication of the action type of the transaction.
     /// </summary>
+    [IsoId("_x0MZ81yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Action Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionOperationType10Code? ActionType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TransactionOperationType10Code? ActionType { get; init; } 
+    #else
+    public TransactionOperationType10Code? ActionType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
+    [IsoId("_x0MZ9VyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime? ReportingTimeStamp { get; init; } 
+    #else
+    public System.DateTime? ReportingTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
+    [IsoId("_x0MZ91yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivative Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DerivativeEventType3Code? DerivativeEventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DerivativeEventType3Code? DerivativeEventType { get; init; } 
+    #else
+    public DerivativeEventType3Code? DerivativeEventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
+    [IsoId("_x0MZ-VyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Derivative Event Time Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? DerivativeEventTimeStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTime2Choice_? DerivativeEventTimeStamp { get; init; } 
+    #else
+    public DateAndDateTime2Choice_? DerivativeEventTimeStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
+    [IsoId("_x0MZ-1yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Counterparty")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification248Choice_? OtherCounterparty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification248Choice_? OtherCounterparty { get; init; } 
+    #else
+    public PartyIdentification248Choice_? OtherCounterparty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
+    [IsoId("_x0MZ_VyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unique Identifier")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UniqueTransactionIdentifier2Choice_? UniqueIdentifier { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UniqueTransactionIdentifier2Choice_? UniqueIdentifier { get; init; } 
+    #else
+    public UniqueTransactionIdentifier2Choice_? UniqueIdentifier { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
+    [IsoId("_x0MZ_1yGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Master Agreement")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MasterAgreement8? MasterAgreement { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MasterAgreement8? MasterAgreement { get; init; } 
+    #else
+    public MasterAgreement8? MasterAgreement { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique codes identifying the portfolio.
     /// </summary>
+    [IsoId("_x0MaAVyGEe24CqbZJK5XxA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Portfolio Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
+    #else
+    public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
-        {
-            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (ActionType is TransactionOperationType10Code ActionTypeValue)
-        {
-            writer.WriteStartElement(null, "ActnTp", xmlNamespace );
-            writer.WriteValue(ActionTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReportingTimeStamp is IsoISODateTime ReportingTimeStampValue)
-        {
-            writer.WriteStartElement(null, "RptgTmStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingTimeStampValue)); // data type ISODateTime System.DateTime
-            writer.WriteEndElement();
-        }
-        if (DerivativeEventType is DerivativeEventType3Code DerivativeEventTypeValue)
-        {
-            writer.WriteStartElement(null, "DerivEvtTp", xmlNamespace );
-            writer.WriteValue(DerivativeEventTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (DerivativeEventTimeStamp is DateAndDateTime2Choice_ DerivativeEventTimeStampValue)
-        {
-            writer.WriteStartElement(null, "DerivEvtTmStmp", xmlNamespace );
-            DerivativeEventTimeStampValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherCounterparty is PartyIdentification248Choice_ OtherCounterpartyValue)
-        {
-            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
-            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UniqueIdentifier is UniqueTransactionIdentifier2Choice_ UniqueIdentifierValue)
-        {
-            writer.WriteStartElement(null, "UnqIdr", xmlNamespace );
-            UniqueIdentifierValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MasterAgreement is MasterAgreement8 MasterAgreementValue)
-        {
-            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
-            MasterAgreementValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralPortfolioCode is CollateralPortfolioCode5Choice_ CollateralPortfolioCodeValue)
-        {
-            writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
-            CollateralPortfolioCodeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static TradeTransactionIdentification24 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

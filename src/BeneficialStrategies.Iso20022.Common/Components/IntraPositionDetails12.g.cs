@@ -7,134 +7,259 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[IsoId("_2lCC0fFjEd-Vb-3Q5jpLDA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Intra Position Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record IntraPositionDetails12
-     : IIsoXmlSerilizable<IntraPositionDetails12>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a IntraPositionDetails12 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public IntraPositionDetails12( FinancialInstrumentQuantity1Choice_ reqSettledQuantity,DateAndDateTimeChoice_ reqSettlementDate,SecuritiesBalanceType3Choice_ reqBalanceFrom,SecuritiesBalanceType3Choice_ reqBalanceTo )
+    {
+        SettledQuantity = reqSettledQuantity;
+        SettlementDate = reqSettlementDate;
+        BalanceFrom = reqBalanceFrom;
+        BalanceTo = reqBalanceTo;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
+    [IsoId("_2lCC0_FjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_ SettledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number identifying a lot constituting the financial instrument.
     /// </summary>
+    [IsoId("_4Tl2YPFjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lot Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Number2Choice_? LotNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Number2Choice_? LotNumber { get; init; } 
+    #else
+    public Number2Choice_? LotNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the collateral available for the delivery settlement process at the account level.
     /// </summary>
+    [IsoId("_wnbUkPFmEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Collateral Monitor Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection9? CollateralMonitorAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection9? CollateralMonitorAmount { get; init; } 
+    #else
+    public AmountAndDirection9? CollateralMonitorAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
+    [IsoId("_2lCC1fFjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Previously Settled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
+    [IsoId("_2lCC1_FjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Remaining To Be Settled Quantity")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
+    #else
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
+    [IsoId("_2lCC2fFjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public DateAndDateTimeChoice_ SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_ SettlementDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_ SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
+    [IsoId("_2lCC2_FjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Available Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? AvailableDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateAndDateTimeChoice_? AvailableDate { get; init; } 
+    #else
+    public DateAndDateTimeChoice_? AvailableDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
+    [IsoId("_2lCC3fFjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Corporate Action Event Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
+    #else
+    public CorporateActionEventType3Choice_? CorporateActionEventType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance from which the securities were moved.
     /// </summary>
+    [IsoId("_2lCC3_FjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
+    #else
+    public SecuritiesBalanceType3Choice_ BalanceFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Balance to which the securities were moved.
     /// </summary>
+    [IsoId("_2lCC4fFjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Balance To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
+    #else
+    public SecuritiesBalanceType3Choice_ BalanceTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [IsoId("_2lCC4_FjEd-Vb-3Q5jpLDA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Instruction Processing Additional Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InstructionProcessingAdditionalDetails { get; init; } 
+    #else
+    public System.String? InstructionProcessingAdditionalDetails { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "SttldQty", xmlNamespace );
-        SettledQuantity.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (LotNumber is Number2Choice_ LotNumberValue)
-        {
-            writer.WriteStartElement(null, "LotNb", xmlNamespace );
-            LotNumberValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CollateralMonitorAmount is AmountAndDirection9 CollateralMonitorAmountValue)
-        {
-            writer.WriteStartElement(null, "CollMntrAmt", xmlNamespace );
-            CollateralMonitorAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PreviouslySettledQuantity is FinancialInstrumentQuantity1Choice_ PreviouslySettledQuantityValue)
-        {
-            writer.WriteStartElement(null, "PrevslySttldQty", xmlNamespace );
-            PreviouslySettledQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (RemainingToBeSettledQuantity is FinancialInstrumentQuantity1Choice_ RemainingToBeSettledQuantityValue)
-        {
-            writer.WriteStartElement(null, "RmngToBeSttldQty", xmlNamespace );
-            RemainingToBeSettledQuantityValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        SettlementDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AvailableDate is DateAndDateTimeChoice_ AvailableDateValue)
-        {
-            writer.WriteStartElement(null, "AvlblDt", xmlNamespace );
-            AvailableDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CorporateActionEventType is CorporateActionEventType3Choice_ CorporateActionEventTypeValue)
-        {
-            writer.WriteStartElement(null, "CorpActnEvtTp", xmlNamespace );
-            CorporateActionEventTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "BalFr", xmlNamespace );
-        BalanceFrom.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "BalTo", xmlNamespace );
-        BalanceTo.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (InstructionProcessingAdditionalDetails is IsoMax350Text InstructionProcessingAdditionalDetailsValue)
-        {
-            writer.WriteStartElement(null, "InstrPrcgAddtlDtls", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionProcessingAdditionalDetailsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static IntraPositionDetails12 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

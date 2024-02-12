@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between an amount or a rate.
-/// </summary>
-[KnownType(typeof(AmountOrRate4Choice.Amount))]
-[KnownType(typeof(AmountOrRate4Choice.Rate))]
-public abstract partial record AmountOrRate4Choice_ : IIsoXmlSerilizable<AmountOrRate4Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between an amount or a rate.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AmountOrRate4Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AmountOrRate4Choice.Amount))]
+    [KnownType(typeof(AmountOrRate4Choice.Rate))]
+    [IsoId("_xN0ggANwEe2-vqzwMUAewg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount Or Rate 4 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AmountOrRate4Choice_
+    #else
+    public abstract partial class AmountOrRate4Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Amt" => AmountOrRate4Choice.Amount.Deserialize(elementWithPayload),
-             "Rate" => AmountOrRate4Choice.Rate.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AmountOrRate4Choice choice.")
-        };
     }
 }

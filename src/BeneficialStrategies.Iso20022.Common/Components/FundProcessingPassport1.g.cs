@@ -7,127 +7,286 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fund Processing Passsport (FPP) is a fully harmonised document with all key operational information that fund promoters should provide on their investment funds in order to facilitate their trading.
 /// </summary>
+[IsoId("_Q5ZrMtp-Ed-ak6NoX_4Aeg_1497334338")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Fund Processing Passport")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record FundProcessingPassport1
-     : IIsoXmlSerilizable<FundProcessingPassport1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a FundProcessingPassport1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public FundProcessingPassport1( UpdatedDate reqUpdatedDate,SecurityIdentification1 reqSecurityIdentification,ContactAttributes1 reqMainFundOrderDesk,ContactAttributes1 reqFundManagementCompany,FinancialInstrument20 reqFundDetails,ValuationDealingProcessingCharacteristics2 reqValuationDealingCharacteristics,InvestmentRestrictions2 reqInvestmentRestrictions,ProcessingCharacteristics2 reqSubscriptionProcessingCharacteristics,ProcessingCharacteristics3 reqRedemptionProcessingCharacteristics )
+    {
+        UpdatedDate = reqUpdatedDate;
+        SecurityIdentification = reqSecurityIdentification;
+        MainFundOrderDesk = reqMainFundOrderDesk;
+        FundManagementCompany = reqFundManagementCompany;
+        FundDetails = reqFundDetails;
+        ValuationDealingCharacteristics = reqValuationDealingCharacteristics;
+        InvestmentRestrictions = reqInvestmentRestrictions;
+        SubscriptionProcessingCharacteristics = reqSubscriptionProcessingCharacteristics;
+        RedemptionProcessingCharacteristics = reqRedemptionProcessingCharacteristics;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Date of last revision.
     /// </summary>
+    [IsoId("_Q5ZrM9p-Ed-ak6NoX_4Aeg_781465456")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Updated Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UpdatedDate UpdatedDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public UpdatedDate UpdatedDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UpdatedDate UpdatedDate { get; init; } 
+    #else
+    public UpdatedDate UpdatedDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [IsoId("_Q5ZrNNp-Ed-ak6NoX_4Aeg_-501321207")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification1 SecurityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SecurityIdentification1 SecurityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification1 SecurityIdentification { get; init; } 
+    #else
+    public SecurityIdentification1 SecurityIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country of domicile.
     /// </summary>
+    [IsoId("_Q5ZrNdp-Ed-ak6NoX_4Aeg_-628195757")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Main Fund Order Desk")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactAttributes1 MainFundOrderDesk { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ContactAttributes1 MainFundOrderDesk { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes1 MainFundOrderDesk { get; init; } 
+    #else
+    public ContactAttributes1 MainFundOrderDesk { get; set; } 
+    #endif
+    
     /// <summary>
     /// Company that is responsible for the management and operation of the fund, eg, determines the investment strategy, appoints
     /// the service providers, and makes major decisions for the fund. It is usually responsible for the distribution and marketing
     /// of the fund. For self-managed funds, this wlll often be a separate promoter or sponsor of the fund.
     /// </summary>
+    [IsoId("_Q5ZrNtp-Ed-ak6NoX_4Aeg_-1464343138")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Management Company")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactAttributes1 FundManagementCompany { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ContactAttributes1 FundManagementCompany { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ContactAttributes1 FundManagementCompany { get; init; } 
+    #else
+    public ContactAttributes1 FundManagementCompany { get; set; } 
+    #endif
+    
     /// <summary>
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
     /// </summary>
+    [IsoId("_Q5ZrN9p-Ed-ak6NoX_4Aeg_547053647")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fund Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument20 FundDetails { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public FinancialInstrument20 FundDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public FinancialInstrument20 FundDetails { get; init; } 
+    #else
+    public FinancialInstrument20 FundDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [IsoId("_Q5ZrONp-Ed-ak6NoX_4Aeg_1029129650")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Dealing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
+    #else
+    public ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [IsoId("_Q5ZrOdp-Ed-ak6NoX_4Aeg_-477353454")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investment Restrictions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
+    #else
+    public InvestmentRestrictions2 InvestmentRestrictions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [IsoId("_Q5jcMNp-Ed-ak6NoX_4Aeg_269854257")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Subscription Processing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
+    #else
+    public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [IsoId("_Q5jcMdp-Ed-ak6NoX_4Aeg_2027637475")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Processing Characteristics")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
+    #else
+    public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; set; } 
+    #endif
+    
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [IsoId("_Q5jcMtp-Ed-ak6NoX_4Aeg_-1685996653")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
     public CashAccount22? SettlementDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Q5jcMtp-Ed-ak6NoX_4Aeg_-1685996653
+    
     /// <summary>
     /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
     /// </summary>
+    [IsoId("_Q5jcM9p-Ed-ak6NoX_4Aeg_4177264")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Market Annex")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalMarketAnnex2? LocalMarketAnnex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public LocalMarketAnnex2? LocalMarketAnnex { get; init; } 
+    #else
+    public LocalMarketAnnex2? LocalMarketAnnex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
+    [IsoId("_Q5jcNNp-Ed-ak6NoX_4Aeg_113830738")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extension")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Extension1? Extension { get; init; } 
+    #else
+    public Extension1? Extension { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "UpdtdDt", xmlNamespace );
-        UpdatedDate.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SctyId", xmlNamespace );
-        SecurityIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "MainFndOrdrDsk", xmlNamespace );
-        MainFundOrderDesk.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FndMgmtCpny", xmlNamespace );
-        FundManagementCompany.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "FndDtls", xmlNamespace );
-        FundDetails.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValtnDealgChrtcs", xmlNamespace );
-        ValuationDealingCharacteristics.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InvstmtRstrctns", xmlNamespace );
-        InvestmentRestrictions.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SbcptPrcgChrtcs", xmlNamespace );
-        SubscriptionProcessingCharacteristics.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RedPrcgChrtcs", xmlNamespace );
-        RedemptionProcessingCharacteristics.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        // Not sure how to serialize SettlementDetails, multiplicity Unknown
-        if (LocalMarketAnnex is LocalMarketAnnex2 LocalMarketAnnexValue)
-        {
-            writer.WriteStartElement(null, "LclMktAnx", xmlNamespace );
-            LocalMarketAnnexValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Extension is Extension1 ExtensionValue)
-        {
-            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
-            ExtensionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static FundProcessingPassport1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

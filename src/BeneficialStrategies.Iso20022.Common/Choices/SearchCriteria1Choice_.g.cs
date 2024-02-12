@@ -7,36 +7,35 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of search criteria for the financial investigation.
-/// </summary>
-[KnownType(typeof(SearchCriteria1Choice.Account))]
-[KnownType(typeof(SearchCriteria1Choice.CustomerIdentification))]
-[KnownType(typeof(SearchCriteria1Choice.PaymentInstrument))]
-[KnownType(typeof(SearchCriteria1Choice.OriginalTransactionNumber))]
-public abstract partial record SearchCriteria1Choice_ : IIsoXmlSerilizable<SearchCriteria1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of search criteria for the financial investigation.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static SearchCriteria1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(SearchCriteria1Choice.Account))]
+    [KnownType(typeof(SearchCriteria1Choice.CustomerIdentification))]
+    [KnownType(typeof(SearchCriteria1Choice.PaymentInstrument))]
+    [KnownType(typeof(SearchCriteria1Choice.OriginalTransactionNumber))]
+    [IsoId("_sxyTUDv7EeGKuZXNQxGH3g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Search Criteria 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record SearchCriteria1Choice_
+    #else
+    public abstract partial class SearchCriteria1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Acct" => SearchCriteria1Choice.Account.Deserialize(elementWithPayload),
-             "CstmrId" => SearchCriteria1Choice.CustomerIdentification.Deserialize(elementWithPayload),
-             "PmtInstrm" => SearchCriteria1Choice.PaymentInstrument.Deserialize(elementWithPayload),
-             "OrgnlTxNb" => SearchCriteria1Choice.OriginalTransactionNumber.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid SearchCriteria1Choice choice.")
-        };
     }
 }

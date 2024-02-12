@@ -9,54 +9,116 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification5Choice;
-
-/// <summary>
-/// Business identification of the payment instruction given by the clearing agent.
-/// </summary>
-public partial record ShortBusinessIdentification : PaymentIdentification5Choice_
-     , IIsoXmlSerilizable<ShortBusinessIdentification>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification5Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.|Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.|Usage: this is the former PaymentInstructionReference element.
+    /// Business identification of the payment instruction given by the clearing agent.
     /// </summary>
-    public required IsoMax35Text TransactionIdentification { get; init; } 
-    /// <summary>
-    /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
-    /// </summary>
-    public required IsoISODate InterBankSettlementDate { get; init; } 
-    /// <summary>
-    /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
-    /// </summary>
-    public required BranchAndFinancialInstitutionIdentification5 InstructingAgent { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_UpdMF5lQEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Short Business Identification")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ShortBusinessIdentification : PaymentIdentification5Choice_
+    #else
+    public partial class ShortBusinessIdentification : PaymentIdentification5Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "TxId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(InterBankSettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
-        InstructingAgent.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new ShortBusinessIdentification Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ShortBusinessIdentification instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ShortBusinessIdentification( System.String reqTransactionIdentification,System.DateOnly reqInterBankSettlementDate,BranchAndFinancialInstitutionIdentification5 reqInstructingAgent )
+        {
+            TransactionIdentification = reqTransactionIdentification;
+            InterBankSettlementDate = reqInterBankSettlementDate;
+            InstructingAgent = reqInstructingAgent;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.|Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.|Usage: this is the former PaymentInstructionReference element.
+        /// </summary>
+        [IsoId("_8Dfh8aMgEeCJ6YNENx4h-w_514548987")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Transaction Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoMax35Text TransactionIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.String TransactionIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String TransactionIdentification { get; init; } 
+        #else
+        public System.String TransactionIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
+        /// </summary>
+        [IsoId("_8Dfh8qMgEeCJ6YNENx4h-w_750013642")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Inter Bank Settlement Date")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required IsoISODate InterBankSettlementDate { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public System.DateOnly InterBankSettlementDate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.DateOnly InterBankSettlementDate { get; init; } 
+        #else
+        public System.DateOnly InterBankSettlementDate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
+        /// </summary>
+        [IsoId("_8Dfh86MgEeCJ6YNENx4h-w_1828033980")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Instructing Agent")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required BranchAndFinancialInstitutionIdentification5 InstructingAgent { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public BranchAndFinancialInstitutionIdentification5 InstructingAgent { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public BranchAndFinancialInstitutionIdentification5 InstructingAgent { get; init; } 
+        #else
+        public BranchAndFinancialInstitutionIdentification5 InstructingAgent { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

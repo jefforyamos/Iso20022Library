@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reports either on a member or a business error.
-/// </summary>
-[KnownType(typeof(MemberReportOrError6Choice.Member))]
-[KnownType(typeof(MemberReportOrError6Choice.BusinessError))]
-public abstract partial record MemberReportOrError6Choice_ : IIsoXmlSerilizable<MemberReportOrError6Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reports either on a member or a business error.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static MemberReportOrError6Choice_ Deserialize(XElement element)
+    [KnownType(typeof(MemberReportOrError6Choice.Member))]
+    [KnownType(typeof(MemberReportOrError6Choice.BusinessError))]
+    [IsoId("_j3hRJXSbEeiH1ZOt2UD8vQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Member Report Or Error 6 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record MemberReportOrError6Choice_
+    #else
+    public abstract partial class MemberReportOrError6Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Mmb" => MemberReportOrError6Choice.Member.Deserialize(elementWithPayload),
-             "BizErr" => MemberReportOrError6Choice.BusinessError.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid MemberReportOrError6Choice choice.")
-        };
     }
 }

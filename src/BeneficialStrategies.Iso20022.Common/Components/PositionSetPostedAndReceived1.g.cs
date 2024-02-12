@@ -7,58 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[IsoId("_9h9p68WLEeiRga8tPu1L4Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Position Set Posted And Received")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PositionSetPostedAndReceived1
-     : IIsoXmlSerilizable<PositionSetPostedAndReceived1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value posted by the reporting counterparty. 
     /// Usage: This field should include the overall value posted for the portfolio.
     /// </summary>
+    [IsoId("_9h9p7MWLEeiRga8tPu1L4Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Posted")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Posted { get; init; } 
+    #else
+    public System.Decimal? Posted { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value received by the reporting counterparty. 
     /// Usage: This field should include the overall value received for the portfolio.
     /// </summary>
+    [IsoId("_9h9p7cWLEeiRga8tPu1L4Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Received")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Received { get; init; } 
+    #else
+    public System.Decimal? Received { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Posted is IsoActiveOrHistoricCurrencyAnd20Amount PostedValue)
-        {
-            writer.WriteStartElement(null, "Pstd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20Amount(PostedValue)); // data type ActiveOrHistoricCurrencyAnd20Amount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Received is IsoActiveOrHistoricCurrencyAnd20Amount ReceivedValue)
-        {
-            writer.WriteStartElement(null, "Rcvd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20Amount(ReceivedValue)); // data type ActiveOrHistoricCurrencyAnd20Amount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static PositionSetPostedAndReceived1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

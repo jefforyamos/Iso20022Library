@@ -7,142 +7,316 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the settlement of a treasury trade.
 /// </summary>
+[IsoId("_TJMjldp-Ed-ak6NoX_4Aeg_1219011122")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Settlement Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SettlementData2
-     : IIsoXmlSerilizable<SettlementData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a SettlementData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public SettlementData2( System.Decimal reqSettlementAmount,PartyIdentification8Choice_ reqPayingParty,PartyIdentification8Choice_ reqReceivingParty,System.DateOnly reqSettlementDate,SettlementStatus1Code reqSettlementStatus,System.String reqExtendedSettlementStatus,System.String reqSuspended,System.String reqPending )
+    {
+        SettlementAmount = reqSettlementAmount;
+        PayingParty = reqPayingParty;
+        ReceivingParty = reqReceivingParty;
+        SettlementDate = reqSettlementDate;
+        SettlementStatus = reqSettlementStatus;
+        ExtendedSettlementStatus = reqExtendedSettlementStatus;
+        Suspended = reqSuspended;
+        Pending = reqPending;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique reference supplied by the trade processing system.
     /// </summary>
+    [IsoId("_TJMjltp-Ed-ak6NoX_4Aeg_1219011217")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Flow Unique Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashFlowUniqueReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? CashFlowUniqueReference { get; init; } 
+    #else
+    public System.String? CashFlowUniqueReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique reference assigned by a settlement system.
     /// </summary>
+    [IsoId("_TJMjl9p-Ed-ak6NoX_4Aeg_1219011546")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement System Unique Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SettlementSystemUniqueReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementSystemUniqueReference { get; init; } 
+    #else
+    public System.String? SettlementSystemUniqueReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Original amount which should be settled. This information should be provided when the trade is partially settled or when the settlement is rejected.
     /// </summary>
+    [IsoId("_TJMjmNp-Ed-ak6NoX_4Aeg_1219011529")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount SettlementAmount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.Decimal SettlementAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal SettlementAmount { get; init; } 
+    #else
+    public System.Decimal SettlementAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Funds which the trading side is expected to receive.
     /// </summary>
+    [IsoId("_TJWUkNp-Ed-ak6NoX_4Aeg_1219011494")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settled Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? SettledAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SettledAmount { get; init; } 
+    #else
+    public System.Decimal? SettledAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount that cannot be settled by a settlement system.
     /// </summary>
+    [IsoId("_TJWUkdp-Ed-ak6NoX_4Aeg_1219011606")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? RejectedAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? RejectedAmount { get; init; } 
+    #else
+    public System.Decimal? RejectedAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the party that pays the settlement amount.
     /// </summary>
+    [IsoId("_TJWUktp-Ed-ak6NoX_4Aeg_1219011900")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Paying Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8Choice_ PayingParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification8Choice_ PayingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification8Choice_ PayingParty { get; init; } 
+    #else
+    public PartyIdentification8Choice_ PayingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the party that receives the settlement amount.
     /// </summary>
+    [IsoId("_TJWUk9p-Ed-ak6NoX_4Aeg_1219011959")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Receiving Party")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8Choice_ ReceivingParty { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PartyIdentification8Choice_ ReceivingParty { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification8Choice_ ReceivingParty { get; init; } 
+    #else
+    public PartyIdentification8Choice_ ReceivingParty { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the settlement is due to settle.
     /// </summary>
+    [IsoId("_TJWUlNp-Ed-ak6NoX_4Aeg_1219011139")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly SettlementDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly SettlementDate { get; init; } 
+    #else
+    public System.DateOnly SettlementDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of a settlement eg rejected, settled or awaiting authorisation.
     /// </summary>
+    [IsoId("_TJWUldp-Ed-ak6NoX_4Aeg_1219011157")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementStatus1Code SettlementStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SettlementStatus1Code SettlementStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SettlementStatus1Code SettlementStatus { get; init; } 
+    #else
+    public SettlementStatus1Code SettlementStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Description of the status of the settlement of a trade when no coded form is available.
     /// </summary>
+    [IsoId("_TJWUltp-Ed-ak6NoX_4Aeg_1219011564")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Extended Settlement Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedSettlementStatus { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ExtendedSettlementStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ExtendedSettlementStatus { get; init; } 
+    #else
+    public System.String ExtendedSettlementStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the cause of the rejection of a settlement.
     /// </summary>
+    [IsoId("_TJWUl9p-Ed-ak6NoX_4Aeg_1219011174")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Settlement Status Sub Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SettlementStatusSubType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SettlementStatusSubType { get; init; } 
+    #else
+    public System.String? SettlementStatusSubType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash settlement is suspended.
     /// </summary>
+    [IsoId("_TJWUmNp-Ed-ak6NoX_4Aeg_1219011234")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Suspended")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Suspended { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Suspended { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Suspended { get; init; } 
+    #else
+    public System.String Suspended { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash settlement is pending.
     /// </summary>
+    [IsoId("_TJWUmdp-Ed-ak6NoX_4Aeg_1219011469")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pending")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Pending { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Pending { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Pending { get; init; } 
+    #else
+    public System.String Pending { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (CashFlowUniqueReference is IsoMax35Text CashFlowUniqueReferenceValue)
-        {
-            writer.WriteStartElement(null, "CshFlowUnqRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashFlowUniqueReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (SettlementSystemUniqueReference is IsoMax35Text SettlementSystemUniqueReferenceValue)
-        {
-            writer.WriteStartElement(null, "SttlmSysUnqRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SettlementSystemUniqueReferenceValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(SettlementAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-        writer.WriteEndElement();
-        if (SettledAmount is IsoActiveOrHistoricCurrencyAndAmount SettledAmountValue)
-        {
-            writer.WriteStartElement(null, "SttldAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(SettledAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (RejectedAmount is IsoActiveOrHistoricCurrencyAndAmount RejectedAmountValue)
-        {
-            writer.WriteStartElement(null, "RjctdAmt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(RejectedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "PngPty", xmlNamespace );
-        PayingParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "RcvgPty", xmlNamespace );
-        ReceivingParty.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
-        writer.WriteValue(SettlementStatus.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "XtndedSttlmSts", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedSettlementStatus)); // data type Extended350Code System.String
-        writer.WriteEndElement();
-        if (SettlementStatusSubType is IsoMax70Text SettlementStatusSubTypeValue)
-        {
-            writer.WriteStartElement(null, "SttlmStsSubTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(SettlementStatusSubTypeValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Sspd", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Suspended)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Pdg", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Pending)); // data type YesNoIndicator System.String
-        writer.WriteEndElement();
-    }
-    public static SettlementData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

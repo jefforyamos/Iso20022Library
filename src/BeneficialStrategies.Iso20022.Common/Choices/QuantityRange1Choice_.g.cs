@@ -7,38 +7,36 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between ranges of values in which a quantity is considered valid or a specified quantity value which has to be matched or unmatched to be valid.
-/// </summary>
-[KnownType(typeof(QuantityRange1Choice.FromQuantity))]
-[KnownType(typeof(QuantityRange1Choice.ToQuantity))]
-[KnownType(typeof(QuantityRange1Choice.FromToQuantity))]
-[KnownType(typeof(QuantityRange1Choice.EqualQuantity))]
-[KnownType(typeof(QuantityRange1Choice.NotEqualQuantity))]
-public abstract partial record QuantityRange1Choice_ : IIsoXmlSerilizable<QuantityRange1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between ranges of values in which a quantity is considered valid or a specified quantity value which has to be matched or unmatched to be valid.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static QuantityRange1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(QuantityRange1Choice.FromQuantity))]
+    [KnownType(typeof(QuantityRange1Choice.ToQuantity))]
+    [KnownType(typeof(QuantityRange1Choice.FromToQuantity))]
+    [KnownType(typeof(QuantityRange1Choice.EqualQuantity))]
+    [KnownType(typeof(QuantityRange1Choice.NotEqualQuantity))]
+    [IsoId("_jtHuFO5NEeCisYr99QEiWA_-1373711231")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Quantity Range 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record QuantityRange1Choice_
+    #else
+    public abstract partial class QuantityRange1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "FrQty" => QuantityRange1Choice.FromQuantity.Deserialize(elementWithPayload),
-             "ToQty" => QuantityRange1Choice.ToQuantity.Deserialize(elementWithPayload),
-             "FrToQty" => QuantityRange1Choice.FromToQuantity.Deserialize(elementWithPayload),
-             "EQQty" => QuantityRange1Choice.EqualQuantity.Deserialize(elementWithPayload),
-             "NEQQty" => QuantityRange1Choice.NotEqualQuantity.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid QuantityRange1Choice choice.")
-        };
     }
 }

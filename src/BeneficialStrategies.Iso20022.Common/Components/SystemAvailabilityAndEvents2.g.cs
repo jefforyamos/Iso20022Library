@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details about the system availability and the related system events that might impact the availability.
 /// </summary>
+[IsoId("_xbmERZlcEeeE1Ya-LgRsuQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("System Availability And Events")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record SystemAvailabilityAndEvents2
-     : IIsoXmlSerilizable<SystemAvailabilityAndEvents2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
+    [IsoId("_xkRfI5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("System Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SystemCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? SystemCurrency { get; init; } 
+    #else
+    public string? SystemCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Time window of system activity.
     /// </summary>
+    [IsoId("_xkRfJZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Session Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimePeriod1? SessionPeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TimePeriod1? SessionPeriod { get; init; } 
+    #else
+    public TimePeriod1? SessionPeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information about an event occurring on a system, whether planned, such as the cut-off time for a specific type of eligible transfer, or unplanned (an unsolicited failure), as stipulated in the specifications of the system.
     /// </summary>
+    [IsoId("_xkRfJ5lcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Event")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemEvent2? Event { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemEvent2? Event { get; init; } 
+    #else
+    public SystemEvent2? Event { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information regarding the closure time of a system.
     /// </summary>
+    [IsoId("_xkRfKZlcEeeE1Ya-LgRsuQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Closure Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemClosure2? ClosureInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemClosure2? ClosureInformation { get; init; } 
+    #else
+    public SystemClosure2? ClosureInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (SystemCurrency is ActiveCurrencyCode SystemCurrencyValue)
-        {
-            writer.WriteStartElement(null, "SysCcy", xmlNamespace );
-            writer.WriteValue(SystemCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (SessionPeriod is TimePeriod1 SessionPeriodValue)
-        {
-            writer.WriteStartElement(null, "SsnPrd", xmlNamespace );
-            SessionPeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Event is SystemEvent2 EventValue)
-        {
-            writer.WriteStartElement(null, "Evt", xmlNamespace );
-            EventValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ClosureInformation is SystemClosure2 ClosureInformationValue)
-        {
-            writer.WriteStartElement(null, "ClsrInf", xmlNamespace );
-            ClosureInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static SystemAvailabilityAndEvents2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

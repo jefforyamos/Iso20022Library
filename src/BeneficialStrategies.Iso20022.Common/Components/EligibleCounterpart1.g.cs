@@ -7,81 +7,169 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Represents a party to be identified as eligible for the instructing party.
 /// </summary>
+[IsoId("_jA3FAu5NEeCisYr99QEiWA_640889809")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Eligible Counterpart")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record EligibleCounterpart1
-     : IIsoXmlSerilizable<EligibleCounterpart1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a EligibleCounterpart1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public EligibleCounterpart1( SystemPartyIdentification1Choice_ reqIssuerIdentification,SystemPartyIdentification1Choice_ reqEligibleCounterpartIdentification,System.DateOnly reqValidFrom,EligibilityType1Code reqEligibilityType,EligibilityIdentification1Choice_ reqEligibilityIdentification )
+    {
+        IssuerIdentification = reqIssuerIdentification;
+        EligibleCounterpartIdentification = reqEligibleCounterpartIdentification;
+        ValidFrom = reqValidFrom;
+        EligibilityType = reqEligibilityType;
+        EligibilityIdentification = reqEligibilityIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique business identifier code used to identify the party providing the eligible counterpart information.
     /// </summary>
+    [IsoId("_jA3FA-5NEeCisYr99QEiWA_1268620979")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Issuer Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
+    #else
+    public SystemPartyIdentification1Choice_ IssuerIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique business identifier code used to identify the central securities depository to be defined as eligible.
     /// </summary>
+    [IsoId("_jA3FBO5NEeCisYr99QEiWA_758214850")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligible Counterpart Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
+    #else
+    public SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date from when the eligible counterpart is valid.
     /// </summary>
+    [IsoId("_jBA2AO5NEeCisYr99QEiWA_1781725699")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valid From")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValidFrom { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateOnly ValidFrom { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly ValidFrom { get; init; } 
+    #else
+    public System.DateOnly ValidFrom { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date until when the eligible counterpart is valid.
     /// </summary>
+    [IsoId("_jBA2Ae5NEeCisYr99QEiWA_-852427203")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valid To")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidTo { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ValidTo { get; init; } 
+    #else
+    public System.DateOnly? ValidTo { get; set; } 
+    #endif
+    
     /// <summary>
     /// Defines the type of eligibility.
     /// </summary>
+    [IsoId("_jBA2Au5NEeCisYr99QEiWA_208099130")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligibility Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EligibilityType1Code EligibilityType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EligibilityType1Code EligibilityType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EligibilityType1Code EligibilityType { get; init; } 
+    #else
+    public EligibilityType1Code EligibilityType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification of the eligible counterpart party.
     /// </summary>
+    [IsoId("_jBA2A-5NEeCisYr99QEiWA_-730913403")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Eligibility Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
+    #else
+    public EligibilityIdentification1Choice_ EligibilityIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IssrId", xmlNamespace );
-        IssuerIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ElgblCntrptId", xmlNamespace );
-        EligibleCounterpartIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "VldFr", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODate(ValidFrom)); // data type ISODate System.DateOnly
-        writer.WriteEndElement();
-        if (ValidTo is IsoISODate ValidToValue)
-        {
-            writer.WriteStartElement(null, "VldTo", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ValidToValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "ElgbltyTp", xmlNamespace );
-        writer.WriteValue(EligibilityType.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ElgbltyId", xmlNamespace );
-        EligibilityIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static EligibleCounterpart1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

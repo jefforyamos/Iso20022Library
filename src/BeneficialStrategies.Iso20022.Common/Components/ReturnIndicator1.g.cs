@@ -7,70 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the return indicators and the investigation result.
 /// </summary>
+[IsoId("_o8EakzzuEeGl7N0Cd54dlw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Return Indicator")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReturnIndicator1
-     : IIsoXmlSerilizable<ReturnIndicator1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReturnIndicator1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReturnIndicator1( AuthorityRequestType1 reqAuthorityRequestType,InvestigationResult1Choice_ reqInvestigationResult )
+    {
+        AuthorityRequestType = reqAuthorityRequestType;
+        InvestigationResult = reqInvestigationResult;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Specifies the dates between which period the response results relate to.
     /// </summary>
+    [IsoId("_c3ykVUMYEeGOTYFglkhSbA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Response Period")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrDateTimePeriodChoice_? ResponsePeriod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateOrDateTimePeriodChoice_? ResponsePeriod { get; init; } 
+    #else
+    public DateOrDateTimePeriodChoice_? ResponsePeriod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
+    [IsoId("_rb9kgTzuEeGl7N0Cd54dlw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authority Request Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthorityRequestType1 AuthorityRequestType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AuthorityRequestType1 AuthorityRequestType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AuthorityRequestType1 AuthorityRequestType { get; init; } 
+    #else
+    public AuthorityRequestType1 AuthorityRequestType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the investigation result.
     /// </summary>
+    [IsoId("_uWrCITzuEeGl7N0Cd54dlw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Investigation Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationResult1Choice_ InvestigationResult { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public InvestigationResult1Choice_ InvestigationResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InvestigationResult1Choice_ InvestigationResult { get; init; } 
+    #else
+    public InvestigationResult1Choice_ InvestigationResult { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information, in free text form, to complement the investigation result.
     /// </summary>
+    [IsoId("_10Z_ATzuEeGl7N0Cd54dlw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 500 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ResponsePeriod is DateOrDateTimePeriodChoice_ ResponsePeriodValue)
-        {
-            writer.WriteStartElement(null, "RspnPrd", xmlNamespace );
-            ResponsePeriodValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AuthrtyReqTp", xmlNamespace );
-        AuthorityRequestType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "InvstgtnRslt", xmlNamespace );
-        InvestigationResult.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static ReturnIndicator1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

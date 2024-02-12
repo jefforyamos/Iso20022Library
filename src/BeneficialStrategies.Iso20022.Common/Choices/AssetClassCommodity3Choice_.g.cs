@@ -7,56 +7,45 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice to define commodity specific attributes of a derivative.
-/// </summary>
-[KnownType(typeof(AssetClassCommodity3Choice.Agricultural))]
-[KnownType(typeof(AssetClassCommodity3Choice.Energy))]
-[KnownType(typeof(AssetClassCommodity3Choice.Environmental))]
-[KnownType(typeof(AssetClassCommodity3Choice.Fertilizer))]
-[KnownType(typeof(AssetClassCommodity3Choice.Freight))]
-[KnownType(typeof(AssetClassCommodity3Choice.IndustrialProduct))]
-[KnownType(typeof(AssetClassCommodity3Choice.Metal))]
-[KnownType(typeof(AssetClassCommodity3Choice.OtherC10))]
-[KnownType(typeof(AssetClassCommodity3Choice.Paper))]
-[KnownType(typeof(AssetClassCommodity3Choice.Polypropylene))]
-[KnownType(typeof(AssetClassCommodity3Choice.Inflation))]
-[KnownType(typeof(AssetClassCommodity3Choice.MultiCommodityExotic))]
-[KnownType(typeof(AssetClassCommodity3Choice.OfficialEconomicStatistics))]
-[KnownType(typeof(AssetClassCommodity3Choice.Other))]
-public abstract partial record AssetClassCommodity3Choice_ : IIsoXmlSerilizable<AssetClassCommodity3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice to define commodity specific attributes of a derivative.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AssetClassCommodity3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AssetClassCommodity3Choice.Agricultural))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Energy))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Environmental))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Fertilizer))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Freight))]
+    [KnownType(typeof(AssetClassCommodity3Choice.IndustrialProduct))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Metal))]
+    [KnownType(typeof(AssetClassCommodity3Choice.OtherC10))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Paper))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Polypropylene))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Inflation))]
+    [KnownType(typeof(AssetClassCommodity3Choice.MultiCommodityExotic))]
+    [KnownType(typeof(AssetClassCommodity3Choice.OfficialEconomicStatistics))]
+    [KnownType(typeof(AssetClassCommodity3Choice.Other))]
+    [IsoId("_lKiggXvyEeanCNPcMT7sSg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Asset Class Commodity 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AssetClassCommodity3Choice_
+    #else
+    public abstract partial class AssetClassCommodity3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Agrcltrl" => AssetClassCommodity3Choice.Agricultural.Deserialize(elementWithPayload),
-             "Nrgy" => AssetClassCommodity3Choice.Energy.Deserialize(elementWithPayload),
-             "Envttl" => AssetClassCommodity3Choice.Environmental.Deserialize(elementWithPayload),
-             "Frtlzr" => AssetClassCommodity3Choice.Fertilizer.Deserialize(elementWithPayload),
-             "Frght" => AssetClassCommodity3Choice.Freight.Deserialize(elementWithPayload),
-             "IndstrlPdct" => AssetClassCommodity3Choice.IndustrialProduct.Deserialize(elementWithPayload),
-             "Metl" => AssetClassCommodity3Choice.Metal.Deserialize(elementWithPayload),
-             "OthrC10" => AssetClassCommodity3Choice.OtherC10.Deserialize(elementWithPayload),
-             "Ppr" => AssetClassCommodity3Choice.Paper.Deserialize(elementWithPayload),
-             "Plprpln" => AssetClassCommodity3Choice.Polypropylene.Deserialize(elementWithPayload),
-             "Infltn" => AssetClassCommodity3Choice.Inflation.Deserialize(elementWithPayload),
-             "MultiCmmdtyExtc" => AssetClassCommodity3Choice.MultiCommodityExotic.Deserialize(elementWithPayload),
-             "OffclEcnmcSttstcs" => AssetClassCommodity3Choice.OfficialEconomicStatistics.Deserialize(elementWithPayload),
-             "Othr" => AssetClassCommodity3Choice.Other.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AssetClassCommodity3Choice choice.")
-        };
     }
 }

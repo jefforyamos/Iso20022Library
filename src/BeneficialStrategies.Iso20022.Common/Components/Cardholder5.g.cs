@@ -7,116 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
+[IsoId("_47TdkS_uEeO4w-IWHJMI9g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Cardholder")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Cardholder5
-     : IIsoXmlSerilizable<Cardholder5>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
+    [IsoId("_5KB2ES_uEeO4w-IWHJMI9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PersonIdentification7? Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PersonIdentification7? Identification { get; init; } 
+    #else
+    public PersonIdentification7? Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
+    [IsoId("_5KB2Ey_uEeO4w-IWHJMI9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 45 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax45Text? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Name { get; init; } 
+    #else
+    public System.String? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// </summary>
+    [IsoId("_5KB2FS_uEeO4w-IWHJMI9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Language")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO2ALanguageCode? Language { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? Language { get; init; } 
+    #else
+    public string? Language { get; set; } 
+    #endif
+    
     /// <summary>
     /// Postal address of the owner of the payment card.
     /// </summary>
+    [IsoId("_wPxEAEt9EeOC3MFxIpMwug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Billing Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress13? BillingAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress13? BillingAddress { get; init; } 
+    #else
+    public PostalAddress13? BillingAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Postal address for delivery of goods or services.
     /// </summary>
+    [IsoId("_dHy7UEuCEeOC3MFxIpMwug")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Shipping Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress13? ShippingAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PostalAddress13? ShippingAddress { get; init; } 
+    #else
+    public PostalAddress13? ShippingAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Data related to the authentication of the cardholder.
     /// </summary>
+    [IsoId("_5KB2Fy_uEeO4w-IWHJMI9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Authentication")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderAuthentication5? Authentication { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CardholderAuthentication5? Authentication { get; init; } 
+    #else
+    public CardholderAuthentication5? Authentication { get; set; } 
+    #endif
+    
     /// <summary>
     /// Numeric characters of the cardholder's address for verification.
     /// </summary>
+    [IsoId("_5KB2GS_uEeO4w-IWHJMI9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address Verification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressVerification1? AddressVerification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AddressVerification1? AddressVerification { get; init; } 
+    #else
+    public AddressVerification1? AddressVerification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
+    [IsoId("_5KB2Gy_uEeO4w-IWHJMI9g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Personal Data")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? PersonalData { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? PersonalData { get; init; } 
+    #else
+    public System.String? PersonalData { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Identification is PersonIdentification7 IdentificationValue)
-        {
-            writer.WriteStartElement(null, "Id", xmlNamespace );
-            IdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Name is IsoMax45Text NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax45Text(NameValue)); // data type Max45Text System.String
-            writer.WriteEndElement();
-        }
-        if (Language is ISO2ALanguageCode LanguageValue)
-        {
-            writer.WriteStartElement(null, "Lang", xmlNamespace );
-            writer.WriteValue(LanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BillingAddress is PostalAddress13 BillingAddressValue)
-        {
-            writer.WriteStartElement(null, "BllgAdr", xmlNamespace );
-            BillingAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ShippingAddress is PostalAddress13 ShippingAddressValue)
-        {
-            writer.WriteStartElement(null, "ShppgAdr", xmlNamespace );
-            ShippingAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Authentication is CardholderAuthentication5 AuthenticationValue)
-        {
-            writer.WriteStartElement(null, "Authntcn", xmlNamespace );
-            AuthenticationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AddressVerification is AddressVerification1 AddressVerificationValue)
-        {
-            writer.WriteStartElement(null, "AdrVrfctn", xmlNamespace );
-            AddressVerificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PersonalData is IsoMax70Text PersonalDataValue)
-        {
-            writer.WriteStartElement(null, "PrsnlData", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(PersonalDataValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static Cardholder5 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

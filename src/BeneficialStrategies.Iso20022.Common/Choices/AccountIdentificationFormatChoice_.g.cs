@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice between formats for account identification.
-/// </summary>
-[KnownType(typeof(AccountIdentificationFormatChoice.SimpleIdentification))]
-[KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose))]
-[KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS))]
-public abstract partial record AccountIdentificationFormatChoice_ : IIsoXmlSerilizable<AccountIdentificationFormatChoice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice between formats for account identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AccountIdentificationFormatChoice_ Deserialize(XElement element)
+    [KnownType(typeof(AccountIdentificationFormatChoice.SimpleIdentification))]
+    [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose))]
+    [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS))]
+    [IsoId("_RBvu5dp-Ed-ak6NoX_4Aeg_1713990380")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account Identification Format Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AccountIdentificationFormatChoice_
+    #else
+    public abstract partial class AccountIdentificationFormatChoice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "SmplId" => AccountIdentificationFormatChoice.SimpleIdentification.Deserialize(elementWithPayload),
-             "IdAndPurp" => AccountIdentificationFormatChoice.IdentificationAndPurpose.Deserialize(elementWithPayload),
-             "IdAsDSS" => AccountIdentificationFormatChoice.IdentificationAsDSS.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AccountIdentificationFormatChoice choice.")
-        };
     }
 }

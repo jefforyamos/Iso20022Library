@@ -7,76 +7,118 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List trading by which the buy-side provides details to the sell-side information about the sector, country, index and potential market impact of the financial instrument to be bought or sold. Using this information, the sell-side firms bid for the trade.
 /// </summary>
+[IsoId("_S07jwdp-Ed-ak6NoX_4Aeg_986706325")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Non Disclosed Bid")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record NonDisclosedBid2
-     : IIsoXmlSerilizable<NonDisclosedBid2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the currency) of all securities of a list.
     /// </summary>
+    [IsoId("_S07jwtp-Ed-ak6NoX_4Aeg_1205583746")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid By Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BidByCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? BidByCurrency { get; init; } 
+    #else
+    public string? BidByCurrency { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the sector) of all securities of a list.
     /// </summary>
+    [IsoId("_S07jw9p-Ed-ak6NoX_4Aeg_1206503753")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid By Sector")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 128 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? BidBySector { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BidBySector { get; init; } 
+    #else
+    public System.String? BidBySector { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the index) of all securities of a list.
     /// </summary>
+    [IsoId("_S07jxNp-Ed-ak6NoX_4Aeg_1206503778")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Bid By Index")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 128 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? BidByIndex { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? BidByIndex { get; init; } 
+    #else
+    public System.String? BidByIndex { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference between the value of a future and the value of the underlying equities after allowing for the discounted cash flows associated with the underlying stocks.
     /// </summary>
+    [IsoId("_S07jxdp-Ed-ak6NoX_4Aeg_-1304220816")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fair Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FairValue { get; init; } 
+    #else
+    public System.Decimal? FairValue { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (BidByCurrency is CountryCode BidByCurrencyValue)
-        {
-            writer.WriteStartElement(null, "BidByCcy", xmlNamespace );
-            writer.WriteValue(BidByCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (BidBySector is IsoMax128Text BidBySectorValue)
-        {
-            writer.WriteStartElement(null, "BidBySctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax128Text(BidBySectorValue)); // data type Max128Text System.String
-            writer.WriteEndElement();
-        }
-        if (BidByIndex is IsoMax128Text BidByIndexValue)
-        {
-            writer.WriteStartElement(null, "BidByIndx", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax128Text(BidByIndexValue)); // data type Max128Text System.String
-            writer.WriteEndElement();
-        }
-        if (FairValue is IsoActiveCurrencyAndAmount FairValueValue)
-        {
-            writer.WriteStartElement(null, "FairVal", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FairValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static NonDisclosedBid2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

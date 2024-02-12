@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements for the identification of the message and related references.
 /// </summary>
+[IsoId("_Qn9899p-Ed-ak6NoX_4Aeg_-250058534")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("References")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record References4
-     : IIsoXmlSerilizable<References4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a References4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public References4( MessageIdentification1 reqMessageIdentification,MessageIdentification1 reqProcessIdentification )
+    {
+        MessageIdentification = reqMessageIdentification;
+        ProcessIdentification = reqProcessIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
     /// </summary>
+    [IsoId("_Qn98-Np-Ed-ak6NoX_4Aeg_1903788067")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Message Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MessageIdentification1 MessageIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageIdentification1 MessageIdentification { get; init; } 
+    #else
+    public MessageIdentification1 MessageIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies a process by a unique identifier and the date and time when the first message belonging to the process was created by the sender. The process identification remains the same in all messages belonging to the same process, from the initial request message to the final account report closing the process.
     /// </summary>
+    [IsoId("_QoHt8Np-Ed-ak6NoX_4Aeg_1445785286")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Process Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ProcessIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MessageIdentification1 ProcessIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageIdentification1 ProcessIdentification { get; init; } 
+    #else
+    public MessageIdentification1 ProcessIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
+    [IsoId("_QoHt8dp-Ed-ak6NoX_4Aeg_-938129435")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Attached Document Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AttachedDocumentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AttachedDocumentName { get; init; } 
+    #else
+    public System.String? AttachedDocumentName { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "MsgId", xmlNamespace );
-        MessageIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PrcId", xmlNamespace );
-        ProcessIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (AttachedDocumentName is IsoMax70Text AttachedDocumentNameValue)
-        {
-            writer.WriteStartElement(null, "AttchdDocNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(AttachedDocumentNameValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static References4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

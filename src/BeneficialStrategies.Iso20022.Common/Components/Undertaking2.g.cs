@@ -7,113 +7,185 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
+[IsoId("_916yAnltEeG7BsjMvd1mEw_562975782")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Undertaking")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Undertaking2
-     : IIsoXmlSerilizable<Undertaking2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Undertaking name.
     /// </summary>
+    [IsoId("_8Skgo4LIEeGwNp5ZjMErfw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingName1Code? Name { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingName1Code? Name { get; init; } 
+    #else
+    public UndertakingName1Code? Name { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party in whose favour the counter-undertaking is issued.
     /// </summary>
+    [IsoId("_916yA3ltEeG7BsjMvd1mEw_1423077489")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Beneficiary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Beneficiary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification43? Beneficiary { get; init; } 
+    #else
+    public PartyIdentification43? Beneficiary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the expiry terms of the counter-undertaking.
     /// </summary>
+    [IsoId("_nltCUhR7EeKyNbjzgBLUcA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expiry Details")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpiryDetails2? ExpiryDetails { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExpiryDetails2? ExpiryDetails { get; init; } 
+    #else
+    public ExpiryDetails2? ExpiryDetails { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details related to the amount of the counter-undertaking.
     /// </summary>
+    [IsoId("_916yBXltEeG7BsjMvd1mEw_-1180399069")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Counter Undertaking Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingAmount1? CounterUndertakingAmount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public UndertakingAmount1? CounterUndertakingAmount { get; init; } 
+    #else
+    public UndertakingAmount1? CounterUndertakingAmount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
+    [IsoId("_92D78HltEeG7BsjMvd1mEw_1953031282")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Confirmation Charges Payable By")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
+    #else
+    public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rules and laws governing the counter-undertaking.
     /// </summary>
+    [IsoId("_92D78XltEeG7BsjMvd1mEw_-138238292")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Governance Rules And Law")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GovernanceRules1? GovernanceRulesAndLaw { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GovernanceRules1? GovernanceRulesAndLaw { get; init; } 
+    #else
+    public GovernanceRules1? GovernanceRulesAndLaw { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indication as to whether a claim is to utilise a standard claim form of the issuing institution.
     /// </summary>
+    [IsoId("_92D78nltEeG7BsjMvd1mEw_816197846")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Standard Claim Document Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StandardClaimDocumentIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? StandardClaimDocumentIndicator { get; init; } 
+    #else
+    public System.String? StandardClaimDocumentIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information related to the counter-undertaking.
     /// </summary>
-    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    [IsoId("_92D783ltEeG7BsjMvd1mEw_1702800733")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(0)]
+    [MaxLength(5)]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
+    #endif
+    public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Name is UndertakingName1Code NameValue)
-        {
-            writer.WriteStartElement(null, "Nm", xmlNamespace );
-            writer.WriteValue(NameValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (Beneficiary is PartyIdentification43 BeneficiaryValue)
-        {
-            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
-            BeneficiaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ExpiryDetails is ExpiryDetails2 ExpiryDetailsValue)
-        {
-            writer.WriteStartElement(null, "XpryDtls", xmlNamespace );
-            ExpiryDetailsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CounterUndertakingAmount is UndertakingAmount1 CounterUndertakingAmountValue)
-        {
-            writer.WriteStartElement(null, "CntrUdrtkgAmt", xmlNamespace );
-            CounterUndertakingAmountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ConfirmationChargesPayableBy is ExternalTypeOfParty1Code ConfirmationChargesPayableByValue)
-        {
-            writer.WriteStartElement(null, "ConfChrgsPyblBy", xmlNamespace );
-            writer.WriteValue(ConfirmationChargesPayableByValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (GovernanceRulesAndLaw is GovernanceRules1 GovernanceRulesAndLawValue)
-        {
-            writer.WriteStartElement(null, "GovncRulesAndLaw", xmlNamespace );
-            GovernanceRulesAndLawValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (StandardClaimDocumentIndicator is IsoYesNoIndicator StandardClaimDocumentIndicatorValue)
-        {
-            writer.WriteStartElement(null, "StdClmDocInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StandardClaimDocumentIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
-        writer.WriteEndElement();
-    }
-    public static Undertaking2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

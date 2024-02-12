@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to an original transaction
 /// </summary>
+[IsoId("_ZTvU4YHREeuwq_rv81SdXw")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original Transaction")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalTransaction2
-     : IIsoXmlSerilizable<OriginalTransaction2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Details of the original message for which a retrieval is being requested.
     /// </summary>
+    [IsoId("_ZY5hsYHREeuwq_rv81SdXw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Environment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Environment20? Environment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Environment20? Environment { get; init; } 
+    #else
+    public Environment20? Environment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Details of the original message for which a retrieval is being requested.
     /// </summary>
+    [IsoId("_ZY5hs4HREeuwq_rv81SdXw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Context")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Context12? Context { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Context12? Context { get; init; } 
+    #else
+    public Context12? Context { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the original transaction details.
     /// </summary>
+    [IsoId("_ZY5htYHREeuwq_rv81SdXw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Transaction147? Transaction { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Transaction147? Transaction { get; init; } 
+    #else
+    public Transaction147? Transaction { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the processing results of the transaction to be retrieved.
     /// </summary>
+    [IsoId("_ZY5ht4HREeuwq_rv81SdXw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Processing Result")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingResult10? ProcessingResult { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ProcessingResult10? ProcessingResult { get; init; } 
+    #else
+    public ProcessingResult10? ProcessingResult { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Environment is Environment20 EnvironmentValue)
-        {
-            writer.WriteStartElement(null, "Envt", xmlNamespace );
-            EnvironmentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Context is Context12 ContextValue)
-        {
-            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
-            ContextValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Transaction is Transaction147 TransactionValue)
-        {
-            writer.WriteStartElement(null, "Tx", xmlNamespace );
-            TransactionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProcessingResult is ProcessingResult10 ProcessingResultValue)
-        {
-            writer.WriteStartElement(null, "PrcgRslt", xmlNamespace );
-            ProcessingResultValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OriginalTransaction2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

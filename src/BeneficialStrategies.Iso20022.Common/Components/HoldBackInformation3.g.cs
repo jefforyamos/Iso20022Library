@@ -7,93 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about hold back and gating.
 /// </summary>
+[IsoId("_PwkDkawIEeaFSqx7FdVuJQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Hold Back Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record HoldBackInformation3
-     : IIsoXmlSerilizable<HoldBackInformation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a HoldBackInformation3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public HoldBackInformation3( GateHoldBack1Code reqType )
+    {
+        Type = reqType;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of gating or a hold back.
     /// </summary>
+    [IsoId("_QII2EawIEeaFSqx7FdVuJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GateHoldBack1Code Type { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GateHoldBack1Code Type { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GateHoldBack1Code Type { get; init; } 
+    #else
+    public GateHoldBack1Code Type { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of the redemption amount subject to gating or a hold back.
     /// </summary>
+    [IsoId("_QII2E6wIEeaFSqx7FdVuJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Amount")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Amount { get; init; } 
+    #else
+    public System.Decimal? Amount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date on which the gated amount or hold back amount is expected to be released.
     /// </summary>
+    [IsoId("_QII2FawIEeaFSqx7FdVuJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Expected Release Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedReleaseDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ExpectedReleaseDate { get; init; } 
+    #else
+    public System.DateOnly? ExpectedReleaseDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// New identification of the security.
     /// </summary>
+    [IsoId("_QII2F6wIEeaFSqx7FdVuJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification25Choice_? FinancialInstrumentIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public SecurityIdentification25Choice_? FinancialInstrumentIdentification { get; init; } 
+    #else
+    public SecurityIdentification25Choice_? FinancialInstrumentIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// New name of the security.
     /// </summary>
+    [IsoId("_QII2GawIEeaFSqx7FdVuJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Financial Instrument Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FinancialInstrumentName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? FinancialInstrumentName { get; init; } 
+    #else
+    public System.String? FinancialInstrumentName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies whether or not additional redemption order instructions are required in order for the redemption to be completed.
     /// </summary>
+    [IsoId("_QII2IawIEeaFSqx7FdVuJQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Redemption Completion")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RedemptionCompletion1Code? RedemptionCompletion { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RedemptionCompletion1Code? RedemptionCompletion { get; init; } 
+    #else
+    public RedemptionCompletion1Code? RedemptionCompletion { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Tp", xmlNamespace );
-        writer.WriteValue(Type.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
-        {
-            writer.WriteStartElement(null, "Amt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ExpectedReleaseDate is IsoISODate ExpectedReleaseDateValue)
-        {
-            writer.WriteStartElement(null, "XpctdRlsDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedReleaseDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentIdentification is SecurityIdentification25Choice_ FinancialInstrumentIdentificationValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
-            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinancialInstrumentName is IsoMax350Text FinancialInstrumentNameValue)
-        {
-            writer.WriteStartElement(null, "FinInstrmNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(FinancialInstrumentNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (RedemptionCompletion is RedemptionCompletion1Code RedemptionCompletionValue)
-        {
-            writer.WriteStartElement(null, "RedCmpltn", xmlNamespace );
-            writer.WriteValue(RedemptionCompletionValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static HoldBackInformation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

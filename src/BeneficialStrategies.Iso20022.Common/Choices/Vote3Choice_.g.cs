@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Determines how the voting instructions are specified.
-/// </summary>
-[KnownType(typeof(Vote3Choice.VoteInstruction))]
-[KnownType(typeof(Vote3Choice.GlobalVoteInstruction))]
-public abstract partial record Vote3Choice_ : IIsoXmlSerilizable<Vote3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Determines how the voting instructions are specified.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Vote3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Vote3Choice.VoteInstruction))]
+    [KnownType(typeof(Vote3Choice.GlobalVoteInstruction))]
+    [IsoId("_hx10Z166EeSjaerr_EM7AQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Vote 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Vote3Choice_
+    #else
+    public abstract partial class Vote3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "VoteInstr" => Vote3Choice.VoteInstruction.Deserialize(elementWithPayload),
-             "GblVoteInstr" => Vote3Choice.GlobalVoteInstruction.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Vote3Choice choice.")
-        };
     }
 }

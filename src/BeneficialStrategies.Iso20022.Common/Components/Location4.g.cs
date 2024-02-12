@@ -7,96 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Location information.
 /// </summary>
+[IsoId("_MbodocW3EeuhguwJmlgagQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Location")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Location4
-     : IIsoXmlSerilizable<Location4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Contains the location code.
     /// </summary>
+    [IsoId("_Mf-yIcW3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LocationCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LocationCode { get; init; } 
+    #else
+    public System.String? LocationCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Name (label) of the location.
     /// </summary>
+    [IsoId("_Mf-yI8W3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Location Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LocationName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LocationName { get; init; } 
+    #else
+    public System.String? LocationName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specific explanation of the location or directions. 
     /// </summary>
+    [IsoId("_Mf-yJcW3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Description")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Description { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Description { get; init; } 
+    #else
+    public System.String? Description { get; set; } 
+    #endif
+    
     /// <summary>
     /// Contains the address details. 
     /// </summary>
+    [IsoId("_Mf-yJ8W3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? Address { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Address2? Address { get; init; } 
+    #else
+    public Address2? Address { get; set; } 
+    #endif
+    
     /// <summary>
     /// Local time zone.
     /// </summary>
+    [IsoId("_Mf-yKcW3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Time Zone")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? LocalTimeZone { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? LocalTimeZone { get; init; } 
+    #else
+    public System.String? LocalTimeZone { get; set; } 
+    #endif
+    
     /// <summary>
     /// Local currency.
     /// </summary>
+    [IsoId("_Mf-yK8W3EeuhguwJmlgagQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Local Currency")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? LocalCurrency { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public string? LocalCurrency { get; init; } 
+    #else
+    public string? LocalCurrency { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (LocationCode is IsoMax35Text LocationCodeValue)
-        {
-            writer.WriteStartElement(null, "LctnCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LocationCodeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (LocationName is IsoMax35Text LocationNameValue)
-        {
-            writer.WriteStartElement(null, "LctnNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(LocationNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (Description is IsoMax256Text DescriptionValue)
-        {
-            writer.WriteStartElement(null, "Desc", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (Address is Address2 AddressValue)
-        {
-            writer.WriteStartElement(null, "Adr", xmlNamespace );
-            AddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LocalTimeZone is IsoMax70Text LocalTimeZoneValue)
-        {
-            writer.WriteStartElement(null, "LclTmZone", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(LocalTimeZoneValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (LocalCurrency is ISO3NumericCurrencyCode LocalCurrencyValue)
-        {
-            writer.WriteStartElement(null, "LclCcy", xmlNamespace );
-            writer.WriteValue(LocalCurrencyValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-    }
-    public static Location4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

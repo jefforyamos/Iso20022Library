@@ -7,57 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Assessment of securities credit and investment risk.
 /// </summary>
+[IsoId("_S1iAuNp-Ed-ak6NoX_4Aeg_-610008315")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rating")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record Rating1
-     : IIsoXmlSerilizable<Rating1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a Rating1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public Rating1( System.String reqRatingScheme,System.DateTime reqValueDate,System.String reqValueIdentification )
+    {
+        RatingScheme = reqRatingScheme;
+        ValueDate = reqValueDate;
+        ValueIdentification = reqValueIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information regarding the entity that assigns the rating.
     /// </summary>
+    [IsoId("_S1iAudp-Ed-ak6NoX_4Aeg_-1436888380")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rating Scheme")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RatingScheme { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RatingScheme { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RatingScheme { get; init; } 
+    #else
+    public System.String RatingScheme { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date/time as from which the rating is valid.
     /// </summary>
+    [IsoId("_S1iAutp-Ed-ak6NoX_4Aeg_-1436888328")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ValueDate { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime ValueDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime ValueDate { get; init; } 
+    #else
+    public System.DateTime ValueDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the rating, which has been assigned to a security by a rating agency.
     /// </summary>
+    [IsoId("_S1iAu9p-Ed-ak6NoX_4Aeg_-1436888268")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRatingValueIdentifier ValueIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String ValueIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String ValueIdentification { get; init; } 
+    #else
+    public System.String ValueIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RatgSchme", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RatingScheme)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValDt", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(ValueDate)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "ValId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoRatingValueIdentifier(ValueIdentification)); // data type RatingValueIdentifier System.String
-        writer.WriteEndElement();
-    }
-    public static Rating1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

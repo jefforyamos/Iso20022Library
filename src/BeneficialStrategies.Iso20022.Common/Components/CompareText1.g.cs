@@ -7,56 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare for a text field of 52 characters.
 /// </summary>
+[IsoId("_v9zoUa-eEemF0ZVFnxVu4g")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Compare Text")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CompareText1
-     : IIsoXmlSerilizable<CompareText1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [IsoId("_wJvyka-eEemF0ZVFnxVu4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Value1 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Value1 { get; init; } 
+    #else
+    public System.String? Value1 { get; set; } 
+    #endif
+    
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [IsoId("_wJvyk6-eEemF0ZVFnxVu4g")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 52 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Value2 { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? Value2 { get; init; } 
+    #else
+    public System.String? Value2 { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (Value1 is IsoMax52Text Value1Value)
-        {
-            writer.WriteStartElement(null, "Val1", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(Value1Value)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-        if (Value2 is IsoMax52Text Value2Value)
-        {
-            writer.WriteStartElement(null, "Val2", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax52Text(Value2Value)); // data type Max52Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CompareText1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

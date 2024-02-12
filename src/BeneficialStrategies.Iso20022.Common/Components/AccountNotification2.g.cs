@@ -7,157 +7,295 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide details of the account notification.
 /// </summary>
+[IsoId("_Rqbfg9p-Ed-ak6NoX_4Aeg_-505997645")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Account Notification")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record AccountNotification2
-     : IIsoXmlSerilizable<AccountNotification2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a AccountNotification2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public AccountNotification2( System.String reqIdentification,System.DateTime reqCreationDateTime,CashAccount20 reqAccount )
+    {
+        Identification = reqIdentification;
+        CreationDateTime = reqCreationDateTime;
+        Account = reqAccount;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account notification.
     /// </summary>
+    [IsoId("_RqbfhNp-Ed-ak6NoX_4Aeg_-505997643")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String Identification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String Identification { get; init; } 
+    #else
+    public System.String Identification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Sequential number of the notification, as assigned by the account servicer. |Usage: The sequential number is increased incrementally for each notification sent electronically.
     /// </summary>
+    [IsoId("_Rqbfhdp-Ed-ak6NoX_4Aeg_-505077582")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Electronic Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? ElectronicSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? ElectronicSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Legal sequential number of the notification, as assigned by the account servicer. It is increased incrementally for each notification sent.
     /// </summary>
+    [IsoId("_Rqbfhtp-Ed-ak6NoX_4Aeg_-505077551")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Legal Sequence Number")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? LegalSequenceNumber { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? LegalSequenceNumber { get; init; } 
+    #else
+    public System.UInt64? LegalSequenceNumber { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [IsoId("_Rqbfh9p-Ed-ak6NoX_4Aeg_-505077612")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Creation Date Time")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.DateTime CreationDateTime { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateTime CreationDateTime { get; init; } 
+    #else
+    public System.DateTime CreationDateTime { get; set; } 
+    #endif
+    
     /// <summary>
     /// Range of time between a start date and an end date for which the account notification is issued.
     /// </summary>
+    [IsoId("_RqbfiNp-Ed-ak6NoX_4Aeg_-505076634")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("From To Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails? FromToDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public DateTimePeriodDetails? FromToDate { get; init; } 
+    #else
+    public DateTimePeriodDetails? FromToDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [IsoId("_RqlQgNp-Ed-ak6NoX_4Aeg_-505077520")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Copy Duplicate Indicator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
+    #else
+    public CopyDuplicate1Code? CopyDuplicateIndicator { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the application used to generate the reporting.
     /// </summary>
+    [IsoId("_RqlQgdp-Ed-ak6NoX_4Aeg_-505077344")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reporting Source")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingSource1Choice_? ReportingSource { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportingSource1Choice_? ReportingSource { get; init; } 
+    #else
+    public ReportingSource1Choice_? ReportingSource { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
+    [IsoId("_RqlQgtp-Ed-ak6NoX_4Aeg_-505077427")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount20 Account { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount20 Account { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount20 Account { get; init; } 
+    #else
+    public CashAccount20 Account { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the parent account of the account for which the notification has been issued.
     /// </summary>
+    [IsoId("_RqlQg9p-Ed-ak6NoX_4Aeg_-505076943")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount16? RelatedAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount16? RelatedAccount { get; init; } 
+    #else
+    public CashAccount16? RelatedAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide general interest information that applies to the account at a particular moment in time.
     /// </summary>
+    [IsoId("_RqlQhNp-Ed-ak6NoX_4Aeg_-505077004")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountInterest2? Interest { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AccountInterest2? Interest { get; init; } 
+    #else
+    public AccountInterest2? Interest { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide summary information on entries.
     /// </summary>
+    [IsoId("_RqlQhdp-Ed-ak6NoX_4Aeg_-505076511")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transactions Summary")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalTransactions2? TransactionsSummary { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TotalTransactions2? TransactionsSummary { get; init; } 
+    #else
+    public TotalTransactions2? TransactionsSummary { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to specify an entry in the debit credit notification.|Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
+    [IsoId("_RqlQhtp-Ed-ak6NoX_4Aeg_-505077065")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Entry")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportEntry2? Entry { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ReportEntry2? Entry { get; init; } 
+    #else
+    public ReportEntry2? Entry { get; set; } 
+    #endif
+    
     /// <summary>
     /// Further details of the account notification.
     /// </summary>
+    [IsoId("_RqlQh9p-Ed-ak6NoX_4Aeg_-505077490")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Notification Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 500 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalNotificationInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalNotificationInformation { get; init; } 
+    #else
+    public System.String? AdditionalNotificationInformation { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Id", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (ElectronicSequenceNumber is IsoNumber ElectronicSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "ElctrncSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(ElectronicSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        if (LegalSequenceNumber is IsoNumber LegalSequenceNumberValue)
-        {
-            writer.WriteStartElement(null, "LglSeqNb", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoNumber(LegalSequenceNumberValue)); // data type Number System.UInt64
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
-        writer.WriteEndElement();
-        if (FromToDate is DateTimePeriodDetails FromToDateValue)
-        {
-            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
-            FromToDateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CopyDuplicateIndicator is CopyDuplicate1Code CopyDuplicateIndicatorValue)
-        {
-            writer.WriteStartElement(null, "CpyDplctInd", xmlNamespace );
-            writer.WriteValue(CopyDuplicateIndicatorValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (ReportingSource is ReportingSource1Choice_ ReportingSourceValue)
-        {
-            writer.WriteStartElement(null, "RptgSrc", xmlNamespace );
-            ReportingSourceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "Acct", xmlNamespace );
-        Account.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (RelatedAccount is CashAccount16 RelatedAccountValue)
-        {
-            writer.WriteStartElement(null, "RltdAcct", xmlNamespace );
-            RelatedAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Interest is AccountInterest2 InterestValue)
-        {
-            writer.WriteStartElement(null, "Intrst", xmlNamespace );
-            InterestValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionsSummary is TotalTransactions2 TransactionsSummaryValue)
-        {
-            writer.WriteStartElement(null, "TxsSummry", xmlNamespace );
-            TransactionsSummaryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Entry is ReportEntry2 EntryValue)
-        {
-            writer.WriteStartElement(null, "Ntry", xmlNamespace );
-            EntryValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalNotificationInformation is IsoMax500Text AdditionalNotificationInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlNtfctnInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalNotificationInformationValue)); // data type Max500Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static AccountNotification2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

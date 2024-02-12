@@ -7,93 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters for physical interface.
 /// </summary>
+[IsoId("_jVcYQNqfEeearpaEPXv9UA")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Physical Interface Parameter")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PhysicalInterfaceParameter1
-     : IIsoXmlSerilizable<PhysicalInterfaceParameter1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PhysicalInterfaceParameter1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PhysicalInterfaceParameter1( System.String reqInterfaceName )
+    {
+        InterfaceName = reqInterfaceName;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Identification of the interface.
     /// </summary>
+    [IsoId("_-ROCMNqfEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interface Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InterfaceName { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String InterfaceName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String InterfaceName { get; init; } 
+    #else
+    public System.String InterfaceName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the physical link layer.
     /// </summary>
+    [IsoId("_IBxWQNqgEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interface Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public POICommunicationType2Code? InterfaceType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public POICommunicationType2Code? InterfaceType { get; init; } 
+    #else
+    public POICommunicationType2Code? InterfaceType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Optional user name to provide to use this interface.
     /// </summary>
+    [IsoId("_SCt2wNqgEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("User Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? UserName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? UserName { get; init; } 
+    #else
+    public System.String? UserName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Optional access code to provide to use this interface.
     /// </summary>
+    [IsoId("_ZFeH0NqgEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Access Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? AccessCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AccessCode { get; init; } 
+    #else
+    public System.Byte[]? AccessCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identification of the optional security profile to use with this interface.
     /// </summary>
+    [IsoId("_f-XSQNqgEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Security Profile")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecurityProfile { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? SecurityProfile { get; init; } 
+    #else
+    public System.String? SecurityProfile { get; set; } 
+    #endif
+    
     /// <summary>
     /// Any other parameters relevant for this interface.
     /// </summary>
+    [IsoId("_qB5zwNqgEeearpaEPXv9UA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Parameters")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2KBinary? AdditionalParameters { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Byte[]? AdditionalParameters { get; init; } 
+    #else
+    public System.Byte[]? AdditionalParameters { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "IntrfcNm", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(InterfaceName)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (InterfaceType is POICommunicationType2Code InterfaceTypeValue)
-        {
-            writer.WriteStartElement(null, "IntrfcTp", xmlNamespace );
-            writer.WriteValue(InterfaceTypeValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (UserName is IsoMax35Text UserNameValue)
-        {
-            writer.WriteStartElement(null, "UsrNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(UserNameValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AccessCode is IsoMax35Binary AccessCodeValue)
-        {
-            writer.WriteStartElement(null, "AccsCd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AccessCodeValue)); // data type Max35Binary System.Byte[]
-            writer.WriteEndElement();
-        }
-        if (SecurityProfile is IsoMax35Text SecurityProfileValue)
-        {
-            writer.WriteStartElement(null, "SctyPrfl", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecurityProfileValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalParameters is IsoMax2KBinary AdditionalParametersValue)
-        {
-            writer.WriteStartElement(null, "AddtlParams", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax2KBinary(AdditionalParametersValue)); // data type Max2KBinary System.Byte[]
-            writer.WriteEndElement();
-        }
-    }
-    public static PhysicalInterfaceParameter1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

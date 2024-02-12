@@ -7,60 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
+[IsoId("_Uvt1dNp-Ed-ak6NoX_4Aeg_816044413")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Order Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OrderStatusAndReason4
-     : IIsoXmlSerilizable<OrderStatusAndReason4>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OrderStatusAndReason4 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OrderStatusAndReason4( OrderStatus3Code reqStatus,RejectedStatus4 reqRejected )
+    {
+        Status = reqStatus;
+        Rejected = reqRejected;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Status of the order.
     /// </summary>
+    [IsoId("_Uvt1ddp-Ed-ak6NoX_4Aeg_816044680")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderStatus3Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public OrderStatus3Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OrderStatus3Code Status { get; init; } 
+    #else
+    public OrderStatus3Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Status of the order is rejected.
     /// </summary>
+    [IsoId("_Uvt1dtp-Ed-ak6NoX_4Aeg_816044757")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatus4 Rejected { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public RejectedStatus4 Rejected { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RejectedStatus4 Rejected { get; init; } 
+    #else
+    public RejectedStatus4 Rejected { get; set; } 
+    #endif
+    
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [IsoId("_Uvt1d9p-Ed-ak6NoX_4Aeg_-1485745021")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status Initiator")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
+    #else
+    public PartyIdentification2Choice_? StatusInitiator { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
-        Rejected.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
-        {
-            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
-            StatusInitiatorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OrderStatusAndReason4 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

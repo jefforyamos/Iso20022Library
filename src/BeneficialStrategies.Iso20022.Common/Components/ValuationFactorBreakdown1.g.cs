@@ -7,76 +7,112 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Possible valuation factors.
 /// </summary>
+[IsoId("_Lh2DkDYoEeuD7rm9md9zvg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Valuation Factor Breakdown")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ValuationFactorBreakdown1
-     : IIsoXmlSerilizable<ValuationFactorBreakdown1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Aggregated adjustment applied on the liability/collateral to calculate the position. It is the sum of the inflation, the haircut/margin and pool factors.
     /// </summary>
+    [IsoId("_wQR6YTYoEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Valuation Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ValuationFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ValuationFactor { get; init; } 
+    #else
+    public System.Decimal? ValuationFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Adjustment related to inflation applied on the liability/collateral to calculate the position. 
     /// </summary>
+    [IsoId("_w_l3cTYoEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Inflation Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? InflationFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? InflationFactor { get; init; } 
+    #else
+    public System.Decimal? InflationFactor { get; set; } 
+    #endif
+    
     /// <summary>
     /// Haircut or margin on the security  expressed as a percentage.
     /// </summary>
+    [IsoId("_xxRzETYoEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Haircut")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? Haircut { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? Haircut { get; init; } 
+    #else
+    public System.Decimal? Haircut { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage that applies to price of the securities following a redemption.
     /// </summary>
+    [IsoId("_yzoA4TYoEeuD7rm9md9zvg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Pool Factor")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? PoolFactor { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? PoolFactor { get; init; } 
+    #else
+    public System.Decimal? PoolFactor { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ValuationFactor is IsoBaseOneRate ValuationFactorValue)
-        {
-            writer.WriteStartElement(null, "ValtnFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ValuationFactorValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InflationFactor is IsoBaseOneRate InflationFactorValue)
-        {
-            writer.WriteStartElement(null, "InfltnFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(InflationFactorValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (Haircut is IsoBaseOneRate HaircutValue)
-        {
-            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(HaircutValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (PoolFactor is IsoBaseOneRate PoolFactorValue)
-        {
-            writer.WriteStartElement(null, "PoolFctr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(PoolFactorValue)); // data type BaseOneRate System.Decimal
-            writer.WriteEndElement();
-        }
-    }
-    public static ValuationFactorBreakdown1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

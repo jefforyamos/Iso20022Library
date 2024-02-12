@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the allocation status reason.
-/// </summary>
-[KnownType(typeof(AllocationSatus3Choice.Code))]
-[KnownType(typeof(AllocationSatus3Choice.Proprietary))]
-public abstract partial record AllocationSatus3Choice_ : IIsoXmlSerilizable<AllocationSatus3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the allocation status reason.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static AllocationSatus3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(AllocationSatus3Choice.Code))]
+    [KnownType(typeof(AllocationSatus3Choice.Proprietary))]
+    [IsoId("_Dg5V4TqqEeWyoP0PbocV1Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Allocation Satus 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record AllocationSatus3Choice_
+    #else
+    public abstract partial class AllocationSatus3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => AllocationSatus3Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => AllocationSatus3Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AllocationSatus3Choice choice.")
-        };
     }
 }

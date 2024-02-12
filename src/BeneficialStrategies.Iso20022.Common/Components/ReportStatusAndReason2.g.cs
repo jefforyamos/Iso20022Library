@@ -7,57 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the related report identification and its status. If the status is rejected, a reason for this status must be given.
 /// </summary>
+[IsoId("_RXgjgNp-Ed-ak6NoX_4Aeg_167456466")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Report Status And Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ReportStatusAndReason2
-     : IIsoXmlSerilizable<ReportStatusAndReason2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ReportStatusAndReason2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ReportStatusAndReason2( System.String reqRelatedReference,Status2Code reqStatus )
+    {
+        RelatedReference = reqRelatedReference;
+        Status = reqStatus;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides the identification of the RegulatoryTransactionReportCancellationRequest document that was previously sent by the reporting institution.
     /// </summary>
+    [IsoId("_RXgjgdp-Ed-ak6NoX_4Aeg_167456485")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Related Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RelatedReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String RelatedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String RelatedReference { get; init; } 
+    #else
+    public System.String RelatedReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates the status of a report cancellation request message.
     /// </summary>
+    [IsoId("_RXgjgtp-Ed-ak6NoX_4Aeg_167456544")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status2Code Status { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public Status2Code Status { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Status2Code Status { get; init; } 
+    #else
+    public Status2Code Status { get; set; } 
+    #endif
+    
     /// <summary>
     /// Indicates that the cancellation is rejected and provides a reason why.
     /// </summary>
-    public ValueList<RejectedCancellationStatusReason1Choice_> Rejected { get; init; } = [];
+    [IsoId("_RXgjg9p-Ed-ak6NoX_4Aeg_167456605")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Rejected")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [MinLength(1)]
+    [MaxLength(100)]
+    #endif
+    public ValueList<RejectedCancellationStatusReason1Choice_> Rejected { get; init; } = new ValueList<RejectedCancellationStatusReason1Choice_>(){};
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Sts", xmlNamespace );
-        writer.WriteValue(Status.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
-        Rejected.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static ReportStatusAndReason2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

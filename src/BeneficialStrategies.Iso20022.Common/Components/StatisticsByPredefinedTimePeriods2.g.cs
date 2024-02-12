@@ -7,86 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistical data related to the price change of a security.
 /// </summary>
+[IsoId("_SfCMQtp-Ed-ak6NoX_4Aeg_664619223")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Statistics By Predefined Time Periods")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatisticsByPredefinedTimePeriods2
-     : IIsoXmlSerilizable<StatisticsByPredefinedTimePeriods2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Highest price for the referenced period.
     /// </summary>
+    [IsoId("_SfCMQ9p-Ed-ak6NoX_4Aeg_664619259")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Highest Price Value 12 Months")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue5? HighestPriceValue12Months { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue5? HighestPriceValue12Months { get; init; } 
+    #else
+    public PriceValue5? HighestPriceValue12Months { get; set; } 
+    #endif
+    
     /// <summary>
     /// Lowest price for the referenced period.
     /// </summary>
+    [IsoId("_SfCMRNp-Ed-ak6NoX_4Aeg_665539367")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Lowest Price Value 12 Months")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue5? LowestPriceValue12Months { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValue5? LowestPriceValue12Months { get; init; } 
+    #else
+    public PriceValue5? LowestPriceValue12Months { get; set; } 
+    #endif
+    
     /// <summary>
     /// Change in price over a one year period.
     /// </summary>
+    [IsoId("_SfCMRdp-Ed-ak6NoX_4Aeg_665539618")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("One Year Price Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueChange1? OneYearPriceChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValueChange1? OneYearPriceChange { get; init; } 
+    #else
+    public PriceValueChange1? OneYearPriceChange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Change in price over a three year period.
     /// </summary>
+    [IsoId("_SfCMRtp-Ed-ak6NoX_4Aeg_665539990")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Three Year Price Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueChange1? ThreeYearPriceChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValueChange1? ThreeYearPriceChange { get; init; } 
+    #else
+    public PriceValueChange1? ThreeYearPriceChange { get; set; } 
+    #endif
+    
     /// <summary>
     /// Change in price over a five year period.
     /// </summary>
+    [IsoId("_SfCMR9p-Ed-ak6NoX_4Aeg_665540323")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Five Year Price Change")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueChange1? FiveYearPriceChange { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PriceValueChange1? FiveYearPriceChange { get; init; } 
+    #else
+    public PriceValueChange1? FiveYearPriceChange { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (HighestPriceValue12Months is PriceValue5 HighestPriceValue12MonthsValue)
-        {
-            writer.WriteStartElement(null, "HghstPricVal12Mnths", xmlNamespace );
-            HighestPriceValue12MonthsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LowestPriceValue12Months is PriceValue5 LowestPriceValue12MonthsValue)
-        {
-            writer.WriteStartElement(null, "LwstPricVal12Mnths", xmlNamespace );
-            LowestPriceValue12MonthsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OneYearPriceChange is PriceValueChange1 OneYearPriceChangeValue)
-        {
-            writer.WriteStartElement(null, "OneYrPricChng", xmlNamespace );
-            OneYearPriceChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ThreeYearPriceChange is PriceValueChange1 ThreeYearPriceChangeValue)
-        {
-            writer.WriteStartElement(null, "ThreeYrPricChng", xmlNamespace );
-            ThreeYearPriceChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FiveYearPriceChange is PriceValueChange1 FiveYearPriceChangeValue)
-        {
-            writer.WriteStartElement(null, "FiveYrPricChng", xmlNamespace );
-            FiveYearPriceChangeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static StatisticsByPredefinedTimePeriods2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

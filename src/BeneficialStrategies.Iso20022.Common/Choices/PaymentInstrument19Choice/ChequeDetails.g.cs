@@ -9,40 +9,71 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument19Choice;
-
-/// <summary>
-/// Settlement instructions for a payment by cheque.
-/// </summary>
-public partial record ChequeDetails : PaymentInstrument19Choice_
-     , IIsoXmlSerilizable<ChequeDetails>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument19Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Party to which a cheque is made payable.
+    /// Settlement instructions for a payment by cheque.
     /// </summary>
-    public required NameAndAddress5 PayeeIdentification { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_-mXAkyC1EeWJd9HF2tO7BA")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cheque Details")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record ChequeDetails : PaymentInstrument19Choice_
+    #else
+    public partial class ChequeDetails : PaymentInstrument19Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "PyeeId", xmlNamespace );
-        PayeeIdentification.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static new ChequeDetails Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a ChequeDetails instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public ChequeDetails( NameAndAddress5 reqPayeeIdentification )
+        {
+            PayeeIdentification = reqPayeeIdentification;
+        }
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Party to which a cheque is made payable.
+        /// </summary>
+        [IsoId("_QbdK-tp-Ed-ak6NoX_4Aeg_-2038541815")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Payee Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required NameAndAddress5 PayeeIdentification { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public NameAndAddress5 PayeeIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public NameAndAddress5 PayeeIdentification { get; init; } 
+        #else
+        public NameAndAddress5 PayeeIdentification { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

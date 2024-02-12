@@ -7,106 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides addtional information such as the taxation conditions.
 /// </summary>
+[IsoId("_UMQjFNp-Ed-ak6NoX_4Aeg_1627158994")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Corporate Action Narrative")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record CorporateActionNarrative1
-     : IIsoXmlSerilizable<CorporateActionNarrative1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Provides conditional information related to the event, eg, an offer is subject to 50% acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
+    [IsoId("_UMQjFdp-Ed-ak6NoX_4Aeg_1455730205")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InformationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InformationConditions { get; init; } 
+    #else
+    public System.String? InformationConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, eg, not open to US/Canadian residents, QIB or SIL to be provided.
     /// </summary>
+    [IsoId("_UMQjFtp-Ed-ak6NoX_4Aeg_1926725018")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Information To Comply With")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InformationToComplyWith { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? InformationToComplyWith { get; init; } 
+    #else
+    public System.String? InformationToComplyWith { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message.
     /// </summary>
+    [IsoId("_UMQjF9p-Ed-ak6NoX_4Aeg_1559163291")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Taxation Conditions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? TaxationConditions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? TaxationConditions { get; init; } 
+    #else
+    public System.String? TaxationConditions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provide the new name of a company following a name change.
     /// </summary>
+    [IsoId("_UMQjGNp-Ed-ak6NoX_4Aeg_-1855110380")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New Company Name")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? NewCompanyName { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? NewCompanyName { get; init; } 
+    #else
+    public System.String? NewCompanyName { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
+    [IsoId("_UMQjGdp-Ed-ak6NoX_4Aeg_-1823711037")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Offeror")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? Offeror { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PartyIdentification2Choice_? Offeror { get; init; } 
+    #else
+    public PartyIdentification2Choice_? Offeror { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides the web address published for the event, ie the address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>
+    [IsoId("_UMQjGtp-Ed-ak6NoX_4Aeg_-1784925026")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("URL Address")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? URLAddress { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? URLAddress { get; init; } 
+    #else
+    public System.String? URLAddress { get; set; } 
+    #endif
+    
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a|message.
     /// </summary>
+    [IsoId("_UMZtANp-Ed-ak6NoX_4Aeg_-1766454729")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Text")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalText { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalText { get; init; } 
+    #else
+    public System.String? AdditionalText { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (InformationConditions is IsoMax350Text InformationConditionsValue)
-        {
-            writer.WriteStartElement(null, "InfConds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationConditionsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (InformationToComplyWith is IsoMax350Text InformationToComplyWithValue)
-        {
-            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationToComplyWithValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (TaxationConditions is IsoMax350Text TaxationConditionsValue)
-        {
-            writer.WriteStartElement(null, "TaxtnConds", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(TaxationConditionsValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (NewCompanyName is IsoMax350Text NewCompanyNameValue)
-        {
-            writer.WriteStartElement(null, "NewCpnyNm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(NewCompanyNameValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (Offeror is PartyIdentification2Choice_ OfferorValue)
-        {
-            writer.WriteStartElement(null, "Offerr", xmlNamespace );
-            OfferorValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (URLAddress is IsoMax256Text URLAddressValue)
-        {
-            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
-            writer.WriteEndElement();
-        }
-        if (AdditionalText is IsoMax350Text AdditionalTextValue)
-        {
-            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalTextValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static CorporateActionNarrative1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

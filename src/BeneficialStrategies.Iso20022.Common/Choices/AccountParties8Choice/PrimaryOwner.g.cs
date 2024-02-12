@@ -9,300 +9,545 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices.AccountParties8Choice;
-
-/// <summary>
-/// Single owner of the account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
-/// </summary>
-public partial record PrimaryOwner : AccountParties8Choice_
-     , IIsoXmlSerilizable<PrimaryOwner>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+using System.ComponentModel.DataAnnotations;
+#endif
+namespace BeneficialStrategies.Iso20022.Choices.AccountParties8Choice
 {
-    #nullable enable
-    
     /// <summary>
-    /// Information about the organisation or individual person.
+    /// Single owner of the account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
     /// </summary>
-    public required Party31Choice_ Party { get; init; } 
-    /// <summary>
-    /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
-    /// </summary>
-    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
-    /// <summary>
-    /// Information to support Know Your Customer processes.
-    /// </summary>
-    public PartyProfileInformation5? InvestorProfileValidation { get; init; } 
-    /// <summary>
-    /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions or purchases and or redemptions or sells will be allocated using the same percentage.
-    /// </summary>
-    public IsoPercentageRate? OwnershipBeneficiaryRate { get; init; } 
-    /// <summary>
-    /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
-    /// </summary>
-    public IsoMax35Text? ClientIdentification { get; init; } 
-    /// <summary>
-    /// Indicates whether an owner of the account may benefit from a fiscal exemption or amnesty, for example, when declaring overseas investments.
-    /// </summary>
-    public IsoYesNoIndicator? FiscalExemption { get; init; } 
-    /// <summary>
-    /// Indicates whether the signature of the account owner is required to authorise transactions on the account.
-    /// </summary>
-    public IsoYesNoIndicator? SignatoryRightIndicator { get; init; } 
-    /// <summary>
-    /// Details about the MiFID classification of the account owner.
-    /// </summary>
-    public MiFIDClassification1? MiFIDClassification { get; init; } 
-    /// <summary>
-    /// Type of information that must be provided to the account holder.
-    /// </summary>
-    public Notification2? Notification { get; init; } 
-    /// <summary>
-    /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor or account owner.
-    /// </summary>
-    public FATCAForm1Choice_? FATCAFormType { get; init; } 
-    /// <summary>
-    /// Foreign Account Tax Compliance Act (FATCA) status of the investor or account owner.
-    /// </summary>
-    public FATCAStatus2? FATCAStatus { get; init; } 
-    /// <summary>
-    /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
-    /// </summary>
-    public GenericIdentification82? OtherIdentification { get; init; } 
-    /// <summary>
-    /// Tax advantage specific to the account party.
-    /// </summary>
-    public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
-    /// <summary>
-    /// Details for the reporting of tax, for example, the country of taxation.
-    /// </summary>
-    public TaxReporting1? TaxReporting { get; init; } 
-    /// <summary>
-    /// Language in which the organisation or person communicates.
-    /// </summary>
-    public LanguageCode? Language { get; init; } 
-    /// <summary>
-    /// Method used for postal mailing.
-    /// </summary>
-    public MailType1Choice_? MailType { get; init; } 
-    /// <summary>
-    /// Country and residential status of the organisation or individual person.
-    /// </summary>
-    public CountryAndResidentialStatusType2? CountryAndResidentialStatus { get; init; } 
-    /// <summary>
-    /// Annual wealth of the individual person or share capital value of the legal entity and date on which the annual wealth of the individual person was registered or declared or the date the stock value of the organisation was registered.
-    /// </summary>
-    public DateAndAmount1? MonetaryWealth { get; init; } 
-    /// <summary>
-    /// Amount of total assets minus liabilities of the individual person or the amount of the difference between assets and liabilities plus rights over obligations (net equity) of the organisation and the date on which the equity value was registered.
-    /// </summary>
-    public DateAndAmount1? EquityValue { get; init; } 
-    /// <summary>
-    /// Resource or value owned or used by a third-party company and the date on which the working capital amount was registered.
-    /// </summary>
-    public DateAndAmount1? WorkingCapital { get; init; } 
-    /// <summary>
-    /// Account owner's connection with the trading party or broker.
-    /// </summary>
-    public CompanyLink1Choice_? CompanyLink { get; init; } 
-    /// <summary>
-    /// Reference to be specified when a letter (for example, an order confirmation) is sent by an automated mailing system.
-    /// </summary>
-    public IsoMax350Text? ElectronicMailingServiceReference { get; init; } 
-    /// <summary>
-    /// Communication device number or electronic address used for communication.
-    /// </summary>
-    public CommunicationAddress6? PrimaryCommunicationAddress { get; init; } 
-    /// <summary>
-    /// Communication device number or electronic address used for communication.
-    /// </summary>
-    public CommunicationAddress6? SecondaryCommunicationAddress { get; init; } 
-    /// <summary>
-    /// Additional regulatory information about the investor or account owner that is required in some markets to support anti-money laundering laws.
-    /// </summary>
-    public RegulatoryInformation1? AdditionalRegulatoryInformation { get; init; } 
-    /// <summary>
-    /// Specifies if the account party is regarded as domestic or non-domestic for reporting purposes.
-    /// </summary>
-    public AccountingStatus1Choice_? AccountingStatus { get; init; } 
-    /// <summary>
-    /// Additional information concerning limitations and restrictions on the account party.
-    /// </summary>
-    public AccountRestrictions1? AdditionalInformation { get; init; } 
-    
-    #nullable disable
-    
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    [IsoId("_J1TYUyCBEeWhHbfCMWc1cw")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Primary Owner")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public partial record PrimaryOwner : AccountParties8Choice_
+    #else
+    public partial class PrimaryOwner : AccountParties8Choice_
+    #endif
     {
-        writer.WriteStartElement(null, "Pty", xmlNamespace );
-        Party.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (MoneyLaunderingCheck is MoneyLaunderingCheck1Choice_ MoneyLaunderingCheckValue)
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        // No constructor needed for NET8 and above.
+        #else
+        /// <summary>
+        /// Constructs a PrimaryOwner instance using the members the ISO20022 deems required.
+        /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+        /// </summary>
+        public PrimaryOwner( Party31Choice_ reqParty )
         {
-            writer.WriteStartElement(null, "MnyLndrgChck", xmlNamespace );
-            MoneyLaunderingCheckValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
+            Party = reqParty;
         }
-        if (InvestorProfileValidation is PartyProfileInformation5 InvestorProfileValidationValue)
-        {
-            writer.WriteStartElement(null, "InvstrPrflVldtn", xmlNamespace );
-            InvestorProfileValidationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OwnershipBeneficiaryRate is IsoPercentageRate OwnershipBeneficiaryRateValue)
-        {
-            writer.WriteStartElement(null, "OwnrshBnfcryRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OwnershipBeneficiaryRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ClientIdentification is IsoMax35Text ClientIdentificationValue)
-        {
-            writer.WriteStartElement(null, "ClntId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (FiscalExemption is IsoYesNoIndicator FiscalExemptionValue)
-        {
-            writer.WriteStartElement(null, "FsclXmptn", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FiscalExemptionValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (SignatoryRightIndicator is IsoYesNoIndicator SignatoryRightIndicatorValue)
-        {
-            writer.WriteStartElement(null, "SgntryRghtInd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatoryRightIndicatorValue)); // data type YesNoIndicator System.String
-            writer.WriteEndElement();
-        }
-        if (MiFIDClassification is MiFIDClassification1 MiFIDClassificationValue)
-        {
-            writer.WriteStartElement(null, "MiFIDClssfctn", xmlNamespace );
-            MiFIDClassificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Notification is Notification2 NotificationValue)
-        {
-            writer.WriteStartElement(null, "Ntfctn", xmlNamespace );
-            NotificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FATCAFormType is FATCAForm1Choice_ FATCAFormTypeValue)
-        {
-            writer.WriteStartElement(null, "FATCAFormTp", xmlNamespace );
-            FATCAFormTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FATCAStatus is FATCAStatus2 FATCAStatusValue)
-        {
-            writer.WriteStartElement(null, "FATCASts", xmlNamespace );
-            FATCAStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OtherIdentification is GenericIdentification82 OtherIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OthrId", xmlNamespace );
-            OtherIdentificationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxExemption is TaxExemptionReason2Choice_ TaxExemptionValue)
-        {
-            writer.WriteStartElement(null, "TaxXmptn", xmlNamespace );
-            TaxExemptionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxReporting is TaxReporting1 TaxReportingValue)
-        {
-            writer.WriteStartElement(null, "TaxRptg", xmlNamespace );
-            TaxReportingValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (Language is LanguageCode LanguageValue)
-        {
-            writer.WriteStartElement(null, "Lang", xmlNamespace );
-            writer.WriteValue(LanguageValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (MailType is MailType1Choice_ MailTypeValue)
-        {
-            writer.WriteStartElement(null, "MailTp", xmlNamespace );
-            MailTypeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CountryAndResidentialStatus is CountryAndResidentialStatusType2 CountryAndResidentialStatusValue)
-        {
-            writer.WriteStartElement(null, "CtryAndResdtlSts", xmlNamespace );
-            CountryAndResidentialStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (MonetaryWealth is DateAndAmount1 MonetaryWealthValue)
-        {
-            writer.WriteStartElement(null, "MntryWlth", xmlNamespace );
-            MonetaryWealthValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EquityValue is DateAndAmount1 EquityValueValue)
-        {
-            writer.WriteStartElement(null, "EqtyVal", xmlNamespace );
-            EquityValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WorkingCapital is DateAndAmount1 WorkingCapitalValue)
-        {
-            writer.WriteStartElement(null, "WorkgCptl", xmlNamespace );
-            WorkingCapitalValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (CompanyLink is CompanyLink1Choice_ CompanyLinkValue)
-        {
-            writer.WriteStartElement(null, "CpnyLk", xmlNamespace );
-            CompanyLinkValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ElectronicMailingServiceReference is IsoMax350Text ElectronicMailingServiceReferenceValue)
-        {
-            writer.WriteStartElement(null, "ElctrncMlngSvcRef", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax350Text(ElectronicMailingServiceReferenceValue)); // data type Max350Text System.String
-            writer.WriteEndElement();
-        }
-        if (PrimaryCommunicationAddress is CommunicationAddress6 PrimaryCommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
-            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (SecondaryCommunicationAddress is CommunicationAddress6 SecondaryCommunicationAddressValue)
-        {
-            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
-            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalRegulatoryInformation is RegulatoryInformation1 AdditionalRegulatoryInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlRgltryInf", xmlNamespace );
-            AdditionalRegulatoryInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AccountingStatus is AccountingStatus1Choice_ AccountingStatusValue)
-        {
-            writer.WriteStartElement(null, "AcctgSts", xmlNamespace );
-            AccountingStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AdditionalInformation is AccountRestrictions1 AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            AdditionalInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static new PrimaryOwner Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
+        #endif
+        #nullable enable
+        
+        /// <summary>
+        /// Information about the organisation or individual person.
+        /// </summary>
+        [IsoId("_HQ3ssSCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Party")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required Party31Choice_ Party { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public Party31Choice_ Party { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Party31Choice_ Party { get; init; } 
+        #else
+        public Party31Choice_ Party { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
+        /// </summary>
+        [IsoId("_HQ3ssyCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Money Laundering Check")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
+        #else
+        public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Information to support Know Your Customer processes.
+        /// </summary>
+        [IsoId("_HQ3stSCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Investor Profile Validation")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public PartyProfileInformation5? InvestorProfileValidation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public PartyProfileInformation5? InvestorProfileValidation { get; init; } 
+        #else
+        public PartyProfileInformation5? InvestorProfileValidation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions or purchases and or redemptions or sells will be allocated using the same percentage.
+        /// </summary>
+        [IsoId("_HQ3styCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Ownership Beneficiary Rate")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoPercentageRate? OwnershipBeneficiaryRate { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal? OwnershipBeneficiaryRate { get; init; } 
+        #else
+        public System.Decimal? OwnershipBeneficiaryRate { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
+        /// </summary>
+        [IsoId("_HQ3suSCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Client Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax35Text? ClientIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ClientIdentification { get; init; } 
+        #else
+        public System.String? ClientIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether an owner of the account may benefit from a fiscal exemption or amnesty, for example, when declaring overseas investments.
+        /// </summary>
+        [IsoId("_HQ3suyCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Fiscal Exemption")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? FiscalExemption { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? FiscalExemption { get; init; } 
+        #else
+        public System.String? FiscalExemption { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Indicates whether the signature of the account owner is required to authorise transactions on the account.
+        /// </summary>
+        [IsoId("_HQ3svSCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Signatory Right Indicator")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoYesNoIndicator? SignatoryRightIndicator { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? SignatoryRightIndicator { get; init; } 
+        #else
+        public System.String? SignatoryRightIndicator { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details about the MiFID classification of the account owner.
+        /// </summary>
+        [IsoId("_HQ3svyCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Mi FID Classification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MiFIDClassification1? MiFIDClassification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MiFIDClassification1? MiFIDClassification { get; init; } 
+        #else
+        public MiFIDClassification1? MiFIDClassification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Type of information that must be provided to the account holder.
+        /// </summary>
+        [IsoId("_HQ3swSCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Notification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public Notification2? Notification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public Notification2? Notification { get; init; } 
+        #else
+        public Notification2? Notification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor or account owner.
+        /// </summary>
+        [IsoId("_HQ3swyCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("FATCA Form Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FATCAForm1Choice_? FATCAFormType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FATCAForm1Choice_? FATCAFormType { get; init; } 
+        #else
+        public FATCAForm1Choice_? FATCAFormType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Foreign Account Tax Compliance Act (FATCA) status of the investor or account owner.
+        /// </summary>
+        [IsoId("_HQ3sxSCBEeWhHbfCMWc1cw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("FATCA Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public FATCAStatus2? FATCAStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public FATCAStatus2? FATCAStatus { get; init; } 
+        #else
+        public FATCAStatus2? FATCAStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
+        /// </summary>
+        [IsoId("_ds7pESCMEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Other Identification")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public GenericIdentification82? OtherIdentification { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public GenericIdentification82? OtherIdentification { get; init; } 
+        #else
+        public GenericIdentification82? OtherIdentification { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Tax advantage specific to the account party.
+        /// </summary>
+        [IsoId("_xQT50YkeEeWFCoSYeBm65Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Tax Exemption")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
+        #else
+        public TaxExemptionReason2Choice_? TaxExemption { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Details for the reporting of tax, for example, the country of taxation.
+        /// </summary>
+        [IsoId("_s9asYCCTEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Tax Reporting")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public TaxReporting1? TaxReporting { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public TaxReporting1? TaxReporting { get; init; } 
+        #else
+        public TaxReporting1? TaxReporting { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Language in which the organisation or person communicates.
+        /// </summary>
+        [IsoId("_-t0L4iCTEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Language")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public LanguageCode? Language { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public string? Language { get; init; } 
+        #else
+        public string? Language { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Method used for postal mailing.
+        /// </summary>
+        [IsoId("_wPINYCCWEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Mail Type")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public MailType1Choice_? MailType { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public MailType1Choice_? MailType { get; init; } 
+        #else
+        public MailType1Choice_? MailType { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Country and residential status of the organisation or individual person.
+        /// </summary>
+        [IsoId("_KPneUSCYEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Country And Residential Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CountryAndResidentialStatusType2? CountryAndResidentialStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CountryAndResidentialStatusType2? CountryAndResidentialStatus { get; init; } 
+        #else
+        public CountryAndResidentialStatusType2? CountryAndResidentialStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Annual wealth of the individual person or share capital value of the legal entity and date on which the annual wealth of the individual person was registered or declared or the date the stock value of the organisation was registered.
+        /// </summary>
+        [IsoId("_UHlB8CCYEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Monetary Wealth")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DateAndAmount1? MonetaryWealth { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateAndAmount1? MonetaryWealth { get; init; } 
+        #else
+        public DateAndAmount1? MonetaryWealth { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of total assets minus liabilities of the individual person or the amount of the difference between assets and liabilities plus rights over obligations (net equity) of the organisation and the date on which the equity value was registered.
+        /// </summary>
+        [IsoId("_ZtS30CCZEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Equity Value")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DateAndAmount1? EquityValue { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateAndAmount1? EquityValue { get; init; } 
+        #else
+        public DateAndAmount1? EquityValue { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Resource or value owned or used by a third-party company and the date on which the working capital amount was registered.
+        /// </summary>
+        [IsoId("_j2_rsCCZEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Working Capital")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public DateAndAmount1? WorkingCapital { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public DateAndAmount1? WorkingCapital { get; init; } 
+        #else
+        public DateAndAmount1? WorkingCapital { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Account owner's connection with the trading party or broker.
+        /// </summary>
+        [IsoId("_qXarwCCZEeWJd9HF2tO7BA")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Company Link")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CompanyLink1Choice_? CompanyLink { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CompanyLink1Choice_? CompanyLink { get; init; } 
+        #else
+        public CompanyLink1Choice_? CompanyLink { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Reference to be specified when a letter (for example, an order confirmation) is sent by an automated mailing system.
+        /// </summary>
+        [IsoId("_uTDc0CFHEeWgV9SQSyaAog")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Electronic Mailing Service Reference")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [StringLength(maximumLength: 350 ,MinimumLength = 1)]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public IsoMax350Text? ElectronicMailingServiceReference { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.String? ElectronicMailingServiceReference { get; init; } 
+        #else
+        public System.String? ElectronicMailingServiceReference { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Communication device number or electronic address used for communication.
+        /// </summary>
+        [IsoId("_VOd8k1xkEeWvPv3PXpS3fw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Primary Communication Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CommunicationAddress6? PrimaryCommunicationAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CommunicationAddress6? PrimaryCommunicationAddress { get; init; } 
+        #else
+        public CommunicationAddress6? PrimaryCommunicationAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Communication device number or electronic address used for communication.
+        /// </summary>
+        [IsoId("_VOd8lFxkEeWvPv3PXpS3fw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Secondary Communication Address")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public CommunicationAddress6? SecondaryCommunicationAddress { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public CommunicationAddress6? SecondaryCommunicationAddress { get; init; } 
+        #else
+        public CommunicationAddress6? SecondaryCommunicationAddress { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional regulatory information about the investor or account owner that is required in some markets to support anti-money laundering laws.
+        /// </summary>
+        [IsoId("_VOd8lVxkEeWvPv3PXpS3fw")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Regulatory Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public RegulatoryInformation1? AdditionalRegulatoryInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public RegulatoryInformation1? AdditionalRegulatoryInformation { get; init; } 
+        #else
+        public RegulatoryInformation1? AdditionalRegulatoryInformation { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Specifies if the account party is regarded as domestic or non-domestic for reporting purposes.
+        /// </summary>
+        [IsoId("_66698YkeEeWFCoSYeBm65Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Accounting Status")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AccountingStatus1Choice_? AccountingStatus { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountingStatus1Choice_? AccountingStatus { get; init; } 
+        #else
+        public AccountingStatus1Choice_? AccountingStatus { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Additional information concerning limitations and restrictions on the account party.
+        /// </summary>
+        [IsoId("_zw8OEYkfEeWFCoSYeBm65Q")]
+        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [DisplayName("Additional Information")]
+        #endif
+        #if DECLARE_DATACONTRACT
+        [DataMember]
+        #endif
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public AccountRestrictions1? AdditionalInformation { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public AccountRestrictions1? AdditionalInformation { get; init; } 
+        #else
+        public AccountRestrictions1? AdditionalInformation { get; set; } 
+        #endif
+        
+        
+        #nullable disable
+        
     }
 }

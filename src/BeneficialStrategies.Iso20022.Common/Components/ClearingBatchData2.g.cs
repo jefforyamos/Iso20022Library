@@ -7,103 +7,181 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Clearing data at batch level. Allows clearing in different currencies.
 /// </summary>
+[IsoId("_oY5L8ZMxEeuleeHpFMMhmQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Clearing Batch Data")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record ClearingBatchData2
-     : IIsoXmlSerilizable<ClearingBatchData2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a ClearingBatchData2 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public ClearingBatchData2( ClearingMethod2Code reqClearingMethod )
+    {
+        ClearingMethod = reqClearingMethod;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of clearing method used.
     /// </summary>
+    [IsoId("_odNEMZMxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClearingMethod2Code ClearingMethod { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public ClearingMethod2Code ClearingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingMethod2Code ClearingMethod { get; init; } 
+    #else
+    public ClearingMethod2Code ClearingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Other type of clearing method.
     /// </summary>
+    [IsoId("_odNEM5MxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Other Clearing Method")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherClearingMethod { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OtherClearingMethod { get; init; } 
+    #else
+    public System.String? OtherClearingMethod { get; set; } 
+    #endif
+    
     /// <summary>
     /// Level of priority of clearing.
     /// </summary>
+    [IsoId("_odNENZMxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Priority")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClearingPriority { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ClearingPriority { get; init; } 
+    #else
+    public System.String? ClearingPriority { get; set; } 
+    #endif
+    
     /// <summary>
     /// Date of clearing.
     /// </summary>
+    [IsoId("_odNEN5MxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Date")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClearingDate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.DateOnly? ClearingDate { get; init; } 
+    #else
+    public System.DateOnly? ClearingDate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Clearing totals of the batch file.
     /// </summary>
+    [IsoId("_odNEOZMxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Clearing Totals")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingTotals2? ClearingTotals { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public ClearingTotals2? ClearingTotals { get; init; } 
+    #else
+    public ClearingTotals2? ClearingTotals { get; set; } 
+    #endif
+    
     /// <summary>
     /// Interchange fee.
     /// </summary>
+    [IsoId("_odNEO5MxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interchange Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount17? InterchangeFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount17? InterchangeFee { get; init; } 
+    #else
+    public Amount17? InterchangeFee { get; set; } 
+    #endif
+    
     /// <summary>
     /// Fee of the agent.
     /// </summary>
+    [IsoId("_odNEPZMxEeuleeHpFMMhmQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Agent Fee")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount17? AgentFee { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Amount17? AgentFee { get; init; } 
+    #else
+    public Amount17? AgentFee { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "ClrMtd", xmlNamespace );
-        writer.WriteValue(ClearingMethod.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (OtherClearingMethod is IsoMax35Text OtherClearingMethodValue)
-        {
-            writer.WriteStartElement(null, "OthrClrMtd", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherClearingMethodValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingPriority is IsoMax35Text ClearingPriorityValue)
-        {
-            writer.WriteStartElement(null, "ClrPrty", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearingPriorityValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ClearingDate is IsoISODate ClearingDateValue)
-        {
-            writer.WriteStartElement(null, "ClrDt", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoISODate(ClearingDateValue)); // data type ISODate System.DateOnly
-            writer.WriteEndElement();
-        }
-        if (ClearingTotals is ClearingTotals2 ClearingTotalsValue)
-        {
-            writer.WriteStartElement(null, "ClrTtls", xmlNamespace );
-            ClearingTotalsValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (InterchangeFee is Amount17 InterchangeFeeValue)
-        {
-            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
-            InterchangeFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (AgentFee is Amount17 AgentFeeValue)
-        {
-            writer.WriteStartElement(null, "AgtFee", xmlNamespace );
-            AgentFeeValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static ClearingBatchData2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

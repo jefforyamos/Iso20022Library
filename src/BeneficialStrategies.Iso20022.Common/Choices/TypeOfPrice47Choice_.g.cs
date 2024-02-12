@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of format for the type of price.
-/// </summary>
-[KnownType(typeof(TypeOfPrice47Choice.Code))]
-[KnownType(typeof(TypeOfPrice47Choice.Proprietary))]
-public abstract partial record TypeOfPrice47Choice_ : IIsoXmlSerilizable<TypeOfPrice47Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of format for the type of price.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TypeOfPrice47Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TypeOfPrice47Choice.Code))]
+    [KnownType(typeof(TypeOfPrice47Choice.Proprietary))]
+    [IsoId("_Pe1UEZBhEeakHoV5BVecAQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Type Of Price 47 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TypeOfPrice47Choice_
+    #else
+    public abstract partial class TypeOfPrice47Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Cd" => TypeOfPrice47Choice.Code.Deserialize(elementWithPayload),
-             "Prtry" => TypeOfPrice47Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TypeOfPrice47Choice choice.")
-        };
     }
 }

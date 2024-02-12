@@ -7,63 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts linked to a securities balance, for example, holding value.
 /// </summary>
+[IsoId("_WQRpSNp-Ed-ak6NoX_4Aeg_-87925160")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Balance Amounts")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record BalanceAmounts6
-     : IIsoXmlSerilizable<BalanceAmounts6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a BalanceAmounts6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public BalanceAmounts6( AmountAndDirection14 reqHoldingValue )
+    {
+        HoldingValue = reqHoldingValue;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
+    [IsoId("_WQbaQNp-Ed-ak6NoX_4Aeg_1920939692")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Holding Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection14 HoldingValue { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public AmountAndDirection14 HoldingValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection14 HoldingValue { get; init; } 
+    #else
+    public AmountAndDirection14 HoldingValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
+    [IsoId("_WQbaQdp-Ed-ak6NoX_4Aeg_-1396676687")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Book Value")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? BookValue { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection14? BookValue { get; init; } 
+    #else
+    public AmountAndDirection14? BookValue { get; set; } 
+    #endif
+    
     /// <summary>
     /// Difference between holding value and the book value.
     /// </summary>
+    [IsoId("_WQbaQtp-Ed-ak6NoX_4Aeg_20912616")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Unrealised Gain Loss")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? UnrealisedGainLoss { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AmountAndDirection14? UnrealisedGainLoss { get; init; } 
+    #else
+    public AmountAndDirection14? UnrealisedGainLoss { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "HldgVal", xmlNamespace );
-        HoldingValue.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (BookValue is AmountAndDirection14 BookValueValue)
-        {
-            writer.WriteStartElement(null, "BookVal", xmlNamespace );
-            BookValueValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (UnrealisedGainLoss is AmountAndDirection14 UnrealisedGainLossValue)
-        {
-            writer.WriteStartElement(null, "UrlsdGnLoss", xmlNamespace );
-            UnrealisedGainLossValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static BalanceAmounts6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

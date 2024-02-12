@@ -7,57 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics for submitted derivatives per action type.
 /// </summary>
+[IsoId("_GQMZcIAsEeirUu_C8Wn_0Q")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Statistics Per Action Type")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record StatisticsPerActionType1
-     : IIsoXmlSerilizable<StatisticsPerActionType1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a StatisticsPerActionType1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public StatisticsPerActionType1( System.UInt64 reqAll,System.UInt64 reqNew,System.UInt64 reqModification )
+    {
+        All = reqAll;
+        New = reqNew;
+        Modification = reqModification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Total number of derivatives which have been reported.
     /// </summary>
+    [IsoId("_PBU34IAsEeirUu_C8Wn_0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("All")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber All { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 All { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 All { get; init; } 
+    #else
+    public System.UInt64 All { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of derivatives which have been reported as new.
     /// </summary>
+    [IsoId("_QMXusIAsEeirUu_C8Wn_0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("New")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber New { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 New { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 New { get; init; } 
+    #else
+    public System.UInt64 New { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of derivatives which have been reported as modified.
     /// </summary>
+    [IsoId("_Rh5-QIAsEeirUu_C8Wn_0Q")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Modification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber Modification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.UInt64 Modification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64 Modification { get; init; } 
+    #else
+    public System.UInt64 Modification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "All", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(All)); // data type Max20PositiveNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "New", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(New)); // data type Max20PositiveNumber System.UInt64
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "Mod", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(Modification)); // data type Max20PositiveNumber System.UInt64
-        writer.WriteEndElement();
-    }
-    public static StatisticsPerActionType1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

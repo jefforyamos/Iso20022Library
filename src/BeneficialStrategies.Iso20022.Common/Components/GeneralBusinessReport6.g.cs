@@ -7,50 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports either on the business information or on a business error.
 /// </summary>
+[IsoId("_QdJoBXhdEeidzqjNEfehPg")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("General Business Report")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record GeneralBusinessReport6
-     : IIsoXmlSerilizable<GeneralBusinessReport6>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a GeneralBusinessReport6 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public GeneralBusinessReport6( System.String reqBusinessInformationReference,GeneralBusinessOrError8Choice_ reqGeneralBusinessOrError )
+    {
+        BusinessInformationReference = reqBusinessInformationReference;
+        GeneralBusinessOrError = reqGeneralBusinessOrError;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of a general business information system, as assigned by the system transaction administrator.
     /// </summary>
+    [IsoId("_QrMrE3hdEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Business Information Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BusinessInformationReference { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String BusinessInformationReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String BusinessInformationReference { get; init; } 
+    #else
+    public System.String BusinessInformationReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Requested business information.
     /// </summary>
+    [IsoId("_QrMrFXhdEeidzqjNEfehPg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("General Business Or Error")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
+    #else
+    public GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "BizInfRef", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessInformationReference)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "GnlBizOrErr", xmlNamespace );
-        GeneralBusinessOrError.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-    }
-    public static GeneralBusinessReport6 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

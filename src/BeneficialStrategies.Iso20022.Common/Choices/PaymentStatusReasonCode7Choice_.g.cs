@@ -7,42 +7,38 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Reason for the status of the transaction.
-/// </summary>
-[KnownType(typeof(PaymentStatusReasonCode7Choice.Unmatched))]
-[KnownType(typeof(PaymentStatusReasonCode7Choice.Cancelled))]
-[KnownType(typeof(PaymentStatusReasonCode7Choice.Suspended))]
-[KnownType(typeof(PaymentStatusReasonCode7Choice.PendingFailingSettlement))]
-[KnownType(typeof(PaymentStatusReasonCode7Choice.PendingSettlement))]
-[KnownType(typeof(PaymentStatusReasonCode7Choice.ProprietaryRejection))]
-[KnownType(typeof(PaymentStatusReasonCode7Choice.Proprietary))]
-public abstract partial record PaymentStatusReasonCode7Choice_ : IIsoXmlSerilizable<PaymentStatusReasonCode7Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Reason for the status of the transaction.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static PaymentStatusReasonCode7Choice_ Deserialize(XElement element)
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.Unmatched))]
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.Cancelled))]
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.Suspended))]
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.PendingFailingSettlement))]
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.PendingSettlement))]
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.ProprietaryRejection))]
+    [KnownType(typeof(PaymentStatusReasonCode7Choice.Proprietary))]
+    [IsoId("_NqBxSZlPEee-Zps0fZQaFQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Status Reason Code 7 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record PaymentStatusReasonCode7Choice_
+    #else
+    public abstract partial class PaymentStatusReasonCode7Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Umtchd" => PaymentStatusReasonCode7Choice.Unmatched.Deserialize(elementWithPayload),
-             "Canc" => PaymentStatusReasonCode7Choice.Cancelled.Deserialize(elementWithPayload),
-             "Sspd" => PaymentStatusReasonCode7Choice.Suspended.Deserialize(elementWithPayload),
-             "PdgFlngSttlm" => PaymentStatusReasonCode7Choice.PendingFailingSettlement.Deserialize(elementWithPayload),
-             "PdgSttlm" => PaymentStatusReasonCode7Choice.PendingSettlement.Deserialize(elementWithPayload),
-             "PrtryRjctn" => PaymentStatusReasonCode7Choice.ProprietaryRejection.Deserialize(elementWithPayload),
-             "Prtry" => PaymentStatusReasonCode7Choice.Proprietary.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid PaymentStatusReasonCode7Choice choice.")
-        };
     }
 }

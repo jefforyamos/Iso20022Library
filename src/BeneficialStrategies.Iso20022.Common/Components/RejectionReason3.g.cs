@@ -7,83 +7,142 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason to reject the message.
 /// </summary>
+[IsoId("_RPdazNp-Ed-ak6NoX_4Aeg_680923273")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rejection Reason")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RejectionReason3
-     : IIsoXmlSerilizable<RejectionReason3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a RejectionReason3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public RejectionReason3( MessageRejectedReason1Code reqReason )
+    {
+        Reason = reqReason;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Reason to reject the message.
     /// </summary>
+    [IsoId("_RPmksNp-Ed-ak6NoX_4Aeg_680923315")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Reason")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageRejectedReason1Code Reason { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public MessageRejectedReason1Code Reason { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public MessageRejectedReason1Code Reason { get; init; } 
+    #else
+    public MessageRejectedReason1Code Reason { get; set; } 
+    #endif
+    
     /// <summary>
     /// Additional information about the rejection reason.
     /// </summary>
+    [IsoId("_RPmksdp-Ed-ak6NoX_4Aeg_680923358")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? AdditionalInformation { get; init; } 
+    #else
+    public System.String? AdditionalInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Linked previous reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
+    [IsoId("_RPmkstp-Ed-ak6NoX_4Aeg_680923436")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked Message Previous Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? LinkedMessagePreviousReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference3? LinkedMessagePreviousReference { get; init; } 
+    #else
+    public AdditionalReference3? LinkedMessagePreviousReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Linked other reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
+    [IsoId("_RPmks9p-Ed-ak6NoX_4Aeg_680923471")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked Message Other Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? LinkedMessageOtherReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference3? LinkedMessageOtherReference { get; init; } 
+    #else
+    public AdditionalReference3? LinkedMessageOtherReference { get; set; } 
+    #endif
+    
     /// <summary>
     /// Linked related reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
+    [IsoId("_RPmktNp-Ed-ak6NoX_4Aeg_680923376")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Linked Message Related Reference")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? LinkedMessageRelatedReference { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public AdditionalReference3? LinkedMessageRelatedReference { get; init; } 
+    #else
+    public AdditionalReference3? LinkedMessageRelatedReference { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "Rsn", xmlNamespace );
-        writer.WriteValue(Reason.ToString()); // Enum value
-        writer.WriteEndElement();
-        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
-        {
-            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
-            writer.WriteEndElement();
-        }
-        if (LinkedMessagePreviousReference is AdditionalReference3 LinkedMessagePreviousReferenceValue)
-        {
-            writer.WriteStartElement(null, "LkdMsgPrvsRef", xmlNamespace );
-            LinkedMessagePreviousReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LinkedMessageOtherReference is AdditionalReference3 LinkedMessageOtherReferenceValue)
-        {
-            writer.WriteStartElement(null, "LkdMsgOthrRef", xmlNamespace );
-            LinkedMessageOtherReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (LinkedMessageRelatedReference is AdditionalReference3 LinkedMessageRelatedReferenceValue)
-        {
-            writer.WriteStartElement(null, "LkdMsgRltdRef", xmlNamespace );
-            LinkedMessageRelatedReferenceValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static RejectionReason3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

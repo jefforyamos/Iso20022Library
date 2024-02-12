@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of an inflation index identification.
-/// </summary>
-[KnownType(typeof(InflationIndex1Choice.ISIN))]
-[KnownType(typeof(InflationIndex1Choice.Name))]
-public abstract partial record InflationIndex1Choice_ : IIsoXmlSerilizable<InflationIndex1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of an inflation index identification.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static InflationIndex1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(InflationIndex1Choice.ISIN))]
+    [KnownType(typeof(InflationIndex1Choice.Name))]
+    [IsoId("_ZyZ21CS2EeWsI5Sp3-B3zg")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Inflation Index 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record InflationIndex1Choice_
+    #else
+    public abstract partial class InflationIndex1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "ISIN" => InflationIndex1Choice.ISIN.Deserialize(elementWithPayload),
-             "Nm" => InflationIndex1Choice.Name.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid InflationIndex1Choice choice.")
-        };
     }
 }

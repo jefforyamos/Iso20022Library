@@ -7,84 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Means by which a payment will be or has been made for settlement purposes.
 /// </summary>
+[IsoId("_TCRjCAEcEeCQm6a_G2yO_w_-1888332883")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Payment Means")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record PaymentMeans1
-     : IIsoXmlSerilizable<PaymentMeans1>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a PaymentMeans1 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public PaymentMeans1( PaymentTypeInformation19 reqPaymentType,PaymentMethod4Code reqPaymentMethodCode,CashAccount16 reqPayeeCreditorAccount,BranchAndFinancialInstitutionIdentification4 reqPayeeFinancialInstitution )
+    {
+        PaymentType = reqPaymentType;
+        PaymentMethodCode = reqPaymentMethodCode;
+        PayeeCreditorAccount = reqPayeeCreditorAccount;
+        PayeeFinancialInstitution = reqPayeeFinancialInstitution;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type, or nature, of the payment, eg, express payment.
     /// </summary>
+    [IsoId("_TCRjCQEcEeCQm6a_G2yO_w_-1949458724")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentTypeInformation19 PaymentType { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentTypeInformation19 PaymentType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTypeInformation19 PaymentType { get; init; } 
+    #else
+    public PaymentTypeInformation19 PaymentType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Transfer method to be used for the transfer.
     /// </summary>
+    [IsoId("_TCRjCgEcEeCQm6a_G2yO_w_-563553250")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Method Code")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentMethod4Code PaymentMethodCode { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public PaymentMethod4Code PaymentMethodCode { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentMethod4Code PaymentMethodCode { get; init; } 
+    #else
+    public PaymentMethod4Code PaymentMethodCode { get; set; } 
+    #endif
+    
     /// <summary>
     /// Creditor financial account of the payee party for this payment means.
     /// </summary>
+    [IsoId("_TCRjCwEcEeCQm6a_G2yO_w_319981111")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payee Creditor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount16 PayeeCreditorAccount { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public CashAccount16 PayeeCreditorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount16 PayeeCreditorAccount { get; init; } 
+    #else
+    public CashAccount16 PayeeCreditorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Creditor financial institution of the payee party specified for this payment means.
     /// </summary>
+    [IsoId("_TCRjDAEcEeCQm6a_G2yO_w_-1893685339")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payee Financial Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; set; } 
+    #endif
+    
     /// <summary>
     /// Debtor financial account of the payer party for this payment means.
     /// </summary>
+    [IsoId("_TCRjDQEcEeCQm6a_G2yO_w_-535212270")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payer Debtor Account")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount16? PayerDebtorAccount { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CashAccount16? PayerDebtorAccount { get; init; } 
+    #else
+    public CashAccount16? PayerDebtorAccount { get; set; } 
+    #endif
+    
     /// <summary>
     /// Debtor financial institution of the payer party specified for this payment means.
     /// </summary>
+    [IsoId("_TCRjDgEcEeCQm6a_G2yO_w_1731818407")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payer Financial Institution")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? PayerFinancialInstitution { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public BranchAndFinancialInstitutionIdentification4? PayerFinancialInstitution { get; init; } 
+    #else
+    public BranchAndFinancialInstitutionIdentification4? PayerFinancialInstitution { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        writer.WriteStartElement(null, "PmtTp", xmlNamespace );
-        PaymentType.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PmtMtdCd", xmlNamespace );
-        writer.WriteValue(PaymentMethodCode.ToString()); // Enum value
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PyeeCdtrAcct", xmlNamespace );
-        PayeeCreditorAccount.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        writer.WriteStartElement(null, "PyeeFI", xmlNamespace );
-        PayeeFinancialInstitution.Serialize(writer, xmlNamespace);
-        writer.WriteEndElement();
-        if (PayerDebtorAccount is CashAccount16 PayerDebtorAccountValue)
-        {
-            writer.WriteStartElement(null, "PyerDbtrAcct", xmlNamespace );
-            PayerDebtorAccountValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (PayerFinancialInstitution is BranchAndFinancialInstitutionIdentification4 PayerFinancialInstitutionValue)
-        {
-            writer.WriteStartElement(null, "PyerFI", xmlNamespace );
-            PayerFinancialInstitutionValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static PaymentMeans1 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

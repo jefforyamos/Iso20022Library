@@ -7,32 +7,33 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Choice of 3 and 5 exact numeric number.
-/// </summary>
-[KnownType(typeof(Number3Choice.Short))]
-[KnownType(typeof(Number3Choice.Long))]
-public abstract partial record Number3Choice_ : IIsoXmlSerilizable<Number3Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Choice of 3 and 5 exact numeric number.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static Number3Choice_ Deserialize(XElement element)
+    [KnownType(typeof(Number3Choice.Short))]
+    [KnownType(typeof(Number3Choice.Long))]
+    [IsoId("_QrP6dNp-Ed-ak6NoX_4Aeg_-1147595422")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number 3 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record Number3Choice_
+    #else
+    public abstract partial class Number3Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Shrt" => Number3Choice.Short.Deserialize(elementWithPayload),
-             "Lng" => Number3Choice.Long.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Number3Choice choice.")
-        };
     }
 }

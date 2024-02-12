@@ -7,256 +7,436 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the rates related to securities movement.
 /// </summary>
+[IsoId("_O_wlcfpGEeCBpukrOuC4uQ")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Rate Details")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record RateDetails7
-     : IIsoXmlSerilizable<RateDetails7>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
+    [IsoId("_O_wlj_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Additional Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat5Choice_? AdditionalTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat5Choice_? AdditionalTax { get; init; } 
+    #else
+    public RateAndAmountFormat5Choice_? AdditionalTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [IsoId("_O_wlk_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Charges Fees")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat5Choice_? ChargesFees { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat5Choice_? ChargesFees { get; init; } 
+    #else
+    public RateAndAmountFormat5Choice_? ChargesFees { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend is final.
     /// </summary>
+    [IsoId("_O_wll_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Final Dividend Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? FinalDividendRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FinalDividendRate { get; init; } 
+    #else
+    public System.Decimal? FinalDividendRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
+    [IsoId("_O_wlm_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fiscal Stamp")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? FiscalStamp { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? FiscalStamp { get; init; } 
+    #else
+    public System.Decimal? FiscalStamp { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; rate includes tax credit for companies that have made sufficient tax payments during fiscal period.
     /// </summary>
+    [IsoId("_O_wln_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Fully Franked Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat5Choice_? FullyFrankedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat5Choice_? FullyFrankedRate { get; init; } 
+    #else
+    public RateAndAmountFormat5Choice_? FullyFrankedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
+    [IsoId("_O_wlo_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Gross Dividend Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GrossDividendRateFormat2Choice_? GrossDividendRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GrossDividendRateFormat2Choice_? GrossDividendRate { get; init; } 
+    #else
+    public GrossDividendRateFormat2Choice_? GrossDividendRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
+    [IsoId("_PauqRfpGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Early Solicitation Fee Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? EarlySolicitationFeeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? EarlySolicitationFeeRate { get; init; } 
+    #else
+    public System.Decimal? EarlySolicitationFeeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example, consent fees.
     /// </summary>
+    [IsoId("_O_wlp_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cash Incentive Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CashIncentiveRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? CashIncentiveRate { get; init; } 
+    #else
+    public System.Decimal? CashIncentiveRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Actual interest rate used for the payment of the interest for the specified interest period.
     /// </summary>
+    [IsoId("_O_wlq_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Interest Rate Used For Payment")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateUsedForPaymentFormat2Choice_? InterestRateUsedForPayment { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public InterestRateUsedForPaymentFormat2Choice_? InterestRateUsedForPayment { get; init; } 
+    #else
+    public InterestRateUsedForPaymentFormat2Choice_? InterestRateUsedForPayment { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
+    [IsoId("_O_wlr_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Net Dividend Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetDividendRateFormat2Choice_? NetDividendRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NetDividendRateFormat2Choice_? NetDividendRate { get; init; } 
+    #else
+    public NetDividendRateFormat2Choice_? NetDividendRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
+    [IsoId("_O_wls_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Non Resident Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat5Choice_? NonResidentRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat5Choice_? NonResidentRate { get; init; } 
+    #else
+    public RateAndAmountFormat5Choice_? NonResidentRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Dividend is provisional.
     /// </summary>
+    [IsoId("_O_wlt_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Provisional Dividend Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? ProvisionalDividendRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ProvisionalDividendRate { get; init; } 
+    #else
+    public System.Decimal? ProvisionalDividendRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
+    [IsoId("_O_wlu_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Applicable Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ApplicableRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? ApplicableRate { get; init; } 
+    #else
+    public System.Decimal? ApplicableRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Cash rate made available in an offer in order to encourage participation in the offer.
     /// </summary>
+    [IsoId("_O_wlv_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Solicitation Fee Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SolicitationFeeRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? SolicitationFeeRate { get; init; } 
+    #else
+    public System.Decimal? SolicitationFeeRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
+    [IsoId("_O_wlw_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Credit Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCreditRateFormat2Choice_? TaxCreditRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public TaxCreditRateFormat2Choice_? TaxCreditRate { get; init; } 
+    #else
+    public TaxCreditRateFormat2Choice_? TaxCreditRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
+    [IsoId("_O_wlx_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Related Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; init; } 
+    #else
+    public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
+    [IsoId("_O_wly_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withholding Tax Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? WithholdingTaxRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? WithholdingTaxRate { get; init; } 
+    #else
+    public System.Decimal? WithholdingTaxRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
+    [IsoId("_O_wlz_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax On Income")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxOnIncome { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxOnIncome { get; init; } 
+    #else
+    public System.Decimal? TaxOnIncome { get; set; } 
+    #endif
+    
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
+    [IsoId("_O_wl0_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax On Profits")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxOnProfits { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxOnProfits { get; init; } 
+    #else
+    public System.Decimal? TaxOnProfits { get; set; } 
+    #endif
+    
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
+    [IsoId("_O_wl1_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Tax Reclaim Rate")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxReclaimRate { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.Decimal? TaxReclaimRate { get; init; } 
+    #else
+    public System.Decimal? TaxReclaimRate { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
+    [IsoId("_O_wl2_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withholding Of Foreign Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat5Choice_? WithholdingOfForeignTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat5Choice_? WithholdingOfForeignTax { get; init; } 
+    #else
+    public RateAndAmountFormat5Choice_? WithholdingOfForeignTax { get; set; } 
+    #endif
+    
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
+    [IsoId("_O_wl3_pGEeCBpukrOuC4uQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Withholding Of Local Tax")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat5Choice_? WithholdingOfLocalTax { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public RateAndAmountFormat5Choice_? WithholdingOfLocalTax { get; init; } 
+    #else
+    public RateAndAmountFormat5Choice_? WithholdingOfLocalTax { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (AdditionalTax is RateAndAmountFormat5Choice_ AdditionalTaxValue)
-        {
-            writer.WriteStartElement(null, "AddtlTax", xmlNamespace );
-            AdditionalTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ChargesFees is RateAndAmountFormat5Choice_ ChargesFeesValue)
-        {
-            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
-            ChargesFeesValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (FinalDividendRate is IsoActiveCurrencyAnd13DecimalAmount FinalDividendRateValue)
-        {
-            writer.WriteStartElement(null, "FnlDvddRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(FinalDividendRateValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FiscalStamp is IsoPercentageRate FiscalStampValue)
-        {
-            writer.WriteStartElement(null, "FsclStmp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FiscalStampValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (FullyFrankedRate is RateAndAmountFormat5Choice_ FullyFrankedRateValue)
-        {
-            writer.WriteStartElement(null, "FullyFrnkdRate", xmlNamespace );
-            FullyFrankedRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (GrossDividendRate is GrossDividendRateFormat2Choice_ GrossDividendRateValue)
-        {
-            writer.WriteStartElement(null, "GrssDvddRate", xmlNamespace );
-            GrossDividendRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (EarlySolicitationFeeRate is IsoPercentageRate EarlySolicitationFeeRateValue)
-        {
-            writer.WriteStartElement(null, "EarlySlctnFeeRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(EarlySolicitationFeeRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (CashIncentiveRate is IsoPercentageRate CashIncentiveRateValue)
-        {
-            writer.WriteStartElement(null, "CshIncntivRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CashIncentiveRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (InterestRateUsedForPayment is InterestRateUsedForPaymentFormat2Choice_ InterestRateUsedForPaymentValue)
-        {
-            writer.WriteStartElement(null, "IntrstRateUsdForPmt", xmlNamespace );
-            InterestRateUsedForPaymentValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NetDividendRate is NetDividendRateFormat2Choice_ NetDividendRateValue)
-        {
-            writer.WriteStartElement(null, "NetDvddRate", xmlNamespace );
-            NetDividendRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NonResidentRate is RateAndAmountFormat5Choice_ NonResidentRateValue)
-        {
-            writer.WriteStartElement(null, "NonResdtRate", xmlNamespace );
-            NonResidentRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (ProvisionalDividendRate is IsoActiveCurrencyAnd13DecimalAmount ProvisionalDividendRateValue)
-        {
-            writer.WriteStartElement(null, "PrvsnlDvddRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(ProvisionalDividendRateValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
-            writer.WriteEndElement();
-        }
-        if (ApplicableRate is IsoPercentageRate ApplicableRateValue)
-        {
-            writer.WriteStartElement(null, "AplblRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ApplicableRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (SolicitationFeeRate is IsoPercentageRate SolicitationFeeRateValue)
-        {
-            writer.WriteStartElement(null, "SlctnFeeRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SolicitationFeeRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxCreditRate is TaxCreditRateFormat2Choice_ TaxCreditRateValue)
-        {
-            writer.WriteStartElement(null, "TaxCdtRate", xmlNamespace );
-            TaxCreditRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TaxRelatedRate is RateTypeAndAmountAndStatus6 TaxRelatedRateValue)
-        {
-            writer.WriteStartElement(null, "TaxRltdRate", xmlNamespace );
-            TaxRelatedRateValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WithholdingTaxRate is IsoPercentageRate WithholdingTaxRateValue)
-        {
-            writer.WriteStartElement(null, "WhldgTaxRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(WithholdingTaxRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxOnIncome is IsoPercentageRate TaxOnIncomeValue)
-        {
-            writer.WriteStartElement(null, "TaxOnIncm", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxOnIncomeValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxOnProfits is IsoPercentageRate TaxOnProfitsValue)
-        {
-            writer.WriteStartElement(null, "TaxOnPrfts", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxOnProfitsValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (TaxReclaimRate is IsoPercentageRate TaxReclaimRateValue)
-        {
-            writer.WriteStartElement(null, "TaxRclmRate", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxReclaimRateValue)); // data type PercentageRate System.Decimal
-            writer.WriteEndElement();
-        }
-        if (WithholdingOfForeignTax is RateAndAmountFormat5Choice_ WithholdingOfForeignTaxValue)
-        {
-            writer.WriteStartElement(null, "WhldgOfFrgnTax", xmlNamespace );
-            WithholdingOfForeignTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (WithholdingOfLocalTax is RateAndAmountFormat5Choice_ WithholdingOfLocalTaxValue)
-        {
-            writer.WriteStartElement(null, "WhldgOfLclTax", xmlNamespace );
-            WithholdingOfLocalTaxValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static RateDetails7 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -7,66 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loyalty programme information
 /// </summary>
+[IsoId("_R1YN9PJpEeiJn9rM2Znz2w")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Loyalty Programme")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record LoyaltyProgramme2
-     : IIsoXmlSerilizable<LoyaltyProgramme2>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    // No constructor needed for < NET8 because this type has no required members.
+    #endif
     #nullable enable
     
     /// <summary>
     /// Type of loyalty programme (for example, airline, lodging, vehicle and rail etc.).
     /// </summary>
+    [IsoId("_R1YN9fJpEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Programme Type")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProgrammeType { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProgrammeType { get; init; } 
+    #else
+    public System.String? ProgrammeType { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loyalty programme identification value.
     /// </summary>
+    [IsoId("_R1YN9vJpEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Program Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ProgramIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ProgramIdentification { get; init; } 
+    #else
+    public System.String? ProgramIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Loyalty programme participant identification value.
     /// </summary>
+    [IsoId("_R1YN9_JpEeiJn9rM2Znz2w")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Participant Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ParticipantIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? ParticipantIdentification { get; init; } 
+    #else
+    public System.String? ParticipantIdentification { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (ProgrammeType is IsoMax35Text ProgrammeTypeValue)
-        {
-            writer.WriteStartElement(null, "PrgrmmTp", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProgrammeTypeValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ProgramIdentification is IsoMax70Text ProgramIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PrgmId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProgramIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-        if (ParticipantIdentification is IsoMax70Text ParticipantIdentificationValue)
-        {
-            writer.WriteStartElement(null, "PtcptId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax70Text(ParticipantIdentificationValue)); // data type Max70Text System.String
-            writer.WriteEndElement();
-        }
-    }
-    public static LoyaltyProgramme2 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }

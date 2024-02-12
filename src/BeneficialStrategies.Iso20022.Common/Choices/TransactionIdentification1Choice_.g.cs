@@ -7,34 +7,34 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace BeneficialStrategies.Iso20022.Choices;
-
-/// <summary>
-/// Provides transaction type and identification information.
-/// </summary>
-[KnownType(typeof(TransactionIdentification1Choice.Transaction))]
-[KnownType(typeof(TransactionIdentification1Choice.MarginReporting))]
-[KnownType(typeof(TransactionIdentification1Choice.CollateralReuse))]
-public abstract partial record TransactionIdentification1Choice_ : IIsoXmlSerilizable<TransactionIdentification1Choice_>
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
+namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Serialize the state of this record per ISO 20022 specifications.
-    /// Abstract here, overridden in each of the concrete choices.
+    /// Provides transaction type and identification information.
     /// </summary>
-    public abstract void Serialize(XmlWriter writer, string xmlNamespace);
-    
-    /// <summary>
-    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
-    /// </summary>
-    public static TransactionIdentification1Choice_ Deserialize(XElement element)
+    [KnownType(typeof(TransactionIdentification1Choice.Transaction))]
+    [KnownType(typeof(TransactionIdentification1Choice.MarginReporting))]
+    [KnownType(typeof(TransactionIdentification1Choice.CollateralReuse))]
+    [IsoId("_DD0DMK7LEemZxoEFHjN-AQ")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Identification 1 Choice")]
+    #endif
+    #if DECLARE_SERIALIZABLE
+    [Serializable]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataContract]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public abstract partial record TransactionIdentification1Choice_
+    #else
+    public abstract partial class TransactionIdentification1Choice_
+    #endif
     {
-        var elementWithPayload = element;
-        return elementWithPayload.Name.LocalName switch
-        {
-             "Tx" => TransactionIdentification1Choice.Transaction.Deserialize(elementWithPayload),
-             "MrgnRptg" => TransactionIdentification1Choice.MarginReporting.Deserialize(elementWithPayload),
-             "CollReuse" => TransactionIdentification1Choice.CollateralReuse.Deserialize(elementWithPayload),
-            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid TransactionIdentification1Choice choice.")
-        };
     }
 }

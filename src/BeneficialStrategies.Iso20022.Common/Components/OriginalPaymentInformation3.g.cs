@@ -7,133 +7,238 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Linq;
 
+#if NET6_0_OR_GREATER // C# 10 
+#else
+using System.DateOnly=System.DateTime; // So data types will degrade gracefully
+using System.TimeOnly=System.DateTime; // Same with this data type
+#endif
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide reference and status information on the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
+[IsoId("_PmG3Xdp-Ed-ak6NoX_4Aeg_-1414031304")]
+#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+[DisplayName("Original Payment Information")]
+#endif
+#if DECLARE_SERIALIZABLE
+[Serializable]
+#endif
+#if DECLARE_DATACONTRACT
+[DataContract]
+#endif
 public partial record OriginalPaymentInformation3
-     : IIsoXmlSerilizable<OriginalPaymentInformation3>
 {
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
+    // No constructor needed for NET8 and above.
+    #else
+    /// <summary>
+    /// Constructs a OriginalPaymentInformation3 instance using the members the ISO20022 deems required.
+    /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
+    /// </summary>
+    public OriginalPaymentInformation3( System.String reqOriginalPaymentInformationIdentification )
+    {
+        OriginalPaymentInformationIdentification = reqOriginalPaymentInformationIdentification;
+    }
+    #endif
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the original assigner, to unambiguously identify the original payment information cancellation request.
     /// </summary>
+    [IsoId("_PmQoUNp-Ed-ak6NoX_4Aeg_-1414031273")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information Cancellation Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalPaymentInformationCancellationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalPaymentInformationCancellationIdentification { get; init; } 
+    #else
+    public System.String? OriginalPaymentInformationCancellationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Identifies the resolved case.
     /// </summary>
+    [IsoId("_PmQoUdp-Ed-ak6NoX_4Aeg_-1414030447")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Resolved Case")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case2? ResolvedCase { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public Case2? ResolvedCase { get; init; } 
+    #else
+    public Case2? ResolvedCase { get; set; } 
+    #endif
+    
     /// <summary>
     /// Unique identification, as assigned by the original sending party, to unambiguously identify the original payment information group.
     /// </summary>
+    [IsoId("_PmQoUtp-Ed-ak6NoX_4Aeg_-1414031243")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Payment Information Identification")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalPaymentInformationIdentification { get; init; } 
+    #elif NET7_0_OR_GREATER // C# 11 Records, required members
+    public System.String OriginalPaymentInformationIdentification { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String OriginalPaymentInformationIdentification { get; init; } 
+    #else
+    public System.String OriginalPaymentInformationIdentification { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
+    [IsoId("_PmQoU9p-Ed-ak6NoX_4Aeg_-1414030871")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Group Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
+    #else
+    public OriginalGroupInformation3? OriginalGroupInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Number of individual transactions contained in the original payment information group.
     /// </summary>
+    [IsoId("_PmQoVNp-Ed-ak6NoX_4Aeg_-1414030941")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Number Of Transactions")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.String? OriginalNumberOfTransactions { get; init; } 
+    #else
+    public System.String? OriginalNumberOfTransactions { get; set; } 
+    #endif
+    
     /// <summary>
     /// Total of all individual amounts included in the original payment information group, irrespective of currencies.
     /// </summary>
+    [IsoId("_PmQoVdp-Ed-ak6NoX_4Aeg_-1414031212")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Original Control Sum")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public System.UInt64? OriginalControlSum { get; init; } 
+    #else
+    public System.UInt64? OriginalControlSum { get; set; } 
+    #endif
+    
     /// <summary>
     /// Specifies the status of a cancellation request, related to a payment information group.
     /// </summary>
+    [IsoId("_PmQoVtp-Ed-ak6NoX_4Aeg_-1414030964")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Payment Information Cancellation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GroupCancellationStatus1Code? PaymentInformationCancellationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public GroupCancellationStatus1Code? PaymentInformationCancellationStatus { get; init; } 
+    #else
+    public GroupCancellationStatus1Code? PaymentInformationCancellationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation status reason.
     /// </summary>
+    [IsoId("_PmQoV9p-Ed-ak6NoX_4Aeg_-1323465127")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Cancellation Status Reason Information")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationStatusReasonInformation1? CancellationStatusReasonInformation { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public CancellationStatusReasonInformation1? CancellationStatusReasonInformation { get; init; } 
+    #else
+    public CancellationStatusReasonInformation1? CancellationStatusReasonInformation { get; set; } 
+    #endif
+    
     /// <summary>
     /// Detailed information on the number of transactions for each identical cancellation status.
     /// </summary>
+    [IsoId("_PmZyQNp-Ed-ak6NoX_4Aeg_-1323465073")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Number Of Transactions Per Cancellation Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberOfCancellationsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public NumberOfCancellationsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; init; } 
+    #else
+    public NumberOfCancellationsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; set; } 
+    #endif
+    
     /// <summary>
     /// Set of elements used to provide information on the original transactions to which the cancellation request message refers.
     /// </summary>
+    [IsoId("_PmZyQdp-Ed-ak6NoX_4Aeg_-1414030818")]
+    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [DisplayName("Transaction Information And Status")]
+    #endif
+    #if DECLARE_DATACONTRACT
+    [DataMember]
+    #endif
+    #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionInformation32? TransactionInformationAndStatus { get; init; } 
+    #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    public PaymentTransactionInformation32? TransactionInformationAndStatus { get; init; } 
+    #else
+    public PaymentTransactionInformation32? TransactionInformationAndStatus { get; set; } 
+    #endif
+    
     
     #nullable disable
     
-    
-    /// <summary>
-    /// Used to format the various primative types during serialization.
-    /// </summary>
-    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
-    
-    /// <summary>
-    /// Serializes the state of this record according to Iso20022 specifications.
-    /// </summary>
-    public void Serialize(XmlWriter writer, string xmlNamespace)
-    {
-        if (OriginalPaymentInformationCancellationIdentification is IsoMax35Text OriginalPaymentInformationCancellationIdentificationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlPmtInfCxlId", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationCancellationIdentificationValue)); // data type Max35Text System.String
-            writer.WriteEndElement();
-        }
-        if (ResolvedCase is Case2 ResolvedCaseValue)
-        {
-            writer.WriteStartElement(null, "RslvdCase", xmlNamespace );
-            ResolvedCaseValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        writer.WriteStartElement(null, "OrgnlPmtInfId", xmlNamespace );
-        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationIdentification)); // data type Max35Text System.String
-        writer.WriteEndElement();
-        if (OriginalGroupInformation is OriginalGroupInformation3 OriginalGroupInformationValue)
-        {
-            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
-            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (OriginalNumberOfTransactions is IsoMax15NumericText OriginalNumberOfTransactionsValue)
-        {
-            writer.WriteStartElement(null, "OrgnlNbOfTxs", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(OriginalNumberOfTransactionsValue)); // data type Max15NumericText System.String
-            writer.WriteEndElement();
-        }
-        if (OriginalControlSum is IsoDecimalNumber OriginalControlSumValue)
-        {
-            writer.WriteStartElement(null, "OrgnlCtrlSum", xmlNamespace );
-            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(OriginalControlSumValue)); // data type DecimalNumber System.UInt64
-            writer.WriteEndElement();
-        }
-        if (PaymentInformationCancellationStatus is GroupCancellationStatus1Code PaymentInformationCancellationStatusValue)
-        {
-            writer.WriteStartElement(null, "PmtInfCxlSts", xmlNamespace );
-            writer.WriteValue(PaymentInformationCancellationStatusValue.ToString()); // Enum value
-            writer.WriteEndElement();
-        }
-        if (CancellationStatusReasonInformation is CancellationStatusReasonInformation1 CancellationStatusReasonInformationValue)
-        {
-            writer.WriteStartElement(null, "CxlStsRsnInf", xmlNamespace );
-            CancellationStatusReasonInformationValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (NumberOfTransactionsPerCancellationStatus is NumberOfCancellationsPerStatus1 NumberOfTransactionsPerCancellationStatusValue)
-        {
-            writer.WriteStartElement(null, "NbOfTxsPerCxlSts", xmlNamespace );
-            NumberOfTransactionsPerCancellationStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-        if (TransactionInformationAndStatus is PaymentTransactionInformation32 TransactionInformationAndStatusValue)
-        {
-            writer.WriteStartElement(null, "TxInfAndSts", xmlNamespace );
-            TransactionInformationAndStatusValue.Serialize(writer, xmlNamespace);
-            writer.WriteEndElement();
-        }
-    }
-    public static OriginalPaymentInformation3 Deserialize(XElement element)
-    {
-        throw new NotImplementedException();
-    }
 }
